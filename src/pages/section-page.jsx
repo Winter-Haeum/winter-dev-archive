@@ -1,0 +1,245 @@
+/**
+ * SectionPage — 섹션 상세 페이지
+ *
+ * URL: /:category/:section
+ * 구성: Sidebar + Breadcrumb + 섹션 헤더 + index.md 본문 + 문서 목록 카드
+ *
+ * Stage 4: index.md를 MarkdownRenderer로 렌더링 + 문서 목록 카드 추가
+ *
+ * Props: 없음 (URL 파라미터로 카테고리/섹션 slug 수신)
+ */
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Header from '@/components/common/header';
+import Footer from '@/components/common/footer';
+import Sidebar from '@/components/common/sidebar';
+import NavigationDrawer from '@/components/common/NavigationDrawer';
+import Breadcrumb from '@/components/common/breadcrumb';
+import MarkdownRenderer from '@/components/markdown/MarkdownRenderer';
+import CategoryBadgeLink from '@/components/ui/CategoryBadgeLink';
+import StatusBadge from '@/components/ui/StatusBadge';
+import NotFoundPage from '@/pages/not-found-page';
+import { getSectionIndex, getSectionDocs } from '@/utils/markdownLoader';
+import { categories } from '@/data/navigation';
+import { slugify } from '@/utils/slugify';
+
+function SectionPage() {
+  const { category: categorySlug, section: sectionSlug } = useParams();
+  // loadedKey: 로딩 완료된 파라미터 식별자. 현재 파라미터와 다르면 로딩 중으로 판단
+  const [loadedKey, setLoadedKey] = useState(null);
+  const [sectionIndex, setSectionIndex] = useState(null);
+  const [sectionDocs, setSectionDocs] = useState([]);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const category = categories.find((c) => c.slug === categorySlug);
+  const sectionName = category?.sections.find((s) => slugify(s) === sectionSlug);
+  const currentKey = `${categorySlug}/${sectionSlug}`;
+  const loading = loadedKey !== currentKey;
+
+  useEffect(() => {
+    let active = true;
+    Promise.all([
+      getSectionIndex(categorySlug, sectionSlug),
+      getSectionDocs(categorySlug, sectionSlug),
+    ]).then(([idx, docs]) => {
+      if (!active) return;
+      setSectionIndex(idx);
+      setSectionDocs(docs);
+      setLoadedKey(`${categorySlug}/${sectionSlug}`);
+    });
+    return () => { active = false; };
+  }, [categorySlug, sectionSlug]);
+
+  if (!category || !sectionName) return <NotFoundPage />;
+
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Header
+        onMenuClick={() => setDrawerOpen(true)}
+        isDrawerOpen={drawerOpen}
+      />
+      <NavigationDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        currentCategoryId={category.id}
+        currentSectionSlug={sectionSlug}
+      />
+
+      <Box sx={{ display: 'flex', flex: 1 }}>
+        <Sidebar currentCategoryId={category.id} currentSectionSlug={sectionSlug} />
+
+        <Box
+          component='main'
+          sx={{ flex: 1, py: { xs: 4, md: 6 }, px: { xs: 2, md: 6 } }}
+        >
+          <Breadcrumb category={category} section={sectionName} />
+
+          {/* 섹션 헤더 */}
+          <Box component='section' aria-label='섹션 소개' sx={{ mb: 5 }}>
+
+            <CategoryBadgeLink category={category} />
+
+            <Typography
+              variant='h1'
+              sx={{ fontSize: { xs: '1.75rem', md: '2rem' } }}
+            >
+              {sectionName}
+            </Typography>
+          </Box>
+
+          {loading ? (
+            /* 로딩 중 스켈레톤 */
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              {[1, 2, 3].map((i) => (
+                <Box
+                  key={i}
+                  sx={(theme) => ({
+                    height: '72px',
+                    borderRadius: '10px',
+                    backgroundColor: theme.palette.divider,
+                  })}
+                />
+              ))}
+            </Box>
+          ) : (
+            <>
+              {/* index.md 본문 */}
+              {sectionIndex?.content && (
+                <Box component='section' aria-label='섹션 소개 본문' sx={{ mb: 5 }}>
+                  <MarkdownRenderer content={sectionIndex.content} />
+                </Box>
+              )}
+
+              {/* 문서 목록 카드 */}
+              {sectionDocs.length > 0 && (
+                <Box component='section' aria-label='문서 목록'>
+                  <Typography
+                    variant='overline'
+                    component='p'
+                    sx={{ color: 'text.disabled', mb: 2 }}
+                  >
+                    Documents
+                  </Typography>
+
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                    {sectionDocs.map((doc) => (
+                      <Box
+                        key={doc.slug}
+                        component={Link}
+                        to={`/${categorySlug}/${sectionSlug}/${doc.slug}`}
+                        sx={(theme) => ({
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          textDecoration: 'none',
+                          backgroundColor: theme.palette.background.paper,
+                          border: '1px solid',
+                          borderColor: theme.palette.divider,
+                          borderRadius: '10px',
+                          px: 3,
+                          py: 2,
+                          gap: 2,
+                          transition: 'background-color 0.15s ease, border-color 0.15s ease',
+                          '&:hover': {
+                            backgroundColor: theme.palette.mode === 'light' ? '#EAE3D8' : '#2E2A48',
+                            borderColor: theme.palette.mode === 'light' ? '#BCA4EC' : '#5C5490',
+                            '& .doc-arrow': { color: theme.palette.primary.main },
+                          },
+                          '&:focus-visible': {
+                            outline: `2px solid ${theme.palette.primary.main}`,
+                            outlineOffset: '3px',
+                          },
+                          '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                        })}
+                      >
+                        {/* 왼쪽: 제목 + description */}
+                        <Box sx={{ flex: 1, minWidth: 0 }}>
+                          <Typography
+                            variant='body1'
+                            sx={{
+                              fontWeight: 500,
+                              color: 'text.primary',
+                              fontSize: '0.9375rem',
+                              lineHeight: 1.5,
+                            }}
+                          >
+                            {doc.frontmatter.title}
+                          </Typography>
+                          {doc.frontmatter.description && (
+                            <Typography
+                              variant='body2'
+                              sx={{
+                                color: 'text.secondary',
+                                mt: 0.25,
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              {doc.frontmatter.description}
+                            </Typography>
+                          )}
+                        </Box>
+
+                        {/* 오른쪽: StatusBadge + 화살표 */}
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0 }}>
+                          {doc.frontmatter.status && (
+                            <StatusBadge status={doc.frontmatter.status} />
+                          )}
+                          <ArrowForwardIcon
+                            className='doc-arrow'
+                            sx={(theme) => ({
+                              fontSize: '1rem',
+                              color: theme.palette.mode === 'light' ? '#7A7490' : '#8880A0',
+                              transition: 'color 0.15s ease',
+                              '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                            })}
+                          />
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+
+              {/* 문서가 없는 경우 (placeholder) */}
+              {sectionDocs.length === 0 && (
+                <Box component='section' aria-label='문서 목록'>
+                  {sectionIndex?.content ? null : (
+                    <Box
+                      sx={(theme) => ({
+                        border: '2px dashed',
+                        borderColor: theme.palette.divider,
+                        borderRadius: 2,
+                        px: 4,
+                        py: 6,
+                        textAlign: 'center',
+                      })}
+                    >
+                      <Typography
+                        variant='body1'
+                        sx={{ color: 'text.secondary', mb: 0.5 }}
+                      >
+                        문서 준비 중
+                      </Typography>
+                      <Typography variant='body2' sx={{ color: 'text.disabled' }}>
+                        이 섹션의 학습 문서가 곧 추가됩니다.
+                      </Typography>
+                    </Box>
+                  )}
+                </Box>
+              )}
+            </>
+          )}
+        </Box>
+      </Box>
+
+      <Footer />
+    </Box>
+  );
+}
+
+export default SectionPage;

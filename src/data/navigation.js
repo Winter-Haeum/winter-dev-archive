@@ -1,0 +1,97 @@
+/**
+ * Winter Dev Archive IA 기반 카테고리 데이터
+ * 01-information-architecture.md 기준
+ */
+export const categories = [
+  {
+    id: 'frontend',
+    name: 'Frontend Fundamentals',
+    emoji: '📚',
+    slug: 'frontend',
+    description: '웹의 뼈대를 이루는 기초 기술. HTML 구조, CSS 속성, Flexbox·Grid 레이아웃, 개발자 도구 활용까지 탄탄한 기반을 쌓습니다.',
+    sections: ['HTML', 'CSS', 'Layout', 'DevTools'],
+  },
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    emoji: '💛',
+    slug: 'javascript',
+    description: '웹을 동적으로 만드는 핵심 언어. 변수와 함수부터 DOM 조작, ES6+ 문법, 비동기 처리까지 자바스크립트의 전 범위를 다룹니다.',
+    sections: [
+      'Basics', 'Functions', 'Arrays & Objects', 'DOM',
+      'ES6+', 'Async', 'Browser APIs', 'jQuery', 'Regular Expression',
+    ],
+  },
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    emoji: '🔷',
+    slug: 'typescript',
+    description: 'JavaScript에 정적 타입을 더한 언어. 타입 시스템의 기초부터 React와의 통합까지, 더 안전하고 예측 가능한 코드를 작성합니다.',
+    sections: ['Basics', 'React + TypeScript'],
+  },
+  {
+    id: 'react',
+    name: 'React',
+    emoji: '⚛',
+    slug: 'react',
+    description: '현대 프론트엔드의 핵심 라이브러리. 컴포넌트 설계, Hooks, 상태 관리, 라우팅까지 React의 모든 개념을 체계적으로 정리합니다.',
+    sections: ['Basics', 'Core', 'Hooks', 'State Management', 'Routing'],
+  },
+  {
+    id: 'dev-tools',
+    name: 'Development Tools',
+    emoji: '🛠',
+    slug: 'dev-tools',
+    description: '개발 생산성을 높이는 필수 도구들. Git 버전 관리, GitHub 협업, Webpack과 Vite 번들러 설정까지 정리합니다.',
+    sections: ['Git', 'GitHub', 'Webpack', 'Vite'],
+  },
+  {
+    id: 'web-network',
+    name: 'Web & Network',
+    emoji: '🌐',
+    slug: 'web-network',
+    description: '브라우저와 서버가 통신하는 방식. HTTP 프로토콜, Fetch API, CORS 정책, REST API 설계 원칙을 다룹니다.',
+    sections: ['HTTP', 'Fetch', 'CORS', 'API', 'SaaS'],
+  },
+  {
+    id: 'database',
+    name: 'Database & Backend',
+    emoji: '🗄',
+    slug: 'database',
+    description: '백엔드 없이도 데이터를 저장하고 관리하는 법. Firebase와 Supabase로 실시간 데이터베이스와 인증 기능을 빠르게 구축합니다.',
+    sections: ['Firebase', 'Supabase'],
+  },
+  {
+    id: 'css-framework',
+    name: 'CSS Framework',
+    emoji: '🎨',
+    slug: 'css-framework',
+    description: '빠르게 UI를 완성하는 CSS 프레임워크. Bootstrap의 그리드 시스템과 Tailwind의 유틸리티 클래스를 비교하며 정리합니다.',
+    sections: ['Bootstrap', 'Tailwind'],
+  },
+  {
+    id: 'testing',
+    name: 'Testing',
+    emoji: '🧪',
+    slug: 'testing',
+    description: '테스트 주도 개발 방법론과 테스트 작성법. TDD 사이클을 이해하고 더 신뢰할 수 있는 코드를 만드는 방법을 다룹니다.',
+    sections: ['TDD'],
+  },
+  {
+    id: 'coding-test',
+    name: 'Coding Test',
+    emoji: '🏆',
+    slug: 'coding-test',
+    description: '알고리즘 문제 풀이 전략과 핵심 패턴. 배열 메서드, 문자열·수학 처리, 실전 문제 해결 방법까지 코딩 테스트를 대비합니다.',
+    sections: ['Intro & Strategy', 'Array Methods', 'String & Math', 'Problem Solving'],
+  },
+  {
+    id: 'ai-vibe-coding',
+    name: 'AI & Vibe Coding',
+    emoji: '🤖',
+    slug: 'ai-vibe-coding',
+    description: 'AI 도구와 함께하는 새로운 개발 방식. Claude, Cursor 등 AI 도구 설정부터 바이브 코딩 수업 내용을 단계별로 정리합니다.',
+    sections: ['Setup', 'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4'],
+  },
+];
