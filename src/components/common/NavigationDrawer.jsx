@@ -15,7 +15,7 @@
  *   currentSectionSlug={sectionSlug}
  * />
  */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -29,6 +29,26 @@ import { slugify } from '@/utils/slugify';
 
 function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug }) {
   const location = useLocation();
+
+  // 다중 열림 방식 — Sidebar와 동일한 패턴
+  const [openIds, setOpenIds] = useState(() => new Set([currentCategoryId]));
+
+  // 활성 카테고리 변경 시 해당 카테고리 자동 열기
+  useEffect(() => {
+    setOpenIds((prev) => {
+      const next = new Set(prev);
+      next.add(currentCategoryId);
+      return next;
+    });
+  }, [currentCategoryId]);
+
+  const toggle = (catId) => {
+    setOpenIds((prev) => {
+      const next = new Set(prev);
+      next.has(catId) ? next.delete(catId) : next.add(catId);
+      return next;
+    });
+  };
 
   // route 변경 시 Drawer 자동 닫힘
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,85 +120,119 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
         <Box component='nav' aria-label='카테고리 목록'>
           {categories.map((cat) => {
             const isActive = cat.id === currentCategoryId;
+            const isExpanded = openIds.has(cat.id);
 
             return (
               <Box key={cat.id}>
 
-                {/* 카테고리 링크 */}
+                {/* 카테고리 행: 링크 영역 + 토글 버튼 분리 */}
                 <Box
-                  component={Link}
-                  to={`/${cat.slug}`}
-                  aria-controls={`drawer-sections-${cat.id}`}
                   sx={(theme) => ({
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 1.5,
-                    px: 2.5,
-                    py: 0.875,
-                    textDecoration: 'none',
-                    fontSize: '0.875rem',
-                    lineHeight: 1.5,
                     borderLeft: '2px solid',
-                    transition: 'background-color 0.1s ease, color 0.1s ease',
+                    transition: 'background-color 0.1s ease',
 
                     ...(isActive
                       ? {
                           borderLeftColor: theme.palette.primary.main,
                           backgroundColor: theme.palette.mode === 'light' ? '#EDE8FA' : '#2A2544',
-                          color: theme.palette.primary.main,
-                          fontWeight: 600,
                         }
                       : {
                           borderLeftColor: 'transparent',
-                          color: theme.palette.text.secondary,
-                          fontWeight: 400,
                           '&:hover': {
                             backgroundColor: theme.palette.mode === 'light' ? '#F6F3FE' : '#221E38',
-                            color: theme.palette.text.primary,
                           },
                         }),
-
-                    '&:focus-visible': {
-                      outline: `2px solid ${theme.palette.primary.main}`,
-                      outlineOffset: '-2px',
-                    },
 
                     '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
                   })}
                 >
+                  {/* 카테고리 이름 클릭 → 페이지 이동 */}
                   <Box
-                    component='span'
-                    aria-hidden='true'
-                    sx={{ fontSize: '1rem', flexShrink: 0, lineHeight: 1 }}
-                  >
-                    {cat.emoji}
-                  </Box>
-
-                  <Box
-                    component='span'
-                    sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
-                  >
-                    {cat.name}
-                  </Box>
-
-                  <ExpandMoreIcon
-                    aria-hidden='true'
+                    component={Link}
+                    to={`/${cat.slug}`}
                     sx={(theme) => ({
-                      fontSize: '1rem',
-                      flexShrink: 0,
-                      color: isActive ? theme.palette.primary.main : theme.palette.text.disabled,
-                      transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.25s ease',
-                      '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1.5,
+                      pl: 2.5,
+                      pr: 0.5,
+                      py: 0.875,
+                      flex: 1,
+                      minWidth: 0,
+                      textDecoration: 'none',
+                      fontSize: '0.875rem',
+                      lineHeight: 1.5,
+
+                      ...(isActive
+                        ? { color: theme.palette.primary.main, fontWeight: 600 }
+                        : {
+                            color: theme.palette.text.secondary,
+                            fontWeight: 400,
+                            '&:hover': { color: theme.palette.text.primary },
+                          }),
+
+                      '&:focus-visible': {
+                        outline: `2px solid ${theme.palette.primary.main}`,
+                        outlineOffset: '-2px',
+                      },
                     })}
-                  />
+                  >
+                    <Box
+                      component='span'
+                      aria-hidden='true'
+                      sx={{ fontSize: '1rem', flexShrink: 0, lineHeight: 1 }}
+                    >
+                      {cat.emoji}
+                    </Box>
+
+                    <Box
+                      component='span'
+                      sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                    >
+                      {cat.name}
+                    </Box>
+                  </Box>
+
+                  {/* 화살표 버튼 → 섹션 목록 열기/닫기 */}
+                  <IconButton
+                    size='small'
+                    onClick={() => toggle(cat.id)}
+                    aria-expanded={isExpanded}
+                    aria-controls={`drawer-sections-${cat.id}`}
+                    aria-label={`${cat.name} 섹션 목록 ${isExpanded ? '닫기' : '열기'}`}
+                    sx={(theme) => ({
+                      mr: 1,
+                      flexShrink: 0,
+                      borderRadius: '4px',
+                      color: isActive ? theme.palette.primary.main : theme.palette.text.disabled,
+                      '&:hover': {
+                        backgroundColor: theme.palette.action.hover,
+                        color: isActive ? theme.palette.primary.main : theme.palette.text.primary,
+                      },
+                      '&:focus-visible': {
+                        outline: `2px solid ${theme.palette.primary.main}`,
+                        outlineOffset: '2px',
+                      },
+                    })}
+                  >
+                    <ExpandMoreIcon
+                      sx={{
+                        fontSize: '1rem',
+                        transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.25s ease',
+                        '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                      }}
+                    />
+                  </IconButton>
                 </Box>
 
-                {/* 섹션 목록 — grid-template-rows 트랜지션 Accordion */}
+                {/* 섹션 목록 — grid-template-rows 트랜지션 */}
                 <Box
                   sx={{
                     display: 'grid',
-                    gridTemplateRows: isActive ? '1fr' : '0fr',
+                    gridTemplateRows: isExpanded ? '1fr' : '0fr',
                     transition: 'grid-template-rows 0.25s ease',
                     '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
                   }}
@@ -187,7 +241,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                     id={`drawer-sections-${cat.id}`}
                     component='ul'
                     role='list'
-                    aria-hidden={isActive ? undefined : true}
+                    aria-hidden={isExpanded ? undefined : true}
                     sx={{ overflow: 'hidden', listStyle: 'none', m: 0, p: 0 }}
                   >
                     {cat.sections.map((section) => {

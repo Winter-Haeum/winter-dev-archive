@@ -140,7 +140,7 @@ function HomePage() {
 
           <Grid container spacing={3}>
             {categories.map((category) => (
-              <Grid key={category.id} size={{ xs: 12, sm: 6, md: 4 }}>
+              <Grid key={category.id} size={{ xs: 12, sm: 6, md: 4, xl: 3 }}>
                 <CategoryCard category={category} />
               </Grid>
             ))}
