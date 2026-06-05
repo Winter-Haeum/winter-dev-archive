@@ -8,11 +8,11 @@ status: "completed"
 description: "AI 바이브 코딩을 시작하기 위한 개발 환경 세팅 전체 흐름을 안내한다."
 ---
 
-AI 바이브 코딩을 시작하기 전에 필요한 도구와 환경을 준비한다.
+이 섹션에서는 AI 개발 환경 구축 과정을 다룹니다.
 
-Node.js, VS Code, Git 설치부터 GitHub 연동, Claude Code 설정까지 단계별로 진행한다.
+Node.js, VS Code, Git 설치부터 Claude Code 인증까지 단계별로 진행합니다.
 
-## 문서 목록
+## 학습 순서
 
-- [Step 1 — 개발 환경 설치](./step-1-env)
-- [Step 2 — VS Code 설정](./step-2-settings)
+1. [Step 1 — 개발 환경 설치](./step-1-env)
+2. [Step 2 — VS Code 설정](./step-2-settings)

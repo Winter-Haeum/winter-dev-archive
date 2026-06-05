@@ -2,9 +2,10 @@
  * SectionPage — 섹션 상세 페이지
  *
  * URL: /:category/:section
- * 구성: Sidebar + Breadcrumb + 섹션 헤더 + index.md 본문 + 문서 목록 카드
+ * 구성: Sidebar + Breadcrumb + 섹션 헤더 + (index.md 본문 OR 문서 카드)
  *
- * Stage 4: index.md를 MarkdownRenderer로 렌더링 + 문서 목록 카드 추가
+ * index.md 본문이 있으면: 마크다운 본문 + "시작하기" 버튼 표시 (카드 숨김)
+ * index.md 본문이 없으면: 문서 카드 목록 표시 (기존 동작)
  *
  * Props: 없음 (URL 파라미터로 카테고리/섹션 slug 수신)
  */
@@ -134,47 +135,35 @@ function SectionPage() {
             </Box>
           ) : (
             <>
-              {/* index.md 본문 */}
-              {sectionIndex?.content && (
-                <Box component='section' aria-label='섹션 소개 본문' sx={{ mb: 5 }}>
-                  <MarkdownRenderer content={sectionIndex.content} />
-                </Box>
-              )}
+              {sectionIndex?.content ? (
+                /* ── index.md 본문이 있는 경우: 마크다운 + 시작하기 버튼 ── */
+                <>
+                  <Box component='section' aria-label='섹션 소개 본문' sx={{ mb: 5 }}>
+                    <MarkdownRenderer content={sectionIndex.content} />
+                  </Box>
 
-              {/* 문서 목록 카드 */}
-              {sectionDocs.length > 0 && (
-                <Box component='section' aria-label='문서 목록'>
-                  <Typography
-                    variant='overline'
-                    component='p'
-                    sx={{ color: 'text.disabled', mb: 2 }}
-                  >
-                    Documents
-                  </Typography>
-
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                    {sectionDocs.map((doc) => (
+                  {/* 첫 번째 문서로 이동하는 시작하기 버튼 */}
+                  {sectionDocs.length > 0 && (() => {
+                    const firstDoc = [...sectionDocs].sort((a, b) => a.slug.localeCompare(b.slug))[0];
+                    return (
                       <Box
-                        key={doc.slug}
                         component={Link}
-                        to={`/${categorySlug}/${sectionSlug}/${doc.slug}`}
+                        to={`/${categorySlug}/${sectionSlug}/${firstDoc.slug}`}
                         sx={(theme) => ({
-                          display: 'flex',
+                          display: 'inline-flex',
                           alignItems: 'center',
-                          justifyContent: 'space-between',
+                          gap: 1,
                           textDecoration: 'none',
-                          backgroundColor: theme.palette.background.paper,
-                          border: '1px solid',
-                          borderColor: theme.palette.divider,
-                          borderRadius: '10px',
+                          backgroundColor: theme.palette.primary.main,
+                          color: '#fff',
+                          borderRadius: '8px',
                           px: 3,
-                          py: 2,
-                          gap: 2,
-                          transition: 'background-color 0.15s ease, border-color 0.15s ease',
+                          py: 1.25,
+                          fontSize: '0.9375rem',
+                          fontWeight: 600,
+                          transition: 'background-color 0.15s ease',
                           '&:hover': {
-                            backgroundColor: theme.palette.mode === 'light' ? '#EAE3D8' : '#2E2A48',
-                            borderColor: theme.palette.mode === 'light' ? '#BCA4EC' : '#5C5490',
-                            '& .doc-arrow': { color: theme.palette.primary.main },
+                            backgroundColor: theme.palette.primary.dark,
                           },
                           '&:focus-visible': {
                             outline: `2px solid ${theme.palette.primary.main}`,
@@ -183,60 +172,91 @@ function SectionPage() {
                           '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
                         })}
                       >
-                        {/* 왼쪽: 제목 + description */}
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography
-                            variant='body1'
-                            sx={{
-                              fontWeight: 500,
-                              color: 'text.primary',
-                              fontSize: '0.9375rem',
-                              lineHeight: 1.5,
-                            }}
-                          >
-                            {doc.frontmatter.title}
-                          </Typography>
-                          {doc.frontmatter.description && (
-                            <Typography
-                              variant='body2'
-                              sx={{
-                                color: 'text.secondary',
-                                mt: 0.25,
-                                overflow: 'hidden',
-                                textOverflow: 'ellipsis',
-                                whiteSpace: 'nowrap',
-                              }}
-                            >
-                              {doc.frontmatter.description}
-                            </Typography>
-                          )}
-                        </Box>
+                        Step 1부터 시작하기
+                        <ArrowForwardIcon sx={{ fontSize: '1rem' }} />
+                      </Box>
+                    );
+                  })()}
+                </>
+              ) : (
+                /* ── index.md 본문이 없는 경우: 문서 카드 목록 ── */
+                <>
+                  {sectionDocs.length > 0 && (
+                    <Box component='section' aria-label='문서 목록'>
+                      <Typography
+                        variant='overline'
+                        component='p'
+                        sx={{ color: 'text.disabled', mb: 2 }}
+                      >
+                        Documents
+                      </Typography>
 
-                        {/* 오른쪽: StatusBadge + 화살표 */}
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0 }}>
-                          {doc.frontmatter.status && (
-                            <StatusBadge status={doc.frontmatter.status} />
-                          )}
-                          <ArrowForwardIcon
-                            className='doc-arrow'
+                      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+                        {[...sectionDocs].sort((a, b) => a.slug.localeCompare(b.slug)).map((doc) => (
+                          <Box
+                            key={doc.slug}
+                            component={Link}
+                            to={`/${categorySlug}/${sectionSlug}/${doc.slug}`}
                             sx={(theme) => ({
-                              fontSize: '1rem',
-                              color: theme.palette.mode === 'light' ? '#7A7490' : '#8880A0',
-                              transition: 'color 0.15s ease',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              textDecoration: 'none',
+                              backgroundColor: theme.palette.background.paper,
+                              border: '1px solid',
+                              borderColor: theme.palette.divider,
+                              borderRadius: '10px',
+                              px: 3,
+                              py: 2,
+                              gap: 2,
+                              transition: 'background-color 0.15s ease, border-color 0.15s ease',
+                              '&:hover': {
+                                backgroundColor: theme.palette.mode === 'light' ? '#EAE3D8' : '#2E2A48',
+                                borderColor: theme.palette.mode === 'light' ? '#BCA4EC' : '#5C5490',
+                                '& .doc-arrow': { color: theme.palette.primary.main },
+                              },
+                              '&:focus-visible': {
+                                outline: `2px solid ${theme.palette.primary.main}`,
+                                outlineOffset: '3px',
+                              },
                               '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
                             })}
-                          />
-                        </Box>
+                          >
+                            <Box sx={{ flex: 1, minWidth: 0 }}>
+                              <Typography
+                                variant='body1'
+                                sx={{ fontWeight: 500, color: 'text.primary', fontSize: '0.9375rem', lineHeight: 1.5 }}
+                              >
+                                {doc.frontmatter.title}
+                              </Typography>
+                              {doc.frontmatter.description && (
+                                <Typography
+                                  variant='body2'
+                                  sx={{ color: 'text.secondary', mt: 0.25, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                                >
+                                  {doc.frontmatter.description}
+                                </Typography>
+                              )}
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flexShrink: 0 }}>
+                              {doc.frontmatter.status && <StatusBadge status={doc.frontmatter.status} />}
+                              <ArrowForwardIcon
+                                className='doc-arrow'
+                                sx={(theme) => ({
+                                  fontSize: '1rem',
+                                  color: theme.palette.mode === 'light' ? '#7A7490' : '#8880A0',
+                                  transition: 'color 0.15s ease',
+                                  '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                                })}
+                              />
+                            </Box>
+                          </Box>
+                        ))}
                       </Box>
-                    ))}
-                  </Box>
-                </Box>
-              )}
+                    </Box>
+                  )}
 
-              {/* 문서가 없는 경우 (placeholder) */}
-              {sectionDocs.length === 0 && (
-                <Box component='section' aria-label='문서 목록'>
-                  {sectionIndex?.content ? null : (
+                  {sectionDocs.length === 0 && (
                     <Box
                       sx={(theme) => ({
                         border: '2px dashed',
@@ -247,10 +267,7 @@ function SectionPage() {
                         textAlign: 'center',
                       })}
                     >
-                      <Typography
-                        variant='body1'
-                        sx={{ color: 'text.secondary', mb: 0.5 }}
-                      >
+                      <Typography variant='body1' sx={{ color: 'text.secondary', mb: 0.5 }}>
                         문서 준비 중
                       </Typography>
                       <Typography variant='body2' sx={{ color: 'text.disabled' }}>
@@ -258,7 +275,7 @@ function SectionPage() {
                       </Typography>
                     </Box>
                   )}
-                </Box>
+                </>
               )}
             </>
           )}

@@ -19,6 +19,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import MuiLink from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
+import { Link as RouterLink } from 'react-router-dom';
 import Callout from './Callout';
 import CodeBlock from './CodeBlock';
 
@@ -79,25 +80,30 @@ const markdownComponents = {
   ),
 
   // ── 링크 ────────────────────────────────────────────────────────────
+  // 외부 링크: MuiLink + target="_blank"
+  // 내부 링크: React Router Link — 상대 경로(./slug)를 SPA 라우팅으로 올바르게 해석
   a: ({ href, children }) => {
+    const linkSx = {
+      color: 'primary.main',
+      textDecorationColor: 'primary.light',
+      '&:hover': { color: 'primary.dark' },
+      '&:focus-visible': {
+        outline: '2px solid',
+        outlineColor: 'primary.main',
+        outlineOffset: '2px',
+        borderRadius: '2px',
+      },
+    };
     const isExternal = href?.startsWith('http');
+    if (isExternal) {
+      return (
+        <MuiLink href={href} target='_blank' rel='noopener noreferrer' sx={linkSx}>
+          {children}
+        </MuiLink>
+      );
+    }
     return (
-      <MuiLink
-        href={href}
-        target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noopener noreferrer' : undefined}
-        sx={{
-          color: 'primary.main',
-          textDecorationColor: 'primary.light',
-          '&:hover': { color: 'primary.dark' },
-          '&:focus-visible': {
-            outline: '2px solid',
-            outlineColor: 'primary.main',
-            outlineOffset: '2px',
-            borderRadius: '2px',
-          },
-        }}
-      >
+      <MuiLink component={RouterLink} to={href ?? ''} sx={linkSx}>
         {children}
       </MuiLink>
     );
