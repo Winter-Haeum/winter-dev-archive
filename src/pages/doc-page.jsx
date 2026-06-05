@@ -11,8 +11,10 @@ import { useParams, Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import Fab from '@mui/material/Fab';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import Sidebar from '@/components/common/sidebar';
@@ -33,6 +35,7 @@ function DocPage() {
   const [doc, setDoc] = useState(null);
   const [sectionDocs, setSectionDocs] = useState([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const category = categories.find((c) => c.slug === categorySlug);
   const sectionName = category?.sections.find((s) => slugify(s) === sectionSlug);
@@ -44,6 +47,18 @@ function DocPage() {
   const docIndex = sortedDocs.findIndex((d) => d.slug === docSlug);
   const prevDoc = docIndex > 0 ? sortedDocs[docIndex - 1] : null;
   const nextDoc = docIndex < sortedDocs.length - 1 ? sortedDocs[docIndex + 1] : null;
+
+  // 문서 이동 시 즉시 상단으로 이동 — anchor(#) 링크는 이 파라미터를 바꾸지 않아 영향 없음
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [categorySlug, sectionSlug, docSlug]);
+
+  // 스크롤 300px 초과 시 맨 위로 버튼 표시
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -61,6 +76,11 @@ function DocPage() {
     });
     return () => { active = false; };
   }, [categorySlug, sectionSlug, docSlug]);
+
+  const handleScrollToTop = () => {
+    const instant = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: instant ? 'instant' : 'smooth' });
+  };
 
   if (!category || !sectionName) return <NotFoundPage />;
   if (!loading && !doc) return <NotFoundPage />;
@@ -294,6 +314,47 @@ function DocPage() {
       </Box>
 
       <Footer />
+
+      {/* 맨 위로 가기 버튼 — 스크롤 300px 초과 시 표시 */}
+      <Fab
+        size='small'
+        onClick={handleScrollToTop}
+        aria-label='맨 위로 이동'
+        sx={(theme) => ({
+          position: 'fixed',
+          bottom: { xs: 16, md: 24 },
+          right: { xs: 16, md: 24 },
+          backgroundColor: theme.palette.mode === 'light'
+            ? theme.palette.background.paper
+            : '#2A2544',
+          color: theme.palette.mode === 'light'
+            ? theme.palette.text.secondary
+            : '#B39EDD',
+          border: '1px solid',
+          borderColor: theme.palette.mode === 'light' ? '#DDD5C8' : '#3C3858',
+          boxShadow: theme.palette.mode === 'light'
+            ? '0 2px 8px rgba(0,0,0,0.12)'
+            : '0 2px 8px rgba(0,0,0,0.4)',
+          opacity: showScrollTop ? 1 : 0,
+          transform: showScrollTop ? 'translateY(0)' : 'translateY(8px)',
+          pointerEvents: showScrollTop ? 'auto' : 'none',
+          transition: 'opacity 0.2s ease, transform 0.2s ease',
+          '&:hover': {
+            backgroundColor: theme.palette.mode === 'light' ? '#EDE8FA' : '#3C3460',
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.mode === 'light' ? '#BCA4EC' : '#5C5490',
+          },
+          '&:focus-visible': {
+            outline: `2px solid ${theme.palette.primary.main}`,
+            outlineOffset: '2px',
+          },
+          '@media (prefers-reduced-motion: reduce)': {
+            transition: 'none',
+          },
+        })}
+      >
+        <KeyboardArrowUpIcon sx={{ fontSize: '1.25rem' }} />
+      </Fab>
     </Box>
   );
 }
