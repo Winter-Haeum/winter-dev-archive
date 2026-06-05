@@ -46,9 +46,14 @@ export async function getAllDocs() {
     entries.map(async ([path, load]) => {
       const parsed = _parsePath(path);
       if (!parsed) return null;
-      const raw = await load();
-      const { frontmatter } = _parseRaw(raw);
-      return { ...parsed, path, frontmatter };
+      try {
+        const raw = await load();
+        const { frontmatter } = _parseRaw(raw);
+        return { ...parsed, path, frontmatter };
+      } catch (err) {
+        console.warn('[markdownLoader] 파일 로딩 실패:', path, err);
+        return null;
+      }
     })
   );
   return results.filter(Boolean);

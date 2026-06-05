@@ -32,6 +32,7 @@ function SectionPage() {
   const [loadedKey, setLoadedKey] = useState(null);
   const [sectionIndex, setSectionIndex] = useState(null);
   const [sectionDocs, setSectionDocs] = useState([]);
+  const [loadError, setLoadError] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const category = categories.find((c) => c.slug === categorySlug);
@@ -41,15 +42,23 @@ function SectionPage() {
 
   useEffect(() => {
     let active = true;
+    setLoadError(false);
     Promise.all([
       getSectionIndex(categorySlug, sectionSlug),
       getSectionDocs(categorySlug, sectionSlug),
-    ]).then(([idx, docs]) => {
-      if (!active) return;
-      setSectionIndex(idx);
-      setSectionDocs(docs);
-      setLoadedKey(`${categorySlug}/${sectionSlug}`);
-    });
+    ])
+      .then(([idx, docs]) => {
+        if (!active) return;
+        setSectionIndex(idx);
+        setSectionDocs(docs);
+        setLoadedKey(`${categorySlug}/${sectionSlug}`);
+      })
+      .catch((err) => {
+        if (!active) return;
+        console.error('[SectionPage] 문서 로딩 실패:', err);
+        setLoadError(true);
+        setLoadedKey(`${categorySlug}/${sectionSlug}`);
+      });
     return () => { active = false; };
   }, [categorySlug, sectionSlug]);
 
@@ -103,6 +112,25 @@ function SectionPage() {
                   })}
                 />
               ))}
+            </Box>
+          ) : loadError ? (
+            /* 로딩 실패 안내 */
+            <Box
+              sx={(theme) => ({
+                border: '2px dashed',
+                borderColor: theme.palette.divider,
+                borderRadius: 2,
+                px: 4,
+                py: 6,
+                textAlign: 'center',
+              })}
+            >
+              <Typography variant='body1' sx={{ color: 'text.secondary', mb: 0.5 }}>
+                문서를 불러오지 못했습니다
+              </Typography>
+              <Typography variant='body2' sx={{ color: 'text.disabled' }}>
+                페이지를 새로고침하거나 잠시 후 다시 시도해주세요.
+              </Typography>
             </Box>
           ) : (
             <>
