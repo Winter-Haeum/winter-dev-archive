@@ -12,7 +12,7 @@
  *   SearchIndexItem: { id, slug, category, section, title, description,
  *                      tags, status, date, body, url, isIndex }
  */
-import matter from 'gray-matter';
+import yaml from 'js-yaml';
 
 // _templates 제외 — 템플릿 파일이 실 문서로 수집되지 않도록 한다
 // Vite 8(rolldown)에서 { as: 'raw' }가 제거됨 → { query: '?raw', import: 'default' } 사용
@@ -29,10 +29,27 @@ function _parsePath(path) {
   return { category: parts[0], section: parts[1], slug: parts[2] };
 }
 
-/** raw string → { frontmatter, content } */
+/**
+ * raw string → { frontmatter, content }
+ * gray-matter 대신 js-yaml 직접 사용.
+ * gray-matter의 to-file.js가 Buffer.from()을 호출하여
+ * 브라우저 환경에서 ReferenceError: Buffer is not defined 발생.
+ */
 function _parseRaw(raw) {
-  const { data, content } = matter(raw);
-  return { frontmatter: data, content: content.trim() };
+  if (typeof raw !== 'string') return { frontmatter: {}, content: '' };
+
+  // YAML frontmatter 구분자 추출
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!match) return { frontmatter: {}, content: raw.trim() };
+
+  let frontmatter = {};
+  try {
+    frontmatter = yaml.safeLoad(match[1]) || {};
+  } catch {
+    // YAML 파싱 실패 시 빈 frontmatter 반환
+  }
+
+  return { frontmatter, content: match[2].trim() };
 }
 
 /**
