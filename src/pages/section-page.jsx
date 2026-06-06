@@ -66,7 +66,7 @@ function SectionPage() {
   if (!category || !sectionName) return <NotFoundPage />;
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
       <Header
         onMenuClick={() => setDrawerOpen(true)}
         isDrawerOpen={drawerOpen}

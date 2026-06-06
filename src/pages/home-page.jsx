@@ -20,7 +20,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
       <Header />
 
       {/* ── Hero Section ───────────────────────────────────────────── */}

@@ -33,7 +33,7 @@ function CategoryPage() {
   const firstSectionSlug = slugify(category.sections[0]);
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
       <Header
         onMenuClick={() => setDrawerOpen(true)}
         isDrawerOpen={drawerOpen}
