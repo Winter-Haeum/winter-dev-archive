@@ -14,5 +14,4 @@ Node.js, VS Code, Git 설치부터 Claude Code 인증까지 단계별로 진행�
 
 ## 학습 순서
 
-1. [Step 1 — 개발 환경 설치](./step-1-env)
-2. [Step 2 — VS Code 설정](./step-2-settings)
+1. [1단계 — 개발환경 구축](./step-01-dev-environment)
