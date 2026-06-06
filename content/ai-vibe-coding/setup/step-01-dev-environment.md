@@ -17,11 +17,13 @@ date: "2025-11-24"
 status: "completed"
 ---
 
-## 개요
+## 🎯 학습 목적
 
-AI 바이브 코딩을 시작하기 위해 필수 도구를 준비한다.
+AI 기반 웹 개발을 시작하기 위한 필수 도구(Git, Node.js, Claude Code, VSCode)를 운영체제별로 올바르게 설치하고, VSCode 터미널에서 Claude Code 인증까지 완료하여 AI 개발 환경을 완성한다.
 
-> 💡 **Concept**: Node.js는 브라우저 밖에서 JavaScript를 실행하는 런타임이다. `npm`은 Node.js와 함께 자동으로 설치되며 패키지 관리에 사용한다.
+---
+
+## 📖 개념 설명
 
 ### 설치할 도구
 
@@ -42,10 +44,15 @@ AI 바이브 코딩을 시작하기 위해 필수 도구를 준비한다.
 | **Claude Code** | AI 기반 개발 도구 | npm 전역 설치 후 네이티브 업그레이드 |
 | **VSCode** | 코드 편집기 | Claude Code 터미널 실행 환경 |
 
-> **초보자를 위한 보충 설명**
-> - `winget`: Windows 10/11에 기본 내장된 패키지 관리자. 명령어 한 줄로 프로그램을 설치할 수 있어 복잡한 설치 과정이 필요 없습니다.
-> - `Homebrew`: macOS 전용 패키지 관리자. Mac에는 기본 내장되어 있지 않아 별도 설치가 필요합니다.
-> - `npm install -g`: `-g` 플래그는 "global"의 약자로, 특정 프로젝트가 아닌 시스템 전체에서 사용할 수 있도록 설치합니다.
+### 초보자를 위한 보충 설명
+
+- `winget`: Windows 10/11에 기본 내장된 패키지 관리자. 명령어 한 줄로 프로그램을 설치할 수 있어 복잡한 설치 과정이 필요 없습니다.
+- `Homebrew`: macOS 전용 패키지 관리자. Mac에는 기본 내장되어 있지 않아 별도 설치가 필요합니다.
+- `npm install -g`: `-g` 플래그는 "global"의 약자로, 특정 프로젝트가 아닌 시스템 전체에서 사용할 수 있도록 설치합니다.
+
+---
+
+## ⚙️ 동작 원리
 
 ### 설치 의존 관계
 
@@ -59,6 +66,10 @@ Node.js 설치
 
 Git과 Node.js는 독립적으로 설치되며, Claude Code는 Node.js의 npm을 통해 설치됩니다.
 Claude Code 설치 후 `claude install`을 실행하면 npm 패키지보다 빠르고 안정적인 네이티브 실행 파일로 업그레이드됩니다.
+
+---
+
+## 💻 예제 코드
 
 ---
 
@@ -105,8 +116,6 @@ winget install Git.Git
 ```powershell
 winget install OpenJS.NodeJS
 ```
-
-> ⚠️ **Caution**: Current 버전이 아닌 **LTS 버전**을 선택해야 한다. LTS는 장기 지원 버전으로 안정성이 보장된다.
 
 ### 설치 후 터미널 재시작 필요
 
@@ -971,11 +980,11 @@ AI 개발 환경을 완성한다.
 
 ---
 
-## 4. VS Code 확장 프로그램 및 에디터 설정
+## 4. VSCode 확장 프로그램 및 에디터 설정
 
 ### 필수 확장 프로그램
 
-VS Code 설치 후 아래 확장 프로그램을 추가한다.
+설치 후 아래 확장 프로그램을 추가한다.
 
 1. **ESLint** — 코드 문법 오류 실시간 감지
 2. **Prettier** — 코드 자동 포맷
@@ -1028,8 +1037,6 @@ VS Code 설치 후 아래 확장 프로그램을 추가한다.
 ---
 
 ## 5. Git 기본 설정
-
-[Git 공식 사이트](https://git-scm.com)에서 다운로드한다.
 
 설치 후 기본 설정을 진행한다.
 
@@ -1132,7 +1139,7 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 
 ---
 
-## 주의사항
+## ⚠️ 주의사항
 
 ### 공통
 
@@ -1153,7 +1160,22 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 
 ---
 
-## 핵심 정리
+## 🔗 참고 자료
+
+- [VSCode 공식 다운로드](https://code.visualstudio.com)
+- [Node.js 공식 사이트](https://nodejs.org)
+- [Node.js 공식 문서](https://nodejs.org/ko/docs)
+- [VS Code 공식 문서](https://code.visualstudio.com/docs)
+- [Git 공식 사이트](https://git-scm.com)
+- [Git 공식 문서](https://git-scm.com/doc)
+- [Homebrew 공식 사이트](https://brew.sh)
+- [Claude Code 공식 문서](https://docs.anthropic.com/claude-code)
+- [Prettier 공식 문서](https://prettier.io/docs/en/)
+- [ESLint 공식 문서](https://eslint.org/docs/latest/)
+
+---
+
+## ✅ 핵심 정리
 
 ### 전체 설치 흐름 비교
 
@@ -1176,16 +1198,6 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 5. Mac: 심볼릭 링크가 올바르게 연결되어 있는가?
 ```
 
----
+### 다음 단계
 
-## 참고 자료
-
-- [VSCode 공식 다운로드](https://code.visualstudio.com)
-- [Node.js 공식 사이트](https://nodejs.org)
-- [Homebrew 공식 사이트](https://brew.sh)
-- [Claude Code 공식 문서](https://docs.anthropic.com/claude-code)
-- [Prettier 공식 문서](https://prettier.io/docs/en/)
-- [ESLint 공식 문서](https://eslint.org/docs/latest/)
-- [Git 공식 문서](https://git-scm.com/doc)
-
-> **다음 단계**: 2단계 — 통합 세팅 및 첫 수업 준비
+> **다음 문서**: 2단계 — 통합 세팅 및 첫 수업 준비
