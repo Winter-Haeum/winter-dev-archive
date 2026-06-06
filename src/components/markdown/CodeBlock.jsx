@@ -124,8 +124,8 @@ function CodeBlock({ language, children }) {
             maxHeight: '400px',
             overflowY: 'auto',
             fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-            fontSize: '0.875rem',
-            lineHeight: 1.6,
+            fontSize: '0.92rem',
+            lineHeight: 1.7,
             color: t.baseText,
 
             // code 요소 내부 스타일 초기화

@@ -29,12 +29,18 @@ const remarkPlugins = [remarkGfm];
 
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
-  // ── 제목 ────────────────────────────────────────────────────────────
+  // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
   h1: ({ children }) => (
     <Typography
       variant='h1'
       component='h1'
-      sx={{ mb: 4, mt: 0, fontSize: { xs: '1.75rem', md: '2.25rem' } }}
+      sx={{
+        mt: 0,
+        mb: '2rem',
+        fontSize: 'clamp(2rem, 4vw, 3rem)',
+        fontWeight: 800,
+        lineHeight: 1.2,
+      }}
     >
       {children}
     </Typography>
@@ -43,7 +49,15 @@ const markdownComponents = {
     <Typography
       variant='h2'
       component='h2'
-      sx={{ mt: 6, mb: 3, fontSize: { xs: '1.5rem', md: '1.875rem' } }}
+      sx={(theme) => ({
+        mt: '3rem',
+        mb: '1.25rem',
+        fontSize: 'clamp(1.55rem, 3vw, 2rem)',
+        fontWeight: 800,
+        lineHeight: 1.25,
+        borderBottom: `2px solid ${theme.palette.divider}`,
+        pb: '0.5rem',
+      })}
     >
       {children}
     </Typography>
@@ -52,7 +66,28 @@ const markdownComponents = {
     <Typography
       variant='h3'
       component='h3'
-      sx={{ mt: 4, mb: 2, fontSize: { xs: '1.25rem', md: '1.5rem' } }}
+      sx={{
+        mt: '2rem',
+        mb: '0.75rem',
+        fontSize: 'clamp(1.25rem, 2.2vw, 1.5rem)',
+        fontWeight: 700,
+        lineHeight: 1.35,
+      }}
+    >
+      {children}
+    </Typography>
+  ),
+  h4: ({ children }) => (
+    <Typography
+      variant='h4'
+      component='h4'
+      sx={{
+        mt: '1.4rem',
+        mb: '0.5rem',
+        fontSize: 'clamp(1.05rem, 1.8vw, 1.2rem)',
+        fontWeight: 700,
+        lineHeight: 1.4,
+      }}
     >
       {children}
     </Typography>
@@ -63,7 +98,7 @@ const markdownComponents = {
     <Typography
       variant='body1'
       component='p'
-      sx={{ mb: 3, color: 'text.primary', lineHeight: 1.75 }}
+      sx={{ mb: 3, color: 'text.primary', fontSize: '1rem', lineHeight: 1.75 }}
     >
       {children}
     </Typography>
