@@ -39,7 +39,10 @@ const currentSx = {
 
 function Breadcrumb({ category, section, sectionSlug, doc }) {
   return (
-    <MuiBreadcrumbs aria-label='breadcrumb' sx={{ mb: 4 }}>
+    <MuiBreadcrumbs
+      aria-label='breadcrumb'
+      sx={{ mb: 4, '& .MuiBreadcrumbs-ol': { flexWrap: 'wrap' } }}
+    >
 
       {/* Home — 항상 링크 */}
       <Typography component={Link} to='/' variant='body2' sx={linkSx}>

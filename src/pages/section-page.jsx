@@ -83,7 +83,7 @@ function SectionPage() {
 
         <Box
           component='main'
-          sx={{ flex: 1, py: { xs: 4, md: 6 }, px: { xs: 2, md: 6 } }}
+          sx={{ flex: 1, minWidth: 0, py: { xs: 4, md: 6 }, px: { xs: 2, md: 6 } }}
         >
           <Breadcrumb category={category} section={sectionName} />
 

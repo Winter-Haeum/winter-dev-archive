@@ -178,7 +178,7 @@ const markdownComponents = {
   // ── 표 (remark-gfm) ─────────────────────────────────────────────────
   // sx 콜백: ThemeContext에서 테마를 읽어 다크 모드 자동 대응
   table: ({ children }) => (
-    <Box sx={{ mb: 3, overflowX: 'auto' }}>
+    <Box sx={{ mb: 3, width: '100%', overflowX: 'auto' }}>
       <Box
         component='table'
         sx={{
@@ -247,7 +247,7 @@ const markdownComponents = {
 
 function MarkdownRenderer({ content }) {
   return (
-    <Box sx={{ maxWidth: '65ch' }}>
+    <Box sx={{ maxWidth: '65ch', minWidth: 0 }}>
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}

@@ -90,6 +90,7 @@ function Callout({ children }) {
         px: '20px',
         py: '16px',
         my: 3,
+        overflowWrap: 'anywhere',
         '& p': { mb: 0 },
         '& p:not(:last-child)': { mb: 1.5 },
       }}

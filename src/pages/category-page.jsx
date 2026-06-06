@@ -49,7 +49,7 @@ function CategoryPage() {
 
         <Box
           component='main'
-          sx={{ flex: 1, py: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}
+          sx={{ flex: 1, minWidth: 0, py: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}
         >
           <Breadcrumb category={category} />
 
