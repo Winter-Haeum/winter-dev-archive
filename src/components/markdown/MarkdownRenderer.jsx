@@ -381,6 +381,13 @@ const markdownComponents = {
 };
 
 function MarkdownRenderer({ content, docId = '' }) {
+  // GitHub Pages sub-path 대응: /images/ → /winter-dev-archive/images/
+  // BASE='' (dev) 이면 치환 불필요
+  const processedContent = useMemo(
+    () => (BASE ? content.replace(/src="\/images\//g, `src="${BASE}/images/`) : content),
+    [content],
+  );
+
   // input 핸들러만 docId에 의존 — docId 변경 시에만 재생성
   const components = useMemo(() => ({
     ...markdownComponents,
@@ -428,7 +435,7 @@ function MarkdownRenderer({ content, docId = '' }) {
         rehypePlugins={rehypePlugins}
         components={components}
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
     </Box>
   );
