@@ -14,7 +14,7 @@ import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import CategoryCard from '@/components/ui/category-card';
 import { categories } from '@/data/navigation';
-import winterWaveImg from '@/assets/characters/winter-wave.webp';
+import winterLaptopImg from '@/assets/characters/winter-laptop.webp';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -29,14 +29,27 @@ function HomePage() {
         aria-label='소개'
         sx={(theme) => ({
           backgroundColor: theme.palette.mode === 'light' ? '#F6F3FE' : '#221E38',
-          py: { xs: 6, md: 10 },
+          pt: { xs: 4, md: 5 },
+          pb: { xs: 3, md: 5 },
           px: { xs: 2, md: 3 },
+          minHeight: { xs: 'auto', md: '480px' },
+          display: 'flex',
+          alignItems: 'center',
         })}
       >
-        <Container maxWidth='lg'>
-          <Grid container spacing={4} alignItems='center'>
+        <Container maxWidth='md' sx={{ width: '100%', maxWidth: { md: '1000px' } }}>
+          {/* CSS Grid — MUI Grid보다 align-items: center가 정확하게 동작 */}
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 340px' },
+              alignItems: 'center',
+              columnGap: { md: '40px' },
+              rowGap: { xs: '8px', md: 0 },
+            }}
+          >
             {/* Hero 텍스트 */}
-            <Grid size={{ xs: 12, md: 7 }}>
+            <Box>
               <Typography
                 variant='h1'
                 sx={{ mb: 1.5, fontSize: { xs: '1.75rem', md: '2.25rem' } }}
@@ -53,7 +66,7 @@ function HomePage() {
 
               <Typography
                 variant='body2'
-                sx={{ color: 'text.disabled', lineHeight: 1.8, mb: 3 }}
+                sx={{ color: 'text.disabled', lineHeight: 1.8, mb: { xs: 1.5, md: 3 } }}
               >
                 개념이 헷갈릴 때, 처음부터 다시 보고 싶을 때 —<br />
                 여기서 먼저 찾아보세요.
@@ -78,7 +91,7 @@ function HomePage() {
                   backgroundColor: theme.palette.background.paper,
                   cursor: 'pointer',
                   textAlign: 'left',
-                  mb: 3,
+                  mb: { xs: 1.5, md: 3 },
                   transition: 'border-color 0.15s ease',
                   '&:hover': { borderColor: theme.palette.primary.main },
                   '&:focus-visible': {
@@ -98,28 +111,36 @@ function HomePage() {
               <Typography variant='caption' sx={{ color: 'text.disabled' }}>
                 HTML · CSS · JavaScript · React · TypeScript · AI & Vibe Coding
               </Typography>
-            </Grid>
+            </Box>
 
-            {/* 캐릭터 이미지 */}
-            <Grid
-              size={{ xs: 12, md: 5 }}
-              sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+            {/* 캐릭터 이미지 wrapper */}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                mt: { xs: 0, md: 'unset' },
+                // xs: 텍스트 블록 바로 아래 붙이기 위해 위로 강하게 당김
+                // md: 이미지 하단 공백 보정 + 텍스트 쪽으로 당김
+                transform: { xs: 'translateY(-32px)', md: 'translate(-24px, -16px)' },
+              }}
             >
               <Box
                 component='img'
-                src={winterWaveImg}
+                src={winterLaptopImg}
                 alt='겨울하음 캐릭터'
                 sx={{
-                  maxWidth: { xs: '220px', sm: '260px', lg: '320px' },
                   width: '100%',
+                  maxWidth: { xs: '220px', md: '340px' },
                   height: 'auto',
+                  objectFit: 'contain',
                   display: 'block',
                   userSelect: 'none',
                   pointerEvents: 'none',
                 }}
               />
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Container>
       </Box>
 

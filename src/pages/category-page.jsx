@@ -2,8 +2,7 @@
  * CategoryPage — 카테고리 소개 페이지
  *
  * URL: /:category
- * 구성: Sidebar + Breadcrumb + 카테고리 소개 + 학습 순서 + CTA 버튼
- * 섹션 카드 Grid는 제거됨 — 섹션 탐색은 Sidebar에서 담당
+ * 구성: Sidebar + Breadcrumb + 카테고리 소개 + 학습 순서 (클릭 가능) + CTA 버튼
  *
  * Props: 없음 (URL 파라미터로 카테고리 slug 수신)
  */
@@ -12,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useParams, Link } from 'react-router-dom';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import Sidebar from '@/components/common/sidebar';
@@ -49,8 +49,16 @@ function CategoryPage() {
 
         <Box
           component='main'
-          sx={{ flex: 1, minWidth: 0, py: { xs: 4, md: 6 }, px: { xs: 2, md: 4 } }}
+          sx={{ flex: 1, minWidth: 0 }}
         >
+          <Box
+            sx={{
+              maxWidth: '800px',
+              mx: 'auto',
+              px: { xs: 2, md: 4 },
+              py: { xs: 4, md: 6 },
+            }}
+          >
           <Breadcrumb category={category} />
 
           {/* 카테고리 소개 */}
@@ -109,7 +117,7 @@ function CategoryPage() {
             </Box>
           </Box>
 
-          {/* 학습 순서 */}
+          {/* 학습 순서 — 클릭 가능한 링크 목록 */}
           <Box
             component='section'
             aria-label='학습 순서'
@@ -125,43 +133,77 @@ function CategoryPage() {
 
             <Box
               component='ol'
-              sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 1 }}
+              sx={{ listStyle: 'none', m: 0, p: 0, display: 'flex', flexDirection: 'column', gap: 0.5 }}
             >
-              {category.sections.map((section, index) => (
-                <Box
-                  key={section}
-                  component='li'
-                  sx={{ display: 'flex', alignItems: 'center', gap: 2 }}
-                >
-                  <Box
-                    component='span'
-                    aria-hidden='true'
-                    sx={(theme) => ({
-                      width: '24px',
-                      height: '24px',
-                      borderRadius: '50%',
-                      border: '1px solid',
-                      borderColor: theme.palette.divider,
-                      backgroundColor: theme.palette.background.paper,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      fontSize: '0.7rem',
-                      fontWeight: 700,
-                      color: theme.palette.text.disabled,
-                    })}
-                  >
-                    {index + 1}
+              {category.sections.map((section, index) => {
+                const sectionSlug = slugify(section);
+                const sectionLink = category.sectionLinks?.[section] ?? `/${category.slug}/${sectionSlug}`;
+                return (
+                  <Box key={section} component='li'>
+                    <Box
+                      component={Link}
+                      to={sectionLink}
+                      sx={(theme) => ({
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        textDecoration: 'none',
+                        py: 1,
+                        px: 1.5,
+                        borderRadius: '8px',
+                        transition: 'background-color 0.1s ease',
+                        '&:hover': {
+                          backgroundColor: theme.palette.mode === 'light' ? '#F6F3FE' : '#221E38',
+                          '& .section-arrow': { opacity: 1 },
+                        },
+                        '&:focus-visible': {
+                          outline: `2px solid ${theme.palette.primary.main}`,
+                          outlineOffset: '2px',
+                        },
+                        '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                      })}
+                    >
+                      <Box
+                        component='span'
+                        aria-hidden='true'
+                        sx={(theme) => ({
+                          width: '24px',
+                          height: '24px',
+                          borderRadius: '50%',
+                          border: '1px solid',
+                          borderColor: theme.palette.divider,
+                          backgroundColor: theme.palette.background.paper,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                          fontSize: '0.7rem',
+                          fontWeight: 700,
+                          color: theme.palette.text.disabled,
+                        })}
+                      >
+                        {index + 1}
+                      </Box>
+                      <Typography
+                        variant='body2'
+                        sx={{ color: 'text.secondary', lineHeight: 1.5, flex: 1 }}
+                      >
+                        {section}
+                      </Typography>
+                      <ArrowForwardIcon
+                        className='section-arrow'
+                        sx={(theme) => ({
+                          fontSize: '0.875rem',
+                          color: theme.palette.text.disabled,
+                          opacity: 0,
+                          transition: 'opacity 0.1s ease',
+                          '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
+                        })}
+                      />
+                    </Box>
                   </Box>
-                  <Typography
-                    variant='body2'
-                    sx={{ color: 'text.secondary', lineHeight: 1.5 }}
-                  >
-                    {section}
-                  </Typography>
-                </Box>
-              ))}
+                );
+              })}
             </Box>
           </Box>
 
@@ -175,6 +217,7 @@ function CategoryPage() {
           >
             {category.sections[0]}부터 시작하기
           </Button>
+          </Box>
         </Box>
       </Box>
 

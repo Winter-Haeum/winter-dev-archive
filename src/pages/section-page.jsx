@@ -10,7 +10,7 @@
  * Props: 없음 (URL 파라미터로 카테고리/섹션 slug 수신)
  */
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -65,6 +65,9 @@ function SectionPage() {
 
   if (!category || !sectionName) return <NotFoundPage />;
 
+  const sectionDirectLink = category.sectionLinks?.[sectionName];
+  if (sectionDirectLink) return <Navigate to={sectionDirectLink} replace />;
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
       <Header
@@ -83,8 +86,16 @@ function SectionPage() {
 
         <Box
           component='main'
-          sx={{ flex: 1, minWidth: 0, py: { xs: 4, md: 6 }, px: { xs: 2, md: 6 } }}
+          sx={{ flex: 1, minWidth: 0 }}
         >
+          <Box
+            sx={{
+              maxWidth: '800px',
+              mx: 'auto',
+              px: { xs: 2, md: 4 },
+              py: { xs: 4, md: 6 },
+            }}
+          >
           <Breadcrumb category={category} section={sectionName} />
 
           {/* 섹션 헤더 */}
@@ -279,6 +290,7 @@ function SectionPage() {
               )}
             </>
           )}
+          </Box>
         </Box>
       </Box>
 

@@ -117,15 +117,15 @@ function CodeBlock({ language, children }) {
           const t = CODE_THEME[theme.palette.mode];
           return {
             m: 0,
-            px: '20px',
-            py: '16px',
+            px: '1rem',
+            py: '0.9rem',
             backgroundColor: t.blockBg,
             overflowX: 'auto',
             maxHeight: '400px',
             overflowY: 'auto',
             fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-            fontSize: '0.92rem',
-            lineHeight: 1.7,
+            fontSize: '0.75rem',
+            lineHeight: 1.5,
             color: t.baseText,
 
             // code 요소 내부 스타일 초기화

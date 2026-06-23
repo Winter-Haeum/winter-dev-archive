@@ -1,19 +1,24 @@
 /**
  * MarkdownRenderer — Markdown → MUI 컴포넌트 렌더러
  *
- * react-markdown + remark-gfm + rehype-highlight를 조합한다.
- * 모든 MD 요소를 디자인 시스템(04/05 문서) 기준의 MUI 컴포넌트로 교체한다.
+ * react-markdown + remark-gfm + rehype-raw + rehype-highlight 조합.
+ * 모든 MD 요소를 디자인 시스템 기준의 MUI 컴포넌트로 교체한다.
  * maxWidth: 65ch 로 본문 적정 너비를 제한한다.
  *
  * Props:
- * @param {string} content - gray-matter로 분리된 MD 본문 [Required]
+ * @param {string} content - frontmatter 제거 후 MD 본문 [Required]
+ * @param {string} docId   - localStorage 네임스페이스용 문서 식별자 [Optional]
+ *                           형식: "categorySlug/sectionSlug/docSlug"
+ *                           제공 시 체크포인트 항목이 인터랙티브하게 동작하며
+ *                           클릭 상태가 문서별로 독립 저장된다.
  *
  * Example usage:
- * <MarkdownRenderer content={doc.content} />
+ * <MarkdownRenderer content={doc.content} docId="ai-vibe-coding/lesson-1/1-1-web-basics" />
  */
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -23,85 +28,132 @@ import { Link as RouterLink } from 'react-router-dom';
 import Callout from './Callout';
 import CodeBlock from './CodeBlock';
 
-// rehype-highlight 옵션 — 언어 미지정 블록은 plaintext로 처리
-const rehypePlugins = [[rehypeHighlight, { ignoreMissing: true }]];
+// rehype-raw → rehype-highlight 순서 필수: raw HTML 파싱 후 코드 하이라이트 적용
+const rehypePlugins = [rehypeRaw, [rehypeHighlight, { ignoreMissing: true }]];
 const remarkPlugins = [remarkGfm];
+
+/**
+ * CheckboxItem — 인터랙티브 체크포인트 체크박스
+ * localStorage에 문서별 독립 키로 체크 상태를 저장·복원한다.
+ *
+ * @param {string}  storageKey      - localStorage 키 [Required]
+ * @param {boolean} initialChecked  - 마크다운 원문의 초기 체크 상태 [Required]
+ */
+function CheckboxItem({ storageKey, initialChecked }) {
+  const [checked, setChecked] = useState(() => {
+    try {
+      const v = localStorage.getItem(storageKey);
+      return v !== null ? v === 'true' : !!initialChecked;
+    } catch {
+      return !!initialChecked;
+    }
+  });
+
+  const toggle = () => {
+    const next = !checked;
+    setChecked(next);
+    try { localStorage.setItem(storageKey, String(next)); } catch {}
+  };
+
+  return (
+    <Box
+      component='input'
+      type='checkbox'
+      checked={checked}
+      onChange={toggle}
+      aria-label='체크포인트 항목'
+      sx={(theme) => ({
+        accentColor: theme.palette.primary.main,
+        width: '13px',
+        height: '13px',
+        cursor: 'pointer',
+        flexShrink: 0,
+        mt: '2px',
+      })}
+    />
+  );
+}
 
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
   h1: ({ children }) => (
-    <Typography
-      variant='h1'
+    <Box
       component='h1'
       sx={{
         mt: 0,
-        mb: '2rem',
-        fontSize: 'clamp(2rem, 4vw, 3rem)',
-        fontWeight: 800,
-        lineHeight: 1.2,
+        mb: '0.75rem',
+        fontSize: { xs: '1.45rem', md: '1.65rem' },
+        fontWeight: 700,
+        lineHeight: 1.3,
+        letterSpacing: '-0.01em',
+        color: 'text.primary',
+        fontFamily: 'inherit',
       }}
     >
       {children}
-    </Typography>
+    </Box>
   ),
   h2: ({ children }) => (
-    <Typography
-      variant='h2'
+    <Box
       component='h2'
       sx={(theme) => ({
-        mt: '3rem',
-        mb: '1.25rem',
-        fontSize: 'clamp(1.55rem, 3vw, 2rem)',
-        fontWeight: 800,
-        lineHeight: 1.25,
-        borderBottom: `2px solid ${theme.palette.divider}`,
-        pb: '0.5rem',
+        mt: '2.2rem',
+        mb: '0.7rem',
+        fontSize: { xs: '1.18rem', md: '1.28rem' },
+        fontWeight: 700,
+        lineHeight: 1.35,
+        letterSpacing: '-0.005em',
+        color: 'text.primary',
+        fontFamily: 'inherit',
+        borderBottom: `1px solid ${theme.palette.mode === 'light' ? 'rgba(43,37,32,0.14)' : 'rgba(240,235,227,0.10)'}`,
+        paddingBottom: '0.45rem',
       })}
     >
       {children}
-    </Typography>
+    </Box>
   ),
   h3: ({ children }) => (
-    <Typography
-      variant='h3'
+    <Box
       component='h3'
-      sx={{
-        mt: '2rem',
-        mb: '0.75rem',
-        fontSize: 'clamp(1.25rem, 2.2vw, 1.5rem)',
-        fontWeight: 700,
-        lineHeight: 1.35,
-      }}
+      sx={(theme) => ({
+        mt: '1.5rem',
+        mb: '0.4rem',
+        fontSize: { xs: '1.02rem', md: '1.08rem' },
+        fontWeight: 600,
+        lineHeight: 1.4,
+        fontFamily: 'inherit',
+        color: theme.palette.mode === 'light' ? 'rgba(28,24,40,0.86)' : 'rgba(240,235,227,0.86)',
+      })}
     >
       {children}
-    </Typography>
+    </Box>
   ),
   h4: ({ children }) => (
-    <Typography
-      variant='h4'
+    <Box
       component='h4'
-      sx={{
-        mt: '1.4rem',
-        mb: '0.5rem',
-        fontSize: 'clamp(1.05rem, 1.8vw, 1.2rem)',
-        fontWeight: 700,
+      sx={(theme) => ({
+        mt: '1.1rem',
+        mb: '0.35rem',
+        fontSize: { xs: '0.94rem', md: '0.97rem' },
+        fontWeight: 600,
         lineHeight: 1.4,
-      }}
+        fontFamily: 'inherit',
+        color: theme.palette.mode === 'light' ? 'rgba(28,24,40,0.78)' : 'rgba(240,235,227,0.75)',
+      })}
     >
       {children}
-    </Typography>
+    </Box>
   ),
 
   // ── 본문 ────────────────────────────────────────────────────────────
   p: ({ children }) => (
-    <Typography
-      variant='body1'
+    <Box
       component='p'
-      sx={{ mb: 3, color: 'text.primary', fontSize: '1rem', lineHeight: 1.75 }}
+      sx={{ mb: '0.9rem', color: 'text.primary', fontSize: { xs: '0.93rem', md: '0.95rem' }, lineHeight: 1.75, fontFamily: 'inherit' }}
     >
       {children}
-    </Typography>
+    </Box>
   ),
   strong: ({ children }) => (
     <Box component='strong' sx={{ fontWeight: 700, color: 'text.primary' }}>
@@ -145,14 +197,23 @@ const markdownComponents = {
   },
 
   // ── 리스트 ──────────────────────────────────────────────────────────
-  ul: ({ children }) => (
-    <Box
-      component='ul'
-      sx={{ mb: 3, pl: 3, color: 'text.primary', '& li': { mb: 0.5 } }}
-    >
-      {children}
-    </Box>
-  ),
+  ul: ({ children, className }) => {
+    const isTaskList = className === 'contains-task-list';
+    return (
+      <Box
+        component='ul'
+        sx={{
+          mb: isTaskList ? 2 : 3,
+          pl: isTaskList ? 0 : 3,
+          color: 'text.primary',
+          '& li': { mb: isTaskList ? 0.3 : 0.5 },
+          ...(isTaskList && { listStyle: 'none' }),
+        }}
+      >
+        {children}
+      </Box>
+    );
+  },
   ol: ({ children }) => (
     <Box
       component='ol'
@@ -161,14 +222,36 @@ const markdownComponents = {
       {children}
     </Box>
   ),
-  li: ({ children }) => (
-    <Box component='li' sx={{ lineHeight: 1.75 }}>
-      {children}
-    </Box>
-  ),
+  li: ({ children, className }) => {
+    const isTask = className === 'task-list-item';
+    return (
+      <Box
+        component='li'
+        sx={{
+          lineHeight: isTask ? 1.6 : 1.75,
+          ...(isTask && {
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.45rem',
+            listStyleType: 'none',
+            fontSize: '0.9rem',
+          }),
+        }}
+      >
+        {children}
+      </Box>
+    );
+  },
 
   // ── 구분선 ──────────────────────────────────────────────────────────
-  hr: () => <Divider sx={{ my: 6 }} />,
+  hr: () => (
+    <Divider
+      sx={(theme) => ({
+        my: '2rem',
+        borderColor: theme.palette.mode === 'light' ? 'rgba(43,37,32,0.12)' : 'rgba(240,235,227,0.10)',
+      })}
+    />
+  ),
 
   // ── Callout (blockquote) ────────────────────────────────────────────
   blockquote: ({ children }) => <Callout>{children}</Callout>,
@@ -213,13 +296,13 @@ const markdownComponents = {
   // ── 표 (remark-gfm) ─────────────────────────────────────────────────
   // sx 콜백: ThemeContext에서 테마를 읽어 다크 모드 자동 대응
   table: ({ children }) => (
-    <Box sx={{ mb: 3, width: '100%', overflowX: 'auto' }}>
+    <Box sx={{ mb: '1.2rem', width: '100%', overflowX: 'auto' }}>
       <Box
         component='table'
         sx={{
           borderCollapse: 'collapse',
           width: '100%',
-          fontSize: '0.875rem',
+          fontSize: '0.92rem',
           lineHeight: 1.6,
         }}
       >
@@ -254,12 +337,14 @@ const markdownComponents = {
     <Box
       component='th'
       sx={(theme) => ({
-        p: '8px 12px',
+        p: '5px 10px',
         fontWeight: 600,
         textAlign: 'left',
         color: theme.palette.mode === 'light' ? '#2C2840' : '#F0EBE3',
         borderRight: `1px solid ${theme.palette.mode === 'light' ? '#DDD5C8' : '#3C3858'}`,
         '&:last-child': { borderRight: 0 },
+        wordBreak: 'keep-all',
+        overflowWrap: 'break-word',
       })}
     >
       {children}
@@ -269,10 +354,12 @@ const markdownComponents = {
     <Box
       component='td'
       sx={(theme) => ({
-        p: '8px 12px',
+        p: '5px 10px',
         color: theme.palette.mode === 'light' ? '#2C2840' : '#F0EBE3',
         borderRight: `1px solid ${theme.palette.mode === 'light' ? '#DDD5C8' : '#3C3858'}`,
         '&:last-child': { borderRight: 0 },
+        wordBreak: 'keep-all',
+        overflowWrap: 'break-word',
       })}
     >
       {children}
@@ -280,13 +367,53 @@ const markdownComponents = {
   ),
 };
 
-function MarkdownRenderer({ content }) {
+function MarkdownRenderer({ content, docId = '' }) {
+  // input 핸들러만 docId에 의존 — docId 변경 시에만 재생성
+  const components = useMemo(() => ({
+    ...markdownComponents,
+    input: ({ type, checked, className, node, ...rest }) => {
+      // rehype-raw 경유 데모 HTML 요소 (class 있음) — 그대로 통과
+      if (className) {
+        if (type === 'checkbox' || type === 'radio') {
+          return <input type={type} className={className} defaultChecked={!!checked} {...rest} />;
+        }
+        return <input type={type} className={className} {...rest} />;
+      }
+
+      // remark-gfm task list 체크박스 (class 없음, type=checkbox)
+      if (type === 'checkbox') {
+        if (!docId) {
+          return (
+            <input
+              type='checkbox'
+              disabled
+              defaultChecked={!!checked}
+              style={{ accentColor: '#8B5CF6', width: '13px', height: '13px', marginTop: '2px' }}
+            />
+          );
+        }
+        const lineNum = node?.position?.start?.line ?? 0;
+        const cleanDocId = docId.replace(/\//g, '-');
+        const storageKey = `wda-cp-${cleanDocId}-L${lineNum}`;
+        return (
+          <CheckboxItem
+            key={storageKey}
+            storageKey={storageKey}
+            initialChecked={!!checked}
+          />
+        );
+      }
+
+      return <input type={type} {...rest} />;
+    },
+  }), [docId]);
+
   return (
-    <Box sx={{ maxWidth: '65ch', minWidth: 0 }}>
+    <Box sx={{ width: '100%', minWidth: 0, wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
-        components={markdownComponents}
+        components={components}
       >
         {content}
       </ReactMarkdown>

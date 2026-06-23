@@ -92,6 +92,38 @@ export const categories = [
     emoji: '🤖',
     slug: 'ai-vibe-coding',
     description: 'AI 도구와 함께하는 새로운 개발 방식. Claude, Cursor 등 AI 도구 설정부터 바이브 코딩 수업 내용을 단계별로 정리합니다.',
+    // nestedSidebar: true 시 섹션이 2단계 Accordion으로 표시되고 sectionDocs가 3단계 문서로 노출
+    nestedSidebar: true,
     sections: ['Setup', 'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4'],
+    sectionDocs: {
+      'Setup': [
+        { slug: 'step-01-dev-environment', title: '1단계: 개발환경 구축' },
+        { slug: 'step-02-integrated-setup', title: '2단계: 통합 세팅 및 첫 수업 준비' },
+        { slug: 'step-03-github-backup', title: '3단계: GitHub 백업 환경 설정' },
+        { slug: 'step-04-env-check', title: '4단계: 환경 세팅 상태 확인' },
+        { slug: 'step-05-usage-management', title: '5단계: Claude Code 사용량 관리 및 무제한 활용 가이드' },
+      ],
+      'Lesson 1': [
+        { slug: '1-1-web-basics', title: '1-1: 웹 기본 개념 및 UI/UX 이론' },
+        { slug: '1-2-ui-practice', title: '1-2: UI 요소 제작 실습' },
+        { slug: '1-3-box-model-flexbox', title: '1-3: 박스 모델과 Flexbox 이해' },
+        { slug: '1-4-color-palette', title: '1-4: 이미지 분석으로 컬러 팔레트 추출' },
+        { slug: '1-5-portfolio', title: '1-5: 포트폴리오 사이트 제작' },
+      ],
+      'Lesson 2': [
+        { slug: '2-1-supabase-mcp', title: '2-1: Supabase MCP 설치 및 설정' },
+        { slug: '2-2-db-schema', title: '2-2: DB와 스키마 개념 소개' },
+        { slug: '2-3-ui-planning', title: '2-3: UI 먼저 만들고 함께 기획하기' },
+        { slug: '2-4-db-discovery', title: '2-4: UI 보고 필요한 DB 찾아내기' },
+        { slug: '2-5-community-dev', title: '2-5: 커뮤니티 기능 구현' },
+        { slug: '2-6-contact-section', title: '2-6: 포트폴리오 Contact 섹션 개발' },
+      ],
+      'Lesson 3': [
+        { slug: '3-1-web-vs-app', title: '3-1: 웹과 앱의 차이점' },
+        { slug: '3-2-mobile-ui-planning', title: '3-2: 강사와 함께 모바일 UI 기획하기' },
+        { slug: '3-3-sns-db-and-implementation', title: '3-3: SNS DB 분석 및 미니 SNS 구현' },
+        { slug: '3-4-projects-tab', title: '3-4: Projects 탭 UI 설계 및 통합 구현' },
+      ],
+    },
   },
 ];

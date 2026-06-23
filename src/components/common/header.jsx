@@ -28,14 +28,16 @@ function Header({ onMenuClick, isDrawerOpen = false }) {
   const toggleLabel = mode === 'light' ? '다크 모드로 전환' : '라이트 모드로 전환';
 
   return (
+    <>
     <AppBar
-      position='sticky'
+      position='fixed'
       elevation={0}
       sx={{
         backgroundColor: 'background.default',
         borderBottom: '1px solid',
         borderColor: 'divider',
         color: 'text.primary',
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
     >
       <Toolbar
@@ -110,6 +112,9 @@ function Header({ onMenuClick, isDrawerOpen = false }) {
         </IconButton>
       </Toolbar>
     </AppBar>
+    {/* 고정 Header 높이만큼 본문이 가려지지 않도록 공간 확보 */}
+    <Toolbar sx={{ minHeight: '64px !important', flexShrink: 0 }} />
+    </>
   );
 }
 

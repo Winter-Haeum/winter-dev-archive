@@ -103,8 +103,16 @@ function DocPage() {
 
         <Box
           component='main'
-          sx={{ flex: 1, minWidth: 0, py: { xs: 4, md: 6 }, px: { xs: 2, md: 6 } }}
+          sx={{ flex: 1, minWidth: 0 }}
         >
+          <Box
+            sx={{
+              maxWidth: '800px',
+              mx: 'auto',
+              px: { xs: 2, md: 4 },
+              py: { xs: 4, md: 6 },
+            }}
+          >
           {/* ← 섹션으로 돌아가기 */}
           <Box
             component={Link}
@@ -112,22 +120,30 @@ function DocPage() {
             sx={(theme) => ({
               display: 'inline-flex',
               alignItems: 'center',
-              gap: 0.5,
+              gap: '6px',
               textDecoration: 'none',
-              color: 'text.secondary',
-              fontSize: '0.875rem',
-              mb: 2,
-              transition: 'color 0.15s ease',
-              '&:hover': { color: theme.palette.primary.main },
+              color: theme.palette.mode === 'light' ? '#2C2840' : '#C8B8F0',
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              mb: 2.5,
+              px: '12px',
+              py: '7px',
+              border: `1px solid ${theme.palette.mode === 'light' ? 'rgba(43,37,32,0.18)' : 'rgba(200,184,240,0.25)'}`,
+              borderRadius: '999px',
+              backgroundColor: theme.palette.mode === 'light' ? 'rgba(123,94,167,0.06)' : 'rgba(123,94,167,0.12)',
+              transition: 'background-color 0.15s ease, border-color 0.15s ease',
+              '&:hover': {
+                backgroundColor: theme.palette.mode === 'light' ? 'rgba(123,94,167,0.12)' : 'rgba(123,94,167,0.22)',
+                borderColor: theme.palette.mode === 'light' ? 'rgba(123,94,167,0.35)' : 'rgba(200,184,240,0.45)',
+              },
               '&:focus-visible': {
                 outline: `2px solid ${theme.palette.primary.main}`,
                 outlineOffset: '2px',
-                borderRadius: '2px',
               },
               '@media (prefers-reduced-motion: reduce)': { transition: 'none' },
             })}
           >
-            <ArrowBackIcon sx={{ fontSize: '0.875rem' }} />
+            <ArrowBackIcon sx={{ fontSize: '0.85rem' }} />
             {sectionName}으로 돌아가기
           </Box>
 
@@ -178,7 +194,7 @@ function DocPage() {
                 >
                   <Typography
                     variant='h1'
-                    sx={{ flex: 1, fontSize: { xs: '1.75rem', md: '2.25rem' } }}
+                    sx={{ flex: 1, fontSize: { xs: '1.45rem', md: '1.65rem' }, fontWeight: 700, lineHeight: 1.3 }}
                   >
                     {doc.frontmatter.title}
                   </Typography>
@@ -197,7 +213,10 @@ function DocPage() {
               </Box>
 
               {/* Markdown 본문 */}
-              <MarkdownRenderer content={doc.content} />
+              <MarkdownRenderer
+                content={doc.content}
+                docId={`${categorySlug}/${sectionSlug}/${docSlug}`}
+              />
 
               {/* 이전 / 다음 문서 내비게이션 */}
               {(prevDoc || nextDoc) && (
@@ -206,12 +225,12 @@ function DocPage() {
                   <Box
                     sx={{
                       display: 'flex',
-                      justifyContent: 'space-between',
+                      flexDirection: { xs: 'column', md: 'row' },
                       gap: 2,
                     }}
                   >
                     {/* 이전 문서 */}
-                    {prevDoc ? (
+                    {prevDoc && (
                       <Box
                         component={Link}
                         to={`/${categorySlug}/${sectionSlug}/${prevDoc.slug}`}
@@ -226,8 +245,7 @@ function DocPage() {
                           borderRadius: '10px',
                           px: 2.5,
                           py: 2,
-                          flex: 1,
-                          maxWidth: '48%',
+                          maxWidth: { xs: '100%', md: '300px' },
                           transition: 'border-color 0.15s ease, background-color 0.15s ease',
                           '&:hover': {
                             borderColor: theme.palette.primary.main,
@@ -253,12 +271,10 @@ function DocPage() {
                           </Typography>
                         </Box>
                       </Box>
-                    ) : (
-                      <Box sx={{ flex: 1, maxWidth: '48%' }} />
                     )}
 
                     {/* 다음 문서 */}
-                    {nextDoc ? (
+                    {nextDoc && (
                       <Box
                         component={Link}
                         to={`/${categorySlug}/${sectionSlug}/${nextDoc.slug}`}
@@ -274,8 +290,8 @@ function DocPage() {
                           borderRadius: '10px',
                           px: 2.5,
                           py: 2,
-                          flex: 1,
-                          maxWidth: '48%',
+                          maxWidth: { xs: '100%', md: '300px' },
+                          ml: { md: 'auto' },
                           textAlign: 'right',
                           transition: 'border-color 0.15s ease, background-color 0.15s ease',
                           '&:hover': {
@@ -302,14 +318,13 @@ function DocPage() {
                         </Box>
                         <ArrowForwardIcon sx={(theme) => ({ fontSize: '1rem', color: theme.palette.text.disabled, flexShrink: 0 })} />
                       </Box>
-                    ) : (
-                      <Box sx={{ flex: 1, maxWidth: '48%' }} />
                     )}
                   </Box>
                 </>
               )}
             </>
           )}
+          </Box>
         </Box>
       </Box>
 
