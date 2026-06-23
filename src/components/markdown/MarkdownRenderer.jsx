@@ -74,21 +74,12 @@ function CheckboxItem({ storageKey, initialChecked }) {
   );
 }
 
-// BASE_URL: dev='/', prod='/winter-dev-archive/' — absolute image paths need the prefix on GitHub Pages
+// BASE_URL: dev='/', prod='/winter-dev-archive/'
+// processedContent 에서 text-level 치환으로 이미지 경로를 수정한다 (img component override 없음)
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
-function resolveImgSrc(src) {
-  if (!src) return src;
-  return src.startsWith('/') ? `${BASE}${src}` : src;
-}
 
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
-  // ── 이미지 (마크다운 + raw HTML 공통) ───────────────────────────────
-  // absolute path(/images/...)를 BASE_URL 기준으로 변환 → GitHub Pages 정상 동작
-  img: ({ src, alt, ...props }) => (
-    // eslint-disable-next-line jsx-a11y/alt-text
-    <img src={resolveImgSrc(src)} alt={alt ?? ''} {...props} />
-  ),
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
   h1: ({ children }) => (
     <Box
