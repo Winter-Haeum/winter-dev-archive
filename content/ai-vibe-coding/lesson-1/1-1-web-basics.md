@@ -67,7 +67,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 웹의 기본 원리와 인터넷 통신 방식을 이해하고, 현대적 웹사이트 구조와 UI/UX 기본 개념을 학습합니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:76px;top:-16px;right:15%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(14deg);">
+  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-16px;right:15%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(14deg);">
 </div>
 
 ---
@@ -76,8 +76,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div class="wda-goal" style="position:relative;padding-right:210px;padding-left:18px;">
   <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:192px;top:-24px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:82px;bottom:-22px;left:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:74px;top:8px;right:218px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-14deg);">
+  <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:52px;bottom:-22px;left:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:46px;top:8px;right:218px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-14deg);">
   <span class="wda-goal-label">학습 목표</span>
   🌐 <strong>웹의 기본 원리</strong> — 인터넷 통신 방식 이해<br>
   🏗️ <strong>현대적 웹사이트</strong> — 구조 분류 학습<br>
@@ -95,7 +95,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div class="wda-callout wda-ci" style="position:relative;padding-left:158px;padding-right:20px;border-left:none;">
   <img src="/images/winter-laptop.webp" alt="" style="position:absolute;width:142px;top:-18px;left:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-4deg);">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:72px;top:-8px;right:14px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(18deg);">
+  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-8px;right:14px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(18deg);">
   <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">이 수업은</span>본격적인 웹 개발에 앞서 웹의 기본 원리와 개념을 이해하는 이론 수업입니다. 웹이 무엇인지, 어떻게 동작하는지, 현대적인 웹사이트는 어떤 종류가 있는지를 배우고, UI/UX의 기본 개념과 용어를 익힙니다.
 </div>
 
@@ -106,21 +106,21 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 웹의 기본 구성 요소와 동작 원리를 이해해보겠습니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:84px;top:-20px;left:5%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
+  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:62px;top:-20px;left:5%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
 </div>
 
 <div class="wda-concept-grid">
   <div class="wda-concept-card" style="position:relative;padding-top:24px;">
-    <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:108px;top:-10px;left:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-5deg);">
-    <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:62px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(10deg);">
+    <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:68px;top:-10px;left:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-5deg);">
+    <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(10deg);">
     <span class="wda-ctag">HTML</span>
     <strong class="wda-ctitle">웹페이지의 구조와 내용</strong>
     <p class="wda-cbody">건물의 뼈대와 같은 역할을 합니다.</p>
     <p class="wda-cbody">제목, 문단, 링크, 이미지 등의 내용을 정의합니다.</p>
   </div>
   <div class="wda-concept-card" style="position:relative;padding-top:24px;">
-    <img src="/images/decoration/마스킹 테이프 (15).webp" alt="" style="position:absolute;width:108px;top:-10px;right:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(6deg);">
-    <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:66px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-15deg);">
+    <img src="/images/decoration/마스킹 테이프 (15).webp" alt="" style="position:absolute;width:68px;top:-10px;right:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(6deg);">
+    <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-15deg);">
     <span class="wda-ctag">CSS</span>
     <strong class="wda-ctitle">웹페이지의 스타일과 디자인</strong>
     <p class="wda-cbody">건물의 인테리어와 같은 역할을 합니다.</p>
@@ -139,7 +139,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 웹사이트에 접속할 때 일어나는 과정을 단계별로 알아보겠습니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:86px;top:-16px;right:6%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(6deg);">
+  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-16px;right:6%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(6deg);">
 </div>
 
 <div class="wda-steps">
@@ -174,21 +174,17 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:76px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:52px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
 </div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:84px;top:-30px;left:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
-</div>
 
 ## 3. 현대적 웹사이트 구조
 
 현재 우리가 사용하는 웹사이트들은 목적에 따라 6가지 유형으로 분류됩니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:74px;top:-14px;left:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
+  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:58px;top:-14px;left:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
 </div>
 
 | 유형 | 목적 | 예시 | 특징 |
@@ -201,7 +197,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 | 웹앱 | 앱과 같은 기능 | 카카오톡 웹, 유튜브 | 실시간 상호작용 |
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:88px;top:-24px;right:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(9deg);">
+  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:66px;top:-24px;right:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(9deg);">
 </div>
 
 ---
@@ -211,12 +207,12 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 웹 개발에서 가장 중요한 개념인 UI와 UX를 쉽게 이해해보겠습니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:76px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
+  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:50px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
 </div>
 
 <div class="wda-compare-grid">
   <div class="wda-compare-card wda-uicard" style="position:relative;">
-    <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:62px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(12deg);">
+    <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(12deg);">
     <p class="wda-ctype">User Interface</p>
     <p class="wda-clabel">UI</p>
     <p class="wda-cdef">브라우저에서 보이는 모든 시각적 요소</p>
@@ -231,7 +227,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
       <li>애니메이션</li>
     </ul>
   </div>
-  <div class="wda-compare-card wda-uxcard">
+  <div class="wda-compare-card wda-uxcard" style="position:relative;">
+    <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.60;transform:rotate(12deg);">
     <p class="wda-ctype">User Experience</p>
     <p class="wda-clabel">UX</p>
     <p class="wda-cdef">사용자가 느끼는 전체적인 경험</p>
@@ -248,7 +245,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ### 쉬운 비유
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:82px;top:-16px;left:2%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-10deg);">
+  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:52px;top:-16px;left:2%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-10deg);">
 </div>
 
 <div class="wda-callout wda-ci" style="position:relative;padding-right:205px;padding-left:20px;">
@@ -269,7 +266,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (10).webp" alt="" style="position:absolute;width:82px;top:-24px;right:14%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-6deg);">
+  <img src="/images/decoration/별 아이콘 (10).webp" alt="" style="position:absolute;width:60px;top:-24px;right:14%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-6deg);">
 </div>
 
 ---
@@ -279,7 +276,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 아래 16가지 UI 요소 데모를 직접 클릭하고 조작해보세요.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:78px;top:-18px;left:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
+  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:60px;top:-18px;left:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 <style>
@@ -558,20 +555,17 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:86px;top:-22px;right:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(6deg);">
-</div>
-
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:76px;top:-18px;left:16%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
+  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:50px;top:-18px;left:16%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
 </div>
 
 <div class="wda-done" style="position:relative;padding-left:205px;padding-right:20px;padding-top:28px;padding-bottom:10px;">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:110px;top:-18px;right:24px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(8deg);">
+  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:10px;right:30px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(6deg);">
+  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:70px;top:-18px;right:24px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(8deg);">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:188px;top:-40px;left:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:68px;bottom:10px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
+  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:46px;bottom:10px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
   <div class="wda-done-ico">🎓</div>
   <div class="wda-done-ttl">이론 학습 완료</div>
   <div>웹의 기본 개념과 UI/UX 이론을 모두 학습했습니다.<br>이제 실제로 React 프로젝트를 만들어보면서 이 개념들을 직접 구현해보겠습니다.</div>
@@ -580,7 +574,7 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:112px;top:-18px;left:calc(50% - 56px);z-index:1;pointer-events:none;opacity:.78;transform:rotate(2deg);">
+  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:70px;top:-18px;left:calc(50% - 35px);z-index:1;pointer-events:none;opacity:.78;transform:rotate(2deg);">
 </div>
 
 ## 체크포인트
@@ -588,10 +582,9 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 다음 내용을 이해했는지 확인해보세요.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:76px;top:-18px;right:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
+  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-18px;right:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
 ### 학습 확인
 
 - [ ] HTML과 CSS의 역할 차이점 이해
@@ -614,17 +607,17 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 브라우저에 `https://www.google.com`을 입력하면 내부에서 이런 과정이 일어납니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:76px;top:-16px;left:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-5deg);">
+  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:52px;top:-16px;left:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-5deg);">
 </div>
 
 <div class="wda-callout wda-ci" style="position:relative;padding-right:205px;padding-left:20px;">
   <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:188px;top:-22px;right:5px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:76px;bottom:-18px;right:210px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
+  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:50px;bottom:-18px;right:210px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
   <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">전체 흐름</span>요청 → DNS 조회 → 서버 응답 → 브라우저 렌더링의 4단계로 진행됩니다.
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:72px;top:-14px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
+  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-14px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 <div class="wda-steps">
@@ -635,7 +628,7 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:86px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
+  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:62px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -643,7 +636,7 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 ## 💻 예제 코드
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;width:82px;top:-16px;right:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
+  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-16px;right:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
 </div>
 
 ### 기본 HTML 구조
@@ -710,7 +703,7 @@ button:hover {
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:76px;top:-16px;left:10%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
+  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-16px;left:10%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
 </div>
 
 ## ⚠️ 주의사항
@@ -721,16 +714,16 @@ button:hover {
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:84px;top:-14px;right:24%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
+  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-14px;right:24%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
 </div>
 
 <div class="wda-callout wda-cw" style="position:relative;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:74px;bottom:-16px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
+  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:50px;bottom:-16px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
   <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">HTML 구조와 CSS 스타일은 분리하세요</span>HTML 태그에 <code>style="color:red"</code>처럼 직접 스타일을 넣는 방식은 유지보수가 어렵습니다. 스타일은 별도 CSS 파일에 작성하는 것이 웹 표준 방식입니다.
 </div>
 
 <div class="wda-callout wda-cw" style="position:relative;">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:70px;bottom:-14px;right:14px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(14deg);">
+  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:46px;bottom:-14px;right:14px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(14deg);">
   <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">모든 브라우저에서 동작하는지 확인하세요</span>Chrome, Firefox, Safari, Edge 등 다양한 브라우저에서 동일하게 동작하는지 확인해야 합니다. 특정 브라우저에서만 지원하는 최신 CSS/JS 기능은 사용 전 호환성을 확인하세요.
 </div>
 
@@ -739,7 +732,7 @@ button:hover {
 ## 📝 핵심 정리
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:86px;top:-18px;left:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
+  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-18px;left:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
 </div>
 
 | 개념 | 요약 |
@@ -752,7 +745,7 @@ button:hover {
 | **16가지 UI 요소** | 버튼·입력창·내비게이션·드롭다운·체크박스·라디오·슬라이더·모달·카드·드래그앤드롭·스크롤·애니메이션·메뉴·사이드바·호버·스와이프 |
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:112px;top:-18px;right:10px;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-4deg);">
+  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:70px;top:-18px;right:10px;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-4deg);">
 </div>
 
 ---
