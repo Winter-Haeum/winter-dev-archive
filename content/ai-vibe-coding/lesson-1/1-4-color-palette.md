@@ -47,6 +47,10 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 원하는 웹사이트 스크린샷을 Claude에게 투입하여 컬러 분석 후 디자인 시스템 문서로 정리하는 실습입니다.
@@ -55,9 +59,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:80px;">
+<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:16px;">
   <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:188px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(7deg);">
-  <span class="wda-goal-label">학습 목표</span>
   🖼️ <strong>이미지 분석 활용</strong> — Claude CLI에 이미지를 투입하여 시각적 분석을 수행합니다.<br>
   🎨 <strong>컬러 추출 기법</strong> — 웹사이트의 색상 체계를 분석하여 체계적인 컬러 팔레트를 도출합니다.<br>
   📋 <strong>디자인 시스템 구축</strong> — 추출한 컬러를 구조화된 문서로 체계화합니다.<br>
@@ -65,8 +68,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-18px;left:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:24px;top:-10px;right:22%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
+  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:88px;top:-18px;left:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -96,7 +98,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 컬러팔레트는 역할에 따라 4가지로 구성됩니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:28px;top:-12px;right:26%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(18deg);">
+  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:38px;top:-14px;right:26%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(18deg);">
 </div>
 
 <div class="wda-fgrid">
@@ -107,8 +109,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:34px;top:-12px;right:12%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(18deg);">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:26px;top:-10px;left:28%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-8deg);">
+  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:-14px;right:12%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(18deg);">
 </div>
 
 ### 📐 디자인 시스템(Design System)이란?
@@ -119,7 +120,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (3).webp" alt="" style="position:absolute;width:30px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
+  <img src="/images/decoration/반짝이 (3).webp" alt="" style="position:absolute;width:46px;top:-14px;left:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
 </div>
 
 <div class="wda-memo">
@@ -131,13 +132,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:28px;top:-10px;left:16%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
+  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:44px;top:-14px;left:16%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
 </div>
 
 ### 🔑 디자인토큰(Design Token)이란?
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:180px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:204px;">
+  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:158px;top:-50px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
   <span class="wda-clabel">정의</span>
   디자인 결정사항을 코드로 표현한 최소 단위입니다. 색상, 크기, 간격 등을 변수로 관리하여 일관성을 보장하고, CSS 변수 / JSON / SCSS 등으로 관리합니다.
 </div>
@@ -150,12 +151,17 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 --font-size-heading: 2rem;
 ```
 
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:100px;top:-20px;right:4%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-8deg);">
+</div>
+
 ---
 
 ## ⚡ Claude를 활용한 컬러팔레트 추출의 혁신성
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:148px;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:100px;top:-20px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
+<div class="wda-callout wda-cw" style="position:relative;padding-left:88px;padding-right:118px;">
+  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:100px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
+  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:10px;left:10px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
   <span class="wda-clabel">기존 방식 vs 혁신</span>
   기존에는 디자이너가 수동으로 컬러를 선별하거나 전문 도구를 사용해야 했습니다. Claude의 이미지 분석 기능을 활용하면 이 과정이 획기적으로 달라집니다.
 </div>
@@ -222,19 +228,17 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:32px;top:-10px;right:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:26px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:-14px;right:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
 </div>
 
 <div class="wda-callout wda-cw" style="position:relative;padding-left:190px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:144px;top:-16px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:144px;top:-44px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
   <span class="wda-clabel">포인트</span>
   이미지를 Claude CLI 터미널에 드래그하면 AI가 이미지를 직접 읽고 색상을 분석합니다. 이미지 파일 경로가 자동으로 입력됩니다.
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 (6).webp" alt="" style="position:absolute;width:26px;top:-10px;right:28%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:30px;top:-8px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-15deg);">
+  <img src="/images/decoration/하트 (6).webp" alt="" style="position:absolute;width:46px;top:-14px;right:28%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
 </div>
 
 <div class="wda-prompt-head">📋 컬러 분석 프롬프트 — 아래 코드 블록 전체를 복사하여 붙여넣으세요.</div>
@@ -269,6 +273,10 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 분석 결과를 바탕으로 포트폴리오 프로젝트에 적용할 수 있는 체계적인 디자인 시스템 문서를 생성합니다.
 
 <div class="wda-prompt-head">📋 디자인 시스템 문서화 프롬프트 — 아래 코드 블록 전체를 복사하여 붙여넣으세요.</div>
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-22px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+</div>
 
 ```
 위에서 분석한 컬러 팔레트를 기반으로 "컬러 팔레트 디자인 시스템.md" 파일을 생성해줘.
@@ -319,6 +327,10 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 파일을 직접 생성해서 저장해줘.
 ```
 
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-14px;right:26%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-15deg);">
+</div>
+
 <div class="wda-callout wda-cs" style="position:relative;padding-right:232px;">
   <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:186px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
   <span class="wda-clabel">완료 확인</span>
@@ -326,7 +338,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 (4).webp" alt="" style="position:absolute;width:28px;top:-10px;right:34%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
+  <img src="/images/decoration/핀 (4).webp" alt="" style="position:absolute;width:36px;top:-14px;right:34%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -344,12 +356,9 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 - [ ] "컬러 팔레트 디자인 시스템.md" 파일 저장 확인
 - [ ] CSS 변수 형태의 컬러 코드 확보
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:30px;top:-12px;left:40%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
-<div class="wda-done" style="position:relative;padding-top:16px;">
-  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:116px;top:-22px;left:10px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(-7deg);">
+<div class="wda-done" style="position:relative;padding-top:28px;margin-top:2.2rem;">
+  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:116px;top:-10px;left:10px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(-7deg);">
+  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:44px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
   <div class="wda-done-ico">🎨</div>
   <div class="wda-done-ttl">컬러 팔레트 추출 완료!</div>
   <div>원하는 웹사이트의 컬러를 분석하고 디자인 시스템 문서까지 구축했습니다. 이제 디자이너처럼 색상을 분석하고 개발자처럼 코드로 관리할 수 있습니다!</div>

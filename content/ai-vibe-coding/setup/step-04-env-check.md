@@ -47,18 +47,22 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;padding-right:200px;padding-left:14px;">
   <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:184px;top:-26px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-9deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:28px;bottom:-10px;left:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
-  <span class="wda-goal-label">학습 목표</span>setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>📁 <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>🤖 <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
+  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:64px;top:-52px;right:8%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
+  setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>📁 <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>🤖 <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-18px;left:10%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
+  <img src="/images/decoration/반짝이 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-18px;right:24px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -80,7 +84,7 @@ VSCode 왼쪽 패널에서 다음과 같은 구조가 보여야 합니다.
 
 <div class="wda-memo" style="position:relative;padding-right:172px;">
   <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:156px;top:-22px;right:4px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(5deg);">
-  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:112px;top:-10px;right:10px;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-4deg);">
+  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:112px;top:-10px;right:14px;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-4deg);">
   <span class="wda-memo-label">📂 예상 디렉토리 구조</span>
   <div class="wda-memo-body">
 
@@ -111,10 +115,6 @@ my_ai_web/
   </div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:40px;top:-12px;right:26%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(16deg);">
-</div>
-
 **구조 확인 체크리스트**
 
 - [ ] `.claude` 폴더와 `settings.local.json` 파일 존재
@@ -126,7 +126,7 @@ my_ai_web/
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (15).webp" alt="" style="position:absolute;width:62px;top:-8px;right:20%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-16deg);">
+  <img src="/images/decoration/꽃 아이콘 (15).webp" alt="" style="position:absolute;width:62px;top:-8px;left:20%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(16deg);">
 </div>
 
 ## ⚙️ 동작 원리
@@ -158,7 +158,6 @@ my_ai_web/
 실행 위치에 따라 CLAUDE.md를 읽는 범위가 달라지기 때문입니다.
 
 <div class="wda-callout wda-ci" style="position:relative;">
-  <img src="/images/decoration/꽃 아이콘 (8).webp" alt="" style="position:absolute;width:46px;bottom:-10px;right:14px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(14deg);">
   <span class="wda-clabel">실행 위치 중요</span><code>lecture1/</code>에서 실행 → 로키 역할 + @docs 연결 + 루트 CLAUDE.md 동시 인식
 </div>
 
@@ -180,10 +179,6 @@ VSCode에서 **Terminal → New Terminal** 을 선택하여 PowerShell 터미널
 cd lecture1
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:40px;top:-14px;left:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(18deg);">
-</div>
-
 #### ③ Claude MCP 모드로 실행
 
 MCP 설정을 인식하는 모드로 Claude Code를 실행합니다.
@@ -200,7 +195,7 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 
 <div class="wda-callout wda-cs" style="position:relative;padding-right:178px;padding-left:14px;">
   <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-18px;right:6px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-10deg);">
-  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:28px;top:-22px;right:140px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-14deg);">
+  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:64px;top:-26px;right:144px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-14deg);">
   <span class="wda-clabel">점검 준비 완료</span>아래 프롬프트를 복사해서 Claude에게 붙여넣으면 5단계 자동 점검이 시작됩니다!
 </div>
 
@@ -268,10 +263,6 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
   <span class="wda-clabel">재실행 전 확인</span>어느 단계 프롬프트를 재실행해야 하는지 Claude가 명시해줍니다. 점검 결과의 ❌ 항목을 기준으로 해당 단계 프롬프트만 다시 실행하면 됩니다.
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:38px;top:-10px;right:30%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
-</div>
-
 ---
 
 ## 📝 핵심 정리
@@ -287,10 +278,6 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 | **GitHub 스킬** | `.claude/skills/gh_cli/skill.md` 파일 정상 존재 확인 |
 | **React 환경** | `MUI`, `theme.js`, `ThemeProvider` 모두 정상 설정 확인 |
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:60px;top:-14px;right:34%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-4deg);">
-</div>
-
 ---
 
 ### 최종 점검 체크리스트
@@ -302,13 +289,9 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 - [ ] `theme.js` + ThemeProvider 적용 확인
 - [ ] 1차 수업 준비 상태: ✅ 준비완료
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:44px;top:-14px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-6deg);">
-</div>
-
 <div class="wda-done" style="position:relative;padding-top:14px;">
   <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:110px;top:-22px;right:24px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:20px;bottom:8px;right:14px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(18deg);">
+  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:44px;bottom:6px;right:14px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(18deg);">
   <div class="wda-done-ico">✅</div>
   <div class="wda-done-ttl">환경 세팅 완료</div>
   <div>모든 항목이 정상 확인되었다면 1차 수업의 본격적인 React 개발을 시작할 준비가 완료되었습니다!</div>

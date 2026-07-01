@@ -49,19 +49,21 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:104px;top:-4px;right:30px;z-index:1;pointer-events:none;opacity:.78;transform:rotate(4deg);">
+  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:88px;top:-4px;right:30px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(4deg);">
 </div>
 
 <div class="wda-goal" style="position:relative;padding-right:205px;">
   <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:185px;opacity:.90;transform:rotate(-10deg);top:-26px;right:6px;z-index:3;pointer-events:none;">
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:20px;top:-14px;right:192px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-18deg);">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:28px;bottom:-10px;left:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
-  <span class="wda-goal-label">학습 목표</span>하나의 강력한 통합 프롬프트로 <strong>Claude 권한 최적화</strong>, <strong>React 개발환경 구축(Vite + MUI)</strong>, <strong>CLAUDE.md 시스템</strong> 구성까지 모든 작업을 자동으로 완료한다.
+  하나의 강력한 통합 프롬프트로 <strong>Claude 권한 최적화</strong>, <strong>React 개발환경 구축(Vite + MUI)</strong>, <strong>CLAUDE.md 시스템</strong> 구성까지 모든 작업을 자동으로 완료한다.
 </div>
 
 ---
@@ -72,28 +74,21 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이 단계에서는 하나의 강력한 프롬프트로 다음 모든 작업을 자동 완료합니다.
 
-<div class="wda-fgrid" style="position:relative;padding-top:26px;">
-  <img src="/images/decoration/마스킹 테이프 (17).webp" alt="" style="position:absolute;width:116px;top:-12px;left:8px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-5deg);">
+<div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">🔐</div><div class="wda-fcard-ttl">Claude 권한 최적화</div><div class="wda-fcard-dsc">.claude/settings.local.json 자동 생성 · 빠른 실행</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">⚛️</div><div class="wda-fcard-ttl">React 개발환경</div><div class="wda-fcard-dsc">Vite + MUI 완전 생태계 설치</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📄</div><div class="wda-fcard-ttl">문서 시스템</div><div class="wda-fcard-dsc">외부 문서 다운로드 · @ 연결자 설정</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">CLAUDE.md 구축</div><div class="wda-fcard-dsc">프로젝트별 역할과 규칙 설정</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🚀</div><div class="wda-fcard-ttl">첫 수업 준비</div><div class="wda-fcard-dsc">lecture1 프로젝트 완전 세팅</div></div>
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:26px;bottom:-10px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
 </div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="position:absolute;width:28px;top:-14px;left:16%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
-</div>
 
 ### 2. 사전 준비 확인사항
 
 <div class="wda-callout wda-cw" style="position:relative;padding-right:185px;">
   <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:165px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:44px;top:-28px;right:182px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
-  <img src="/images/decoration/꽃 아이콘 (14).webp" alt="" style="position:absolute;width:30px;bottom:-12px;left:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
+  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-28px;right:182px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
   <span class="wda-clabel">사전 조건</span>PowerShell에서 Claude를 <strong>최소 1회 실행하고 로그인을 완료</strong>했는지 확인하세요. <code>my_ai_web</code> 디렉토리에서 작업을 진행합니다.</div>
 
 ---
@@ -104,10 +99,14 @@ VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한�
 
 #### ① VSCode 환경 준비
 
+<div style="position:relative;padding-right:62px;">
+<img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:50px;top:4px;right:4px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(8deg);">
+
 1. VSCode 프로그램 실행
 2. **File → Open Folder** → `my_ai_web` 폴더 선택
 3. **Terminal → New Terminal** → 드롭다운에서 **PowerShell** 선택
 4. 터미널 프롬프트에 `PS>` 가 표시되는지 확인
+</div>
 
 ---
 
@@ -123,10 +122,6 @@ VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한�
 
 터미널 프롬프트가 `PS>` 상태로 돌아왔는지 확인하세요.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:18px;top:-8px;right:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(20deg);">
-</div>
-
 ---
 
 #### ② Claude 실행
@@ -137,38 +132,24 @@ my_ai_web 디렉토리의 PowerShell 터미널에서 다음 명령어를 실행�
 claude --dangerously-skip-permissions
 ```
 
-<div class="wda-callout wda-ci" style="position:relative;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:24px;bottom:-10px;right:14px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">--dangerously-skip-permissions 옵션이란?</span>각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있도록 허용하는 옵션입니다. 신뢰할 수 있는 개발 환경에서 한 번에 많은 작업을 처리할 때 사용합니다.</div>
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:36px;top:-12px;right:16px;z-index:4;pointer-events:none;opacity:.80;transform:rotate(12deg);">
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:108px;top:-4px;right:25%;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-3deg);">
-</div>
-
-## ⚙️ 동작 원리
+## ⚙️ 동작 원리<img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="display:inline-block;width:62px;vertical-align:middle;margin-left:14px;opacity:.76;transform:rotate(-10deg);pointer-events:none;">
 
 ### 자동화 6단계 흐름
 
 통합 프롬프트를 Claude에 붙여넣으면 다음 6단계가 순서대로 자동 실행됩니다.
 
-<div class="wda-steps" style="position:relative;padding-top:28px;">
-  <img src="/images/decoration/마스킹 테이프 (1).webp" alt="" style="position:absolute;width:118px;top:-12px;left:8px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(-6deg);">
+<div class="wda-steps">
 <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Claude 권한 설정 최적화</div><div class="wda-sdsc">결과물: <code>.claude/settings.local.json</code></div></div></div>
 <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">React 개발환경 완전 구축</div><div class="wda-sdsc">결과물: <code>lecture1/my-react-app</code> (Vite + MUI)</div></div></div>
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">문서 시스템 다운로드</div><div class="wda-sdsc">결과물: <code>lecture1/docs/</code> 내 3개 문서</div></div></div>
 <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">CLAUDE.md 시스템 구축</div><div class="wda-sdsc">결과물: 루트 + lecture1 이중 구조</div></div></div>
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">MUI 테마프로바이더 적용</div><div class="wda-sdsc">결과물: <code>theme.js</code> + <code>main.jsx</code> 수정</div></div></div>
 <div class="wda-step"><div class="wda-snum">6</div><div class="wda-sbody"><div class="wda-sttl">최종 확인 및 템플릿화</div><div class="wda-sdsc">결과물: <code>_template_settings</code> 디렉토리</div></div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:22px;top:-10px;left:14%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(16deg);">
 </div>
 
 ### 실행 순서 가이드
@@ -184,15 +165,10 @@ claude --dangerously-skip-permissions
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:46px;top:-14px;right:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
-</div>
-
 ### 예상 소요 시간
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:192px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:116px;opacity:.90;transform:rotate(8deg);top:-38px;left:8px;z-index:3;pointer-events:none;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:20px;top:16px;left:138px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-14deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:155px;">
+  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:93px;opacity:.90;transform:rotate(8deg);top:-28px;left:8px;z-index:3;pointer-events:none;">
   <span class="wda-clabel">소요 시간</span>전체 과정은 약 <strong>5~10분</strong> 소요됩니다. 네트워크 상태에 따라 패키지 설치 및 파일 다운로드 시간이 달라질 수 있습니다. 모든 과정이 자동으로 진행되므로 <strong>중간에 중단하지 마세요.</strong></div>
 
 ---
@@ -208,7 +184,7 @@ claude --dangerously-skip-permissions
 아래 프롬프트를 복사하여 Claude Code에 붙여넣으면 모든 환경 설정이 자동으로 완료됩니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:96px;top:-6px;right:20px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(3deg);">
+  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:42px;top:-14px;right:20px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
 </div>
 
 <div class="wda-prompt-head">📋 통합 세팅 프롬프트 — 아래 코드 블록 전체를 복사하여 Claude Code에 붙여넣으세요.</div>
@@ -537,16 +513,12 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:42px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(8deg);">
+  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:50px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 ## ⚠️ 주의사항
 
 ### 문제 해결 가이드
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (10).webp" alt="" style="position:absolute;width:22px;top:-10px;right:12%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-16deg);">
-</div>
 
 | 오류 유형 | 해결 방법 |
 |-----------|-----------|
@@ -558,15 +530,9 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 <div class="wda-callout wda-cw" style="position:relative;padding-right:195px;">
   <img src="/images/character/깜짝 놀람.webp" alt="" style="position:absolute;width:175px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
-  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:20px;top:-26px;right:184px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-22deg);">
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:28px;bottom:-12px;left:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
   <span class="wda-clabel">프로세스 관리</span>개발 서버 종료 시 Claude Code 프로세스는 절대 건드리지 않기. <strong>개발 서버 PID만 정확히 종료</strong>할 것.</div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-16px;right:20%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(10deg);">
-</div>
 
 ## 📝 핵심 정리
 
@@ -574,10 +540,9 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 통합 세팅이 성공적으로 완료되면 다음 사항들을 확인할 수 있습니다.
 
-<div class="wda-memo" style="position:relative;padding-right:185px;">
+<div class="wda-memo" style="position:relative;padding-right:260px;">
   <img src="/images/character/행운버프.webp" alt="" style="position:absolute;width:165px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:96px;top:-10px;right:8px;z-index:1;pointer-events:none;opacity:.78;transform:rotate(6deg);">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:28px;bottom:-12px;left:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
+  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:78px;bottom:10px;right:175px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-6deg);">
   <span class="wda-memo-label">✅ 완료 후 확인사항</span><div class="wda-memo-body">
 📁 <strong>디렉토리 구조</strong> — <code>lecture1/my-react-app</code> 프로젝트 생성<br>
 📦 <strong>패키지 설치</strong> — MUI, React Router 등 모든 필수 패키지 설치<br>
@@ -596,10 +561,6 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 ### 설치되는 핵심 패키지 정리
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:26px;top:-12px;left:6%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
-</div>
-
 | 패키지 | 역할 |
 |--------|------|
 | `react` | React 핵심 라이브러리 |
@@ -614,14 +575,8 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 ### 환경 구축 완료!
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:62px;top:-18px;right:16%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(14deg);">
-</div>
-
 <div class="wda-done" style="position:relative;padding-left:200px;">
   <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:155px;opacity:.90;transform:rotate(6deg);top:-22px;left:8px;z-index:3;pointer-events:none;">
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:20px;top:-10px;left:168px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-16deg);">
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:30px;top:-10px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">통합 세팅 완료!</div>
   <div>이 단계를 완료하면 수업 1-1, 1-2, 1-3이 동시에 완성됩니다.<br>이후 <code>_template_settings</code>를 복사해서 새 프로젝트를 빠르게 세팅할 수 있습니다.</div>
@@ -635,3 +590,7 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 - [공식 MUI 시작하기](https://mui.com/material-ui/getting-started/)
 - [공식 React Router 문서](https://reactrouter.com/)
 - [강사 문서 원본 (GitHub)](https://github.com/hw5511/vibe-web/tree/main/docs)
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:124px;bottom:-10px;right:4%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(20deg);">
+</div>

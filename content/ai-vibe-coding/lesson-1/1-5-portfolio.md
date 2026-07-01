@@ -64,6 +64,10 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 지금까지 학습한 모든 내용과 step5에서 추출한 컬러 팔레트를 활용하여 완성도 높은 포트폴리오 사이트를 제작하는 최종 프로젝트입니다.
@@ -72,23 +76,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:80px;">
+<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:16px;">
   <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:188px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
-  <span class="wda-goal-label">학습 목표</span>
+  <img src="/images/decoration/꽃 아이콘 (8).webp" alt="" style="position:absolute;width:88px;top:-22px;right:198px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
   🔗 <strong>종합 활용</strong> — 수업 1-1~1-5에서 학습한 모든 기술 종합 적용<br>
   🎨 <strong>커스텀 컬러 시스템</strong> — step5에서 추출한 컬러 팔레트를 실제 프로젝트에 적용<br>
   🏗️ <strong>포트폴리오 구조 설계</strong> — 3페이지 구조의 포트폴리오 사이트 기획<br>
   🚀 <strong>완성형 프로젝트</strong> — 실제 배포 가능한 수준의 포트폴리오 완성
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (8).webp" alt="" style="position:absolute;width:28px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:26px;top:-10px;right:28%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(16deg);">
-</div>
-
 ---
 
 ## 📖 수업 개요
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:80px;top:-2.6rem;left:220px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(6deg);">
+</div>
 
 <div class="wda-callout wda-ci" style="position:relative;padding-left:180px;">
   <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-7deg);">
@@ -103,7 +106,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (5).webp" alt="" style="position:absolute;width:28px;top:-10px;left:30%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
+  <img src="/images/decoration/반짝이 (5).webp" alt="" style="position:absolute;width:46px;top:-14px;left:30%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
 </div>
 
 ---
@@ -118,16 +121,12 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
     <div class="wda-cbox-ttl">3페이지 구조</div>
     <div class="wda-cbox-body">🏠 <strong>Home</strong> — 메인 페이지 (5개 섹션)<br>👤 <strong>About Me</strong> — 상세 자기소개<br>🗄️ <strong>Projects</strong> — 포트폴리오 작품 목록</div>
   </div>
-  <div class="wda-cbox wda-cbox-flex">
+  <div class="wda-cbox wda-cbox-flex" style="position:relative;overflow:visible;">
+    <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:114px;top:-30px;right:-20px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(20deg);">
     <span class="wda-cbox-label">🏠 Home 페이지 · 5개 섹션</span>
     <div class="wda-cbox-ttl">섹션 구성</div>
     <div class="wda-cbox-body">🦸 <strong>Hero</strong> — 메인 비주얼, 이름, 간단 소개<br>👤 <strong>About Me</strong> — 간단한 자기소개<br>🌲 <strong>Skill Tree</strong> — 기술 스택 시각화<br>🗂️ <strong>Projects</strong> — 대표작 썸네일<br>📬 <strong>Contact</strong> — 연락처, SNS, 메시지 폼</div>
   </div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:26px;top:-10px;right:26%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(20deg);">
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:24px;top:-8px;left:20%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-8deg);">
 </div>
 
 ---
@@ -136,14 +135,14 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 수업 1-1~1-3에서 학습한 내용을 종합하여 진행합니다.
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:16px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-top:16px;">
   <img src="/images/decoration/마스킹 테이프 (20).webp" alt="" style="position:absolute;width:108px;top:-22px;right:20px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(-7deg);">
   <span class="wda-clabel">핵심 포인트</span>
   지금까지 배운 모든 기술을 활용해 완성도 높은 포트폴리오 템플릿을 만들어봅시다!
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:34px;top:-12px;right:16px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(15deg);">
+  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:36px;top:-14px;right:16px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(15deg);">
 </div>
 
 <div class="wda-prompt-head">💬 Claude 프롬프트 — 포트폴리오 템플릿 생성</div>
@@ -188,8 +187,7 @@ my-portfolio 프로젝트는 별도의 repo를 생성해서 거기에 배포해�
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:24px;top:-8px;left:30%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(12deg);">
-  <img src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="position:absolute;width:28px;top:-12px;right:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-16deg);">
+  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:-14px;left:30%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(12deg);">
 </div>
 
 ---
@@ -198,6 +196,10 @@ my-portfolio 프로젝트는 별도의 repo를 생성해서 거기에 배포해�
 
 완성될 포트폴리오 템플릿의 구조와 특징을 미리 확인해보세요.
 
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="position:absolute;width:44px;top:-14px;left:14%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-16deg);">
+</div>
+
 <div class="wda-callout wda-ci" style="position:relative;padding-right:232px;">
   <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:188px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
   <span class="wda-clabel">프로젝트 구조</span>
@@ -205,7 +207,7 @@ my-portfolio 프로젝트는 별도의 repo를 생성해서 거기에 배포해�
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 (7).webp" alt="" style="position:absolute;width:26px;top:-10px;left:24%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+  <img src="/images/decoration/핀 (7).webp" alt="" style="position:absolute;width:36px;top:-14px;left:24%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
 </div>
 
 ```
@@ -227,12 +229,20 @@ my-portfolio/
 │   └── theme.js (MUI 테마)
 ```
 
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:36px;top:-14px;right:18%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(16deg);">
+</div>
+
 | 섹션 | 목적 |
 |------|------|
 | 🎯 **개인 브랜딩** | 자신만의 특색과 강점을 명확히 드러내는 Hero 섹션 |
 | 🌲 **기술 스택 시각화** | 보유 기술을 직관적으로 보여주는 Skill Tree 섹션 |
 | 🗂️ **프로젝트 쇼케이스** | 대표작을 효과적으로 전시하는 Projects 섹션 |
 | 📬 **연락 방법 제공** | 쉽게 연락할 수 있는 Contact 섹션 |
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:62px;top:-14px;right:6%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
+</div>
 
 ---
 
@@ -248,7 +258,7 @@ my-portfolio/
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-16px;right:14px;z-index:4;pointer-events:none;opacity:.78;transform:rotate(-12deg);">
+  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-16px;right:14px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -257,10 +267,15 @@ my-portfolio/
 
 이번 수업에서 만든 기본 틀을 바탕으로 다음 회차에 걸쳐 완성해 나갑니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:192px;">
-  <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:144px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <span class="wda-clabel">앞으로의 여정</span>
-  지금 만드는 틀이 2~4회차에 걸쳐 점점 멋진 포트폴리오로 완성됩니다. 기초를 탄탄하게 다져두세요!
+<div class="wda-callout wda-cs" style="position:relative;padding-left:36px;padding-right:158px;">
+  <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:144px;top:-18px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+  <div style="display:flex;align-items:center;gap:28px;">
+    <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="width:96px;flex-shrink:0;opacity:.68;transform:rotate(-12deg);pointer-events:none;">
+    <div>
+      <span class="wda-clabel" style="margin-bottom:8px;">앞으로의 여정</span>
+      <span style="display:block;">지금 만드는 틀이 2~4회차에 걸쳐 점점 멋진 포트폴리오로 완성됩니다. 기초를 탄탄하게 다져두세요!</span>
+    </div>
+  </div>
 </div>
 
 <div class="wda-flow">
@@ -272,8 +287,7 @@ my-portfolio/
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 (3).webp" alt="" style="position:absolute;width:26px;top:-10px;right:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:24px;top:-8px;left:24%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-15deg);">
+  <img src="/images/decoration/하트 (3).webp" alt="" style="position:absolute;width:46px;top:-14px;right:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
 </div>
 
 ---
@@ -298,10 +312,15 @@ my-portfolio/
   </div>
 </div>
 
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-14px;left:22%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-15deg);">
+</div>
+
 ---
 
 <div class="wda-done" style="position:relative;padding-right:200px;padding-left:14px;text-align:left;">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:152px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
+  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-75px;right:80px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-8deg);">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">1회차 모든 수업을 완료하셨습니다!</div>
   <div>React 개발환경 구축부터 포트폴리오 사이트 기획까지, 현대적 웹 개발의 전체 과정을 경험하셨습니다.</div>

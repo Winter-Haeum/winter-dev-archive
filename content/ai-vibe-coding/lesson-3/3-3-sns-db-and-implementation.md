@@ -48,21 +48,20 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;">
-  <span class="wda-goal-label">학습 목표</span>
+<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:110px;overflow:visible;">
+  <img src="/images/decoration/소품 아이콘 (4).webp" alt="" style="position:absolute;width:82px;top:10px;right:14px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(8deg);">
   🔄 <strong>역방향 학습</strong> — UI 화면을 보고 필요한 DB 테이블 구조를 직접 발견하는 역방향 분석 방법 체험<br>
   🗄️ <strong>DB 구조 이해</strong> — users · posts · comments 테이블의 관계와 연결 방식을 자연스럽게 이해한다<br>
   ✏️ <strong>DB 구조서 작성</strong> — 발견한 내용을 실제 DB 설계 문서 형태로 정리할 수 있다<br>
   🚀 <strong>미니 SNS 구현</strong> — 작성한 DB 구조서를 바탕으로 AI와 협력하여 실제 SNS를 구현·배포한다
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:28px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:26px;top:-10px;right:26%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -78,11 +77,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">📱</div><div class="wda-fcard-ttl">SNS 특화</div><div class="wda-fcard-dsc">사용자·게시물·댓글 관계는 대부분의 SNS에서 공통 패턴 · 응용 범위 넓음</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:36px;top:-18px;right:30px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(18deg);">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:26px;top:-12px;left:28%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
-</div>
-
 ---
 
 ## 📊 먼저 알아두기: 테이블(Table) 개념
@@ -95,17 +89,13 @@ DB 테이블은 **엑셀 스프레드시트**처럼 행(row)과 열(column)로 �
 | 2 | lee@test.com | 이영희 | 2026-01-16 |
 | 3 | park@test.com | 박민준 | 2026-01-17 |
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:220px;padding-top:18px;">
+<div class="wda-callout wda-cy" style="position:relative;padding-right:220px;padding-top:18px;overflow:visible;">
   <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(10deg);">
+  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:51px;top:-14px;right:198px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
   <span class="wda-clabel">핵심 개념</span>
   📌 <strong>행(Row)</strong> = 데이터 한 건 (사용자 1명, 게시물 1개 등)<br>
   📌 <strong>열(Column)</strong> = 데이터 속성 (이름, 이메일, 날짜 등)<br>
   📌 <strong>id</strong> = 각 행을 구분하는 고유 번호 (자동 생성) · 다른 테이블과 연결할 때 사용
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:22px;top:-10px;right:28%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(16deg);">
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:34px;top:-16px;left:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -125,8 +115,8 @@ SNS 화면을 하나씩 보면서 "이 정보를 저장하려면 어떤 DB가 �
   Q4. "이 정보들을 모두 저장하는 테이블 이름은 뭐가 좋을까요?" → users 테이블!
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:26px;top:-32px;right:20px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-12deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-top:14px;overflow:visible;">
+  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;width:116px;top:50%;left:54%;z-index:2;pointer-events:none;opacity:.72;transform:translate(-50%,-50%) scaleX(-1) rotate(-8deg);">
   <span class="wda-clabel">발견! — users 테이블</span>
   <strong>id</strong> — 사용자 고유 번호 (자동 생성)<br>
   <strong>email</strong> — 이메일 주소 (로그인에 사용)<br>
@@ -179,7 +169,10 @@ SNS 화면을 하나씩 보면서 "이 정보를 저장하려면 어떤 DB가 �
 
 ---
 
-## 🔗 2단계: SNS 테이블 연결 관계 이해하기 (10분)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>🔗 2단계: SNS 테이블 연결 관계 이해하기 (10분)</h2>
+  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:4px;right:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(14deg);">
+</div>
 
 3개의 테이블이 서로 어떻게 연결되는지 살펴봅니다.
 
@@ -201,18 +194,13 @@ SNS 화면을 하나씩 보면서 "이 정보를 저장하려면 어떤 DB가 �
   </div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:28px;top:-14px;left:18px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:38px;top:-18px;right:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
 ---
 
 ## 📝 3단계: SNS DB 구조서 작성하기 (15분)
 
 발견한 내용을 정리하여 나만의 DB 구조서를 작성합니다. 이 구조서는 다음 단계에서 AI에게 프로젝트 생성을 요청할 때 핵심 자료가 됩니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:220px;padding-top:18px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-right:220px;padding-top:18px;">
   <img src="/images/character/집중탐구.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
   <span class="wda-clabel">진행 방식</span>
   ⏱️ <strong>강사와 함께 토론 (7분)</strong> — "우리 SNS에는 어떤 컬럼이 더 필요할까요?" · 추가 아이디어 논의<br>
@@ -258,19 +246,15 @@ SNS 화면을 하나씩 보면서 "이 정보를 저장하려면 어떤 DB가 �
 == DB 설계 완료 ==
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (7).webp" alt="" style="position:absolute;width:28px;top:-12px;right:32%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:36px;top:-16px;left:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-</div>
-
 ---
 
 ## 🚀 4단계: 미니 SNS 프로젝트 구현 및 배포
 
 DB 구조서가 완성되었습니다. 이제 AI를 활용하여 실제 미니 SNS 프로젝트를 구현하고 GitHub Pages로 배포합니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:148px;padding-right:210px;padding-top:18px;">
-  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:118px;top:-12px;left:3px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:108px;padding-right:210px;padding-top:18px;overflow:visible;">
+  <img src="/images/decoration/소품 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:50%;left:20px;z-index:2;pointer-events:none;opacity:.78;transform:translateY(-50%) rotate(6deg);">
+  <img src="/images/decoration/반짝이 아이콘 (9).webp" alt="" style="position:absolute;width:36px;top:8px;left:12px;z-index:3;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
   <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:168px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(10deg);">
   <span class="wda-clabel">기획 → 구현으로 전환</span>
   지금까지 SNS UI 분석 → DB 구조 발견 → 구조서 작성까지 마쳤습니다. 이제 작성한 DB 구조서를 AI에게 전달하고, <strong>프롬프트 한 번</strong>으로 완전한 미니 SNS를 구현해봅니다!
@@ -339,14 +323,12 @@ SNS 핵심 기능:
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 자동 배포</div><div class="wda-sdsc">GitHub Actions 워크플로우 설정 → 커밋 푸시 → 배포 완료 URL 안내</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-22px;right:22px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-16deg);">
-  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:28px;top:-14px;left:20px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;width:88px;top:-26px;right:70px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-16deg);">
 </div>
 
-<div class="wda-done" style="position:relative;padding-left:148px;padding-top:24px;padding-bottom:20px;">
+<div class="wda-done" style="position:relative;padding-left:148px;padding-top:24px;padding-bottom:20px;overflow:visible;">
   <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:26px;top:-10px;right:14px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(14deg);">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">3-3 완료!</div>
   <div>SNS UI에서 DB 구조를 직접 발견하고, AI 협업으로 실제 미니 SNS까지 구현·배포했습니다. 역방향 학습법으로 DB 개념이 훨씬 자연스럽게 이해됐을 것입니다!</div>

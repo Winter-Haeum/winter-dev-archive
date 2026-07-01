@@ -50,13 +50,16 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:210px;padding-top:16px;padding-bottom:130px;">
+<div class="wda-goal" style="position:relative;padding-right:210px;padding-top:16px;padding-bottom:16px;">
   <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:188px;top:-26px;right:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(4deg);">
-  <span class="wda-goal-label">학습 목표</span>
   🗄️ <strong>Supabase 계정 구축</strong> — 클라우드 데이터베이스 프로젝트 생성<br>
   ⚙️ <strong>MCP 설치</strong> — Claude에 Supabase MCP Server 등록<br>
   🔐 <strong>OAuth 인증</strong> — 브라우저 인증으로 안전하게 연결<br>
@@ -67,8 +70,9 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 진행 순서
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:176px;padding-top:16px;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:158px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:242px;padding-top:16px;">
+  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:158px;top:120px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
+  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:64px;top:-14px;right:170px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(6deg);">
   <span class="wda-clabel">전체 진행 순서</span>
   Supabase 계정 생성 → MCP 설치 → OAuth 인증 → 연결 확인 순서로 진행합니다.
 </div>
@@ -82,7 +86,10 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 사전 준비: Supabase 계정 생성
+<div style="display:flex;align-items:center;gap:18px;margin-top:1.5rem;margin-bottom:0.75rem;">
+  <h2 style="margin:0;">사전 준비: Supabase 계정 생성</h2>
+  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="width:62px;opacity:.60;transform:rotate(-8deg);pointer-events:none;flex-shrink:0;">
+</div>
 
 강사의 안내에 따라 수강생과 함께 진행합니다.
 
@@ -117,8 +124,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## Supabase MCP 설치
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:232px;padding-top:16px;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:182px;top:-30px;left:-10px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(5deg);">
+<div class="wda-callout wda-cw" style="position:relative;padding-left:108px;padding-top:16px;">
+  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:88px;top:50%;left:8px;transform:translateY(-50%) rotate(-8deg);z-index:2;pointer-events:none;opacity:.82;">
   <span class="wda-clabel">⚠ Claude 완전 종료 필수</span>
   Claude Code가 실행 중이면 먼저 <code>/exit</code>로 종료하세요. 설치 명령어는 반드시 Claude 밖 터미널에서 실행해야 합니다.
 </div>
@@ -126,13 +133,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 Claude를 완전히 종료한 상태에서 터미널에 아래 명령어를 실행합니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:34px;top:-12px;right:18px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(10deg);">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:28px;top:-12px;right:62px;z-index:2;pointer-events:none;opacity:.60;transform:rotate(-15deg);">
+  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:-56px;right:18px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
 </div>
 
 ```bash
 claude mcp add --transport http supabase https://mcp.supabase.com/mcp
 ```
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:40px;top:-10px;right:76px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-15deg);">
+</div>
 
 <div class="wda-callout wda-ci" style="position:relative;padding-right:198px;padding-top:16px;">
   <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:180px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-6deg);">
@@ -152,15 +162,14 @@ claude mcp add --transport http supabase https://mcp.supabase.com/mcp
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">브라우저에서 로그인</div><div class="wda-sdsc">Supabase 로그인 화면에서 GitHub 계정으로 로그인 → Authorize 클릭 → 인증 완료</div></div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:234px;padding-top:16px;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:184px;top:-28px;left:-12px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(7deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:110px;padding-top:16px;">
+  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:92px;top:6px;left:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(7deg);">
   <span class="wda-clabel">연결 성공 확인</span>
   <code>/mcp</code> 명령어에서 <strong>supabase ✔ connected</strong> 상태가 표시되면 완료입니다!
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:44px;top:-12px;right:22px;z-index:2;pointer-events:none;opacity:.58;transform:rotate(-8deg);">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:30px;top:-12px;right:76px;z-index:2;pointer-events:none;opacity:.56;transform:rotate(14deg);">
+  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:48px;top:-12px;right:22px;z-index:2;pointer-events:none;opacity:.58;transform:rotate(14deg);">
 </div>
 
 ---
@@ -168,7 +177,7 @@ claude mcp add --transport http supabase https://mcp.supabase.com/mcp
 ## 설정 완료 확인
 
 <div class="wda-memo" style="position:relative;padding-right:198px;padding-top:16px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:178px;top:-28px;right:4px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-5deg);">
+  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:178px;top:-58px;right:4px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-5deg);">
   <span class="wda-memo-label">확인 방법 3가지</span>
   <div class="wda-memo-body">
   📡 <strong>/mcp 연결 확인</strong> — <code>Supabase MCP Server ✔ connected</code> · 사용 가능한 도구 19개 표시<br>
@@ -186,8 +195,8 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 ```
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:30px;top:-12px;left:28%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-12deg);">
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:26px;top:-10px;right:32%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(18deg);">
+  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:58px;top:-18px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
+  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:38px;top:16px;right:26%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(18deg);">
 </div>
 
 ---
@@ -199,7 +208,11 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 <div class="wda-cbox"><span class="wda-cbox-label">MCP 목록에 없음</span><div class="wda-cbox-ttl">원인: Claude 실행 중 설치</div><div class="wda-cbox-body">Claude 완전 종료 후 설치 명령어 재실행<br><code>claude mcp add --transport http supabase https://mcp.supabase.com/mcp</code></div></div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:198px;padding-top:16px;padding-bottom:70px;">
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/하트 (3).webp" alt="" style="position:absolute;width:54px;top:-10px;left:36%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-10deg);">
+</div>
+
+<div class="wda-callout wda-cw" style="position:relative;padding-right:198px;padding-top:16px;padding-bottom:14px;">
   <img src="/images/character/어려움.webp" alt="" style="position:absolute;width:180px;top:-28px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
   <span class="wda-clabel">강사 지원이 필요한 경우</span>
   브라우저 OAuth 창이 열리지 않거나 · 인증 후에도 계속 연결 실패하거나 · 네트워크 연결 문제가 발생한 경우 강사에게 도움을 요청하세요.
@@ -245,6 +258,7 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 <div class="wda-done" style="position:relative;padding-right:202px;padding-bottom:28px;padding-top:20px;">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:186px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-6deg);">
+  <img src="/images/decoration/반짝이 (5).webp" alt="" style="position:absolute;width:52px;top:-16px;left:16px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-14deg);">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">Supabase MCP 환경 구축 완료!</div>
   <div>데이터베이스 관리 자동화를 위한 Supabase MCP 환경이 성공적으로 구축되었습니다. 이제 Claude가 Supabase 데이터베이스를 직접 관리할 수 있습니다!</div>

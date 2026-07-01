@@ -52,33 +52,29 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 학습 목표
 
-<div class="wda-goal">
-  <span class="wda-goal-label">학습 목표</span>
+<div class="wda-goal" style="position:relative;">
+  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:60px;top:8px;right:8px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
   📬 <strong>Contact 섹션 완성</strong> — 포트폴리오의 마지막 퍼즐인 연락 기능 구현<br>
   👤 <strong>개인정보 표시 시스템</strong> — 연락처·이메일·SNS 링크를 효과적으로 표시<br>
   📖 <strong>방명록 기능 개발</strong> — 방문자가 메시지를 남길 수 있는 인터랙티브 기능<br>
   🎨 <strong>UI/DB 통합 설계</strong> — 사용자 인터페이스와 데이터베이스를 함께 고려한 설계
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 (5).webp" alt="" style="position:absolute;width:26px;top:-12px;left:14%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-20deg);">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:28px;top:-12px;right:20%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(16deg);">
-</div>
-
 ---
 
 ## Contact 섹션 개요
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (4).webp" alt="" style="position:absolute;width:24px;top:-8px;right:32%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(18deg);">
-</div>
-
 <div class="wda-callout wda-ci" style="position:relative;padding-left:152px;padding-right:24px;padding-top:16px;padding-bottom:18px;">
   <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:142px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(7deg);">
+  <img src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="position:absolute;width:85px;top:10px;left:14px;z-index:2;pointer-events:none;opacity:.82;transform:rotate(-8deg);">
   <span class="wda-clabel">Contact 섹션이란?</span>
   포트폴리오의 Contact 섹션은 방문자가 당신에게 연락할 수 있는 중요한 창구입니다. 단순히 연락처만 표시하는 것이 아니라, 방문자와의 소통을 활성화하는 공간으로 발전시켜보겠습니다!
 </div>
@@ -88,22 +84,12 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ico">📖</div><div class="wda-fcard-ttl">방명록 시스템</div><div class="wda-fcard-dsc">방문자 메시지 작성 · 실시간 목록 표시 · Supabase DB 연동 · 친화적 UI</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:26px;top:-10px;left:25%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
-  <img src="/images/decoration/꽃 (6).webp" alt="" style="position:absolute;width:24px;top:-8px;right:20%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(18deg);">
-</div>
-
 ---
 
 ## 2단계: 연락처 섹션 UI 설계 및 기획 (10분)
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 (12).webp" alt="" style="position:absolute;width:26px;top:-10px;left:22%;z-index:2;pointer-events:none;opacity:.69;transform:rotate(-15deg);">
-  <img src="/images/decoration/별 (9).webp" alt="" style="position:absolute;width:22px;top:-7px;right:26%;z-index:2;pointer-events:none;opacity:.65;transform:rotate(24deg);">
-</div>
-
-<div class="wda-callout wda-cs" style="position:relative;padding-right:200px;padding-left:22px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:185px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-14deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-right:140px;padding-left:22px;padding-top:16px;padding-bottom:18px;">
+  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:110px;top:-30px;right:24px;z-index:3;pointer-events:none;opacity:.95;transform:rotate(-14deg);">
   <span class="wda-clabel">함께 설계해요</span>
   강사와 함께 Contact 섹션의 사용자 인터페이스를 어떻게 구성할지 논의합니다.
 </div>
@@ -119,7 +105,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### UI 설계 논의 질문들
 
-<div class="wda-steps" style="position:relative;padding-top:14px;">
+<div class="wda-steps" style="position:relative;padding-top:14px;overflow:visible;">
   <img src="/images/decoration/마스킹 테이프 (21).webp" alt="" style="position:absolute;width:110px;top:-10px;right:16px;z-index:4;pointer-events:none;opacity:.80;transform:rotate(-7deg);">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">레이아웃 구조</div><div class="wda-sdsc">세로 나열 vs 가로 2열 구성? · 연락처 정보와 방명록의 배치 순서?</div></div></div>
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">시각적 디자인</div><div class="wda-sdsc">MUI Card로 정보별 분리 vs 하나의 큰 카드? · 아이콘 + 텍스트 vs 버튼 스타일? · 어떤 색상 테마?</div></div></div>
@@ -173,14 +159,10 @@ SNS 링크 스타일
 
 ---
 
-## 3단계: 방명록 기능 UI 설계
+<h2>3단계: 방명록 기능 UI 설계<img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="display:inline-block;width:52px;vertical-align:middle;margin-left:28px;opacity:.71;transform:rotate(-19deg);pointer-events:none;"></h2>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (7).webp" alt="" style="position:absolute;width:26px;top:-9px;right:28%;z-index:2;pointer-events:none;opacity:.71;transform:rotate(-19deg);">
-</div>
-
-<div class="wda-callout wda-cw" style="position:relative;padding-left:152px;padding-right:24px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:142px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-9deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:152px;padding-right:24px;padding-top:16px;padding-bottom:18px;">
+  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:142px;top:-36px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-9deg);">
   <span class="wda-clabel">방명록 UI 설계</span>
   방문자들이 쉽게 메시지를 남기고 다른 사람들의 메시지도 볼 수 있도록 구성합니다.
 </div>
@@ -203,7 +185,7 @@ SNS 링크 스타일
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (2).webp" alt="" style="position:absolute;width:22px;top:-8px;right:34%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-16deg);">
+  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:88px;top:-8px;right:34%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-16deg);">
 </div>
 
 ---
@@ -251,18 +233,13 @@ SNS 링크 스타일
 ```
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:26px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-  <img src="/images/decoration/꽃 (3).webp" alt="" style="position:absolute;width:22px;top:-8px;right:23%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
+  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:55px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
 </div>
 
 <div class="wda-compare" style="position:relative;padding-top:14px;">
   <img src="/images/decoration/마스킹 테이프 (14).webp" alt="" style="position:absolute;width:110px;top:-10px;right:18px;z-index:4;pointer-events:none;opacity:.78;transform:rotate(5deg);">
   <div class="wda-cbox"><span class="wda-cbox-label">보안 및 개인정보</span><div class="wda-cbox-ttl">🔒 안전한 데이터 관리</div><div class="wda-cbox-body">이메일은 비공개로 저장<br>IP 주소 로깅 (스팸 방지)<br>악성 콘텐츠 필터링<br>적절한 글자 수 제한</div></div>
   <div class="wda-cbox"><span class="wda-cbox-label">성능 최적화</span><div class="wda-cbox-ttl">⚡ 빠른 로딩</div><div class="wda-cbox-body">페이지네이션 적용<br>최신 20개만 표시<br>인덱스를 통한 빠른 조회<br>자동 정렬 (최신순)</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 (11).webp" alt="" style="position:absolute;width:26px;top:-12px;right:30%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-22deg);">
 </div>
 
 ---
@@ -297,9 +274,8 @@ GitHub Actions 워크플로우를 사용해서 자동 배포되도록 설정하�
 
 ### 기획안 완성 체크리스트
 
-<div class="wda-steps" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:110px;top:-10px;left:20px;z-index:4;pointer-events:none;opacity:.80;transform:rotate(-5deg);">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-20px;right:8px;z-index:4;pointer-events:none;opacity:.91;transform:rotate(8deg);">
+<div class="wda-steps" style="position:relative;padding-top:14px;overflow:visible;">
+  <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;width:84px;top:-20px;right:20px;z-index:4;pointer-events:none;opacity:.80;transform:rotate(-8deg);">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">내 연락처 정보 입력</div><div class="wda-sdsc">실제 이메일, GitHub, 지역 등 입력</div></div></div>
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">UI 스타일 결정</div><div class="wda-sdsc">앞서 논의한 컨셉과 느낌 정리</div></div></div>
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">방명록 정보 구성 결정</div><div class="wda-sdsc">논의한 정보 구성 결과 정리</div></div></div>

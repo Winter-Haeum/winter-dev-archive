@@ -48,25 +48,30 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:238px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:188px;top:14px;right:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(12deg);">
-  <span class="wda-goal-label">학습 목표</span>🔍 <strong>역방향 사고</strong> — UI 화면에서 필요한 DB 구조를 직접 발견하는 방법 습득<br>📋 <strong>3개 테이블 발견</strong> — users · posts · comments 테이블의 구조와 필드 이해<br>🔗 <strong>테이블 연결 관계</strong> — ID로 테이블들이 서로 연결되는 원리 파악<br>✍️ <strong>DB 구조서 작성</strong> — 자연어로 데이터베이스 구조 정리 실습
+<div class="wda-goal" style="position:relative;padding-right:210px;">
+  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:165px;top:-22px;right:28px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(12deg);">
+  🔍 <strong>역방향 사고</strong> — UI 화면에서 필요한 DB 구조를 직접 발견하는 방법 습득<br>📋 <strong>3개 테이블 발견</strong> — users · posts · comments 테이블의 구조와 필드 이해<br>🔗 <strong>테이블 연결 관계</strong> — ID로 테이블들이 서로 연결되는 원리 파악<br>✍️ <strong>DB 구조서 작성</strong> — 자연어로 데이터베이스 구조 정리 실습
 </div>
 
 ---
 
 ## 🔄 역방향 학습법: UI → DB 발견
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:194px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:144px;top:12px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-10deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:170px;overflow:visible;">
+  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:120px;top:50%;margin-top:-60px;left:22px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-10deg);">
   <span class="wda-clabel">이번 시간의 특별한 방식</span>추상적인 테이블 설계부터 시작하지 않고, 실제 UI 화면을 보면서 "어? 이거 어떻게 저장하지?" 하며 자연스럽게 DB 구조를 발견해나갑니다!
 </div>
 
-<div class="wda-fgrid">
+<div class="wda-fgrid" style="position:relative;">
+  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-18px;right:12px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
 <div class="wda-fcard"><div class="wda-fcard-ico">💡</div><div class="wda-fcard-ttl">직관적 이해</div><div class="wda-fcard-dsc">"로그인 화면에 이메일이 보이니까 users 테이블에 email 필드가 필요하구나!"</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🎯</div><div class="wda-fcard-ttl">현실적 설계</div><div class="wda-fcard-dsc">실제 사용할 데이터만 테이블에 포함 — 불필요한 필드 없음</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">⚡</div><div class="wda-fcard-ttl">즉시 연결</div><div class="wda-fcard-dsc">UI와 DB가 어떻게 연결되는지 바로 이해 가능</div></div>
@@ -74,8 +79,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:28px;top:-12px;left:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:26px;top:-10px;right:20%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
+  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:38px;top:-14px;left:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
 </div>
 
 ---
@@ -103,7 +107,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div></div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:28px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.60;transform:rotate(-16deg);">
+  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:44px;top:-16px;left:22%;z-index:2;pointer-events:none;opacity:.60;transform:rotate(-16deg);">
 </div>
 
 ---
@@ -121,7 +125,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div class="wda-callout wda-cs" style="position:relative;padding-right:66px;">
-  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:48px;top:-8px;right:10px;z-index:3;pointer-events:none;opacity:.82;transform:rotate(-14deg);">
+  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:60px;top:-12px;right:10px;z-index:3;pointer-events:none;opacity:.82;transform:rotate(-14deg);">
   <span class="wda-clabel">발견!</span>회원가입 화면을 보니 <strong>users 테이블</strong>이 필요하다는 걸 알 수 있네요!
 </div>
 
@@ -180,7 +184,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 <div class="wda-callout wda-cs" style="position:relative;padding-right:66px;">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:42px;top:-8px;right:10px;z-index:3;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
+  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:44px;top:-10px;right:10px;z-index:3;pointer-events:none;opacity:.78;transform:rotate(12deg);">
   <span class="wda-clabel">발견!</span>댓글 화면을 보니 <strong>comments 테이블</strong>이 필요하다는 걸 알 수 있어요!
 </div>
 
@@ -196,8 +200,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 핵심 개념: 번호로 연결
 
-<div class="wda-fgrid" style="position:relative;">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:34px;top:16px;left:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
+<div class="wda-fgrid" style="position:relative;overflow:visible;">
+  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;width:44px;bottom:-12px;left:14px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
 <div class="wda-fcard"><div class="wda-fcard-ico">👤</div><div class="wda-fcard-ttl">users 테이블</div><div class="wda-fcard-dsc">회원 정보 보관함<br>홍길동 (id: 1) · 김개발 (id: 2) · 이질문 (id: 3)</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">posts 테이블</div><div class="wda-fcard-dsc">게시물 정보 보관함<br>"첫 게시물" (author_id: 1) · "개발 팁" (author_id: 2)</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">comments 테이블</div><div class="wda-fcard-dsc">댓글 정보 보관함<br>"축하합니다!" (author_id: 2, post_id: 1)</div></div>
@@ -218,8 +222,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 함께 진행하는 방식
 
-<div class="wda-steps" style="position:relative;">
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:34px;top:44px;right:14px;z-index:3;pointer-events:none;opacity:.72;transform:rotate(14deg);">
+<div class="wda-steps" style="position:relative;overflow:visible;">
+  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-22px;right:-2px;z-index:3;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
 <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">강사와 함께 토론 (5분)</div><div class="wda-sdsc">"users 테이블에는 어떤 정보가 저장되나요?" · "posts 테이블에는 어떤 정보가 필요할까요?" · "comments 테이블은 어떤 구조로 만들까요?"</div></div></div>
 <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">개인 DB 구조서 작성 (5분)</div><div class="wda-sdsc">아래 템플릿을 메모장에 복사해서 채우기 · 막히는 부분은 강사나 옆 사람과 상의하기</div></div></div>
 </div>
@@ -303,17 +307,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:26px;top:-20px;right:28%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-12deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:24px;top:-18px;left:26%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(16deg);">
+  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-22px;right:28%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-12deg);">
 </div>
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:58px;">
+  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:40px;top:50%;right:10px;margin-top:-20px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(16deg);">
   <span class="wda-clabel">다음 단계 예고</span>5단계에서는 3단계 UI 기획서 + 4단계 DB 구조서를 하나로 합쳐서 Claude Code AI에게 프로젝트 생성을 요청합니다. Supabase MCP를 사용한 실제 데이터베이스 생성과 연결, 그리고 GitHub Pages 배포까지!
 </div>
 
 <div class="wda-done" style="position:relative;padding-right:242px;">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:192px;top:-26px;right:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-10deg);">
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:24px;bottom:12px;left:18px;z-index:2;pointer-events:none;opacity:.58;transform:rotate(20deg);">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:24px;bottom:12px;left:50px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-8deg);">
+  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:62px;top:8px;left:18px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-8deg);">
   <div class="wda-done-ico">🔍</div><div class="wda-done-ttl">UI → DB 발견 완료!</div><div>UI 화면을 보면서 자연스럽게 데이터베이스 구조를 발견했습니다. 작성한 DB 구조서를 메모장에 잘 보관해두세요. 다음 단계에서 이 데이터베이스를 활용해서 실제 동작하는 커뮤니티 사이트를 만들어보겠습니다!</div>
 </div>

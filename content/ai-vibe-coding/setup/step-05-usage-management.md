@@ -47,13 +47,16 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;padding-right:195px;padding-left:18px;">
   <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:180px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <span class="wda-goal-label">학습 목표</span>
   ⏱️ <strong>사용량 이해</strong> — Pro Plan 제한 구조와 현황 파악<br>
   📊 <strong>실시간 확인</strong> — 사용량 모니터링 방법 습득<br>
   💳 <strong>Wallet 설정</strong> — 자동 충전으로 수업 중단 없이 활용
@@ -72,7 +75,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:40px;top:-18px;right:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(20deg);">
+  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-18px;right:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(20deg);">
 </div>
 
 <div class="wda-fgrid">
@@ -81,13 +84,9 @@ Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니�
   <div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">공유 사용량</div><div class="wda-fcard-dsc">웹 Claude와 사용량 공유</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-18px;right:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(10deg);">
-</div>
-
-<div class="wda-callout wda-ci" style="position:relative;padding-left:148px;padding-right:20px;">
+<div class="wda-callout wda-cy" style="position:relative;padding-left:148px;padding-right:20px;">
   <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:132px;top:-42px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:24px;bottom:-12px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
+  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:46px;bottom:-14px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
   <span class="wda-clabel">사용량이 공유된다는 것은?</span><code>claude.ai</code> 웹사이트에서 대화를 나누는 것과 Claude Code CLI에서 사용하는 것이 동일한 월간 사용량 풀을 나눠 씁니다. 웹에서 많이 사용했다면 Claude Code에서 사용할 수 있는 양이 줄어들 수 있습니다.
 </div>
 
@@ -103,12 +102,15 @@ Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니�
 
 확인 가능한 정보: **현재 사용량** (n% 사용 중) · **초기화 시간** (n시간 n분 후 리셋) · **주간 사용량** (주간 한도 대비 현황)
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:20px;padding-right:20px;padding-top:14px;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:36px;top:-12px;right:18px;z-index:4;pointer-events:none;opacity:.82;transform:rotate(15deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:20px;padding-right:20px;padding-top:14px;">
   <span class="wda-clabel">권장</span>수업 시작 전에 사용량 페이지를 확인하여 충분한 여유가 있는지 체크하는 것을 권장합니다.
 </div>
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:60px;top:0px;left:175px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
+</div>
 
 ## ⚙️ 동작 원리
 
@@ -116,15 +118,11 @@ Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니�
 
 Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 차감하여 계속 사용할 수 있습니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-20px;right:20%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
-</div>
-
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">흐름</span>Pro Plan 한도 도달 → Wallet 잔액 자동 차감 (설정 시) → 수업 중단 없이 계속 사용 가능
 </div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:205px;padding-left:20px;">
+<div class="wda-callout wda-cy" style="position:relative;padding-right:205px;padding-left:20px;">
   <img src="/images/character/어려움.webp" alt="" style="position:absolute;width:185px;top:-22px;right:5px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
   <span class="wda-clabel">Wallet이란?</span>Claude 계정에 충전해두는 선불 크레딧입니다. Pro Plan 구독 한도를 초과해도 Wallet 잔액이 있으면 API 사용량처럼 과금되면서 계속 사용할 수 있습니다. 자동 충전 설정을 켜두면 잔액 부족 시 자동으로 재충전됩니다.
 </div>
@@ -133,12 +131,11 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 사용량 제한은 **롤링 방식(rolling window)**으로 초기화됩니다. 즉, 고정된 시각에 리셋되는 것이 아니라 처음 사용 시점부터 5시간이 지나면 해당 사용량이 해제됩니다. 사용량 페이지의 "초기화 시간"을 통해 언제 여유가 생기는지 확인할 수 있습니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:40px;top:-16px;left:2%;z-index:2;pointer-events:none;opacity:.75;transform:rotate(-8deg);">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:60px;top:-22px;right:16%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(10deg);">
-</div>
-
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-8px;right:16%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+</div>
 
 ## 💻 예제 코드
 
@@ -146,11 +143,7 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 구독 한도 초과 시 자동으로 Wallet에서 충전하여 수업을 중단 없이 계속 진행할 수 있습니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-20px;left:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
-<div class="wda-callout wda-ci" style="position:relative;padding-left:148px;padding-right:20px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:148px;padding-right:20px;">
   <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
   <span class="wda-clabel">설정 순서</span>
   1. <strong>설정 페이지 이동</strong> — <code>claude.ai/settings/usage</code> 접속<br>
@@ -158,12 +151,11 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
   3. <strong>추가 사용량 구매</strong> — '추가사용량 구매' 버튼 클릭
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:36px;top:-14px;right:28%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:36px;top:-14px;left:20%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
-</div>
-
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:76px;top:-4px;left:170px;z-index:2;pointer-events:none;opacity:.75;transform:rotate(-8deg);">
+</div>
 
 ## ⚠️ 주의사항
 
@@ -174,6 +166,10 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 | **웹 Claude 병행 사용** | 웹과 CLI가 사용량을 공유하므로, 수업 전 웹에서의 과도한 사용을 줄이는 것이 좋습니다. |
 | **Wallet 자동 충전** | 자동 충전을 활성화하면 한도 초과 시 추가 비용이 발생합니다. 월 예산을 고려하여 설정하세요. |
 | **수업 직전 확인** | 사용량이 80% 이상이면 수업 중 중단될 수 있으므로, 초기화 시간을 확인하거나 Wallet을 준비해두세요. |
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-12px;right:26%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(16deg);">
+</div>
 
 ---
 
@@ -198,8 +194,7 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 - [ ] Wallet 자동 충전 활성화 여부 확인
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:40px;top:-18px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(12deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:62px;top:-24px;left:24%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
+  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:62px;top:-60px;right:8%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
 </div>
 
 <div class="wda-done" style="position:relative;padding-right:210px;padding-left:20px;padding-top:14px;">

@@ -14,11 +14,11 @@ description: "웹의 기본 원리, 인터넷 통신 방식, 현대적 웹사이
 .wda-ctitle{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
 .wda-cbody{font-size:.82rem;line-height:1.6;opacity:.7;margin:0 0 3px}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.8rem}
-.wda-step{display:flex;align-items:flex-start;gap:12px;padding:9px 14px;border-bottom:1px solid rgba(128,128,128,.1)}
+.wda-step{display:flex;align-items:flex-start;gap:12px;padding:3px 14px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-stitle{font-weight:700;font-size:.875rem;margin:0 0 3px}
-.wda-sdesc{font-size:.82rem;opacity:.65;line-height:1.5;margin:0}
+.wda-stitle{font-weight:700;font-size:.875rem;line-height:1.2;margin:0}
+.wda-sdesc{font-size:.82rem;opacity:.65;line-height:1.2;margin:0}
 .wda-compare-grid{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.8rem}
 .wda-compare-card{flex:1 1 220px;border-radius:10px;padding:18px}
 .wda-uicard{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2)}
@@ -62,6 +62,10 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 웹의 기본 원리와 인터넷 통신 방식을 이해하고, 현대적 웹사이트 구조와 UI/UX 기본 개념을 학습합니다.
@@ -76,9 +80,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div class="wda-goal" style="position:relative;padding-right:210px;padding-left:18px;">
   <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:192px;top:-24px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:52px;bottom:-22px;left:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
   <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:46px;top:8px;right:218px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-14deg);">
-  <span class="wda-goal-label">학습 목표</span>
   🌐 <strong>웹의 기본 원리</strong> — 인터넷 통신 방식 이해<br>
   🏗️ <strong>현대적 웹사이트</strong> — 구조 분류 학습<br>
   🎨 <strong>UI/UX 기본 개념</strong> — 현대적 UI 용어 숙지<br>
@@ -87,16 +89,12 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:90px;top:-22px;left:8%;z-index:2;pointer-events:none;opacity:.82;transform:rotate(-4deg);">
-</div>
-
 ## 수업 개요
 
 <div class="wda-callout wda-ci" style="position:relative;padding-left:158px;padding-right:20px;border-left:none;">
-  <img src="/images/winter-laptop.webp" alt="" style="position:absolute;width:142px;top:-18px;left:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-4deg);">
+  <img src="/images/winter-laptop.webp" alt="" style="position:absolute;width:142px;top:-38px;left:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-4deg);">
   <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-8px;right:14px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(18deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">이 수업은</span>본격적인 웹 개발에 앞서 웹의 기본 원리와 개념을 이해하는 이론 수업입니다. 웹이 무엇인지, 어떻게 동작하는지, 현대적인 웹사이트는 어떤 종류가 있는지를 배우고, UI/UX의 기본 개념과 용어를 익힙니다.
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">이 수업은</span>본격적인 웹 개발에 앞서 웹의 기본 원리와 개념을 이해하는 이론 수업입니다. 웹이 무엇인지, 어떻게 동작하는지, 현대적인 웹사이트는 어떤 종류가 있는지를 배우고, UI/UX의 기본 개념과 용어를 익힙니다.
 </div>
 
 ---
@@ -112,7 +110,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-concept-grid">
   <div class="wda-concept-card" style="position:relative;padding-top:24px;">
     <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:68px;top:-10px;left:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-5deg);">
-    <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(10deg);">
     <span class="wda-ctag">HTML</span>
     <strong class="wda-ctitle">웹페이지의 구조와 내용</strong>
     <p class="wda-cbody">건물의 뼈대와 같은 역할을 합니다.</p>
@@ -120,16 +117,11 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
   <div class="wda-concept-card" style="position:relative;padding-top:24px;">
     <img src="/images/decoration/마스킹 테이프 (15).webp" alt="" style="position:absolute;width:68px;top:-10px;right:6px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(6deg);">
-    <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:44px;bottom:10px;right:10px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-15deg);">
     <span class="wda-ctag">CSS</span>
     <strong class="wda-ctitle">웹페이지의 스타일과 디자인</strong>
     <p class="wda-cbody">건물의 인테리어와 같은 역할을 합니다.</p>
     <p class="wda-cbody">색상, 폰트, 레이아웃 등을 꾸며줍니다.</p>
   </div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:90px;top:-20px;right:8%;z-index:2;pointer-events:none;opacity:.82;transform:rotate(6deg);">
 </div>
 
 ---
@@ -139,7 +131,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 웹사이트에 접속할 때 일어나는 과정을 단계별로 알아보겠습니다.
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-16px;right:6%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(6deg);">
+  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:90px;top:-20px;right:6%;z-index:2;pointer-events:none;opacity:.82;transform:rotate(6deg);">
 </div>
 
 <div class="wda-steps">
@@ -183,10 +175,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 현재 우리가 사용하는 웹사이트들은 목적에 따라 6가지 유형으로 분류됩니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:58px;top:-14px;left:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
-</div>
-
 | 유형 | 목적 | 예시 | 특징 |
 |------|------|------|------|
 | 랜딩페이지 | 제품/서비스 소개 | Apple, Tesla, 스타트업 소개 페이지 | 한 페이지에 모든 핵심 정보 집약 |
@@ -196,19 +184,11 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 | SaaS | 클라우드 기반 서비스 | Gmail, Notion, Figma | 웹에서 앱처럼 동작 |
 | 웹앱 | 앱과 같은 기능 | 카카오톡 웹, 유튜브 | 실시간 상호작용 |
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:66px;top:-24px;right:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(9deg);">
-</div>
-
 ---
 
 ## 4. UI/UX란 무엇인가?
 
 웹 개발에서 가장 중요한 개념인 UI와 UX를 쉽게 이해해보겠습니다.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:50px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
-</div>
 
 <div class="wda-compare-grid">
   <div class="wda-compare-card wda-uicard" style="position:relative;">
@@ -245,12 +225,12 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ### 쉬운 비유
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:52px;top:-16px;left:2%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-10deg);">
+  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:52px;top:-16px;right:2%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-10deg);">
 </div>
 
 <div class="wda-callout wda-ci" style="position:relative;padding-right:205px;padding-left:20px;">
   <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:185px;top:-22px;right:5px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">카페로 이해하는 UI vs UX</span>
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">카페로 이해하는 UI vs UX</span>
   <div class="wda-analogy-grid" style="margin:.4rem 0 0;">
     <div class="wda-analogy-card">
       <p class="wda-atype">UI</p>
@@ -563,9 +543,7 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 
 <div class="wda-done" style="position:relative;padding-left:205px;padding-right:20px;padding-top:28px;padding-bottom:10px;">
   <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:10px;right:30px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(6deg);">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:70px;top:-18px;right:24px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(8deg);">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:188px;top:-40px;left:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:46px;bottom:10px;right:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
   <div class="wda-done-ico">🎓</div>
   <div class="wda-done-ttl">이론 학습 완료</div>
   <div>웹의 기본 개념과 UI/UX 이론을 모두 학습했습니다.<br>이제 실제로 React 프로젝트를 만들어보면서 이 개념들을 직접 구현해보겠습니다.</div>
@@ -594,9 +572,6 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 - [ ] 16가지 현대적 UI 용어 숙지
 - [ ] 다음 단계 실습 준비 완료
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:80px;top:-18px;right:20%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
-</div>
 
 ---
 
@@ -606,18 +581,10 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 
 브라우저에 `https://www.google.com`을 입력하면 내부에서 이런 과정이 일어납니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:52px;top:-16px;left:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-5deg);">
-</div>
-
 <div class="wda-callout wda-ci" style="position:relative;padding-right:205px;padding-left:20px;">
   <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:188px;top:-22px;right:5px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
   <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:50px;bottom:-18px;right:210px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">전체 흐름</span>요청 → DNS 조회 → 서버 응답 → 브라우저 렌더링의 4단계로 진행됩니다.
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-14px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#8b5cf6;">전체 흐름</span>요청 → DNS 조회 → 서버 응답 → 브라우저 렌더링의 4단계로 진행됩니다.
 </div>
 
 <div class="wda-steps">
@@ -634,10 +601,6 @@ details.ud-modal summary::-webkit-details-marker{display:none}
 ---
 
 ## 💻 예제 코드
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-16px;right:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
-</div>
 
 ### 기본 HTML 구조
 
@@ -703,28 +666,23 @@ button:hover {
 ---
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-16px;left:10%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
+  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-16px;right:15%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
 </div>
 
 ## ⚠️ 주의사항
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:148px;padding-right:20px;border-left:none;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">UI가 좋다고 UX가 좋은 것은 아닙니다</span>예쁜 디자인(좋은 UI)이 갖춰져 있어도 사용 흐름이 복잡하거나 원하는 기능을 찾기 어려우면 UX는 낮습니다. 두 가지는 항상 함께 고려해야 합니다.
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-14px;right:24%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(8deg);">
+<div class="wda-callout wda-cw" style="position:relative;padding-left:148px;padding-right:20px;">
+  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:132px;top:-36px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">UI가 좋다고 UX가 좋은 것은 아닙니다</span>예쁜 디자인(좋은 UI)이 갖춰져 있어도 사용 흐름이 복잡하거나 원하는 기능을 찾기 어려우면 UX는 낮습니다. 두 가지는 항상 함께 고려해야 합니다.
 </div>
 
 <div class="wda-callout wda-cw" style="position:relative;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:50px;bottom:-16px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">HTML 구조와 CSS 스타일은 분리하세요</span>HTML 태그에 <code>style="color:red"</code>처럼 직접 스타일을 넣는 방식은 유지보수가 어렵습니다. 스타일은 별도 CSS 파일에 작성하는 것이 웹 표준 방식입니다.
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">HTML 구조와 CSS 스타일은 분리하세요</span>HTML 태그에 <code>style="color:red"</code>처럼 직접 스타일을 넣는 방식은 유지보수가 어렵습니다. 스타일은 별도 CSS 파일에 작성하는 것이 웹 표준 방식입니다.
 </div>
 
 <div class="wda-callout wda-cw" style="position:relative;">
   <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:46px;bottom:-14px;right:14px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(14deg);">
-  <span class="wda-callout .wda-clabel" style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">모든 브라우저에서 동작하는지 확인하세요</span>Chrome, Firefox, Safari, Edge 등 다양한 브라우저에서 동일하게 동작하는지 확인해야 합니다. 특정 브라우저에서만 지원하는 최신 CSS/JS 기능은 사용 전 호환성을 확인하세요.
+  <span style="font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block;color:#f59e0b;">모든 브라우저에서 동작하는지 확인하세요</span>Chrome, Firefox, Safari, Edge 등 다양한 브라우저에서 동일하게 동작하는지 확인해야 합니다. 특정 브라우저에서만 지원하는 최신 CSS/JS 기능은 사용 전 호환성을 확인하세요.
 </div>
 
 ---

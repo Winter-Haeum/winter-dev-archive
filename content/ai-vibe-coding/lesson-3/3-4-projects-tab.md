@@ -48,24 +48,22 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:195px;padding-left:20px;padding-top:20px;">
+<div class="wda-goal" style="position:relative;padding-right:195px;padding-left:20px;padding-top:20px;padding-bottom:16px;overflow:visible;">
   <img src="/images/character/행운버프.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:26px;top:-12px;left:12px;z-index:2;pointer-events:none;opacity:.65;transform:rotate(15deg);">
-  <span class="wda-goal-label">학습 목표</span>
+  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:82px;bottom:-8px;right:12px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(10deg);">
   🎨 <strong>UI/UX 설계</strong> — 포트폴리오 Projects 탭의 레이아웃과 인터랙션을 직접 기획할 수 있다<br>
   🗄️ <strong>DB 설계</strong> — projects 테이블 구조를 발견하고 컬럼 설계 근거를 설명할 수 있다<br>
   🖼️ <strong>자동 썸네일</strong> — image.thum.io API를 활용하여 URL만으로 사이트 스크린샷을 자동 생성한다<br>
   🚀 <strong>통합 구현</strong> — 기획서와 DB 구조서를 바탕으로 AI와 협력하여 포트폴리오 Projects 탭을 완성·배포한다<br>
   🔧 <strong>문제 해결</strong> — 구현 과정에서 발생하는 일반적인 문제를 스스로 진단·해결할 수 있다
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (13).webp" alt="" style="position:absolute;width:28px;top:-12px;left:20%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:24px;top:-8px;right:24%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-16deg);">
 </div>
 
 ---
@@ -80,18 +78,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">🔮</div><div class="wda-fcard-ttl">미래 프로젝트</div><div class="wda-fcard-dsc">앞으로 만들 모든 프로젝트를 Supabase 대시보드에서 직접 추가 관리</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:38px;top:-18px;right:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:24px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
-</div>
-
 ---
 
 ## 1단계 — UI/UX 디자인 논의
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:62px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+</div>
 
 먼저 "어떤 화면을 만들 것인가"를 강사와 함께 고민합니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;overflow:visible;">
   <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(10deg);">
   <span class="wda-clabel">핵심 질문</span>
   👀 <strong>포트폴리오 방문자에게 무엇을 보여주고 싶나요?</strong><br>
@@ -103,11 +99,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">🖥️</div><div class="wda-fcard-ttl">PC 화면 목표</div><div class="wda-fcard-dsc">넓은 화면 활용 · 한 줄에 3개 카드 배치 · 썸네일 크게 강조 · 호버 시 정보 표시</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📱</div><div class="wda-fcard-ttl">모바일 화면 목표</div><div class="wda-fcard-dsc">세로 스크롤 최적화 · 1열 또는 2열 배치 · 터치 영역 충분히 크게 · 로딩 속도 고려</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (10).webp" alt="" style="position:absolute;width:26px;top:-10px;right:24%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(18deg);">
-  <img src="/images/decoration/핀 아이콘 (9).webp" alt="" style="position:absolute;width:28px;top:-12px;left:28%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
 </div>
 
 ---
@@ -124,8 +115,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 | **포트폴리오 용도** | ✅ 시각적 포트폴리오에 최적 | 기술 상세 설명 위주에 적합 |
 | **대표 사례** | Dribbble · GitHub 저장소 · Behance | LinkedIn · 이력서 스타일 |
 
-<div class="wda-callout wda-cs" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:116px;top:-12px;right:16px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-top:14px;overflow:visible;">
+  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:112px;top:-12px;right:18px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
   <span class="wda-clabel">결론</span>
   포트폴리오 사이트의 목적은 <strong>"첫눈에 강한 인상"</strong>을 주는 것입니다. 카드 그리드 레이아웃이 썸네일을 크게 보여줄 수 있어 포트폴리오에 훨씬 적합합니다.
 </div>
@@ -133,6 +124,9 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 3단계 — 썸네일 카드 시스템 설계
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;width:96px;top:-64px;right:22px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
+</div>
 
 각 프로젝트 카드에 어떤 정보를 어떻게 담을지 설계합니다.
 
@@ -140,11 +134,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">🖼️</div><div class="wda-fcard-ttl">썸네일 이미지</div><div class="wda-fcard-dsc">image.thum.io API로 배포 URL에서 자동 생성 · 카드 상단 전체 차지 · 16:9 비율 권장</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📋</div><div class="wda-fcard-ttl">프로젝트 정보</div><div class="wda-fcard-dsc">프로젝트 이름 (Bold) · 한 줄 설명 · 사용 기술 태그 (React · Supabase 등) · 날짜</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">링크 및 버튼</div><div class="wda-fcard-dsc">사이트 방문 버튼 · GitHub 코드 보기 링크 · 카드 전체 클릭 시 사이트로 이동</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-20px;left:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-6deg);">
-  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;width:34px;top:-16px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
 </div>
 
 ---
@@ -169,19 +158,15 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   🔄 <strong>모든 transition은 0.2~0.3s</strong> — 너무 빠르거나 느리지 않게
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:26px;top:-10px;left:24%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
-  <img src="/images/decoration/꽃 아이콘 (8).webp" alt="" style="position:absolute;width:38px;top:-18px;right:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
 ---
 
 ## 5단계 — UI/UX 기획서 작성
 
 설계한 내용을 기획서 형태로 정리합니다. 이 기획서는 9단계 구현 프롬프트에 직접 활용됩니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:148px;padding-top:18px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:148px;padding-top:18px;overflow:visible;">
   <img src="/images/decoration/마스킹 테이프 (16).webp" alt="" style="position:absolute;width:120px;top:-12px;right:20px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
+  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:62px;top:12px;left:22px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-6deg);">
   <span class="wda-clabel">작성 팁</span>
   🎯 <strong>AI가 이해할 수 있는 구체적인 설명</strong>으로 작성하세요. "예쁘게 해줘"보다 "카드 그리드 3열, 호버 시 위로 4px 이동"처럼 명확하게!
 </div>
@@ -222,7 +207,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 6단계 — 프로젝트 관리 DB 설계 필요성
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;">
+<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;overflow:visible;">
+  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:48px;top:-10px;right:16px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
   <span class="wda-clabel">현재 문제 상황</span>
   ⚠️ <strong>하드코딩의 한계</strong> — 프로젝트 정보가 코드 파일 안에 직접 작성되어 있으면, 새 프로젝트를 추가할 때마다 코드를 열고 수정한 뒤 재배포해야 합니다.<br><br>
   ✅ <strong>DB로 해결</strong> — Supabase의 projects 테이블에 저장하면, 배포 없이 대시보드에서 바로 추가·수정·삭제 가능!
@@ -231,6 +217,9 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 7단계 — projects 테이블 구조 논의
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
+</div>
 
 SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사와 함께 찾아봅니다.
 
@@ -243,7 +232,7 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 <div class="wda-step"><div class="wda-snum">Q6</div><div class="wda-sbody"><div class="wda-sttl">프로젝트에 대한 설명도 있으면 좋겠죠?</div><div class="wda-sdsc">→ description 컬럼 필요</div></div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:220px;padding-top:18px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-right:220px;padding-top:18px;overflow:visible;">
   <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
   <span class="wda-clabel">발견! — projects 테이블 구조</span>
   <strong>id</strong> — 프로젝트 고유 번호 (자동 생성)<br>
@@ -283,19 +272,14 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 == DB 설계 완료 ==
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:42px;top:-20px;left:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-14deg);">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:26px;top:-10px;right:22%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(10deg);">
-</div>
-
 ---
 
 ## 8단계 — image.thum.io API 자동 썸네일 생성
 
 별도의 스크린샷 작업 없이 URL 하나로 사이트 썸네일을 자동 생성하는 서비스입니다.
 
-<div class="wda-memo" style="position:relative;padding-top:20px;">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:30px;top:-14px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(14deg);">
+<div class="wda-memo" style="position:relative;padding-top:20px;overflow:visible;">
+  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:96px;top:-46px;right:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
   <span class="wda-memo-label">🖼️ image.thum.io 사용법</span>
   <div class="wda-memo-body">
     <strong>URL 패턴:</strong><br>
@@ -312,17 +296,16 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 <div class="wda-fcard"><div class="wda-fcard-ico">⚠️</div><div class="wda-fcard-ttl">속도 주의</div><div class="wda-fcard-dsc">첫 로딩 시 약간 느릴 수 있음 · 스켈레톤 UI로 사용자 경험 보완 필요</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:30px;top:-14px;left:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-14deg);">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:28px;top:-12px;right:18%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(8deg);">
-</div>
-
 ---
 
 ## 9단계 — Supabase MCP + GitHub Pages 통합 구현 프롬프트
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:38px;top:-54px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+</div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;overflow:visible;">
   <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:46px;bottom:-6px;left:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
   <span class="wda-clabel">사전 준비사항</span>
   📋 <strong>3-3에서 완성한 미니 SNS</strong> (mini_sns) 배포 URL 확인<br>
   📋 <strong>이번 단계에서 작성한 기획서 + DB 구조서</strong> 준비<br>
@@ -389,8 +372,8 @@ Projects 기능:
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 배포가 완료되었나요?</div><div class="wda-sdsc">GitHub → Actions 탭에서 초록색 체크 확인 · 배포 URL 접속 테스트</div></div></div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:118px;top:-12px;right:20px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(7deg);">
+<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;overflow:visible;">
+  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-10px;right:18px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
   <span class="wda-clabel">자주 발생하는 문제 해결</span>
   🖼️ <strong>썸네일이 안 보일 때</strong> — 배포 URL이 정확한지 확인 · image.thum.io 서비스 상태 확인 · HTTPS인지 확인<br>
   🔌 <strong>Supabase 연결 오류</strong> — 환경변수(VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY) 설정 확인 · RLS 정책이 읽기 허용인지 확인<br>
@@ -400,6 +383,9 @@ Projects 기능:
 ---
 
 ## 🌟 선택적 고급 기능 아이디어
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:48px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
+</div>
 
 기본 구현이 완료된 후 도전해볼 수 있는 추가 기능들입니다.
 
@@ -409,8 +395,9 @@ Projects 기능:
 <div class="wda-fcard"><div class="wda-fcard-ico">❤️</div><div class="wda-fcard-ttl">소셜 기능</div><div class="wda-fcard-dsc">방문자 좋아요 · 방명록 · 프로젝트별 댓글 · 공유 기능 (SNS 링크 공유)</div></div>
 </div>
 
-<div class="wda-done" style="position:relative;padding-right:224px;padding-top:24px;padding-bottom:20px;">
+<div class="wda-done" style="position:relative;padding-right:224px;padding-top:24px;padding-bottom:20px;overflow:visible;">
   <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:180px;top:-28px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(14deg);">
+  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:12px;left:14px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
   <div class="wda-done-ico">🏆</div>
   <div class="wda-done-ttl">Lesson 3 마스터!</div>
   <div>웹/앱 차이 이해 → 모바일 UI 기획 → SNS DB 분석 → 미니 SNS 구현 → Projects 탭 완성까지! AI와 협력하여 실제 동작하는 서비스를 설계하고 배포하는 전체 개발 프로세스를 완전히 경험했습니다. 이제 여러분의 포트폴리오가 살아있는 작업물로 가득 찼습니다!</div>

@@ -41,6 +41,10 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 수업 1-2에서 학습한 16개 현대적 UI 용어들을 MUI로 실제 구현하는 단계별 실습입니다.
@@ -49,13 +53,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 🎯 학습 목표
 
-<div class="wda-goal">
-  <span class="wda-goal-label">학습 목표</span>⚡ <strong>이론에서 실습으로</strong> — 16개 UI 용어를 실제 코드로 구현<br>🧱 <strong>MUI 컴포넌트 마스터</strong> — Material-UI 라이브러리 활용법 익히기<br>📐 <strong>단계별 구현</strong> — 체계적인 순서로 UI 요소 제작<br>📦 <strong>컴포넌트 라이브러리 구축</strong> — 재사용 가능한 UI 자료 완성
+<div class="wda-goal" style="position:relative;overflow:visible;">
+  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:90px;top:8px;right:12px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-8deg);">
+  ⚡ <strong>이론에서 실습으로</strong> — 16개 UI 용어를 실제 코드로 구현<br>🧱 <strong>MUI 컴포넌트 마스터</strong> — Material-UI 라이브러리 활용법 익히기<br>📐 <strong>단계별 구현</strong> — 체계적인 순서로 UI 요소 제작<br>📦 <strong>컴포넌트 라이브러리 구축</strong> — 재사용 가능한 UI 자료 완성
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:28px;top:-10px;left:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-15deg);">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:30px;top:-8px;right:16%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(18deg);">
+  <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:60px;top:-14px;left:12%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -139,8 +143,7 @@ VSCode에서 터미널을 3개로 분할하여 각각 다른 용도로 사용합
 </div>
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:26px;top:-10px;right:22%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:28px;top:-8px;left:30%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
+  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-18px;right:22%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
 </div>
 
 ---
@@ -154,6 +157,10 @@ VSCode에서 터미널을 3개로 분할하여 각각 다른 용도로 사용합
 각 코드블록의 프롬프트를 두 번째 터미널의 Claude CLI에 입력하세요.
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:58px;top:8px;left:204px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+</div>
 
 ### 🔘 Button (버튼)
 
@@ -172,12 +179,11 @@ Button 섹션을 추가해줘:
 - 클릭 시 알림창 표시
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:30px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:26px;top:-8px;right:24%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-</div>
-
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:8px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
+</div>
 
 ### ✏️ Input (입력 필드)
 
@@ -192,6 +198,10 @@ Input 섹션을 추가해줘:
 ```
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:8px;left:280px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
+</div>
 
 ### 🧭 Navigation (네비게이션)
 
@@ -212,6 +222,10 @@ Navigation 섹션을 추가해줘:
 
 ---
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:62px;top:0px;left:242px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
+</div>
+
 ### 📋 Dropdown (드롭다운)
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -225,6 +239,10 @@ Dropdown 섹션을 추가해줘:
 ```
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:46px;top:8px;left:242px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+</div>
 
 ### ☑️ Checkbox (체크박스)
 
@@ -243,12 +261,11 @@ Checkbox 섹션을 추가해줘:
 - 선택된 항목 개수 실시간 표시
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:26px;top:-14px;right:22%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:34px;top:-16px;left:28%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-50px;left:210px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
+</div>
 
 ### 🔵 Radio (라디오 버튼)
 
@@ -266,8 +283,8 @@ Radio 섹션을 추가해줘:
 
 ### 🎚️ Slider (슬라이더)
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:148px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:134px;">
+  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:116px;top:-38px;left:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
   <span class="wda-clabel">Slider</span>슬라이더로 범위 값을 직관적으로 조절할 수 있어요. marks 속성으로 구간 표시도 해보세요!
 </div>
 
@@ -283,6 +300,10 @@ Slider 섹션을 추가해줘:
 
 ---
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:46px;top:8px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
+</div>
+
 ### 🪟 Modal (모달 창)
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -296,6 +317,10 @@ Modal 섹션을 추가해줘:
 ```
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:8px;left:148px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+</div>
 
 ### 🃏 Card (카드)
 
@@ -314,12 +339,11 @@ Card 섹션을 추가해줘:
 - 호버 시 elevation 효과
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:26px;top:-14px;right:25%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:36px;top:-16px;left:18%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-6deg);">
-</div>
-
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:78px;top:0px;left:326px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
+</div>
 
 ### 🔄 Drag & Drop (드래그 앤 드롭)
 
@@ -332,11 +356,6 @@ Drag & Drop 섹션을 추가해줘:
 - 드롭 영역에 아이템 이동
 - 드래그 중 시각적 피드백 제공
 ```
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-16px;right:20%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:26px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
-</div>
 
 ---
 
@@ -358,6 +377,10 @@ Scroll 섹션을 추가해줘:
 ```
 
 ---
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:76px;top:-28px;right:24px;z-index:2;pointer-events:none;opacity:.75;transform:rotate(6deg);">
+</div>
 
 ### ✨ Animation (애니메이션)
 
@@ -393,6 +416,10 @@ Menu 섹션을 추가해줘:
 
 ---
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:8px;left:232px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
+</div>
+
 ### 🗂️ Sidebar (사이드바)
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -410,7 +437,8 @@ Sidebar 섹션을 추가해줘:
 
 ### 🖱️ Hover (호버 효과)
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-ci" style="position:relative;">
+  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:44px;bottom:8px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
   <span class="wda-clabel">Hover</span>색상, 크기, 그림자 변화 등 5가지 이상의 호버 효과로 인터랙티브한 카드를 만들어보세요!
 </div>
 

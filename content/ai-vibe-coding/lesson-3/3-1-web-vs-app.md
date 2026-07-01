@@ -46,13 +46,16 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;padding-top:14px;padding-bottom:18px;padding-left:20px;padding-right:20px;">
   <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:108px;top:-22px;right:28px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(-8deg);">
-  <span class="wda-goal-label">학습 목표</span>
   🧩 <strong>기본 개념 정립</strong> — 웹과 앱의 정확한 정의와 동작 원리의 차이를 이해한다<br>
   ⚖️ <strong>비교 분석</strong> — 설치 방식·성능·기기 기능 활용 등 핵심 차이점을 설명할 수 있다<br>
   💼 <strong>실무 판단력</strong> — 새로운 프로젝트를 시작할 때 웹/앱 중 어떤 것을 선택할지 근거를 들어 결정할 수 있다<br>
@@ -63,6 +66,10 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 🌐 웹(Web)이란?
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:48px;top:-44px;left:244px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
+</div>
+
 웹은 인터넷 브라우저를 통해 접근하는 서비스로, URL(주소)만 알면 설치 없이 바로 이용할 수 있습니다.
 
 <div class="wda-fgrid">
@@ -71,17 +78,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">🖥️</div><div class="wda-fcard-ttl">플랫폼 독립성</div><div class="wda-fcard-dsc">Windows · macOS · iOS · Android 모든 기기에서 동일 동작 · 반응형 디자인 적용</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-18px;left:10%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-12deg);">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:26px;top:-10px;right:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
-</div>
-
 ---
 
 ## 📦 앱(App)이란?
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:192px;padding-right:18px;padding-top:14px;padding-bottom:14px;">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:130px;padding-right:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
   <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:144px;top:-20px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:66px;top:50%;left:24px;z-index:2;pointer-events:none;opacity:.70;transform:translateY(-50%) rotate(-10deg);">
   <span class="wda-clabel">앱이란?</span>
   앱은 모바일 기기나 데스크톱에 설치하여 사용하는 응용 프로그램으로, 해당 플랫폼에 최적화된 성능과 기능을 제공합니다.
 </div>
@@ -91,27 +94,21 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">🔄</div><div class="wda-fcard-ttl">하이브리드 앱</div><div class="wda-fcard-dsc">React Native · Flutter<br>한 번 개발로 멀티 플랫폼 지원<br>개발 비용 절약 · 성능은 네이티브 대비 낮음</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:32px;top:-12px;right:26%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:24px;top:-8px;left:20%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(10deg);">
-</div>
-
 ---
 
 ## ⚖️ 웹 vs 앱 — 핵심 차이점 3가지
 
 ### 1. 설치와 접근성
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-44px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
+</div>
+
 | 구분 | 웹 | 앱 |
 |---|---|---|
 | **접근** | URL 입력 → 즉시 사용 | 앱스토어 → 다운로드 → 설치 → 사용 |
 | **업데이트** | 배포 즉시 모든 사용자 반영 | 앱스토어 심사 + 사용자 업데이트 승인 필요 |
 | **사례** | 네이버, 유튜브 웹 버전 | 카카오톡, 배달의민족 앱 |
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:30px;top:-12px;left:30%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-15deg);">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:24px;top:-8px;right:25%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(10deg);">
-</div>
 
 ### 2. 성능과 속도
 
@@ -124,6 +121,10 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 ### 3. 기기 기능 활용
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-44px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+</div>
 
 | 구분 | 웹 | 앱 |
 |---|---|---|
@@ -143,17 +144,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 | **쿠팡** | 넓은 화면에서 상품 비교 · 여러 탭으로 쇼핑 | 위치 기반 배송 정보 · 바코드 스캔 · 푸시 할인 알림 |
 | **은행 서비스** | 인터넷뱅킹 · 복잡한 업무 처리 용이 | 지문·얼굴 인식 로그인 · 간편 송금 · 위치 기반 ATM 찾기 |
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:26px;top:-10px;left:18%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(20deg);">
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:24px;top:-8px;right:30%;z-index:2;pointer-events:none;opacity:.58;transform:rotate(-8deg);">
-</div>
-
 ---
 
 ## 🛠️ 개발자 관점 — 웹과 앱의 장단점
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:190px;padding-right:18px;padding-top:14px;padding-bottom:14px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:140px;top:-20px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:66px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-14deg);">
+</div>
+
+<div class="wda-callout wda-cs" style="position:relative;padding-left:95px;padding-right:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
+  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:70px;top:8px;left:10px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
   <span class="wda-clabel">개발자 시각</span>
   각각의 방식은 분명한 장단점이 있습니다. 프로젝트 목표와 팀 상황에 따라 최적의 선택이 달라집니다.
 </div>
@@ -163,11 +163,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-fcard"><div class="wda-fcard-ico">⚠️</div><div class="wda-fcard-ttl">웹 개발 단점</div><div class="wda-fcard-dsc">브라우저 호환성 문제 발생 가능 · 인터넷 연결 필수 · 기기 고급 기능 활용 제한</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">✅</div><div class="wda-fcard-ttl">앱 개발 장점</div><div class="wda-fcard-dsc">최적화된 성능과 UX · 오프라인 기본 기능 사용 · 기기 모든 기능 자유롭게 활용 · 높은 보안성</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">⚠️</div><div class="wda-fcard-ttl">앱 개발 단점</div><div class="wda-fcard-dsc">iOS · Android 플랫폼별 개발 필요 · 앱스토어 심사 프로세스 · 업데이트 시 사용자 동의 필요 · 높은 개발 비용</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:40px;top:-16px;right:28%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(6deg);">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:28px;top:-10px;left:14%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -185,8 +180,9 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   대표 사례: 네이버 블로그 · 티스토리 · 회사 홈페이지 · 쇼핑몰
 </div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:190px;padding-right:18px;padding-top:14px;padding-bottom:14px;">
+<div class="wda-callout wda-cs" style="position:relative;padding-left:190px;padding-right:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
   <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:140px;top:-22px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+  <img src="/images/decoration/소품 아이콘 (2).webp" alt="" style="position:absolute;width:80px;bottom:8px;left:8px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
   <span class="wda-clabel">앱을 선택하는 경우</span>
   🔄 <strong>자주 사용하는 서비스</strong> — 소셜미디어 · 게임 · 음악 스트리밍<br>
   📷 <strong>기기 기능 활용이 필수</strong> — 카메라 · GPS · 알림이 핵심 기능<br>
@@ -199,17 +195,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 🚀 PWA: 웹과 앱의 장점을 합친 기술
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-48px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(10deg);">
+</div>
+
 PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 새로운 형태의 서비스입니다. 앱스토어 없이도 홈 화면에 설치할 수 있고, 오프라인에서도 동작합니다.
 
 <div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">📲</div><div class="wda-fcard-ttl">앱처럼 설치</div><div class="wda-fcard-dsc">웹사이트를 홈 화면에 추가하여 앱처럼 사용 · 앱스토어 심사 없이 즉시 배포</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📶</div><div class="wda-fcard-ttl">오프라인 동작</div><div class="wda-fcard-dsc">Service Worker로 캐시 관리 · 인터넷 연결 없이도 기본 기능 사용 가능</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🔔</div><div class="wda-fcard-ttl">푸시 알림</div><div class="wda-fcard-dsc">네이티브 앱처럼 푸시 알림 발송 가능 · 브라우저를 닫아도 알림 수신</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:28px;top:-10px;left:12px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-12deg);">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:26px;top:-8px;right:18%;z-index:2;pointer-events:none;opacity:.60;transform:rotate(15deg);">
 </div>
 
 | 서비스 | PWA 활용 사례 |
@@ -223,6 +218,10 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 
 ## 🔭 웹과 앱의 미래 전망
 
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:58px;top:-50px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(9deg);">
+</div>
+
 기술 발전과 함께 웹과 앱의 경계가 점점 모호해지고 있습니다. 두 영역 모두 빠르게 진화 중입니다.
 
 <div class="wda-fgrid">
@@ -230,12 +229,7 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 <div class="wda-fcard"><div class="wda-fcard-ico">📱</div><div class="wda-fcard-ttl">앱의 진화</div><div class="wda-fcard-dsc">크로스 플랫폼(Flutter · React Native)으로 멀티 플랫폼 개발 · AI 통합 개인화 경험 · AR/VR 새로운 인터페이스 · IoT 스마트 기기 연동</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:34px;top:-12px;left:22%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:26px;top:-8px;right:20%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(16deg);">
-</div>
-
-<div class="wda-callout wda-ci" style="position:relative;padding-right:196px;padding-left:18px;padding-top:14px;padding-bottom:14px;">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:196px;padding-left:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
   <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:150px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.89;transform:rotate(-9deg);">
   <span class="wda-clabel">핵심 트렌드</span>
   현재 개발 트렌드는 <strong>"웹처럼 배포하고, 앱처럼 동작하는"</strong> 방향으로 수렴하고 있습니다. PWA, 크로스 플랫폼 프레임워크, WebAssembly 등이 경계를 허물고 있으며, 앞으로는 "웹인지 앱인지"보다 "사용자 경험이 좋은가"가 더 중요해질 것입니다.
@@ -244,6 +238,10 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 ---
 
 ## 📋 핵심 내용 정리
+
+<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
+  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-46px;left:212px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+</div>
 
 | 비교 항목 | 웹(Web) | 앱(App) |
 |---|---|---|
@@ -255,11 +253,6 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 | **업데이트** | 배포 즉시 반영 | 사용자 승인 필요 |
 | **SEO** | 가능 | 불가 |
 | **오프라인** | 기본 불가 (PWA로 일부 가능) | 기본 기능 오프라인 사용 가능 |
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:28px;top:-12px;right:34%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:30px;top:-10px;left:26%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(10deg);">
-</div>
 
 <div class="wda-memo" style="position:relative;padding-left:20px;padding-right:18px;padding-top:26px;padding-bottom:14px;">
   <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:100px;top:-11px;right:24px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(7deg);">

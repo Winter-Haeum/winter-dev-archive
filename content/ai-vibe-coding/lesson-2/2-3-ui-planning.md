@@ -34,8 +34,10 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px;text-align:left}
+.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5;text-align:left}
+.wda-steps .wda-step{text-align:left}
+.wda-steps .wda-sbody{text-align:left}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
 .wda-memo-body{font-size:.81rem;line-height:1.6}
@@ -45,21 +47,25 @@ table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem
 th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
 td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cy .wda-clabel{color:#92400e}
+p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:90px;">
-  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:182px;top:10px;right:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(10deg);">
-  <span class="wda-goal-label">학습 목표</span>👁️ <strong>UI → DB 사고</strong> — 화면을 보고 필요한 데이터 구조를 역으로 추론하는 방식 체험<br>✏️ <strong>나만의 커뮤니티 기획</strong> — 주제·색상·기능을 직접 선택하여 개성 있는 사이트 기획<br>💬 <strong>토론과 협업</strong> — 강사·동료와 함께 아이디어를 발전시키는 워크숍 경험
+<div class="wda-goal" style="position:relative;padding-right:192px;">
+  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:130px;bottom:-16px;right:28px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(10deg);">
+  👁️ <strong>UI → DB 사고</strong> — 화면을 보고 필요한 데이터 구조를 역으로 추론하는 방식 체험<br>✏️ <strong>나만의 커뮤니티 기획</strong> — 주제·색상·기능을 직접 선택하여 개성 있는 사이트 기획<br>💬 <strong>토론과 협업</strong> — 강사·동료와 함께 아이디어를 발전시키는 워크숍 경험
 </div>
 
 ---
 
 ## 🔄 새로운 학습 방식: UI → DB 순서
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:196px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:146px;top:12px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
+<div class="wda-callout wda-ci" style="position:relative;padding-left:158px;">
+  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:105px;top:-22px;left:22px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
   <span class="wda-clabel">오늘의 특별한 접근법</span>일반적으로는 DB를 먼저 설계하고 UI를 만들지만, 오늘은 시각적인 UI를 먼저 보고 → 필요한 DB 구조를 찾아내는 훈련을 합니다. 화면에 보이는 정보에서 출발하면 DB 개념이 훨씬 직관적으로 이해됩니다!
 </div>
 
@@ -98,8 +104,8 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 함께 진행하는 방식
 
-<div class="wda-steps" style="position:relative;padding-left:18px;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:42px;top:36px;left:14px;z-index:3;pointer-events:none;opacity:.80;transform:rotate(-15deg);">
+<div class="wda-steps" style="position:relative;overflow:visible;">
+  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:62px;top:-24px;right:28px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(8deg);">
 <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">강사와 함께 토론 (5분)</div><div class="wda-sdsc">"어떤 주제의 커뮤니티를 만들고 싶나요?" · "색상은 어떤 느낌이 좋을까요?" · "특별히 추가하고 싶은 기능이 있나요?"</div></div></div>
 <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">개인 기획서 작성 (10분)</div><div class="wda-sdsc">아래 템플릿을 메모장에 복사해서 채우기 · 막히는 부분은 강사나 옆 사람과 상의하기</div></div></div>
 </div>
@@ -137,8 +143,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 <div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:30px;top:-14px;left:12%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-14deg);">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:26px;top:-10px;right:14%;z-index:2;pointer-events:none;opacity:.58;transform:rotate(20deg);">
+  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:-20px;left:12%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-14deg);">
 </div>
 
 ---
@@ -147,12 +152,15 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 어떻게 수정할지 고민된다면 아래 예시를 참고하세요.
 
-<div class="wda-fgrid" style="position:relative;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:28px;top:16px;right:18%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
+<div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">🎮</div><div class="wda-fcard-ttl">게임 커뮤니티</div><div class="wda-fcard-dsc">이름: "Game Community"<br>색상: 어둡고 네온 느낌<br>카테고리: 공략, 리뷰, 질문<br>아이콘: 게임패드, 별점</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🍜</div><div class="wda-fcard-ttl">맛집 후기</div><div class="wda-fcard-dsc">이름: "Food Review"<br>색상: 따뜻한 오렌지/빨간색<br>정보: 음식점명, 별점, 가격대<br>아이콘: 음식, 별점, 위치</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📚</div><div class="wda-fcard-ttl">스터디 모임</div><div class="wda-fcard-dsc">이름: "Study Together"<br>색상: 깔끔한 파란색/초록색<br>정보: 스터디명, 모집인원, 일시<br>아이콘: 책, 시계, 그룹</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🐾</div><div class="wda-fcard-ttl">펫 커뮤니티</div><div class="wda-fcard-dsc">이름: "Pet Community"<br>색상: 귀여운 파스텔 톤<br>정보: 펫 종류, 나이, 특징<br>아이콘: 동물, 하트, 발바닥</div></div>
+<div class="wda-fcard" style="position:relative;overflow:visible;"><img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-22px;right:-12px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);"><div class="wda-fcard-ico">🐾</div><div class="wda-fcard-ttl">펫 커뮤니티</div><div class="wda-fcard-dsc">이름: "Pet Community"<br>색상: 귀여운 파스텔 톤<br>정보: 펫 종류, 나이, 특징<br>아이콘: 동물, 하트, 발바닥</div></div>
+</div>
+
+<div style="position:relative;height:0;overflow:visible;margin:0;">
+  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-16px;right:16%;z-index:2;pointer-events:none;opacity:.58;transform:rotate(20deg);">
 </div>
 
 ---
@@ -161,22 +169,21 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 각자 만든 UI 디자인을 보면서 **"이거 구현 가능한가요?"** 함께 토론하고, 현실적인 수정사항을 결정합니다.
 
-<div class="wda-steps" style="position:relative;padding-left:204px;padding-right:44px;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:154px;top:18px;left:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(12deg);">
-  <img src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="position:absolute;width:30px;top:28px;right:10px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(10deg);">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">로그인 페이지 분석</div><div class="wda-sdsc">"로그인 페이지에서 필요한 정보가 뭘까요?"</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">게시물 목록 분석</div><div class="wda-sdsc">"게시물 목록에서 보여줄 정보는 어떤 것들이 있나요?"</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">댓글 기능 분석</div><div class="wda-sdsc">"댓글 기능에서는 어떤 데이터가 필요할까요?"</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">구현 가능성 검토</div><div class="wda-sdsc">"이 디자인대로 구현하려면 어떤 준비가 필요할까요?"</div></div></div>
+<div class="wda-steps" style="width:100%;max-width:none;margin-left:0;margin-right:0;position:relative;overflow:visible;padding-right:44px;text-align:left;box-sizing:border-box;">
+  <img src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="position:absolute;width:62px;top:16px;right:8px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(10deg);">
+<div class="wda-step" style="display:flex;align-items:flex-start;justify-content:flex-start;text-align:left;"><div class="wda-snum">1</div><div class="wda-sbody" style="flex:1;min-width:0;text-align:left;"><div class="wda-sttl" style="text-align:left;">로그인 페이지 분석</div><div class="wda-sdsc" style="text-align:left;">"로그인 페이지에서 필요한 정보가 뭘까요?"</div></div></div>
+<div class="wda-step" style="display:flex;align-items:flex-start;justify-content:flex-start;text-align:left;"><div class="wda-snum">2</div><div class="wda-sbody" style="flex:1;min-width:0;text-align:left;"><div class="wda-sttl" style="text-align:left;">게시물 목록 분석</div><div class="wda-sdsc" style="text-align:left;">"게시물 목록에서 보여줄 정보는 어떤 것들이 있나요?"</div></div></div>
+<div class="wda-step" style="display:flex;align-items:flex-start;justify-content:flex-start;text-align:left;"><div class="wda-snum">3</div><div class="wda-sbody" style="flex:1;min-width:0;text-align:left;"><div class="wda-sttl" style="text-align:left;">댓글 기능 분석</div><div class="wda-sdsc" style="text-align:left;">"댓글 기능에서는 어떤 데이터가 필요할까요?"</div></div></div>
+<div class="wda-step" style="display:flex;align-items:flex-start;justify-content:flex-start;text-align:left;"><div class="wda-snum">4</div><div class="wda-sbody" style="flex:1;min-width:0;text-align:left;"><div class="wda-sttl" style="text-align:left;">구현 가능성 검토</div><div class="wda-sdsc" style="text-align:left;">"이 디자인대로 구현하려면 어떤 준비가 필요할까요?"</div></div></div>
 </div>
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-ci" style="position:relative;padding-right:64px;">
+  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:48px;top:50%;right:10px;margin-top:-24px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
   <span class="wda-clabel">다음 단계 예고</span>UI 기획이 완료되면 4단계에서는 이 UI를 보면서 "어떤 데이터베이스가 필요한지" 함께 찾아내는 훈련을 합니다. 로그인 화면 → users 테이블 · 게시물 목록 → posts 테이블 · 댓글 → comments 테이블
 </div>
 
 <div class="wda-done" style="position:relative;padding-right:238px;">
   <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:188px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(-12deg);">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:26px;bottom:12px;left:18px;z-index:2;pointer-events:none;opacity:.60;transform:rotate(18deg);">
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:24px;bottom:12px;left:52px;z-index:2;pointer-events:none;opacity:.58;transform:rotate(13deg);">
+  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:80px;top:6px;left:16px;z-index:2;pointer-events:none;opacity:.58;transform:rotate(13deg);">
   <div class="wda-done-ico">✏️</div><div class="wda-done-ttl">UI 기획 완료!</div><div>각자만의 커뮤니티 사이트 UI를 기획했습니다. 작성한 기획서는 5단계에서 데이터베이스 구조와 함께 통합하여 최종 프로젝트 문서로 만들 예정입니다. 지금은 메모장에 저장해두세요!</div>
 </div>
