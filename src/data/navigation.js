@@ -17,10 +17,18 @@ export const categories = [
     emoji: '💛',
     slug: 'javascript',
     description: '웹을 동적으로 만드는 핵심 언어. 변수와 함수부터 DOM 조작, ES6+ 문법, 비동기 처리까지 자바스크립트의 전 범위를 다룹니다.',
+    nestedSidebar: true,
     sections: [
       'Basics', 'Functions', 'Arrays & Objects', 'DOM',
       'ES6+', 'Async', 'Browser APIs', 'jQuery', 'Regular Expression',
     ],
+    sectionDocs: {
+      'Basics': [
+        { slug: '1-1-js-execution-environment', title: '1-1 JavaScript 실행환경 이해하기' },
+        { slug: '1-2-variables-and-scope', title: '1-2 변수와 스코프 다루기' },
+        { slug: '1-3-data-types', title: '1-3 데이터 타입' },
+      ],
+    },
   },
   {
     id: 'typescript',
@@ -123,6 +131,14 @@ export const categories = [
         { slug: '3-2-mobile-ui-planning', title: '3-2: 강사와 함께 모바일 UI 기획하기' },
         { slug: '3-3-sns-db-and-implementation', title: '3-3: SNS DB 분석 및 미니 SNS 구현' },
         { slug: '3-4-projects-tab', title: '3-4: Projects 탭 UI 설계 및 통합 구현' },
+      ],
+      'Lesson 4': [
+        { slug: '4-1-portfolio-reference-exploration', title: '4-1: 포트폴리오 레퍼런스 탐색 및 아이디어 구체화' },
+        { slug: '4-2-about-me-tab', title: '4-2: About Me 탭 페이지 완성' },
+        { slug: '4-3-hero-section', title: '4-3: 포트폴리오 Hero 섹션 완성' },
+        { slug: '4-4-portfolio-final-review', title: '4-4: 포트폴리오 전체 완성 및 최종 점검' },
+        { slug: '4-5-custom-domain', title: '4-5: 가비아 커스텀 도메인 연결하기' },
+        { slug: '4-6-deployment-strategy', title: '4-6: 실무 배포 전략 (GitHub Pages + Supabase)' },
       ],
     },
   },
