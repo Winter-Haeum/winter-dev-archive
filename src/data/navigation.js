@@ -27,6 +27,7 @@ export const categories = [
         { slug: '1-1-js-execution-environment', title: '1-1 JavaScript 실행환경 이해하기' },
         { slug: '1-2-variables-and-scope', title: '1-2 변수와 스코프 다루기' },
         { slug: '1-3-data-types', title: '1-3 데이터 타입' },
+        { slug: '1-4-operators', title: '1-4 연산자 알아보기' },
       ],
     },
   },

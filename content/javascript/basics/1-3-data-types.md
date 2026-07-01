@@ -760,5 +760,5 @@ empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
 </table>
 
 <div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:3;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;top:-200px;right:6px;width:172px;pointer-events:none;opacity:.92;">
+  <img src="/images/character/중요.webp" alt="" style="position:absolute;top:-26px;right:0px;width:22px;pointer-events:none;opacity:.92;">
 </div>
