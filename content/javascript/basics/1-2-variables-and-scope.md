@@ -78,8 +78,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **📦 상자와 라벨 개념**
 
-!image.png
-
 • 상자에는 **값**이 들어간다.<br>
 • 라벨은 **이름(식별자)**이다.
 
@@ -131,13 +129,13 @@ console.log(price +3000);// 배송비 포함
   <img src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="position:absolute;top:-12px;right:14px;width:62px;pointer-events:none;opacity:.76;transform:rotate(10deg);">
 </div>
 
-## 3. 변수의 생성 과정 (반응의 생성 과정)
+## 3. 변수의 생성 과정
 
 내부적으로 **다음 3단계를 거친다.**
 
 **📌 1단계: 선언**
 
-• 효과 실행 컨텍스트(스코프)에 등록된다.<br>
+• 해당 실행 컨텍스트(스코프)에 등록된다.<br>
 • `"name이라는 변수를 쓸 것이다"`라고 알린다.
 
 ```javascript
@@ -249,7 +247,7 @@ let score =90;// Error! 재선언 불가
 **⚡ 기본 동작 — const**
 
 ```javascript
-constPI =3.14159;
+const PI =3.14159;
 console.log(PI);// 3.14159
 // 상수 값을 선언하고 출력한다
 
@@ -260,7 +258,7 @@ PI =3.14;// Error! 재할당 불가
 **⚠️ 초기화 필수**
 
 ```javascript
-constTAX_RATE =0.1;
+const TAX_RATE =0.1;
 // 선언과 동시에 반드시 값을 넣어야 한다
 
 const empty;// Error! 초기화 필수
@@ -387,13 +385,7 @@ console.log(score);  // ReferenceError!
 //
 let score = 100;     // ← TDZ 끝 (선언문)
 // ↓ 정상 접근 가능
-console.log(score);  // 100console.log(score);// ReferenceError!
-// TDZ 시작 (스코프 진입)
-
-let score =100;// TDZ 종료 (선언문)
-
-console.log(score);// 100
-// 정상 접근 가능
+console.log(score);  // 100
 ```
 
 <div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
@@ -417,8 +409,6 @@ console.log(score);// 100
   <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-6deg);">
   • let/const는 <strong>코드가 실제로 읽히는 시점 이후</strong>에만 접근해야 한다.<br>
   • 선언 전에 접근하면 <strong>초기화 전 접근 오류</strong>가 발생한다. TDZ는 버그를 막기 위한 <strong>의도적인 안전장치</strong>다.<br>
-  • let/const는 <strong>코드가 실제로 읽히는 시점 이후</strong>에만 접근해야 한다.<br>
-  • 선언 전에 접근하면 <strong>초기화 전 접근 오류</strong>가 발생한다.<br>
   • "왜 안 되지?"가 아니라 "실수를 막아주고 있구나"라고 이해하면 된다.
 </div>
 
@@ -437,7 +427,7 @@ console.log(score);// 100
 let globalVar ="전역 변수";
 // 전역에서 선언된 변수다
 
-functiontest() {
+function test() {
 console.log(globalVar);
 // 함수 안에서도 전역 변수에 접근 가능하다
 }
@@ -452,7 +442,7 @@ console.log(globalVar);
 **📦 지역 스코프 (Local)**
 
 ```javascript
-functiontest() {
+function test() {
 let localVar ="지역 변수";
 // 함수 내부에서만 존재하는 변수다
 
@@ -486,7 +476,7 @@ console.log(localVar);
 **⚡ 함수 스코프 — var**
 
 ```javascript
-functiontest() {
+function test() {
 if (true) {
 var x =10;
 // var는 함수 스코프다
@@ -506,7 +496,7 @@ console.log(x);
 **🔒 블록 스코프 — let / const**
 
 ```javascript
-functiontest() {
+function test() {
 if (true) {
 let y =20;
 // let은 블록 스코프다
@@ -541,8 +531,8 @@ console.log(y);
 ```javascript
 let name ="전역";
 
-functionouter() {
-functioninner() {
+function outer() {
+function inner() {
 console.log(name);
 // inner → outer → 전역 순으로 탐색
 // 최종적으로 전역 name을 찾는다
@@ -562,13 +552,15 @@ outer();
 ```javascript
 let name ="전역";
 
-functionouter() {
+function outer() {
 let name ="지역";
 // 같은 이름의 변수를 다시 선언했다
 
 console.log(name);
 // "지역" 출력된다
 }
+
+outer();
 ```
 
 • 가장 가까운 스코프의 변수가 우선된다.<br>
@@ -767,14 +759,13 @@ let totalTax = price *TAX_RATE;
 
 **📋 요구사항**
 
-• `const`로 **조작하지 않는 정보(이름)** 선언<br>
-• `let`으로 **말하면 정보(나이, 상태)** 선언<br>
-• 블록 `{}` **당신을 위해**, 그에게만 알 것 (예: 비밀번호) 선언 및 숨김<br>
-• 블록 단위 **바깥 정보(이름, 나이)** 출력
+• `const`로 **바뀌지 않는 정보(이름)** 선언<br>
+• `let`으로 **바뀔 수 있는 정보(나이, 상태)** 선언<br>
+• 블록 `{}` 안에 **나만 알아야 할 정보**(예: 비밀번호) 선언 및 숨김<br>
+• 블록 바깥에서 **공개 정보(이름, 나이)** 출력
 
 ```javascript
-// 구성 및 출력 예시
-{ 비밀:1234 } 이름: 김코딩 나이:25 상태: 공부중
+// 구성 예시: 이름(const) / 나이·상태(let) / 비밀번호(블록 스코프 안에 숨김)
 ```
 
 **💡 힌트 1 — 로직**

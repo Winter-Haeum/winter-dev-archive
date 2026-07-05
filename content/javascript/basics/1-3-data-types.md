@@ -97,9 +97,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-## 2. 원시 타입 7가지
+## 2. 원시 타입과 특수 값
 
-JavaScript의 가장 기본적인 데이터 타입이다.
+JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`)다. 아래 표에는 함께 알아두면 좋은 관련 개념(템플릿 리터럴, 특수 숫자 값)도 함께 정리했다.
 
 | 타입 | 설명 | 예시 |
 | --- | --- | --- |
@@ -718,47 +718,45 @@ empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
     <tr>
       <td>메모리 저장 방식<br><small>(참조 타입의 함정)</small></td>
       <td>
-        원시 타입은 <strong>값 자체</strong>가 복사된다. <code>a = 10; b = a;</code> 일 때 둘은 남남이다.<br>
-        참조 타입은 <strong>주소(열쇠)</strong>가 복사된다. <code>a = {name: "Kim"}; b = a;</code> 일 때 한쪽을 바꾸면 <strong>둘 다 바뀐다.</strong>
+        • 원시 타입은 <strong>값 자체</strong>가 복사된다.<br>
+        • <code>a = 10; b = a;</code> 일 때 둘은 남남이다.<br>
+        • 참조 타입은 <strong>주소(열쇠)</strong>가 복사된다.<br>
+        • <code>a = {name: "Kim"}; b = a;</code> 일 때 한쪽을 바꾸면 <strong>둘 다 바뀐다.</strong>
       </td>
-      <td><code>[] === []</code> 또는 <code>{} === {}</code>는 항상 <strong>false</strong>다.<br>모양이 같아도 사물함 열쇠(주소)가 다르기 때문이다.</td>
+      <td>• <code>[] === []</code> 또는 <code>{} === {}</code>는 항상 <strong>false</strong>다.<br>• 모양이 같아도 사물함 열쇠(주소)가 다르기 때문이다.</td>
     </tr>
     <tr>
       <td>"없음"의 두 상태</td>
       <td>
-        <code>undefined</code> — 변수 선언 후 값이 할당되지 않아 <strong>시스템이 자동</strong>으로 넣은 상태다.<br>
-        <code>null</code> — 개발자가 "여기는 확실히 비어있다"고 <strong>의도적으로</strong> 표시한 상태다.
+        • <code>undefined</code> — 변수 선언 후 값이 할당되지 않아 <strong>시스템이 자동</strong>으로 넣은 상태다.<br>
+        • <code>null</code> — 개발자가 "여기는 확실히 비어있다"고 <strong>의도적으로</strong> 표시한 상태다.
       </td>
-      <td>데이터가 존재하지 않을 때는 개발자가 직접 <strong><code>null</code></strong>을 넣어주는 것이 실무 관례다.</td>
+      <td>• 데이터가 존재하지 않을 때는 개발자가 직접 <strong><code>null</code></strong>을 넣어주는 것이 실무 관례다.</td>
     </tr>
     <tr>
       <td>숫자 연산 2대 결함</td>
       <td>
-        <strong>NaN</strong> — 숫자가 아닌 연산의 결과물이다.<br>
-        <strong>부동소수점 오차</strong> — <code>0.1 + 0.2 !== 0.3</code>이다.<br>
-        해결: 정수 변환 계산 또는 <code>.toFixed()</code> 사용
+        • <strong>NaN</strong> — 숫자가 아닌 연산의 결과물이다.<br>
+        • <strong>부동소수점 오차</strong> — <code>0.1 + 0.2 !== 0.3</code>이다.<br>
+        • 해결: 정수 변환 계산 또는 <code>.toFixed()</code> 사용
       </td>
-      <td><code>NaN === NaN</code> → <strong>false</strong><br>(자기 자신과도 같지 않은 유일한 값)</td>
+      <td>• <code>NaN === NaN</code> → <strong>false</strong><br>• 자기 자신과도 같지 않은 유일한 값</td>
     </tr>
     <tr>
       <td>typeof 한계</td>
       <td>
-        <code>typeof null</code> → <strong><code>"object"</code></strong> (JS의 대표적인 설계 버그)<br>
-        <code>typeof []</code>와 <code>typeof {}</code>는 둘 다 <strong><code>"object"</code></strong>다.
+        • <code>typeof null</code> → <strong><code>"object"</code></strong> (JS의 대표적인 설계 버그)<br>
+        • <code>typeof []</code>와 <code>typeof {}</code>는 둘 다 <strong><code>"object"</code></strong>다.
       </td>
-      <td>null 확인: <code>x === null</code> 직접 비교<br>배열 확인: <strong><code>Array.isArray(arr)</code></strong></td>
+      <td>• null 확인: <code>x === null</code> 직접 비교<br>• 배열 확인: <strong><code>Array.isArray(arr)</code></strong></td>
     </tr>
     <tr>
       <td>안전한 타입 변환</td>
       <td>
-        <code>.toString()</code>은 <code>null</code>이나 <code>undefined</code>를 만나면 에러를 내며 멈춘다.<br>
-        <code>String(value)</code>는 어떤 상황에서도 에러 없이 변환한다.
+        • <code>.toString()</code>은 <code>null</code>이나 <code>undefined</code>를 만나면 에러를 내며 멈춘다.<br>
+        • <code>String(value)</code>는 어떤 상황에서도 에러 없이 변환한다.
       </td>
-      <td><strong><code>String(value)</code></strong> 사용 원칙<br>(<code>.toString()</code>은 null 시 TypeError)</td>
+      <td>• <strong><code>String(value)</code></strong> 사용 원칙<br>• <code>.toString()</code>은 null 시 TypeError</td>
     </tr>
   </tbody>
 </table>
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:3;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;top:-26px;right:0px;width:22px;pointer-events:none;opacity:.92;">
-</div>

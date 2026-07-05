@@ -18,16 +18,37 @@ export const categories = [
     slug: 'javascript',
     description: '웹을 동적으로 만드는 핵심 언어. 변수와 함수부터 DOM 조작, ES6+ 문법, 비동기 처리까지 자바스크립트의 전 범위를 다룹니다.',
     nestedSidebar: true,
+    // 큰 단원 5개로 정리 (2026-07 개편). sectionDocs 항목의 `folder`는
+    // 실제 파일이 위치한 content/javascript/{folder}/ 를 가리킨다.
+    // (표시용 단원명과 실제 폴더명이 다를 수 있어 folder로 라우팅한다.)
     sections: [
-      'Basics', 'Functions', 'Arrays & Objects', 'DOM',
-      'ES6+', 'Async', 'Browser APIs', 'jQuery', 'Regular Expression',
+      '1. JavaScript 기본 문법',
+      '2. 함수 · 배열 · 객체',
+      '3. DOM',
+      '4. ES6+ 심화 문법',
+      '5. 비동기 · 모듈 · 저장소',
     ],
     sectionDocs: {
-      'Basics': [
-        { slug: '1-1-js-execution-environment', title: '1-1 JavaScript 실행환경 이해하기' },
-        { slug: '1-2-variables-and-scope', title: '1-2 변수와 스코프 다루기' },
-        { slug: '1-3-data-types', title: '1-3 데이터 타입' },
-        { slug: '1-4-operators', title: '1-4 연산자 알아보기' },
+      '1. JavaScript 기본 문법': [
+        { slug: '1-1-js-execution-environment', title: '1-1 JavaScript 실행환경 이해하기', folder: 'basics' },
+        { slug: '1-2-variables-and-scope', title: '1-2 변수와 스코프 다루기', folder: 'basics' },
+        { slug: '1-3-data-types', title: '1-3 데이터 타입', folder: 'basics' },
+        { slug: '1-4-operators', title: '1-4 연산자 알아보기', folder: 'basics' },
+        { slug: '1-5-control-flow', title: '1-5 조건문과 반복문으로 흐름 제어하기', folder: 'basics' },
+      ],
+      '2. 함수 · 배열 · 객체': [
+        { slug: '2-1-functions', title: '2-1 함수 선언하고 호출하기', folder: 'functions' },
+        { slug: '2-2-arrays', title: '2-2 배열로 여러 데이터 관람하기', folder: 'arrays-objects' },
+        { slug: '2-3-objects', title: '2-3 객체로 데이터 구조화하기', folder: 'arrays-objects' },
+        { slug: 'appendix-this-binding-array-creation', title: '부록: call/apply/bind · 배열 생성', folder: 'arrays-objects' },
+      ],
+      '3. DOM': [
+        { slug: '3-1-dom-basics', title: '3-1 DOM이란 무엇인가요?', folder: 'dom' },
+        { slug: '3-2-create-and-manipulate-elements', title: '3-2 요소를 생성하고 조작하기', folder: 'dom' },
+        { slug: '3-3-event-handling-and-interaction', title: '3-3 이벤트 처리로 인터랙션 만들기', folder: 'dom' },
+      ],
+      '4. ES6+ 심화 문법': [
+        { slug: '4-1-es6-modern-syntax', title: '4-1 ES6 + 최신 문법 알아보기', folder: 'es6' },
       ],
     },
   },

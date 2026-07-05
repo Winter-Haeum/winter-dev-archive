@@ -226,7 +226,7 @@ JS 파일을 분리해 불러온다.
 
 ```html
 <body>
-<scriptsrc="main.js"></script>
+<script src="main.js"></script>
 </body>
 ```
 
@@ -309,7 +309,7 @@ document.querySelector('button');
 
 <div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="position:absolute;top:-30px;right:14px;width:66px;pointer-events:none;opacity:.76;transform:rotate(-8deg);"></div>
 
-| 구분 | 기본적으로 | 연기하다 (defer) | 비동기 (async) |
+| 구분 | 기본 (Normal) | 지연 (defer) | 비동기 (async) |
 |---|---|---|---|
 | script 형태 | `<script src="..."></script>` | `<script defer src="..."></script>` | `<script async src="..."></script>` |
 | HTML 해석 | 해석 일시중지 | 해석과 동시에 다운로드 | 해석과 동시에 다운로드 |
@@ -445,7 +445,7 @@ console.log(10 +20);
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. 개발자가 자주 이용하는 관계</h2>
+  <h2>11. 개발자가 자주 하는 실수</h2>
   <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:108px;top:-28px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
@@ -469,19 +469,17 @@ username ="admin";
 **❌ 실수 2: 읽기 전용 변수에 쓰기**
 
 ```javascript
-constPI =3.14;
+const PI = 3.14;
 
-// 에러가 안 나고 그냥 무시됨 (일반 모드)
-PI =5;
-
-console.log(PI);// 여전히 3.14
-// 왜 안 바뀌지? 하고 방황
+// const로 선언한 변수는 재할당할 수 없다
+PI = 5;
+// ❌ TypeError: Assignment to constant variable
 ```
 
 • const로 선언한 변수는 값을 변경할 수 없다.<br>
-• 일반 모드에서는 에러가 바로 보이지 않는다.
+• 재할당을 시도하면 strict 모드 여부와 상관없이 즉시 에러가 발생한다.
 
-→ 오류를 알려주지 않아 문제를 찾기 어렵다.
+→ 에러 메시지를 보면 원인(const 재할당)을 바로 알 수 있다.
 
 ---
 
@@ -538,16 +536,16 @@ let public =10;
 ```javascript
 "use strict";
 
-constPI =3.14;
-PI =5;
-// ❌ TypeError: Assignment to constant variable
+const obj = Object.freeze({ name: "JS" });
+obj.name = "Java";
+// ❌ TypeError: Cannot assign to read only property 'name' of object
 ```
 
 <div class="wda-callout wda-ci" style="position:relative;padding-left:62px;overflow:visible;">
   <img src="/images/decoration/말풍선 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:50%;left:8px;z-index:2;pointer-events:none;opacity:.76;transform:translateY(-50%) rotate(-6deg);">
   <span class="wda-clabel">🔹 설명</span>
-  • const 변수는 값 변경이 불가능하다.<br>
-  • 일반 모드에서는 조용히 무시되던 코드가 strict 모드에서는 즉시 에러로 표시된다.
+  • Object.freeze로 고정한 객체는 속성을 변경할 수 없다.<br>
+  • 일반 모드에서는 조용히 무시되던 변경 시도가 strict 모드에서는 즉시 에러로 표시된다.
 </div>
 
 ---
@@ -558,7 +556,7 @@ PI =5;
 • 하지만 **현대 방식(Module)**에서는 **자동으로 strict 모드가 적용된다.**
 
 ```html
-<scripttype="module">
+<script type="module">
 // "use strict"를 쓰지 않아도 자동 적용된다
   a =10;// ❌ 에러 발생
 </script>
@@ -598,7 +596,7 @@ let x =10;
 **🔹 module 방식**
 
 ```html
-<scripttype="module">
+<script type="module">
 let x =10;// 이 파일 안에서만 유효
 </script>
 ```

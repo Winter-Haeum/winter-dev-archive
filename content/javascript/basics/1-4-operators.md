@@ -43,16 +43,16 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:130px;top:-14px;right:30px;z-index:2;pointer-events:none;opacity:.82;">
+  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:130px;top:-14px;right:24%;z-index:2;pointer-events:none;opacity:.82;">
   🔢 <strong>연산자</strong> — 산술, 비교, 논리 연산자를 활용할 수 있다.<br>
-  ⚡ <strong>실전 활용</strong> — truthy / falsy, 단축 평가, <code>??</code>, <code>?.</code> 를 실무에 적용할 수 있다.
+  ⚡ <strong>실전 활용</strong> — truthy / falsy, 단축 평가, 삼항 연산자 <code>? :</code>, 옵셔널 체이닝 <code>?.</code>, <code>??</code> 를 실무에 적용할 수 있다.
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 산술 연산자 (Arithmetic Operators)</h2>
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:50px;top:-16px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
+  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:100px;top:-28px;right:16%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-14deg);">
 </div>
 
 숫자를 계산하여 새로운 값을 만드는 연산자입니다.
@@ -124,7 +124,10 @@ console.log(x--); // 현재 값인 6을 먼저 출력하고, 이후에 1을 뺌 
 
 ---
 
-## 2. 할당 연산자 (Assignment Operators)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>2. 할당 연산자 (Assignment Operators)</h2>
+  <img src="/images/decoration/책갈피 아이콘 (4).webp" alt="" style="position:absolute;width:64px;top:-14px;right:28%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(6deg);">
+</div>
 
 변수에 값을 저장하거나, 연산과 저장을 한 번에 처리합니다.
 
@@ -141,7 +144,7 @@ let y = x; // x의 값(10)을 y에 넣는다
 
 **⚙️ 복합 할당**
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;top:-28px;right:12px;width:48px;pointer-events:none;opacity:.76;transform:rotate(-8deg);"></div>
+<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;top:-28px;left:60%;width:48px;pointer-events:none;opacity:.76;transform:rotate(16deg);"></div>
 
 연산과 할당을 한 번에 처리하여 코드를 간결하게 만듭니다.
 
@@ -174,9 +177,9 @@ str += "님"; // str = "홍길동" + "님"; 과 같음 (결과: "홍길동님")
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-8px;left:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. 비교 연산자 (Comparison Operators)</h2>
+  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-12px;right:6%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-18deg);">
 </div>
 
 값을 비교하여 참(<code>true</code>) 또는 거짓(<code>false</code>)인 **불리언(boolean)** 값을 반환합니다.
@@ -193,6 +196,10 @@ str += "님"; // str = "홍길동" + "님"; 과 같음 (결과: "홍길동님")
 | **`<=`** | 이하 | `3 <= 3` | `true` |
 
 **⚖️ 동등 비교 vs 일치 비교 (중요!)**
+
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:100px;right:0;top:-100px;opacity:.88;z-index:2;pointer-events:none;">
+</div>
 
 자바스크립트에는 두 값이 같은지 비교하는 두 가지 방법이 있으며, 결과가 다를 수 있습니다.
 
@@ -228,7 +235,7 @@ null === undefined;  // false
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. 삼항 연산자 (Ternary Operator)</h2>
-  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-14px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
+  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:100px;top:-24px;right:32%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 `조건 ? 참 : 거짓` 형태로 사용하는 간결한 조건문입니다. 실무(특히 React 등)에서 필수적으로 사용됩니다.
@@ -265,7 +272,7 @@ console.log(message2); // "성인" 출력
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 논리 연산자 (Logical Operators)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.76;">
+  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:60px;top:-16px;left:50%;transform:translateX(-50%) rotate(-10deg);z-index:2;pointer-events:none;opacity:.76;">
 </div>
 
 boolean 값을 조합합니다.
@@ -334,7 +341,6 @@ if (!isLoggedIn) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. truthy / falsy 값</h2>
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:64px;top:-20px;right:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 JavaScript에서는 boolean 타입이 아닌 값도 조건문 내에서 참(`true`) 또는 거짓(`false`)으로 평가됩니다.
@@ -364,9 +370,10 @@ JavaScript에서는 boolean 타입이 아닌 값도 조건문 내에서 참(`tru
     <div class="wda-fcard-ttl"><code>undefined</code></div>
     <div class="wda-fcard-dsc">정의되지 않음</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard" style="position:relative;overflow:visible;">
     <div class="wda-fcard-ttl"><code>NaN</code></div>
     <div class="wda-fcard-dsc">숫자가 아님</div>
+    <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:64px;top:-14px;right:-26px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
   </div>
 </div>
 
@@ -389,7 +396,7 @@ true        // boolean true
 "hello"     // 비어있지 않은 문자열
 []          // 빈 배열 (주의! truthy임)
 {}          // 빈 객체 (주의! truthy임)
-function(){} // 함수도 truthy
+(function(){}) // 함수도 truthy
 
 // [실용 예시]
 if ([]) {
@@ -402,12 +409,20 @@ if ([]) {
 
 <div class="wda-callout wda-cw">
   • <strong>빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 truthy입니다.</strong> 데이터가 비어있더라도 객체 자체가 존재하기 때문입니다.<br>
-  • <strong>해결책</strong>: 배열이 비어있는지 정확히 확인하려면 데이터 자체를 검사하는 대신 <strong>길이(<code>length</code>)</strong>를 확인해야 합니다: <code>arr.length === 0</code>
+  • <strong>해결책</strong>: 배열이 비어있는지 정확히 확인하려면 데이터 자체를 검사하는 대신 <strong>길이(<code>length</code>)</strong>를 확인해야 합니다.<br>
+  &nbsp;&nbsp;→ <code>arr.length === 0</code>
+</div>
+
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/character/디버깅.webp" alt="" style="position:absolute;width:100px;right:0;top:-110px;opacity:.88;z-index:2;pointer-events:none;">
 </div>
 
 ---
 
-## 7. 단축 평가 (Short-circuit Evaluation)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>7. 단축 평가 (Short-circuit Evaluation)</h2>
+  <img src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:-16px;right:12%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(16deg);">
+</div>
 
 논리 연산 시 결과가 확정되면 나머지 연산을 생략하고 즉시 값을 반환하는 기능입니다.
 
@@ -451,16 +466,20 @@ console.log(displayName); // 결과: "익명"
 
 **요약**
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-cs">
   • <strong><code>A && B</code></strong>: A가 <strong>참</strong>일 때만 B가 실행됨 — 주로 특정 조건에서 실행할 때 사용<br>
   • <strong><code>A || B</code></strong>: A가 <strong>거짓</strong>일 때 B가 실행됨 — 주로 데이터가 없을 때 기본값을 줄 때 사용
+</div>
+
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/character/헷갈려요.webp" alt="" style="position:absolute;width:124px;right:2%;top:-80px;opacity:.88;z-index:2;pointer-events:none;">
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 호출 및 접근 연산자</h2>
-  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(6deg);">
+  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:92px;top:-24px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-14deg);">
 </div>
 
 함수를 실행하거나 객체 내부의 데이터를 꺼낼 때 사용하는 연산자입니다.
@@ -503,7 +522,7 @@ user["age"]; // 결과: 20 (속성 이름을 문자열로 넣어서 접근함)
 
 **요약**
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-cs">
   • <strong>함수 호출</strong>: <code>()</code>가 없으면 함수는 움직이지 않습니다. 함수 이름 뒤에 반드시 붙여야 명령이 실행됩니다.<br>
   • <strong>점 표기법(<code>user.age</code>)</strong>: 코드가 간결하여 가독성이 좋습니다.<br>
   • <strong>대괄호 표기법(<code>user["age"]</code>)</strong>: 속성 이름에 공백이 있거나, 변수를 통해 동적으로 접근해야 할 때 필수적입니다.
@@ -511,11 +530,17 @@ user["age"]; // 결과: 20 (속성 이름을 문자열로 넣어서 접근함)
 
 ---
 
-## 9. 그 외 연산자들 (참고용)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>9. 그 외 연산자들 (참고용)</h2>
+</div>
 
-자주 쓰이지는 않지만, 존재를 알아두면 필요할 때 찾아볼 수 있는 연산자들입니다.
+비트 연산자처럼 자주 쓰이지는 않는 연산자와, 뒤에서 자세히 다룰 옵셔널 체이닝을 간단히 먼저 살펴봅니다.
 
 **🔢 비트 연산자 (`&`, `|`, `^`, `<<`)**
+
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/decoration/소품 아이콘 (1).webp" alt="" style="position:absolute;width:64px;top:-28px;right:38%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
+</div>
 
 숫자를 이진수(0과 1) 비트 단위로 조작하는 연산자입니다.
 
@@ -549,9 +574,16 @@ user?.address?.city;
 
 ---
 
-## 💻 실습: 연산자 놀이터
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습: 연산자 놀이터</h2>
+  <img src="/images/decoration/핀 아이콘 (9).webp" alt="" style="position:absolute;width:40px;top:-10px;left:36%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(14deg);">
+</div>
 
 복잡한 연산자들을 직접 섞어보며 결과를 예측하고 익혀봅시다.
+
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:220px;right:0;top:-120px;opacity:.88;z-index:2;pointer-events:none;">
+</div>
 
 **🧩 비교 미로 찾기**
 
@@ -630,7 +662,7 @@ if (user && user.profile) {
 
 **✅ ?. 사용 (안전)**
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;top:-26px;right:12px;width:46px;pointer-events:none;opacity:.76;transform:rotate(5deg);"></div>
+<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;top:-26px;left:44%;width:46px;pointer-events:none;opacity:.76;transform:rotate(-10deg);"></div>
 
 에러 대신 `undefined`를 반환하여 프로그램의 흐름을 유지합니다.
 
@@ -660,9 +692,13 @@ arr?.[0];             // undefined (배열이 존재할 때만 0번째 인덱스
 
 ---
 
+<div style="position:relative;overflow:visible;height:0;">
+  <img src="/images/character/잠깐 생각해보기.webp" alt="" style="position:absolute;width:126px;left:3%;top:24px;opacity:.88;z-index:2;pointer-events:none;">
+</div>
+
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. ?? (nullish 병합) 연산자</h2>
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
+  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-12px;left:60%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
 </div>
 
 `null` 또는 `undefined`일 때만 기본값을 사용합니다.
@@ -711,7 +747,8 @@ undefined ?? "기본" // 결과: "기본"
 
 **요약**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
+  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:-40px;left:28%;transform:rotate(-14deg);z-index:2;pointer-events:none;opacity:.74;">
   • <strong>결정적 차이</strong>: <code>0</code>과 <code>""</code>를 기본값으로 <strong>대체</strong>하고 싶다면 <code>||</code>를, 유효한 데이터로 <strong>유지</strong>하고 싶다면 <code>??</code>를 선택해야 합니다.<br>
   • <strong>원칙</strong>: 데이터의 정확성을 위해 가급적 <strong><code>??</code> 연산자</strong> 사용을 기본으로 하되, 의도적으로 모든 falsy를 걸러내야 할 때만 <code>||</code>를 사용하십시오.
 </div>
@@ -720,7 +757,8 @@ undefined ?? "기본" // 결과: "기본"
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>📌 연산자 최종 핵심 요약</h2>
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:72px;top:-22px;right:10px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(10deg);">
+  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:72px;top:-22px;left:40%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-16deg);">
+  <img src="/images/character/코딩 팁.webp" alt="" style="position:absolute;width:130px;right:0;top:-112px;opacity:.88;z-index:2;pointer-events:none;">
 </div>
 
 <table class="wda-summary-table">
