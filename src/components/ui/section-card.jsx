@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
 function SectionCard({ section, categorySlug }) {
   const sectionSlug = slugify(section);
@@ -69,7 +69,7 @@ function SectionCard({ section, categorySlug }) {
           lineHeight: 1.5,
         }}
       >
-        {section}
+        {stripSectionNumber(section)}
       </Typography>
 
       <ArrowForwardIcon

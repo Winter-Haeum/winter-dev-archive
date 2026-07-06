@@ -385,9 +385,13 @@ if (!0) {
 }
 ```
 
+<div class="wda-callout wda-ci">
+  기초 단계에서 자주 외우는 falsy 값은 <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>입니다. 추가로 <strong>BigInt의 <code>0n</code></strong>도 falsy입니다.
+</div>
+
 **✅ truthy 값 (나머지 전부)**
 
-falsy인 6가지를 제외한 모든 값은 `true`로 평가됩니다.
+falsy 값을 제외한 모든 값은 `true`로 평가됩니다.
 
 ```jsx
 // [논리 구조: 대표적인 참 취급 값들]
@@ -463,6 +467,11 @@ let displayName = userName || "익명";
 console.log(displayName); // 결과: "익명"
 // 해석: "userName이 비어있으면(false)? 대신 뒤에 있는 '익명'을 써라"
 ```
+
+<div class="wda-callout wda-cw">
+  주의: <code>&&</code>와 <code>||</code>는 항상 boolean만 반환하는 것이 아니라, 조건 판단에 사용된 실제 값을 그대로 반환합니다.<br>
+  예: <code>0 && "출력"</code> → <code>0</code> / <code>"이름" || "익명"</code> → <code>"이름"</code>
+</div>
 
 **요약**
 
@@ -679,6 +688,7 @@ user?.profile?.name;  // undefined (단계별로 값이 있는지 확인하며 �
 user?.getName?.();    // undefined (함수가 존재할 때만 실행)
 
 // ④ 배열 접근 가능
+let arr = null;
 arr?.[0];             // undefined (배열이 존재할 때만 0번째 인덱스 확인)
 ```
 
@@ -750,7 +760,7 @@ undefined ?? "기본" // 결과: "기본"
 <div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
   <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:-40px;left:28%;transform:rotate(-14deg);z-index:2;pointer-events:none;opacity:.74;">
   • <strong>결정적 차이</strong>: <code>0</code>과 <code>""</code>를 기본값으로 <strong>대체</strong>하고 싶다면 <code>||</code>를, 유효한 데이터로 <strong>유지</strong>하고 싶다면 <code>??</code>를 선택해야 합니다.<br>
-  • <strong>원칙</strong>: 데이터의 정확성을 위해 가급적 <strong><code>??</code> 연산자</strong> 사용을 기본으로 하되, 의도적으로 모든 falsy를 걸러내야 할 때만 <code>||</code>를 사용하십시오.
+  • <strong>원칙</strong>: 0이나 빈 문자열을 유효한 값으로 유지해야 할 때는 <strong><code>??</code></strong>를 사용하고, 모든 falsy 값을 기본값으로 대체하고 싶을 때는 <code>||</code>를 사용할 수 있습니다.
 </div>
 
 ---
@@ -771,8 +781,8 @@ undefined ?? "기본" // 결과: "기본"
     <td>• <strong><code>==</code></strong>: 타입을 멋대로 바꿔 비교 — 예측 불가 버그 원인. 절대 사용하지 마세요.<br>• <strong><code>===</code></strong>: 값과 타입이 모두 같아야 참. <strong>모든 비교는 이 연산자</strong>를 기준으로 삼으십시오.</td>
   </tr>
   <tr>
-    <td><strong>Falsy 6형제<br>(무조건 암기)</strong></td>
-    <td>• <code>false</code>, <code>0</code>, <code>""</code>(빈 문자열), <code>null</code>, <code>undefined</code>, <code>NaN</code><br>• <strong>주의</strong>: 빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 비어있어도 <strong>truthy</strong>입니다.</td>
+    <td><strong>기초 Falsy 값<br>(무조건 암기)</strong></td>
+    <td>• <code>false</code>, <code>0</code>, <code>""</code>(빈 문자열), <code>null</code>, <code>undefined</code>, <code>NaN</code> (추가로 BigInt의 <code>0n</code>도 falsy)<br>• <strong>주의</strong>: 빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 비어있어도 <strong>truthy</strong>입니다.</td>
   </tr>
   <tr>
     <td><strong>단축 평가 공식</strong></td>

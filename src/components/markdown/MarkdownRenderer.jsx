@@ -247,6 +247,40 @@ const markdownComponents = {
     );
   },
 
+  // ── 콘텐츠 이미지 (다이어그램/스크린샷) ───────────────────────────────
+  // /images/content/ 경로의 학습 도식 이미지에만 카드형 프레임(border·shadow·배경)을 적용한다.
+  // /images/decoration/, /images/character/ 등 스티커·캐릭터 오버레이 이미지는 그대로 통과시킨다.
+  img: ({ src, alt, style, ...rest }) => {
+    const isContentImage = typeof src === 'string' && src.includes('/images/content/');
+    if (!isContentImage) {
+      return <img src={src} alt={alt} style={style} {...rest} />;
+    }
+    return (
+      <Box
+        component='img'
+        src={src}
+        alt={alt}
+        sx={(theme) => {
+          const isLight = theme.palette.mode === 'light';
+          return {
+            ...style,
+            boxSizing: 'border-box',
+            padding: '10px',
+            borderRadius: '14px',
+            // 라이트: 문서 배경(default)과 이어지는 톤 + 아주 옅은 border/shadow → "깔끔한 삽입" 느낌
+            // 다크: paper 톤 카드 + 뚜렷한 shadow → 흰 이미지가 자연스럽게 뜬 카드 느낌
+            border: `1px solid ${isLight ? 'rgba(43,37,32,0.08)' : theme.palette.divider}`,
+            backgroundColor: isLight ? theme.palette.background.default : theme.palette.background.paper,
+            boxShadow: isLight
+              ? '0 1px 2px rgba(43,37,32,0.05)'
+              : '0 6px 22px rgba(0,0,0,0.42)',
+          };
+        }}
+        {...rest}
+      />
+    );
+  },
+
   // ── 구분선 ──────────────────────────────────────────────────────────
   hr: () => (
     <Divider

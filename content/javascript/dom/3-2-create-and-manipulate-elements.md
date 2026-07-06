@@ -93,7 +93,7 @@ const para = document.querySelector('p');
 
 ### 2) 선택 - 조작 흐름
 
-<img src="/images/content/선택-조작 흐름.webp" alt="선택-조작 흐름 다이어그램" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/3-2/선택-조작 흐름.webp" alt="선택-조작 흐름 다이어그램" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 
 
 **핵심 포인트**
@@ -117,12 +117,12 @@ const para = document.querySelector('p');
   <div class="wda-fcard">
     <div class="wda-fcard-ico">1️⃣</div>
     <div class="wda-fcard-ttl">Rule #1</div>
-    <div class="wda-fcard-dsc">"대부분의 상황에서 <code>querySelector</code>가 정답입니다"<br>ID, Class, Tag 고민할 필요 없습니다. CSS 선택자 하나로 모든 것을 찾을 수 있습니다.</div>
+    <div class="wda-fcard-dsc">"대부분의 일반적인 요소 선택에서는 <code>querySelector</code> / <code>querySelectorAll</code>이 편리한 기본 선택지입니다"<br>ID, Class, Tag 고민할 필요 없습니다. CSS 선택자 하나로 모든 것을 찾을 수 있습니다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ico">2️⃣</div>
     <div class="wda-fcard-ttl">Rule #2</div>
-    <div class="wda-fcard-dsc">"성능 최적화는 나중에"<br><code>getElementById</code>가 빠르지만, 가독성과 개발 속도가 더 중요합니다. 성능 차이는 밀리초 단위로, 대부분의 웹앱에서는 무시할 수준입니다.</div>
+    <div class="wda-fcard-dsc">"성능 최적화는 나중에"<br><code>getElementById</code>가 빠르지만, 가독성과 개발 속도가 더 중요합니다. 일반적인 웹페이지에서는 선택 메서드 간 성능 차이를 체감하기 어렵기 때문에, 처음에는 가독성과 유지보수성을 우선하는 것이 좋습니다.</div>
   </div>
 </div>
 
@@ -232,17 +232,19 @@ div.innerHTML = input;
 <div class="wda-fgrid">
   <div class="wda-fcard">
     <div class="wda-fcard-ttl"><code>&lt;script&gt;</code> 차단</div>
-    <div class="wda-fcard-dsc"><code>script</code> 태그는 브라우저가 막아 직접 쓰지 못합니다.</div>
+    <div class="wda-fcard-dsc">innerHTML로 삽입한 <code>script</code> 태그는 일반적으로 그대로 실행되지 않는 경우가 많습니다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ttl"><code>&lt;img&gt;</code> 우회</div>
-    <div class="wda-fcard-dsc">존재하지 않는 주소('x')를 넣어 <code>onerror</code>가 실행되게 됩니다.</div>
+    <div class="wda-fcard-dsc">존재하지 않는 주소('x')를 넣어 <code>onerror</code> 같은 이벤트 속성이 실행되게 됩니다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ttl">자동 실행</div>
     <div class="wda-fcard-dsc">화면에 렌더링 즉시 발동하여 에러가 나면서 해커 코드가 실행됩니다.</div>
   </div>
 </div>
+
+하지만 img의 onerror 같은 이벤트 속성이나 다른 HTML 삽입 방식으로 악성 코드가 실행될 수 있어 위험합니다. 그래서 사용자 입력값은 기본적으로 textContent로 처리하는 것이 안전합니다.
 
 ### 3) Safe Alternative
 
@@ -310,7 +312,7 @@ input.value; // -> "user input"
 
 ### 1) data- 속성 정의
 
-`data-`로 시작하는 커스텀 속성을 사용해 HTML에 데이터를 숨겨둘 수 있습니다.
+`data-`로 시작하는 커스텀 속성을 사용해 HTML 요소에 보조 데이터를 저장할 수 있습니다. 단, HTML에 그대로 노출되는 값이므로 비밀번호나 토큰 같은 민감한 정보는 저장하면 안 됩니다.
 
 ### 2) HTML 코드
 
@@ -345,6 +347,8 @@ user.dataset.lastLogin = '2024-01-15';
 // 3. 삭제
 delete user.dataset.isActive;
 ```
+
+dataset으로 읽은 값은 항상 문자열입니다. 예를 들어 `data-user-id="123"`은 숫자 123이 아니라 문자열 `"123"`으로 읽힙니다.
 
 ### 4) 활용 사례
 
@@ -760,10 +764,11 @@ function addTodo() {
 
     // 3. 요소 생성 (Memory 단계)
     const li = document.createElement('li');        // 항목(li) 생성
+    const span = document.createElement('span');    // 텍스트를 담을 span 생성
     const deleteBtn = document.createElement('button'); // 삭제 버튼 생성
 
     // 4. 내용 및 속성 설정
-    li.textContent = text;              // li에 입력한 텍스트 넣기
+    span.textContent = text;            // span에 입력한 텍스트 넣기
     deleteBtn.textContent = '삭제';     // 버튼에 "삭제" 글자 넣기
 
     // 5. 삭제 버튼에 기능 연결 (이벤트 리스너)
@@ -772,8 +777,9 @@ function addTodo() {
     });
 
     // 6. 요소 조립 및 화면 삽입 (DOM 연결)
-    li.appendChild(deleteBtn); // li의 자식으로 버튼을 넣음
-    list.appendChild(li);      // 최종 완성된 li를 ul 목록에 추가
+    li.appendChild(span);       // li의 자식으로 텍스트(span)를 넣음
+    li.appendChild(deleteBtn);  // li의 자식으로 버튼을 넣음
+    list.appendChild(li);       // 최종 완성된 li를 ul 목록에 추가
 
     // 7. 다음 입력을 위해 입력창 비우기
     input.value = '';
@@ -866,7 +872,7 @@ btn.addEventListener('click', () => {
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>classList.toggle</strong> — 조건문 없이도 클래스를 넣고 뺄 수 있는 가장 효율적인 방법입니다.</li>
+    <li><strong>classList.toggle</strong> — 조건문을 길게 쓰지 않고도 클래스를 넣고 뺄 수 있어 간단하고 자주 사용되는 방법입니다.</li>
     <li><strong>classList.contains</strong> — 현재 특정 클래스가 적용되어 있는지 확인하여 로직을 분기할 때 사용합니다.</li>
     <li><strong>사용자 경험</strong> — CSS에 <code>transition</code>을 넣어야 색상이 갑자기 변하지 않고 부드럽게 바뀌어 눈이 편안합니다.</li>
   </ul>

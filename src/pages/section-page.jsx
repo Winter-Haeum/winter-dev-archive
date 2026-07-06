@@ -23,9 +23,9 @@ import MarkdownRenderer from '@/components/markdown/MarkdownRenderer';
 import CategoryBadgeLink from '@/components/ui/CategoryBadgeLink';
 import StatusBadge from '@/components/ui/StatusBadge';
 import NotFoundPage from '@/pages/not-found-page';
-import { getSectionIndex, getSectionDocs } from '@/utils/markdownLoader';
+import { getSectionIndex, getSectionDocs, getDoc } from '@/utils/markdownLoader';
 import { categories } from '@/data/navigation';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
 function SectionPage() {
   const { category: categorySlug, section: sectionSlug } = useParams();
@@ -38,16 +38,33 @@ function SectionPage() {
 
   const category = categories.find((c) => c.slug === categorySlug);
   const sectionName = category?.sections.find((s) => slugify(s) === sectionSlug);
+  // nestedSidebar 대단원은 sectionDocs에 문서가 직접 등록되어 있을 수 있고,
+  // 문서들이 표시 단원명과 슬러그가 다른 실제 폴더(folder)에 흩어져 있을 수 있다
+  // (예: '2. 함수 · 배열 · 객체' 아래 functions/arrays-objects 두 폴더).
+  // 이 경우 폴더 기준 파일시스템 스캔(getSectionDocs) 대신 등록된 목록을 folder별로 직접 조회한다.
+  const declaredDocs = sectionName ? category?.sectionDocs?.[sectionName] : null;
   const currentKey = `${categorySlug}/${sectionSlug}`;
   const loading = loadedKey !== currentKey;
 
   useEffect(() => {
     let active = true;
     setLoadError(false);
-    Promise.all([
-      getSectionIndex(categorySlug, sectionSlug),
-      getSectionDocs(categorySlug, sectionSlug),
-    ])
+
+    const loadPromise = declaredDocs
+      ? (() => {
+          const folders = [...new Set(declaredDocs.map((d) => d.folder ?? sectionSlug))];
+          const indexFolder = folders.length === 1 ? folders[0] : null;
+          return Promise.all([
+            indexFolder ? getSectionIndex(categorySlug, indexFolder) : Promise.resolve(null),
+            Promise.all(declaredDocs.map((d) => getDoc(categorySlug, d.folder ?? sectionSlug, d.slug))),
+          ]).then(([idx, docs]) => [idx, docs.filter(Boolean)]);
+        })()
+      : Promise.all([
+          getSectionIndex(categorySlug, sectionSlug),
+          getSectionDocs(categorySlug, sectionSlug),
+        ]);
+
+    loadPromise
       .then(([idx, docs]) => {
         if (!active) return;
         setSectionIndex(idx);
@@ -61,7 +78,7 @@ function SectionPage() {
         setLoadedKey(`${categorySlug}/${sectionSlug}`);
       });
     return () => { active = false; };
-  }, [categorySlug, sectionSlug]);
+  }, [categorySlug, sectionSlug, declaredDocs]);
 
   if (!category || !sectionName) return <NotFoundPage />;
 
@@ -107,7 +124,7 @@ function SectionPage() {
               variant='h1'
               sx={{ fontSize: { xs: '1.75rem', md: '2rem' } }}
             >
-              {sectionName}
+              {stripSectionNumber(sectionName)}
             </Typography>
           </Box>
 
@@ -159,7 +176,7 @@ function SectionPage() {
                     return (
                       <Box
                         component={Link}
-                        to={`/${categorySlug}/${sectionSlug}/${firstDoc.slug}`}
+                        to={`/${categorySlug}/${firstDoc.section ?? sectionSlug}/${firstDoc.slug}`}
                         sx={(theme) => ({
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -207,7 +224,7 @@ function SectionPage() {
                           <Box
                             key={doc.slug}
                             component={Link}
-                            to={`/${categorySlug}/${sectionSlug}/${doc.slug}`}
+                            to={`/${categorySlug}/${doc.section ?? sectionSlug}/${doc.slug}`}
                             sx={(theme) => ({
                               display: 'flex',
                               alignItems: 'center',

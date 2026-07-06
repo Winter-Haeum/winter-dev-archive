@@ -76,7 +76,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:90px;top:-22px;right:8px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
 </div>
 
-JavaScript는 브라우저가 이해할 수 있는 유일한 프로그래밍 언어다.
+JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 스크립트 언어다.
 
 **🏗️ 브라우저의 구조**
 
@@ -102,14 +102,13 @@ JavaScript는 브라우저가 이해할 수 있는 유일한 프로그래밍 언
 **🚫 다른 언어는?**
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">브라우저에서 실행 불가</span>
-  • Python → 브라우저에 엔진 없음 ✗<br>
-  • Java → 브라우저에 엔진 없음 ✗<br>
-  • C++ → 브라우저에 엔진 없음 ✗
+  <span class="wda-clabel">브라우저에서 직접 실행되지 않음</span>
+  • Python / Java / C++ 코드는 일반적인 브라우저에서 그대로 직접 실행되지 않는다.<br>
+  • 브라우저는 기본적으로 JavaScript 엔진을 내장하고 있기 때문에 JavaScript를 바로 실행할 수 있다.
 </div>
 
 <div class="wda-callout wda-cs">
-  💡 웹사이트에서 버튼 클릭, 폼 검증, 애니메이션 등 모든 동적 기능은 JavaScript로 구현된다.
+  💡 웹사이트에서 버튼 클릭 처리, 폼 검증, 동적인 화면 변경 같은 대표적인 기능은 JavaScript로 구현된다.
 </div>
 
 ---
@@ -177,11 +176,11 @@ ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
 |---|---|---|
 | 한 줄 개념 | 레시피(명세)다 | 요리(실제 언어)다 |
 | 역할 | 언어의 규칙과 문법을 정의한다 | ECMAScript 표준을 실제로 구현한다 |
-| 내용 | 언어의 규칙과 문법 정의(Spec) | 브라우저가 실제로 만든 언어다 |
+| 내용 | 언어의 규칙과 문법 정의(Spec) | ECMAScript 표준을 기반으로 브라우저와 런타임에서 실제로 실행되는 언어다 |
 | 선언 규칙 | "변수는 이렇게 선언해야 한다" | 규칙에 맞게 실제로 사용한다 |
 | 함수 규칙 | "함수는 이러한 규칙을 따른다" | 함수를 실제로 실행한다 |
-| 포함 기능 | 순수 언어 규칙만 정의한다 | Web API를 포함한다 |
-| Web API 예시 | 해당 없음 | DOM, fetch, localStorage 등 |
+| 실행 환경 | 순수 언어 규칙만 정의한다 | 브라우저 환경에서는 Web API와 함께 사용된다 |
+| Web API 예시 | 해당 없음 | (브라우저가 제공) DOM, fetch, localStorage 등 |
 
 **📅 주요 버전**
 
@@ -484,7 +483,7 @@ PI = 5;
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. "엄격한 사용" 수정 모드 (use strict)</h2>
+  <h2>12. 엄격 모드 (use strict)</h2>
   <img src="/images/decoration/느낌표 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.76;">
 </div>
 
@@ -576,9 +575,9 @@ obj.name = "Java";
 
 **✨ 특징**
 
-• **활동성** — 서로의 변수를 침범하지 않는다.<br>
-• **자동 플러그인** — `"use strict"`를 따로 작성하지 않아도 자동으로 strict 모드가 적용된다.<br>
-• **지연 실행** — `defer` 속성처럼 HTML 해석이 끝난 뒤 실행된다.
+• **독립성** — 서로의 변수를 침범하지 않는다.<br>
+• **strict 자동 적용** — `"use strict"`를 따로 작성하지 않아도 자동으로 엄격 모드가 적용된다.<br>
+• **지연 실행** — `defer`처럼 HTML 해석 이후 실행된다.
 
 **🔧 응용**
 
@@ -625,7 +624,7 @@ let x =10;// 이 파일 안에서만 유효
 <script>
     "use strict";
 console.log("Hello, World!");
-const name ="JavaScript";
+const languageName ="JavaScript";
 // const는 값 변경 불가
 </script>
 </body>
@@ -669,7 +668,7 @@ const name ="JavaScript";
   </tr>
   <tr>
     <td><strong>다른 언어와 차이</strong></td>
-    <td>• Python / Java / C++은 <strong>브라우저에서 실행 불가</strong>다.<br>• 이유: 브라우저에 해당 언어 엔진이 없다.</td>
+    <td>• Python / Java / C++ 코드는 <strong>브라우저에서 그대로 직접 실행되지 않는다</strong>.<br>• 이유: 브라우저는 기본적으로 JavaScript 엔진만 내장하고 있다.</td>
   </tr>
   <tr>
     <td><strong>ECMAScript vs JavaScript</strong></td>

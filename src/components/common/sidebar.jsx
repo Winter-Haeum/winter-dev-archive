@@ -7,6 +7,8 @@
  * Props:
  * @param {string} currentCategoryId    - 현재 활성 카테고리 id [Required]
  * @param {string} [currentSectionSlug] - 현재 활성 섹션 슬러그 [Optional]
+ * @param {string} [currentDocSlug]     - 현재 활성 문서 슬러그 [Optional] — 한 단원에 여러 폴더의
+ *                                        문서가 섞여 있을 때(예: 함수 · 배열 · 객체) 활성 단원을 판별하는 데 사용
  *
  * Example usage:
  * <Sidebar currentCategoryId='frontend' />
@@ -19,9 +21,35 @@ import IconButton from '@mui/material/IconButton';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link, useLocation } from 'react-router-dom';
 import { categories } from '@/data/navigation';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
-function Sidebar({ currentCategoryId, currentSectionSlug }) {
+/**
+ * currentSectionSlug(URL의 section 파라미터)는 표시 단원의 슬러그일 수도 있고,
+ * (JavaScript처럼) 문서가 실제로 위치한 콘텐츠 폴더명일 수도 있다.
+ * 폴더명이 표시 단원 슬러그와 다른 경우, sectionDocs를 역으로 검색해 문서가 속한
+ * 표시 단원을 찾아 그 단원의 Accordion 키를 반환한다 (doc-page.jsx의 groupSlug 계산과 동일한 방식).
+ */
+function resolveOpenSectionKey(categoryId, sectionSlug, docSlug) {
+  if (!sectionSlug) return null;
+
+  const cat = categories.find((c) => c.id === categoryId);
+  if (!cat?.nestedSidebar) return `${categoryId}/${sectionSlug}`;
+
+  const directMatch = cat.sections.find((s) => slugify(s) === sectionSlug);
+  if (directMatch) return `${categoryId}/${sectionSlug}`;
+
+  const sectionViaFolder = cat.sectionDocs
+    ? Object.keys(cat.sectionDocs).find((name) =>
+        cat.sectionDocs[name].some(
+          (d) => d.slug === docSlug && (d.folder ?? slugify(name)) === sectionSlug
+        )
+      )
+    : null;
+
+  return sectionViaFolder ? `${categoryId}/${slugify(sectionViaFolder)}` : `${categoryId}/${sectionSlug}`;
+}
+
+function Sidebar({ currentCategoryId, currentSectionSlug, currentDocSlug }) {
   const location = useLocation();
 
   // Accordion — 한 번에 하나의 카테고리만 열림
@@ -29,7 +57,7 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
 
   // Accordion — 한 번에 하나의 섹션만 열림 (nestedSidebar용)
   const [openSectionKey, setOpenSectionKey] = useState(
-    currentSectionSlug ? `${currentCategoryId}/${currentSectionSlug}` : null
+    resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug)
   );
 
   useEffect(() => {
@@ -38,8 +66,8 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
 
   useEffect(() => {
     if (!currentSectionSlug) return;
-    setOpenSectionKey(`${currentCategoryId}/${currentSectionSlug}`);
-  }, [currentCategoryId, currentSectionSlug]);
+    setOpenSectionKey(resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug));
+  }, [currentCategoryId, currentSectionSlug, currentDocSlug]);
 
   const toggle = (catId) => {
     setOpenCategoryId((prev) => (prev === catId ? null : catId));
@@ -203,9 +231,12 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
                     if (isNested) {
                       // ── 3단계 Accordion (nestedSidebar) ────────────────
                       const sectionKey = `${cat.id}/${sectionSlug}`;
-                      const isSectionActive = isActive && currentSectionSlug === sectionSlug;
-                      const isOnSectionPage = location.pathname === `/${cat.slug}/${sectionSlug}`;
                       const docs = cat.sectionDocs?.[section] ?? [];
+                      const isSectionActive = isActive && (
+                        currentSectionSlug === sectionSlug
+                        || docs.some((d) => d.slug === currentDocSlug)
+                      );
+                      const isOnSectionPage = location.pathname === `/${cat.slug}/${sectionSlug}`;
                       const hasDocs = docs.length > 0;
                       const isSectionExpanded = openSectionKey === sectionKey;
 
@@ -274,7 +305,7 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
                                 })}
                               />
                               <Box component='span' sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                {section}
+                                {stripSectionNumber(section)}
                               </Box>
                             </Box>
 
@@ -283,7 +314,7 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
                                 size='small'
                                 onClick={() => toggleSection(sectionKey)}
                                 aria-expanded={isSectionExpanded}
-                                aria-label={`${section} 문서 목록 ${isSectionExpanded ? '닫기' : '열기'}`}
+                                aria-label={`${stripSectionNumber(section)} 문서 목록 ${isSectionExpanded ? '닫기' : '열기'}`}
                                 sx={(theme) => ({
                                   mr: 1,
                                   flexShrink: 0,
@@ -332,7 +363,7 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
                                 sx={{ overflow: 'hidden', listStyle: 'none', m: 0, p: 0 }}
                               >
                                 {docs.map((doc) => {
-                                  const docPath = `/${cat.slug}/${sectionSlug}/${doc.slug}`;
+                                  const docPath = `/${cat.slug}/${doc.folder ?? sectionSlug}/${doc.slug}`;
                                   const isDocActive = location.pathname === docPath;
                                   return (
                                     <Box key={doc.slug} component='li'>
@@ -474,7 +505,7 @@ function Sidebar({ currentCategoryId, currentSectionSlug }) {
                             component='span'
                             sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
                           >
-                            {section}
+                            {stripSectionNumber(section)}
                           </Box>
                         </Box>
                       </Box>

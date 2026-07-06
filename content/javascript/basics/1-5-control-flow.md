@@ -183,7 +183,7 @@ if (score >= 90) {
 |  | `if (items.length > 0)` | 배열의 길이 등은 명시적으로 비교 |
 |  | `if (user !== null)` | 빈 값 체크는 확실하게 |
 | **비권장 (Bad)** | `if (isLoggedIn == true)` | 불필요한 중복 (`== true` 생략 가능) |
-|  | `if (items.length)` | 숫자를 불리언으로 암묵적 변환하는 것은 모호함 |
+| **참고 (Note)** | `if (items.length)` | 실무에서도 자주 사용되지만, 초보자 단계에서는 `if (items.length > 0)`처럼 명시적으로 쓰면 더 이해하기 쉽습니다 |
 | **부정 조건** | `if (!isActive)` | `!` 연산자로 "아니라면"을 표현 (`false`일 때 실행) |
 
 **핵심 동작 원리**
@@ -339,7 +339,8 @@ Fall-through 활용: 위 예시처럼 A와 B를 묶어서 처리하고 싶을 �
 
 <div class="wda-callout wda-cw">
   • <strong>일치 비교(<code>===</code>)</strong>: switch 문은 내부적으로 <strong>엄격한 비교(<code>===</code>)</strong>를 사용합니다. 값뿐만 아니라 <strong>데이터 타입</strong>까지 같아야 매칭됩니다. (예: 문자열 <code>"1"</code>과 숫자 <code>1</code>은 서로 다름)<br>
-  • <strong>점프(Jump)</strong>: <code>if</code> 문이 위에서부터 순서대로 검사한다면, <code>switch</code> 문은 해당 케이스로 바로 점프하여 실행합니다.
+  • <strong>점프(Jump)</strong>: <code>if</code> 문이 위에서부터 순서대로 검사한다면, <code>switch</code> 문은 해당 케이스로 바로 점프하여 실행합니다.<br>
+  • 더 정확히 말하면, <code>switch</code> 문은 주어진 값과 일치하는 <code>case</code>를 찾고, 일치한 <code>case</code>부터 실행을 시작합니다.
 </div>
 
 ---
@@ -409,7 +410,7 @@ switch (weather) {
 조건이 참이면 ? 이 값 : 아니면 저 값;
 
 // 예시: 성인 판별
-const status = (age >= 18) ? "성인" : "미성년자";
+const ageStatus = (age >= 18) ? "성인" : "미성년자";
 ```
 
 **2) if 문과 비교 (Why Use It?)**
@@ -718,7 +719,7 @@ for (let index in arr) {
 **주의사항**
 
 <div class="wda-callout wda-cw">
-  배열에는 절대 <code>for...in</code>을 쓰지 마세요. 배열을 순회할 때는 다음에 배울 <strong><code>for...of</code></strong>나 일반 <code>for</code> 문을 사용하세요.
+  <code>for...in</code>은 원래 <strong>객체의 key를 순회하는 용도</strong>입니다. 배열에 사용하면 인덱스 key를 순회하고, 추가된 enumerable 속성까지 나올 수 있어 배열 값 순회용으로 부적합합니다. 배열에는 <strong><code>for...of</code></strong>나 일반 <code>for</code> 문을 사용하세요.
 </div>
 
 **핵심 요약**
@@ -779,7 +780,7 @@ city: 서울
   <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-20px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
-**배열(보따리)**에 들어있는 **실제 데이터(내용물)**를 하나씩 꺼내 쓸 때 사용하는, **배열 전용** 반복문입니다.
+**배열, 문자열, Map, Set처럼 순회 가능한 값(iterable)**에 들어있는 **실제 값(내용물)**을 하나씩 꺼내 쓸 때 사용하는 반복문입니다.
 
 **1) 구조 이해하기 (수도코드)**
 
@@ -868,7 +869,7 @@ for (let item of cart) {
 
 <div class="wda-callout wda-ci">
   • <strong>간결함</strong>: 만약 기본 <code>for</code> 문을 썼다면 <code>cart[i]</code>처럼 인덱스로 접근해야 했겠지만, <code>for...of</code>를 쓰면 <code>item</code>으로 바로 값을 쓸 수 있어 훨씬 직관적입니다.<br>
-  • <strong>배열 전용</strong>: 이 문법은 배열(Array)이나 문자열(String)처럼 순서가 있는 데이터(Iterable)에만 사용할 수 있습니다.
+  • <strong>iterable 대상</strong>: 이 문법은 배열(Array)이나 문자열(String)처럼 순서가 있는 데이터(Iterable)에만 사용할 수 있습니다.
 </div>
 
 ---
@@ -924,7 +925,7 @@ for (let value of obj) {
 
 <div class="wda-callout wda-cy">
   헷갈릴 땐 단어의 스펠링을 보세요.<br>
-  • <strong>for...in</strong> = <strong>in</strong>dex (인덱스/키)<br>
+  • <strong>for...in</strong> = key <strong>in</strong> object (객체 안의 key를 꺼낸다)<br>
   • <strong>for...of</strong> = <strong>"Of the Array" (배열의)</strong>라고 기억하면 쉽습니다.
 </div>
 
@@ -1236,7 +1237,7 @@ for (let i = 1; i <= 10; i++) {
 **주의사항**
 
 <div class="wda-callout wda-cw">
-  • <strong>배열</strong>에는 절대 <code>for...in</code>을 쓰지 마세요. (순서 보장 안 됨, 불필요한 값 포함)<br>
+  • <strong>배열</strong>에는 <code>for...in</code>보다 <code>for...of</code>나 기본 <code>for</code>문을 사용하세요. <code>for...in</code>은 객체의 key 순회용이라, 배열에 쓰면 인덱스 key와 추가된 enumerable 속성까지 나올 수 있습니다.<br>
   • <strong>while</strong> 문은 내부에 <code>count--</code> 같은 <strong>탈출 코드</strong>가 없으면 브라우저가 멈추는 <strong>무한 루프</strong>에 빠집니다.
 </div>
 
@@ -1304,7 +1305,7 @@ for (let i = 1; i <= 10; i++) {
   <tr>
     <td><strong>for...of</strong></td>
     <td>• 배열의 Value(실제 값)를 순회<br>• 인덱스 없이 바로 값 사용 가능</td>
-    <td>• <strong>배열 전용</strong> (가장 많이 씀)<br>• 객체에 쓰면 TypeError 에러</td>
+    <td>• <strong>배열 같은 iterable 순회에 사용</strong> (가장 많이 씀)<br>• 일반 객체는 iterable이 아니므로 바로 사용하면 TypeError가 발생한다</td>
   </tr>
   <tr>
     <td><strong>while / do-while</strong></td>

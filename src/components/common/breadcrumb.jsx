@@ -17,6 +17,7 @@
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import { stripSectionNumber } from '@/utils/slugify';
 
 const linkSx = (theme) => ({
   color: theme.palette.text.secondary,
@@ -69,11 +70,11 @@ function Breadcrumb({ category, section, sectionSlug, doc }) {
             variant='body2'
             sx={linkSx}
           >
-            {section}
+            {stripSectionNumber(section)}
           </Typography>
         ) : (
           <Typography variant='body2' sx={currentSx} aria-current='page'>
-            {section}
+            {stripSectionNumber(section)}
           </Typography>
         )
       )}

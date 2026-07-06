@@ -19,7 +19,7 @@ import NavigationDrawer from '@/components/common/NavigationDrawer';
 import Breadcrumb from '@/components/common/breadcrumb';
 import NotFoundPage from '@/pages/not-found-page';
 import { categories } from '@/data/navigation';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
 function CategoryPage() {
   const { category: categorySlug } = useParams();
@@ -188,7 +188,7 @@ function CategoryPage() {
                         variant='body2'
                         sx={{ color: 'text.secondary', lineHeight: 1.5, flex: 1 }}
                       >
-                        {section}
+                        {stripSectionNumber(section)}
                       </Typography>
                       <ArrowForwardIcon
                         className='section-arrow'
@@ -215,7 +215,7 @@ function CategoryPage() {
             size='large'
             sx={{ borderRadius: '8px' }}
           >
-            {category.sections[0]}부터 시작하기
+            {stripSectionNumber(category.sections[0])}부터 시작하기
           </Button>
           </Box>
         </Box>

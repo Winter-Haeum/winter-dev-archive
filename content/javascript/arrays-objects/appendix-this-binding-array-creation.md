@@ -84,7 +84,9 @@ const person = {
 
 const myGreet = person.greet;
 myGreet();
-// 안녕, 난 undefined야 (혹은 window)
+// 실행 환경과 strict 모드 여부에 따라 this가 undefined가 되거나,
+// 브라우저 전역 객체(window)를 가리킬 수 있습니다.
+// 이 경우 this.name을 제대로 찾지 못합니다.
 ```
 
 함수만 따로 떼어내면 `this`를 잃어버립니다.
@@ -174,7 +176,7 @@ introduce.apply(user, [30, "부산"]);
 "민수는 30살, 부산 거주"
 ```
 
-- **Apply는 Array(배열)를 받는다!**
+- **apply는 인자 목록을 배열 또는 유사 배열 형태로 받습니다. 초보자 단계에서는 'apply = array로 묶어서 전달'이라고 기억하면 됩니다.**
 
 ---
 
@@ -214,6 +216,7 @@ introduceJisu(22);
 ```
 
 - **이벤트 핸들러나 콜백 함수에서 `this`를 잃어버리지 않게 고정할 때 주로 사용합니다.**
+- **`bind()`는 원본 함수를 실행하거나 수정하지 않습니다. `this`와 일부 인자가 미리 고정된 새로운 함수를 만들어 반환합니다.**
 
 ---
 
@@ -299,8 +302,8 @@ arr.forEach(v => console.log(v));
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">Empty vs Undefined</span>
   <ul>
-    <li><strong>Empty</strong> : 방 자체가 없음 (순회 시 건너뜀)</li>
-    <li><strong>Undefined</strong> : 방은 있는데 값이 없음 (순회 함)</li>
+    <li><strong>Empty</strong> : 빈 슬롯(empty slot)입니다. 해당 인덱스에 요소 자체가 없는 상태라서 forEach 같은 일부 배열 메서드에서 건너뜁니다.</li>
+    <li><strong>Undefined</strong> : 요소는 존재하지만 그 값이 undefined인 상태입니다. 순회 대상에 포함됩니다.</li>
   </ul>
 </div>
 
@@ -321,7 +324,7 @@ arr.forEach(v => console.log(v));
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">희소 배열 지양</span>
   <ul>
-    <li>희소 배열은 성능 문제와 예기치 않은 동작(순회 패스 등)을 일으키므로 피하는 것이 좋습니다.</li>
+    <li>희소 배열은 순회 시 건너뛰는 동작처럼 초보자가 예상하기 어려운 결과를 만들 수 있고, 엔진 최적화에도 불리할 수 있으므로 피하는 것이 좋습니다.</li>
     <li>항상 <code>Array.from()</code>이나 <code>fill()</code> 등으로 꽉 찬 배열(Dense Array)을 만드세요!</li>
   </ul>
 </div>
@@ -373,7 +376,7 @@ console.log(arr2);
 
 #### 1) 유사 배열을 배열로 (NodeList 등)
 
-DOM 요소들을 선택했을 때 반환되는 NodeList는 배열 메서드를 바로 쓸 수 없습니다.
+DOM 요소들을 선택했을 때 반환되는 NodeList는 배열처럼 보이지만 진짜 배열은 아닙니다. forEach는 지원되는 환경이 많지만, map/filter/reduce 같은 배열 메서드는 바로 사용할 수 없습니다.
 
 ```jsx
 // HTML: <div>A</div> <div>B</div> <div>C</div>
@@ -428,7 +431,7 @@ console.log(numbers);
   <div class="wda-fcard">
     <div class="wda-fcard-ico">✅</div>
     <div class="wda-fcard-ttl">조건 충족</div>
-    <div class="wda-fcard-dsc">유사 배열은 <strong>length 속성</strong>만 있어도 그 형태로 간주될 수 있습니다.</div>
+    <div class="wda-fcard-dsc">Array.from()은 length 속성이 있는 객체를 array-like 객체처럼 처리할 수 있습니다. <code>{ length: 5 }</code>에는 실제 값은 없지만, Array.from()은 length를 보고 5번 반복할 수 있다고 판단합니다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ico">⚙️</div>
@@ -484,7 +487,7 @@ console.log(numbers);
 
 <div style="position:relative;overflow:visible;">
   <img src="/images/decoration/소품 아이콘 (7).webp" alt="" style="position:absolute;width:54px;top:-8px;right:2%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
-  <p>단순 변환을 넘어 배열 생성의 표준으로 권장되는 이유입니다.</p>
+  <p>Array.from()은 유사 배열 변환이나 일정한 길이의 배열을 생성하면서 값을 채울 때 매우 유용합니다.</p>
 </div>
 
 <div class="wda-fgrid">

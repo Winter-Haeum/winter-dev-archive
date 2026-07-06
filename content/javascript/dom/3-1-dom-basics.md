@@ -117,7 +117,7 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
 ### 1) JavaScript의 이해
 
-- **핵심 이유** : JavaScript는 단순한 텍스트(HTML string)를 이해하지 못합니다.
+- **핵심 이유** : JavaScript는 HTML 문자열 자체를 화면 구조처럼 바로 조작하기 어렵습니다. 브라우저가 HTML을 DOM 객체로 바꿔주기 때문에 JavaScript는 프로퍼티와 메서드를 통해 요소를 선택하고 수정할 수 있습니다.
 - **해결 방법** : HTML이 **객체(Object)**로 변환되어야만 JavaScript가 **프로퍼티**와 **메서드**로 접근할 수 있습니다.
   - `{ key : value }`: 객체의 기본 형태
   - **메서드**: 객체 안에 프로퍼티로 존재하는 함수
@@ -252,7 +252,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">실질적 조작 노드</span>
-  실제로 JavaScript로 조작하는 것은 99% <strong>요소(Element)</strong>와 <strong>텍스트(Text)</strong> 노드입니다.
+  실제로 JavaScript로 DOM을 조작할 때는 대부분 <strong>요소(Element)</strong> 노드와 <strong>텍스트(Text)</strong> 노드를 중심으로 다룹니다.
 </div>
 
 ---
@@ -556,7 +556,7 @@ querySelectorAll("#css")
 
 | **구분** | **메서드 명칭** | **선택 기준** | **특징** |
 | --- | --- | --- | --- |
-| **구 방식** | `getElementById` | 오직 ID만 | 가장 빠르지만 활용도가 낮음 |
+| **구 방식** | `getElementById` | 오직 ID만 | ID 하나를 정확히 선택할 때 명확하고 빠름. 다만 복잡한 CSS 선택자는 사용할 수 없음 |
 | **구 방식** | `getElementsByClassName` | 클래스 이름 | HTMLCollection(유사 배열) 반환 |
 | **최신 표준** | **`querySelector`** | **CSS 선택자** | 조건에 맞는 **첫 번째 요소** 하나만 반환 |
 | **최신 표준** | **`querySelectorAll`** | **CSS 선택자** | 조건에 맞는 **모든 요소**를 NodeList로 반환 |
@@ -581,7 +581,7 @@ querySelectorAll("#css")
 
 구 방식(`getElements...`)은 실시간으로 변하는 목록(Live)을 반환하여 예측하기 어렵습니다. 안전한 제어를 위해 최신 표준인 `querySelectorAll` 사용이 권장됩니다.
 
-### 1) HTMLCollection (Live) - 위험(Dangerous)
+### 1) HTMLCollection (Live) - 주의 필요
 
 - **특징** : 화면(DOM)이 바뀌면 변수 안의 목록도 **몰래 자동으로 바뀝니다.**
 - **문제점** : 반복문(for문) 실행 중 요소가 삭제되면 인덱스가 꼬이는 현상이 발생합니다.
@@ -607,6 +607,8 @@ const list = querySelectorAll...
 // ✅ 안전하게 순회 가능
 ```
 
+`querySelectorAll`이 반환하는 `NodeList`는 정적(Static)입니다. 단, 모든 `NodeList`가 정적인 것은 아닙니다. 예를 들어 `childNodes`가 반환하는 `NodeList`는 Live로 동작할 수 있습니다.
+
 ### 3) 컬렉션 특징 요약
 
 | **구분** | **반환 타입** | **상태 (State)** | **권장 여부** | **주요 문제점/장점** |
@@ -631,7 +633,7 @@ const list = querySelectorAll...
   <img src="/images/decoration/소품 아이콘 (15).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
-99%의 상황에서 `querySelector` 사용이 권장됩니다. CSS 선택자의 강력함을 그대로 누릴 수 있습니다.
+대부분의 일반적인 DOM 선택에서는 `querySelector` / `querySelectorAll`을 우선 고려하면 됩니다. 다만 ID 하나만 정확히 찾는 경우에는 `getElementById`도 여전히 명확하고 유용합니다. CSS 선택자의 강력함을 그대로 누릴 수 있습니다.
 
 ### 1) 상황별 최적의 메서드 선택 표
 
@@ -700,7 +702,7 @@ JavaScript로 DOM을 조작하여 동적인 웹페이지를 만듭니다.
 
 ### 2) 핵심 포인트
 
-- **DOM 변경 → 화면 자동 업데이트** : DOM을 수정하면 브라우저가 이를 감지하여 화면을 즉시 다시 그립니다.
+- **DOM 변경 → 화면 자동 업데이트** : DOM을 수정하면 브라우저는 변경 사항을 반영하기 위해 필요한 렌더링 작업을 다시 수행합니다. 변경 내용에 따라 Layout, Paint, Composite 같은 작업이 일부 또는 전체적으로 다시 일어날 수 있습니다.
 - **HTML 파일은 변경되지 않음** : 자바스크립트로 하는 모든 조작은 메모리 상의 DOM에서만 일어나며, 원본 소스 파일은 그대로 유지됩니다.
 - **새로고침하면 원래대로** : 메모리 기반이므로 페이지를 새로고침하면 모든 조작이 초기화되고 원래의 HTML 구조로 돌아갑니다.
 
@@ -853,7 +855,7 @@ console.log(divs.length); // 4
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">성능과 Static의 차이</span>
   <ul>
-    <li><strong>성능적 측면</strong> : <strong>Live Collection</strong>은 매번 DOM의 상태를 확인해야 하므로, 빈번한 접근 시 성능 저하의 원인이 될 수 있습니다.</li>
+    <li><strong>성능적 측면</strong> : <strong>Live Collection</strong>은 DOM 변경 사항을 실시간으로 반영해야 하므로, 큰 목록을 자주 다루는 경우에는 예측성이나 성능 측면에서 주의가 필요합니다.</li>
     <li><strong>Static과의 차이점</strong> : 다음에 배울 <strong>Static Collection(NodeList)</strong>은 선택한 시점의 스냅샷을 유지하므로, DOM이 변해도 목록이 바뀌지 않아 반복문 제어가 훨씬 안전합니다.</li>
   </ul>
 </div>
@@ -1077,3 +1079,5 @@ const newItems = document.querySelectorAll(".item");
     </tr>
   </tbody>
 </table>
+
+이 공식은 입문자를 위한 단순화된 흐름입니다. 실제 브라우저 렌더링 과정은 더 세부 단계가 있지만, 기초 단계에서는 DOM과 CSSOM이 결합되어 화면에 그려진다고 이해하면 됩니다.

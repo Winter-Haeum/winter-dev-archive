@@ -1,5 +1,5 @@
 ---
-title: "2-2 배열로 여러 데이터 관람하기"
+title: "2-2 배열로 여러 데이터 관리하기"
 status: "completed"
 description: "배열 생성부터 접근, 추가/제거, 검색, 정렬, 복사, 구조분해까지 배열의 핵심 메서드를 정리한다."
 category: "JavaScript"
@@ -152,7 +152,7 @@ const students = ["철수", "영희"];
 
 ### 1) 배열 리터럴 (강력 추천!)
 
-99% 이 방식을 사용하게 될 거예요. 대괄호 `[]`를 사용하여 생성합니다.
+대부분의 경우 이 방식을 사용합니다. 대괄호 `[]`를 사용하여 생성합니다.
 
 ```js
 // 대괄호 []를 사용하여 생성
@@ -222,7 +222,7 @@ Array.from("Hello");
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">유사 배열이란?</span>
-  배열처럼 <code>[]</code>로 감싸져 있거나 순서가 있지만, <code>push</code>나 <code>pop</code> 같은 배열 전용 기능을 사용할 수 없는 데이터들을 말해요.<br>
+  length 속성과 숫자 인덱스를 가지고 있어서 배열처럼 보이지만, 실제 배열은 아닌 객체를 말합니다. 그래서 <code>push</code>, <code>pop</code>, <code>map</code> 같은 배열 메서드를 바로 사용할 수 없습니다.<br>
   <code>Array.from()</code>은 이런 데이터들에게 "배열의 자격"을 주는 마법 같은 명령어입니다.
 </div>
 
@@ -738,7 +738,7 @@ console.log(items); // 출력: ["A", "B", "C", "D"]
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">splice 사용 시 유의점</span>
   <ul>
-    <li><strong>배열 파괴 메서드</strong> : splice()는 원본 배열을 직접 수정합니다. 원본이 변하면 안 되는 상황에서는 주의해서 사용해야 합니다.</li>
+    <li><strong>배열 파괴 메서드</strong> : splice()는 원본 배열을 직접 수정하는 파괴적 메서드입니다. 원본을 유지해야 하는 상황에서는 slice(), concat(), 스프레드 문법 등을 고려해야 합니다.</li>
     <li><strong>만능 교체</strong> : 삭제 개수와 추가할 값을 동시에 넣으면 특정 위치의 데이터를 다른 데이터로 '교체'하는 효과를 낼 수 있습니다.</li>
     <li><strong>반환값</strong> : pop()이나 shift()처럼 splice()도 삭제된 요소들을 배열 형태로 반환합니다. 필요하다면 변수에 담아 쓸 수 있습니다.</li>
   </ul>
@@ -1139,6 +1139,15 @@ numbers.sort();
 console.log(numbers); // 결과: [1, 10, 2, 25] (문자열로 비교되어 "10"이 "2"보다 앞에 옴)
 ```
 
+```js
+const numbers = [10, 1, 2, 25];
+
+numbers.sort((a, b) => a - b);
+console.log(numbers); // [1, 2, 10, 25]
+```
+
+a - b가 음수이면 a가 앞에 오고, 양수이면 b가 앞에 옵니다. 그래서 숫자를 오름차순으로 정렬할 수 있습니다.
+
 **해결책**
 
 <div class="wda-callout wda-cs">
@@ -1155,6 +1164,13 @@ console.log(numbers); // 결과: [1, 10, 2, 25] (문자열로 비교되어 "10"�
     <li><strong>공통점</strong> : 둘 다 <strong>파괴적 메서드(Mutator)</strong>입니다. 원본이 보존되지 않으니 주의하세요.</li>
   </ul>
 </div>
+
+sort()와 reverse()는 원본 배열을 직접 변경하므로, 원본을 지키고 싶을 때는 복사 후 사용합니다.
+
+```js
+const sorted = [...numbers].sort((a, b) => a - b);
+const reversed = [...arr].reverse();
+```
 
 ---
 
@@ -1439,7 +1455,7 @@ console.log(original); // 결과: ["a", "b", "c", "d"] 😱 (원본도 변함!)
   <div class="wda-fcard">
     <div class="wda-fcard-ico">🔮</div>
     <div class="wda-fcard-ttl">해결책 예고</div>
-    <div class="wda-fcard-dsc">원본을 지키면서 내용물만 똑같이 복사하려면, 주소가 아닌 <strong>값 자체를 새로 만드는</strong> '얕은 복사'나 '깊은 복사' 기법을 사용해야 합니다.</div>
+    <div class="wda-fcard-dsc">원본 배열 자체를 지키려면 새 배열을 만드는 복사 기법을 사용해야 합니다. 단, 얕은 복사는 배열의 1단계만 새로 만들고, 배열 안에 객체나 배열이 들어 있으면 그 내부 객체의 참조는 그대로 공유될 수 있습니다.</div>
   </div>
 </div>
 
@@ -1447,7 +1463,7 @@ console.log(original); // 결과: ["a", "b", "c", "d"] 😱 (원본도 변함!)
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">참조 복사 정리</span>
-  "배열을 =로 복사하는 것은 복사가 아니라 공유다." 원본을 유지해야 한다면 절대로 =를 사용하지 마세요. 주소만 전달되는 이 현상을 <strong>'참조에 의한 전달'</strong>이라고 부릅니다.
+  "배열을 =로 복사하는 것은 복사가 아니라 공유다." 원본을 유지해야 한다면 절대로 =를 사용하지 마세요. 쉽게 말하면 주소표가 복사되는 것처럼 동작합니다. 엄밀히 말하면 JavaScript는 값을 전달하지만, 참조 타입의 경우 그 값이 객체를 가리키는 참조값입니다. 초보자 단계에서는 '같은 배열을 함께 바라본다'라고 이해하면 됩니다.
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -1489,7 +1505,7 @@ const copy = original.slice();
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">배열 안에 객체가 들어있다면?</span>
   <strong>얕은 복사(Shallow Copy)</strong>만으로는 부족할 수 있습니다. 배열 내부의 요소가 객체인 경우, 해당 객체까지 완전히 복사되지는 않습니다.<br>
-  해결책 : JSON.stringify 등을 사용하여 더 깊은 복사를 수행해야 합니다.
+  해결책 : 깊은 복사가 필요할 때는 structuredClone()을 사용할 수 있습니다. JSON.stringify() / JSON.parse() 방식도 있지만, 함수, undefined, Date, Map 같은 값은 제대로 보존되지 않을 수 있으므로 주의해야 합니다.
 </div>
 
 **정리**

@@ -9,6 +9,8 @@
  * @param {function} onClose              - Drawer 닫기 핸들러 [Required]
  * @param {string}   currentCategoryId    - 현재 활성 카테고리 id [Required]
  * @param {string}   [currentSectionSlug] - 현재 활성 섹션 슬러그 [Optional]
+ * @param {string}   [currentDocSlug]     - 현재 활성 문서 슬러그 [Optional] — 한 단원에 여러 폴더의
+ *                                          문서가 섞여 있을 때(예: 함수 · 배열 · 객체) 활성 단원을 판별하는 데 사용
  *
  * Example usage:
  * <NavigationDrawer
@@ -28,9 +30,9 @@ import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { categories } from '@/data/navigation';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
-function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug }) {
+function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug, currentDocSlug }) {
   const location = useLocation();
 
   // Accordion — 한 번에 하나의 카테고리만 열림
@@ -236,9 +238,12 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                       if (isNested) {
                         // ── 3단계 Accordion (nestedSidebar) ────────────────
                         const sectionKey = `${cat.id}/${sectionSlug}`;
-                        const isSectionActive = isActive && currentSectionSlug === sectionSlug;
-                        const isOnSectionPage = location.pathname === `/${cat.slug}/${sectionSlug}`;
                         const docs = cat.sectionDocs?.[section] ?? [];
+                        const isSectionActive = isActive && (
+                          currentSectionSlug === sectionSlug
+                          || docs.some((d) => d.slug === currentDocSlug)
+                        );
+                        const isOnSectionPage = location.pathname === `/${cat.slug}/${sectionSlug}`;
                         const hasDocs = docs.length > 0;
                         const isSectionExpanded = openSectionKey === sectionKey;
 
@@ -307,7 +312,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                                   })}
                                 />
                                 <Box component='span' sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                  {section}
+                                  {stripSectionNumber(section)}
                                 </Box>
                               </Box>
 
@@ -316,7 +321,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                                   size='small'
                                   onClick={() => toggleSection(sectionKey)}
                                   aria-expanded={isSectionExpanded}
-                                  aria-label={`${section} 문서 목록 ${isSectionExpanded ? '닫기' : '열기'}`}
+                                  aria-label={`${stripSectionNumber(section)} 문서 목록 ${isSectionExpanded ? '닫기' : '열기'}`}
                                   sx={(theme) => ({
                                     mr: 1,
                                     flexShrink: 0,
@@ -365,7 +370,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                                   sx={{ overflow: 'hidden', listStyle: 'none', m: 0, p: 0 }}
                                 >
                                   {docs.map((doc) => {
-                                    const docPath = `/${cat.slug}/${sectionSlug}/${doc.slug}`;
+                                    const docPath = `/${cat.slug}/${doc.folder ?? sectionSlug}/${doc.slug}`;
                                     const isDocActive = location.pathname === docPath;
                                     return (
                                       <Box key={doc.slug} component='li'>
@@ -505,7 +510,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
                               component='span'
                               sx={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
                             >
-                              {section}
+                              {stripSectionNumber(section)}
                             </Box>
                           </Box>
                         </Box>

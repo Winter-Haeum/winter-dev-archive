@@ -26,7 +26,7 @@ import StatusBadge from '@/components/ui/StatusBadge';
 import NotFoundPage from '@/pages/not-found-page';
 import { getDoc, getSectionDocs } from '@/utils/markdownLoader';
 import { categories } from '@/data/navigation';
-import { slugify } from '@/utils/slugify';
+import { slugify, stripSectionNumber } from '@/utils/slugify';
 
 function DocPage() {
   const { category: categorySlug, section: sectionSlug, doc: docSlug } = useParams();
@@ -38,7 +38,20 @@ function DocPage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const category = categories.find((c) => c.slug === categorySlug);
-  const sectionName = category?.sections.find((s) => slugify(s) === sectionSlug);
+
+  // sectionSlug(URL)는 문서가 실제로 위치한 폴더명이다. 표시용 단원(section)의 슬러그와
+  // 다를 수 있으므로(예: '2. 함수 · 배열 · 객체' 아래 functions/arrays-objects 두 폴더가 섞여 있음),
+  // 먼저 폴더 슬러그 매칭을 시도하고 실패하면 sectionDocs를 역으로 검색해 문서가 속한 단원을 찾는다.
+  let sectionName = category?.sections.find((s) => slugify(s) === sectionSlug);
+  if (!sectionName && category?.sectionDocs) {
+    sectionName = Object.keys(category.sectionDocs).find((name) =>
+      category.sectionDocs[name].some(
+        (d) => d.slug === docSlug && (d.folder ?? slugify(name)) === sectionSlug
+      )
+    );
+  }
+  // 돌아가기/Breadcrumb 링크용 — 표시 단원 자체의 슬러그(섹션 개요 페이지로 이동)
+  const groupSlug = sectionName ? slugify(sectionName) : sectionSlug;
   const currentKey = `${categorySlug}/${sectionSlug}/${docSlug}`;
   const loading = loadedKey !== currentKey;
 
@@ -96,10 +109,11 @@ function DocPage() {
         onClose={() => setDrawerOpen(false)}
         currentCategoryId={category.id}
         currentSectionSlug={sectionSlug}
+        currentDocSlug={docSlug}
       />
 
       <Box sx={{ display: 'flex', flex: 1 }}>
-        <Sidebar currentCategoryId={category.id} currentSectionSlug={sectionSlug} />
+        <Sidebar currentCategoryId={category.id} currentSectionSlug={sectionSlug} currentDocSlug={docSlug} />
 
         <Box
           component='main'
@@ -116,7 +130,7 @@ function DocPage() {
           {/* ← 섹션으로 돌아가기 */}
           <Box
             component={Link}
-            to={`/${categorySlug}/${sectionSlug}`}
+            to={`/${categorySlug}/${groupSlug}`}
             sx={(theme) => ({
               display: 'inline-flex',
               alignItems: 'center',
@@ -144,14 +158,14 @@ function DocPage() {
             })}
           >
             <ArrowBackIcon sx={{ fontSize: '0.85rem' }} />
-            {sectionName}으로 돌아가기
+            {stripSectionNumber(sectionName)}으로 돌아가기
           </Box>
 
           {/* 현재 위치 Breadcrumb */}
           <Breadcrumb
             category={category}
             section={sectionName}
-            sectionSlug={sectionSlug}
+            sectionSlug={groupSlug}
             doc={loading ? '...' : doc?.frontmatter.title}
           />
 

@@ -82,7 +82,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | 메모리 개념 | 값 자체가 변수에 들어간다 | 변수에는 주소만 들어간다 |
 
 타입이 중요한 이유는 다음과 같다.
-- **연산** — 숫자끼리만 계산이 가능하다.
+- **연산** — 의도한 숫자 계산은 number 타입에서 안전하게 수행된다. JavaScript는 암묵적 타입 변환이 있어 문자열도 숫자로 바뀌는 경우가 있지만, 예측하기 어려워 버그의 원인이 될 수 있다.
 - **메모리** — 타입마다 저장 방식이 다르다.
 - **에러 방지** — 잘못된 연산을 미리 막을 수 있다.
 
@@ -99,20 +99,25 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 2. 원시 타입과 특수 값
 
-JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`)다. 아래 표에는 함께 알아두면 좋은 관련 개념(템플릿 리터럴, 특수 숫자 값)도 함께 정리했다.
+JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`)다.
 
 | 타입 | 설명 | 예시 |
 | --- | --- | --- |
 | **string** | 문자열을 표현한다 | `"안녕"` `'hello'` |
-| **template literal** | 백틱(`` ` ``)을 사용한 문자열. 변수 삽입·여러 줄 가능하다 | `` `이름: ${name}` `` |
 | **number** | 숫자를 표현한다. 정수·실수 구분이 없다 | `42` `3.14` `-10` `1e6` |
-| **특수 숫자 값** | 숫자 관련 특수 값이다 | `Infinity` `-Infinity` `NaN` |
-| **NaN** | 숫자가 아닌 연산 결과다 | `"abc" * 2` → `NaN` |
 | **boolean** | 참 / 거짓 값이다 | `true` `false` |
 | **null** | 의도적으로 비어 있음을 의미한다 | `null` |
 | **undefined** | 값이 아직 정의되지 않았다 | `undefined` |
 | **symbol** | 고유한 식별자다 | `Symbol()` |
 | **bigint** | 아주 큰 정수를 표현한다 | `9007n` |
+
+아래는 함께 알아두면 좋은 관련 개념이다. **별도 타입이 아니라는 점**에 주의한다.
+
+| 개념 | 설명 | 예시 |
+| --- | --- | --- |
+| **template literal** | 별도 타입이 아니라 백틱(`` ` ``)을 사용해 string을 만드는 표기법이다. 변수 삽입·여러 줄 가능하다 | `` `이름: ${name}` `` |
+| **특수 숫자 값** | 별도 타입이 아니라 number 타입에 속하는 특수 값이다 | `Infinity` `-Infinity` `NaN` |
+| **NaN** | 별도 타입이 아니라 number 타입에 속하는, 숫자가 아닌 연산 결과 값이다 | `"abc" * 2` → `NaN` |
 
 ---
 
@@ -127,18 +132,20 @@ JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolea
 | 작고 가벼워서 주머니(스택 메모리)에 쏙 들어간다 | 변수에는 창고 열쇠(주소)만 담긴다 |
 | 복사하면 내용물만 똑같이 베껴서 새로운 포스트잇에 적어준다 | 복사하면 열쇠만 복사해준다. 열쇠로 문을 열면 같은 물건이 들어 있다 |
 
+> 스택/힙 설명은 실제 엔진 내부 구현을 단순화한 비유다. 핵심은 원시 타입은 값 자체가 복사되고, 참조 타입은 객체를 가리키는 참조가 복사된다는 점이다.
+
 ```javascript
 // 원시 타입 — 값 자체가 복사된다
-let a = 10;
-let b = a;
-// a와 b는 완전히 별개다
+let primitiveA = 10;
+let primitiveB = primitiveA;
+// primitiveA와 primitiveB는 완전히 별개다
 ```
 
 ```javascript
 // 참조 타입 — 주소가 복사된다
-let a = { name: "김" };
-let b = a;
-// a와 b는 같은 객체를 가리킨다
+let objectA = { name: "김" };
+let objectB = objectA;
+// objectA와 objectB는 같은 객체를 가리킨다
 ```
 
 <div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
@@ -343,10 +350,10 @@ price * rate; // 500
 **boolean 타입**은 논리적 참(`true`)과 거짓(`false`) 두 가지 값만 가진다. 주로 조건문에서 프로그램의 흐름을 제어할 때 사용한다.
 
 ```javascript
-let isLogging = true;   // 사용자가 로그인한 상태임을 나타냄
+let isLoggedIn = true;  // 사용자가 로그인한 상태임을 나타냄
 let hasApple  = false;  // 사과를 가지고 있지 않은 상태임을 나타냄
 
-console.log(isLogging); // true 출력
+console.log(isLoggedIn); // true 출력
 ```
 
 **🔍 보충 설명 — 비교 연산자와 boolean**
@@ -384,7 +391,7 @@ console.log(user);    // 결과: null (의도된 빈 값)
 <div class="wda-callout wda-ci">
   • <code>undefined</code>는 "아무것도 안 들어있어서 뭔지 모르겠다"는 뜻이다.<br>
   • <code>null</code>은 "여기는 확실히 비어있는 상태다"라고 도장을 찍어놓은 것이다.<br>
-  • 실무에서는 데이터가 존재하지 않을 때 null을 명시적으로 넣어주는 것이 코드의 가독성을 높이는 좋은 습관이다.
+  • 값이 의도적으로 비어 있음을 표현해야 할 때는 null을 명시적으로 사용하면 코드의 의도를 더 분명하게 만들 수 있다.
 </div>
 
 **🔍 typeof로 타입 확인**
@@ -731,7 +738,7 @@ empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
         • <code>undefined</code> — 변수 선언 후 값이 할당되지 않아 <strong>시스템이 자동</strong>으로 넣은 상태다.<br>
         • <code>null</code> — 개발자가 "여기는 확실히 비어있다"고 <strong>의도적으로</strong> 표시한 상태다.
       </td>
-      <td>• 데이터가 존재하지 않을 때는 개발자가 직접 <strong><code>null</code></strong>을 넣어주는 것이 실무 관례다.</td>
+      <td>• 값이 의도적으로 비어 있음을 표현할 때는 개발자가 직접 <strong><code>null</code></strong>을 사용하면 의도를 더 분명히 드러낼 수 있다.</td>
     </tr>
     <tr>
       <td>숫자 연산 2대 결함</td>

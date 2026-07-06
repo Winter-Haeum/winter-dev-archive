@@ -93,7 +93,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 2) 이벤트 기반 프로그래밍
 
-<img src="/images/content/이벤트 기반 프로그래밍.png" alt="이벤트 기반 프로그래밍 다이어그램" style="display:block;width:100%;max-width:430px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
+<img src="/images/content/3-3/이벤트 기반 프로그래밍.png" alt="이벤트 기반 프로그래밍 다이어그램" style="display:block;width:100%;max-width:430px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
 
 **핵심 원리**
 
@@ -175,7 +175,7 @@ button.addEventListener('click', function() {
   <ul>
     <li><strong>mouseenter / mouseleave</strong> : 자식 요소의 경계는 무시하고 해당 요소의 경계만 따집니다.</li>
     <li><strong>mouseover / mouseout</strong> : 자식 요소 사이를 이동할 때도 이동을 감지합니다.</li>
-    <li><strong>권장사항</strong> : 보통은 <code>mouseenter / mouseleave</code> 사용을 권장합니다.</li>
+    <li><strong>권장사항</strong> : 단순히 특정 요소에 마우스가 들어오고 나가는 것만 감지할 때는 <code>mouseenter / mouseleave</code>가 이해하기 쉽습니다. 다만 이벤트 위임처럼 부모 요소에서 자식의 마우스 진입을 함께 처리해야 할 때는 <code>mouseover / mouseout</code>을 사용할 수 있습니다.</li>
   </ul>
 </div>
 
@@ -271,7 +271,9 @@ btn.addEventListener('mouseout', function() {
 | --- | --- |
 | `keydown` | 키를 누를 때 |
 | `keyup` | 키를 뗄 때 |
-| `keypress` | **deprecated (사용 금지)** |
+| `keypress` | **deprecated** — 새 코드에서는 사용하지 않음 |
+
+`keypress`는 deprecated된 이벤트이므로 새 코드에서는 사용하지 않습니다. 일반적으로 `keydown` 또는 `keyup`을 사용합니다.
 
 ### 2) 이벤트 객체 속성 및 코드
 
@@ -314,9 +316,9 @@ input.addEventListener('keydown', function(e) {
   <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:48px;left:62%;top:0;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
 </div>
 
-### 1) 브라우저는 항상 e를 줍니다
+### 1) 이벤트 객체는 항상 전달됩니다
 
-우리가 원하든 원하지 않든, 브라우저는 이벤트가 발생하면 **항상 이벤트 객체를 만들어서 핸들러의 첫 번째 매개변수로 전달**합니다.
+이벤트가 발생하면 브라우저는 이벤트 정보를 담은 객체를 만들고, 이벤트 핸들러의 **첫 번째 인자로 전달**합니다. 필요하면 매개변수 `e`로 받아 사용할 수 있고, 필요 없으면 생략해도 됩니다.
 
 ### 2) 언제 받아야 하나요?
 
@@ -420,7 +422,7 @@ input.addEventListener('keydown', function(e) { // 키를 눌렀을 때 실행�
 | `submit` | 폼 제출 |
 | `reset` | 폼 초기화 |
 | `input` | 값 변경 (실시간) |
-| `change` | 값 변경 (포커스 이탈 후) |
+| `change` | 값 변경이 확정되었을 때 (텍스트: 포커스 이탈 후 / checkbox·radio·select: 선택 변경 시) |
 | `focus` | 포커스 받음 |
 | `blur` | 포커스 잃음 |
 | `select` | 텍스트 선택 |
@@ -1251,7 +1253,7 @@ btn.addEventListener('click', function(e) {
 - **Viewport (`clientX/Y`)**: 현재 눈에 보이는 브라우저 창 내부 기준
 - **Target (`offsetX/Y`)**: 클릭된 특정 HTML 박스 내부 기준
 
-<img src="/images/content/좌표 시스템 ui 다이어그램.png" alt="좌표 시스템 UI 다이어그램" style="display:block;width:100%;max-width:400px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/3-3/좌표 시스템 ui 다이어그램.png" alt="좌표 시스템 UI 다이어그램" style="display:block;width:100%;max-width:400px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 
 ### 3) 🧮 pageY 계산 공식 (스크롤 발생 시)
 
@@ -1330,7 +1332,7 @@ parent.addEventListener('click', function(e) {
 
 사용자가 `button`(child)을 클릭하면 이벤트가 발생합니다. 이 이벤트는 부모인 `div`(parent)로 전달(버블링)됩니다. 이때 부모에 걸린 함수가 실행되면서, `target`은 최초 원인인 **버튼**을 가리키고, `currentTarget`은 현재 함수를 실행 중인 **div**를 가리키게 됩니다.
 
-<img src="/images/content/ui 이벤트 모델 다이어그램.png" alt="target과 currentTarget UI 이벤트 모델 다이어그램" style="display:block;width:100%;max-width:320px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
+<img src="/images/content/3-3/ui 이벤트 모델 다이어그램.png" alt="target과 currentTarget UI 이벤트 모델 다이어그램" style="display:block;width:100%;max-width:320px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
 
 **추가 학습 팁**
 
@@ -1431,7 +1433,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
       <li><strong>버블링 (Bubbling)</strong> — 이벤트가 다시 타겟 요소에서 부모 요소를 거쳐 <code>window</code> 방향으로 <strong>올라가는</strong> 단계입니다.</li>
     </ul>
   </div>
-  <img src="/images/content/이벤트 전파 흐름도.png" alt="이벤트 전파 흐름도" style="border-radius:8px;">
+  <img src="/images/content/3-3/이벤트 전파 흐름도.png" alt="이벤트 전파 흐름도" style="border-radius:8px;">
 </div>
 
 ### 2) 전파 시각화 및 흐름
@@ -1453,7 +1455,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
   </ul>
 </div>
 
-<img src="/images/content/웹 이벤트 전파 다이어그램.png" alt="웹 이벤트 전파 다이어그램" style="display:block;width:100%;max-width:360px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/3-3/웹 이벤트 전파 다이어그램.png" alt="웹 이벤트 전파 다이어그램" style="display:block;width:100%;max-width:360px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 
 ### 3) 주요 개념 정리
 
@@ -1508,7 +1510,10 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 document.getElementById('child')
   .addEventListener('click', function(e) {
     console.log('child 클릭!');
-    e.stopPropagation(); // 버블링 + 캡처링 모두 중단!
+    e.stopPropagation();
+    // 현재 이벤트가 더 이상 다른 요소로 전파되지 않게 막습니다.
+    // 버블링 단계에서는 부모로 올라가는 흐름을 막고,
+    // 캡처링 단계에서는 이후 전파 흐름을 막습니다.
   });
 
 // 결과: "child 클릭!" 만 출력되고 상위 요소로 전파되지 않음
@@ -1668,6 +1673,13 @@ document.getElementById('menu')
   });
 ```
 
+이벤트 위임에서는 `e.target`과 `e.currentTarget`을 구분해야 합니다.
+
+- **`e.target`** : 실제로 이벤트가 발생한 가장 안쪽 요소입니다.
+- **`e.currentTarget`** : 이벤트 리스너가 등록된 요소입니다.
+
+부모 요소에 이벤트를 걸어두고 자식 요소를 구분하려면 `e.target`을 사용합니다.
+
 ### 2) 이벤트 위임의 장점
 
 <div style="position:relative;overflow:visible;height:0;">
@@ -1823,6 +1835,8 @@ const li = e.target.closest('li');      // 가장 가까운 li 찾기
 const form = e.target.closest('form');  // 가장 가까운 form 찾기
 const card = e.target.closest('.card'); // 가장 가까운 .card 찾기
 ```
+
+`e.target.matches('선택자')`는 실제 클릭된 요소가 특정 선택자와 일치하는지 확인할 때 사용합니다. `e.target.closest('선택자')`는 클릭된 요소 자신 또는 가장 가까운 부모 중 조건에 맞는 요소를 찾을 때 사용합니다. 버튼 안에 span 같은 자식 요소가 있을 수 있으므로, 실무에서는 `closest`를 사용하면 더 안전합니다.
 
 ### 3) 더 정교한 위임 패턴 (Advanced)
 

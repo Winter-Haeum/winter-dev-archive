@@ -254,7 +254,7 @@ const 변수이름 = function(매개변수) {
 
 - **const / let** : 함수를 담을 변수를 선언합니다. (주로 `const` 권장)
 - **function** : 이름이 없는 **익명 함수**를 사용합니다.
-- **세미콜론(;)** : 이것은 하나의 '구문(할당문)'이므로 끝에 세미콜론을 붙여야 합니다.
+- **세미콜론(;)** : 함수 표현식은 변수에 함수를 할당하는 문장이므로, 문장 끝에 세미콜론을 붙이는 것을 권장합니다.
 
 ```js
 // 곱하기 함수를 변수에 할당
@@ -269,7 +269,7 @@ console.log(multiply(4, 5)); // 20
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">기명 함수 표현식 (Named Function Expression)</span>
-  익명 함수 대신 이름을 붙일 수도 있지만, 실무에서는 거의 사용하지 않습니다.<br>
+  익명 함수 대신 이름을 붙일 수도 있습니다. 일반적인 코드에서는 자주 쓰이지 않지만, 디버깅이나 함수 내부에서 자기 자신을 참조해야 하는 경우 도움이 될 수 있습니다.<br>
   예시: <code>const fn = function myFn() { ... };</code>
 </div>
 
@@ -281,7 +281,7 @@ console.log(multiply(4, 5)); // 20
 | **구분** | **함수 선언문** | **함수 표현식** |
 | --- | --- | --- |
 | **형태** | `function name() {}` | `const name = function() {}` |
-| **호이스팅** | **전체 호이스팅** (값까지 포함) | **변수 호이스팅** (이름만, 값은 나중에) |
+| **호이스팅** | **전체 호이스팅** (값까지 포함) | 변수 선언은 인식되지만, TDZ 때문에 초기화 전에는 접근 불가 |
 | **사용 시점** | 정의하기 **전**에도 사용 가능 | 반드시 정의한 **후**에 사용 가능 |
 | **세미콜론** | 불필요 | **필수** |
 
@@ -695,7 +695,7 @@ console.log(globalVar);   // "전역 변수"
 
 ### 2) 지역 스코프 (Local Scope)
 
-함수 내부(`{ }` 안)에서 선언된 변수입니다. 오직 **그 함수 안에서만** 살아있고, 함수가 끝나면 사라집니다.
+함수 내부(`{ }` 안)에서 선언된 변수입니다. 일반적으로 **함수 밖에서는 접근할 수 없고**, 함수 실행이 끝나면 더 이상 사용할 수 없습니다.
 
 ```js
 function test() {
@@ -727,7 +727,7 @@ console.log(localVar); // ReferenceError
 
 ### 1) 기본값 매개변수 (Default Parameters)
 
-함수를 호출할 때 인자를 빼먹거나(`undefined`) 값이 없을 경우, 대신 사용할 **'기본값'**을 미리 정해두는 문법입니다.
+함수를 호출할 때 인자를 전달하지 않았거나, 전달된 값이 `undefined`일 때 대신 사용할 **'기본값'**을 미리 정해두는 문법입니다. 단, `null`을 전달하면 값이 직접 들어온 것으로 보기 때문에 기본값이 적용되지 않습니다.
 
 ```js
 // name이 들어오면 그걸 쓰고, 안 들어오면 "손님"을 씀
@@ -736,7 +736,7 @@ function greet(name = "손님") {
 }
 
 greet("철수"); // 안녕하세요, 철수님! (입력값 사용)
-greet();       // 안녕하세요, 손님님! (기본값 사용)
+greet();       // 안녕하세요, 손님! (기본값 사용)
 ```
 
 **실무 활용**: 주로 **'옵션'** 설정에 많이 사용합니다.
@@ -791,14 +791,14 @@ example(1, 2, 3, 4);
 **실전 예제: 쇼핑몰 장바구니**
 
 ```js
-function calculateTotal(memberDesc, ...prices) {
+function calculateTotal(isMember, ...prices) {
   let total = 0;
 
   for (const price of prices) {
     total += price;
   }
 
-  if (memberDesc) {
+  if (isMember) {
     return total * 0.9; // 회원 10% 할인
   }
 
@@ -960,9 +960,11 @@ const sub = function(a, b) {
 
 | **구분** | **함수 선언문** | **함수 표현식** |
 | --- | --- | --- |
-| **호이스팅** | **전체 호이스팅** (값까지 포함) | **변수 호이스팅** (이름만, 값은 나중에) |
+| **호이스팅** | **전체 호이스팅** (값까지 포함) | 변수 선언은 인식되지만, TDZ 때문에 초기화 전에는 접근 불가 |
 | **사용 시점** | 정의하기 **전**에도 사용 가능 | 반드시 정의한 **후**에 사용 가능 |
 | **유연성** | 매우 유연함 | 규칙이 엄격함 |
+
+즉, 함수 표현식은 반드시 선언과 할당이 끝난 뒤에 호출해야 합니다.
 
 ---
 
@@ -1039,7 +1041,7 @@ console.log(sayHi.myProp); // "난 속성도 가짐"
 | --- | --- | --- |
 | **`name`** | 함수의 이름 | `sayHi.name → "sayHi"` |
 | **`length`** | 정의된 매개변수의 개수 (rest 제외) | `fn.length → 2` |
-| **`prototype`** | 생성자로 사용될 때 상속할 속성 모음 | 클래스·상속의 핵심 |
+| **`prototype`** | 일반 함수가 생성자 함수로 사용될 때 연결되는 객체 (화살표 함수는 prototype이 없음) | 클래스·상속의 핵심 |
 
 <div style="position:relative;overflow:visible;height:0;">
   <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:8px;left:50%;transform:translateX(-50%) rotate(-5deg);z-index:2;pointer-events:none;opacity:.74;">
@@ -1158,10 +1160,19 @@ console.log("끝");
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">참조로 전달하기</span>
-  콜백 함수를 넘길 때는 반드시 <strong>참조(괄호 없음)</strong>로 전달해야 합니다.<br><br>
-  ❌ <code>setTimeout(sayHi(), 1000)</code> — 즉시 실행되어버림<br>
-  ✅ <code>setTimeout(sayHi, 1000)</code> — 1초 후에 실행됨
+  이미 만들어진 함수를 콜백으로 넘길 때는 보통 <strong>괄호 없이 함수 이름만</strong> 전달합니다. 괄호를 붙이면 함수가 즉시 실행되고, 그 실행 결과가 전달될 수 있으므로 주의해야 합니다.<br><br>
+  ❌ <code>setTimeout(sayHi(), 1000)</code> — 지금 즉시 실행됨<br>
+  ✅ <code>setTimeout(sayHi, 1000)</code> — 1초 후 실행됨
 </div>
+
+```js
+function sayHi() {
+  console.log("Hi!");
+}
+
+// ❌ setTimeout(sayHi(), 1000)  → 지금 즉시 실행됨
+// ✅ setTimeout(sayHi, 1000)    → 1초 후 실행됨
+```
 
 ### 4) 화살표 함수로 콜백 간결하게 쓰기
 

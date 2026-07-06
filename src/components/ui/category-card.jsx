@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
+import { stripSectionNumber } from '@/utils/slugify';
 
 const MAX_VISIBLE = 3;
 
@@ -113,7 +114,7 @@ function CategoryCard({ category }) {
               whiteSpace: 'nowrap',
             })}
           >
-            {section}
+            {stripSectionNumber(section)}
           </Box>
         ))}
         {remaining > 0 && (

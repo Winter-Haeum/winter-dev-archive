@@ -64,9 +64,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-goal" style="position:relative;padding-right:188px;padding-top:14px;overflow:visible;">
   <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:110px;top:-14px;right:48px;z-index:2;pointer-events:none;opacity:.82;">
   <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:168px;bottom:-56px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(3deg);">
-  📦 <strong>대략 개념</strong> — 커넥터가 필요한 이유를 설명할 수 있게 된다.<br>
+  📦 <strong>변수 개념</strong> — 변수가 필요한 이유를 설명할 수 있게 된다.<br>
   🔑 <strong>선언문</strong> — var, let, const의 차이를 구분하고 사용한다.<br>
-  ⬆️ <strong>호이스팅</strong> — 호이스팅과 TDZ 조치 원리를 이해한다.<br>
+  ⬆️ <strong>호이스팅</strong> — 호이스팅과 TDZ 동작 원리를 이해한다.<br>
   🔍 <strong>스코프</strong> — 전역/지역, 블록/함수 스코프를 구분한다.
 </div>
 
@@ -74,7 +74,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. 무엇을 찾으시나요?
 
-데이터를 저장하는 **이름은 공간**이다.
+변수는 **데이터를 저장한 위치에 붙이는 이름표**다.
 
 **📦 상자와 라벨 개념**
 
@@ -152,6 +152,9 @@ console.log(price +3000);// 배송비 포함
 // 그래서 undefined가 된다
 // let/const는 이 단계 전까지 TDZ 상태다
 ```
+
+• let은 선언문에 도달하면 초기화되고, 값이 없으면 undefined가 들어갈 수 있습니다.<br>
+• const는 선언과 동시에 반드시 값을 할당해야 합니다.
 
 **💾 3단계: 할당**
 
@@ -330,16 +333,16 @@ birthDay ="2000-12-25";// Error! 재할당 불가
 **⬆️ var 호이스팅**
 
 ```javascript
-console.log(name);// undefined (에러 아님)
-var name ="철수";
-console.log(name);// "철수"
+console.log(userName);// undefined (에러 아님)
+var userName ="철수";
+console.log(userName);// "철수"
 ```
 
 ```javascript
 // JavaScript 내부 처리 순서
-var name;// 선언만 끌어올림
-console.log(name);// undefined
-name ="철수";// 할당은 원래 위치
+var userName;// 선언만 끌어올림
+console.log(userName);// undefined
+userName ="철수";// 할당은 원래 위치
 ```
 
 • 선언과 초기화가 동시에 이루어진다.<br>
@@ -350,15 +353,15 @@ name ="철수";// 할당은 원래 위치
 **🔒 let / const 호이스팅**
 
 ```javascript
-console.log(name);// ReferenceError!
-let name ="철수";
+console.log(userName);// ReferenceError!
+let userName ="철수";
 ```
 
 ```javascript
 // 내부 동작 개념
-// let name;          // 선언은 끌어올려짐
-// console.log(name); // TDZ → 접근 불가
-// name = "철수";     // 여기서부터 사용 가능
+// let userName;          // 선언은 끌어올려짐
+// console.log(userName); // TDZ → 접근 불가
+// userName = "철수";     // 여기서부터 사용 가능
 ```
 
 • 호이스팅은 되지만 **TDZ 때문에 접근이 차단**된다.
@@ -387,6 +390,8 @@ let score = 100;     // ← TDZ 끝 (선언문)
 // ↓ 정상 접근 가능
 console.log(score);  // 100
 ```
+
+> 주의: 같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 앞서 5번 항목에서 `score`를 이미 선언했다면, 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
 
 <div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
   <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;top:-26px;right:10px;width:54px;pointer-events:none;opacity:.70;transform:rotate(-14deg);">
@@ -547,6 +552,8 @@ outer();
 • 가장 가까운 스코프부터 탐색한다.<br>
 • 없으면 상위 스코프로 계속 올라간다.
 
+> 주의: 같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
+
 **🌑 섀도잉 (Shadowing)**
 
 ```javascript
@@ -648,7 +655,7 @@ let a =true;// 의미 없는 이름
       <tr>
         <th>camelCase</th>
         <th>PascalCase</th>
-        <th>SNAKE_CASE</th>
+        <th>UPPER_SNAKE_CASE</th>
       </tr>
     </thead>
     <tbody>
@@ -821,7 +828,7 @@ console.log("제 나이는 " + myAge +"살입니다.");
 
 **📌 정리 메모**
 
-• `const` → **절대 안 바뀌는 값**<br>
+• `const` → **재할당하지 않는 값**<br>
 • `let` → **바뀔 수 있는 값**<br>
 • `{}` 안의 `let` 변수 → **블록 밖 접근 불가**<br>
 • 에러가 나는 것은 **잘못이 아니라 규칙을 잘 지킨 결과**다.
