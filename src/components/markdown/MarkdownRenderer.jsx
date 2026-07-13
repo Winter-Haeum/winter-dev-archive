@@ -78,6 +78,17 @@ function CheckboxItem({ storageKey, initialChecked }) {
 // processedContent 에서 text-level 치환으로 이미지 경로를 수정한다 (img component override 없음)
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
+// 이모지+볼드 단독 문단(본문 중간 미니 소제목) 판별용 — p 컴포넌트에서 children 중
+// 이 컴포넌트 하나뿐인지 참조 비교로 확인한다 (node.children/hast 기반 판별은
+// 실제 배포 환경에서 매칭되지 않는 문제가 있어 React children 기반으로 교체함).
+function StrongText({ children }) {
+  return (
+    <Box component='strong' sx={{ fontWeight: 700, color: 'text.primary' }}>
+      {children}
+    </Box>
+  );
+}
+
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
@@ -154,12 +165,13 @@ const markdownComponents = {
   ),
 
   // ── 본문 ────────────────────────────────────────────────────────────
-  p: ({ node, children }) => {
-    // CSS :has()가 구형 브라우저에서 무시되는 문제를 피하기 위해, "이모지+볼드 단독 문단"
-    // (본문 중간 미니 소제목 역할)을 AST 레벨에서 직접 판별해 여백을 인라인으로 적용한다
-    // (2026-07 개편, p:has(> strong:only-child) CSS 규칙 대체).
-    const elementChildren = (node?.children || []).filter((c) => c.type === 'element');
-    const isLoneStrong = elementChildren.length === 1 && elementChildren[0].tagName === 'strong';
+  p: ({ children }) => {
+    // "이모지+볼드 단독 문단"(본문 중간 미니 소제목)인지 React children으로 직접 판별.
+    const kids = React.Children.toArray(children).filter(
+      (c) => typeof c !== 'string' || c.trim() !== ''
+    );
+    const isLoneStrong =
+      kids.length === 1 && React.isValidElement(kids[0]) && kids[0].type === StrongText;
     return (
       <Box
         component='p'
@@ -176,11 +188,7 @@ const markdownComponents = {
       </Box>
     );
   },
-  strong: ({ children }) => (
-    <Box component='strong' sx={{ fontWeight: 700, color: 'text.primary' }}>
-      {children}
-    </Box>
-  ),
+  strong: StrongText,
   em: ({ children }) => (
     <Box component='em' sx={{ fontStyle: 'italic' }}>
       {children}
