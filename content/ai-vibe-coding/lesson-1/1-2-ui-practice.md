@@ -8,7 +8,7 @@ description: "16개 현대적 UI 요소를 MUI로 단계별 구현하는 실습 
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -19,8 +19,8 @@ description: "16개 현대적 UI 요소를 MUI로 단계별 구현하는 실습 
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -29,8 +29,8 @@ description: "16개 현대적 UI 요소를 MUI로 단계별 구현하는 실습 
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -43,8 +43,18 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 수업 1-2에서 학습한 16개 현대적 UI 용어들을 MUI로 실제 구현하는 단계별 실습입니다.
@@ -53,13 +63,8 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:90px;top:8px;right:12px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-8deg);">
+<div class="wda-goal">
   ⚡ <strong>이론에서 실습으로</strong> — 16개 UI 용어를 실제 코드로 구현<br>🧱 <strong>MUI 컴포넌트 마스터</strong> — Material-UI 라이브러리 활용법 익히기<br>📐 <strong>단계별 구현</strong> — 체계적인 순서로 UI 요소 제작<br>📦 <strong>컴포넌트 라이브러리 구축</strong> — 재사용 가능한 UI 자료 완성
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:60px;top:-14px;left:12%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -110,9 +115,10 @@ ui_test라는 이름으로 React + MUI 프로젝트를 생성해줘.
 
 ---
 
-<div class="wda-callout wda-ci" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:110px;top:-24px;right:20px;z-index:1;pointer-events:none;opacity:.85;transform:rotate(3deg);">
-  <span class="wda-clabel">Tip</span>프로젝트가 정상적으로 생성되고 브라우저에서 확인이 되면 다음 단계로 진행하세요.
+**💡 사용 팁**
+
+<div class="wda-callout wda-ci">
+  프로젝트가 정상적으로 생성되고 브라우저에서 확인이 되면 다음 단계로 진행하세요.
 </div>
 
 ---
@@ -142,10 +148,6 @@ VSCode에서 터미널을 3개로 분할하여 각각 다른 용도로 사용합
 <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">3개 탭 완성</div><div class="wda-sdsc">총 3개의 터미널 탭이 생성될 때까지 반복</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-18px;right:22%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-</div>
-
 ---
 
 ## 3. UI 요소 구현하기
@@ -158,15 +160,12 @@ VSCode에서 터미널을 3개로 분할하여 각각 다른 용도로 사용합
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:58px;top:8px;left:204px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-</div>
-
 ### 🔘 Button (버튼)
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:145px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <span class="wda-clabel">Button</span>버튼은 가장 기본적인 인터랙션 요소입니다. variant와 color 조합으로 다양한 스타일을 만들어보세요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-cs">
+  버튼은 가장 기본적인 인터랙션 요소입니다. variant와 color 조합으로 다양한 스타일을 만들어보세요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -180,10 +179,6 @@ Button 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:8px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
-</div>
 
 ### ✏️ Input (입력 필드)
 
@@ -199,15 +194,12 @@ Input 섹션을 추가해줘:
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:8px;left:280px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
-</div>
-
 ### 🧭 Navigation (네비게이션)
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:145px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:130px;top:-18px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-12deg);">
-  <span class="wda-clabel">Remember</span>네비게이션은 사용자가 사이트를 탐색하는 핵심 요소입니다. 모바일 반응형도 꼭 확인하세요!
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  네비게이션은 사용자가 사이트를 탐색하는 핵심 요소입니다. 모바일 반응형도 꼭 확인하세요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -221,10 +213,6 @@ Navigation 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:62px;top:0px;left:242px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-</div>
 
 ### 📋 Dropdown (드롭다운)
 
@@ -240,15 +228,12 @@ Dropdown 섹션을 추가해줘:
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:46px;top:8px;left:242px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
 ### ☑️ Checkbox (체크박스)
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:195px;">
-  <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(10deg);">
-  <span class="wda-clabel">Checkbox</span>체크박스는 여러 항목을 동시에 선택할 수 있습니다. 전체 선택 기능을 꼭 구현해보세요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-ci">
+  체크박스는 여러 항목을 동시에 선택할 수 있습니다. 전체 선택 기능을 꼭 구현해보세요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -262,10 +247,6 @@ Checkbox 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-50px;left:210px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
-</div>
 
 ### 🔵 Radio (라디오 버튼)
 
@@ -283,9 +264,10 @@ Radio 섹션을 추가해줘:
 
 ### 🎚️ Slider (슬라이더)
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:134px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:116px;top:-38px;left:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
-  <span class="wda-clabel">Slider</span>슬라이더로 범위 값을 직관적으로 조절할 수 있어요. marks 속성으로 구간 표시도 해보세요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-cs">
+  슬라이더로 범위 값을 직관적으로 조절할 수 있어요. marks 속성으로 구간 표시도 해보세요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -299,10 +281,6 @@ Slider 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:46px;top:8px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
 
 ### 🪟 Modal (모달 창)
 
@@ -318,15 +296,12 @@ Modal 섹션을 추가해줘:
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:8px;left:148px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-</div>
-
 ### 🃏 Card (카드)
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:145px;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:130px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-5deg);">
-  <span class="wda-clabel">Card</span>카드는 정보를 시각적으로 묶어서 표현합니다. Grid로 배치하면 더 보기 좋아요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-cw">
+  카드는 정보를 시각적으로 묶어서 표현합니다. Grid로 배치하면 더 보기 좋아요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -340,10 +315,6 @@ Card 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:78px;top:0px;left:326px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-</div>
 
 ### 🔄 Drag & Drop (드래그 앤 드롭)
 
@@ -361,9 +332,10 @@ Drag & Drop 섹션을 추가해줘:
 
 ### 📜 Scroll (스크롤)
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:190px;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:172px;top:-18px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(10deg);">
-  <span class="wda-clabel">Scroll</span>스크롤 컨테이너를 만들고 "Top으로 이동" 버튼까지 구현해보면 실무에서 바로 쓸 수 있어요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-ci">
+  스크롤 컨테이너를 만들고 "Top으로 이동" 버튼까지 구현해보면 실무에서 바로 쓸 수 있어요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -377,10 +349,6 @@ Scroll 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:76px;top:-28px;right:24px;z-index:2;pointer-events:none;opacity:.75;transform:rotate(6deg);">
-</div>
 
 ### ✨ Animation (애니메이션)
 
@@ -398,9 +366,10 @@ Animation 섹션을 추가해줘:
 
 ### 🍔 Menu (메뉴)
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:145px;">
-  <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:130px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.86;transform:rotate(-12deg);">
-  <span class="wda-clabel">Menu</span>MUI Menu 컴포넌트로 맥락 메뉴를 만들어보세요. 아이콘 포함하면 훨씬 세련돼 보여요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-cs">
+  MUI Menu 컴포넌트로 맥락 메뉴를 만들어보세요. 아이콘 포함하면 훨씬 세련돼 보여요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -415,10 +384,6 @@ Menu 섹션을 추가해줘:
 ```
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:8px;left:232px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
-</div>
 
 ### 🗂️ Sidebar (사이드바)
 
@@ -437,9 +402,10 @@ Sidebar 섹션을 추가해줘:
 
 ### 🖱️ Hover (호버 효과)
 
-<div class="wda-callout wda-ci" style="position:relative;">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:44px;bottom:8px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
-  <span class="wda-clabel">Hover</span>색상, 크기, 그림자 변화 등 5가지 이상의 호버 효과로 인터랙티브한 카드를 만들어보세요!
+**💡 사용 팁**
+
+<div class="wda-callout wda-ci">
+  색상, 크기, 그림자 변화 등 5가지 이상의 호버 효과로 인터랙티브한 카드를 만들어보세요!
 </div>
 
 <div class="wda-prompt-head">📋 Claude 프롬프트 — 아래 코드 블록을 복사하여 Claude CLI에 붙여넣으세요.</div>
@@ -469,8 +435,7 @@ Swipe 섹션을 추가해줘:
 
 ---
 
-<div class="wda-done" style="position:relative;padding-left:148px;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">16개 UI 요소 구현 완료!</div>
   <div>모든 UI 요소가 정상적으로 동작하는지 브라우저에서 확인해보세요.<br>이제 현대적 웹 개발의 기본기를 모두 익혔습니다!</div>
@@ -511,8 +476,7 @@ Swipe 섹션을 추가해줘:
 
 ## 학습 성과
 
-<div class="wda-memo" style="position:relative;padding-right:192px;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:175px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-10deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">📌 현대적 UI 개발 능력</span>
   <div class="wda-memo-body">16개 핵심 UI 요소를 실제로 구현하면서 현대적 웹 인터페이스 개발 역량을 확보했습니다.</div>
 </div>

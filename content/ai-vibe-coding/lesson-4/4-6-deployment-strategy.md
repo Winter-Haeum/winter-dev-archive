@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.78rem;line-height:1.7;opacity:.78}
 .wda-fcard-list li::before{content:"· "}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
@@ -48,17 +48,25 @@ status: "completed"
 .wda-resource-dsc{opacity:.72}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 포트폴리오를 실제로 배포하고 운영할 때 알아두어야 할 GitHub Pages와 Supabase의 무료 플랜 제한사항과 실무 대응 전략을 안내합니다.
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:200px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (8).webp" alt="" style="position:absolute;width:110px;top:-11px;left:30%;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/원리 이해.webp" alt="" style="position:absolute;width:178px;bottom:-64px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
   ⚠️ <strong>무료 플랜 한계 이해</strong> — 제한사항을 미리 알고 대비<br>
   💰 <strong>비용 효율적 운영</strong> — 필요한 시점에 유료 전환<br>
@@ -95,19 +103,15 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:160px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/실수 주의.webp" alt="" style="position:absolute;width:140px;bottom:-54px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:104px;top:-10px;left:36%;z-index:2;pointer-events:none;opacity:.82;">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">실무자 주의사항</span>
-  무료 플랜은 개인 프로젝트나 프로토타입에 적합합니다. 상업적 용도나 트래픽이 많은 사이트는 유료 플랜을 고려하세요!
+  무료 플랜은 개인 프로젝트나 프로토타입에 적합합니다.<br>
+  상업적 용도나 트래픽이 많은 사이트는 유료 플랜을 고려하세요!
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🐙 GitHub Pages 무료 플랜 완전 분석 (2025년 기준)</h2>
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:88px;top:-22px;right:10px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-</div>
+## 🐙 GitHub Pages 무료 플랜 완전 분석 (2025년 기준)
 
 포트폴리오 호스팅을 위한 GitHub Pages의 모든 제한사항과 활용법:
 
@@ -150,18 +154,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:62px;padding-top:12px;overflow:visible;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:50%;left:8px;z-index:2;pointer-events:none;opacity:.76;transform:translateY(-50%) rotate(-8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">GitHub Pages의 장점</span>
-  GitHub Pages는 <strong>비활성 제한이 없습니다!</strong> 7일 동안 배포하지 않아도 사이트가 계속 유지됩니다. GitHub Actions를 사용하면 빌드 횟수 제한도 사실상 없어요.
+  GitHub Pages는 <strong>비활성 제한이 없습니다!</strong><br>
+  7일 동안 배포하지 않아도 사이트가 계속 유지됩니다.<br>
+  GitHub Actions를 사용하면 빌드 횟수 제한도 사실상 없어요.
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <div style="position:relative;display:inline-block;overflow:visible;">
-    <h3 style="margin:0;">GitHub Pages 최적화 전략</h3>
-    <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:50%;left:calc(100% + 12px);transform:translateY(-50%) rotate(-12deg);z-index:2;pointer-events:none;opacity:.76;">
-  </div>
-</div>
+### GitHub Pages 최적화 전략
 
 <div class="wda-prompt-head">최적화 팁</div>
 
@@ -183,10 +183,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🗄️ Supabase 무료 플랜 완전 분석 (2025년 기준)</h2>
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-18px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
+## 🗄️ Supabase 무료 플랜 완전 분석 (2025년 기준)
 
 백엔드 기능이 필요한 프로젝트를 위한 Supabase 활용법:
 
@@ -229,10 +226,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:62px;padding-top:12px;overflow:visible;">
-  <img src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="position:absolute;width:44px;top:50%;left:8px;z-index:2;pointer-events:none;opacity:.78;transform:translateY(-50%);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">Supabase 7일 비활성 제한</span>
-  Supabase 무료 플랜은 <strong>7일 동안 활동이 없으면 프로젝트가 자동으로 일시정지</strong>됩니다. 아래 GitHub Actions 해결법을 꼭 적용하세요!
+  Supabase 무료 플랜은 <strong>7일 동안 활동이 없으면 프로젝트가 자동으로 일시정지</strong>됩니다.<br>
+  아래 GitHub Actions 해결법을 꼭 적용하세요!
 </div>
 
 ---
@@ -266,8 +263,7 @@ jobs:
           echo "Supabase ping successful!"
 ```
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:162px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/행운 버프.webp" alt="" style="position:absolute;width:140px;bottom:-56px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">GitHub Secrets 설정 방법</span>
   GitHub 저장소에서 Supabase 인증 정보를 안전하게 저장합니다:
 </div>
@@ -289,20 +285,15 @@ jobs:
    Project Settings - API - Project URL, anon public key
 ```
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:58px;padding-top:12px;overflow:visible;">
-  <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-14px;right:10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(12deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">비용 걱정 없어요!</span>
-  이 워크플로우는 월 12회 실행 (주 3회 × 4주)으로, GitHub Actions 무료 할당량(월 2,000분)의 0.01%도 사용하지 않습니다. Public 저장소는 무제한 무료!
+  이 워크플로우는 월 12회 실행 (주 3회 × 4주)으로, GitHub Actions 무료 할당량(월 2,000분)의 0.01%도 사용하지 않습니다.<br>
+  Public 저장소는 무제한 무료!
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:0.8rem 0 0.5rem;">
-  <div style="position:relative;display:inline-block;overflow:visible;">
-    <h2 style="margin:0;">🐙 GitHub Pages 완전 가이드</h2>
-    <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:64px;top:50%;left:calc(100% + 12px);transform:translateY(-50%) rotate(-6deg);z-index:2;pointer-events:none;opacity:.74;">
-  </div>
-</div>
+## 🐙 GitHub Pages 완전 가이드
 
 개인 포트폴리오를 위한 최적의 무료 호스팅:
 
@@ -338,7 +329,6 @@ jobs:
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/말풍선 아이콘 (7).webp" alt="" style="position:absolute;width:50px;top:-14px;left:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
   <h2>🆘 응급 상황 대응 가이드</h2>
 </div>
 
@@ -396,18 +386,16 @@ Supabase 절약 팁:
 - Actions 로그에서 성공 여부 모니터링
 ```
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:162px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/잠깐 생각해보기.webp" alt="" style="position:absolute;width:142px;bottom:-56px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">실무자 경험담</span>
-  대부분의 개인 포트폴리오는 무료 플랜으로도 충분합니다! 월 1000 방문자 이하라면 제한사항에 걸릴 일이 거의 없어요. 중요한 건 Supabase 비활성 방지를 위한 GitHub Actions 설정입니다.
+  대부분의 개인 포트폴리오는 무료 플랜으로도 충분합니다!<br>
+  월 1000 방문자 이하라면 제한사항에 걸릴 일이 거의 없어요.<br>
+  중요한 건 Supabase 비활성 방지를 위한 GitHub Actions 설정입니다.
 </div>
 
 ---
 
-<div class="wda-done" style="position:relative;overflow:visible;padding-top:20px;padding-left:186px;">
-  <img src="/images/character/정리 완료.webp" alt="" style="position:absolute;width:162px;bottom:-64px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;width:58px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.82;transform:rotate(8deg);">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-12px;left:42%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(6deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎓</div>
   <div class="wda-done-ttl">Lesson 4 완료 축하합니다!</div>
   이제 전문적인 포트폴리오 완성부터 실제 배포까지<br>

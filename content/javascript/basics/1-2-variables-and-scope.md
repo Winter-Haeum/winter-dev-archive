@@ -12,7 +12,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -27,8 +27,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -36,8 +36,8 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
@@ -50,9 +50,9 @@ tags:
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -61,9 +61,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:188px;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:110px;top:-14px;right:48px;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:168px;bottom:-56px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(3deg);">
+<div class="wda-goal">
   📦 <strong>변수 개념</strong> — 변수가 필요한 이유를 설명할 수 있게 된다.<br>
   🔑 <strong>선언문</strong> — var, let, const의 차이를 구분하고 사용한다.<br>
   ⬆️ <strong>호이스팅</strong> — 호이스팅과 TDZ 동작 원리를 이해한다.<br>
@@ -87,10 +85,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 • 메모리 주소 예시: `0x7FF2A1 (복잡)`<br>
 • 개발자는 주소 대신 **이름으로 접근**한다.<br>
 • 활용명 예시: `name` (이해하기 쉬운 이름)
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/메모지 아이콘 (2).webp" alt="" style="position:absolute;top:-26px;right:12px;width:66px;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
 
 ---
 
@@ -124,10 +118,6 @@ console.log(price +3000);// 배송비 포함
 • 변수를 사용하면 **코드 재사용, 유지 보수, 가독성**이 좋아진다.
 
 ---
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="position:absolute;top:-12px;right:14px;width:62px;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
 
 ## 3. 변수의 생성 과정
 
@@ -165,10 +155,6 @@ name ="김철수";// 실제 값이 메모리에 들어간다
 ```
 
 ---
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/소품 아이콘 (4).webp" alt="" style="position:absolute;top:-18px;left:calc(50% - 33px);width:66px;pointer-events:none;opacity:.68;transform:rotate(8deg);">
-</div>
 
 ## 4. var 키워드 (❌)
 
@@ -231,14 +217,10 @@ let score =90;// Error! 재선언 불가
 • **TDZ 적용** — 선언 전에 접근하면 에러가 발생한다.<br>
 • 값이 **변할 수 있는 경우**에 사용한다.
 
-**💬 보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   반복문 카운터 조건에 따라 값이 변경될 때 재할당이 필요한 변수에 let을 사용합니다.
-</div>
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/말풍선 아이콘 (3).webp" alt="" style="position:absolute;top:-30px;right:8px;width:64px;pointer-events:none;opacity:.72;transform:scaleX(-1) rotate(8deg);">
 </div>
 
 ---
@@ -270,10 +252,18 @@ const empty;// Error! 초기화 필수
 
 **🎯 선택 기준 — let vs const**
 
-• **const** — 값이 바뀌지 않을 때<br>
-예: 설정값, 기준값, API 주소 등<br>
-• **let** — 값이 바뀔 때<br>
-예: 카운터, 점수, 상태 값 등
+<div class="wda-compare">
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">const</div>
+    <div class="wda-compare-label">값이 바뀌지 않을 때</div>
+    예: 설정값, 기준값, API 주소 등
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">let</div>
+    <div class="wda-compare-label">값이 바뀔 때</div>
+    예: 카운터, 점수, 상태 값 등
+  </div>
+</div>
 
 기본적으로 const를 먼저 사용하고, 재할당이 필요하면 let으로 변경한다.
 
@@ -286,10 +276,7 @@ const empty;// Error! 초기화 필수
 
 ---
 
-<div style="position:relative;overflow:visible;">
-  <h2>7. 실습 : 변수 선언해보기</h2>
-  <img src="/images/decoration/소품 아이콘 (6).webp" alt="" style="position:absolute;width:65px;top:0px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
-</div>
+## 7. 실습 : 변수 선언해보기
 
 개발자 도구(F12) Console 탭에서 직접 입력해 확인한다.
 
@@ -323,10 +310,7 @@ birthDay ="2000-12-25";// Error! 재할당 불가
 
 ---
 
-<div style="position:relative;overflow:visible;">
-  <h2>8. 호이스팅(Hoisting)</h2>
-  <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:54px;top:2px;right:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+## 8. 호이스팅(Hoisting)
 
 선언 코드가 **최상단으로 끌어올려진 것처럼 동작**한다.
 
@@ -393,10 +377,6 @@ console.log(score);  // 100
 
 > 주의: 같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 앞서 5번 항목에서 `score`를 이미 선언했다면, 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;top:-26px;right:10px;width:54px;pointer-events:none;opacity:.70;transform:rotate(-14deg);">
-</div>
-
 **🔢 TDZ 3단계**
 
 • **선언** — 스코프에 등록된다.<br>
@@ -408,12 +388,12 @@ console.log(score);  // 100
 • **var** — 선언 + 초기화 동시 → TDZ 없음<br>
 • **let / const** — 선언만 먼저 → 실행 시점까지 TDZ 유지
 
-**💬 보충 설명**
+**💡 보충 설명**
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:50px;overflow:visible;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-6deg);">
+<div class="wda-callout wda-ci">
   • let/const는 <strong>코드가 실제로 읽히는 시점 이후</strong>에만 접근해야 한다.<br>
-  • 선언 전에 접근하면 <strong>초기화 전 접근 오류</strong>가 발생한다. TDZ는 버그를 막기 위한 <strong>의도적인 안전장치</strong>다.<br>
+  • 선언 전에 접근하면 <strong>초기화 전 접근 오류</strong>가 발생한다.<br>
+  TDZ는 버그를 막기 위한 <strong>의도적인 안전장치</strong>다.<br>
   • "왜 안 되지?"가 아니라 "실수를 막아주고 있구나"라고 이해하면 된다.
 </div>
 
@@ -421,10 +401,7 @@ console.log(score);  // 100
 
 ## 10. 스코프: 전역 vs 지역
 
-<div style="position:relative;display:inline-block;overflow:visible;margin:.4rem 0 1rem;">
-  <span>스코프는 <strong>변수에 접근할 수 있는 범위</strong>다.</span>
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;left:calc(100% + 12px);top:50%;width:44px;transform:translateY(-50%) rotate(8deg);z-index:2;pointer-events:none;opacity:.72;">
-</div>
+<span>스코프는 <strong>변수에 접근할 수 있는 범위</strong>다.</span>
 
 **🌍 전역 스코프 (Global)**
 
@@ -473,10 +450,7 @@ console.log(localVar);
 
 ## 11. 스코프: 블록 vs 함수
 
-<div style="position:relative;display:inline-block;overflow:visible;margin:.4rem 0 1rem;">
-  <span>var와 let/const는 <strong>스코프 범위가 다르다</strong>.</span>
-  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;left:calc(100% + 12px);top:50%;width:60px;transform:translateY(-50%) scaleX(-1) rotate(-5deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+<span>var와 let/const는 <strong>스코프 범위가 다르다</strong>.</span>
 
 **⚡ 함수 스코프 — var**
 
@@ -518,7 +492,7 @@ console.log(y);
 
 • let/const는 `{}` 단위로 스코프가 생성된다.
 
-**💬 보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • 블록 스코프가 더 직관적이다.<br>
@@ -578,10 +552,6 @@ outer();
 ## 13. 실습: 스코프 테스트
 
 다음 코드를 **예측 후 Console에서 확인**한다.
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;top:-30px;right:14px;width:46px;pointer-events:none;opacity:.76;transform:rotate(-6deg);">
-</div>
 
 ```javascript
 let apple ="빨간 사과";
@@ -648,9 +618,7 @@ let a =true;// 의미 없는 이름
 
 **📝 표기법 3가지**
 
-<div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:58px;top:-14px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-  <table class="wda-summary-table">
+<table class="wda-summary-table">
     <thead>
       <tr>
         <th>camelCase</th>
@@ -691,7 +659,6 @@ let a =true;// 의미 없는 이름
       </tr>
     </tbody>
   </table>
-</div>
 
 **⚠️ 주의**
 
@@ -723,38 +690,26 @@ let totalTax = price *TAX_RATE;
 
 **📅 언제 사용하나?**
 
-<table class="wda-summary-table">
-  <thead>
-    <tr>
-      <th>구분</th>
-      <th>예시</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>설정값</td>
-      <td><code>MAX_LENGTH</code>, <code>MIN_AGE</code>, <code>DEFAULT_SIZE</code></td>
-    </tr>
-    <tr>
-      <td>URL / 경로</td>
-      <td><code>API_URL</code>, <code>IMAGE_PATH</code>, <code>BASE_URL</code></td>
-    </tr>
-    <tr>
-      <td>수학 / 물리 상수</td>
-      <td><code>PI</code>, <code>GRAVITY</code>, <code>SPEED_OF_LIGHT</code></td>
-    </tr>
-    <tr>
-      <td>매직 넘버 대체</td>
-      <td>숫자 <code>7</code> 대신 <code>DAYS_IN_WEEK</code></td>
-    </tr>
-  </tbody>
-</table>
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">설정값</div>
+    <div class="wda-fcard-dsc"><code>MAX_LENGTH</code>, <code>MIN_AGE</code>, <code>DEFAULT_SIZE</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">URL / 경로</div>
+    <div class="wda-fcard-dsc"><code>API_URL</code>, <code>IMAGE_PATH</code>, <code>BASE_URL</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">수학 / 물리 상수</div>
+    <div class="wda-fcard-dsc"><code>PI</code>, <code>GRAVITY</code>, <code>SPEED_OF_LIGHT</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">매직 넘버 대체</div>
+    <div class="wda-fcard-dsc">숫자 <code>7</code> 대신 <code>DAYS_IN_WEEK</code></div>
+  </div>
+</div>
 
 ---
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;top:-12px;right:12px;width:86px;pointer-events:none;opacity:.82;transform:rotate(-8deg);">
-</div>
 
 ## 17. {} 실습 과제: 변수 사용해보기
 
@@ -837,7 +792,6 @@ console.log("제 나이는 " + myAge +"살입니다.");
 
 ## ✅ 핵심 요약
 
-<div style="position:relative;overflow:visible;">
 <table class="wda-summary-table">
   <thead>
     <tr>
@@ -881,5 +835,3 @@ console.log("제 나이는 " + myAge +"살입니다.");
     </tr>
   </tbody>
 </table>
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;bottom:-20px;right:6px;width:172px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(5deg);">
-</div>

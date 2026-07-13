@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,25 +25,32 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
+.wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
+.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
+.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -58,14 +65,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 }
 </style>
 
-> 사용자 행동에 반응하는 동적인 웹페이지!
+<blockquote style="margin:.3rem 0 .8rem;">사용자 행동에 반응하는 동적인 웹페이지!</blockquote>
 
 ---
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/말풍선 아이콘 (3).webp" alt="" style="position:absolute;width:50px;top:-16px;right:30%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-8deg);">
+<div class="wda-goal">
   🔔 <strong>이벤트 개념 이해</strong> — 브라우저에서 발생하는 다양한 이벤트 종류를 알아봅니다.<br>
   ◀️▶️ <strong>이벤트 핸들러 등록</strong> — addEventListener를 사용한 등록법을 익힙니다.<br>
   { } <strong>이벤트 객체 활용</strong> — 이벤트의 상세 정보를 담은 객체를 활용합니다.<br>
@@ -74,10 +80,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 이벤트(Event)란?</h2>
-  <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-10px;left:38%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
-</div>
+## 1. 이벤트(Event)란?
 
 ### 1) 브라우저가 전달하는 사건
 
@@ -93,8 +96,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 2) 이벤트 기반 프로그래밍
 
-<img src="/images/content/3-3/이벤트 기반 프로그래밍.png" alt="이벤트 기반 프로그래밍 다이어그램" style="display:block;width:100%;max-width:430px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
-
 **핵심 원리**
 
 <div class="wda-callout wda-cy">
@@ -107,15 +108,18 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 이벤트 발생 → 리스너 등록 여부 확인? → (Yes) 핸들러 실행 → 결과 반영
 
+<img src="/images/content/javascript/3-3/javascript-3-3-event-driven-programming.png" alt="이벤트 기반 프로그래밍 다이어그램" style="display:block;width:100%;max-width:430px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:430px;">[그림] 이벤트 기반 프로그래밍 흐름 (이벤트 발생 → 상태 검사 → 동작 수행/대기)</div>
+
 ### 3) 용어 정리
 
 - **이벤트** : 브라우저에서 발생한 사건
 - **리스너** : 특정 이벤트를 기다리는 장치 (귀)
 - **핸들러** : 이벤트가 발생했을 때 실행되는 함수 (행동)
 
-> "리스너가 이벤트를 듣고, 핸들러를 실행시킨다"
+<blockquote style="margin:.3rem 0 .8rem;">"리스너가 이벤트를 듣고, 핸들러를 실행시킨다"</blockquote>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -127,29 +131,26 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 이벤트 종류 (1) - 마우스 이벤트</h2>
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 2. 이벤트 종류 (1) - 마우스 이벤트
 
 ### 1) 클릭 관련
 
-| **이벤트** | **설명** |
-| --- | --- |
-| `click` | 클릭 (누르고 떼기) |
-| `dblclick` | 더블클릭 |
-| `mousedown` | 마우스 버튼 누름 |
-| `mouseup` | 마우스 버튼 뗌 |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>click</code></div><div class="wda-fcard-dsc">클릭 (누르고 떼기)</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>dblclick</code></div><div class="wda-fcard-dsc">더블클릭</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mousedown</code></div><div class="wda-fcard-dsc">마우스 버튼 누름</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseup</code></div><div class="wda-fcard-dsc">마우스 버튼 뗌</div></div>
+</div>
 
 ### 2) 이동 관련
 
-| **이벤트** | **설명** |
-| --- | --- |
-| `mousemove` | 마우스 이동 |
-| `mouseenter` | 요소에 진입 (버블링 X) |
-| `mouseleave` | 요소에서 벗어남 (버블링 X) |
-| `mouseover` | 요소 위로 (버블링 O) |
-| `mouseout` | 요소 밖으로 (버블링 O) |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mousemove</code></div><div class="wda-fcard-dsc">마우스 이동</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseenter</code></div><div class="wda-fcard-dsc">요소에 진입 (버블링 X)</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseleave</code></div><div class="wda-fcard-dsc">요소에서 벗어남 (버블링 X)</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseover</code></div><div class="wda-fcard-dsc">요소 위로 (버블링 O)</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseout</code></div><div class="wda-fcard-dsc">요소 밖으로 (버블링 O)</div></div>
+</div>
 
 ### 3) 실행 순서 및 코드
 
@@ -169,7 +170,7 @@ button.addEventListener('click', function() {
 });
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -179,7 +180,7 @@ button.addEventListener('click', function() {
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -192,16 +193,11 @@ button.addEventListener('click', function() {
 
 ## 💻 실습 : 마우스 이벤트
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:58px;right:4%;top:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
-
 ### 1) Mission (미션)
 
-<div style="position:relative;overflow:visible;">
 <div class="wda-steps">
   <div class="wda-step">
-    <div class="wda-snum">1</div>
+    <div class="wda-snum">1
     <div class="wda-sbody">
       <div class="wda-sttl">click</div>
       <div class="wda-sdsc">"클릭됨!" 경고창</div>
@@ -222,7 +218,6 @@ button.addEventListener('click', function() {
     </div>
   </div>
 </div>
-<img src="/images/decoration/소품 아이콘 (24).webp" alt="" style="position:absolute;width:62px;right:-26px;top:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 2) 실습 코드
@@ -248,7 +243,7 @@ btn.addEventListener('mouseout', function() {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -260,18 +255,15 @@ btn.addEventListener('mouseout', function() {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 이벤트 종류 (2) - 키보드 이벤트</h2>
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-12px;left:calc(6% + 300px);z-index:2;pointer-events:none;opacity:.76;transform:rotate(-7deg);">
-</div>
+## 3. 이벤트 종류 (2) - 키보드 이벤트
 
 ### 1) 키보드 이벤트 종류
 
-| **이벤트** | **설명** |
-| --- | --- |
-| `keydown` | 키를 누를 때 |
-| `keyup` | 키를 뗄 때 |
-| `keypress` | **deprecated** — 새 코드에서는 사용하지 않음 |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>keydown</code></div><div class="wda-fcard-dsc">키를 누를 때</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>keyup</code></div><div class="wda-fcard-dsc">키를 뗄 때</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>keypress</code></div><div class="wda-fcard-dsc"><strong>deprecated</strong> — 새 코드에서는 사용하지 않음</div></div>
+</div>
 
 `keypress`는 deprecated된 이벤트이므로 새 코드에서는 사용하지 않습니다. 일반적으로 `keydown` 또는 `keyup`을 사용합니다.
 
@@ -312,13 +304,10 @@ input.addEventListener('keydown', function(e) {
 
 ## ❓ 매개변수 e, 언제 쓰나요?
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:48px;left:62%;top:0;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
-
 ### 1) 이벤트 객체는 항상 전달됩니다
 
-이벤트가 발생하면 브라우저는 이벤트 정보를 담은 객체를 만들고, 이벤트 핸들러의 **첫 번째 인자로 전달**합니다. 필요하면 매개변수 `e`로 받아 사용할 수 있고, 필요 없으면 생략해도 됩니다.
+이벤트가 발생하면 브라우저는 이벤트 정보를 담은 객체를 만들고, 이벤트 핸들러의 **첫 번째 인자로 전달**합니다.  
+필요하면 매개변수 `e`로 받아 사용할 수 있고, 필요 없으면 생략해도 됩니다.
 
 ### 2) 언제 받아야 하나요?
 
@@ -341,7 +330,7 @@ btn.addEventListener('click', function(e) {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -353,10 +342,6 @@ btn.addEventListener('click', function(e) {
 ---
 
 ## 💻 실습 : 키보드 이벤트
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:60px;left:30%;top:-4px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-12deg);">
-</div>
 
 ### 1) Mission (미션)
 
@@ -398,7 +383,7 @@ input.addEventListener('keydown', function(e) { // 키를 눌렀을 때 실행�
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -410,10 +395,7 @@ input.addEventListener('keydown', function(e) { // 키를 눌렀을 때 실행�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 이벤트 종류 (3) - 폼 이벤트</h2>
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-10px;right:34%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 4. 이벤트 종류 (3) - 폼 이벤트
 
 ### 1) 폼 관련 이벤트
 
@@ -451,7 +433,7 @@ input.addEventListener('change', function(e) {
 | **`change`** | **최종 결과값**만 중요할 때 | 입력을 모두 마치고 마우스로 다른 곳을 클릭하여 입력창을 벗어났을 때, 바뀐 내용이 최종적으로 무엇인지 확인할 때 사용합니다. |
 | **`focus / blur`** | **유효성 검사**를 할 때 | 입력창에 커서가 들어올 때(`focus`) 안내 문구를 띄우거나, 커서가 나갈 때(`blur`) 아이디 중복 확인이나 비밀번호 양식이 맞는지 체크할 때 사용합니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -464,10 +446,6 @@ input.addEventListener('change', function(e) {
 ---
 
 ## 💻 실습 : 폼 이벤트
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:64px;right:32%;top:-6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(11deg);">
-</div>
 
 ### 1) Mission (미션)
 
@@ -508,7 +486,7 @@ msgInput.addEventListener('input', function(e) { // 사용자가 글자를 입�
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -520,10 +498,7 @@ msgInput.addEventListener('input', function(e) { // 사용자가 글자를 입�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 이벤트 종류 (4) - 문서/창 이벤트</h2>
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:80px;top:-14px;right:0;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
-</div>
+## 5. 이벤트 종류 (4) - 문서/창 이벤트
 
 ### 1) 페이지 로드 관련
 
@@ -560,7 +535,7 @@ window.addEventListener('beforeunload', function(e) {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -569,7 +544,7 @@ window.addEventListener('beforeunload', function(e) {
   </ul>
 </div>
 
-**실무 팁**
+**💼 실무 팁**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -580,10 +555,6 @@ window.addEventListener('beforeunload', function(e) {
 ---
 
 ## 💻 실습 : 문서/창 이벤트
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/책갈피 아이콘 (1).webp" alt="" style="position:absolute;width:50px;right:36%;top:2px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-11deg);">
-</div>
 
 ### 1) Mission (미션)
 
@@ -620,7 +591,7 @@ window.addEventListener('resize', function() {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -633,7 +604,7 @@ window.addEventListener('resize', function() {
 | **`window.scrollY`** | **Y축(세로) 방향의 스크롤 양**을 의미합니다. 숫자가 클수록 페이지의 더 아래쪽을 보고 있다는 뜻입니다. | '맨 위로 가기' 버튼 표시<br>스크롤 위치에 따른 애니메이션 실행<br>무한 스크롤 구현 |
 | **`window.innerWidth`** | **사용자에게 보이는 웹페이지의 실제 가로 영역 너비**입니다. 브라우저 창의 크기를 나타냅니다. | 반응형 웹(모바일/태블릿/PC) 대응<br>창 크기에 따른 레이아웃 변경<br>특정 너비 이하에서 메뉴 숨기기 |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -645,20 +616,16 @@ window.addEventListener('resize', function() {
 
 ## 🚫 기본 동작 방지 - `preventDefault()`
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;width:46px;left:24%;top:-4px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
-
 ### 1) 기본 동작이란?
 
 브라우저의 특정 요소들은 자바스크립트 조작 없이도 고유하게 수행하는 동작이 있습니다.
 
-| **요소** | **기본 동작 (Default Behavior)** |
-| --- | --- |
-| `<a>` | 클릭 시 지정된 링크로 이동 |
-| `<form>` | 데이터 제출 시 페이지 새로고침 |
-| `<input type="checkbox">` | 클릭 시 체크 상태 토글 |
-| **우클릭** | 브라우저 컨텍스트 메뉴 출력 |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>&lt;a&gt;</code></div><div class="wda-fcard-dsc">클릭 시 지정된 링크로 이동</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>&lt;form&gt;</code></div><div class="wda-fcard-dsc">데이터 제출 시 페이지 새로고침</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>&lt;input type="checkbox"&gt;</code></div><div class="wda-fcard-dsc">클릭 시 체크 상태 토글</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">우클릭</div><div class="wda-fcard-dsc">브라우저 컨텍스트 메뉴 출력</div></div>
+</div>
 
 ### 2) 주요 활용 코드
 
@@ -702,7 +669,7 @@ form.addEventListener('submit', function(e) {
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -715,10 +682,6 @@ form.addEventListener('submit', function(e) {
 ---
 
 ## 💻 실습 : 기본 동작 막기
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (7).webp" alt="" style="position:absolute;width:58px;right:28%;top:-4px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(9deg);">
-</div>
 
 ### 1) Mission (미션)
 
@@ -759,7 +722,7 @@ document.addEventListener('contextmenu', function(e) {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -771,10 +734,7 @@ document.addEventListener('contextmenu', function(e) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 이벤트 핸들러 등록 방법</h2>
-  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;width:112px;top:-14px;right:30%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 6. 이벤트 핸들러 등록 방법
 
 ### 1) 이벤트 핸들러 등록 방식 비교
 
@@ -835,29 +795,29 @@ btn.addEventListener('click', function() {
 ### 3) ✅ addEventListener 장점
 
 <div class="wda-fgrid">
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">🧩</div>
     <div class="wda-fcard-ttl">복수 등록</div>
     <div class="wda-fcard-dsc">같은 이벤트에 <strong>여러 핸들러</strong>를 등록할 수 있습니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">🗑️</div>
     <div class="wda-fcard-ttl">쉬운 제거</div>
     <div class="wda-fcard-dsc"><strong>removeEventListener</strong>를 사용해 등록된 이벤트를 쉽게 제거할 수 있습니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">⚙️</div>
     <div class="wda-fcard-ttl">옵션 지원</div>
     <div class="wda-fcard-dsc"><strong>옵션</strong>(capture, once, passive) 기능을 지원하여 세밀한 제어가 가능합니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">🧹</div>
     <div class="wda-fcard-ttl">관심사 분리</div>
     <div class="wda-fcard-dsc"><strong>HTML과 JS를 완벽히 분리</strong>하여 코드 가독성이 좋아집니다.</div>
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -869,10 +829,7 @@ btn.addEventListener('click', function() {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. addEventListener 상세</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-12px;left:44%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 7. addEventListener 상세
 
 ### 1) 기본 문법
 
@@ -902,10 +859,6 @@ btn.addEventListener('click', handleClick); // 정의된 함수의 이름을 전
 ```
 
 ### 3) removeEventListener
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:60px;left:30%;top:-46px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
 
 **🔹 이벤트 제거 방법**
 
@@ -939,7 +892,7 @@ btn.removeEventListener('click', function(e) {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -951,10 +904,7 @@ btn.removeEventListener('click', function(e) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 옵션 (1) - once &amp; capture</h2>
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:44px;top:-10px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(9deg);">
-</div>
+## 8. 옵션 (1) - once &amp; capture
 
 ### 1) once: true
 
@@ -1000,7 +950,7 @@ elem.addEventListener('click', handler, {
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1012,10 +962,7 @@ elem.addEventListener('click', handler, {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. 옵션 (2) - passive (성능 최적화)</h2>
-  <img src="/images/decoration/마스킹 테이프 (2).webp" alt="" style="position:absolute;width:156px;top:-16px;right:2%;z-index:2;pointer-events:none;opacity:.7;transform:rotate(-5deg);">
-</div>
+## 9. 옵션 (2) - passive (성능 최적화)
 
 ### 1) "나 막지 않을게(Active)!"
 
@@ -1049,7 +996,7 @@ document.addEventListener('touchstart', handler, {
 
 > [Intervention] Unable to preventDefault inside passive event listener...
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1062,10 +1009,6 @@ document.addEventListener('touchstart', handler, {
 ---
 
 ## 💻 실습 : 이벤트 리스너
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;width:42px;left:calc(8% + 250px);top:-50px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(7deg);">
-</div>
 
 ### 1) Mission (미션)
 
@@ -1120,7 +1063,7 @@ onceBtn.addEventListener(
 </script>
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1132,10 +1075,7 @@ onceBtn.addEventListener(
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 자주 하는 2가지 실수 (Common Pitfalls)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-12px;right:36%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 10. 자주 하는 2가지 실수 (Common Pitfalls)
 
 ### 1) 함수를 즉시 실행해버림
 
@@ -1148,7 +1088,8 @@ onceBtn.addEventListener(
 
 ### 2) 요소를 못 찾음 (null 에러)
 
-HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자바스크립트가 실행되어 요소를 찾지 못하는 경우입니다. `Cannot read property ... of null` 에러가 발생하며 이벤트 리스너가 등록되지 않습니다.
+HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자바스크립트가 실행되어 요소를 찾지 못하는 경우입니다.  
+`Cannot read property ... of null` 에러가 발생하며 이벤트 리스너가 등록되지 않습니다.
 
 **✅ 해결 방법**
 
@@ -1163,7 +1104,7 @@ HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자�
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1175,14 +1116,12 @@ HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. 이벤트 객체 (Event Object)</h2>
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:48px;top:-10px;left:calc(8% + 200px);z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 11. 이벤트 객체 (Event Object)
 
 ### 1) 이벤트 객체란?
 
-이벤트가 발생하면 브라우저는 해당 이벤트에 대한 상세 정보를 담은 **객체**를 생성합니다. 이벤트 핸들러의 첫 번째 매개변수로 이 객체가 전달됩니다. (관례적으로 `e` 또는 `event` 명명)
+이벤트가 발생하면 브라우저는 해당 이벤트에 대한 상세 정보를 담은 **객체**를 생성합니다.  
+이벤트 핸들러의 첫 번째 매개변수로 이 객체가 전달됩니다. (관례적으로 `e` 또는 `event` 명명)
 
 ```jsx
 // 이벤트 객체(event)가 자동으로 전달됨
@@ -1215,7 +1154,7 @@ btn.addEventListener('click', function(e) {
 | **`preventDefault()`** | 브라우저의 **기본 동작을 방지**합니다. |
 | **`stopPropagation()`** | 이벤트의 **전파(버블링/캡처링)를 중단**시킵니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1227,10 +1166,7 @@ btn.addEventListener('click', function(e) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 마우스 이벤트 객체: 좌표 프로퍼티 완벽 정리</h2>
-  <img src="/images/decoration/화살표 아이콘 (3).webp" alt="" style="position:absolute;width:100px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:scaleX(-1) rotate(-9deg);">
-</div>
+## 12. 마우스 이벤트 객체: 좌표 프로퍼티 완벽 정리
 
 ### 1) 좌표 관련 프로퍼티 비교
 
@@ -1253,7 +1189,8 @@ btn.addEventListener('click', function(e) {
 - **Viewport (`clientX/Y`)**: 현재 눈에 보이는 브라우저 창 내부 기준
 - **Target (`offsetX/Y`)**: 클릭된 특정 HTML 박스 내부 기준
 
-<img src="/images/content/3-3/좌표 시스템 ui 다이어그램.png" alt="좌표 시스템 UI 다이어그램" style="display:block;width:100%;max-width:400px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/3-3/javascript-3-3-coordinate-system-diagram.png" alt="좌표 시스템 UI 다이어그램" style="display:block;width:100%;max-width:400px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:400px;">[그림] 마우스 이벤트 좌표 기준점 비교 (Monitor/Viewport/Target)</div>
 
 ### 3) 🧮 pageY 계산 공식 (스크롤 발생 시)
 
@@ -1282,10 +1219,7 @@ target.addEventListener('click', function(e) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>13. target vs currentTarget 차이점 정리</h2>
-  <img src="/images/decoration/포스트잇 (3).webp" alt="" style="position:absolute;width:104px;top:-12px;left:calc(36% + 150px);z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
-</div>
+## 13. target vs currentTarget 차이점 정리
 
 ### 1) 핵심 개념 정의
 
@@ -1296,7 +1230,7 @@ target.addEventListener('click', function(e) {
 | **`target`** | **실제 이벤트를 유발한 요소** (실제로 클릭된 요소) |
 | **`currentTarget`** | **이벤트 리스너가 달린 요소** (핸들러가 등록된 요소) |
 
-**중요**
+**⭐ 중요**
 
 <div class="wda-callout wda-cy">
   <ul>
@@ -1330,9 +1264,9 @@ parent.addEventListener('click', function(e) {
 
 ### 3) 시각화 및 동작 이해
 
-사용자가 `button`(child)을 클릭하면 이벤트가 발생합니다. 이 이벤트는 부모인 `div`(parent)로 전달(버블링)됩니다. 이때 부모에 걸린 함수가 실행되면서, `target`은 최초 원인인 **버튼**을 가리키고, `currentTarget`은 현재 함수를 실행 중인 **div**를 가리키게 됩니다.
-
-<img src="/images/content/3-3/ui 이벤트 모델 다이어그램.png" alt="target과 currentTarget UI 이벤트 모델 다이어그램" style="display:block;width:100%;max-width:320px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
+사용자가 `button`(child)을 클릭하면 이벤트가 발생합니다.  
+이 이벤트는 부모인 `div`(parent)로 전달(버블링)됩니다.  
+이때 부모에 걸린 함수가 실행되면서, `target`은 최초 원인인 **버튼**을 가리키고, `currentTarget`은 현재 함수를 실행 중인 **div**를 가리키게 됩니다.
 
 **추가 학습 팁**
 
@@ -1343,13 +1277,12 @@ parent.addEventListener('click', function(e) {
   </ul>
 </div>
 
+<img src="/images/content/javascript/3-3/javascript-3-3-ui-event-model-diagram.png" alt="target과 currentTarget UI 이벤트 모델 다이어그램" style="display:block;width:100%;max-width:320px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:320px;">[그림] target과 currentTarget 비교 (버튼 클릭 시 target=button, currentTarget=parent)</div>
+
 ---
 
 ## 💻 실습 : 타겟 구분하기 (`target` vs `currentTarget`)
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:66px;left:46%;top:-6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
 
 ### 1) Mission
 
@@ -1402,7 +1335,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 | **내부 버튼 클릭 시** | `inner` | `outer` | 버튼에서 발생한 이벤트가 부모(`outer`)로 **버블링**되었기 때문입니다. |
 | **배경(outer) 클릭 시** | `outer` | `outer` | 발생지와 핸들러 위치가 동일하므로 두 값이 같습니다. |
 
-**핵심 정리**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -1414,10 +1347,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 이벤트 전파 (Event Propagation)</h2>
-  <img src="/images/decoration/화살표 아이콘 (4).webp" alt="" style="position:absolute;width:54px;top:-12px;right:32%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 14. 이벤트 전파 (Event Propagation)
 
 이벤트가 발생했을 때 브라우저가 이벤트를 타겟 요소까지 전달하고, 다시 상위로 올리는 전체 과정을 의미합니다.
 
@@ -1433,19 +1363,32 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
       <li><strong>버블링 (Bubbling)</strong> — 이벤트가 다시 타겟 요소에서 부모 요소를 거쳐 <code>window</code> 방향으로 <strong>올라가는</strong> 단계입니다.</li>
     </ul>
   </div>
-  <img src="/images/content/3-3/이벤트 전파 흐름도.png" alt="이벤트 전파 흐름도" style="border-radius:8px;">
+  <img src="/images/content/javascript/3-3/javascript-3-3-event-propagation-flow.png" alt="이벤트 전파 흐름도" style="display:block;width:100%;max-width:160px;height:auto;border-radius:8px;margin:0 auto;object-fit:contain;">
 </div>
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;">[그림] 이벤트 전파 3단계 (캡처링 → 타겟 → 버블링)</div>
 
 ### 2) 전파 시각화 및 흐름
 
-| **구분** | **캡처링 (Capturing)** | **버블링 (Bubbling)** |
-| --- | --- | --- |
-| **방향** | **내려감 (Top → Down)** | **올라감 (Down → Top)** |
-| **시작점** | `window` (최상위 객체) | 이벤트가 발생한 **타겟(Target)** |
-| **종착점** | 이벤트가 발생한 **타겟(Target)** | `window` (최상위 객체) |
-| **상세 경로** | `window` → `document` → `html` → `body` → ... → 부모 → **타겟** | **타겟** → 부모 → ... → `body` → `html` → `document` → `window` |
-| **기본 동작** | 기본적으로는 실행되지 않음 (`capture: true` 시 실행) | **기본 동작 방식**<br>(대부분의 이벤트 리스너 실행 시점) |
-| **비유** | 폭포수처럼 위에서 아래로 떨어짐 | 물속의 거품처럼 아래에서 위로 올라감 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">캡처링 (Capturing)</div>
+    <strong>방향</strong> : <strong>내려감 (Top → Down)</strong><br>
+    <strong>시작점</strong> : <code>window</code> (최상위 객체)<br>
+    <strong>종착점</strong> : 이벤트가 발생한 <strong>타겟(Target)</strong><br>
+    <strong>상세 경로</strong> : <code>window</code> → <code>document</code> → <code>html</code> → <code>body</code> → ... → 부모 → <strong>타겟</strong><br>
+    <strong>기본 동작</strong> : 기본적으로는 실행되지 않음 (<code>capture: true</code> 시 실행)<br>
+    <strong>비유</strong> : 폭포수처럼 위에서 아래로 떨어짐
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">버블링 (Bubbling)</div>
+    <strong>방향</strong> : <strong>올라감 (Down → Top)</strong><br>
+    <strong>시작점</strong> : 이벤트가 발생한 <strong>타겟(Target)</strong><br>
+    <strong>종착점</strong> : <code>window</code> (최상위 객체)<br>
+    <strong>상세 경로</strong> : <strong>타겟</strong> → 부모 → ... → <code>body</code> → <code>html</code> → <code>document</code> → <code>window</code><br>
+    <strong>기본 동작</strong> : <strong>기본 동작 방식</strong> (대부분의 이벤트 리스너 실행 시점)<br>
+    <strong>비유</strong> : 물속의 거품처럼 아래에서 위로 올라감
+  </div>
+</div>
 
 **기본 동작**
 
@@ -1455,14 +1398,15 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
   </ul>
 </div>
 
-<img src="/images/content/3-3/웹 이벤트 전파 다이어그램.png" alt="웹 이벤트 전파 다이어그램" style="display:block;width:100%;max-width:360px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/3-3/javascript-3-3-web-event-propagation-diagram.png" alt="웹 이벤트 전파 다이어그램" style="display:block;width:100%;max-width:360px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:360px;">[그림] window~button DOM 트리에서의 캡처링(하강)·버블링(상승) 경로</div>
 
 ### 3) 주요 개념 정리
 
 - **`window`란?** 브라우저 창 전체를 담당하는 최상위 객체(전역 객체)입니다. `DOM(document)`보다 더 상위에 존재합니다.
 - **이벤트 전파 방지 (`e.stopPropagation()`)** — 버블링이나 캡처링이 더 이상 진행되지 않도록 막고 싶을 때 사용하는 중요한 메서드입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1472,10 +1416,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>15. 이벤트 버블링 (Event Bubbling)</h2>
-  <img src="/images/decoration/메모지 아이콘 (2).webp" alt="" style="position:absolute;width:96px;top:-110px;right:0;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 15. 이벤트 버블링 (Event Bubbling)
 
 이벤트가 발생한 요소에서 시작하여 부모 요소를 거쳐 최상위(`window`)까지 **이벤트가 거꾸로 올라가는 현상**을 의미합니다.
 
@@ -1549,10 +1490,6 @@ document.getElementById('child')
 
 ## 💻 실습 : 버블링 제어(`stopPropagation`)
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:44px;right:38%;top:0;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
-
 ### 1) Mission
 
 <div class="wda-steps">
@@ -1606,7 +1543,8 @@ boxes.forEach(box => {
 
 ### 3) 결과 및 핵심 정리
 
-Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올라가려 합니다. `box2` 핸들러에서 `e.stopPropagation()`이 호출되면서 전파가 중단되어, 콘솔에는 **"box3 클릭!"**, **"box2 클릭!"**까지만 출력됩니다.
+Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올라가려 합니다.  
+`box2` 핸들러에서 `e.stopPropagation()`이 호출되면서 전파가 중단되어, 콘솔에는 **"box3 클릭!"**, **"box2 클릭!"**까지만 출력됩니다.
 
 > **⚠️ stopPropagation 주의사항**
 >
@@ -1616,10 +1554,7 @@ Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>16. 이벤트 위임 (Event Delegation)</h2>
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:100px;top:-16px;right:4%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
+## 16. 이벤트 위임 (Event Delegation)
 
 ### 1) 이벤트 위임이란?
 
@@ -1682,22 +1617,18 @@ document.getElementById('menu')
 
 ### 2) 이벤트 위임의 장점
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:64px;right:2%;top:-8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
-</div>
-
 <div class="wda-fgrid">
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">⚡</div>
     <div class="wda-fcard-ttl">성능</div>
     <div class="wda-fcard-dsc">핸들러 개수 감소 → 메모리 절약</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">🔄</div>
     <div class="wda-fcard-ttl">동적 요소</div>
     <div class="wda-fcard-dsc">나중에 추가되는 요소에도 자동 적용</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ico">🧹</div>
     <div class="wda-fcard-ttl">코드 간결</div>
     <div class="wda-fcard-dsc">하나의 핸들러로 여러 요소 처리</div>
@@ -1785,10 +1716,6 @@ list.addEventListener('click', function(e) {
 
 ## 🌈 이벤트 위임 실전 예제 (Todo List)
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:46px;left:64%;top:-2px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
-</div>
-
 ### 1) 할 일 목록 (Todo List) 삭제 구현
 
 개별 삭제 버튼마다 이벤트를 걸지 않고, `ul` 부모 요소에서 클릭을 감지하여 삭제 기능을 처리하는 코드입니다.
@@ -1836,7 +1763,9 @@ const form = e.target.closest('form');  // 가장 가까운 form 찾기
 const card = e.target.closest('.card'); // 가장 가까운 .card 찾기
 ```
 
-`e.target.matches('선택자')`는 실제 클릭된 요소가 특정 선택자와 일치하는지 확인할 때 사용합니다. `e.target.closest('선택자')`는 클릭된 요소 자신 또는 가장 가까운 부모 중 조건에 맞는 요소를 찾을 때 사용합니다. 버튼 안에 span 같은 자식 요소가 있을 수 있으므로, 실무에서는 `closest`를 사용하면 더 안전합니다.
+`e.target.matches('선택자')`는 실제 클릭된 요소가 특정 선택자와 일치하는지 확인할 때 사용합니다.  
+`e.target.closest('선택자')`는 클릭된 요소 자신 또는 가장 가까운 부모 중 조건에 맞는 요소를 찾을 때 사용합니다.  
+버튼 안에 span 같은 자식 요소가 있을 수 있으므로, 실무에서는 `closest`를 사용하면 더 안전합니다.
 
 ### 3) 더 정교한 위임 패턴 (Advanced)
 
@@ -1863,10 +1792,6 @@ todoList.addEventListener('click', function(e) {
 ---
 
 ## 🌈 실전 예제: 버튼 클릭 카운터
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:60px;left:calc(32% + 50px);top:-106px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-9deg);">
-</div>
 
 ### 1) HTML 구조 (공통)
 
@@ -1931,15 +1856,15 @@ document.getElementById('counter-app')
 ### 3) 이벤트 위임의 장점 (정리)
 
 <div class="wda-fgrid">
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ttl">메모리 절약</div>
     <div class="wda-fcard-dsc">핸들러를 1개만 생성하면 됩니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ttl">동적 처리</div>
     <div class="wda-fcard-dsc">나중에 버튼이 추가되어도 자바스크립트 코드를 수정할 필요가 없습니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ttl">코드 관리</div>
     <div class="wda-fcard-dsc">로직이 한 곳(<code>addEventListener</code> 내부)에 모여있어 유지보수가 편합니다.</div>
   </div>
@@ -1948,10 +1873,6 @@ document.getElementById('counter-app')
 ---
 
 ## 🌈 실전 예제: 폼 유효성 검사
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/느낌표 아이콘 (5).webp" alt="" style="position:absolute;width:46px;right:6%;top:-2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-7deg);">
-</div>
 
 ### 1) HTML 구조 설계
 
@@ -1993,10 +1914,6 @@ HTML에서는 입력 필드와 에러 메시지를 표시할 영역을 미리 �
 </div>
 
 ### 2) 유효성 검사 로직 (JavaScript)
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (5).webp" alt="" style="position:absolute;width:56px;right:12%;top:-6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
 
 `submit` 이벤트를 감지하여 검사를 수행합니다.
 
@@ -2041,10 +1958,6 @@ form.addEventListener('submit', function(e) {
 ---
 
 ## 🌈 실전 예제: 실시간 검색창
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:44px;left:44%;top:0;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
 
 ### 1) HTML 구조
 
@@ -2111,14 +2024,7 @@ function displayResults(items) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🚀 최종 핵심 정리</h2>
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;right:0;top:-104px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:58px;left:calc(2% + 200px);top:-110px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 🚀 최종 핵심 정리
 
 <table class="wda-summary-table">
   <tr>

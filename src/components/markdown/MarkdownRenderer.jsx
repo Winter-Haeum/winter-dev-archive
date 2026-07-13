@@ -102,8 +102,11 @@ const markdownComponents = {
     <Box
       component='h2'
       sx={(theme) => ({
-        mt: '2.2rem',
-        mb: '0.7rem',
+        // mt는 코드블록(1.5rem)/표(1.2rem)/wda-fgrid·wda-steps(1.6rem) 등 콘텐츠 요소의
+        // margin-bottom보다 항상 커야 마진 병합(collapse) 후에도 "새 섹션" 느낌을 주는
+        // 넉넉한 간격이 보장된다 (2026-07 개편, 여백 정책 참고).
+        mt: '3rem',
+        mb: '0.6rem',
         fontSize: { xs: '1.18rem', md: '1.28rem' },
         fontWeight: 700,
         lineHeight: 1.35,
@@ -121,8 +124,8 @@ const markdownComponents = {
     <Box
       component='h3'
       sx={(theme) => ({
-        mt: '1.5rem',
-        mb: '0.4rem',
+        mt: '2.6rem',
+        mb: '0.35rem',
         fontSize: { xs: '1.02rem', md: '1.08rem' },
         fontWeight: 600,
         lineHeight: 1.4,
@@ -137,8 +140,8 @@ const markdownComponents = {
     <Box
       component='h4'
       sx={(theme) => ({
-        mt: '1.1rem',
-        mb: '0.35rem',
+        mt: '2.1rem',
+        mb: '0.3rem',
         fontSize: { xs: '0.94rem', md: '0.97rem' },
         fontWeight: 600,
         lineHeight: 1.4,
@@ -151,14 +154,28 @@ const markdownComponents = {
   ),
 
   // ── 본문 ────────────────────────────────────────────────────────────
-  p: ({ children }) => (
-    <Box
-      component='p'
-      sx={{ mb: '0.9rem', color: 'text.primary', fontSize: { xs: '0.93rem', md: '0.95rem' }, lineHeight: 1.75, fontFamily: 'inherit' }}
-    >
-      {children}
-    </Box>
-  ),
+  p: ({ node, children }) => {
+    // CSS :has()가 구형 브라우저에서 무시되는 문제를 피하기 위해, "이모지+볼드 단독 문단"
+    // (본문 중간 미니 소제목 역할)을 AST 레벨에서 직접 판별해 여백을 인라인으로 적용한다
+    // (2026-07 개편, p:has(> strong:only-child) CSS 규칙 대체).
+    const elementChildren = (node?.children || []).filter((c) => c.type === 'element');
+    const isLoneStrong = elementChildren.length === 1 && elementChildren[0].tagName === 'strong';
+    return (
+      <Box
+        component='p'
+        sx={{
+          mt: isLoneStrong ? '2.2rem' : undefined,
+          mb: isLoneStrong ? '0.2rem' : '0.9rem',
+          color: 'text.primary',
+          fontSize: { xs: '0.93rem', md: '0.95rem' },
+          lineHeight: 1.75,
+          fontFamily: 'inherit',
+        }}
+      >
+        {children}
+      </Box>
+    );
+  },
   strong: ({ children }) => (
     <Box component='strong' sx={{ fontWeight: 700, color: 'text.primary' }}>
       {children}

@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -33,16 +33,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -51,8 +51,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:112px;top:-16px;right:28%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal">
   ♻️ <strong>함수의 개념</strong> — 재사용 가능한 코드 블록의 필요성과 구조를 이해합니다.<br>
   📝 <strong>선언 방식</strong> — 함수 선언문과 표현식의 차이점을 파악합니다.<br>
   🔢 <strong>매개변수와 반환값</strong> — 입력과 출력을 통한 함수 활용법을 익힙니다.<br>
@@ -61,10 +60,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 함수란 무엇인가?</h2>
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:54px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 1. 함수란 무엇인가?
 
 **정의**: 특정 작업을 수행하는 **재사용 가능한 코드 블록**입니다.
 
@@ -122,7 +118,7 @@ greet("민수");
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">핵심 개념: 블랙박스 (Black Box)</span>
@@ -131,10 +127,7 @@ greet("민수");
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 함수의 근본 원리 (IPO 모델)</h2>
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;right:0;top:-105px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 2. 함수의 근본 원리 (IPO 모델)
 
 함수는 입력을 받아 정의된 절차에 따라 처리하고 결과를 돌려주는 **데이터 공장**과 같습니다.
 
@@ -142,23 +135,21 @@ greet("민수");
 
 함수가 동작하는 3단계 흐름입니다.
 
-<img src="/images/content/입력-처리-출력 프로세스 다이어그램.webp" alt="IPO 모델 다이어그램" style="max-width:100%;border-radius:8px;margin:.6rem 0 1rem;">
-
 | 단계 | 구성 요소 | 설명 |
 | --- | --- | --- |
 | **Input (입력)** | `매개변수 (Parameters)` | 공장에 들어가는 원재료입니다. |
 | **Process (처리)** | `함수의 본문 (Logic)` | 재료를 가공하는 내부 로직입니다. |
 | **Output (출력)** | `반환값 (Return Value)` | 가공이 끝난 완제품입니다. |
 
+<img src="/images/content/javascript/2-1/javascript-2-1-input-process-output-diagram.webp" alt="IPO 모델 다이어그램" style="display:block;width:100%;max-width:680px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:680px;">[그림] IPO 모델 (Input 매개변수 → Process 함수 본문 → Output 반환값)</div>
+
 ### 2) 동작 원리 (수도코드)
 
 함수는 **설계도(정의)**와 **사용(호출)**으로 나뉩니다.
 
-<div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:58px;top:-4px;right:4%;z-index:2;pointer-events:none;opacity:.74;">
-  <p><strong>① 함수 정의 (설계도)</strong></p>
+<p><strong>① 함수 정의 (설계도)</strong></p>
   <p>먼저 "이 함수는 이렇게 동작해"라고 컴퓨터에게 알려주는 과정입니다.</p>
-</div>
 
 ```js
 function 함수이름 ( 재료 ) {
@@ -175,19 +166,16 @@ function 함수이름 ( 재료 ) {
 결과 = 함수이름 ( 실제_재료 );
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">핵심 주의사항</span>
   <p>"정의만 해서는 실행되지 않습니다."</p>
-  함수를 <code>function ...</code>으로 만들기만 하고 <code>호출()</code>하지 않으면 아무 일도 일어나지 않습니다. 반드시 <strong>호출(Call)</strong>해야 공장이 가동됩니다.
+  함수를 <code>function ...</code>으로 만들기만 하고 <code>호출()</code>하지 않으면 아무 일도 일어나지 않습니다.<br>
+  반드시 <strong>호출(Call)</strong>해야 공장이 가동됩니다.
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:48px;left:33%;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-</div>
 
 ## 3. 함수 선언문과 표현식
 
@@ -209,10 +197,6 @@ function 함수이름(매개변수1, 매개변수2) {
 
 **실제 예시**
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:60px;top:4px;right:4%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
-</div>
-
 ```js
 // 1. 정의하기 (설계도)
 function add(a, b) {
@@ -224,7 +208,7 @@ const result = add(3, 5);
 console.log(result); // 8
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">네이밍 관례</span>
@@ -238,12 +222,10 @@ console.log(result); // 8
 | **handle** | 처리를 담당할 때 | `handleClick` |
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>2) 함수 표현식 (Function Expression) — 기본 구조</h3>
-  <img src="/images/decoration/말풍선 아이콘 (9).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+### 2) 함수 표현식 (Function Expression) — 기본 구조
 
-변수에 함수를 **할당(Assignment)**하는 방식으로 함수를 정의합니다. 함수를 마치 **값(Value)**처럼 취급하여 변수에 저장하는 형태입니다.
+변수에 함수를 **할당(Assignment)**하는 방식으로 함수를 정의합니다.  
+함수를 마치 **값(Value)**처럼 취급하여 변수에 저장하는 형태입니다.
 
 ```js
 const 변수이름 = function(매개변수) {
@@ -265,7 +247,7 @@ const multiply = function(a, b) {
 console.log(multiply(4, 5)); // 20
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">기명 함수 표현식 (Named Function Expression)</span>
@@ -273,10 +255,7 @@ console.log(multiply(4, 5)); // 20
   예시: <code>const fn = function myFn() { ... };</code>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>3) 선언문 vs 표현식 비교</h3>
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:-16px;right:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+### 3) 선언문 vs 표현식 비교
 
 | **구분** | **함수 선언문** | **함수 표현식** |
 | --- | --- | --- |
@@ -286,10 +265,6 @@ console.log(multiply(4, 5)); // 20
 | **세미콜론** | 불필요 | **필수** |
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:44px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.68;">
-</div>
 
 ## 4. 함수 호출하기
 
@@ -308,7 +283,7 @@ greet("철수"); // 안녕, 철수!
 greet("영희"); // 안녕, 영희!
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   괄호 없이 <code>greet</code>라고만 쓰면 함수가 실행되지 않고, 함수 그 자체(코드 덩어리)만 가리키게 됩니다.
@@ -329,10 +304,6 @@ introduce("지영", 30); // 지영, 30살
 ```
 
 자바스크립트는 인자의 개수를 엄격하게 체크하지 않습니다.
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:58px;top:6px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
-</div>
 
 | **상황** | **결과** |
 | --- | --- |
@@ -382,10 +353,6 @@ sayHi;
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:38px;right:8px;top:0;z-index:2;pointer-events:none;opacity:.72;">
-</div>
-
 ## 5. return 문
 
 `return`은 함수의 실행을 **종료**하고, 값을 호출한 곳으로 **반환**하는 역할을 합니다.
@@ -402,7 +369,7 @@ const result = doSomething();
 console.log(result); // undefined
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">핵심 원리</span>
@@ -448,7 +415,7 @@ function login(user) {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">핵심 효과</span>
@@ -464,10 +431,7 @@ function login(user) {
 
 직접 함수를 선언하고 실행해보는 기초 실습입니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>실습 1) 자기소개 함수</h3>
-  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;width:58px;top:-12px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+### 실습 1) 자기소개 함수
 
 **미션**: `introduce`라는 이름의 함수를 만들고, 실행하면 **"안녕하세요, 저는 [이름]입니다."**를 출력하세요.
 
@@ -488,7 +452,7 @@ introduce("영희");
 안녕하세요, 저는 영희입니다.
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">정의 vs 호출</span>
@@ -511,7 +475,7 @@ const result = add(5, 3);
 console.log(result); // 8
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">출력 vs 반환</span>
@@ -549,10 +513,7 @@ console.log(calculate(10, 5, "/")); // "지원하지 않는 연산"
 | **변수에 담아서 확인** | 재사용 가능, 실제 기능 개발에 적합 |
 | **바로 출력** | 1줄로 짧음, 단순 테스트에 적합, 값이 저장되지 않음 |
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>심화 실습 2) 구구단 출력기 (반복문 활용)</h3>
-  <img src="/images/decoration/소품 아이콘 (4).webp" alt="" style="position:absolute;width:60px;top:-16px;left:50%;transform:translateX(-50%) rotate(5deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+### 심화 실습 2) 구구단 출력기 (반복문 활용)
 
 **미션**: `printGugudan` 함수를 만들고, 특정 단의 구구단을 1~9까지 출력하세요.
 
@@ -595,7 +556,7 @@ const total = sumEvens(10);
 console.log(`1~10 짝수 합: ${total}`); // 30
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">변수 위치 주의</span>
@@ -603,10 +564,6 @@ console.log(`1~10 짝수 합: ${total}`); // 30
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:40px;left:50%;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-6deg);">
-</div>
 
 ## 6. 매개변수와 인자
 
@@ -662,21 +619,20 @@ sum(10, 20, 30, 40, 50);
 // 결과: [10, 20, 30, 40, 50] 처럼 보임
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">유사 배열 주의</span>
-  <code>arguments</code>는 <strong>배열과 비슷(유사 배열)</strong>하지만, 실제 배열은 아니어서 <code>filter</code>, <code>map</code> 같은 배열 메서드는 사용할 수 없습니다. 최신 JS에서는 나머지 매개변수(<code>...rest</code>)를 더 권장합니다.
+  <code>arguments</code>는 <strong>배열과 비슷(유사 배열)</strong>하지만, 실제 배열은 아니어서 <code>filter</code>, <code>map</code> 같은 배열 메서드는 사용할 수 없습니다.<br>
+  최신 JS에서는 나머지 매개변수(<code>...rest</code>)를 더 권장합니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 함수 스코프 (Scope)</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:60px;top:-12px;right:8%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
-</div>
+## 7. 함수 스코프 (Scope)
 
-**스코프(Scope)**란 변수가 **"어디까지 유효한가"**를 정하는 **'유효 범위'**를 뜻합니다. 변수가 어디서 태어났느냐에 따라 수명이 결정됩니다.
+**스코프(Scope)**란 변수가 **"어디까지 유효한가"**를 정하는 **'유효 범위'**를 뜻합니다.  
+변수가 어디서 태어났느냐에 따라 수명이 결정됩니다.
 
 ### 1) 전역 스코프 (Global Scope)
 
@@ -709,11 +665,12 @@ test();
 console.log(localVar); // ReferenceError
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">중요 포인트</span>
-  함수를 정의할 때 괄호 안에 넣은 매개변수(<code>name</code>, <code>age</code> 등)도 함수 내부에서만 쓸 수 있는 <strong>지역 변수</strong>로 취급됩니다. 밖에서는 부를 수 없습니다.
+  함수를 정의할 때 괄호 안에 넣은 매개변수(<code>name</code>, <code>age</code> 등)도 함수 내부에서만 쓸 수 있는 <strong>지역 변수</strong>로 취급됩니다.<br>
+  밖에서는 부를 수 없습니다.
 </div>
 
 | **구분** | **선언 위치** | **사용 가능 범위** | **비유** |
@@ -727,7 +684,8 @@ console.log(localVar); // ReferenceError
 
 ### 1) 기본값 매개변수 (Default Parameters)
 
-함수를 호출할 때 인자를 전달하지 않았거나, 전달된 값이 `undefined`일 때 대신 사용할 **'기본값'**을 미리 정해두는 문법입니다. 단, `null`을 전달하면 값이 직접 들어온 것으로 보기 때문에 기본값이 적용되지 않습니다.
+함수를 호출할 때 인자를 전달하지 않았거나, 전달된 값이 `undefined`일 때 대신 사용할 **'기본값'**을 미리 정해두는 문법입니다.  
+단, `null`을 전달하면 값이 직접 들어온 것으로 보기 때문에 기본값이 적용되지 않습니다.
 
 ```js
 // name이 들어오면 그걸 쓰고, 안 들어오면 "손님"을 씀
@@ -764,7 +722,7 @@ getDate();                       // 함수를 호출하는 '그 순간'의 날�
 getDate(new Date("2024-01-01")); // 2024. 1. 1.
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">순서 주의 (Order Matters)</span>
@@ -826,7 +784,7 @@ introduceTeam("손흥민", "이강인", "김민재", "황희찬");
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">arguments와 차이</span>
@@ -835,10 +793,7 @@ introduceTeam("손흥민", "이강인", "김민재", "황희찬");
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🛠️ 실무 응용 패턴</h2>
-  <img src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="position:absolute;width:90px;top:-12px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 🛠️ 실무 응용 패턴
 
 ### 1) 복합 유틸리티 함수
 
@@ -866,7 +821,7 @@ const salePrice = calculateDiscount(50000, 20);
 console.log(formatCurrency(salePrice)); // "40,000원"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">좋은 함수의 조건</span>
@@ -907,16 +862,10 @@ console.log(registerUser("javascript@lecture.com", "pass1234"));
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:38px;right:8px;top:0;z-index:2;pointer-events:none;opacity:.70;">
-</div>
+## 9. Deep Dive: 함수 호이스팅
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. Deep Dive: 함수 호이스팅</h2>
-  <img src="/images/character/집중 탐구.webp" alt="" style="position:absolute;width:134px;right:0;top:-108px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
-
-똑같이 함수를 만드는 것 같지만, **"언제 사용할 수 있는가"**에 결정적인 차이가 있습니다. 핵심은 **호이스팅(Hoisting)**의 동작 방식이 다르기 때문입니다.
+똑같이 함수를 만드는 것 같지만, **"언제 사용할 수 있는가"**에 결정적인 차이가 있습니다.  
+핵심은 **호이스팅(Hoisting)**의 동작 방식이 다르기 때문입니다.
 
 ### 1) 함수 선언문 — 전체 호이스팅
 
@@ -931,7 +880,7 @@ function add(a, b) {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">원리</span>
@@ -951,11 +900,13 @@ const sub = function(a, b) {
 };
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">TDZ (일시적 사각지대)</span>
-  <code>const sub</code>라는 이름표는 미리 붙여놓음(호이스팅). 하지만 값(함수 내용)은 코드가 저 줄에 도착해야 넣어줍니다. 그 전까지는 <strong>TDZ(Temporal Dead Zone)</strong>에 갇혀 있어서 건드리면 에러가 납니다.
+  <code>const sub</code>라는 이름표는 미리 붙여놓음(호이스팅).<br>
+  하지만 값(함수 내용)은 코드가 저 줄에 도착해야 넣어줍니다.<br>
+  그 전까지는 <strong>TDZ(Temporal Dead Zone)</strong>에 갇혀 있어서 건드리면 에러가 납니다.
 </div>
 
 | **구분** | **함수 선언문** | **함수 표현식** |
@@ -968,12 +919,10 @@ const sub = function(a, b) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. Deep Dive: 재귀 함수 (Recursion)</h2>
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:56px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 10. Deep Dive: 재귀 함수 (Recursion)
 
-**재귀(Recursion)**란 함수가 실행 도중에 **자기 자신을 다시 호출**하는 기법입니다. 복잡한 반복 작업을 우아하고 짧은 코드로 해결할 때 사용합니다.
+**재귀(Recursion)**란 함수가 실행 도중에 **자기 자신을 다시 호출**하는 기법입니다.  
+복잡한 반복 작업을 우아하고 짧은 코드로 해결할 때 사용합니다.
 
 ### 1) 팩토리얼 예시 (Factorial)
 
@@ -999,7 +948,7 @@ console.log(factorial(5)); // 120
 | **종료 조건 (Base Case)** | 무한 반복을 막기 위한 브레이크 | `if (n <= 1) return 1;` |
 | **재귀 호출 (Recursive Case)** | 조금 더 작아진 문제로 자기 자신을 부름 | `return n * factorial(n - 1);` |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1011,15 +960,12 @@ console.log(factorial(5)); // 120
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/책갈피 아이콘 (5).webp" alt="" style="position:absolute;width:34px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;">
-</div>
-
 ## 11. 함수의 본질: 객체와 일급 객체
 
 ### 1) 함수는 객체다 (Function as Object)
 
-자바스크립트에서 함수는 단순한 동작 덩어리가 아니라, **특별한 기능을 가진 객체(Object)**입니다. 함수에도 점(`.`)을 찍고 값을 저장할 수 있습니다.
+자바스크립트에서 함수는 단순한 동작 덩어리가 아니라, **특별한 기능을 가진 객체(Object)**입니다.  
+함수에도 점(`.`)을 찍고 값을 저장할 수 있습니다.
 
 ```js
 function sayHi() {
@@ -1042,10 +988,6 @@ console.log(sayHi.myProp); // "난 속성도 가짐"
 | **`name`** | 함수의 이름 | `sayHi.name → "sayHi"` |
 | **`length`** | 정의된 매개변수의 개수 (rest 제외) | `fn.length → 2` |
 | **`prototype`** | 일반 함수가 생성자 함수로 사용될 때 연결되는 객체 (화살표 함수는 prototype이 없음) | 클래스·상속의 핵심 |
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:8px;left:50%;transform:translateX(-50%) rotate(-5deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
 
 ```js
 function one(a) {}
@@ -1097,10 +1039,7 @@ console.log(add5(3)); // 8
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 콜백 함수 (Callback Function)</h2>
-  <img src="/images/character/오! 그렇구나.webp" alt="" style="position:absolute;width:136px;right:0;top:-108px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 12. 콜백 함수 (Callback Function)
 
 **정의**: 다른 함수에 **인자로 전달되어**, 나중에 필요한 시점에 실행되는 함수입니다.
 
@@ -1156,7 +1095,7 @@ console.log("끝");
 // 출력 순서: "시작" → "끝" → (3초 후) "3초 후 실행"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">참조로 전달하기</span>
@@ -1193,10 +1132,6 @@ console.log(doubled2); // [2, 4, 6, 8, 10]
 ```
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/느낌표 아이콘 (4).webp" alt="" style="position:absolute;width:42px;left:50%;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-5deg);">
-</div>
 
 ## 13. 즉시 실행 함수 (IIFE)
 
@@ -1262,19 +1197,17 @@ console.log(config.env);          // "production"
 console.log(config.isProduction); // true
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">요즘 사용 빈도</span>
-  모듈 시스템(<code>import</code>/<code>export</code>)이 발전하면서 IIFE의 사용 빈도는 줄었습니다. 하지만 레거시 코드나 즉각적인 초기화 패턴에서 여전히 자주 보이므로, 읽을 수 있는 것이 중요합니다.
+  모듈 시스템(<code>import</code>/<code>export</code>)이 발전하면서 IIFE의 사용 빈도는 줄었습니다.<br>
+  하지만 레거시 코드나 즉각적인 초기화 패턴에서 여전히 자주 보이므로, 읽을 수 있는 것이 중요합니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📋 최종 핵심 요약표</h2>
-  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;width:93px;top:-14px;right:15%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+## 📋 최종 핵심 요약표
 
 <table class="wda-summary-table">
   <thead>

@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-code{font-size:.74rem;opacity:.8;background:rgba(128,128,128,.08);border-radius:6px;padding:4px 7px;margin-top:4px;display:inline-block}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
@@ -35,16 +35,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -53,8 +53,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:64px;top:-18px;right:6%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(9deg);">
+<div class="wda-goal">
   🔢 <strong>ECMAScript 버전 이해</strong> — ES5 → ES6 → ES2020+ 발전 과정을 이해합니다.<br>
   ✨ <strong>템플릿 리터럴 심화</strong> — 태그드 템플릿과 고급 활용법을 익힙니다.<br>
   🔁 <strong>이터러블과 for...of</strong> — 이터러블 프로토콜과 순회 방법을 배웁니다.<br>
@@ -64,32 +63,52 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. ECMAScript 버전 히스토리</h2>
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:50px;top:-12px;right:32%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 1. ECMAScript 버전 히스토리
 
 ### 1) 주요 버전 연표
 
 JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
-| **버전** | **연도** | **주요 특징** |
-| --- | --- | --- |
-| **ES5** | 2009 | strict mode, JSON, forEach |
-| **ES6/ES2015** | 2015 | let/const, 화살표, 클래스, 모듈, Symbol |
-| **ES2016** | 2016 | includes(), ** 연산자 |
-| **ES2017** | 2017 | async/await, Object.entries |
-| **ES2018** | 2018 | Rest/Spread 객체, finally |
-| **ES2019** | 2019 | flat(), flatMap(), trimStart |
-| **ES2020** | 2020 | ??, ?., BigInt |
-| **ES2021** | 2021 | \|\|=, &&=, ??= |
-| **ES2022** | 2022 | at(), top-level await |
+<div class="wda-steps">
+  <div class="wda-step">
+    <div class="wda-snum">1</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES5 (2009)</div><div class="wda-sdsc">strict mode, JSON, forEach</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">2</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES6/ES2015 (2015)</div><div class="wda-sdsc">let/const, 화살표, 클래스, 모듈, Symbol</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">3</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2016 (2016)</div><div class="wda-sdsc">includes(), ** 연산자</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">4</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2017 (2017)</div><div class="wda-sdsc">async/await, Object.entries</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">5</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2018 (2018)</div><div class="wda-sdsc">Rest/Spread 객체, finally</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">6</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2019 (2019)</div><div class="wda-sdsc">flat(), flatMap(), trimStart</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">7</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2020 (2020)</div><div class="wda-sdsc">??, ?., BigInt</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">8</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2021 (2021)</div><div class="wda-sdsc">||=, &&=, ??=</div></div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">9</div>
+    <div class="wda-sbody"><div class="wda-sttl">ES2022 (2022)</div><div class="wda-sdsc">at(), top-level await</div></div>
+  </div>
+</div>
 
 ### 2) ES6가 중요한 이유
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (12).webp" alt="" style="position:absolute;width:48px;left:36%;top:-4px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
 
 **🔹 ES6 = JavaScript의 혁명**
 
@@ -114,10 +133,6 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 ---
 
 ## 📋 ES6 주요 변경점 개요
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:46px;right:10%;top:0;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
 
 ### 1) 이미 배워서 익숙한 것들 (Review)
 
@@ -174,26 +189,13 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
 이후 강의에서 본격적으로 다루게 될 핵심 문법과 개념들입니다.
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">화살표 함수 &amp; 구조분해 할당 (심화)</div>
-    <div class="wda-fcard-code">const add = (a, b) =&gt; a + b;<br>const { name, age } = person;</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">스코프 체인과 클로저</div>
-    <div class="wda-fcard-dsc">자바스크립트의 동작 원리를 이해하는 데 필수적인 개념입니다.</div>
-    <div class="wda-fcard-code">function outer() { ... }</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">this 바인딩과 클래스(Class)</div>
-    <div class="wda-fcard-dsc">객체 지향 프로그래밍 패턴을 익힙니다.</div>
-    <div class="wda-fcard-code">class Person { ... }</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">고차함수 (map, filter, reduce)</div>
-    <div class="wda-fcard-dsc">배열을 다루는 가장 강력하고 모던한 방법입니다.</div>
-    <div class="wda-fcard-code">const evens = nums.filter(n =&gt; n % 2 === 0);</div>
-  </div>
+<div class="wda-callout wda-ci">
+  <ul>
+    <li><strong>화살표 함수 &amp; 구조분해 할당 (심화)</strong> — <code>const add = (a, b) =&gt; a + b;</code> / <code>const { name, age } = person;</code></li>
+    <li><strong>스코프 체인과 클로저</strong> — 자바스크립트의 동작 원리를 이해하는 데 필수적인 개념입니다. <code>function outer() { ... }</code></li>
+    <li><strong>this 바인딩과 클래스(Class)</strong> — 객체 지향 프로그래밍 패턴을 익힙니다. <code>class Person { ... }</code></li>
+    <li><strong>고차함수 (map, filter, reduce)</strong> — 배열을 다루는 가장 강력하고 모던한 방법입니다. <code>const evens = nums.filter(n =&gt; n % 2 === 0);</code></li>
+  </ul>
 </div>
 
 ### ℹ️ ES6 핵심 기능 5가지
@@ -225,10 +227,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. &lt; &gt; 템플릿 리터럴 심화</h2>
-  <img src="/images/decoration/핀 아이콘 (9).webp" alt="" style="position:absolute;width:48px;top:-10px;left:40%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 2. &lt; &gt; 템플릿 리터럴 심화
 
 ### 1) 기본 복습 (Review)
 
@@ -296,10 +295,7 @@ const result = highlight`이름: ${name}, 나이: ${age}`;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 태그드 템플릿 활용 - HTML 이스케이프</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (6).webp" alt="" style="position:absolute;width:52px;top:-12px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(9deg);">
-</div>
+## 3. 태그드 템플릿 활용 - HTML 이스케이프
 
 ### 1) XSS 방지용 이스케이프 함수
 
@@ -369,21 +365,18 @@ div.innerHTML = safeHTML`<p>${userInput}</p>`;
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>XSS (Cross Site Scripting)란?</strong> 게시판이나 댓글 창에 해커가 악성 HTML을 몰래 적어서 올리는 공격 방식입니다. 현대 브라우저는 <code>innerHTML</code>로 삽입된 <code>&lt;script&gt;</code> 태그를 그대로 실행하지 않는 경우가 많지만, <code>innerHTML</code>은 사용자 입력을 HTML로 해석하기 때문에 <code>onerror</code>, <code>onclick</code> 같은 이벤트 핸들러 속성이나 다른 악성 HTML이 실행되어 로그인 정보(쿠키)를 탈취하거나 엉뚱한 사이트로 이동시킬 수 있습니다.</li>
-    <li><strong>왜 문자를 바꿔야 하나요?</strong> 브라우저는 <code>&lt;</code>를 보면 "아, 태그가 시작되는구나!"라고 인식합니다. 하지만 이를 <code>&amp;lt;</code>로 바꿔놓으면 브라우저는 이를 태그가 아닌 <strong>"그냥 꺾쇠 기호 문자(&lt;)"</strong>로 화면에 그림만 그려줍니다. 즉, 기능은 죽이고 모양만 남기는 것입니다.</li>
+    <li><strong>XSS (Cross Site Scripting)란?</strong> 게시판이나 댓글 창에 해커가 악성 HTML을 몰래 적어서 올리는 공격 방식입니다.<br>현대 브라우저는 <code>innerHTML</code>로 삽입된 <code>&lt;script&gt;</code> 태그를 그대로 실행하지 않는 경우가 많지만, <code>innerHTML</code>은 사용자 입력을 HTML로 해석하기 때문에 <code>onerror</code>, <code>onclick</code> 같은 이벤트 핸들러 속성이나 다른 악성 HTML이 실행되어 로그인 정보(쿠키)를 탈취하거나 엉뚱한 사이트로 이동시킬 수 있습니다.</li>
+    <li><strong>왜 문자를 바꿔야 하나요?</strong> 브라우저는 <code>&lt;</code>를 보면 "아, 태그가 시작되는구나!"라고 인식합니다.<br>하지만 이를 <code>&amp;lt;</code>로 바꿔놓으면 브라우저는 이를 태그가 아닌 <strong>"그냥 꺾쇠 기호 문자(&lt;)"</strong>로 화면에 그림만 그려줍니다. 즉, 기능은 죽이고 모양만 남기는 것입니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. for...of와 이터러블</h2>
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-14px;left:6%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
-</div>
+## 4. for...of와 이터러블
 
 ### 1) for...of 기본 문법
 
@@ -459,21 +452,18 @@ for (const [key, value] of Object.entries(obj)) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">TypedArray</div></div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li><strong><code>for...in</code> vs <code>for...of</code> (쉽게 외우기)</strong> — <code>in</code>은 안에 있는 <strong>키(Key/Index)</strong>를 뽑습니다(객체의 속성 이름을 확인할 때 주로 씀). <code>of</code>는 안에 있는 <strong>알맹이(Value)</strong>를 뽑습니다(배열의 실제 값을 쓸 때 주로 씀).</li>
-    <li><strong>이터러블(Iterable) 쉽게 이해하기</strong> — "순서대로 하나씩 꺼낼 수 있는 보따리"라고 생각하면 됩니다. 배열 <code>[1, 2, 3]</code>은 1번, 2번 순서가 있으니 보따리(이터러블)입니다. 일반 객체 <code>{ a: 1 }</code>는 순서가 정해져 있지 않은 그냥 데이터 덩어리라 보따리(이터러블)가 아닙니다. 그래서 <code>for...of</code>가 작동하지 않는 것입니다.</li>
+    <li><strong>이터러블(Iterable) 쉽게 이해하기</strong> — "순서대로 하나씩 꺼낼 수 있는 보따리"라고 생각하면 됩니다.<br>배열 <code>[1, 2, 3]</code>은 1번, 2번 순서가 있으니 보따리(이터러블)입니다.<br>일반 객체 <code>{ a: 1 }</code>는 순서가 정해져 있지 않은 그냥 데이터 덩어리라 보따리(이터러블)가 아닙니다. 그래서 <code>for...of</code>가 작동하지 않는 것입니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 이터러블 심화 - 문자열 순회</h2>
-  <img src="/images/decoration/책갈피 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-12px;right:34%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
+## 5. 이터러블 심화 - 문자열 순회
 
 ### 1) 문자열 순회 기본
 
@@ -517,7 +507,7 @@ for (const char of text) {
 - Set
 - NodeList
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -529,10 +519,7 @@ for (const char of text) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. Map: 더 강력한 키-값 저장소</h2>
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:-10px;left:44%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 6. Map: 더 강력한 키-값 저장소
 
 ### 1) Object vs Map 비교
 
@@ -544,11 +531,11 @@ for (const char of text) {
 | **🔢 순서 보장** | **보장 안 됨** ❌<br>(과거 스펙 기준) 데이터의 순서를 신뢰할 수 없습니다. | **완벽 보장** ⭕<br>데이터를 `set`한 순서 그대로 유지됩니다. |
 | **⚡ 사용 권장 시기 (성능)** | 데이터 구조가 정해져 있고 변동이 적을 때 사용합니다. | 데이터가 <strong>자주 추가/삭제</strong>되거나, 키의 타입을 미리 알 수 없을 때 사용합니다. (속도가 더 빠름) |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>Map을 써야 하는 결정적 순간 — 복잡한 키가 필요할 때</strong> 예를 들어, HTML 태그(DOM 요소) 자체를 키로 잡고 데이터를 저장해야 한다면 <code>Map</code>이 유일한 해결책입니다.</li>
+    <li><strong>Map을 써야 하는 결정적 순간 — 복잡한 키가 필요할 때</strong><br>예를 들어, HTML 태그(DOM 요소) 자체를 키로 잡고 데이터를 저장해야 한다면 <code>Map</code>이 유일한 해결책입니다.</li>
     <li><strong>데이터 갯수가 많고 자주 바뀔 때</strong> <code>Object</code>는 데이터를 지울 때(<code>delete</code>) 성능이 다소 느리지만, <code>Map</code>은 최적화가 잘 되어 있어 매우 빠릅니다.</li>
   </ul>
 </div>
@@ -579,21 +566,18 @@ for (const [key, val] of map) {
 
 > "빈번한 데이터 변경이 필요한 캐시(Cache) 구현 등에 유리합니다."
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>객체를 키로 쓴다는 게 무슨 뜻인가요?</strong> 일반 객체(<code>{}</code>)는 키로 <code>obj['key']</code>처럼 문자열만 쓸 수 있습니다. 만약 <code>obj[{a:1}] = '값'</code>이라고 쓰면, 자바스크립트는 내부적으로 저 객체를 <code>"[object Object]"</code>라는 문자열로 강제로 바꿔버립니다. 하지만 <code>Map</code>은 저 객체 그 자체를 고유한 열쇠로 인식합니다. 그래서 복잡한 데이터를 연결할 때 훨씬 안전하고 강력합니다.</li>
+    <li><strong>객체를 키로 쓴다는 게 무슨 뜻인가요?</strong> 일반 객체(<code>{}</code>)는 키로 <code>obj['key']</code>처럼 문자열만 쓸 수 있습니다.<br>만약 <code>obj[{a:1}] = '값'</code>이라고 쓰면, 자바스크립트는 내부적으로 저 객체를 <code>"[object Object]"</code>라는 문자열로 강제로 바꿔버립니다.<br>하지만 <code>Map</code>은 저 객체 그 자체를 고유한 열쇠로 인식합니다. 그래서 복잡한 데이터를 연결할 때 훨씬 안전하고 강력합니다.</li>
     <li><strong>체이닝(Chaining)이란?</strong> <code>map.set(...)</code>을 하고 나면, <code>set</code>은 다시 <code>map</code> 자기 자신을 반환합니다. 그래서 꼬리에 꼬리를 물고 <code>.set().set().set()</code> 처럼 기차처럼 연결해서 쓸 수 있는 편리한 문법입니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. Set: 중복 없는 리스트</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 7. Set: 중복 없는 리스트
 
 ### 1) Array vs Set 비교
 
@@ -632,22 +616,19 @@ console.log(unique); // [1, 2, 3]
 const unique = [...new Set(array)];
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li><strong><code>Set.has()</code>가 왜 그렇게 빠른가요?</strong></li>
     <li><strong>Array(배열)</strong> — 만약 도서관에 책이 번호 순서대로 꽂혀 있다면, 특정 책을 찾으려면 1번부터 하나씩 제목을 확인해야 합니다. (데이터가 많을수록 느려짐)</li>
-    <li><strong>Set(셋)</strong> — 도서관 사서에게 "해리포터 책 있나요?"라고 물어보는 것과 같습니다. 사서는 위치를 바로 알고 있어서, 책이 100만 권이 있어도 <strong>즉시(0.0001초 만에)</strong> 있다고 대답해줍니다. 이를 <strong>해시 테이블(Hash Table)</strong> 방식이라고 합니다.</li>
+    <li><strong>Set(셋)</strong> — 도서관 사서에게 "해리포터 책 있나요?"라고 물어보는 것과 같습니다.<br>사서는 위치를 바로 알고 있어서, 책이 100만 권이 있어도 <strong>즉시(0.0001초 만에)</strong> 있다고 대답해줍니다. 이를 <strong>해시 테이블(Hash Table)</strong> 방식이라고 합니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. Symbol 기초 (1)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (4).webp" alt="" style="position:absolute;width:54px;top:-12px;left:34%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 8. Symbol 기초 (1)
 
 ### 1) Symbol이란?
 
@@ -689,11 +670,11 @@ console.log(user[SECRET]); // '비밀 정보'
 console.log(Object.keys(user)); // ['name']
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>Symbol이 왜 필요한가요? — 이름 충돌 방지</strong> 만약 다른 사람이 만든 라이브러리 객체에 내가 <code>id</code>라는 속성을 추가하고 싶다고 가정해 봅시다. 이미 그 객체 안에 <code>id</code>가 있다면 내 코드가 기존 코드를 덮어씌워서 망가뜨릴 수 있습니다.</li>
+    <li><strong>Symbol이 왜 필요한가요? — 이름 충돌 방지</strong><br>만약 다른 사람이 만든 라이브러리 객체에 내가 <code>id</code>라는 속성을 추가하고 싶다고 가정해 봅시다. 이미 그 객체 안에 <code>id</code>가 있다면 내 코드가 기존 코드를 덮어씌워서 망가뜨릴 수 있습니다.</li>
     <li>하지만 <code>Symbol</code>로 만든 키는 세상에서 유일하기 때문에, <strong>절대로 이름이 겹치지 않습니다.</strong> 안심하고 객체에 새로운 기능을 갖다 붙일 수 있습니다.</li>
     <li><strong>비유하자면?</strong> 쌍둥이가 똑같이 생겼어도(코드 모양이 같아도), <strong>지문(Symbol)</strong>은 서로 다른 것과 같습니다.</li>
   </ul>
@@ -701,10 +682,7 @@ console.log(Object.keys(user)); // ['name']
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. Symbol 기초 (2)</h2>
-  <img src="/images/decoration/말풍선 아이콘 (9).webp" alt="" style="position:absolute;width:52px;top:-12px;right:36%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
-</div>
+## 9. Symbol 기초 (2)
 
 ### 1) 내장 Symbol (Well-Known Symbol)
 
@@ -759,21 +737,18 @@ console.log(Object.prototype.toString.call(myObj)); // "[object MyObject]"
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li><strong>'원시 타입'이 뭔가요?</strong> 자바스크립트에서 더 이상 쪼갤 수 없는 가장 작은 데이터 단위를 말합니다. 현대 JavaScript의 원시 타입은 <code>string</code>(문자), <code>number</code>(숫자), <code>bigint</code>(큰 정수), <code>boolean</code>(참/거짓), <code>undefined</code>(정의 안 됨), <code>symbol</code>(고유 식별자), <code>null</code>(빈 값)입니다.</li>
+    <li><strong>'원시 타입'이 뭔가요?</strong> 자바스크립트에서 더 이상 쪼갤 수 없는 가장 작은 데이터 단위를 말합니다.<br>현대 JavaScript의 원시 타입은 <code>string</code>(문자), <code>number</code>(숫자), <code>bigint</code>(큰 정수), <code>boolean</code>(참/거짓), <code>undefined</code>(정의 안 됨), <code>symbol</code>(고유 식별자), <code>null</code>(빈 값)입니다.</li>
     <li><code>object</code>(객체)는 원시 타입이 아니라 <strong>참조 타입</strong>입니다. Symbol은 이 원시 타입들 중 ES6에서 새로 추가된 데이터 형태입니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 단축 평가 심화</h2>
-  <img src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="position:absolute;width:56px;top:-14px;right:6%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 10. 단축 평가 심화
 
 ### 1) &amp;&amp; (AND) 연산자 활용
 
@@ -845,7 +820,7 @@ const num1 = count || 10; // 10
 const num2 = count ?? 10; // 0
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -895,7 +870,7 @@ if (!name) {
 const name = inputName || "익명";
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -906,10 +881,7 @@ const name = inputName || "익명";
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. nullish 병합 연산자 (??)</h2>
-  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:82px;top:-16px;right:0;z-index:2;pointer-events:none;opacity:.7;transform:rotate(-6deg);">
-</div>
+## 11. nullish 병합 연산자 (??)
 
 ### 1) ?? vs || 비교
 
@@ -964,7 +936,7 @@ const data = response.data ?? []; // []
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -976,10 +948,7 @@ const data = response.data ?? []; // []
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 옵셔널 체이닝 (?.)</h2>
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:48px;top:-10px;left:8%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(9deg);">
-</div>
+## 12. 옵셔널 체이닝 (?.)
 
 ### 1) 기본 사용법
 
@@ -1039,7 +1008,7 @@ const posts = data?.user?.posts ?? [];
 const firstPost = data?.user?.posts?.[0]?.title;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1052,10 +1021,7 @@ const firstPost = data?.user?.posts?.[0]?.title;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>13. 옵셔널 체이닝 상세</h2>
-  <img src="/images/decoration/화살표 아이콘 (7).webp" alt="" style="position:absolute;width:50px;top:-12px;right:38%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 13. 옵셔널 체이닝 상세
 
 ### 1) 단락 평가 (Short-circuit)
 
@@ -1119,20 +1085,17 @@ if (!user) throw new Error('User required');
 const name = user.name;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li>옵셔널 체이닝은 '혹시 없을 수도 있는 값'에만 써야 합니다. "이건 무조건 있어야 돼!" 하는 데이터에 <code>?.</code>를 붙이면, 프로그램이 조용히 오작동(undefined 반환)해서 원인을 찾느라 밤을 새울 수도 있습니다. 에러는 터져야 할 때 확실히 터지는 게 오히려 안전합니다.</li>
+    <li>옵셔널 체이닝은 '혹시 없을 수도 있는 값'에만 써야 합니다.<br>"이건 무조건 있어야 돼!" 하는 데이터에 <code>?.</code>를 붙이면, 프로그램이 조용히 오작동(undefined 반환)해서 원인을 찾느라 밤을 새울 수도 있습니다. 에러는 터져야 할 때 확실히 터지는 게 오히려 안전합니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 환상의 짝꿍: ?.와 ??</h2>
-  <img src="/images/decoration/포스트잇 (2).webp" alt="" style="position:absolute;width:50px;top:-12px;left:42%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 14. 환상의 짝꿍: ?.와 ??
 
 ### 1) 최강 조합 패턴
 
@@ -1162,21 +1125,17 @@ const img = user?.profile?.url ?? "default.png";
 console.log(img); // "default.png"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
-    <li>이 패턴이 강력한 이유는 <strong>"에러 방지"</strong>와 <strong>"데이터 보정"</strong>을 한 번에 해결하기 때문입니다. <code>?.</code>만 쓰면 값이 없을 때 <code>undefined</code>가 나와서 화면에 구멍이 뚫릴 수 있는데, <code>??</code>를 뒤에 붙여주면 그 구멍을 예쁜 기본값(이미지, 문구 등)으로 즉시 메꿔줍니다. 프론트엔드 개발에서 가장 사랑받는 관용구 중 하나입니다.</li>
+    <li>이 패턴이 강력한 이유는 <strong>"에러 방지"</strong>와 <strong>"데이터 보정"</strong>을 한 번에 해결하기 때문입니다.<br><code>?.</code>만 쓰면 값이 없을 때 <code>undefined</code>가 나와서 화면에 구멍이 뚫릴 수 있는데, <code>??</code>를 뒤에 붙여주면 그 구멍을 예쁜 기본값(이미지, 문구 등)으로 즉시 메꿔줍니다. 프론트엔드 개발에서 가장 사랑받는 관용구 중 하나입니다.</li>
   </ul>
 </div>
 
 ---
 
 ## 💻 실습 : 안전한 데이터 처리
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/메모지 아이콘 (7).webp" alt="" style="position:absolute;width:48px;right:30%;top:-2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
 
 ### 1) 목표
 
@@ -1204,7 +1163,7 @@ const manufacturer = product.details?.manufacturer ?? "Unknown";
 console.log(manufacturer); // "Unknown"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1216,10 +1175,7 @@ console.log(manufacturer); // "Unknown"
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>15. ES2020+ 주요 기능</h2>
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:90px;top:-18px;right:4%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 15. ES2020+ 주요 기능
 
 ### 1) BigInt (ES2020)
 
@@ -1278,7 +1234,7 @@ d ??= 10; // 0은 값으로 인정하므로 10을 덮어쓰지 않음 (안전)
 console.log(d); // 0
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1290,14 +1246,7 @@ console.log(d); // 0
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🚀 핵심 요약</h2>
-  <img src="/images/character/정리 완료.webp" alt="" style="position:absolute;width:130px;right:0;top:-100px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (16).webp" alt="" style="position:absolute;width:46px;left:4%;top:-10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(9deg);">
-</div>
+## 🚀 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

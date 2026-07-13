@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -53,22 +53,27 @@ status: "completed"
 .wda-kw-label{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8b5cf6;margin-bottom:6px;display:block;opacity:.8}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-congrats,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 포트폴리오의 모든 섹션을 종합적으로 점검하고, 전문적인 품질로 완성합니다.
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 전체 완성도 종합 점검</h2>
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:88px;top:-22px;right:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
-</div>
+## ✅ 전체 완성도 종합 점검
 
 포트폴리오의 모든 기본 요소들이 완성되었는지 한 번에 체크하겠습니다. 이 점검을 통과하면 심화 기능들에 도전할 준비가 완료됩니다!
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:196px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:108px;top:-11px;left:28%;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/한눈에 정리.webp" alt="" style="position:absolute;width:176px;bottom:-68px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(6deg);">
+<div class="wda-goal">
   <span class="wda-goal-label">점검 영역</span>
   🧭 <strong>구조 &amp; 네비게이션</strong> — 전체 구조가 논리적이고 네비게이션이 직관적인지 확인한다<br>
   🎨 <strong>디자인 일관성</strong> — 색상, 폰트, 간격이 통일되고 브랜딩이 일관된지 점검한다<br>
@@ -131,8 +136,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div class="wda-congrats" style="position:relative;overflow:visible;padding-top:20px;padding-left:20px;padding-right:20px;">
-  <img src="/images/character/추천해요.webp" alt="" style="position:absolute;width:148px;bottom:-60px;right:12px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-congrats">
   <div class="wda-congrats-ico">🎉</div>
   <div class="wda-congrats-ttl">축하합니다!</div>
   기본 완성도 점검이 완료되면 이제 포트폴리오를 한 단계 업그레이드할<br>
@@ -141,17 +145,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:2rem 0 0.5rem;">
-  <h2>✨ 인터렉티브 UI 마스터리</h2>
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-18px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
+## ✨ 인터렉티브 UI 마스터리
 
 2025년 최신 트렌드인 Copy &amp; Paste 방식의 프리미엄 UI 라이브러리들을 활용해서 포트폴리오를 한 단계 업그레이드해보겠습니다!
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:152px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/이해 완료.webp" alt="" style="position:absolute;width:132px;bottom:-52px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">Copy &amp; Paste 방식 라이브러리 (2025년 트렌드!)</span>
-  NPM 설치 없이 바로 복사해서 사용할 수 있는 혁신적인 라이브러리들을 소개합니다. 번들 크기 걱정 없이 원하는 컴포넌트만 선택적으로 적용하세요!
+  NPM 설치 없이 바로 복사해서 사용할 수 있는 혁신적인 라이브러리들을 소개합니다.<br>
+  번들 크기 걱정 없이 원하는 컴포넌트만 선택적으로 적용하세요!
 </div>
 
 <div class="wda-libcat-label">애니메이션 특화</div>
@@ -286,10 +287,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>🧭 네비게이션 인터렉션</h3>
-  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-18px;right:14px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(12deg);">
-</div>
+### 🧭 네비게이션 인터렉션
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -327,10 +325,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>🖱️ 호버 인터렉션</h3>
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:50px;top:-16px;right:14px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+### 🖱️ 호버 인터렉션
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -368,10 +363,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>📊 프로그래스 애니메이션</h3>
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-16px;right:14px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+### 📊 프로그래스 애니메이션
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -409,10 +401,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>🔄 스크롤 트리거 인터렉션</h3>
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:62px;top:-20px;right:12px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+### 🔄 스크롤 트리거 인터렉션
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -488,10 +477,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>⌨️ 타이핑 효과 &amp; 텍스트 모핑</h3>
-  <img src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="position:absolute;width:50px;top:-18px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+### ⌨️ 타이핑 효과 &amp; 텍스트 모핑
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -529,10 +515,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>🌙 다크모드 토글 인터렉션</h3>
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:46px;top:-16px;right:14px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
+### 🌙 다크모드 토글 인터렉션
 
 <div class="wda-effect-box">
   <strong class="wda-effect-label">주된 효과</strong>
@@ -570,13 +553,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div class="wda-done" style="position:relative;overflow:visible;padding-top:20px;padding-left:180px;">
-  <img src="/images/character/합격.webp" alt="" style="position:absolute;width:158px;bottom:-62px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:58px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.82;transform:rotate(8deg);">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:44px;top:-12px;left:40%;z-index:2;pointer-events:none;opacity:.78;">
+<div class="wda-done">
   <div class="wda-done-ico">🏆</div>
   <div class="wda-done-ttl">포트폴리오 전체 완성!</div>
   전체 완성도 점검부터 인터렉티브 UI 마스터리까지<br>
   포트폴리오를 전문적인 품질로 업그레이드하는<br>
   <strong>모든 도구와 방법을 갖추었습니다.</strong> ✨
 </div>
+

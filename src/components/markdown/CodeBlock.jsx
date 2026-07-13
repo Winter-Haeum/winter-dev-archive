@@ -44,7 +44,11 @@ function CodeBlock({ language, children }) {
       sx={(theme) => {
         const t = CODE_THEME[theme.palette.mode];
         return {
-          my: 3,
+          // 같은 섹션 내부 전환(다음 콘텐츠가 callout/문단 등)은 좁게, 다음 소제목과의
+          // 구분은 소제목 자체의 넉넉한 margin-top(MarkdownRenderer.jsx)이 담당하도록
+          // mb를 mt보다 작게 둔다 (2026-07 개편, 여백 정책 참고).
+          mt: '1.5rem',
+          mb: '0.9rem',
           borderRadius: '8px',
           border: `1px solid ${t.blockBorder}`,
           overflow: 'hidden',

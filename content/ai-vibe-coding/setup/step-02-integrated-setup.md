@@ -16,7 +16,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -27,8 +27,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -37,8 +37,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -51,18 +51,23 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:88px;top:-4px;right:30px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(4deg);">
-</div>
-
-<div class="wda-goal" style="position:relative;padding-right:205px;">
-  <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:185px;opacity:.90;transform:rotate(-10deg);top:-26px;right:6px;z-index:3;pointer-events:none;">
+<div class="wda-goal">
   하나의 강력한 통합 프롬프트로 <strong>Claude 권한 최적화</strong>, <strong>React 개발환경 구축(Vite + MUI)</strong>, <strong>CLAUDE.md 시스템</strong> 구성까지 모든 작업을 자동으로 완료한다.
 </div>
 
@@ -86,10 +91,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 2. 사전 준비 확인사항
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:185px;">
-  <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:165px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-28px;right:182px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
-  <span class="wda-clabel">사전 조건</span>PowerShell에서 Claude를 <strong>최소 1회 실행하고 로그인을 완료</strong>했는지 확인하세요. <code>my_ai_web</code> 디렉토리에서 작업을 진행합니다.</div>
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">사전 조건</span>
+  PowerShell에서 Claude를 <strong>최소 1회 실행하고 로그인을 완료</strong>했는지 확인하세요.<br>
+  <code>my_ai_web</code> 디렉토리에서 작업을 진행합니다.</div>
 
 ---
 
@@ -100,7 +105,6 @@ VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한�
 #### ① VSCode 환경 준비
 
 <div style="position:relative;padding-right:62px;">
-<img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:50px;top:4px;right:4px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(8deg);">
 
 1. VSCode 프로그램 실행
 2. **File → Open Folder** → `my_ai_web` 폴더 선택
@@ -133,11 +137,13 @@ claude --dangerously-skip-permissions
 ```
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">--dangerously-skip-permissions 옵션이란?</span>각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있도록 허용하는 옵션입니다. 신뢰할 수 있는 개발 환경에서 한 번에 많은 작업을 처리할 때 사용합니다.</div>
+  <span class="wda-clabel">--dangerously-skip-permissions 옵션이란?</span>
+  각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있도록 허용하는 옵션입니다.<br>
+  신뢰할 수 있는 개발 환경에서 한 번에 많은 작업을 처리할 때 사용합니다.</div>
 
 ---
 
-## ⚙️ 동작 원리<img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="display:inline-block;width:62px;vertical-align:middle;margin-left:14px;opacity:.76;transform:rotate(-10deg);pointer-events:none;">
+## ⚙️ 동작 원리
 
 ### 자동화 6단계 흐름
 
@@ -162,30 +168,23 @@ claude --dangerously-skip-permissions
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">완료 확인</div><div class="wda-sdsc">"개발준비완료" 메시지가 출력되면 성공 🎉</div></div></div>
 </div>
 
-
 ---
 
 ### 예상 소요 시간
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:155px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:93px;opacity:.90;transform:rotate(8deg);top:-28px;left:8px;z-index:3;pointer-events:none;">
-  <span class="wda-clabel">소요 시간</span>전체 과정은 약 <strong>5~10분</strong> 소요됩니다. 네트워크 상태에 따라 패키지 설치 및 파일 다운로드 시간이 달라질 수 있습니다. 모든 과정이 자동으로 진행되므로 <strong>중간에 중단하지 마세요.</strong></div>
+<div class="wda-callout wda-ci">
+  <span class="wda-clabel">소요 시간</span>
+  전체 과정은 약 <strong>5~10분</strong> 소요됩니다.<br>
+  네트워크 상태에 따라 패키지 설치 및 파일 다운로드 시간이 달라질 수 있습니다.<br>
+  모든 과정이 자동으로 진행되므로 <strong>중간에 중단하지 마세요.</strong></div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;">
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-18px;left:14px;z-index:4;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
-</div>
 
 ## 💻 예제 코드
 
 ### 통합 세팅 프롬프트 전문
 
 아래 프롬프트를 복사하여 Claude Code에 붙여넣으면 모든 환경 설정이 자동으로 완료됩니다.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:42px;top:-14px;right:20px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
 
 <div class="wda-prompt-head">📋 통합 세팅 프롬프트 — 아래 코드 블록 전체를 복사하여 Claude Code에 붙여넣으세요.</div>
 
@@ -512,10 +511,6 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:50px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
-
 ## ⚠️ 주의사항
 
 ### 문제 해결 가이드
@@ -528,9 +523,10 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 | **패키지 설치 실패** | `npm cache clean --force` 후 재설치 |
 | **경로 오류** | `my_ai_web` 디렉토리에서 작업하는지 확인 |
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:195px;">
-  <img src="/images/character/깜짝 놀람.webp" alt="" style="position:absolute;width:175px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
-  <span class="wda-clabel">프로세스 관리</span>개발 서버 종료 시 Claude Code 프로세스는 절대 건드리지 않기. <strong>개발 서버 PID만 정확히 종료</strong>할 것.</div>
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">프로세스 관리</span>
+  개발 서버 종료 시 Claude Code 프로세스는 절대 건드리지 않기.<br>
+  <strong>개발 서버 PID만 정확히 종료</strong>할 것.</div>
 
 ---
 
@@ -540,9 +536,7 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 통합 세팅이 성공적으로 완료되면 다음 사항들을 확인할 수 있습니다.
 
-<div class="wda-memo" style="position:relative;padding-right:260px;">
-  <img src="/images/character/행운버프.webp" alt="" style="position:absolute;width:165px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:78px;bottom:10px;right:175px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-6deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">✅ 완료 후 확인사항</span><div class="wda-memo-body">
 📁 <strong>디렉토리 구조</strong> — <code>lecture1/my-react-app</code> 프로젝트 생성<br>
 📦 <strong>패키지 설치</strong> — MUI, React Router 등 모든 필수 패키지 설치<br>
@@ -572,11 +566,9 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 | `@mui/icons-material` | MUI 아이콘 패키지 |
 | `@fontsource/roboto` | Roboto 폰트 (MUI 권장 폰트) |
 
-
 ### 환경 구축 완료!
 
-<div class="wda-done" style="position:relative;padding-left:200px;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:155px;opacity:.90;transform:rotate(6deg);top:-22px;left:8px;z-index:3;pointer-events:none;">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">통합 세팅 완료!</div>
   <div>이 단계를 완료하면 수업 1-1, 1-2, 1-3이 동시에 완성됩니다.<br>이후 <code>_template_settings</code>를 복사해서 새 프로젝트를 빠르게 세팅할 수 있습니다.</div>
@@ -591,6 +583,3 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 - [공식 React Router 문서](https://reactrouter.com/)
 - [강사 문서 원본 (GitHub)](https://github.com/hw5511/vibe-web/tree/main/docs)
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="position:absolute;width:124px;bottom:-10px;right:4%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(20deg);">
-</div>

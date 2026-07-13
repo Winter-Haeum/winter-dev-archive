@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,21 +24,22 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -46,12 +47,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/기억해두기.webp" alt="" style="width:118px;right:0;top:-15px;opacity:.9;transform:rotate(-4deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>생성과 조회</strong> — `new Date()`로 날짜를 만들고 `get...` 메서드로 값을 꺼내는 법을 익힙니다.<br>
   <strong>포맷팅과 계산</strong> — 날짜를 원하는 형태로 표시하고, 두 날짜의 차이를 계산하는 방법을 배웁니다.<br>
   <strong>타임존과 실무 함정</strong> — UTC/KST 차이, Setter의 자동 보정 등 실수하기 쉬운 지점을 짚습니다.
@@ -61,7 +63,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 날짜 생성하기 (Creation)</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="width:74px;top:-15px;right:8%;opacity:.8;transform:rotate(-6deg);">
 </div>
 
 ### 1) new Date() 기본
@@ -96,28 +97,33 @@ const date4 = new Date(1704067200000);
 
 ### 2) Timestamp란?
 
-| **구분** | **핵심 내용** |
-| --- | --- |
-| **기준점** | • **UTC 기준** 1970년 1월 1일 00:00:00부터 흐른 시간을 의미합니다.<br>• 한국 시간(KST)으로 보면 1970년 1월 1일 09:00:00에 해당합니다. |
-| **단위** | • **밀리초(ms)** 단위의 정수입니다. (1초 = 1000ms) |
-| **용도** | • 컴퓨터가 내부적으로 시간을 계산하거나 비교할 때 사용하는 **절대적인 기준값**입니다. |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">기준점</div>
+    <div class="wda-fcard-dsc"><strong>UTC 기준</strong> 1970년 1월 1일 00:00:00부터 흐른 시간을 의미합니다.<br>한국 시간(KST)으로 보면 1970년 1월 1일 09:00:00에 해당합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">단위</div>
+    <div class="wda-fcard-dsc"><strong>밀리초(ms)</strong> 단위의 정수입니다. (1초 = 1000ms)</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">용도</div>
+    <div class="wda-fcard-dsc">컴퓨터가 내부적으로 시간을 계산하거나 비교할 때 사용하는 <strong>절대적인 기준값</strong>입니다.</div>
+  </div>
+</div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바스크립트의 오래된 설계 실수 중 하나입니다. <code>1월</code>을 만들고 싶으면 <code>0</code>, <code>12월</code>을 만들고 싶으면 <code>11</code>을 넣어야 한다는 점을 꼭 기억해야 합니다. (일, 연도 등은 우리가 아는 숫자 그대로 사용합니다.)<br><br>
+  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바스크립트의 오래된 설계 실수 중 하나입니다.<br>
+  <code>1월</code>을 만들고 싶으면 <code>0</code>, <code>12월</code>을 만들고 싶으면 <code>11</code>을 넣어야 한다는 점을 꼭 기억해야 합니다. (일, 연도 등은 우리가 아는 숫자 그대로 사용합니다.)<br><br>
   <strong>KST vs UTC</strong> — 위에서 언급된 기준 시간은 한국 표준시(KST) 기준이며, 전 세계 표준시(UTC)로는 1970년 1월 1일 00:00:00이 기준이 됩니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (6).webp" alt="" style="width:52px;top:6px;left:62%;opacity:.76;transform:rotate(7deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 날짜 조회하기 (Getters)</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (3).webp" alt="" style="width:48px;top:-10px;right:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 주요 메서드 (get...)
@@ -170,10 +176,11 @@ const days = ['일', '월', '화', '수', '목', '금', '토'];
 console.log(`오늘은 ${days[d.getDay()]}요일 입니다.`);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바(Java) 언어의 초기 설계를 따라가다가 생긴 자바스크립트의 오래된 유산입니다. 이 불편함 때문에 실무에서는 <code>Moment.js</code>나 <code>Day.js</code> 같은 라이브러리를 써서 이 문제를 해결하기도 합니다.<br><br>
+  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바(Java) 언어의 초기 설계를 따라가다가 생긴 자바스크립트의 오래된 유산입니다.<br>
+  이 불편함 때문에 실무에서는 <code>Moment.js</code>나 <code>Day.js</code> 같은 라이브러리를 써서 이 문제를 해결하기도 합니다.<br><br>
   <strong>Getters</strong> — 객체(Object)가 가지고 있는 비공개 데이터를 꺼내오는(Get) 메서드라는 뜻입니다.
 </div>
 
@@ -181,7 +188,6 @@ console.log(`오늘은 ${days[d.getDay()]}요일 입니다.`);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. 날짜 예쁘게 보여주기 (Formatting)</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (8).webp" alt="" style="width:56px;top:-12px;left:8%;opacity:.78;transform:rotate(7deg);">
 </div>
 
 ### 1) Pre-built Methods (기본 제공 함수)
@@ -238,22 +244,19 @@ console.log(format);
 // 결과: "2024-05-05" (깔끔하게 0이 붙어서 나옴)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>Locale(로캘)</strong> — 사용자의 언어, 국가, 시간대 설정을 의미합니다. 같은 <code>toLocaleString()</code>이라도 미국 컴퓨터에서는 <code>5/5/2024</code>로 나오고, 한국 컴퓨터에서는 <code>2024. 5. 5.</code>로 알아서 다르게 표시됩니다.<br><br>
-  <strong>padStart(길이, 문자)</strong> — 문자열의 길이가 지정한 길이보다 짧으면, 앞쪽에 특정 문자를 채워주는 함수입니다. 날짜 포맷을 맞출 때(1월 -&gt; 01월) 가장 많이 쓰이는 필수 테크닉입니다.
+  <strong>Locale(로캘)</strong> — 사용자의 언어, 국가, 시간대 설정을 의미합니다.<br>
+  같은 <code>toLocaleString()</code>이라도 미국 컴퓨터에서는 <code>5/5/2024</code>로 나오고, 한국 컴퓨터에서는 <code>2024. 5. 5.</code>로 알아서 다르게 표시됩니다.<br><br>
+  <strong>padStart(길이, 문자)</strong> — 문자열의 길이가 지정한 길이보다 짧으면, 앞쪽에 특정 문자를 채워주는 함수입니다.<br>
+  날짜 포맷을 맞출 때(1월 -&gt; 01월) 가장 많이 쓰이는 필수 테크닉입니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/포스트잇 (3).webp" alt="" style="width:70px;top:-14px;right:36%;opacity:.8;transform:rotate(6deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. 날짜 계산하기 (Calculation)</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (6).webp" alt="" style="width:50px;top:-11px;left:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 기본 원리 (밀리초의 마법)
@@ -302,7 +305,7 @@ if (end > start) {
   단순한 날짜 차이는 <code>1000 * 60 * 60 * 24</code>로 계산할 수 있습니다. 다만 해외 시간대나 썸머타임이 포함되면 하루가 항상 정확히 24시간이 아닐 수 있으므로, 실무에서는 <code>dayjs</code>/<code>date-fns</code> 같은 라이브러리를 사용하는 것이 안전합니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>소수점 처리</strong> — 계산 결과가 딱 떨어지지 않고 <code>1.5일</code>(하루 반) 처럼 나올 수 있습니다. D-Day를 구할 때는 상황에 따라 <code>Math.floor()</code>(내림), <code>Math.ceil()</code>(올림), <code>Math.round()</code>(반올림)를 적절히 섞어서 정수로 만들어줘야 깔끔합니다.<br><br>
@@ -313,8 +316,6 @@ if (end > start) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 타임존과 ISO (Timezone)</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (9).webp" alt="" style="width:54px;top:-12px;right:8%;opacity:.78;transform:rotate(-7deg);">
-  <img class="wda-deco" src="/images/character/잠깐 생각해보기.webp" alt="" style="width:110px;right:0;top:-94px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 ### 1) UTC vs KST
@@ -368,22 +369,18 @@ console.log(dateOffset.toISOString());
 // 결과: "2024-05-05T00:00:00.000Z" (원하던 숫자가 나옴!)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>Z의 의미</strong> — <code>toISOString()</code> 결과 맨 뒤에 붙는 <code>Z</code>는 <strong>"Zulu Time"</strong>의 약자로, 이 시간이 UTC(국제 표준시) 기준임을 나타내는 표시입니다.<br><br>
-  <strong>왜 이렇게 복잡한가요?</strong> — 서버는 전 세계 사용자가 접속하기 때문에, 특정 국가 시간(KST)이 아니라 절대적인 기준 시간(UTC)으로 저장하는 것이 원칙이기 때문입니다. 프론트엔드 개발자가 이 차이를 이해하지 못하면 "어? 왜 날짜가 하루 줄었지?" 하며 당황하게 됩니다.
+  <strong>왜 이렇게 복잡한가요?</strong> — 서버는 전 세계 사용자가 접속하기 때문에, 특정 국가 시간(KST)이 아니라 절대적인 기준 시간(UTC)으로 저장하는 것이 원칙이기 때문입니다.<br>
+  프론트엔드 개발자가 이 차이를 이해하지 못하면 "어? 왜 날짜가 하루 줄었지?" 하며 당황하게 됩니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="width:48px;top:6px;left:60%;opacity:.74;transform:rotate(8deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. 실전 포맷팅 함수 (Custom Formatting)</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (3).webp" alt="" style="width:76px;top:-17px;right:33%;opacity:.82;transform:rotate(8deg);">
 </div>
 
 ### 1) 표준 포맷 (YYYY-MM-DD HH:mm:ss)
@@ -450,7 +447,6 @@ console.log(formatKorean(new Date()));
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. 실무 활용: 몇 분 전? (Relative Time)</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (5).webp" alt="" style="width:58px;top:-12px;left:9%;opacity:.78;transform:rotate(-6deg);">
 </div>
 
 ### 1) 알고리즘 원리 (Logic)
@@ -490,24 +486,20 @@ console.log(timeAgo(new Date(Date.now() - 1000 * 60 * 5)));
 // 결과: "5분 전" (현재 시간에서 5분을 뺀 값을 넣음)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>`Math.floor()`</strong> — 소수점을 버리고 정수만 남기는 함수입니다. (예: 5.9분 전 → 5분 전)<br><br>
-  <strong>순서의 중요성</strong> — 만약 <code>day</code>부터 검사하면, 1시간 전인 게시물도 <code>0일 전</code>으로 처리될 수 있습니다. 반드시 <strong>"방금 전(초)"</strong>부터 물어봐야 정확한 표현이 나옵니다.<br><br>
+  <strong>순서의 중요성</strong> — 만약 <code>day</code>부터 검사하면, 1시간 전인 게시물도 <code>0일 전</code>으로 처리될 수 있습니다.<br>
+  반드시 <strong>"방금 전(초)"</strong>부터 물어봐야 정확한 표현이 나옵니다.<br><br>
   <strong>라이브러리</strong> — 실무에서는 다국어 지원(약 100개 언어)이나 더 정교한 처리를 위해 <code>timeago.js</code> 같은 라이브러리를 쓰기도 하지만, 간단한 기능은 위 코드로 충분합니다.<br><br>
   <strong>미래 시간 처리</strong> — 실무에서는 미래 날짜가 들어올 가능성도 있으므로 <code>diff &lt; 0</code>인 경우를 따로 처리하는 것이 안전합니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (5).webp" alt="" style="width:60px;top:-9px;right:60%;opacity:.76;transform:rotate(-8deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 날짜 수정(Setter)과 주의사항</h2>
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="width:50px;top:-11px;right:9%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) Date 수정하기 (Setters)
@@ -534,13 +526,22 @@ console.log(d.toLocaleDateString());
 
 개발자들이 가장 많이 실수하는 3가지 포인트입니다.
 
-| **주의사항** | **상세 설명** |
-| --- | --- |
-| **1. 월(Month)은 0부터** | • `setMonth(1)`은 2월을 의미합니다. (0=1월, 11=12월) |
-| **2. 변경 가능(Mutable)** | • `Date` 객체는 수정하면 **원본 자체가 바뀝니다.**<br>• `const newDate = d.setHours(0)` 처럼 쓰면 `newDate`에는 날짜 객체가 아니라 **숫자(타임스탬프)**가 반환되므로 주의해야 합니다. |
-| **3. iOS/Safari 호환성** | • 아이폰(iOS)이나 사파리에서는 `'2024-01-01 10:00'` 처럼 **하이픈(-)과 공백**이 섞인 문자열을 인식 못 해 `Invalid Date`가 뜰 수 있습니다.<br>• **해결책**: 슬래시(`/`)를 사용하여 `'2024/01/01'` 형식을 쓰는 것이 가장 안전합니다. |
+<div class="wda-fgrid">
+  <div class="wda-fcard wda-fcard-con">
+    <div class="wda-fcard-ttl">1. 월(Month)은 0부터</div>
+    <div class="wda-fcard-dsc"><code>setMonth(1)</code>은 2월을 의미합니다. (0=1월, 11=12월)</div>
+  </div>
+  <div class="wda-fcard wda-fcard-con">
+    <div class="wda-fcard-ttl">2. 변경 가능 (Mutable)</div>
+    <div class="wda-fcard-dsc"><code>Date</code> 객체는 수정하면 <strong>원본 자체가 바뀝니다.</strong><br><code>const newDate = d.setHours(0)</code> 처럼 쓰면 <code>newDate</code>에는 날짜 객체가 아니라 <strong>숫자(타임스탬프)</strong>가 반환되므로 주의해야 합니다.</div>
+  </div>
+  <div class="wda-fcard wda-fcard-con">
+    <div class="wda-fcard-ttl">3. iOS/Safari 호환성</div>
+    <div class="wda-fcard-dsc">아이폰(iOS)이나 사파리에서는 <code>'2024-01-01 10:00'</code> 처럼 <strong>하이픈(-)과 공백</strong>이 섞인 문자열을 인식 못 해 <code>Invalid Date</code>가 뜰 수 있습니다.<br><strong>해결책</strong>: 슬래시(<code>/</code>)를 사용하여 <code>'2024/01/01'</code> 형식을 쓰는 것이 가장 안전합니다.</div>
+  </div>
+</div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>안전한 날짜 수정법</strong> — 월을 변경할 때는 <strong>일(Date)</strong>을 먼저 1일로 맞추고 월을 바꾸거나, 마지막 날짜를 계산해서 넘겨주는 방어 코드가 필요합니다.<br><br>
@@ -549,14 +550,8 @@ console.log(d.toLocaleDateString());
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (20).webp" alt="" style="width:108px;top:-10px;left:32%;opacity:.84;transform:rotate(-5deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 정리</h2>
-  <img class="wda-deco" src="/images/character/합격.webp" alt="" style="width:116px;right:0;top:-96px;opacity:.9;transform:rotate(-3deg);">
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (4).webp" alt="" style="width:50px;top:-10px;left:8%;opacity:.78;transform:rotate(7deg);">
 </div>
 
 <table class="wda-summary-table">

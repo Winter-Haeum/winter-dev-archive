@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -35,8 +35,8 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
@@ -49,9 +49,9 @@ tags:
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -60,9 +60,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:196px;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (2).webp" alt="" style="position:absolute;width:110px;top:-14px;right:50px;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/js 기초.webp" alt="" style="position:absolute;width:172px;bottom:-60px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-goal">
   🟡 <strong>JavaScript 정의</strong> — JavaScript가 무엇이고 웹에서 어떤 역할을 하는지 이해한다.<br>
   🔄 <strong>Modern vs Legacy</strong> — alert, script 태그의 올바른 사용법과 변화를 이해한다.<br>
   ⚙️ <strong>실행 환경</strong> — 브라우저 Console과 Node.js 환경의 차이를 이해한다.<br>
@@ -71,10 +69,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. JavaScript란 무엇인가?</h2>
-  <img src="/images/decoration/별 아이콘 (1).webp" alt="" style="position:absolute;width:90px;top:-22px;right:8px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(12deg);">
-</div>
+## 1. JavaScript란 무엇인가?
 
 JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 스크립트 언어다.
 
@@ -163,10 +158,7 @@ JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/잎사귀 아이콘 (6).webp" alt="" style="position:absolute;width:48px;top:-10px;left:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-14deg);">
-  <h2>3. ECMAScript vs JavaScript</h2>
-</div>
+## 3. ECMAScript vs JavaScript
 
 ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
 
@@ -184,11 +176,20 @@ ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
 
 **📅 주요 버전**
 
-| 버전 | 설명 |
-|---|---|
-| ES5 (2009) | 오래된 표준이다 |
-| ES6 (2015) | 대격변이다 (let, const, 화살표 함수) |
-| ESNext | 매년 새로운 기능이 추가된다 |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">ES5 (2009)</div>
+    <div class="wda-fcard-dsc">오래된 표준이다</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">ES6 (2015)</div>
+    <div class="wda-fcard-dsc">대격변이다 (let, const, 화살표 함수)</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">ESNext</div>
+    <div class="wda-fcard-dsc">매년 새로운 기능이 추가된다</div>
+  </div>
+</div>
 
 **📌 핵심 구분**
 
@@ -199,8 +200,6 @@ ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
 </div>
 
 ---
-
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;top:-22px;right:10px;width:52px;pointer-events:none;opacity:.76;transform:rotate(-10deg);"></div>
 
 ## 4. JavaScript를 사용하는 방법
 
@@ -233,19 +232,14 @@ JS 파일을 분리해 불러온다.
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. script 태그의 위치</h2>
-</div>
+## 5. script 태그의 위치
 
 • HTML 파일은 **위에서 아래로 순서대로 해석**된다.<br>
 • 따라서 script 태그의 위치에 따라 **JavaScript 실행 결과가 달라진다**.
 
 **⚠️ head 배치 (문제 발생 가능)**
 
-<div style="position:relative;overflow:visible;padding-right:68px;">
-  HTML 요소가 아직 만들어지기 전에 JavaScript가 먼저 실행된다.
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:52px;top:50%;right:8px;transform:translateY(-50%) rotate(10deg);z-index:2;pointer-events:none;opacity:.76;">
-</div>
+HTML 요소가 아직 만들어지기 전에 JavaScript가 먼저 실행된다.
 
 ```html
 <head>
@@ -261,8 +255,9 @@ document.querySelector('button');
 </body>
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">⚠️ 주의사항</span>
   • HTML 파싱이 끝나기 전에 JS가 실행된다.<br>
   • button 요소가 아직 없어서 찾지 못한다.<br>
   • 이후 코드에서 오류가 발생할 수 있다.
@@ -284,8 +279,9 @@ document.querySelector('button');
 </body>
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">💡 권장 방식</span>
   • HTML 파싱이 완료된 후 JS가 실행된다.<br>
   • DOM 요소를 안전하게 사용할 수 있다.<br>
   • 초보자가 가장 이해하기 쉬운 방식이다.
@@ -306,8 +302,6 @@ document.querySelector('button');
 
 ## 6. 가장 권장하는 방식: defer (비교 표)
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="position:absolute;top:-30px;right:14px;width:66px;pointer-events:none;opacity:.76;transform:rotate(-8deg);"></div>
-
 | 구분 | 기본 (Normal) | 지연 (defer) | 비동기 (async) |
 |---|---|---|---|
 | script 형태 | `<script src="..."></script>` | `<script defer src="..."></script>` | `<script async src="..."></script>` |
@@ -315,9 +309,9 @@ document.querySelector('button');
 | 실행 시점 | 다운로드/실행 후 해석 재개 | HTML을 다 읽은 후 실행 | 다운로드되자마자 즉시 실행 |
 | 특징 | HTML 해석이 멈춘다 | DOMContentLoaded 이벤트 직전 실행 | 실행 순서 보장 안 됨 |
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:56px;overflow:visible;">
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:42px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(12deg);">
-  <span class="wda-clabel">💡 사용 팁</span>
+**💡 사용 팁**
+
+<div class="wda-callout wda-cs">
   일반적인 웹 페이지에서는 <strong>defer</strong>를 사용한다.
 </div>
 
@@ -376,8 +370,9 @@ showCustomModal('환영합니다!');
 });
 ```
 
+**💼 실무 팁**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">💡 실무 팁</span>
   • 옛날 방식은 <strong>빠르게 테스트할 때만</strong> 사용한다.<br>
   • 실제 프로젝트에서는 <strong>관심사를 분리하는 Modern 방식을 따른다</strong>.
 </div>
@@ -403,9 +398,9 @@ console.log("기록이 남습니다");
 
 ## 9. 개발자의 일기장: console.log
 
-<div class="wda-callout wda-cy" style="position:relative;padding-right:156px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/디버깅.webp" alt="" style="position:absolute;width:136px;bottom:-52px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
-  <span class="wda-clabel">개념</span>
+**📌 개념**
+
+<div class="wda-callout wda-cy">
   프로그램이 지금 무슨 생각을 하고 있는지 확인할 수 있다.
 </div>
 
@@ -422,10 +417,16 @@ console.log(10 +20);
 
 **🤔 언제 쓰나?**
 
-| 구분 | 설명 |
-|---|---|
-| 오류 찾기 (디버깅) | "여기까지 코드가 실행됐는가?", "이 변수에 어떤 값이 들어있는가?"를 확인할 때 사용한다. |
-| 데이터 확인 | 서버에서 가져온 데이터가 올바른지 **눈으로 직접 확인**할 때 사용한다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">오류 찾기 (디버깅)</div>
+    "여기까지 코드가 실행됐는가?", "이 변수에 어떤 값이 들어있는가?"를 확인할 때 사용한다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">데이터 확인</div>
+    서버에서 가져온 데이터가 올바른지 <strong>눈으로 직접 확인</strong>할 때 사용한다.
+  </div>
+</div>
 
 ---
 
@@ -443,10 +444,7 @@ console.log(10 +20);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. 개발자가 자주 하는 실수</h2>
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:108px;top:-28px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+## 11. 개발자가 자주 하는 실수
 
 JavaScript는 너무 자유로워서 탈이다. (경찰관이 없다)
 
@@ -482,10 +480,7 @@ PI = 5;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 엄격 모드 (use strict)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.76;">
-</div>
+## 12. 엄격 모드 (use strict)
 
 • "이제부터 법대로 합시다."<br>
 • JavaScript 엔진에게 **엄격한 규칙 적용을 요청한다**.
@@ -540,8 +535,7 @@ obj.name = "Java";
 // ❌ TypeError: Cannot assign to read only property 'name' of object
 ```
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:62px;overflow:visible;">
-  <img src="/images/decoration/말풍선 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:50%;left:8px;z-index:2;pointer-events:none;opacity:.76;transform:translateY(-50%) rotate(-6deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">🔹 설명</span>
   • Object.freeze로 고정한 객체는 속성을 변경할 수 없다.<br>
   • 일반 모드에서는 조용히 무시되던 변경 시도가 strict 모드에서는 즉시 에러로 표시된다.
@@ -568,10 +562,7 @@ obj.name = "Java";
 
 ## 13. 모듈(Module)이란?
 
-<div style="position:relative;display:inline-block;overflow:visible;">
-  <span>거대한 코드 기능을 나눠 놓은 작은 파일 조각이다.</span>
-  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" aria-hidden="true" style="position:absolute;left:calc(100% + 10px);top:50%;width:46px;transform:translateY(-50%) rotate(6deg);z-index:2;pointer-events:none;opacity:.76;">
-</div>
+<span>거대한 코드 기능을 나눠 놓은 작은 파일 조각이다.</span>
 
 **✨ 특징**
 
@@ -611,10 +602,7 @@ let x =10;// 이 파일 안에서만 유효
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 실습 과제</h2>
-  <img src="/images/decoration/소품 아이콘 (7).webp" alt="" style="position:absolute;width:50px;top:-10px;right:10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 14. 실습 과제
 
 ```html
 <!DOCTYPE html>
@@ -646,12 +634,7 @@ const languageName ="JavaScript";
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
-  <img src="/images/decoration/핀 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-14px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
-
-<div style="position:relative;overflow:visible;">
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>
@@ -723,5 +706,3 @@ const languageName ="JavaScript";
     <td>• <strong>script → defer</strong><br>• <strong>Modern 방식 사용</strong><br>• <strong>module = 자동 strict</strong></td>
   </tr>
 </table>
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;bottom:-20px;right:6px;width:172px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(5deg);">
-</div>

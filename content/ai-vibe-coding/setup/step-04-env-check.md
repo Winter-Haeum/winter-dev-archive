@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -30,13 +30,13 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -49,20 +49,24 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:200px;padding-left:14px;">
-  <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:184px;top:-26px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-9deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:64px;top:-52px;right:8%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
+<div class="wda-goal">
   setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>📁 <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>🤖 <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-18px;right:24px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -82,9 +86,7 @@ VSCode를 실행하여 setup 단계에서 생성된 프로젝트 구조를 눈�
 
 VSCode 왼쪽 패널에서 다음과 같은 구조가 보여야 합니다.
 
-<div class="wda-memo" style="position:relative;padding-right:172px;">
-  <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:156px;top:-22px;right:4px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(5deg);">
-  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:112px;top:-10px;right:14px;z-index:1;pointer-events:none;opacity:.76;transform:rotate(-4deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">📂 예상 디렉토리 구조</span>
   <div class="wda-memo-body">
 
@@ -125,10 +127,6 @@ my_ai_web/
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (15).webp" alt="" style="position:absolute;width:62px;top:-8px;left:20%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(16deg);">
-</div>
-
 ## ⚙️ 동작 원리
 
 ### 상태 점검 5단계 흐름
@@ -143,10 +141,6 @@ my_ai_web/
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">종합 결과 보고</div><div class="wda-sdsc">✅ / ❌ 형식으로 최종 출력</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:-16px;left:14%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(8deg);">
-</div>
-
 > 💡 **`@docs/` 연결이란?**  
 > `CLAUDE.md` 안에 `@docs/design-system.md`처럼 작성하면, Claude가 해당 파일을 자동으로 읽어 들입니다. 이 연결이 깨지면 디자인 규칙이나 코드 컨벤션을 Claude가 인식하지 못합니다.
 
@@ -157,7 +151,7 @@ my_ai_web/
 점검은 `lecture1` 디렉토리에서 Claude를 실행하는 것이 중요합니다.  
 실행 위치에 따라 CLAUDE.md를 읽는 범위가 달라지기 때문입니다.
 
-<div class="wda-callout wda-ci" style="position:relative;">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">실행 위치 중요</span><code>lecture1/</code>에서 실행 → 로키 역할 + @docs 연결 + 루트 CLAUDE.md 동시 인식
 </div>
 
@@ -193,9 +187,7 @@ claude --dangerously-skip-permissions
 
 Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 상태를 확인합니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:178px;padding-left:14px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-18px;right:6px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-10deg);">
-  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:64px;top:-26px;right:144px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-14deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">점검 준비 완료</span>아래 프롬프트를 복사해서 Claude에게 붙여넣으면 5단계 자동 점검이 시작됩니다!
 </div>
 
@@ -258,9 +250,10 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 | 프로젝트 구조 누락 | `_template_settings` 폴더 또는 하위 파일 누락 | setup 2단계 통합 세팅 프롬프트 재실행 |
 | React 환경 미설정 | MUI 또는 `theme.js` 누락 | setup 2단계 통합 세팅 프롬프트 재실행 |
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:186px;">
-  <img src="/images/character/실수 주의.webp" alt="" style="position:absolute;width:168px;top:-20px;right:4px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-7deg);">
-  <span class="wda-clabel">재실행 전 확인</span>어느 단계 프롬프트를 재실행해야 하는지 Claude가 명시해줍니다. 점검 결과의 ❌ 항목을 기준으로 해당 단계 프롬프트만 다시 실행하면 됩니다.
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">재실행 전 확인</span>
+  어느 단계 프롬프트를 재실행해야 하는지 Claude가 명시해줍니다.<br>
+  점검 결과의 ❌ 항목을 기준으로 해당 단계 프롬프트만 다시 실행하면 됩니다.
 </div>
 
 ---
@@ -289,9 +282,7 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 - [ ] `theme.js` + ThemeProvider 적용 확인
 - [ ] 1차 수업 준비 상태: ✅ 준비완료
 
-<div class="wda-done" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:110px;top:-22px;right:24px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:44px;bottom:6px;right:14px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(18deg);">
+<div class="wda-done">
   <div class="wda-done-ico">✅</div>
   <div class="wda-done-ttl">환경 세팅 완료</div>
   <div>모든 항목이 정상 확인되었다면 1차 수업의 본격적인 React 개발을 시작할 준비가 완료되었습니다!</div>

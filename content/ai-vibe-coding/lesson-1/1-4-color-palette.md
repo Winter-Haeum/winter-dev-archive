@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -35,8 +35,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -49,8 +49,18 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 원하는 웹사이트 스크린샷을 Claude에게 투입하여 컬러 분석 후 디자인 시스템 문서로 정리하는 실습입니다.
@@ -59,16 +69,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:232px;padding-bottom:16px;">
-  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:188px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(7deg);">
+<div class="wda-goal">
   🖼️ <strong>이미지 분석 활용</strong> — Claude CLI에 이미지를 투입하여 시각적 분석을 수행합니다.<br>
   🎨 <strong>컬러 추출 기법</strong> — 웹사이트의 색상 체계를 분석하여 체계적인 컬러 팔레트를 도출합니다.<br>
   📋 <strong>디자인 시스템 구축</strong> — 추출한 컬러를 구조화된 문서로 체계화합니다.<br>
   🔧 <strong>실무 워크플로우</strong> — 디자이너-개발자 협업에서 실제로 사용하는 방법론을 익힙니다.
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:88px;top:-18px;left:8%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-10deg);">
 </div>
 
 ---
@@ -77,8 +82,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 실습에 앞서 핵심 개념들을 명확히 이해해봅시다.
 
-<div class="wda-memo" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:120px;top:-22px;right:24px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(8deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">📖 핵심 용어 정의</span>
   <div class="wda-memo-body">
     🎨 <strong>컬러팔레트</strong> — 일관된 시각적 경험을 위해 선별된 색상들의 체계적 조합<br>
@@ -89,17 +93,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 🎨 컬러팔레트(Color Palette)란?
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:178px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <span class="wda-clabel">정의</span>
-  웹사이트나 앱에서 일관된 시각적 경험을 위해 선별된 색상들의 조합입니다. 브랜드 정체성을 표현하고 사용자에게 특정한 감정이나 인상을 전달합니다.
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  웹사이트나 앱에서 일관된 시각적 경험을 위해 선별된 색상들의 조합입니다.<br>
+  브랜드 정체성을 표현하고 사용자에게 특정한 감정이나 인상을 전달합니다.
 </div>
 
 컬러팔레트는 역할에 따라 4가지로 구성됩니다.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:38px;top:-14px;right:26%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(18deg);">
-</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ico">🔵</div><div class="wda-fcard-ttl">Primary</div><div class="wda-fcard-dsc">브랜드 메인 색상</div></div>
@@ -108,19 +109,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ico">⬜</div><div class="wda-fcard-ttl">Neutral</div><div class="wda-fcard-dsc">배경, 텍스트 색상</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:-14px;right:12%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(18deg);">
-</div>
-
 ### 📐 디자인 시스템(Design System)이란?
 
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">개념</span>
-  디자인 일관성을 유지하기 위한 규칙과 가이드라인의 체계입니다. 색상, 타이포그래피, 간격, 컴포넌트 등을 표준화한 문서로 팀 전체가 동일한 기준으로 개발합니다.
-</div>
+**📌 개념**
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 (3).webp" alt="" style="position:absolute;width:46px;top:-14px;left:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-12deg);">
+<div class="wda-callout wda-ci">
+  디자인 일관성을 유지하기 위한 규칙과 가이드라인의 체계입니다.<br>
+  색상, 타이포그래피, 간격, 컴포넌트 등을 표준화한 문서로 팀 전체가 동일한 기준으로 개발합니다.
 </div>
 
 <div class="wda-memo">
@@ -131,16 +126,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:44px;top:-14px;left:16%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(12deg);">
-</div>
-
 ### 🔑 디자인토큰(Design Token)이란?
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:204px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:158px;top:-50px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <span class="wda-clabel">정의</span>
-  디자인 결정사항을 코드로 표현한 최소 단위입니다. 색상, 크기, 간격 등을 변수로 관리하여 일관성을 보장하고, CSS 변수 / JSON / SCSS 등으로 관리합니다.
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  디자인 결정사항을 코드로 표현한 최소 단위입니다.<br>
+  색상, 크기, 간격 등을 변수로 관리하여 일관성을 보장하고, CSS 변수 / JSON / SCSS 등으로 관리합니다.
 </div>
 
 ```css
@@ -151,19 +143,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 --font-size-heading: 2rem;
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:100px;top:-20px;right:4%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-8deg);">
-</div>
-
 ---
 
 ## ⚡ Claude를 활용한 컬러팔레트 추출의 혁신성
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:88px;padding-right:118px;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:100px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:10px;left:10px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(14deg);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">기존 방식 vs 혁신</span>
-  기존에는 디자이너가 수동으로 컬러를 선별하거나 전문 도구를 사용해야 했습니다. Claude의 이미지 분석 기능을 활용하면 이 과정이 획기적으로 달라집니다.
+  기존에는 디자이너가 수동으로 컬러를 선별하거나 전문 도구를 사용해야 했습니다.<br>
+  Claude의 이미지 분석 기능을 활용하면 이 과정이 획기적으로 달라집니다.
 </div>
 
 <div class="wda-fgrid">
@@ -184,10 +171,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">디자인 시스템 문서화</div><div class="wda-sdsc">추출한 컬러를 포트폴리오에 적용할 수 있는 문서로 정리</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:42px;top:-16px;right:30%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-6deg);">
-</div>
-
 ---
 
 ## 💻 실습 진행
@@ -198,11 +181,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 #### Windows 캡쳐 단축키
 
-| 방법 | 단축키 |
-|------|--------|
-| 전체 화면 | `Print Screen` |
-| 영역 선택 | `Windows + Shift + S` |
-| 창 캡쳐 | `Alt + Print Screen` |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">전체 화면</div><div class="wda-fcard-dsc"><code>Print Screen</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">영역 선택</div><div class="wda-fcard-dsc"><code>Windows + Shift + S</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">창 캡쳐</div><div class="wda-fcard-dsc"><code>Alt + Print Screen</code></div></div>
+</div>
 
 캡쳐 후 클립보드에 자동 저장됩니다.
 
@@ -227,18 +210,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">인식 확인</div><div class="wda-sdsc">Claude가 이미지를 인식했는지 확인</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:-14px;right:32%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
-</div>
+**💡 사용 팁**
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:190px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:144px;top:-44px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <span class="wda-clabel">포인트</span>
-  이미지를 Claude CLI 터미널에 드래그하면 AI가 이미지를 직접 읽고 색상을 분석합니다. 이미지 파일 경로가 자동으로 입력됩니다.
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 (6).webp" alt="" style="position:absolute;width:46px;top:-14px;right:28%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
+<div class="wda-callout wda-cw">
+  이미지를 Claude CLI 터미널에 드래그하면 AI가 이미지를 직접 읽고 색상을 분석합니다.<br>
+  이미지 파일 경로가 자동으로 입력됩니다.
 </div>
 
 <div class="wda-prompt-head">📋 컬러 분석 프롬프트 — 아래 코드 블록 전체를 복사하여 붙여넣으세요.</div>
@@ -273,10 +249,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 분석 결과를 바탕으로 포트폴리오 프로젝트에 적용할 수 있는 체계적인 디자인 시스템 문서를 생성합니다.
 
 <div class="wda-prompt-head">📋 디자인 시스템 문서화 프롬프트 — 아래 코드 블록 전체를 복사하여 붙여넣으세요.</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:46px;top:-22px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
 
 ```
 위에서 분석한 컬러 팔레트를 기반으로 "컬러 팔레트 디자인 시스템.md" 파일을 생성해줘.
@@ -327,18 +299,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 파일을 직접 생성해서 저장해줘.
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-14px;right:26%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-15deg);">
-</div>
-
-<div class="wda-callout wda-cs" style="position:relative;padding-right:232px;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:186px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">완료 확인</span>
-  생성된 <strong>"컬러 팔레트 디자인 시스템.md"</strong> 파일이 프로젝트 폴더에 저장되었는지 확인하세요. 이 문서는 다음 단계에서 포트폴리오 프로젝트에 직접 적용됩니다!
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 (4).webp" alt="" style="position:absolute;width:36px;top:-14px;right:34%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
+  생성된 <strong>"컬러 팔레트 디자인 시스템.md"</strong> 파일이 프로젝트 폴더에 저장되었는지 확인하세요.<br>
+  이 문서는 다음 단계에서 포트폴리오 프로젝트에 직접 적용됩니다!
 </div>
 
 ---
@@ -356,10 +320,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 - [ ] "컬러 팔레트 디자인 시스템.md" 파일 저장 확인
 - [ ] CSS 변수 형태의 컬러 코드 확보
 
-<div class="wda-done" style="position:relative;padding-top:28px;margin-top:2.2rem;">
-  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:116px;top:-10px;left:10px;z-index:1;pointer-events:none;opacity:.84;transform:rotate(-7deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:44px;top:-12px;right:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+<div class="wda-done" style="margin-top:2.2rem;">
   <div class="wda-done-ico">🎨</div>
   <div class="wda-done-ttl">컬러 팔레트 추출 완료!</div>
-  <div>원하는 웹사이트의 컬러를 분석하고 디자인 시스템 문서까지 구축했습니다. 이제 디자이너처럼 색상을 분석하고 개발자처럼 코드로 관리할 수 있습니다!</div>
+  <div>원하는 웹사이트의 컬러를 분석하고 디자인 시스템 문서까지 구축했습니다.<br>이제 디자이너처럼 색상을 분석하고 개발자처럼 코드로 관리할 수 있습니다!</div>
 </div>
+

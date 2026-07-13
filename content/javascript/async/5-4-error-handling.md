@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,21 +25,28 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
+.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
+.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -47,12 +54,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/깜짝 놀람.webp" alt="" style="width:120px;right:0;top:-16px;opacity:.9;transform:rotate(-4deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>에러와 예외</strong> — 프로그램 중단을 막기 위해 예상치 못한 상황을 관리합니다.<br>
   <strong>try-catch-finally</strong> — 에러를 포착하고 리소스를 정리하는 안전한 패턴을 익힙니다.<br>
   <strong>비동기 에러 처리</strong> — Promise와 async/await에서의 에러 전파와 처리 방법을 배웁니다.
@@ -62,7 +70,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 에러(Error) 핵심 요약</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="width:60px;top:-14px;right:8px;opacity:.78;transform:rotate(-7deg);">
 </div>
 
 ### 1) 인식의 전환 (Mindset Shift)
@@ -82,7 +89,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 | **Silent Failure**(에러 없음) | **침묵의 살인자** 🔇<br>(좀비 프로그램) | • 에러를 뱉지 않고 엉뚱한 계산을 수행합니다.<br>• 겉으로는 멀쩡해 보이지만, **나중에 DB를 다 망가뜨리는 최악의 상황**을 만듭니다. |
 | **Error**(에러 발생) | **통증(Pain)의 미학** 🏥<br>(건강한 통증) | • 우리 몸의 통증처럼 **"더 크게 다치기 전에"** 알려줍니다.<br>• "여기 문제 있어요!"라고 외치는 **고마운 신호**입니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>Fail Fast (빨리 실패하기)</strong> — 소프트웨어 설계의 중요한 원칙 중 하나입니다.<br><br>
@@ -93,20 +100,15 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (4).webp" alt="" style="width:52px;top:8px;left:36%;opacity:.74;transform:rotate(8deg);">
-</div>
-
 ### 에러 처리의 이미지
 
-<img src="/images/content/5-4/에러 처리의 이미지.png" alt="Try(곡예 시도) → Catch(안전 그물, 프로그램이 죽지 않게 받아줌) → Finally(공연 종료)로 이어지는 try-catch-finally 흐름 비유" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 에러 처리의 이미지</p>
+<img src="/images/content/javascript/5-4/javascript-5-4-error-handling-image.png" alt="Try(곡예 시도) → Catch(안전 그물, 프로그램이 죽지 않게 받아줌) → Finally(공연 종료)로 이어지는 try-catch-finally 흐름 비유" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 에러 처리의 이미지</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 에러 객체 (Error Object)</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (2).webp" alt="" style="width:54px;top:-11px;left:33%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 **에러 정보를 담는 객체**입니다.
@@ -115,11 +117,20 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 에러 객체를 열어보면 들어있는 3가지 핵심 정보입니다.
 
-| **프로퍼티** | **설명** |
-| --- | --- |
-| **name** | 에러의 이름 (예: `Error`, `TypeError`, `ReferenceError`) |
-| **message** | 에러가 발생한 이유를 적은 상세 메시지 |
-| **stack** | 에러가 발생한 위치를 추적하는 **호출 스택 (Stack Trace)** |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">name</div>
+    <div class="wda-fcard-dsc">에러의 이름 (예: <code>Error</code>, <code>TypeError</code>, <code>ReferenceError</code>)</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">message</div>
+    <div class="wda-fcard-dsc">에러가 발생한 이유를 적은 상세 메시지</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">stack</div>
+    <div class="wda-fcard-dsc">에러가 발생한 위치를 추적하는 <strong>호출 스택 (Stack Trace)</strong></div>
+  </div>
+</div>
 
 ### 2) Stack (탐정의 단서)
 
@@ -157,7 +168,7 @@ try {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>throw가 뭔가요?</strong> — <code>new Error()</code>로 에러 객체를 만드는 건 그냥 '폭탄'을 조립만 한 상태입니다. 실제로 이 폭탄을 터뜨려서 프로그램에 알리는 명령어가 바로 <strong>throw</strong>입니다. (<code>throw error;</code>)<br><br>
@@ -169,14 +180,13 @@ try {
 
 ---
 
-<img src="/images/content/5-4/탐정의 수첩-Stack Trace.png" alt="'범인은 발자국을 남긴다...' Error Report Case #1024: TypeError: Cannot read properties of null. at validateUser(user.js:42) → 여기서 user가 null이었음(결정적 단서), at loginProcess(auth.js:15), at onClickButton(main.js:10) → 범죄의 시작점(사용자 클릭). 참고: stack은 비표준이지만 모든 브라우저가 지원합니다." style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 탐정의 수첩 - Stack Trace</p>
+<img src="/images/content/javascript/5-4/javascript-5-4-stack-trace-detective-notebook.png" alt="'범인은 발자국을 남긴다...' Error Report Case #1024: TypeError: Cannot read properties of null. at validateUser(user.js:42) → 여기서 user가 null이었음(결정적 단서), at loginProcess(auth.js:15), at onClickButton(main.js:10) → 범죄의 시작점(사용자 클릭). 참고: stack은 비표준이지만 모든 브라우저가 지원합니다." style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 탐정의 수첩 - Stack Trace</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. 내장 에러 타입 (Built-in Error Types)</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="width:58px;top:-12px;right:9%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 주요 에러 클래스 요약
@@ -190,25 +200,21 @@ try {
 | **URIError** | `encodeURI` 등 주소 관련 함수에서 형식이 잘못되었을 때 발생합니다. | `decodeURI('%')` |
 | **Error**(기본) | 가장 일반적인 기본 에러 객체입니다. | `throw new Error('뭔가 잘못됨!')` |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>가장 많이 보는 '에러 3대장'</strong> — 실무에서나 공부할 때 90% 이상은 다음 3가지를 보게 됩니다.<br>
   1. <strong>TypeError</strong> : "어? 이거 함수 아니었어?" (가장 흔함)<br>
   2. <strong>ReferenceError</strong> : "어? 오타 났네." (변수명 실수)<br>
   3. <strong>SyntaxError</strong> : "어? 괄호 안 닫았네." (초보 시절 흔함)<br><br>
-  <strong>왜 에러 종류를 나눴을까요?</strong> — 그냥 다 <code>Error</code>라고 하면 편할 것 같지만, 종류가 나눠져 있어야 <strong>"원인"을 빠르게 파악</strong>할 수 있기 때문입니다. <code>ReferenceError</code>가 뜨면 로직을 볼 필요 없이 <strong>변수 이름(오타)</strong>만 확인하면 되니까요!
+  <strong>왜 에러 종류를 나눴을까요?</strong> — 그냥 다 <code>Error</code>라고 하면 편할 것 같지만, 종류가 나눠져 있어야 <strong>"원인"을 빠르게 파악</strong>할 수 있기 때문입니다.<br>
+  <code>ReferenceError</code>가 뜨면 로직을 볼 필요 없이 <strong>변수 이름(오타)</strong>만 확인하면 되니까요!
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (7).webp" alt="" style="width:82px;top:-19px;left:60%;opacity:.82;transform:rotate(9deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🕵️‍♀️ Pop Quiz: 에러 탐정</h2>
-  <img class="wda-deco" src="/images/character/집중 탐구.webp" alt="" style="width:114px;right:0;top:-96px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 **Q. 다음 코드를 실행했을 때, 각각 어떤 에러(Error Name)가 발생할지 맞춰보세요!**
@@ -247,7 +253,7 @@ JSON.parse('bad')
 
 - **이유** — `JSON.parse()` 안에는 반드시 `{"key": "value"}` 형태의 올바른 JSON 문자열이 들어와야 합니다. `'bad'`라는 텍스트는 JSON 문법 규칙(Syntax)에 맞지 않기 때문에 해석할 수 없습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>에러 메시지 읽는 꿀팁</strong> — 브라우저 콘솔창(F12)에 빨간색 에러가 떴을 때, 당황하지 말고 <strong>가장 앞 단어(Error Name)</strong>를 먼저 확인하세요.<br>
@@ -260,7 +266,6 @@ JSON.parse('bad')
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. try-catch-finally</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (4).webp" alt="" style="width:56px;top:-12px;right:32%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 **에러를 잡아서(Catch) 유연하게 처리하기**
@@ -303,10 +308,12 @@ try {
 console.log('프로그램 계속 진행');
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 finally가 필요할까요?</strong> — 예를 들어 데이터를 불러올 때 화면에 <strong>'로딩 중... (뺑글뺑글)'</strong> 아이콘을 띄웠다고 가정해 봅시다. 데이터를 가져오는 데 성공하든(try), 실패해서 에러가 나든(catch), 작업이 끝나면 <strong>로딩 아이콘은 무조건 없애야</strong>겠죠? 이럴 때 <code>finally</code>에 <code>로딩끄기()</code> 코드를 넣으면 코드를 중복해서 쓸 필요 없이 깔끔하게 관리할 수 있습니다.<br><br>
+  <strong>왜 finally가 필요할까요?</strong> — 예를 들어 데이터를 불러올 때 화면에 <strong>'로딩 중... (뺑글뺑글)'</strong> 아이콘을 띄웠다고 가정해 봅시다.<br>
+  데이터를 가져오는 데 성공하든(try), 실패해서 에러가 나든(catch), 작업이 끝나면 <strong>로딩 아이콘은 무조건 없애야</strong>겠죠?<br>
+  이럴 때 <code>finally</code>에 <code>로딩끄기()</code> 코드를 넣으면 코드를 중복해서 쓸 필요 없이 깔끔하게 관리할 수 있습니다.<br><br>
   <strong>가장 큰 장점</strong> — 위 코드의 맨 마지막 줄(<code>프로그램 계속 진행</code>)이 핵심입니다. 만약 try-catch가 없었다면 <code>JSON.parse</code>에서 에러가 나는 순간 프로그램이 <strong>그 자리에서 강제 종료(Crash)</strong> 되었을 것입니다.
 </div>
 
@@ -315,10 +322,6 @@ console.log('프로그램 계속 진행');
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="width:48px;top:6px;left:32%;opacity:.76;transform:rotate(-8deg);">
-</div>
 
 ## 🕵️‍♀️ Pop Quiz: 생존자 찾기
 
@@ -352,15 +355,45 @@ try {
 
 **[상세 실행 순서 분석]**
 
-| **순서** | **코드 동작 / 출력** | **상세 설명** |
-| --- | --- | --- |
-| **1** | **"A" 출력** | `try` 블록에 진입하자마자 첫 줄은 정상적으로 실행됩니다. |
-| **2** | **🔴 `throw`**(에러 발생) | 에러를 강제로 던지는 순간, 자바스크립트는 **하던 일을 즉시 멈추고** `catch` 블록으로 점프합니다. |
-| **3** | **💀 "B" 생략**(Dead Code) | 이미 점프해버렸기 때문에 `throw` 밑에 있는 코드는 **실행될 기회조차 얻지 못합니다.** 이를 **죽은 코드**라고 부릅니다. |
-| **4** | **"C" 출력** | `catch` 블록이 에러를 받아내며 내부 코드가 실행됩니다. |
-| **5** | **"D" 출력** | `try`나 `catch`가 끝나면 `finally` 블록은 **성공/실패 여부와 상관없이 무조건** 마지막에 실행됩니다. |
+<div class="wda-steps">
+  <div class="wda-step">
+    <div class="wda-snum">1</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">"A" 출력</div>
+      <div class="wda-sdsc"><code>try</code> 블록에 진입하자마자 첫 줄은 정상적으로 실행됩니다.</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">2</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">🔴 throw (에러 발생)</div>
+      <div class="wda-sdsc">에러를 강제로 던지는 순간, 자바스크립트는 <strong>하던 일을 즉시 멈추고</strong> <code>catch</code> 블록으로 점프합니다.</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">3</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">💀 "B" 생략 (Dead Code)</div>
+      <div class="wda-sdsc">이미 점프해버렸기 때문에 <code>throw</code> 밑에 있는 코드는 <strong>실행될 기회조차 얻지 못합니다.</strong> 이를 <strong>죽은 코드</strong>라고 부릅니다.</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">4</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">"C" 출력</div>
+      <div class="wda-sdsc"><code>catch</code> 블록이 에러를 받아내며 내부 코드가 실행됩니다.</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">5</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">"D" 출력</div>
+      <div class="wda-sdsc"><code>try</code>나 <code>catch</code>가 끝나면 <code>finally</code> 블록은 <strong>성공/실패 여부와 상관없이 무조건</strong> 마지막에 실행됩니다.</div>
+    </div>
+  </div>
+</div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>Dead Code (죽은 코드)</strong> — 프로그램의 흐름상 <strong>절대 도달할 수 없는 코드</strong>를 말합니다. 위 예제에서 <code>console.log("B")</code>가 바로 데드 코드입니다. VS Code 같은 에디터에서는 이런 코드를 발견하면 "이 코드는 실행되지 않아!"라고 흐리게 표시해주기도 합니다.
@@ -370,7 +403,6 @@ try {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. throw 문</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="width:54px;top:-11px;right:10%;opacity:.76;transform:rotate(8deg);">
 </div>
 
 **의도적으로 에러를 발생시키는 "비상 정지 버튼"입니다.**
@@ -393,10 +425,20 @@ try {
 
 **"무엇을 던져야 할까요?"**
 
-| **구분** | **코드 예시** | **설명 및 이유** |
-| --- | --- | --- |
-| **권장 (O)** | **`throw new Error('메시지')`** | • 반드시 **Error 객체**를 생성해서 던져야 합니다.<br>• **Stack Trace(호출 경로)** 정보가 포함되어 있어, **"어디서 에러가 났는지"** 정확히 추적할 수 있습니다. |
-| **비추천 (X)** | `throw '에러'` (문자열)<br>`throw 42` (숫자) | • 단순한 문자나 숫자만 던지면 **스택 정보가 남지 않습니다.**<br>• 에러가 발생했다는 사실만 알 수 있고, **위치를 찾을 수 없어 디버깅이 매우 힘들어집니다.** |
+<div class="wda-compare">
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-label">권장 (O)</div>
+    <div class="wda-compare-ttl"><code>throw new Error('메시지')</code></div>
+    반드시 <strong>Error 객체</strong>를 생성해서 던져야 합니다.<br><br>
+    <strong>Stack Trace(호출 경로)</strong> 정보가 포함되어 있어, <strong>"어디서 에러가 났는지"</strong> 정확히 추적할 수 있습니다.
+  </div>
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-label">비추천 (X)</div>
+    <div class="wda-compare-ttl"><code>throw '에러'</code> / <code>throw 42</code></div>
+    단순한 문자나 숫자만 던지면 <strong>스택 정보가 남지 않습니다.</strong><br><br>
+    에러가 발생했다는 사실만 알 수 있고, <strong>위치를 찾을 수 없어 디버깅이 매우 힘들어집니다.</strong>
+  </div>
+</div>
 
 **🔹 Stack Trace가 왜 중요한가요?**
 
@@ -428,7 +470,7 @@ try {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>`return` vs `throw`</strong><br>
@@ -441,7 +483,6 @@ try {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. 커스텀 에러 클래스</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (17).webp" alt="" style="width:60px;top:-13px;left:8%;opacity:.78;transform:rotate(-8deg);">
 </div>
 
 **"상황에 맞는 에러 타입을 직접 만들어 관리합니다."**
@@ -452,11 +493,20 @@ try {
 
 직접 만들면 다음과 같은 장점이 있습니다.
 
-| **구분** | **설명 및 예시** | **효과** |
-| --- | --- | --- |
-| **에러 종류별 다른 처리**(Different Handling) | "로그인 실패"와 "서버 다운"을 명확히 구분합니다.<br>(예: `if (error instanceof NetworkError) ...`) | 에러의 원인에 따라 **서로 다른 대처(재시도 vs 알림창)**가 가능해집니다. |
-| **추가 정보 포함**(Extra Information) | 에러 메시지 외에 `field`(필드명), `statusCode` 등 **구체적인 데이터**를 객체에 담을 수 있습니다. | 단순히 "에러남"이 아니라, **"어떤 데이터가 문제인지"** 정확한 정보를 전달합니다. |
-| **코드 의도 명확화**(Clear Intent) | `ValidationError`처럼 이름만 봐도 **"유효성 검사 실패구나"**라고 바로 알 수 있습니다. | 코드의 **가독성**이 좋아지고, 다른 개발자가 코드를 이해하기 쉬워집니다. |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">에러 종류별 다른 처리 (Different Handling)</div>
+    <div class="wda-fcard-dsc">"로그인 실패"와 "서버 다운"을 명확히 구분합니다. (예: <code>if (error instanceof NetworkError) ...</code>) 에러의 원인에 따라 <strong>서로 다른 대처(재시도 vs 알림창)</strong>가 가능해집니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">추가 정보 포함 (Extra Information)</div>
+    <div class="wda-fcard-dsc">에러 메시지 외에 <code>field</code>(필드명), <code>statusCode</code> 등 <strong>구체적인 데이터</strong>를 객체에 담을 수 있습니다. 단순히 "에러남"이 아니라, <strong>"어떤 데이터가 문제인지"</strong> 정확한 정보를 전달합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">코드 의도 명확화 (Clear Intent)</div>
+    <div class="wda-fcard-dsc"><code>ValidationError</code>처럼 이름만 봐도 <strong>"유효성 검사 실패구나"</strong>라고 바로 알 수 있습니다. 코드의 <strong>가독성</strong>이 좋아지고, 다른 개발자가 코드를 이해하기 쉬워집니다.</div>
+  </div>
+</div>
 
 ### 2) 구현 방법 (Implementation)
 
@@ -514,7 +564,7 @@ try {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>`instanceof`가 뭔가요?</strong> — "이 객체가 저 클래스로 만든 거니?"라고 족보를 확인하는 명령어입니다. <code>error instanceof ValidationError</code>가 <code>true</code>라면, 그 에러는 우리가 만든 <code>ValidationError</code> 설계도로 만들어진 것입니다.<br><br>
@@ -523,13 +573,8 @@ try {
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="width:46px;top:6px;right:38%;opacity:.74;transform:rotate(9deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. 비동기 에러 처리의 어려움</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (6).webp" alt="" style="width:50px;top:-11px;left:34%;opacity:.76;transform:rotate(-9deg);">
 </div>
 
 **"왜 try-catch가 비동기 에러를 못 잡을까요?"**
@@ -571,7 +616,9 @@ setTimeout(() => {
 }, 1000);
 ```
 
-### 2) 원인 : 다른 차원의 실행 (Context)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h3>2) 원인 : 다른 차원의 실행 (Context)</h3>
+</div>
 
 **메인 도로 vs 옆길(국도)**
 
@@ -604,7 +651,7 @@ async function processData() {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>Promise의 경우 (`.catch`)</strong> — `async/await`를 쓰지 않고 `Promise`를 직접 쓸 때는 <code>.then().catch()</code> 체이닝을 이용해야 에러를 잡을 수 있습니다. 하지만 코드가 복잡해지면 가독성이 떨어지므로, 최신 문법인 <code>async/await</code> + <code>try-catch</code> 조합을 가장 많이 사용합니다.<br><br>
@@ -614,10 +661,6 @@ async function processData() {
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (4).webp" alt="" style="width:58px;top:-9px;right:36%;opacity:.78;transform:rotate(7deg);">
-</div>
 
 ## 🕵️‍♀️ Pop Quiz: 범인을 찾아라
 
@@ -656,7 +699,7 @@ try {
 | **2** | **탐정 퇴근**(Exit) | `try` 블록 안에 더 이상 실행할 코드가 없으므로, **`catch` 블록(안전망)도 임무를 마치고 사라집니다.** (함수 종료) |
 | **3** | **사건 발생**(Error Thrown) | 1초 뒤, 예약된 함수가 실행되면서 `throw new Error`가 터집니다. 하지만 이때는 **이미 `try-catch`라는 보호막이 철수한 상태**라서 에러를 막아줄 수 없습니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"이미 버스는 떠났습니다"</strong> — 이전 챕터에서 배운 비유를 기억하세요. <code>try-catch</code>는 <strong>동기적(Synchronous)</strong>인 흐름만 감시할 수 있습니다. <code>setTimeout</code>처럼 나중에 실행되는 <strong>비동기(Asynchronous)</strong> 코드는 <code>try-catch</code>의 감시 범위를 벗어납니다.<br><br>
@@ -665,14 +708,13 @@ try {
 
 ---
 
-<img src="/images/content/5-4/비동기 에러의 시각화(The Missed Bus).png" alt="Main Thread(동기): 경찰(Try-Catch)이 '여기 지나가는 건 다 감시한다!'라고 지키는 중. Callback Queue(비동기): setTimeout Bus에서 ERROR! 발생. 엇갈린 운명: 경찰(Try-Catch)은 메인 도로만 지키는데, 버스(비동기)는 이미 다른 차선으로 떠나서 사고가 났고 경찰은 사고 사실조차 모름" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 비동기 에러의 시각화 (The Missed Bus)</p>
+<img src="/images/content/javascript/5-4/javascript-5-4-async-error-missed-bus.png" alt="Main Thread(동기): 경찰(Try-Catch)이 '여기 지나가는 건 다 감시한다!'라고 지키는 중. Callback Queue(비동기): setTimeout Bus에서 ERROR! 발생. 엇갈린 운명: 경찰(Try-Catch)은 메인 도로만 지키는데, 버스(비동기)는 이미 다른 차선으로 떠나서 사고가 났고 경찰은 사고 사실조차 모름" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 비동기 에러의 시각화 (The Missed Bus)</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. Promise 에러 처리 패턴</h2>
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (3).webp" alt="" style="width:62px;top:-13px;right:8px;opacity:.78;transform:rotate(-8deg);">
 </div>
 
 **.catch()를 어디에 붙이느냐에 따라 에러의 운명이 달라집니다.**
@@ -720,7 +762,7 @@ fetchUser(1)
   • <strong>결과</strong> — 브라우저에서는 콘솔 경고나 <code>unhandledrejection</code> 이벤트로 나타나고, 환경이나 설정에 따라 앱 안정성에 큰 문제가 될 수 있습니다. 따라서 Promise 체인의 끝에는 <code>catch</code>를 붙이는 습관이 필요합니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>`Promise.all`의 에러 처리</strong><br>
@@ -732,7 +774,6 @@ fetchUser(1)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. async/await 에러 처리 패턴</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="width:52px;top:-11px;left:9%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 **"try-catch가 다시 쓸모있어짐!"**
@@ -800,7 +841,7 @@ async function loadParallelData() {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>`await`가 하는 일</strong> — <code>await</code>는 Promise가 해결(resolve)되거나 거절(reject)될 때까지 함수의 실행을 <strong>일시 정지</strong>시킵니다. 거절(Error)되면 그 자리에서 즉시 에러를 <code>throw</code> 하는 것과 같은 효과를 내기 때문에 <code>try-catch</code>가 이를 잡을 수 있는 것입니다.<br><br>
@@ -809,13 +850,8 @@ async function loadParallelData() {
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (2).webp" alt="" style="width:50px;top:7px;left:64%;opacity:.74;transform:rotate(8deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 전역 에러 핸들러 (Global Error Handlers)</h2>
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (2).webp" alt="" style="width:48px;top:-10px;right:34%;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 **"모든 안전장치를 뚫고 나온 에러를 마지막으로 잡아냅니다."**
@@ -824,10 +860,20 @@ async function loadParallelData() {
 
 자바스크립트 실행 환경(브라우저) 차원에서 제공하는 두 가지 안전망입니다.
 
-| **핸들러 (Handler)** | **역할 및 특징** |
-| --- | --- |
-| **`window.onerror`** | • **처리되지 않은 동기 에러**를 잡습니다.<br>• `setTimeout` 같은 일반 콜백에서 발생한 에러도 포함됩니다.<br>• 전통적인 방식의 마지막 안전망입니다. |
-| **`window.onunhandledrejection`** | • **`catch`가 없는 Promise 에러**를 잡습니다.<br>• `async` 함수에서 발생했으나 `try-catch`로 감싸지 않은 에러도 여기로 옵니다.<br>• **Promise 전용 안전망**입니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl"><code>window.onerror</code></div>
+    <strong>처리되지 않은 동기 에러</strong>를 잡습니다.<br>
+    <code>setTimeout</code> 같은 일반 콜백에서 발생한 에러도 포함됩니다.<br>
+    전통적인 방식의 마지막 안전망입니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl"><code>window.onunhandledrejection</code></div>
+    <strong><code>catch</code>가 없는 Promise 에러</strong>를 잡습니다.<br>
+    <code>async</code> 함수에서 발생했으나 <code>try-catch</code>로 감싸지 않은 에러도 여기로 옵니다.<br>
+    <strong>Promise 전용 안전망</strong>입니다.
+  </div>
+</div>
 
 ### 2) 활용 (Usage)
 
@@ -871,7 +917,7 @@ window.onunhandledrejection = function(event) {
 };
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   개발자가 모든 곳에 try-catch를 붙일 수는 없습니다. 혹시나 실수로 놓친 에러가 발생했을 때, 최소한 "무슨 에러가 터졌는지" 로그라도 남겨야 나중에 고칠 수 있기 때문입니다.
@@ -885,25 +931,34 @@ window.onunhandledrejection = function(event) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. 에러 처리 Best Practices</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (9).webp" alt="" style="width:64px;top:-14px;left:35%;opacity:.8;transform:rotate(-9deg);">
 </div>
 
 ### 1) DO vs DON'T (핵심 요약)
 
 좋은 습관과 절대 하지 말아야 할 나쁜 습관을 비교했습니다.
 
-| **구분** | **항목** | **상세 설명 (Why)** |
-| --- | --- | --- |
-| **✅ DO**(권장 사항) | **구체적인 메시지 작성** | "에러 발생"보다는 "이메일 형식이 아닙니다"처럼 명확해야 원인을 빨리 찾습니다. |
-|  | **Error 객체 사용** | 문자열(`throw "Error"`) 대신 `new Error()`를 써야 **Stack Trace(위치 추적)**가 남습니다. |
-|  | **메시지 분리**(사용자 vs 개발자) | 사용자에게는 "잠시 후 다시 시도해주세요(친절)", 서버에는 "DB 연결 타임아웃(상세)"을 남겨야 합니다. |
-|  | **에러 로깅(서버 전송)** | `console`은 새로고침하면 사라집니다. Sentry 같은 도구로 서버에 기록해야 합니다. |
-|  | **복구 시도** | 에러가 났다고 멈추지 말고, 기본값(Default)을 넣어서라도 프로그램이 돌아가게 만듭니다. |
-| **❌ DON'T**(금지 사항) | **에러 무시(빈 catch)** | **최악의 습관**입니다. 에러를 잡아서 아무것도 안 하면(`{}`) 버그가 숨어버립니다. |
-|  | **모호한 메시지** | "Error!"라고만 하면 아무것도 해결할 수 없습니다. |
-|  | **민감 정보 노출** | DB 구조나 비밀번호, 서버 경로 등이 사용자 화면에 그대로 노출되면 **해킹의 빌미**가 됩니다. |
-|  | **console.log만 하고 끝** | 개발 중엔 보이지만, 배포된 환경에서는 개발자가 볼 수 없습니다. |
-|  | **모든 에러 같은 처리** | 네트워크 에러와 입력값 에러를 똑같이 "에러입니다"로 퉁치지 마세요. |
+<div class="wda-compare">
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-label">✅ DO (권장 사항)</div>
+    <ul>
+      <li><strong>구체적인 메시지 작성</strong> — "에러 발생"보다는 "이메일 형식이 아닙니다"처럼 명확해야 원인을 빨리 찾습니다.</li>
+      <li><strong>Error 객체 사용</strong> — 문자열(<code>throw "Error"</code>) 대신 <code>new Error()</code>를 써야 <strong>Stack Trace(위치 추적)</strong>가 남습니다.</li>
+      <li><strong>메시지 분리</strong>(사용자 vs 개발자) — 사용자에게는 "잠시 후 다시 시도해주세요(친절)", 서버에는 "DB 연결 타임아웃(상세)"을 남겨야 합니다.</li>
+      <li><strong>에러 로깅(서버 전송)</strong> — <code>console</code>은 새로고침하면 사라집니다. Sentry 같은 도구로 서버에 기록해야 합니다.</li>
+      <li><strong>복구 시도</strong> — 에러가 났다고 멈추지 말고, 기본값(Default)을 넣어서라도 프로그램이 돌아가게 만듭니다.</li>
+    </ul>
+  </div>
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-label">❌ DON'T (금지 사항)</div>
+    <ul>
+      <li><strong>에러 무시(빈 catch)</strong> — <strong>최악의 습관</strong>입니다. 에러를 잡아서 아무것도 안 하면(<code>{}</code>) 버그가 숨어버립니다.</li>
+      <li><strong>모호한 메시지</strong> — "Error!"라고만 하면 아무것도 해결할 수 없습니다.</li>
+      <li><strong>민감 정보 노출</strong> — DB 구조나 비밀번호, 서버 경로 등이 사용자 화면에 그대로 노출되면 <strong>해킹의 빌미</strong>가 됩니다.</li>
+      <li><strong>console.log만 하고 끝</strong> — 개발 중엔 보이지만, 배포된 환경에서는 개발자가 볼 수 없습니다.</li>
+      <li><strong>모든 에러 같은 처리</strong> — 네트워크 에러와 입력값 에러를 똑같이 "에러입니다"로 퉁치지 마세요.</li>
+    </ul>
+  </div>
+</div>
 
 ### 2) 코드 비교 (Code Comparison)
 
@@ -929,10 +984,12 @@ try {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 "빈 catch"가 위험한가요?</strong> — 마치 <strong>"화재 경보기가 울리는데 건전지를 빼버리는 것"</strong>과 같습니다. 불(에러)은 계속 타고 있는데 경고음만 끈 것이라, 나중에 건물이 다 타고나서야(서비스가 망가진 뒤에야) 알게 됩니다. 최소한 <code>console.error</code>라도 찍거나 상위로 다시 던져야(<code>throw e</code>) 합니다.<br><br>
+  <strong>왜 "빈 catch"가 위험한가요?</strong> — 마치 <strong>"화재 경보기가 울리는데 건전지를 빼버리는 것"</strong>과 같습니다.<br>
+  불(에러)은 계속 타고 있는데 경고음만 끈 것이라, 나중에 건물이 다 타고나서야(서비스가 망가진 뒤에야) 알게 됩니다.<br>
+  최소한 <code>console.error</code>라도 찍거나 상위로 다시 던져야(<code>throw e</code>) 합니다.<br><br>
   <strong>사용자용 vs 개발자용 메시지</strong><br>
   • <strong>사용자에게</strong> — "일시적인 오류입니다. 잠시 후 다시 시도해주세요." (안심, 행동 유도)<br>
   • <strong>개발자에게</strong> — <code>ReferenceError: x is not defined at line 10</code> (정확한 디버깅 정보)
@@ -940,14 +997,8 @@ try {
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (18).webp" alt="" style="width:112px;top:-10px;left:32%;opacity:.85;transform:rotate(-5deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 정리 (Core Summary)</h2>
-  <img class="wda-deco" src="/images/character/체크 완료.webp" alt="" style="width:116px;right:0;top:-98px;opacity:.9;transform:rotate(-3deg);">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (9).webp" alt="" style="width:88px;top:-20px;left:8%;opacity:.82;transform:rotate(9deg);">
 </div>
 
 **에러 핸들링 마스터를 위한 5가지 핵심 기둥**입니다.
@@ -987,7 +1038,7 @@ try {
 
 **보충 설명 (마무리 조언)**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
   <strong>"완벽한 코드는 없다, 완벽한 대비만 있을 뿐"</strong><br><br>
   에러가 아예 안 나게 짜는 것은 불가능합니다. 훌륭한 개발자는 에러가 발생했을 때 <strong>"사용자가 당황하지 않게 안내하고"</strong>, <strong>"개발자가 빠르게 원인을 찾아 고칠 수 있도록"</strong> 시스템을 만들어두는 사람입니다.
 </div>

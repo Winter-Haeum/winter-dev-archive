@@ -12,7 +12,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,24 +26,24 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-code{font-size:.74rem;opacity:.8;background:rgba(128,128,128,.08);border-radius:6px;padding:4px 7px;margin-top:4px;display:inline-block}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -56,8 +56,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (2).webp" alt="" style="width:70px;top:-20px;right:4%;opacity:.78;transform:rotate(8deg);">
+<div class="wda-goal">
   🏹 <strong>화살표 함수</strong> — 함수를 간결하게 작성하고 this 바인딩 차이를 이해합니다.<br>
   📦 <strong>구조분해 할당</strong> — 배열과 객체에서 필요한 값을 쉽게 추출하는 법을 배웁니다.<br>
   🌊 <strong>스프레드 연산자</strong> — 배열과 객체를 펼쳐서 복사하거나 병합합니다.<br>
@@ -66,10 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 화살표 함수란?</h2>
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="width:60px;top:-12px;right:8px;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 1. 화살표 함수란?
 
 ### 1) 기존 함수 표현식
 
@@ -111,7 +107,7 @@ console.log(double(10)); // 20
 
 기존 function 키워드가 반복되는 문제를 해결하고, `=>` (Fat Arrow) 문법으로 코드의 가독성을 높였습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -123,10 +119,7 @@ console.log(double(10)); // 20
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 화살표 함수 축약 규칙 (1)</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (1).webp" alt="" style="width:62px;top:-13px;left:6%;opacity:.76;transform:rotate(9deg);">
-</div>
+## 2. 화살표 함수 축약 규칙 (1)
 
 ### 1) 매개변수 괄호 생략
 
@@ -158,7 +151,7 @@ const squareBasic = x => {
 const squareShort = x => x * x;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -172,10 +165,7 @@ const squareShort = x => x * x;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 화살표 함수 축약 규칙 (2)</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (2).webp" alt="" style="width:46px;top:-10px;right:34%;opacity:.76;transform:rotate(10deg);">
-</div>
+## 3. 화살표 함수 축약 규칙 (2)
 
 ### 1) 최종 축약 예시
 
@@ -199,7 +189,7 @@ const greet2 = name => "Hello " + name;
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -210,10 +200,7 @@ const greet2 = name => "Hello " + name;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 화살표 함수 주의사항</h2>
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="width:58px;top:-14px;left:36%;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 4. 화살표 함수 주의사항
 
 ### 1) 객체를 반환할 때 (가장 흔한 실수)
 
@@ -246,21 +233,18 @@ const calc = (a, b) => {
 };
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>특히 <strong>1번(객체 반환)</strong>은 리액트(React)에서 상태(State)를 업데이트하거나 초기값을 설정할 때 정말 많이 하는 실수입니다.</li>
-    <li>자바스크립트 엔진 입장에서 <code>{</code>를 만나면 "아, 함수 내용을 시작하는구나"라고 먼저 생각하기 때문에, "아니야, 이건 데이터 객체야"라고 알려주기 위해 <strong>소괄호 <code>()</code> 안전장치</strong>를 씌운다고 이해하시면 됩니다.</li>
+    <li>자바스크립트 엔진 입장에서 <code>{</code>를 만나면 "아, 함수 내용을 시작하는구나"라고 먼저 생각하기 때문에,<br>"아니야, 이건 데이터 객체야"라고 알려주기 위해 <strong>소괄호 <code>()</code> 안전장치</strong>를 씌운다고 이해하시면 됩니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 화살표 함수 vs 일반 함수</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (1).webp" alt="" style="width:64px;top:-13px;right:6px;opacity:.76;transform:rotate(9deg);">
-</div>
+## 5. 화살표 함수 vs 일반 함수
 
 ### 1) 주요 차이점 비교
 
@@ -277,26 +261,24 @@ const calc = (a, b) => {
 
 화살표 함수는 "가벼운 함수"로 설계되었습니다. 복잡한 기능(생성자, 프로토타입)을 덜어내고, 메서드 정의보다는 콜백 함수나 간단한 유틸리티 함수를 만드는 데 최적화되어 있습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>가장 중요한 차이는 역시 <strong><code>this</code></strong>입니다.</li>
     <li>일반 함수는 누가 호출했냐에 따라 <code>this</code>가 계속 변해서(예: 버튼 클릭 시 <code>this</code>가 버튼 자체가 되어버림), 예전에는 <code>var self = this;</code> 같은 편법을 써야 했습니다.</li>
-    <li>반면 화살표 함수는 <strong>"내 <code>this</code>는 내가 태어난 곳의 <code>this</code>야!"</strong>라고 고정되므로, 리액트(React)나 비동기 코드(<code>setTimeout</code> 등)에서 <code>this</code>가 꼬이는 문제를 완벽하게 해결해 줍니다.</li>
+    <li>반면 화살표 함수는 <strong>"내 <code>this</code>는 내가 태어난 곳의 <code>this</code>야!"</strong>라고 고정되므로,<br>리액트(React)나 비동기 코드(<code>setTimeout</code> 등)에서 <code>this</code>가 꼬이는 문제를 완벽하게 해결해 줍니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. this 바인딩 차이 실습</h2>
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (1).webp" alt="" style="width:64px;top:-14px;left:4%;opacity:.74;transform:rotate(7deg);">
-</div>
+## 6. this 바인딩 차이 실습
 
 ### 1) 일반 함수의 문제점 (동적 바인딩)
 
-일반 함수는 호출될 때 누가 불렀느냐에 따라 `this`가 바뀝니다. `setInterval` 같은 콜백 함수 안에서는 주인이 바뀌어버려(전역 객체 `window` 등), 우리가 의도한 객체(`counter`)를 찾지 못합니다.
+일반 함수는 호출될 때 누가 불렀느냐에 따라 `this`가 바뀝니다.  
+`setInterval` 같은 콜백 함수 안에서는 주인이 바뀌어버려(전역 객체 `window` 등), 우리가 의도한 객체(`counter`)를 찾지 못합니다.
 
 ```jsx
 const counter = {
@@ -339,7 +321,7 @@ const counter = {
 counter.start();
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -351,10 +333,7 @@ counter.start();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 화살표 함수, 이럴 때 쓰세요!</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="width:60px;top:-12px;right:36%;opacity:.74;transform:rotate(-10deg);">
-</div>
+## 7. 화살표 함수, 이럴 때 쓰세요!
 
 ### 1) 배열 메서드 콜백 (Best Case)
 
@@ -395,7 +374,7 @@ const add = (a, b) => a + b;
 const isEven = n => n % 2 === 0;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -407,10 +386,7 @@ const isEven = n => n % 2 === 0;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 화살표 함수, 이럴 땐 피하세요!</h2>
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="width:86px;top:-16px;right:0;opacity:.7;transform:rotate(-5deg);">
-</div>
+## 8. 화살표 함수, 이럴 땐 피하세요!
 
 ### 1) 객체 메서드 정의
 
@@ -463,22 +439,18 @@ const Person = (name) => {
 const p = new Person('Kim');
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>결론적으로 <strong><code>this</code>가 상황에 따라 변해야 한다면(동적 바인딩) 일반 함수를 쓰고, <code>this</code>가 고정되어야 한다면(정적 바인딩) 화살표 함수</strong>를 쓰면 됩니다.</li>
-    <li>하지만 최근 리액트나 모던 JS 개발 환경에서는 <code>class</code> 문법이나 <code>event.target</code>을 주로 사용하기 때문에, 2번(이벤트 리스너) 같은 경우도 화살표 함수(<code>e =&gt; e.target...</code>)로 대체하여 사용하는 추세입니다.</li>
+    <li>하지만 최근 리액트나 모던 JS 개발 환경에서는 <code>class</code> 문법이나 <code>event.target</code>을 주로 사용하기 때문에,<br>2번(이벤트 리스너) 같은 경우도 화살표 함수(<code>e =&gt; e.target...</code>)로 대체하여 사용하는 추세입니다.</li>
   </ul>
 </div>
 
 ---
 
 ## 💻 실습 : 화살표 함수로 변환하기
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (7).webp" alt="" style="width:72px;left:42%;top:-4px;opacity:.76;transform:rotate(9deg);">
-</div>
 
 ### 1) Mission
 
@@ -516,7 +488,7 @@ arr.forEach(function(x) {
 arr.forEach(x => console.log(x));
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -528,10 +500,7 @@ arr.forEach(x => console.log(x));
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. 배열 구조분해 할당</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="width:62px;top:-14px;left:8px;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 9. 배열 구조분해 할당
 
 ### 1) 기본 문법
 
@@ -570,22 +539,19 @@ let n1 = 10, n2 = 20;
 [n1, n2] = [n2, n1];
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>이 문법이 가장 빛을 발하는 순간은 <strong>리액트(React)의 <code>useState</code> 훅</strong>을 사용할 때입니다.</li>
     <li><code>const [state, setState] = useState(0);</code> 이 코드가 바로 <strong>배열 구조분해 할당</strong>입니다.</li>
-    <li><code>useState</code> 함수가 반환하는 배열의 첫 번째 값(상태)과 두 번째 값(함수)을 각각 <code>state</code>와 <code>setState</code>라는 변수에 순서대로 담는 원리입니다.</li>
+    <li><code>useState</code> 함수가 반환하는 배열의 첫 번째 값(상태)과 두 번째 값(함수)을<br>각각 <code>state</code>와 <code>setState</code>라는 변수에 순서대로 담는 원리입니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 객체 구조분해 할당</h2>
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="width:48px;top:-10px;right:8px;opacity:.76;transform:rotate(8deg);">
-</div>
+## 10. 객체 구조분해 할당
 
 ### 1) 기본 문법
 
@@ -631,7 +597,7 @@ const { name, ...rest } = user;
 const { name: n, age: a = 0 } = user;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -646,10 +612,7 @@ const { name: n, age: a = 0 } = user;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. 중첩 구조분해 (상세)</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="width:64px;top:-13px;left:40%;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 11. 중첩 구조분해 (상세)
 
 ### 1) 중첩 객체 구조분해
 
@@ -708,7 +671,7 @@ console.log(id);    // 1
 console.log(title); // '첫 번째 글'
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -720,10 +683,7 @@ console.log(title); // '첫 번째 글'
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 함수 매개변수 구조분해</h2>
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="width:60px;top:-14px;right:38%;opacity:.74;transform:rotate(10deg);">
-</div>
+## 12. 함수 매개변수 구조분해
 
 ### 1) 객체 매개변수 구조분해
 
@@ -783,22 +743,18 @@ const UserCard = ({ name, email, avatar }) => {
 };
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li><strong><code>UserCard</code></strong> 예제는 리액트(React) 개발의 90%를 차지하는 패턴입니다.</li>
-    <li><code>props</code>라는 객체를 통째로 받아서 <code>props.name</code>이라고 쓰는 것보다, 저렇게 <code>({ name })</code> 형식으로 받으면 <strong>"이 컴포넌트는 name 데이터가 꼭 필요하구나"</strong>라고 한눈에 알 수 있어 가독성이 2배 이상 좋아집니다.</li>
+    <li><code>props</code>라는 객체를 통째로 받아서 <code>props.name</code>이라고 쓰는 것보다,<br>저렇게 <code>({ name })</code> 형식으로 받으면 <strong>"이 컴포넌트는 name 데이터가 꼭 필요하구나"</strong>라고 한눈에 알 수 있어 가독성이 2배 이상 좋아집니다.</li>
   </ul>
 </div>
 
 ---
 
 ## 💻 실습 : 구조분해로 데이터 뽑기
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (2).webp" alt="" style="width:44px;right:6%;top:-2px;opacity:.76;transform:rotate(-8deg);">
-</div>
 
 ### 1) Mission
 
@@ -842,7 +798,7 @@ console.log(id, name, theme); // 1, 'Kim', 'dark'
 
 복잡하게 중첩된 객체를 한 번에 뚫고 들어가는 것이 핵심입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -853,10 +809,7 @@ console.log(id, name, theme); // 1, 'Kim', 'dark'
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>13. 스프레드 연산자 - 배열</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="width:60px;top:-13px;left:6%;opacity:.76;transform:rotate(9deg);">
-</div>
+## 13. 스프레드 연산자 - 배열
 
 ### 1) 배열 복사
 
@@ -911,7 +864,7 @@ const todos = ['할일2', '할일3'];
 const newTodos = ['할일1', ...todos]; // unshift 대신!
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -923,10 +876,7 @@ const newTodos = ['할일1', ...todos]; // unshift 대신!
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 스프레드 연산자 - 객체</h2>
-  <img class="wda-deco" src="/images/decoration/포스트잇 (1).webp" alt="" style="width:56px;top:-12px;right:4%;opacity:.74;transform:rotate(-9deg);">
-</div>
+## 14. 스프레드 연산자 - 객체
 
 ### 1) 객체 복사
 
@@ -976,7 +926,7 @@ const newState = { ...state, count: state.count + 1 };
 // { user: 'Kim', count: 1 } - 원본 유지하면서 count만 증가
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -989,10 +939,6 @@ const newState = { ...state, count: state.count + 1 };
 ---
 
 ## 💻 실습 : 불변성 지키며 수정하기
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="width:66px;left:44%;top:-6px;opacity:.76;transform:rotate(8deg);">
-</div>
 
 ### 1) Mission
 
@@ -1027,7 +973,7 @@ console.log(newState);
 // name은 건드리지 않았으므로 그대로 유지됨!
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1038,10 +984,7 @@ console.log(newState);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>15. 함수 호출 시 스프레드</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (2).webp" alt="" style="width:62px;top:-13px;right:8px;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 15. 함수 호출 시 스프레드
 
 ### 1) 배열을 인자로 펼치기
 
@@ -1082,7 +1025,7 @@ arr.push(...[3, 4, 5]);
 // [1, 2, 3, 4, 5]
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1094,10 +1037,7 @@ arr.push(...[3, 4, 5]);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>16. Rest vs Spread 구분</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (3).webp" alt="" style="width:78px;top:-16px;left:38%;opacity:.76;transform:rotate(7deg);">
-</div>
+## 16. Rest vs Spread 구분
 
 ### 1) Rest: 모으기 (여러 개 → 하나)
 
@@ -1147,7 +1087,7 @@ console.log(...items);
 | **위치** | `=`의 **왼쪽**이나 함수 **정의**(`function(...)`) | `=`의 **오른쪽**이나 함수 **호출**(`func(...)`) |
 | **의미** | "나머지 다 내놔!"라고 <strong>주워 담는</strong> 역할 | "내용물 보여줄게!"라고 <strong>펼쳐 놓는</strong> 역할 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1157,14 +1097,7 @@ console.log(...items);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리 (Summary)</h2>
-  <img class="wda-deco" src="/images/character/개념 연결.webp" alt="" style="width:128px;right:0;top:-100px;opacity:.88;">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (4).webp" alt="" style="width:46px;left:4%;top:-8px;opacity:.76;transform:rotate(9deg);">
-</div>
+## 🔑 핵심 정리 (Summary)
 
 <table class="wda-summary-table">
   <tr>
@@ -1203,7 +1136,7 @@ const age = user.age ?? 20; // user.age가 없으면 20
 user.profile && console.log('프로필이 있습니다.');
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>

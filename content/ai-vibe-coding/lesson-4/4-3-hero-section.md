@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -36,8 +36,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -50,17 +50,25 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 웹사이트 방문자의 첫 인상을 결정하는 Hero 섹션을 임팩트 있고 전문적으로 완성합니다.
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:196px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (15).webp" alt="" style="position:absolute;width:110px;top:-12px;left:26%;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/도전 시작.webp" alt="" style="position:absolute;width:182px;bottom:-65px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(6deg);">
+<div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
   🔍 <strong>Hero 섹션 분석</strong> — Claude Code와 함께 현재 상태를 진단하고 개선 방향을 파악한다<br>
   ✨ <strong>임팩트 있는 헤드라인</strong> — 강렬하고 기억에 남는 타이틀로 방문자의 시선을 사로잡는다<br>
@@ -92,26 +100,22 @@ Hero 섹션은 웹사이트 상단에 위치한 가장 중요한 영역으로, �
 <div class="wda-fcard"><div class="wda-fcard-ico">📢</div><div class="wda-fcard-ttl">행동 유도 버튼</div><div class="wda-fcard-dsc">"프로젝트 보기", "연락하기" 등의 CTA 버튼으로 다음 행동을 유도합니다.</div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:126px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/바이브 코딩.webp" alt="" style="position:absolute;width:110px;bottom:-42px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/마스킹 테이프 (16).webp" alt="" style="position:absolute;width:104px;top:-11px;left:38%;z-index:2;pointer-events:none;opacity:.82;">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">Hero 섹션 성공의 비결</span>
-  복잡하게 만들지 마세요! 핵심 메시지 하나에 집중하고, 시각적으로 깔끔하게 정리하는 것이 가장 효과적입니다.
+  복잡하게 만들지 마세요!<br>
+  핵심 메시지 하나에 집중하고, 시각적으로 깔끔하게 정리하는 것이 가장 효과적입니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔍 현재 Hero 섹션 분석하기</h2>
-  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-18px;right:16px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 🔍 현재 Hero 섹션 분석하기
 
 포트폴리오 프로젝트의 현재 Hero 섹션을 Claude Code와 함께 분석해보겠습니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:164px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/자세히 보기.webp" alt="" style="position:absolute;width:148px;bottom:-56px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">분석 포인트</span>
-  현재 Hero 섹션에서 개선할 부분을 발견하는 것이 첫 단계입니다. <strong>현황을 정확히 파악해야</strong> 무엇을 어떻게 개선할지 방향이 잡힙니다.
+  현재 Hero 섹션에서 개선할 부분을 발견하는 것이 첫 단계입니다.<br>
+  <strong>현황을 정확히 파악해야</strong> 무엇을 어떻게 개선할지 방향이 잡힙니다.
 </div>
 
 <div class="wda-prompt-head">💬 프롬프트</div>
@@ -130,17 +134,14 @@ Hero 섹션은 웹사이트 상단에 위치한 가장 중요한 영역으로, �
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✨ 임팩트 있는 헤드라인 만들기</h2>
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:48px;top:-16px;right:12px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(10deg);">
-</div>
+## ✨ 임팩트 있는 헤드라인 만들기
 
 Hero 섹션의 핵심인 헤드라인을 더 강력하게 만들어보겠습니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:92px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:72px;top:4px;left:8px;z-index:3;pointer-events:none;opacity:.92;">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">핵심 팁</span>
-  좋은 헤드라인 하나가 포트폴리오의 첫인상을 완전히 바꿉니다. <strong>10가지 스타일을 비교해보고</strong> 자신에게 가장 잘 맞는 표현을 찾아보세요.
+  좋은 헤드라인 하나가 포트폴리오의 첫인상을 완전히 바꿉니다.<br>
+  <strong>10가지 스타일을 비교해보고</strong> 자신에게 가장 잘 맞는 표현을 찾아보세요.
 </div>
 
 <div class="wda-prompt-head">💬 프롬프트</div>
@@ -164,17 +165,14 @@ Hero 섹션의 핵심인 헤드라인을 더 강력하게 만들어보겠습니�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🎨 시각적 요소 업그레이드</h2>
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:68px;top:-20px;right:14px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-6deg);">
-</div>
+## 🎨 시각적 요소 업그레이드
 
 Hero 섹션을 더욱 시각적으로 매력적으로 만들어보겠습니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:196px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:178px;bottom:-110px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">구현 포인트</span>
-  디자인 요소는 직접 코드로 구현하면서 빠르게 실험해보는 것이 효과적입니다. MUI 테마와 조화롭게 맞추는 것을 잊지 마세요.
+  디자인 요소는 직접 코드로 구현하면서 빠르게 실험해보는 것이 효과적입니다.<br>
+  MUI 테마와 조화롭게 맞추는 것을 잊지 마세요.
 </div>
 
 <div class="wda-prompt-head">💬 프롬프트</div>
@@ -207,10 +205,7 @@ Hero 섹션의 시각적 요소를 대폭 업그레이드해줘. 다음 요소�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📢 효과적인 CTA 버튼 만들기</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="position:absolute;width:56px;top:-18px;right:16px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(12deg);">
-</div>
+## 📢 효과적인 CTA 버튼 만들기
 
 방문자의 행동을 유도하는 강력한 CTA 버튼을 만들어보겠습니다.
 
@@ -277,10 +272,10 @@ Hero 섹션을 모든 디바이스에서 완벽하게 보이도록 반응형으�
 MUI의 useMediaQuery와 sx prop을 활용해서 구현해줘.
 ```
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:138px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/꼭 기억.webp" alt="" style="position:absolute;width:120px;bottom:-43px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">성능 최적화 팁</span>
-  Hero 섹션은 첫 화면이므로 <strong>로딩 속도가 매우 중요합니다.</strong> 이미지 최적화, CSS 애니메이션 사용, 불필요한 JavaScript 제거 등을 신경써주세요!
+  Hero 섹션은 첫 화면이므로 <strong>로딩 속도가 매우 중요합니다.</strong><br>
+  이미지 최적화, CSS 애니메이션 사용, 불필요한 JavaScript 제거 등을 신경써주세요!
 </div>
 
 ---
@@ -357,13 +352,11 @@ Hero 섹션이 다음 요소들을 모두 포함하고 있는지 확인해보세
 
 ---
 
-<div class="wda-done" style="position:relative;overflow:visible;padding-top:20px;padding-left:170px;">
-  <img src="/images/character/성공했어요.webp" alt="" style="position:absolute;width:148px;bottom:-58px;left:10px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.82;transform:rotate(8deg);">
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:-12px;left:38%;z-index:2;pointer-events:none;opacity:.78;">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">Hero 섹션 완성!</div>
   임팩트 있는 헤드라인, 시각적 디자인, CTA 버튼까지<br>
   방문자의 첫 인상을 완벽하게 사로잡는<br>
   <strong>Hero 섹션이 완성되었습니다.</strong> ✨
 </div>
+

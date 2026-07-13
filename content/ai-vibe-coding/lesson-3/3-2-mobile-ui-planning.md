@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -35,8 +35,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
 .wda-memo-body{font-size:.81rem;line-height:1.6}
@@ -48,14 +48,23 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-right:20px;padding-top:14px;padding-bottom:18px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (7).webp" alt="" style="position:absolute;width:106px;top:-11px;right:30px;z-index:4;pointer-events:none;opacity:.83;transform:rotate(-7deg);">
+<div class="wda-goal">
   👁️ <strong>UI 관찰력</strong> — 실제 앱 UI를 보고 디자인 원칙과 사용성 포인트를 찾아낼 수 있다<br>
   ✏️ <strong>기획서 작성</strong> — 화면별 레이아웃 · 색상 · 주요 기능을 기획서 형태로 정리할 수 있다<br>
   💬 <strong>토론과 피드백</strong> — 아이디어를 언어로 설명하고 다른 사람의 의견을 반영할 수 있다<br>
@@ -79,9 +88,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 강사가 실제 앱 UI 샘플들을 화면에 보여주면서 각각의 디자인 특징과 사용성 포인트를 설명합니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:196px;padding-left:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
-  <img src="/images/character/집중탐구.webp" alt="" style="position:absolute;width:150px;top:-26px;right:6px;z-index:3;pointer-events:none;opacity:.89;transform:rotate(11deg);">
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:68px;bottom:-4px;right:202px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">강사 시연 — 3가지 관점으로 분석</span>
   📱 <strong>SNS 디자인 측면</strong> — 컬러 팔레트는 어떻게 구성되어 있나요? 텍스트 크기 계층은 어떻게 되나요?<br>
   👆 <strong>모바일 사용성 측면</strong> — 엄지손가락 하나로 모두 조작 가능한가요? 버튼은 충분히 크게 설계되어 있나요?<br>
@@ -100,15 +107,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 💬 2단계: 강사와 함께 토론하기 (15분)
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;width:50px;top:-50px;right:24px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
-</div>
-
 시연을 보고 난 후, 내가 만들고 싶은 앱에 대해 강사와 함께 이야기를 나눕니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:196px;padding-left:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:150px;top:-28px;right:6px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-7deg);">
-  <img src="/images/decoration/반짝이 아이콘 (9).webp" alt="" style="position:absolute;width:48px;bottom:-6px;left:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-6deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">토론 가이드</span>
   강사와 함께 아이디어를 구체화해보세요. 아직 확실하지 않아도 괜찮습니다.
 </div>
@@ -120,9 +121,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-step"><div class="wda-snum">Q4</div><div class="wda-sbody"><div class="wda-sttl">어떤 느낌의 디자인이 어울릴까요?</div><div class="wda-sdsc">밝고 활기찬 · 차분하고 미니멀한 · 다크 모드 · 색상 키워드 하나만 골라도 좋아요</div></div></div>
 </div>
 
-<div class="wda-memo" style="position:relative;padding-left:20px;padding-right:18px;padding-top:26px;padding-bottom:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (14).webp" alt="" style="position:absolute;width:114px;top:-13px;left:28px;z-index:4;pointer-events:none;opacity:.83;transform:rotate(6deg);">
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:-6px;right:8px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">✏️ 토론에서 함께 결정할 내용</span>
   <div class="wda-memo-body">
     <strong>서비스 기본 정보:</strong> 앱 이름 · 한 줄 소개 (예: "독서 기록을 SNS처럼 공유하는 앱")<br>
@@ -135,23 +134,18 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## ✍️ 3단계: 개인 기획서 작성하기 (10분)
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:36px;top:-58px;left:338px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
 토론에서 나온 아이디어를 바탕으로 나만의 모바일 UI 기획서를 작성합니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:188px;padding-right:18px;padding-top:14px;padding-bottom:14px;">
-  <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:138px;top:-22px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(9deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">작성 팁</span>
   📝 <strong>완벽하지 않아도 괜찮아요</strong> — 나중에 수정·보완 가능하니 지금 떠오르는 아이디어를 일단 적으세요<br>
   💡 <strong>참고 앱을 떠올려 보세요</strong> — "인스타그램의 피드 구조에 독서 기록을 더한 느낌"처럼 구체적 이미지로 표현<br>
   🎨 <strong>색상은 감각으로</strong> — 정확한 컬러코드가 없어도 "따뜻한 오렌지" 같은 키워드로 충분해요
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:60px;padding-left:18px;padding-top:14px;padding-bottom:14px;">
-  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:48px;top:-12px;right:16px;z-index:4;pointer-events:none;opacity:.70;transform:rotate(10deg);">
-  <span class="wda-clabel">주의사항</span>
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
   ⚠️ 처음부터 너무 많은 기능을 넣으면 개발이 어려워집니다. 핵심 기능 3가지에 집중하고, 나머지는 "추가 기능 아이디어"에 메모만 해두세요.
 </div>
 
@@ -220,8 +214,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">👂</div><div class="wda-fcard-ttl">듣는 방법</div><div class="wda-fcard-dsc">"비슷한 아이디어가 있다면?" · "이 기능은 나도 쓰고 싶다!" 같은 반응 함께 공유</div></div>
 </div>
 
-<div class="wda-memo" style="position:relative;padding-left:20px;padding-right:18px;padding-top:14px;padding-bottom:14px;overflow:visible;">
-  <img src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="position:absolute;width:100px;top:-24px;right:8px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">💡 피드백 예시</span>
   <div class="wda-memo-body">
     <strong>긍정적 피드백:</strong> "독서 기록 공유 앱이라니 진짜 써보고 싶다!" · "색상 테마가 주제랑 잘 어울려요"<br>
@@ -234,12 +227,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## ✅ 완료 체크리스트
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/소품 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-62px;left:188px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-12deg);">
-</div>
-
-<div class="wda-callout wda-cs" style="position:relative;padding-right:196px;padding-left:18px;padding-top:14px;padding-bottom:14px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:150px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.89;transform:rotate(-9deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">체크하기 전에</span>
   아래 항목을 하나씩 확인하며 빠진 내용은 지금 바로 채워보세요. 완벽하지 않아도 괜찮습니다!
 </div>
@@ -252,15 +240,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">기획서 파일 저장</div><div class="wda-sdsc">메모장이나 텍스트 파일로 저장해두셨나요?</div></div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:188px;padding-right:18px;padding-top:14px;padding-bottom:14px;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:138px;top:-22px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">📁 기획서 저장 방법</span>
   작성한 기획서는 <strong>메모장(.txt) 또는 노션</strong>에 저장해두세요. 이 기획서는 다음 수업인 <strong>3-3 SNS DB 분석</strong>에서 실제 구현할 때 바로 활용됩니다!
 </div>
 
-<div class="wda-done" style="position:relative;padding-right:196px;padding-left:20px;padding-bottom:20px;padding-top:16px;overflow:visible;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:148px;top:-26px;right:4px;z-index:3;pointer-events:none;opacity:.91;transform:rotate(9deg);">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:64px;top:8px;left:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
+<div class="wda-done">
   <div class="wda-done-ico">📱</div>
   <div class="wda-done-ttl">모바일 UI 기획 완료!</div>
   <div>나만의 모바일 앱 UI를 기획했습니다. 기획서를 잘 저장해두세요 — 다음 수업에서 이 기획을 실제 DB 설계와 연결하고, 이후 AI를 활용하여 실제로 구현하게 됩니다!</div>

@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -34,16 +34,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -56,8 +56,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (9).webp" alt="" style="width:64px;top:-18px;right:20px;opacity:.8;transform:rotate(8deg);">
+<div class="wda-goal">
   <strong>🎯 this의 정체</strong> — 함수가 호출되는 방식에 따라 결정되는 원리를 이해합니다.<br>
   <strong>4가지 규칙</strong> — 기본, 암시적, 명시적, new 바인딩의 작동 방식을 익힙니다.<br>
   <strong>우선순위</strong> — 규칙이 충돌할 때 어떤 것이 먼저 적용되는지 배웁니다.<br>
@@ -66,10 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. this란 무엇인가?</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (10).webp" alt="" style="width:46px;top:-10px;right:6%;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 1. this란 무엇인가?
 
 ### 1) 다른 언어에서의 this
 
@@ -112,7 +108,7 @@ fn();
 // strict mode 또는 module 환경에서는 this가 undefined가 되어 에러가 발생할 수 있습니다.
 ```
 
-**주의**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   같은 함수인데 this가 다르다!
@@ -122,7 +118,7 @@ fn();
 
 이 문장을 반드시 기억해야 합니다.
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   누가 이 함수를 어떻게 호출했는가에 따라 this가 결정됩니다 (동적 바인딩)
@@ -130,10 +126,7 @@ fn();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. this가 결정되는 시점</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (10).webp" alt="" style="width:58px;top:-14px;right:10%;opacity:.76;transform:rotate(7deg);">
-</div>
+## 2. this가 결정되는 시점
 
 ### 1) ❌ 함수 정의 시점 (X)
 
@@ -169,13 +162,13 @@ new obj.method();   // this = 새 객체
 
 유일한 예외가 있습니다.
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   화살표 함수는 자신만의 this를 만들지 않고, 만들어진 위치의 상위 스코프 this를 그대로 사용합니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이것이 바로 <strong>"동적 바인딩(Dynamic Binding)"</strong>의 핵심입니다.<br>
@@ -187,10 +180,7 @@ new obj.method();   // this = 새 객체
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. this 바인딩 스펙트럼</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (7).webp" alt="" style="width:48px;top:-10px;left:32%;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 3. this 바인딩 스펙트럼
 
 ### 1) 4가지 바인딩 규칙
 
@@ -223,17 +213,18 @@ new obj.method();   // this = 새 객체
 
 규칙이 서로 충돌할 때 승패를 가르는 중요한 원칙입니다.
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   오른쪽으로 갈수록 결속력(우선순위)이 강해집니다.<br>
   (규칙이 충돌하면 오른쪽 규칙이 이깁니다!)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  이 스펙트럼은 <code>this</code> 판결을 내리는 <strong>'법전'</strong>과 같습니다. 만약 코드가 복잡하게 꼬여서 <code>this</code>가 헷갈릴 때는 이 그림을 떠올리며 오른쪽으로 갈수록 <strong>"더 센 규칙"</strong>이라고 생각하세요.<br>
+  이 스펙트럼은 <code>this</code> 판결을 내리는 <strong>'법전'</strong>과 같습니다.<br>
+  만약 코드가 복잡하게 꼬여서 <code>this</code>가 헷갈릴 때는 이 그림을 떠올리며 오른쪽으로 갈수록 <strong>"더 센 규칙"</strong>이라고 생각하세요.<br>
   1. <strong>낙엽(기본)</strong> — 아무도 안 챙겨주면 바람 부는 대로(전역) 날아갑니다. (가장 약함)<br>
   2. <strong>가격표(암시적)</strong> — 물건(객체)에 딱 붙어 있습니다. 낙엽보다는 셉니다.<br>
   3. <strong>리모컨(명시적)</strong> — 사용자가 "이거 가리켜!"라고 강제로 지정(<code>call</code>, <code>apply</code>, <code>bind</code>)합니다. 가격표보다 셉니다.<br>
@@ -242,10 +233,7 @@ new obj.method();   // this = 새 객체
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 바인딩 규칙 1 : 기본 바인딩 (Default Binding)</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="width:52px;top:-12px;right:8px;opacity:.74;transform:rotate(10deg);">
-</div>
+## 4. 바인딩 규칙 1 : 기본 바인딩 (Default Binding)
 
 ### 1) 낙엽 같은 존재 (The Leaf)
 
@@ -287,7 +275,7 @@ hello();
 // (전역 객체를 건드리지 못하게 막아줌) 🛡️
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"왜 이름이 '기본(Default)' 바인딩인가요?"</strong><br>
@@ -296,10 +284,7 @@ hello();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 바인딩 규칙 2 : 암시적 바인딩 (Implicit Binding)</h2>
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (5).webp" alt="" style="width:56px;top:-12px;left:40%;opacity:.76;transform:rotate(-7deg);">
-</div>
+## 5. 바인딩 규칙 2 : 암시적 바인딩 (Implicit Binding)
 
 ### 1) Metaphor : 가격표 (Price Tag)
 
@@ -329,7 +314,7 @@ myTag();
 // strict mode 또는 module 환경에서는 undefined가 됩니다.
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   가장 쉬운 판별법은 <strong>"함수 호출 코드의 점(.) 앞을 보는 것"</strong>입니다.<br>
@@ -340,10 +325,7 @@ myTag();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 바인딩 규칙 3 : 명시적 바인딩 (Explicit Binding)</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (6).webp" alt="" style="width:60px;top:-14px;right:6%;opacity:.76;transform:rotate(8deg);">
-</div>
+## 6. 바인딩 규칙 3 : 명시적 바인딩 (Explicit Binding)
 
 ### 1) Metaphor : 리모컨 (Remote Control)
 
@@ -391,10 +373,11 @@ pikaAttack('Iron Tail'); // 나중에 필요할 때 실행
 // "Pikachu uses Iron Tail!"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  이 세 가지(<code>call</code>, <code>apply</code>, <code>bind</code>)는 <strong>"남의 함수 빌려 쓰기"</strong> 기술입니다. <code>attack</code> 함수는 원래 혼자 있는 함수지만, <code>call</code>을 사용해서 마치 <code>person</code>이 가지고 있는 메서드인 것처럼 작동하게 만들었죠.<br><br>
+  이 세 가지(<code>call</code>, <code>apply</code>, <code>bind</code>)는 <strong>"남의 함수 빌려 쓰기"</strong> 기술입니다.<br>
+  <code>attack</code> 함수는 원래 혼자 있는 함수지만, <code>call</code>을 사용해서 마치 <code>person</code>이 가지고 있는 메서드인 것처럼 작동하게 만들었죠.<br><br>
   가장 중요한 차이점은 <strong>실행 시점</strong>입니다.<br>
   · <strong>call / apply</strong>: "지금 당장 실행해!" (일회용)<br>
   · <strong>bind</strong>: "나중에 쓸 거니까 미리 묶어만 놔." (재사용 가능)<br><br>
@@ -403,10 +386,7 @@ pikaAttack('Iron Tail'); // 나중에 필요할 때 실행
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 바인딩 규칙 4: new 바인딩</h2>
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (5).webp" alt="" style="width:58px;top:-14px;right:30%;opacity:.74;transform:rotate(-9deg);">
-</div>
+## 7. 바인딩 규칙 4: new 바인딩
 
 ### 1) Metaphor : 공장
 
@@ -433,30 +413,29 @@ const bot = new Robot('Wally');
 
 이전에 `bind`로 묶었든, 어디에 소속되었든 상관없습니다.
 
-<img src="/images/content/4-4/객체 생성 튜토리얼 다이어그램.png" alt="new Robot() 호출 시 this가 새로 생성된 객체 인스턴스가 되는 과정" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/4-4/javascript-4-4-object-creation-tutorial-diagram.png" alt="new Robot() 호출 시 this가 새로 생성된 객체 인스턴스가 되는 과정" style="display:block;width:100%;max-width:340px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:340px;">[그림] new Robot() 호출 시 this가 새 객체 인스턴스가 되는 과정</div>
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   New Object (Instance): <code>this = { name: ... }</code><br>
   <strong>갓 태어난 이 객체</strong>가 무조건 <code>this</code>입니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이것이 바로 앞서 본 스펙트럼의 <strong>가장 오른쪽(최강자)</strong>에 위치한 규칙입니다.<br>
-  생성자로 사용할 수 있는 일반 함수를 <code>bind</code>한 뒤 <code>new</code>로 호출하면, <code>bind</code>로 고정한 <code>this</code>보다 <code>new</code>로 생성된 새 객체가 우선합니다. 단, 메서드 단축 문법이나 화살표 함수처럼 생성자로 사용할 수 없는 함수에는 <code>new</code>를 사용할 수 없습니다.<br>
+  생성자로 사용할 수 있는 일반 함수를 <code>bind</code>한 뒤 <code>new</code>로 호출하면, <code>bind</code>로 고정한 <code>this</code>보다 <code>new</code>로 생성된 새 객체가 우선합니다.<br>
+  단, 메서드 단축 문법이나 화살표 함수처럼 생성자로 사용할 수 없는 함수에는 <code>new</code>를 사용할 수 없습니다.<br>
   왜냐하면 <code>new</code>는 <strong>"새로운 생명의 탄생"</strong>이기 때문입니다.<br>
   갓 태어난 아기(새 객체)에게 "너는 예전부터 철수였어"라고 강요할 수 없듯이, <code>new</code>로 만들어진 인스턴스는 과거의 모든 바인딩 규칙을 무시하고 <strong>자기 자신</strong>을 <code>this</code>로 삼습니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 바인딩 우선순위</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (1).webp" alt="" style="width:50px;top:-11px;right:8px;opacity:.74;transform:rotate(6deg);">
-</div>
+## 8. 바인딩 우선순위
 
 ### 1) 순위 요약
 
@@ -492,7 +471,7 @@ bound(); // 'obj1'
 new bound(); // undefined (New 승!)
 ```
 
-**주의**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   이 예제가 성립하려면 <code>foo</code>가 <strong>생성자로 사용할 수 있는 일반 함수</strong>여야 합니다. 메서드 단축 문법(<code>foo() {}</code>)이나 화살표 함수로 정의된 함수는 애초에 <code>new</code>로 호출할 수 없어 <strong>TypeError</strong>가 발생합니다.
@@ -533,7 +512,7 @@ new bound(); // undefined (New 승!)
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   가장 흥미로운 부분은 <strong>4번 케이스(<code>new bound()</code>)</strong>입니다.<br>
@@ -544,10 +523,7 @@ new bound(); // undefined (New 승!)
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. 화살표 함수의 this</h2>
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (6).webp" alt="" style="width:48px;top:-10px;right:8px;opacity:.76;transform:rotate(-6deg);">
-</div>
+## 9. 화살표 함수의 this
 
 ### 1) 렉시컬 this (Lexical this)
 
@@ -599,21 +575,20 @@ const arrow = () => console.log(this);
 arrow.call({ a: 1 }); // 여전히 상위 this
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"왜 화살표 함수를 쓰나요?"</strong><br>
   가장 큰 이유는 <code>this</code> 스트레스에서 해방되기 위해서입니다.<br>
-  위 코드의 <code>regularFn</code> 안에 있는 <code>setTimeout</code>을 보세요. <code>setTimeout</code> 콜백의 일반 함수는 객체 메서드로 호출되는 것이 아니므로, <code>this</code>가 <code>obj</code>를 가리키지 않습니다. 브라우저 일반 script의 비엄격 모드에서는 <code>window</code>를 가리킬 수 있고, strict mode나 module 환경에서는 <code>undefined</code>가 될 수 있습니다.<br>
+  위 코드의 <code>regularFn</code> 안에 있는 <code>setTimeout</code>을 보세요.<br>
+  <code>setTimeout</code> 콜백의 일반 함수는 객체 메서드로 호출되는 것이 아니므로, <code>this</code>가 <code>obj</code>를 가리키지 않습니다.<br>
+  브라우저 일반 script의 비엄격 모드에서는 <code>window</code>를 가리킬 수 있고, strict mode나 module 환경에서는 <code>undefined</code>가 될 수 있습니다.<br>
   반면 <strong>화살표 함수(<code>=&gt;</code>)</strong>는 태어날 때 부모의 <code>this</code>를 그대로 물려받아 가슴에 품고 삽니다. 그래서 <code>arrowFn</code> 안에서는 "내 부모(<code>obj</code>)의 이름은 Kim이야!"라고 정확하게 기억하는 것입니다. (React나 콜백 함수에서 아주 유용합니다!)
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 콜백에서 this 손실 해결</h2>
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="width:60px;top:-14px;left:6%;opacity:.74;transform:rotate(9deg);">
-</div>
+## 10. 콜백에서 this 손실 해결
 
 ### 1) 문제 상황
 
@@ -633,7 +608,7 @@ const counter = {
 counter.increment();
 ```
 
-**주의**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   콜백으로 전달되면 this 손실<br>
@@ -684,7 +659,7 @@ setTimeout(function() {
   결론: 화살표 함수가 가장 깔끔!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"왜 잘 있다가 갑자기 this를 잃어버리나요?"</strong><br>
@@ -695,10 +670,7 @@ setTimeout(function() {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. {...} 객체 메서드에서의 this</h2>
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (1).webp" alt="" style="width:44px;top:-9px;right:34%;opacity:.76;transform:rotate(7deg);">
-</div>
+## 11. {...} 객체 메서드에서의 this
 
 ### 1) 메서드 단축 문법
 
@@ -742,7 +714,7 @@ user.greet(); // "Hi, undefined"
 // 브라우저 일반 script 최상위에서는 this가 window이고, module 환경에서는 this가 undefined입니다.
 ```
 
-**주의**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   객체 자신의 프로퍼티를 this로 접근해야 하는 메서드에는 화살표 함수를 사용하지 않는 것이 좋습니다.<br>
@@ -753,32 +725,28 @@ user.greet(); // "Hi, undefined"
 
 이것만 기억하면 됩니다.
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   객체의 this를 사용해야 하는 메서드는 일반 함수로, 상위 this를 유지해야 하는 콜백은 화살표 함수로 작성하는 경우가 많습니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"왜 객체 안인데 this가 window인가요?"</strong><br>
-  이게 가장 헷갈리는 부분입니다. 우리는 중괄호 <code>{}</code>를 보면 본능적으로 "여기는 <code>user</code>의 땅이야!"라고 생각합니다.<br>
-  하지만 자바스크립트에서 <strong>객체 리터럴의 <code>{}</code>는 스코프(Scope) 역할을 하지 못합니다.</strong> 그냥 값을 담는 주머니일 뿐이죠. 객체 리터럴의 중괄호는 블록 스코프를 만드는 중괄호가 아니라, 객체 값을 표현하는 문법입니다. 그래서 화살표 함수의 상위 <code>this</code>를 결정할 때 객체 자체가 새로운 <code>this</code> 스코프가 되지는 않습니다.<br>
+  이게 가장 헷갈리는 부분입니다.<br>
+  우리는 중괄호 <code>{}</code>를 보면 본능적으로 "여기는 <code>user</code>의 땅이야!"라고 생각합니다.<br>
+  하지만 자바스크립트에서 <strong>객체 리터럴의 <code>{}</code>는 스코프(Scope) 역할을 하지 못합니다.</strong> 그냥 값을 담는 주머니일 뿐이죠.<br>
+  객체 리터럴의 중괄호는 블록 스코프를 만드는 중괄호가 아니라, 객체 값을 표현하는 문법입니다.<br>
+  그래서 화살표 함수의 상위 <code>this</code>를 결정할 때 객체 자체가 새로운 <code>this</code> 스코프가 되지는 않습니다.<br>
   그래서 화살표 함수는 "내 상위 스코프를 찾아줘!" 하고 고개를 들었는데, <code>user</code> 객체는 투명 인간 취급을 받고, 그 바깥에 있는 <strong>전역 스코프(브라우저 일반 script라면 Window, module이라면 undefined)</strong>가 보이게 되는 것입니다.<br>
   반면 <strong>일반 함수(<code>greet() {}</code>)</strong>는 호출될 때 "나를 부른 놈(<code>user.</code>)이 누구지?"를 확인하므로 정상적으로 작동합니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 🏠 직관적 이해: "방" vs "가구"</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (18).webp" alt="" style="width:60px;top:-14px;right:8px;opacity:.76;transform:rotate(-8deg);">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (1).webp" alt="" style="width:38px;top:6px;left:50%;opacity:.7;transform:rotate(10deg);">
-</div>
+## 12. 🏠 직관적 이해: "방" vs "가구"
 
 ### 1) 오해의 원인: 중괄호
 
@@ -815,14 +783,14 @@ console.log(myGagu.location); // Global
 
 ### 3) 핵심 포인트
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   화살표 함수는 "내가 서 있는 곳"의 this를 기억합니다.<br>
   객체를 만들 때 우리는 Global에 서 있었으므로, 화살표 함수의 this도 Global이 됩니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 비유는 <strong>"화살표 함수가 객체 안에서 왜 전역 객체를 가리키는가?"</strong>를 이해하는 최고의 열쇠입니다.<br>
@@ -836,11 +804,7 @@ console.log(myGagu.location); // Global
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>❓ 퀴즈: 이 중괄호는 this를 가둘까?</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (10).webp" alt="" style="width:66px;top:-20px;left:30%;opacity:.8;transform:rotate(9deg);">
-  <img class="wda-deco" src="/images/character/헷갈려요.webp" alt="" style="width:132px;right:0;top:-108px;opacity:.9;transform:rotate(3deg);">
-</div>
+## ❓ 퀴즈: 이 중괄호는 this를 가둘까?
 
 ### 1. Function (함수)
 
@@ -876,14 +840,14 @@ if (true) {
 
 이것이 가장 중요한 핵심입니다.
 
-**주의**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   'if', 'for' 문은 변수(let, const)의 방은 만들지만, this의 방은 만들지 못합니다!<br>
   오직 <strong>일반 함수(function)</strong>만이 this의 방을 만듭니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   많은 분들이 <strong>"스코프(변수 유효범위)"</strong>와 <strong>"this 바인딩"</strong>을 혼동합니다.<br>
@@ -894,14 +858,7 @@ if (true) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🌈 실습: this 바인딩 예측하기</h2>
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="width:50px;top:-11px;left:34%;opacity:.76;transform:rotate(-9deg);">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="width:110px;top:-8px;right:14%;opacity:.82;transform:rotate(6deg);">
-</div>
+## 🌈 실습: this 바인딩 예측하기
 
 ### 1) Mission
 
@@ -932,21 +889,19 @@ obj.printArrow();  // 2. ?
 - **1. obj.print() ➡ "Woowa"** — `print`는 **일반 함수**입니다. 메서드로 호출(`obj.print`)되었으므로 `this`는 점 앞의 객체 **`obj`**가 됩니다.
 - **2. obj.printArrow() ➡ undefined** — `printArrow`는 **화살표 함수**입니다. 화살표 함수는 자신이 정의된 곳의 상위 스코프(여기서는 전역, Global)의 `this`를 사용합니다. 전역에는 `name`이 없으므로 **undefined**가 출력됩니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 예제는 <strong>"메서드를 만들 때 어떤 함수를 써야 하는가?"</strong>에 대한 명확한 기준을 제시합니다.<br>
   · <strong>객체의 상태(this.name)를 사용해야 한다면?</strong> 👉 무조건 <strong>일반 함수</strong>(<code>function() {}</code> 또는 메서드 축약형 <code>print() {}</code>)를 쓰세요.<br>
   · <strong>객체의 상태와 상관없이 동작한다면?</strong> 👉 화살표 함수를 써도 되지만, 굳이 메서드로 쓸 이유는 없습니다.<br><br>
-  화살표 함수는 <strong>"내 부모의 this를 훔쳐 쓰는 아이"</strong>라고 생각하면 쉽습니다. 객체(<code>obj</code>)는 스코프(방) 역할을 못 해주므로, 화살표 함수의 부모는 <code>obj</code>가 아니라 저 바깥의 전역 스코프(브라우저 일반 script라면 <code>Window</code>, module이라면 <code>undefined</code>)가 되는 것입니다.
+  화살표 함수는 <strong>"내 부모의 this를 훔쳐 쓰는 아이"</strong>라고 생각하면 쉽습니다.<br>
+  객체(<code>obj</code>)는 스코프(방) 역할을 못 해주므로, 화살표 함수의 부모는 <code>obj</code>가 아니라 저 바깥의 전역 스코프(브라우저 일반 script라면 <code>Window</code>, module이라면 <code>undefined</code>)가 되는 것입니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리 (Summary)</h2>
-  <img class="wda-deco" src="/images/character/코딩 팁.webp" alt="" style="width:134px;right:0;top:-110px;opacity:.9;transform:rotate(-3deg);">
-</div>
+## 🔑 핵심 정리 (Summary)
 
 ### 1) 🕒 결정 시점
 
@@ -1013,7 +968,7 @@ const myApp = {
 myApp.run();
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   1. 코드를 볼 때 <strong>점(.) 앞</strong>을 확인하세요.<br>
@@ -1023,10 +978,7 @@ myApp.run();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📋 최종 핵심 요약표</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (7).webp" alt="" style="width:56px;top:-13px;right:10%;opacity:.76;transform:rotate(8deg);">
-</div>
+## 📋 최종 핵심 요약표
 
 <table class="wda-summary-table">
   <tr>

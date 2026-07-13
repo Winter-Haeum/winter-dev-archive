@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -35,8 +35,8 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
@@ -49,9 +49,9 @@ tags:
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -60,9 +60,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:188px;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (2).webp" alt="" style="position:absolute;width:118px;top:-18px;right:46px;z-index:2;pointer-events:none;opacity:.80;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:162px;bottom:-50px;right:4px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-4deg);">
+<div class="wda-goal">
+
+
   📌 <strong>데이터 타입</strong> — 원시 타입과 참조 타입을 구분하고 특징을 설명할 수 있다.<br>
   🔄 <strong>타입 변환</strong> — 암묵적 타입 변환과 명시적 타입 변환의 동작을 이해한다.
 </div>
@@ -82,18 +82,18 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | 메모리 개념 | 값 자체가 변수에 들어간다 | 변수에는 주소만 들어간다 |
 
 타입이 중요한 이유는 다음과 같다.
-- **연산** — 의도한 숫자 계산은 number 타입에서 안전하게 수행된다. JavaScript는 암묵적 타입 변환이 있어 문자열도 숫자로 바뀌는 경우가 있지만, 예측하기 어려워 버그의 원인이 될 수 있다.
+- **연산** — 의도한 숫자 계산은 number 타입에서 안전하게 수행된다.<br>
+  JavaScript는 암묵적 타입 변환이 있어 문자열도 숫자로 바뀌는 경우가 있지만, 예측하기 어려워 버그의 원인이 될 수 있다.
 - **메모리** — 타입마다 저장 방식이 다르다.
 - **에러 방지** — 잘못된 연산을 미리 막을 수 있다.
 
+**📝 핵심 정리**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">💡 핵심 정리</span>
   JavaScript의 값은 크게 <strong>원시 타입(값 자체)</strong>과 <strong>참조 타입(주소)</strong>로 나뉜다.
 </div>
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/핀 아이콘 (1).webp" alt="" style="position:absolute;top:-32px;left:12px;width:66px;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
+
 
 ---
 
@@ -121,16 +121,22 @@ JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolea
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 원시 타입 vs 참조 타입</h2>
-  <img src="/images/decoration/책갈피 아이콘 (1).webp" alt="" aria-hidden="true" style="position:absolute;width:60px;top:-10px;right:10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(6deg);">
-</div>
+## 3. 원시 타입 vs 참조 타입
 
-| 원시 타입 (Primitive) | 참조 타입 (Reference) |
-| --- | --- |
-| 값(Value) 그 자체가 변수에 담긴다 | 값이 너무 커서 창고(힙 메모리)에 보관한다 |
-| 작고 가벼워서 주머니(스택 메모리)에 쏙 들어간다 | 변수에는 창고 열쇠(주소)만 담긴다 |
-| 복사하면 내용물만 똑같이 베껴서 새로운 포스트잇에 적어준다 | 복사하면 열쇠만 복사해준다. 열쇠로 문을 열면 같은 물건이 들어 있다 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">원시 타입 (Primitive)</div>
+    • 값(Value) 그 자체가 변수에 담긴다<br>
+    • 작고 가벼워서 주머니(스택 메모리)에 쏙 들어간다<br>
+    • 복사하면 내용물만 똑같이 베껴서 새로운 포스트잇에 적어준다
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">참조 타입 (Reference)</div>
+    • 값이 너무 커서 창고(힙 메모리)에 보관한다<br>
+    • 변수에는 창고 열쇠(주소)만 담긴다<br>
+    • 복사하면 열쇠만 복사해준다. 열쇠로 문을 열면 같은 물건이 들어 있다
+  </div>
+</div>
 
 > 스택/힙 설명은 실제 엔진 내부 구현을 단순화한 비유다. 핵심은 원시 타입은 값 자체가 복사되고, 참조 타입은 객체를 가리키는 참조가 복사된다는 점이다.
 
@@ -148,9 +154,7 @@ let objectB = objectA;
 // objectA와 objectB는 같은 객체를 가리킨다
 ```
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;top:-28px;right:10px;width:64px;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+
 
 ---
 
@@ -190,9 +194,7 @@ let multi = `첫째 줄
   → <strong>실무에서 권장</strong>
 </div>
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;top:-30px;right:10px;width:72px;pointer-events:none;opacity:.80;transform:rotate(12deg);">
-</div>
+
 
 ---
 
@@ -214,9 +216,7 @@ lastName + firstName;            // 더하기(+)로 연결
 - 문자열 연결은 `+` 또는 **템플릿 리터럴**을 사용한다.
 - 템플릿 리터럴은 **${}**, **여러 줄**, **가독성** 때문에 실무 필수다.
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;top:-24px;right:12px;width:60px;pointer-events:none;opacity:.74;transform:rotate(12deg);">
-</div>
+
 
 ---
 
@@ -244,11 +244,7 @@ let year = 2023;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. number 타입</h2>
-  <img src="/images/decoration/말풍선 아이콘 (2).webp" alt="" aria-hidden="true" style="position:absolute;width:56px;top:-2px;left:196px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" aria-hidden="true" style="position:absolute;width:87px;top:-16px;right:10px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
-</div>
+## 6. number 타입
 
 숫자를 표현하는 타입이다. **정수와 실수를 구분하지 않는다.**
 
@@ -282,16 +278,17 @@ let invalid = 0 / 0;     // NaN
   <code>Number.isNaN(result);  // true (더 정확)</code>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">⚠️ 주의</span>
   <code>NaN === NaN; // false</code><br>
   NaN은 <strong>자기 자신과도 같지 않은 유일한 값</strong>이다.
 </div>
 
-**⚠️ 부동소수점 주의점** — JavaScript는 **부동소수점 방식**을 사용하여 `0.1 + 0.2 !== 0.3`이 된다.
+**⚠️ 부동소수점 오류와 해결책**
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">🔹 부동소수점 오류와 해결책</span>
+  JavaScript는 <strong>부동소수점 방식</strong>을 사용하여 <code>0.1 + 0.2 !== 0.3</code>이 된다.<br><br>
   컴퓨터는 효율을 위해 <strong>IEEE 754(부동소수점)</strong> 표준을 사용하지만, 정밀도에 한계가 있다.<br><br>
   <strong>이진수의 한계</strong><br>
   • 컴퓨터는 숫자를 1/2, 1/4, 1/8... 의 합으로 표현한다.<br>
@@ -315,8 +312,9 @@ let invalid = 0 / 0;     // NaN
 // "0.3" (주의: 문자열로 반환됨)
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">💡 주의사항</span>
   toFixed()는 결과값을 <strong>문자열(String)</strong>로 반환하므로, 숫자 계산이 더 필요하다면 다시 Number()로 형변환해야 한다.
 </div>
 
@@ -337,9 +335,7 @@ let rate  = 0.5;
 price * rate; // 500
 ```
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;top:-28px;left:12px;width:60px;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
+
 
 ---
 
@@ -347,7 +343,8 @@ price * rate; // 500
 
 자바스크립트에서 논리적인 상태나 "없음"을 나타내는 중요한 타입들이다.
 
-**boolean 타입**은 논리적 참(`true`)과 거짓(`false`) 두 가지 값만 가진다. 주로 조건문에서 프로그램의 흐름을 제어할 때 사용한다.
+**boolean 타입**은 논리적 참(`true`)과 거짓(`false`) 두 가지 값만 가진다.  
+주로 조건문에서 프로그램의 흐름을 제어할 때 사용한다.
 
 ```javascript
 let isLoggedIn = true;  // 사용자가 로그인한 상태임을 나타냄
@@ -356,7 +353,7 @@ let hasApple  = false;  // 사과를 가지고 있지 않은 상태임을 나타
 console.log(isLoggedIn); // true 출력
 ```
 
-**🔍 보충 설명 — 비교 연산자와 boolean**
+**💡 보충 설명 — 비교 연산자와 boolean**
 
 <div class="wda-callout wda-ci">
   • 직접 true, false를 타이핑하기보다 <code>10 > 5</code> 같은 비교 연산의 결과로 얻는 경우가 훨씬 많다.<br>
@@ -386,7 +383,7 @@ let user = null;      // 개발자가 "지금은 유저 정보가 없다"고 직
 console.log(user);    // 결과: null (의도된 빈 값)
 ```
 
-**🔍 보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <code>undefined</code>는 "아무것도 안 들어있어서 뭔지 모르겠다"는 뜻이다.<br>
@@ -402,12 +399,12 @@ console.log(typeof undefined);  // "undefined"
 console.log(typeof null);       // "object" (자바스크립트의 유명한 설계상 오류)
 ```
 
-<div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">📌 핵심 요약</span>
   • <strong>boolean</strong> — 스위치처럼 온/오프 상태를 나타낸다.<br>
   • <strong>undefined</strong> — 선언 후 할당되지 않은 상태다.<br>
   • <strong>null</strong> — 의도적으로 비워둔 상태다.
-  <img src="/images/decoration/메모지 아이콘 (1).webp" alt="" aria-hidden="true" style="position:absolute;width:66px;bottom:-24px;right:-10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
+
 </div>
 
 ---
@@ -428,7 +425,7 @@ let blank = null;                // 개발자가 직접 비움
 console.log(blank === undefined); // 결과: false (의도적으로 비운 것과 원래 없는 것은 다름)
 ```
 
-**🔍 보충 설명: null vs undefined 한 줄 요약**
+**💡 보충 설명: null vs undefined 한 줄 요약**
 
 <div class="wda-callout wda-ci">
   • <strong>null :</strong> "여기는 빈 자리라고 내가 직접 표시해뒀어!" (개발자의 의지)<br>
@@ -437,12 +434,10 @@ console.log(blank === undefined); // 결과: false (의도적으로 비운 것�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 참조 타입 (Reference Type)</h2>
-  <img src="/images/decoration/소품 아이콘 (2).webp" alt="" aria-hidden="true" style="position:absolute;width:64px;top:-10px;right:10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 8. 참조 타입 (Reference Type)
 
-여러 값을 묶어서 저장하는 복합 타입이다. 메모리에 값이 직접 들어가는 원시 타입과 달리, 값이 있는 **주소**를 참조한다.
+여러 값을 묶어서 저장하는 복합 타입이다.  
+메모리에 값이 직접 들어가는 원시 타입과 달리, 값이 있는 **주소**를 참조한다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -509,7 +504,7 @@ function greet(name) {
 console.log(greet("영희")); // 결과: "안녕, 영희!"
 ```
 
-**🔍 보충 설명: 원시 타입 vs 참조 타입 (메모리 비유)**
+**💡 보충 설명: 원시 타입 vs 참조 타입 (메모리 비유)**
 
 <div class="wda-callout wda-ci">
 
@@ -522,10 +517,7 @@ console.log(greet("영희")); // 결과: "안녕, 영희!"
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습: 참조 타입 맛보기</h2>
-  <img src="/images/decoration/말풍선 아이콘 (4).webp" alt="" aria-hidden="true" style="position:absolute;width:56px;top:-36px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+## 💻 실습: 참조 타입 맛보기
 
 모양이 완전히 같아도, 가리키는 **주소(사물함 키)**가 다르면 컴퓨터는 "다르다"고 판단한다.
 
@@ -535,7 +527,7 @@ console.log(greet("영희")); // 결과: "안녕, 영희!"
 [] === [] // 결과: false (다른 사물함 키임)
 ```
 
-**🔍 보충 설명: 왜 false가 나오나요?**
+**💡 보충 설명: 왜 false가 나오나요?**
 
 <div class="wda-callout wda-ci">
   • 참조 타입에서 <code>===</code> 비교는 내부의 내용물이 같은지가 아니라, <strong>"같은 사물함 키(주소)를 가졌는가?"</strong>를 본다.<br>
@@ -556,7 +548,8 @@ list[0]           // 결과: 1 (0번 인덱스로 첫 번째 값 접근)
 
 ## 9. typeof 연산자
 
-값의 타입을 확인하여 문자열(`string`)로 반환해주는 연산자다. 데이터가 어떤 타입인지 불확실할 때 사용하여 안전하게 코드를 작성할 수 있다.
+값의 타입을 확인하여 문자열(`string`)로 반환해주는 연산자다.  
+데이터가 어떤 타입인지 불확실할 때 사용하여 안전하게 코드를 작성할 수 있다.
 
 ```javascript
 // 원시 타입 확인
@@ -573,7 +566,7 @@ typeof []            // "object" (주의: 배열도 객체로 표시됨!)
 typeof function(){}  // "function"
 ```
 
-**🔍 보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <code>typeof</code>는 함수가 아니다! <code>typeof(123)</code>처럼 괄호를 써도 작동은 하지만, 원래는 <code>typeof 123</code>처럼 한 칸 띄우고 쓰는 연산자다. 마치 <code>+</code>, <code>-</code> 같은 기호와 비슷한 지위라고 생각하면 된다.
@@ -606,9 +599,7 @@ typeof arr;           // "object" (구분 불가)
 Array.isArray(arr);   // true (배열임을 정확히 확인 가능)
 ```
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;top:-28px;right:12px;width:56px;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+
 
 ---
 
@@ -635,7 +626,8 @@ Array.isArray([]) // true (배열 판독기)
 
 자바스크립트는 상황에 따라 데이터의 타입을 자동으로 바꾸기도 하고, 개발자가 직접 바꾸기도 한다.
 
-**🤖 암묵적 변환 (Type Coercion)** — 자바스크립트가 편의를 위해 자동으로 타입을 바꾸는 현상이다. 예측하기 어려워 버그의 원인이 되기도 한다.
+**🤖 암묵적 변환 (Type Coercion)** — 자바스크립트가 편의를 위해 자동으로 타입을 바꾸는 현상이다.  
+예측하기 어려워 버그의 원인이 되기도 한다.
 
 ```javascript
 "5" + 3     // 결과: "53" (숫자 3이 문자열로 바뀌어 붙음)
@@ -663,9 +655,7 @@ Boolean(1)         // 결과: true
 Boolean("")        // 결과: false
 ```
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;top:-28px;left:12px;width:56px;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+
 
 ---
 
@@ -698,16 +688,14 @@ let empty = null;
 empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
 ```
 
-**🔍 보충 설명: 언제 .toString()을 쓰나요?**
+**💡 보충 설명: 언제 .toString()을 쓰나요?**
 
 <div class="wda-callout wda-ci">
   • 숫자를 2진수나 16진수로 바꿀 때 유용하다. (예: <code>num.toString(16)</code>)<br>
   • 그 외 일반적인 변환은 무조건 <strong>String()</strong>을 쓰는 것이 안전하다.
 </div>
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;">
-  <img src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="position:absolute;top:-28px;right:12px;width:120px;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
+
 
 ---
 

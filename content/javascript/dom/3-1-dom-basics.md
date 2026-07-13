@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -33,16 +33,31 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
+.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
+.wda-legacy{border-color:rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
+.wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
+@media(max-width:600px){.wda-flow{flex-direction:column}}
+.wda-fnode{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px}
+.wda-fnode-ico{font-size:1.1rem;margin-bottom:4px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{font-size:1.1rem;opacity:.5;flex-shrink:0}
+@media(max-width:600px){.wda-farrow{transform:rotate(90deg)}}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -51,8 +66,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:108px;top:-16px;right:26%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal">
   🌳 <strong>DOM의 개념</strong> — Document Object Model이 무엇인지 이해하게 됩니다.<br>
   🔗 <strong>노드와 트리 구조</strong> — 노드 타입과 부모-자식-형제 관계를 파악합니다.<br>
   📄 <strong>document 객체</strong> — DOM의 진입점인 document 객체를 활용합니다.<br>
@@ -67,17 +81,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 1) HTML vs DOM 비교
 
-| **구분** | **HTML (설계도)** | **DOM (실제 건물)** |
-| --- | --- | --- |
-| **특징** | 단순한 텍스트 파일 | **조작 가능한 객체** |
-| **상태** | 고정된 코드 상태 | 브라우저 메모리에 로드된 상태 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">HTML (설계도)</div>
+    <strong>특징</strong> : 단순한 텍스트 파일<br>
+    <strong>상태</strong> : 고정된 코드 상태
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">DOM (실제 건물)</div>
+    <strong>특징</strong> : <strong>조작 가능한 객체</strong><br>
+    <strong>상태</strong> : 브라우저 메모리에 로드된 상태
+  </div>
+</div>
 
 ### 2) HTML (설계도)
 
 단순히 구조를 정의하는 텍스트 데이터입니다.
-
-<div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/포스트잇 (1).webp" alt="" style="position:absolute;width:52px;bottom:6px;right:6px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(11deg);">
 
 ```jsx
 <!DOCTYPE html>
@@ -88,13 +107,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 </html>
 ```
 
-</div>
-
 ### 3) DOM (실제 건물)
 
 HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">동적 조작과 트리 구조</span>
@@ -106,10 +123,6 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:64px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
 
 ## 2. DOM이란? (2) - 필요성
 
@@ -140,11 +153,7 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. HTML → DOM 변환 과정</h2>
-  <img src="/images/character/집중 탐구.webp" alt="" style="position:absolute;width:130px;right:0;top:-104px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/화살표 아이콘 (2).webp" alt="" style="position:absolute;width:44px;top:-40px;right:19%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+## 3. HTML → DOM 변환 과정
 
 브라우저 엔진이 HTML 파일을 읽어들여 DOM 트리를 만드는 4단계 과정입니다.
 
@@ -181,7 +190,7 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">토큰화와 노드 객체</span>
@@ -194,10 +203,7 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. HTML → DOM 변환 (2) - 토큰화 예시</h2>
-  <img src="/images/decoration/화살표 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
-</div>
+## 4. HTML → DOM 변환 (2) - 토큰화 예시
 
 브라우저는 HTML 코드를 아래와 같이 조각내어 분석합니다.
 
@@ -211,12 +217,36 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
 ### 2) 분해된 토큰 세부 내용
 
-| **구분** | **내용** |
-| --- | --- |
-| **StartTag** | `p` (속성: `class="intro"`) |
-| **Text** | `"안녕"` |
-| **EndTag** | `p` |
-| **결과** | 이 토큰들이 모여 하나의 **Node**가 됩니다. |
+<div class="wda-steps">
+  <div class="wda-step">
+    <div class="wda-snum">1</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">StartTag</div>
+      <div class="wda-sdsc"><code>p</code> (속성: <code>class="intro"</code>)</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">2</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">Text</div>
+      <div class="wda-sdsc">"안녕"</div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">3</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">EndTag</div>
+      <div class="wda-sdsc"><code>p</code></div>
+    </div>
+  </div>
+  <div class="wda-step">
+    <div class="wda-snum">4</div>
+    <div class="wda-sbody">
+      <div class="wda-sttl">결과</div>
+      <div class="wda-sdsc">이 토큰들이 모여 하나의 <strong>Node</strong>가 됩니다.</div>
+    </div>
+  </div>
+</div>
 
 **보충 내용**
 
@@ -230,23 +260,19 @@ HTML을 토대로 브라우저가 생성한 객체 모델입니다.
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/메모지 아이콘 (3).webp" alt="" style="position:absolute;width:54px;left:33%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
-</div>
-
 ## 5. 노드(Node)란? (1) - 종류
 
 DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주로 **요소 노드**를 다루게 됩니다.
 
 ### 1) 노드 종류 요약 표
 
-| **노드 명칭** | **상세 설명 및 특징** |
-| --- | --- |
-| **요소 노드 (Element)** | HTML 태그(div, p, span 등)를 의미하며 가장 자주 다룹니다. |
-| **텍스트 노드 (Text)** | 태그 안의 내용(공백 포함)이며 요소의 자식으로 존재합니다. |
-| **속성 노드 (Attribute)** | id, class 등 요소의 정보이나 현대엔 별도 노드로 취급하지 않습니다. |
-| **주석 노드 (Comment)** | `<!-- -->` 형태의 주석이며 이 또한 DOM에 포함됩니다. |
-| **문서 노드 (Document)** | DOM의 시작점(Root)이 되는 노드입니다. |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">요소 노드 (Element)</div><div class="wda-fcard-dsc">HTML 태그(div, p, span 등)를 의미하며 가장 자주 다룹니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">텍스트 노드 (Text)</div><div class="wda-fcard-dsc">태그 안의 내용(공백 포함)이며 요소의 자식으로 존재합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">속성 노드 (Attribute)</div><div class="wda-fcard-dsc">id, class 등 요소의 정보이나 현대엔 별도 노드로 취급하지 않습니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">주석 노드 (Comment)</div><div class="wda-fcard-dsc"><code>&lt;!-- --&gt;</code> 형태의 주석이며 이 또한 DOM에 포함됩니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">문서 노드 (Document)</div><div class="wda-fcard-dsc">DOM의 시작점(Root)이 되는 노드입니다.</div></div>
+</div>
 
 **핵심 포인트**
 
@@ -257,10 +283,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🗓️ 노드 타입 상수 (참고용)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (6).webp" alt="" style="position:absolute;width:48px;top:-10px;right:6px;transform:rotate(-6deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 🗓️ 노드 타입 상수 (참고용)
 
 전체 12가지 노드 타입이 정의되어 있으나, 실무에서는 굵은 글씨로 표시된 항목들 위주로 사용됩니다.
 
@@ -294,10 +317,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 노드(Node)란? (2) - 예시</h2>
-  <img src="/images/decoration/말풍선 아이콘 (12).webp" alt="" style="position:absolute;width:112px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+## 6. 노드(Node)란? (2) - 예시
 
 하나의 HTML 요소도 여러 개의 노드로 구성됩니다.
 
@@ -318,7 +338,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 | **Text** | `"Hello"` | 태그 내부의 문자열 데이터입니다. |
 | **Comment** | `"인사"` | 코드 내 주석 처리된 부분입니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">노드의 결합</span>
@@ -326,10 +346,6 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (12).webp" alt="" style="position:absolute;width:46px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-7deg);">
-</div>
 
 ## 7. Mini Practice: 노드 구분하기
 
@@ -353,7 +369,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 | **`"Content"`** | **Text Node** (텍스트 노드) | 3 |
 | `<!-- End -->` | **Comment Node** (주석 노드) | 8 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">주석 노드와 공백 텍스트 노드</span>
@@ -365,10 +381,7 @@ DOM을 구성하는 기본 단위를 노드(Node)라고 합니다. 우리는 주
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. DOM 트리 탐색 (1) - 부모와 자식</h2>
-  <img src="/images/decoration/소품 아이콘 (19).webp" alt="" style="position:absolute;width:100px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
-</div>
+## 8. DOM 트리 탐색 (1) - 부모와 자식
 
 DOM은 트리 구조이므로 부모, 자식 관계로 노드를 탐색할 수 있습니다.
 
@@ -388,7 +401,7 @@ DOM은 트리 구조이므로 부모, 자식 관계로 노드를 탐색할 수 �
 | **자식 찾기** | `div.children` | **요소 리스트** 반환 |
 | **자식 찾기** | `div.childNodes` | 텍스트 포함 (**공백 주의**) |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">Element와 Node의 차이</span>
@@ -400,10 +413,7 @@ DOM은 트리 구조이므로 부모, 자식 관계로 노드를 탐색할 수 �
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. DOM 트리 탐색 (2) - 형제와 디테일</h2>
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-8px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 9. DOM 트리 탐색 (2) - 형제와 디테일
 
 특정 순서의 자식이나 형제 요소를 찾을 때 사용합니다. 'Element'가 붙은 프로퍼티를 사용하는 것이 권장됩니다.
 
@@ -427,10 +437,20 @@ DOM은 트리 구조이므로 부모, 자식 관계로 노드를 탐색할 수 �
 
 ### 4) 권장 vs 비권장 명령어 비교
 
-| **구분** | **명령어** | **결과 및 특징** |
-| --- | --- | --- |
-| **⛔ 비권장 (Node 기준)** | `div.firstChild;` | 높은 확률로 줄바꿈(`#text`)이 선택됨 |
-| **✅ 권장 (Element 기준)** | `div.firstElementChild;` | 확실하게 `<p>`와 같은 HTML 태그가 선택됨 |
+<div class="wda-compare">
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-label">⛔ 비권장</div>
+    <div class="wda-compare-ttl">Node 기준</div>
+    <code>div.firstChild;</code><br>
+    높은 확률로 줄바꿈(<code>#text</code>)이 선택됨
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-label">✅ 권장</div>
+    <div class="wda-compare-ttl">Element 기준</div>
+    <code>div.firstElementChild;</code><br>
+    확실하게 <code>&lt;p&gt;</code>와 같은 HTML 태그가 선택됨
+  </div>
+</div>
 
 **보충 내용**
 
@@ -445,10 +465,7 @@ DOM은 트리 구조이므로 부모, 자식 관계로 노드를 탐색할 수 �
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. document 객체 (1) - 개념</h2>
-  <img src="/images/decoration/소품 아이콘 (22).webp" alt="" style="position:absolute;width:104px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 10. document 객체 (1) - 개념
 
 DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상위 객체입니다.
 
@@ -466,7 +483,7 @@ DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상
 | **`document.body`** | **`<body>`** | 문서의 본문 부분을 반환합니다. |
 | **`document.title`** | **문서 제목** | 브라우저 탭에 표시되는 제목 텍스트입니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">document의 유일성과 주의점</span>
@@ -479,18 +496,11 @@ DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. Mini Practice: 트리 탐색 예측</h2>
-  <img src="/images/decoration/화살표 아이콘 (9).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
-</div>
+## 11. Mini Practice: 트리 탐색 예측
 
 제시된 HTML 구조를 바탕으로 자바스크립트 트리 탐색 명령의 결과를 예측해 봅니다.
 
 ### 1) 대상 HTML 구조
-
-<div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/메모지 아이콘 (4).webp" alt="" style="position:absolute;width:52px;bottom:34px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-  <img src="/images/decoration/소품 아이콘 (10).webp" alt="" style="position:absolute;width:56px;bottom:4px;right:6px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 
 ```jsx
 <main>
@@ -502,8 +512,6 @@ DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상
 </main>
 ```
 
-</div>
-
 ### 2) 트리 탐색 퀴즈 결과
 
 | **번호** | **명령어 (Query)** | **선택되는 요소 (Result)** | **상세 설명** |
@@ -512,7 +520,7 @@ DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상
 | **Q2** | **ul.firstElementChild** | **`<li>Item 1</li>`** | `ul` 태그의 자식 요소 중 가장 첫 번째에 위치한 태그를 선택합니다. |
 | **Q3** | **li.parentElement** | **`<ul>`** | `li` 태그를 직접적으로 감싸고 있는 상위 부모 요소를 선택합니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">Element 계열의 장점</span>
@@ -524,10 +532,7 @@ DOM의 진입점(Entry Point)입니다. 문서 전체를 대변하는 가장 상
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 요소 선택의 진화 (Evolution)</h2>
-  <img src="/images/character/오! 그렇구나.webp" alt="" style="position:absolute;width:223px;right:0;top:-8px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 12. 요소 선택의 진화 (Evolution)
 
 JavaScript의 발전처럼, 요소를 선택하는 방식도 더 직관적이고 강력하게 진화했습니다.
 
@@ -561,7 +566,7 @@ querySelectorAll("#css")
 | **최신 표준** | **`querySelector`** | **CSS 선택자** | 조건에 맞는 **첫 번째 요소** 하나만 반환 |
 | **최신 표준** | **`querySelectorAll`** | **CSS 선택자** | 조건에 맞는 **모든 요소**를 NodeList로 반환 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">querySelector가 표준이 된 이유</span>
@@ -572,10 +577,6 @@ querySelectorAll("#css")
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="position:absolute;width:112px;left:66%;top:-220px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(9deg);">
-</div>
 
 ## 13. 주의 : 라이브 컬렉션의 함정
 
@@ -607,7 +608,9 @@ const list = querySelectorAll...
 // ✅ 안전하게 순회 가능
 ```
 
-`querySelectorAll`이 반환하는 `NodeList`는 정적(Static)입니다. 단, 모든 `NodeList`가 정적인 것은 아닙니다. 예를 들어 `childNodes`가 반환하는 `NodeList`는 Live로 동작할 수 있습니다.
+`querySelectorAll`이 반환하는 `NodeList`는 정적(Static)입니다.  
+단, 모든 `NodeList`가 정적인 것은 아닙니다.  
+예를 들어 `childNodes`가 반환하는 `NodeList`는 Live로 동작할 수 있습니다.
 
 ### 3) 컬렉션 특징 요약
 
@@ -616,7 +619,7 @@ const list = querySelectorAll...
 | **구 방식** | **HTMLCollection** | **실시간 (Live)** | ⛔ 비권장 | DOM 변경 시 목록이 즉각 변하여 로직이 꼬임 |
 | **최신 표준** | **NodeList** | **정적 (Static)** | ✅ 권장 | 선택 시점의 데이터를 유지하여 디버깅이 쉬움 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">실무 선택과 예외</span>
@@ -628,12 +631,11 @@ const list = querySelectorAll...
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 실무 권장 가이드 (Best Practice)</h2>
-  <img src="/images/decoration/소품 아이콘 (15).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 14. 실무 권장 가이드 (Best Practice)
 
-대부분의 일반적인 DOM 선택에서는 `querySelector` / `querySelectorAll`을 우선 고려하면 됩니다. 다만 ID 하나만 정확히 찾는 경우에는 `getElementById`도 여전히 명확하고 유용합니다. CSS 선택자의 강력함을 그대로 누릴 수 있습니다.
+대부분의 일반적인 DOM 선택에서는 `querySelector` / `querySelectorAll`을 우선 고려하면 됩니다.  
+다만 ID 하나만 정확히 찾는 경우에는 `getElementById`도 여전히 명확하고 유용합니다.  
+CSS 선택자의 강력함을 그대로 누릴 수 있습니다.
 
 ### 1) 상황별 최적의 메서드 선택 표
 
@@ -649,7 +651,7 @@ const list = querySelectorAll...
 | **하나만 찾을 때** | `querySelector` | **Element** | 조건에 맞는 요소 중 **가장 첫 번째** 것만 가져옵니다. |
 | **여러 개 찾을 때** | `querySelectorAll` | **NodeList** | 조건에 맞는 **모든 요소**를 묶어서 가져옵니다. |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">생산성과 성능</span>
@@ -660,10 +662,6 @@ const list = querySelectorAll...
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/포스트잇 (2).webp" alt="" style="position:absolute;width:100px;right:8px;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-7deg);">
-</div>
 
 ## 15. Mini Practice: 요소 선택하기
 
@@ -684,21 +682,21 @@ const list = querySelectorAll...
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>16. DOM과 JavaScript의 관계</h2>
-  <img src="/images/decoration/소품 아이콘 (21).webp" alt="" style="position:absolute;width:56px;top:-8px;right:38%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
-</div>
+## 16. DOM과 JavaScript의 관계
 
 JavaScript로 DOM을 조작하여 동적인 웹페이지를 만듭니다.
 
 ### 1) 관계 이해하기 - 기술 스택별 역할
 
-| **기술 구분** | **역할 설명** |
-| --- | --- |
-| **HTML** | 문서의 **구조와 내용**을 정의합니다. |
-| **DOM** | HTML을 **객체로 변환**한 결과물입니다. |
-| **JavaScript** | **DOM API**를 사용하여 요소를 조작합니다. |
-| **브라우저** | 조작된 DOM을 화면에 **렌더링**합니다. |
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">HTML</div><div class="wda-fnode-dsc">문서의 구조와 내용을 정의</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">DOM</div><div class="wda-fnode-dsc">HTML을 객체로 변환한 결과물</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">JavaScript</div><div class="wda-fnode-dsc">DOM API로 요소를 조작</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">브라우저</div><div class="wda-fnode-dsc">조작된 DOM을 화면에 렌더링</div></div>
+</div>
 
 ### 2) 핵심 포인트
 
@@ -727,7 +725,7 @@ p.textContent = "새 문단";
 document.body.appendChild(p);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">DOM API와 동적 웹페이지</span>
@@ -739,10 +737,7 @@ document.body.appendChild(p);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>17. 브라우저 렌더링 과정 (1) - 단계</h2>
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:132px;top:-28px;right:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+## 17. 브라우저 렌더링 과정 (1) - 단계
 
 HTML이 화면에 그려지는 과정(Critical Rendering Path)을 이해합니다.
 
@@ -755,7 +750,7 @@ HTML이 화면에 그려지는 과정(Critical Rendering Path)을 이해합니�
 | **3** | **Render Tree** | **DOM + CSSOM 결합** (화면에 표시될 요소만 선별) |
 | **4** | **Layout & Paint** | **위치 계산(Layout) → 픽셀 그리기(Paint)** 순으로 진행 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">렌더 트리와 Layout/Paint</span>
@@ -766,10 +761,6 @@ HTML이 화면에 그려지는 과정(Critical Rendering Path)을 이해합니�
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/화살표 아이콘 (10).webp" alt="" style="position:absolute;width:100px;left:50%;top:-8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
-</div>
 
 ## 18. 브라우저 렌더링 과정 (2) - 시각화
 
@@ -803,10 +794,7 @@ HTML이 화면에 그려지는 과정(Critical Rendering Path)을 이해합니�
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>19. Live vs Static Collection (1) - HTMLCollection</h2>
-  <img src="/images/decoration/포스트잇 (4).webp" alt="" style="position:absolute;width:72px;top:-6px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
-</div>
+## 19. Live vs Static Collection (1) - HTMLCollection
 
 DOM 메서드에 따라 반환되는 컬렉션 타입이 다르며, 동작 방식에 큰 차이가 있습니다.
 
@@ -827,9 +815,6 @@ DOM 메서드에 따라 반환되는 컬렉션 타입이 다르며, 동작 방�
 
 ### 2) 예시 코드 (동작 방식)
 
-<div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/소품 아이콘 (17).webp" alt="" style="position:absolute;width:104px;bottom:6px;right:8px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
-
 ```jsx
 const divs = document.getElementsByTagName("div");
 console.log(divs.length); // 3
@@ -843,14 +828,12 @@ document.body.appendChild(
 console.log(divs.length); // 4
 ```
 
-</div>
-
 ### 3) 주의사항: 순회 시 발생하는 함정
 
 - **문제점** : `for`문으로 컬렉션을 순회하며 요소를 삭제할 때, 목록의 길이가 실시간으로 줄어들면서 특정 요소를 건너뛰는 현상이 발생할 수 있습니다.
 - **해결책** : 가급적 `querySelectorAll`을 사용하여 정적(Static) 리스트를 다루거나, 역방향 반복문을 사용해야 합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">성능과 Static의 차이</span>
@@ -862,16 +845,11 @@ console.log(divs.length); // 4
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>20. Live vs Static Collection (2) - NodeList</h2>
-  <img src="/images/decoration/메모지 아이콘 (6).webp" alt="" style="position:absolute;width:88px;top:-16px;right:8px;transform:rotate(-6deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 20. Live vs Static Collection (2) - NodeList
 
 `querySelectorAll`은 정적(Static) 컬렉션을 반환하여 안전합니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;Static Collection의 특징&gt;</h3>
-</div>
+### &lt;Static Collection의 특징&gt;
 
 ### 1) 스냅샷 유지 원리
 
@@ -903,7 +881,7 @@ console.log(divs.length); // 3 (여전히)
 
 **예측 가능성** : 대부분의 상황에서 데이터가 갑자기 변하지 않는 `querySelectorAll`을 사용하는 것이 로직의 오류를 줄이는 데 훨씬 유리합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">NodeList의 예외</span>
@@ -914,10 +892,6 @@ console.log(divs.length); // 3 (여전히)
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/화살표 아이콘 (11).webp" alt="" style="position:absolute;width:46px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(7deg);">
-</div>
 
 ## 21. Live Collection은 언제 쓸까요?
 
@@ -946,7 +920,7 @@ container.innerHTML += "<div>New</div>";
 console.log(liveList.length); // 4
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">성능과 편의성의 균형</span>
@@ -959,10 +933,7 @@ console.log(liveList.length); // 4
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>22. 정적 컬렉션(Static) 업데이트 하기</h2>
-  <img src="/images/character/감동.webp" alt="" style="position:absolute;width:171px;right:0;top:-102px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 22. 정적 컬렉션(Static) 업데이트 하기
 
 "요소를 추가했는데 왜 `NodeList`에는 없나요?"라는 질문에 대한 명확한 해답을 제시합니다.
 
@@ -1004,10 +975,7 @@ const newItems = document.querySelectorAll(".item");
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📋 DOM 핵심 질문 정리</h2>
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:96px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-6deg);">
-</div>
+## 📋 DOM 핵심 질문 정리
 
 <table class="wda-summary-table">
   <thead>

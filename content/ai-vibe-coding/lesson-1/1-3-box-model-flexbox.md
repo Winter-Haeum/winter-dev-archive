@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -36,8 +36,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-cbox{flex:1 1 180px;border-radius:10px;padding:14px 16px}
 .wda-cbox-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
@@ -60,8 +60,18 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid,.wda-cbox{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 웹 레이아웃의 핵심인 박스모델 개념과 Flexbox의 유동적 특성을 자연어로 이해하고 실제 네비게이션을 제작해봅니다.
@@ -70,8 +80,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;">
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:72px;top:6px;right:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-12deg);">
+<div class="wda-goal">
   📦 <strong>박스모델 개념 이해</strong> — 투명한 박스에 이름, 크기, 색상을 설정하는 원리<br>🔄 <strong>Flexbox 유동성 파악</strong> — 정렬과 크기에 유동적인 flex의 특성<br>👀 <strong>실제 예시 체험</strong> — 반응형 그리드와 크기 변화 데모 확인<br>🧭 <strong>네비게이션 제작</strong> — AI를 활용한 실제 flexbox 네비게이션 구현
 </div>
 
@@ -84,24 +93,20 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 웹에서 모든 요소는 투명한 박스로 시작됩니다. 이 박스에 다양한 속성을 설정하여 우리가 보는 웹 페이지가 만들어집니다.
 
 <div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">박스에 이름 선언</div><div class="wda-sdsc">처음에는 완전히 투명한 박스가 있습니다. 이 박스에 "navigation", "header", "content" 같은 이름을 부여합니다. 마치 빈 상자에 "옷장", "책상" 라벨을 붙이는 것과 같아요!</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">박스 크기 설정</div><div class="wda-sdsc">박스의 너비(width)와 높이(height)를 설정합니다. 예를 들어 "너비 300px, 높이 200px"처럼요. 상자의 크기를 미리 정해두는 것과 같습니다!</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">색상과 테두리 설정</div><div class="wda-sdsc">배경색(background-color)을 파란색으로, 테두리(border)를 2px 검은색으로 설정할 수 있습니다. 투명했던 박스가 이제 눈에 보이기 시작해요!</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">박스 안에 내용 추가</div><div class="wda-sdsc">박스 안에 텍스트를 입력하거나 다른 작은 박스들을 넣을 수 있습니다. 상자 안에 물건을 넣거나 더 작은 상자를 넣는 것과 같아요!</div></div></div>
+<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">박스에 이름 선언</div><div class="wda-sdsc">처음에는 완전히 투명한 박스가 있습니다.<br>이 박스에 "navigation", "header", "content" 같은 이름을 부여합니다.<br>마치 빈 상자에 "옷장", "책상" 라벨을 붙이는 것과 같아요!</div></div></div>
+<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">박스 크기 설정</div><div class="wda-sdsc">박스의 너비(width)와 높이(height)를 설정합니다.<br>예를 들어 "너비 300px, 높이 200px"처럼요.<br>상자의 크기를 미리 정해두는 것과 같습니다!</div></div></div>
+<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">색상과 테두리 설정</div><div class="wda-sdsc">배경색(background-color)을 파란색으로, 테두리(border)를 2px 검은색으로 설정할 수 있습니다.<br>투명했던 박스가 이제 눈에 보이기 시작해요!</div></div></div>
+<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">박스 안에 내용 추가</div><div class="wda-sdsc">박스 안에 텍스트를 입력하거나 다른 작은 박스들을 넣을 수 있습니다.<br>상자 안에 물건을 넣거나 더 작은 상자를 넣는 것과 같아요!</div></div></div>
 </div>
 
 ### 🌐 모든 웹 요소는 박스다
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:-42px;left:212px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(10deg);">
-</div>
-
 웹 페이지의 모든 요소는 **박스**입니다!
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:195px;overflow:visible;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:178px;top:-20px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:46px;bottom:8px;right:12px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(16deg);">
-  <span class="wda-clabel">핵심 개념</span>글자도 박스 안에 들어가요 &nbsp;·&nbsp; 이미지도 박스예요 &nbsp;·&nbsp; 버튼도 박스예요 &nbsp;·&nbsp; 심지어 페이지 전체도 하나의 큰 박스입니다!
+**🔑 핵심 개념**
+
+<div class="wda-callout wda-ci">
+  글자도 박스 안에 들어가요 &nbsp;·&nbsp; 이미지도 박스예요 &nbsp;·&nbsp; 버튼도 박스예요 &nbsp;·&nbsp; 심지어 페이지 전체도 하나의 큰 박스입니다!
 </div>
 
 ---
@@ -110,16 +115,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 박스모델을 이해했다면, 이제 특별한 박스인 **Flexbox**를 알아볼 차례입니다.
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:145px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:130px;top:-18px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
-  <span class="wda-clabel">핵심 키워드</span><strong>"flex하다 = 유동적이다"</strong>
+**🔑 핵심 개념**
+
+<div class="wda-callout wda-cw">
+  <strong>"flex하다 = 유동적이다"</strong>
 </div>
 
 ### ✨ Flex의 두 가지 유동성
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/하트 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-40px;left:185px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-</div>
 
 <div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">🎯</div><div class="wda-fcard-ttl">정렬에 유동적이다</div><div class="wda-fcard-dsc">박스들을 자동으로 가운데 정렬할 수 있어요<br>양 끝으로 밀어서 정렬할 수도 있어요<br>균등하게 간격을 두고 정렬할 수도 있어요</div></div>
@@ -127,10 +129,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 </div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:72px;top:-18px;right:8%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(4deg);">
-</div>
 
 ## ⚙️ 동작 원리
 
@@ -149,17 +147,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 🔍 핵심 개념 정리 — 일반 박스 vs Flex Box
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:124px;top:-74px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-14deg);">
-</div>
+**📌 개념**
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:195px;overflow:visible;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:178px;top:-18px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-8deg);">
-  <span class="wda-clabel">핵심 정의</span>투명한 박스는 <strong>Flex Box</strong>라고 부르며, 그 안의 속성은 <strong>flex</strong>이다.
+<div class="wda-callout wda-ci">
+  투명한 박스는 <strong>Flex Box</strong>라고 부르며, 그 안의 속성은 <strong>flex</strong>이다.
 </div>
 
 <div class="wda-compare">
-<div class="wda-cbox wda-cbox-plain" style="position:relative;overflow:visible;"><img src="/images/decoration/핀 아이콘 (7).webp" alt="" style="position:absolute;width:48px;top:6px;right:6px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);"><span class="wda-cbox-label">일반 박스</span><div class="wda-cbox-ttl">🔒 고정적</div><div class="wda-cbox-body">크기와 위치가 고정적</div></div>
+<div class="wda-cbox wda-cbox-plain"><span class="wda-cbox-label">일반 박스</span><div class="wda-cbox-ttl">🔒 고정적</div><div class="wda-cbox-body">크기와 위치가 고정적</div></div>
 <div class="wda-cbox wda-cbox-flex"><span class="wda-cbox-label">Flex Box</span><div class="wda-cbox-ttl">✨ 유동적</div><div class="wda-cbox-body">크기와 정렬이 유동적<br><code>flex</code> 속성으로 똑똑한 레이아웃 구현 가능</div></div>
 </div>
 
@@ -167,11 +162,8 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 🧭 Flexbox로 네비게이션 만들기
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:44px;top:-44px;left:260px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(9deg);">
-</div>
-
-이제 배운 개념을 활용해서 실제로 네비게이션을 만들어보겠습니다! 큰 네비게이션 박스 안에 두 개의 작은 박스를 넣는 구조입니다.
+이제 배운 개념을 활용해서 실제로 네비게이션을 만들어보겠습니다!  
+큰 네비게이션 박스 안에 두 개의 작은 박스를 넣는 구조입니다.
 
 <div class="wda-steps">
 <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">큰 네비게이션 박스</div><div class="wda-sdsc">전체를 감싸는 메인 컨테이너 &nbsp;·&nbsp; Flexbox 설정: 양 끝 정렬</div></div></div>
@@ -181,12 +173,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 🤖 AI 네비게이션 제작 프롬프트
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-44px;left:270px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
-</div>
-
-<div class="wda-callout wda-cs" style="position:relative;padding-left:164px;padding-bottom:24px;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:116px;top:-48px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-10deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">AI 활용 팁</span>다음 프롬프트를 복사해서 AI에게 요청하면 Flexbox 네비게이션을 만들어줍니다.
 </div>
 
@@ -221,8 +208,7 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 
 다음 내용을 이해했는지 확인해보세요.
 
-<div class="wda-callout wda-cw" style="position:relative;">
-  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:44px;top:-8px;right:10px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-5deg);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">오늘 배운 것</span>박스모델 4단계 · Flexbox 두 가지 유동성 · 반응형 그리드 · 네비게이션 제작
 </div>
 
@@ -234,12 +220,7 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 - [ ] 네비게이션 박스 구조 분석 이해
 - [ ] AI 프롬프트로 실제 네비게이션 제작 성공
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (19).webp" alt="" style="position:absolute;width:110px;top:-12px;left:20px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(3deg);">
-</div>
-
-<div class="wda-done" style="position:relative;padding-right:195px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">박스모델과 Flexbox 학습 완료!</div>
   <div>웹 레이아웃의 핵심 개념을 자연어로 이해하고 실제 네비게이션까지 제작해봤습니다.<br>이제 어떤 복잡한 레이아웃도 박스의 관점에서 분석할 수 있어요!</div>

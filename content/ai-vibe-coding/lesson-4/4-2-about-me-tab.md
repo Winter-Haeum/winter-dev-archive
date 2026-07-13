@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -36,8 +36,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -50,17 +50,25 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 포트폴리오의 About Me 탭을 상세하게 구성하고, 홈 탭과 자동 연동되는 데이터 구조를 만듭니다.
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:196px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (20).webp" alt="" style="position:absolute;width:112px;top:-12px;left:28%;z-index:2;pointer-events:none;opacity:.80;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:182px;bottom:-68px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(6deg);">
+<div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
   🙋 <strong>About Me 탭 설계</strong> — 자기소개, 기술 스택, 경력/학력을 담은 상세 소개 페이지를 구성한다<br>
   🔗 <strong>데이터 구조 설계</strong> — 홈 탭과 About Me 탭이 같은 데이터를 공유하도록 구조를 설계한다<br>
@@ -92,21 +100,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🙋 About Me 탭 기본 구조 만들기</h2>
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:-18px;right:12px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 🙋 About Me 탭 기본 구조 만들기
 
 주된 효과: About Me 탭의 전체 구조를 만들고 홈 탭과 연동할 수 있는 데이터 구조를 설계합니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:122px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/바이브 코딩.webp" alt="" style="position:absolute;width:99px;bottom:-42px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">바이브 코딩 포인트</span>
-  자기소개 정보는 <strong>데이터 객체로 관리</strong>하는 것이 핵심입니다. 하드코딩된 텍스트 대신 JavaScript 객체에 데이터를 모아두면, 홈 탭과 About Me 탭이 <strong>자동으로 같은 정보를 공유</strong>할 수 있습니다.
+  자기소개 정보는 <strong>데이터 객체로 관리</strong>하는 것이 핵심입니다.<br>
+  하드코딩된 텍스트 대신 JavaScript 객체에 데이터를 모아두면, 홈 탭과 About Me 탭이 <strong>자동으로 같은 정보를 공유</strong>할 수 있습니다.
 </div>
 
-<div class="wda-memo" style="position:relative;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:100px;top:-11px;left:36%;z-index:2;pointer-events:none;opacity:.82;">
+<div class="wda-memo">
   <span class="wda-memo-label">🔍 웹 레퍼런스 탐색 키워드</span>
   <div class="wda-memo-body">
     about me page design, portfolio about section, react context api, personal profile layout, developer about page
@@ -161,20 +165,18 @@ const aboutMeData = {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🛠️ 스킬 섹션 구현하기</h2>
-  <img src="/images/decoration/말풍선 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-16px;right:16px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 🛠️ 스킬 섹션 구현하기
 
 주된 효과: 기술 스택을 시각적으로 표현하고 숙련도를 한눈에 파악할 수 있는 스킬 섹션을 만듭니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:196px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:178px;bottom:-110px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">기술 스택 작성 팁</span>
-  기술 스택은 <strong>자신 있는 것만</strong> 포함하세요. 조금 써봤다고 다 나열하면 오히려 역효과입니다. 각 기술에 대해 면접에서 질문받았을 때 답변할 수 있는 수준인지 먼저 확인해보세요.
+  기술 스택은 <strong>자신 있는 것만</strong> 포함하세요.<br>
+  조금 써봤다고 다 나열하면 오히려 역효과입니다.<br>
+  각 기술에 대해 면접에서 질문받았을 때 답변할 수 있는 수준인지 먼저 확인해보세요.
 </div>
 
-<div class="wda-memo" style="position:relative;overflow:visible;">
+<div class="wda-memo">
   <span class="wda-memo-label">🔍 웹 레퍼런스 탐색 키워드</span>
   <div class="wda-memo-body">
     skill progress bar, tech stack visualization, portfolio skills section, react skill component, programming skills ui
@@ -233,11 +235,11 @@ const skillsData = [
 
 주된 효과: About Me 탭의 데이터가 홈 탭에 자동으로 요약되어 표시되는 실시간 연동 시스템을 구축합니다.
 
-<div class="wda-callout wda-cy" style="position:relative;padding-left:158px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/AI 활용.webp" alt="" style="position:absolute;width:138px;bottom:-58px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <img src="/images/decoration/소품 아이콘 (6).webp" alt="" style="position:absolute;width:52px;top:-14px;right:14px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
+<div class="wda-callout wda-cy">
   <span class="wda-clabel">핵심 개념 — Context API</span>
-  Context API를 사용하면 <strong>컴포넌트 트리 어디서든 같은 데이터에 접근</strong>할 수 있습니다. About Me 탭에서 내용을 수정하면 홈 탭에도 즉시 반영됩니다. 데이터를 한 곳에서만 관리하면 됩니다.
+  Context API를 사용하면 <strong>컴포넌트 트리 어디서든 같은 데이터에 접근</strong>할 수 있습니다.<br>
+  About Me 탭에서 내용을 수정하면 홈 탭에도 즉시 반영됩니다.<br>
+  데이터를 한 곳에서만 관리하면 됩니다.
 </div>
 
 <div class="wda-prompt-head">💬 프롬프트</div>
@@ -316,11 +318,10 @@ export const PortfolioProvider = ({ children }) => {
 
 주된 효과: About Me 탭이 올바르게 구현되었는지 확인하고 홈 탭과의 연동이 정상 작동하는지 테스트합니다.
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:192px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/꼭 기억.webp" alt="" style="position:absolute;width:178px;bottom:-64px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
-  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-14px;left:12px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-12deg);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">완성도 기준</span>
-  단순히 화면이 뜨는 것에 만족하지 말고, 실제 <strong>취업·프리랜서 포트폴리오 기준</strong>으로 점검해보세요. 아래 체크리스트를 모두 통과해야 실전에서 사용할 수 있는 수준입니다.
+  단순히 화면이 뜨는 것에 만족하지 말고, 실제 <strong>취업·프리랜서 포트폴리오 기준</strong>으로 점검해보세요.<br>
+  아래 체크리스트를 모두 통과해야 실전에서 사용할 수 있는 수준입니다.
 </div>
 
 **완성도 체크리스트:**
@@ -409,13 +410,11 @@ UI/UX 개선:
 
 ---
 
-<div class="wda-done" style="position:relative;overflow:visible;padding-top:20px;">
-  <img src="/images/character/성공했어요.webp" alt="" style="position:absolute;width:148px;bottom:-60px;left:10px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/스탬프 (2).webp" alt="" style="position:absolute;width:62px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(8deg);">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:44px;top:-12px;left:36%;z-index:2;pointer-events:none;opacity:.76;">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">About Me 탭 완성!</div>
   PortfolioContext 하나로 데이터를 관리하면<br>
   홈 탭과 About Me 탭이 자동으로 연동되는<br>
   <strong>실시간 포트폴리오</strong>가 완성되었습니다. ✨
 </div>
+

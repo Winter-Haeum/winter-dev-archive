@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -23,14 +23,18 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -38,16 +42,16 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
-<div class="wda-callout wda-cy" style="position:relative;overflow:visible;padding-right:150px;">
-  <img class="wda-deco" src="/images/character/코딩 테스트.webp" alt="" style="width:118px;right:0;top:-12px;opacity:.9;transform:rotate(-3deg);">
+<div class="wda-callout wda-cy" style="position:relative;overflow:visible;">
   📎 <strong>부록(Appendix)</strong> — map·filter·reduce·forEach·find·some/every·sort를 실무형 문제 12개로 반복 연습하는 실습 전용 부록입니다.
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 1 : Map (1) - 데이터 변환하기</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (1).webp" alt="" style="width:64px;top:-16px;right:6%;opacity:.8;transform:rotate(8deg);">
 </div>
 
 ### 1) Mission
@@ -99,9 +103,11 @@ console.log(uiModels);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 실습에는 자바스크립트 초보자가 가장 많이 틀리는 **함정**이 숨어있습니다.
+<div class="wda-callout wda-ci">
+  이 실습에는 자바스크립트 초보자가 가장 많이 틀리는 <strong>함정</strong>이 숨어있습니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -126,7 +132,6 @@ console.log(uiModels);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 2 : Map (2) - 데이터 포맷팅</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (6).webp" alt="" style="width:46px;top:-9px;left:34%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) Mission
@@ -175,7 +180,7 @@ console.log(prices);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 실습에서 배운 <strong><code>toLocaleString()</code></strong> 메서드는 실무 꿀팁 중 하나입니다. 숫자를 지역 형식에 맞는 문자열로 바꿔주는 메서드로, 여기서는 천 단위 콤마를 만들기 위해 사용했고 <code>₩</code> 기호는 템플릿 리터럴로 직접 붙였습니다.<br>
@@ -188,7 +193,6 @@ console.log(prices);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 3 : Map (3) - Null 안전 처리</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (9).webp" alt="" style="width:50px;top:-11px;right:32%;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### 1) Mission
@@ -235,13 +239,15 @@ console.log(shippingLabels);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 패턴을 <strong>'단락 평가(Short-circuit evaluation)'</strong> 또는 <strong>'기본값 할당(Default Value)'</strong>이라고 부릅니다.<br>
-  프론트엔드 개발을 하다 보면 서버에서 <code>null</code>이나 <code>undefined</code>가 넘어와서 화면이 하얗게 깨지는(White Screen) 경우가 종종 발생합니다. 이때 <code>||</code> 연산자는 훌륭한 <strong>'안전장치(Safety Guard)'</strong> 역할을 합니다.<br><br>
+  프론트엔드 개발을 하다 보면 서버에서 <code>null</code>이나 <code>undefined</code>가 넘어와서 화면이 하얗게 깨지는(White Screen) 경우가 종종 발생합니다.<br>
+  이때 <code>||</code> 연산자는 훌륭한 <strong>'안전장치(Safety Guard)'</strong> 역할을 합니다.<br><br>
   · <code>A || B</code>: "A가 진짜면 A를 쓰고, A가 가짜(null, undefined, 0, "")면 B를 써라!"<br>
-  · 마치 "현금이 없으면(False), 신용카드를 써라(Fallback)"와 같은 논리입니다. 실무에서 가장 빈번하게 쓰이는 방어 코드이니 꼭 익혀두세요!
+  · 마치 "현금이 없으면(False), 신용카드를 써라(Fallback)"와 같은 논리입니다.<br>
+  실무에서 가장 빈번하게 쓰이는 방어 코드이니 꼭 익혀두세요!
 </div>
 
 주소가 `null` 또는 `undefined`일 때만 기본값을 넣고 싶다면 `??` 연산자를 사용할 수 있습니다.
@@ -258,7 +264,6 @@ label: order.address ?? '주소 없음'
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 4 : Filter (1) - 복잡한 조건</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (13).webp" alt="" style="width:58px;top:-13px;left:36%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) Mission
@@ -307,9 +312,11 @@ console.log(premiumInStock);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-`filter` 메서드 안에서 **논리 연산자**를 잘 다루는 것이 데이터 처리의 핵심입니다.
+<div class="wda-callout wda-ci">
+  <code>filter</code> 메서드 안에서 <strong>논리 연산자</strong>를 잘 다루는 것이 데이터 처리의 핵심입니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -330,7 +337,6 @@ console.log(premiumInStock);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 5 : Filter (2) - 유효 데이터만 남기기</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (8).webp" alt="" style="width:54px;top:-12px;right:8px;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) Mission
@@ -378,9 +384,11 @@ console.log(validFruits);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 코드는 자바스크립트 고수들이 즐겨 쓰는 **'데이터 청소기'** 패턴입니다. 자바스크립트에는 **Falsy Value (거짓으로 취급되는 값)** 라는 개념이 있습니다.
+<div class="wda-callout wda-ci">
+  이 코드는 자바스크립트 고수들이 즐겨 쓰는 <strong>'데이터 청소기'</strong> 패턴입니다. 자바스크립트에는 <strong>Falsy Value (거짓으로 취급되는 값)</strong> 라는 개념이 있습니다.
+</div>
 
 <div class="wda-callout wda-cy">
   · <code>null</code><br>
@@ -394,7 +402,7 @@ console.log(validFruits);
   <code>Boolean</code> 함수는 이 값들을 만나면 가차 없이 <code>false</code>를 반환합니다. 그래서 <code>filter(Boolean)</code> 한 줄이면, 의미 없는 쓰레기 데이터들을 싹 걷어내고 알맹이만 남길 수 있습니다. API 통신 후 데이터를 정리할 때 정말 유용하니 꼭 기억해두세요!
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <code>filter(Boolean)</code>은 <code>null</code>, <code>undefined</code>, <code>""</code>, <code>0</code>, <code>false</code> 같은 Falsy 값을 모두 제거합니다. 따라서 <code>0</code>이나 <code>false</code>도 의미 있는 데이터인 경우에는 사용하면 안 됩니다. 그럴 때는 <code>item != null</code>처럼 조건을 명확히 작성하는 것이 안전합니다.
@@ -408,7 +416,6 @@ const cleaned = rawInput.filter(item => item != null);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 6 : Reduce (1) - 합계 구하기 (쇼핑몰)</h2>
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="width:56px;top:-13px;left:8%;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 ### 1) Mission
@@ -461,19 +468,20 @@ console.log(totalPrice);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 실습에서 가장 중요한 포인트는 <strong>"초기값 <code>0</code>"</strong>입니다.<br><br>
-  만약 <code>0</code>을 넣지 않으면 어떻게 될까요? <code>reduce</code>는 자동으로 <strong>첫 번째 요소(객체)</strong>인 <code>{ name: 'Apple'... }</code>을 초기값(<code>acc</code>)으로 사용해버립니다. 그러면 계산식이 <code>[object Object] + 2000</code> 처럼 되어버려 엉뚱한 문자열 결과가 나옵니다.<br><br>
-  그래서 객체 배열을 다룰 때는 <strong>"내가 지금 숫자를 더하려고 하는 거야!"</strong>라고 명확히 알려주기 위해 반드시 <code>0</code>을 초기값으로 넣어줘야 합니다. 이 규칙만 지키면 장바구니 계산 기능은 마스터하신 겁니다!
+  만약 <code>0</code>을 넣지 않으면 어떻게 될까요? <code>reduce</code>는 자동으로 <strong>첫 번째 요소(객체)</strong>인 <code>{ name: 'Apple'... }</code>을 초기값(<code>acc</code>)으로 사용해버립니다.<br>
+  그러면 계산식이 <code>[object Object] + 2000</code> 처럼 되어버려 엉뚱한 문자열 결과가 나옵니다.<br><br>
+  그래서 객체 배열을 다룰 때는 <strong>"내가 지금 숫자를 더하려고 하는 거야!"</strong>라고 명확히 알려주기 위해 반드시 <code>0</code>을 초기값으로 넣어줘야 합니다.<br>
+  이 규칙만 지키면 장바구니 계산 기능은 마스터하신 겁니다!
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 7 : Reduce (2) - 그룹핑 (Grouping)</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (4).webp" alt="" style="width:48px;top:-10px;right:34%;opacity:.76;transform:rotate(8deg);">
 </div>
 
 ### 1) Mission
@@ -534,9 +542,11 @@ console.log(grouped);
 */
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 패턴은 **`reduce`의 꽃**이라고 불릴 만큼 중요하고 강력한 기술입니다. 마치 **"우편물 분류 작업"**과 같습니다.
+<div class="wda-callout wda-ci">
+  이 패턴은 <strong><code>reduce</code>의 꽃</strong>이라고 불릴 만큼 중요하고 강력한 기술입니다. 마치 <strong>"우편물 분류 작업"</strong>과 같습니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -561,7 +571,6 @@ console.log(grouped);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 8 : Reduce (3) - Lookup Table 만들기</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (1).webp" alt="" style="width:42px;top:-8px;left:32%;opacity:.74;transform:rotate(-9deg);">
 </div>
 
 ### 1) Mission
@@ -615,22 +624,29 @@ const userMap = users.reduce((acc, cur) => {
 
 이렇게 만들어두면 나중에 `userMap[102]`라고만 입력해도 Sarah의 정보를 즉시 가져올 수 있습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
-이 패턴은 실무에서 **데이터 조회 성능을 최적화**할 때 정말 자주 쓰이는 **'룩업 테이블(Lookup Table)'** 기법입니다.
+<div class="wda-callout wda-ci">
+  이 패턴은 실무에서 <strong>데이터 조회 성능을 최적화</strong>할 때 정말 자주 쓰이는 <strong>'룩업 테이블(Lookup Table)'</strong> 기법입니다.
+</div>
 
 **왜 쓰나요?**
 
-| **구분** | **동작 방식** |
-| --- | --- |
-| **배열 (`find`)** | "ID가 103인 사람 나와!"라고 하면 앞에서부터 하나씩 다 뒤져야 합니다. (데이터가 많아지면 느려짐, O(N)) |
-| **객체 (`key`)** | "103번 나와!" 하면 한 번에 딱 집어냅니다. 객체의 key 접근은 일반적으로 매우 빠르며, 평균적으로 O(1)에 가깝게 다룰 수 있습니다. 초보자 단계에서는 배열을 매번 find로 찾는 것보다 빠른 조회용 구조라고 이해하면 됩니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">배열 (<code>find</code>)</div>
+    "ID가 103인 사람 나와!"라고 하면 앞에서부터 하나씩 다 뒤져야 합니다. (데이터가 많아지면 느려짐, O(N))
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">객체 (<code>key</code>)</div>
+    "103번 나와!" 하면 한 번에 딱 집어냅니다. 객체의 key 접근은 일반적으로 매우 빠르며, 평균적으로 O(1)에 가깝게 다룰 수 있습니다. 초보자 단계에서는 배열을 매번 find로 찾는 것보다 빠른 조회용 구조라고 이해하면 됩니다.
+  </div>
+</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 9 : forEach - 단순 반복 (Logging)</h2>
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (2).webp" alt="" style="width:108px;top:-8px;right:12%;opacity:.8;transform:rotate(-5deg);">
 </div>
 
 ### 1) Mission
@@ -674,9 +690,11 @@ members.forEach(member => {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 실습의 핵심은 **"반환값(Return)이 필요 없는 경우"**를 구분하는 것입니다.
+<div class="wda-callout wda-ci">
+  이 실습의 핵심은 <strong>"반환값(Return)이 필요 없는 경우"</strong>를 구분하는 것입니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -690,14 +708,15 @@ members.forEach(member => {
 </div>
 
 <div class="wda-callout wda-ci">
-  이미지 속에 있는 <strong>Side Effect(부수 효과)</strong>라는 용어는 어렵게 생각하지 마세요. 데이터를 변환해서 새로운 값을 만드는 게 아니라, "화면에 출력하거나(log), 이메일을 보내거나, DB에 저장하는 등 외부 세상에 영향을 주는 행위"를 뜻합니다. 단순 반복 작업에는 <code>map</code>보다 <code>forEach</code>가 의미상 더 적합합니다.
+  이미지 속에 있는 <strong>Side Effect(부수 효과)</strong>라는 용어는 어렵게 생각하지 마세요.<br>
+  데이터를 변환해서 새로운 값을 만드는 게 아니라, "화면에 출력하거나(log), 이메일을 보내거나, DB에 저장하는 등 외부 세상에 영향을 주는 행위"를 뜻합니다.<br>
+  단순 반복 작업에는 <code>map</code>보다 <code>forEach</code>가 의미상 더 적합합니다.
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 10 : Find - 특정 데이터 찾기</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="width:52px;top:-11px;left:38%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) Mission
@@ -745,9 +764,11 @@ const target = userList.find(user => user.id === 3);
 console.log(target);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-`find`는 배열에서 **"가장 먼저 발견된 딱 하나"**만 반환하고 즉시 종료합니다.
+<div class="wda-callout wda-ci">
+  <code>find</code>는 배열에서 <strong>"가장 먼저 발견된 딱 하나"</strong>만 반환하고 즉시 종료합니다.
+</div>
 
 **`filter` vs `find` 차이점 (면접 단골 질문)**
 
@@ -760,16 +781,18 @@ console.log(target);
 
 <div class="wda-callout wda-ci">
   면접이나 실무에서 이 둘을 구분하는 핵심은 <strong>"껍데기(배열)가 있느냐 없느냐"</strong>입니다.<br><br>
-  · <strong>filter</strong> — 결과가 1개라도 무조건 <strong>배열(<code>[{...}]</code>)</strong>로 감싸져서 나옵니다. 그래서 값을 쓰려면 <code>result[0]</code>처럼 껍질을 까야 합니다.<br>
-  · <strong>find</strong> — 껍데기 없이 <strong>알맹이(<code>{...}</code>)</strong>가 바로 나옵니다. 유일한 값(ID 등)을 찾을 때 훨씬 코드가 깔끔해집니다.<br><br>
-  단, <code>find</code>는 실패 시 <code>undefined</code>를 반환하므로, 그 값을 바로 사용하려고 하면(예: <code>found.name</code>) 에러가 터질 수 있습니다. 항상 <code>if (found)</code>로 확인하는 습관이 필요합니다!
+  · <strong>filter</strong> — 결과가 1개라도 무조건 <strong>배열(<code>[{...}]</code>)</strong>로 감싸져서 나옵니다.<br>
+  그래서 값을 쓰려면 <code>result[0]</code>처럼 껍질을 까야 합니다.<br>
+  · <strong>find</strong> — 껍데기 없이 <strong>알맹이(<code>{...}</code>)</strong>가 바로 나옵니다.<br>
+  유일한 값(ID 등)을 찾을 때 훨씬 코드가 깔끔해집니다.<br><br>
+  단, <code>find</code>는 실패 시 <code>undefined</code>를 반환하므로, 그 값을 바로 사용하려고 하면(예: <code>found.name</code>) 에러가 터질 수 있습니다.<br>
+  항상 <code>if (found)</code>로 확인하는 습관이 필요합니다!
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 11 : Some / Every - 검증하기</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (8).webp" alt="" style="width:60px;top:-14px;right:8px;opacity:.78;transform:rotate(-8deg);">
 </div>
 
 ### 1) Mission
@@ -820,9 +843,11 @@ console.log('hasAdmin:', hasAdmin);
 console.log('allActive:', allActive);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 두 메서드는 데이터를 변형하는 게 아니라, **"질문에 대한 답(Yes/No)"**을 얻을 때 사용합니다.
+<div class="wda-callout wda-ci">
+  이 두 메서드는 데이터를 변형하는 게 아니라, <strong>"질문에 대한 답(Yes/No)"</strong>을 얻을 때 사용합니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -843,7 +868,6 @@ console.log('allActive:', allActive);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 12 : Sort - 정렬하기</h2>
-  <img class="wda-deco" src="/images/character/합격.webp" alt="" style="width:114px;right:0;top:-98px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 ### 1) Mission
@@ -880,9 +904,11 @@ scores.sort((a, b) => b - a);
 console.log(scores);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-`sort`는 초보자들이 가장 많이 실수하는 메서드 중 하나입니다. 두 가지 이유가 있습니다.
+<div class="wda-callout wda-ci">
+  <code>sort</code>는 초보자들이 가장 많이 실수하는 메서드 중 하나입니다. 두 가지 이유가 있습니다.
+</div>
 
 <div class="wda-fgrid">
   <div class="wda-fcard">

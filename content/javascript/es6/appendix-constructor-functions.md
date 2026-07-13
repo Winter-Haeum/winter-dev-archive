@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -23,23 +23,28 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
+.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -50,10 +55,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 }
 </style>
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 생성자 함수란? (The Factory)</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (4).webp" alt="" style="width:70px;top:-18px;right:6%;opacity:.78;transform:rotate(9deg);">
-</div>
+## 1. 생성자 함수란? (The Factory)
 
 ### 1) 왜 필요한가요?
 
@@ -87,7 +89,7 @@ const u2 = new User('Lee', 22);  // 붕어빵 2호
 const u3 = new User('Park', 25); // 붕어빵 3호
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -99,10 +101,7 @@ const u3 = new User('Park', 25); // 붕어빵 3호
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. new 연산자의 4단계 마법</h2>
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="width:52px;top:-11px;left:8%;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 2. new 연산자의 4단계 마법
 
 ### 1) 동작 과정
 
@@ -139,7 +138,7 @@ const u3 = new User('Park', 25); // 붕어빵 3호
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -154,10 +153,7 @@ const u3 = new User('Park', 25); // 붕어빵 3호
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 일반 호출 vs 생성자 호출</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (5).webp" alt="" style="width:60px;top:-13px;right:34%;opacity:.76;transform:rotate(10deg);">
-</div>
+## 3. 일반 호출 vs 생성자 호출
 
 ### 1) 차이점 요약
 
@@ -204,24 +200,33 @@ const u = new User('Kim', 20);
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 이 차이는 **"주문"**과 **"혼잣말"**의 차이입니다.
 
-| **구분** | **🍕 new 사용 (생성자 호출)** | **🗣️ 일반 호출 (그냥 실행)** |
-| --- | --- | --- |
-| **상황 비유** | 피자 가게에 가서 <strong>"피자 만들어 주세요(new)"</strong>라고 주문함 | 허공에 대고 <strong>"치즈... 토마토..."</strong>라고 재료 이름만 외침 |
-| **결과물** | 따끈한 **피자 (객체)**가 나옴 | 피자는 안 나옴, 목만 아픔 (**undefined**) |
-| **영향** | 나만의 피자를 받음 (안전한 객체 생성) | 엄한 사람(**전역 객체 Window**)에게 피해를 줌 (재료를 쏟아부음) |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-label">구분</div>
+    <div class="wda-compare-ttl">🍕 new 사용 (생성자 호출)</div>
+    <strong>상황 비유</strong>: 피자 가게에 가서 <strong>"피자 만들어 주세요(new)"</strong>라고 주문함<br>
+    <strong>결과물</strong>: 따끈한 <strong>피자 (객체)</strong>가 나옴<br>
+    <strong>영향</strong>: 나만의 피자를 받음 (안전한 객체 생성)
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-label">구분</div>
+    <div class="wda-compare-ttl">🗣️ 일반 호출 (그냥 실행)</div>
+    <strong>상황 비유</strong>: 허공에 대고 <strong>"치즈... 토마토..."</strong>라고 재료 이름만 외침<br>
+    <strong>결과물</strong>: 피자는 안 나옴, 목만 아픔 (<strong>undefined</strong>)<br>
+    <strong>영향</strong>: 엄한 사람(<strong>전역 객체 Window</strong>)에게 피해를 줌 (재료를 쏟아부음)
+  </div>
+</div>
 
-실수로 `new`를 빼먹으면, 일반 script의 non-strict 모드에서는 `this.name`이 전역 변수 `name`을 덮어써 버리는 심각한 버그가 생기고, strict mode나 module 환경에서는 `this`가 `undefined`라서 즉시 TypeError가 발생하니 꼭 주의해야 합니다!
+실수로 `new`를 빼먹으면, 일반 script의 non-strict 모드에서는 `this.name`이 전역 변수 `name`을 덮어써 버리는 심각한 버그가 생깁니다.  
+strict mode나 module 환경에서는 `this`가 `undefined`라서 즉시 TypeError가 발생하니 꼭 주의해야 합니다!
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 함정: return을 쓴다면?</h2>
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="width:58px;top:-14px;left:36%;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 4. 함정: return을 쓴다면?
 
 ### 1) 기본 원칙
 
@@ -272,14 +277,24 @@ console.log(bot);
 
 생성자 함수 내부에서는 보통 return을 쓰지 않습니다. 자바스크립트가 알아서 this를 리턴해주니까요!
 
-**보충 설명 — 공장장과 고객의 대화**
+**💡 보충 설명 — 공장장과 고객의 대화**
 
 `return` 뒤에 무엇이 오느냐에 따라 고객(`new`)의 반응이 완전히 달라집니다.
 
-| **반환 타입** | **상황 비유 (👨‍🔧 공장장 vs 👤 고객)** | **실제 결과** |
-| --- | --- | --- |
-| **원시값 반환**(`return 100`) | 👨‍🔧: "자, 여기 **숫자 100** 가져가!" (이상한 물건)<br>👤: "뭐야 이거? 그냥 **원래 주문한 거(<code>this</code>)** 가져갈게요." (**무시**) | **원시값 무시됨**<br>원래 만들려던 <code>this</code> 객체가 정상 반환됨 |
-| **객체 반환**(`return {}`) | 👨‍🔧: "자, 원래 거 말고 **이게 더 좋은 겁니다(새 객체)**."<br>👤: "어? 그런가요? 그럼 **그걸로 주세요.**" (**수령**) | **객체로 바꿔치기 됨**<br>열심히 만든 <code>this</code>는 버려지고, 새 객체가 반환됨 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-label">반환 타입</div>
+    <div class="wda-compare-ttl">원시값 반환 (<code>return 100</code>)</div>
+    <strong>상황 비유 (👨‍🔧 공장장 vs 👤 고객)</strong>: 👨‍🔧 "자, 여기 <strong>숫자 100</strong> 가져가!" (이상한 물건)<br>👤 "뭐야 이거? 그냥 <strong>원래 주문한 거(<code>this</code>)</strong> 가져갈게요." (<strong>무시</strong>)<br>
+    <strong>실제 결과</strong>: <strong>원시값 무시됨</strong> — 원래 만들려던 <code>this</code> 객체가 정상 반환됨
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-label">반환 타입</div>
+    <div class="wda-compare-ttl">객체 반환 (<code>return {}</code>)</div>
+    <strong>상황 비유 (👨‍🔧 공장장 vs 👤 고객)</strong>: 👨‍🔧 "자, 원래 거 말고 <strong>이게 더 좋은 겁니다(새 객체)</strong>."<br>👤 "어? 그런가요? 그럼 <strong>그걸로 주세요.</strong>" (<strong>수령</strong>)<br>
+    <strong>실제 결과</strong>: <strong>객체로 바꿔치기 됨</strong> — 열심히 만든 <code>this</code>는 버려지고, 새 객체가 반환됨
+  </div>
+</div>
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -292,10 +307,6 @@ console.log(bot);
 ---
 
 ## 🌈 실전 예제 1: 쇼핑몰 장바구니
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (5).webp" alt="" style="width:56px;right:6%;top:-2px;opacity:.76;transform:rotate(8deg);">
-</div>
 
 ### 1) 미션
 
@@ -342,13 +353,13 @@ console.log(banana);
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>이 예제에서 가장 눈여겨볼 점은 <strong><code>this.sale = false</code></strong>입니다.</li>
     <li><code>apple</code>과 <code>banana</code>를 만들 때 <code>sale</code> 값을 따로 넣어주지 않았지만, 생성자 함수가 알아서 <strong>"모든 상품의 기본 할인 상태는 안 함(false)"</strong>으로 설정해 주었습니다.</li>
-    <li>만약 객체 리터럴(<code>{...}</code>)로 일일이 만들었다면, 실수로 <code>apple</code>에는 <code>sale</code> 속성을 빼먹거나, <code>banana</code>에는 <code>isSale</code>이라고 이름을 다르게 짓는 실수가 발생할 수 있습니다.</li>
+    <li>만약 객체 리터럴(<code>{...}</code>)로 일일이 만들었다면,<br>실수로 <code>apple</code>에는 <code>sale</code> 속성을 빼먹거나, <code>banana</code>에는 <code>isSale</code>이라고 이름을 다르게 짓는 실수가 발생할 수 있습니다.</li>
     <li>생성자 함수는 이런 실수를 막아주고 <strong>데이터의 규격(Standard)</strong>을 확실하게 잡아줍니다.</li>
   </ul>
 </div>
@@ -356,10 +367,6 @@ console.log(banana);
 ---
 
 ## 🌈 실전 예제 2: 게임 캐릭터
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (5).webp" alt="" style="width:60px;left:42%;top:-4px;opacity:.74;transform:rotate(-9deg);">
-</div>
 
 ### 1) 테스트 목표
 
@@ -401,7 +408,7 @@ const mage = Character('마법사', 50);
 // strict mode나 module 환경에서는 this가 undefined라 TypeError가 발생합니다.
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -414,14 +421,7 @@ const mage = Character('마법사', 50);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리</h2>
-  <img class="wda-deco" src="/images/character/체크 완료.webp" alt="" style="width:120px;right:0;top:-96px;opacity:.88;">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="width:56px;left:4%;top:-8px;opacity:.76;transform:rotate(9deg);">
-</div>
+## 🔑 핵심 정리
 
 <table class="wda-summary-table">
   <tr>

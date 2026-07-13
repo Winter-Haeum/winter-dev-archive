@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -36,8 +36,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -50,15 +50,23 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:195px;padding-left:20px;padding-top:20px;padding-bottom:16px;overflow:visible;">
-  <img src="/images/character/행운버프.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:82px;bottom:-8px;right:12px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(10deg);">
+<div class="wda-goal">
   🎨 <strong>UI/UX 설계</strong> — 포트폴리오 Projects 탭의 레이아웃과 인터랙션을 직접 기획할 수 있다<br>
   🗄️ <strong>DB 설계</strong> — projects 테이블 구조를 발견하고 컬럼 설계 근거를 설명할 수 있다<br>
   🖼️ <strong>자동 썸네일</strong> — image.thum.io API를 활용하여 URL만으로 사이트 스크린샷을 자동 생성한다<br>
@@ -81,14 +89,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 ## 1단계 — UI/UX 디자인 논의
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:62px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
 
 먼저 "어떤 화면을 만들 것인가"를 강사와 함께 고민합니다.
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;overflow:visible;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(10deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">핵심 질문</span>
   👀 <strong>포트폴리오 방문자에게 무엇을 보여주고 싶나요?</strong><br>
   내 프로젝트를 한눈에 보여주는 것이 목적 → 시각적 임팩트가 중요합니다.<br><br>
@@ -115,8 +119,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **포트폴리오 용도** | ✅ 시각적 포트폴리오에 최적 | 기술 상세 설명 위주에 적합 |
 | **대표 사례** | Dribbble · GitHub 저장소 · Behance | LinkedIn · 이력서 스타일 |
 
-<div class="wda-callout wda-cs" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (3).webp" alt="" style="position:absolute;width:112px;top:-12px;right:18px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">결론</span>
   포트폴리오 사이트의 목적은 <strong>"첫눈에 강한 인상"</strong>을 주는 것입니다. 카드 그리드 레이아웃이 썸네일을 크게 보여줄 수 있어 포트폴리오에 훨씬 적합합니다.
 </div>
@@ -124,9 +127,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 ## 3단계 — 썸네일 카드 시스템 설계
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;width:96px;top:-64px;right:22px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
-</div>
 
 각 프로젝트 카드에 어떤 정보를 어떻게 담을지 설계합니다.
 
@@ -142,8 +142,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 프로젝트 카드에 생동감을 더하는 인터랙션을 설계합니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:150px;padding-top:18px;">
-  <img src="/images/character/집중탐구.webp" alt="" style="position:absolute;width:130px;top:-18px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">호버 · 포커스 효과</span>
   🖱️ <strong>카드 위에 마우스를 올렸을 때</strong><br>
   카드 전체가 살짝 위로 올라오는 효과 (translateY(-4px))<br>
@@ -151,7 +150,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   썸네일 이미지가 약간 확대되어 관심을 유도 (scale 1.03)
 </div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-top:14px;">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">로딩 · 전환 효과</span>
   ⏳ <strong>이미지 로딩 중</strong> — 스켈레톤 UI로 레이아웃 자리 유지 · 깜빡임 없이 부드럽게 전환<br>
   🌟 <strong>페이지 진입 시</strong> — 카드들이 순서대로 fade-in · 첫 방문자에게 동적인 인상<br>
@@ -164,9 +163,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 설계한 내용을 기획서 형태로 정리합니다. 이 기획서는 9단계 구현 프롬프트에 직접 활용됩니다.
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:148px;padding-top:18px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (16).webp" alt="" style="position:absolute;width:120px;top:-12px;right:20px;z-index:1;pointer-events:none;opacity:.88;transform:rotate(6deg);">
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:62px;top:12px;left:22px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-6deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">작성 팁</span>
   🎯 <strong>AI가 이해할 수 있는 구체적인 설명</strong>으로 작성하세요. "예쁘게 해줘"보다 "카드 그리드 3열, 호버 시 위로 4px 이동"처럼 명확하게!
 </div>
@@ -207,8 +204,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 6단계 — 프로젝트 관리 DB 설계 필요성
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:48px;top:-10px;right:16px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">현재 문제 상황</span>
   ⚠️ <strong>하드코딩의 한계</strong> — 프로젝트 정보가 코드 파일 안에 직접 작성되어 있으면, 새 프로젝트를 추가할 때마다 코드를 열고 수정한 뒤 재배포해야 합니다.<br><br>
   ✅ <strong>DB로 해결</strong> — Supabase의 projects 테이블에 저장하면, 배포 없이 대시보드에서 바로 추가·수정·삭제 가능!
@@ -217,9 +213,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 ## 7단계 — projects 테이블 구조 논의
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
-</div>
 
 SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사와 함께 찾아봅니다.
 
@@ -232,8 +225,7 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 <div class="wda-step"><div class="wda-snum">Q6</div><div class="wda-sbody"><div class="wda-sttl">프로젝트에 대한 설명도 있으면 좋겠죠?</div><div class="wda-sdsc">→ description 컬럼 필요</div></div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:220px;padding-top:18px;overflow:visible;">
-  <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">발견! — projects 테이블 구조</span>
   <strong>id</strong> — 프로젝트 고유 번호 (자동 생성)<br>
   <strong>title</strong> — 프로젝트 이름<br>
@@ -278,8 +270,7 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 
 별도의 스크린샷 작업 없이 URL 하나로 사이트 썸네일을 자동 생성하는 서비스입니다.
 
-<div class="wda-memo" style="position:relative;padding-top:20px;overflow:visible;">
-  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:96px;top:-46px;right:12px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">🖼️ image.thum.io 사용법</span>
   <div class="wda-memo-body">
     <strong>URL 패턴:</strong><br>
@@ -299,13 +290,8 @@ SNS 분석과 같은 방식으로, "어떤 정보를 저장해야 할지" 강사
 ---
 
 ## 9단계 — Supabase MCP + GitHub Pages 통합 구현 프롬프트
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:38px;top:-54px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:224px;padding-top:18px;overflow:visible;">
-  <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:180px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;width:46px;bottom:-6px;left:14px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">사전 준비사항</span>
   📋 <strong>3-3에서 완성한 미니 SNS</strong> (mini_sns) 배포 URL 확인<br>
   📋 <strong>이번 단계에서 작성한 기획서 + DB 구조서</strong> 준비<br>
@@ -372,8 +358,7 @@ Projects 기능:
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 배포가 완료되었나요?</div><div class="wda-sdsc">GitHub → Actions 탭에서 초록색 체크 확인 · 배포 URL 접속 테스트</div></div></div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-10px;right:18px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">자주 발생하는 문제 해결</span>
   🖼️ <strong>썸네일이 안 보일 때</strong> — 배포 URL이 정확한지 확인 · image.thum.io 서비스 상태 확인 · HTTPS인지 확인<br>
   🔌 <strong>Supabase 연결 오류</strong> — 환경변수(VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY) 설정 확인 · RLS 정책이 읽기 허용인지 확인<br>
@@ -383,9 +368,6 @@ Projects 기능:
 ---
 
 ## 🌟 선택적 고급 기능 아이디어
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:48px;top:-52px;right:24px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
-</div>
 
 기본 구현이 완료된 후 도전해볼 수 있는 추가 기능들입니다.
 
@@ -395,9 +377,7 @@ Projects 기능:
 <div class="wda-fcard"><div class="wda-fcard-ico">❤️</div><div class="wda-fcard-ttl">소셜 기능</div><div class="wda-fcard-dsc">방문자 좋아요 · 방명록 · 프로젝트별 댓글 · 공유 기능 (SNS 링크 공유)</div></div>
 </div>
 
-<div class="wda-done" style="position:relative;padding-right:224px;padding-top:24px;padding-bottom:20px;overflow:visible;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:180px;top:-28px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(14deg);">
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:12px;left:14px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🏆</div>
   <div class="wda-done-ttl">Lesson 3 마스터!</div>
   <div>웹/앱 차이 이해 → 모바일 UI 기획 → SNS DB 분석 → 미니 SNS 구현 → Projects 탭 완성까지! AI와 협력하여 실제 동작하는 서비스를 설계하고 배포하는 전체 개발 프로세스를 완전히 경험했습니다. 이제 여러분의 포트폴리오가 살아있는 작업물로 가득 찼습니다!</div>

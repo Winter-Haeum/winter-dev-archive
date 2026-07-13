@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -35,8 +35,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -49,14 +49,23 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:196px;overflow:visible;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:182px;bottom:-70px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+<div class="wda-goal">
   🔍 <strong>레퍼런스 분석</strong> — 업계 우수 포트폴리오 사례를 구조적으로 분석하고 핵심 패턴을 파악한다<br>
   🎨 <strong>트렌드 이해</strong> — 2025년 최신 디자인 트렌드와 UX 패턴을 파악한다<br>
   💡 <strong>아이디어 구체화</strong> — 레퍼런스 분석을 바탕으로 자신만의 포트폴리오 방향을 기획한다<br>
@@ -65,10 +74,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔍 왜 레퍼런스 탐색이 중요한가요?</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:56px;top:-22px;left:300px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(12deg);">
-</div>
+## 🔍 왜 레퍼런스 탐색이 중요한가요?
 
 훌륭한 포트폴리오는 하루아침에 만들어지지 않습니다. 업계 전문가들의 사례를 분석하고 트렌드를 파악하는 것이 성공적인 포트폴리오의 첫걸음입니다.
 
@@ -79,9 +85,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">⚡</div><div class="wda-fcard-ttl">기술적 영감</div><div class="wda-fcard-dsc">구현 가능한 수준에서의 창의적 아이디어 발견</div></div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-top:14px;overflow:visible;">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">분석의 핵심</span>
-  단순히 "예쁘다"가 아닌 <strong>"왜 효과적인가?"</strong>를 생각해보세요. 사용자 경험, 브랜딩, 기술적 구현까지 종합적으로 분석하는 것이 중요합니다.
+  단순히 "예쁘다"가 아닌 <strong>"왜 효과적인가?"</strong>를 생각해보세요.<br>
+  사용자 경험, 브랜딩, 기술적 구현까지 종합적으로 분석하는 것이 중요합니다.
 </div>
 
 ---
@@ -90,10 +97,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 각 분야별 우수 사례들을 엄선했습니다. 각 사이트의 특징과 강점을 분석해보세요.
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>웹디자이너 포트폴리오</h3>
-  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:48px;top:0;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
+### 웹디자이너 포트폴리오
 
 | 이름 | 사이트 |
 |------|--------|
@@ -119,10 +123,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | One Page Love | https://onepagelove.com/gallery/portfolio |
 | Behance 포트폴리오 | https://www.behance.net/search/projects?field=web%20design |
 
-<div class="wda-memo" style="position:relative;padding-top:14px;">
+<div class="wda-memo">
   <span class="wda-memo-label">💡 더 많은 레퍼런스 탐색</span>
   <div class="wda-memo-body">
-    위 사이트들 외에도 웹에서 <strong>"web designer portfolio"</strong>, <strong>"frontend developer portfolio"</strong>, <strong>"web publisher portfolio"</strong> 등의 키워드로 검색해서 다양한 포트폴리오를 구경해보세요. Pinterest, Dribbble, Awwwards 등에서도 훌륭한 사례들을 찾을 수 있습니다! 한국어로 <strong>"웹디자이너 포트폴리오"</strong>, <strong>"프론트엔드 개발자 포트폴리오"</strong>, <strong>"웹퍼블리셔 포트폴리오"</strong>를 검색해서 한국인들의 사이트도 탐색해봅시다!
+    위 사이트들 외에도 웹에서 <strong>"web designer portfolio"</strong>, <strong>"frontend developer portfolio"</strong>, <strong>"web publisher portfolio"</strong> 등의 키워드로 검색해서 다양한 포트폴리오를 구경해보세요.<br>
+    Pinterest, Dribbble, Awwwards 등에서도 훌륭한 사례들을 찾을 수 있습니다!<br>
+    한국어로 <strong>"웹디자이너 포트폴리오"</strong>, <strong>"프론트엔드 개발자 포트폴리오"</strong>, <strong>"웹퍼블리셔 포트폴리오"</strong>를 검색해서 한국인들의 사이트도 탐색해봅시다!
   </div>
 </div>
 
@@ -130,9 +136,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🔬 체계적 분석 방법론
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:192px;padding-top:18px;overflow:visible;">
-  <img src="/images/character/집중탐구.webp" alt="" style="position:absolute;width:178px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-10deg);">
-  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:108px;top:-10px;left:32%;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-6deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">레퍼런스 분석 방법</span>
   레퍼런스 사이트를 보며 감상만 하지 말고, 체계적으로 분석해보세요. 다음 Claude 프롬프트를 사용하여 구체적인 인사이트를 얻을 수 있습니다.
 </div>
@@ -181,9 +185,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 💡 아이디어 도출 워크시트
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:100px;padding-right:70px;padding-top:18px;overflow:visible;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:69px;top:8px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-10deg);">
-  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-10px;right:16px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">아이디어 구체화</span>
   레퍼런스 분석을 바탕으로 자신만의 포트폴리오 아이디어를 구체화해보세요. 다음 프롬프트로 체계적으로 계획을 세울 수 있습니다.
 </div>
@@ -248,10 +250,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">현실적인 아이디어 도출하기</div><div class="wda-sdsc">자신의 목표와 역량에 맞는 현실적인 아이디어를 도출합니다. 너무 거창하거나 구현 불가능한 계획은 피합니다</div></div></div>
 </div>
 
-<div class="wda-done" style="position:relative;padding-left:148px;padding-top:24px;padding-bottom:20px;overflow:visible;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:132px;top:-14px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-12deg);">
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:82px;top:-18px;right:14px;z-index:2;pointer-events:none;opacity:.68;transform:rotate(14deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">4-1 완료!</div>
-  <div>레퍼런스 탐색과 아이디어 구체화가 완료되었습니다. 업계 우수 사례를 분석하고 자신만의 포트폴리오 방향을 설정했습니다. 이제 기획서를 바탕으로 실제 구현 단계로 나아갈 준비가 되었습니다!</div>
+  <div>레퍼런스 탐색과 아이디어 구체화가 완료되었습니다.<br>
+  업계 우수 사례를 분석하고 자신만의 포트폴리오 방향을 설정했습니다.<br>
+  이제 기획서를 바탕으로 실제 구현 단계로 나아갈 준비가 되었습니다!</div>
 </div>

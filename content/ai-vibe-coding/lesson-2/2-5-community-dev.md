@@ -13,7 +13,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -34,8 +34,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -48,15 +48,21 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
-<h2>학습 목표<img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="display:inline-block;width:52px;vertical-align:middle;margin-left:14px;opacity:.75;transform:rotate(-15deg);pointer-events:none;"></h2>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:32px;right:18%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(22deg);">
-</div>
+## 학습 목표
 
 <div class="wda-goal">
   🤖 <strong>AI와 협업</strong> — 기획서를 프롬프트로 변환하여 AI에게 프로젝트 생성 요청<br>
@@ -77,14 +83,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1단계: lecture1 Claude 실행하기 (5분)
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-10px;right:30%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
-<div class="wda-callout wda-ci" style="position:relative;padding-left:112px;padding-right:24px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:100px;top:-28px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(8deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">시작하기</span>
-  개발 전용 AI인 '로키'에게 접속하여 프로젝트 개발을 시작합니다. PowerShell을 열고 아래 명령어를 차례대로 실행하세요.
+  개발 전용 AI인 '로키'에게 접속하여 프로젝트 개발을 시작합니다.<br>PowerShell을 열고 아래 명령어를 차례대로 실행하세요.
 </div>
 
 ```powershell
@@ -97,11 +98,7 @@ claude --dangerously-skip-permissions
 
 ---
 
-<h2>2단계: 프로젝트 생성하기 (30분)<img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="display:inline-block;width:52px;vertical-align:middle;margin-left:28px;opacity:.72;transform:rotate(-14deg);pointer-events:none;"></h2>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/소품 아이콘 (5).webp" alt="" style="position:absolute;width:38px;top:80px;right:4%;z-index:2;pointer-events:none;opacity:.66;transform:rotate(20deg);">
-</div>
+## 2단계: 프로젝트 생성하기 (30분)
 
 로키 AI에서 3단계와 4단계에서 작성한 기획서를 바탕으로 실제 커뮤니티 사이트를 생성합니다.
 
@@ -115,8 +112,7 @@ claude --dangerously-skip-permissions
 
 ### 프로젝트 생성 프롬프트
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:200px;padding-left:22px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:185px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">업로드 방법</span>
   대화 초기화 후, <strong>완성된 기획문서를 드래그해서 업로드</strong>하고 아래 프롬프트를 함께 보내세요.
 </div>
@@ -150,8 +146,7 @@ claude --dangerously-skip-permissions
 
 ### 로키 AI 자동 수행 과정
 
-<div class="wda-steps" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:110px;top:-22px;right:10px;z-index:1;pointer-events:none;opacity:.82;transform:rotate(-6deg);">
+<div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">React + Vite 프로젝트 생성</div><div class="wda-sdsc">MUI, React Router 등 필수 패키지 설치</div></div></div>
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">Supabase MCP로 DB 생성</div><div class="wda-sdsc">users · posts · comments 테이블 자동 생성 및 연결</div></div></div>
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">UI 컴포넌트 구현</div><div class="wda-sdsc">기획서에 따른 로그인 · 게시물 목록 · 상세 · 댓글 화면 개발</div></div></div>
@@ -159,9 +154,7 @@ claude --dangerously-skip-permissions
   <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages로 자동 배포</div><div class="wda-sdsc">GitHub Actions 워크플로우 설정 · 커밋 푸시 · 배포 URL 안내</div></div></div>
 </div>
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:152px;padding-right:24px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:80px;top:10px;left:-40px;z-index:1;pointer-events:none;opacity:.70;transform:rotate(-5deg);">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:142px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">예상 소요 시간</span>
   약 20~30분 · 대부분의 문제는 로키 AI가 자동으로 해결해줍니다!
 </div>
@@ -174,8 +167,7 @@ claude --dangerously-skip-permissions
 
 ### 배포 링크 공유 절차
 
-<div class="wda-steps" style="position:relative;padding-top:14px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:130px;top:-20px;right:10px;z-index:4;pointer-events:none;opacity:.90;transform:rotate(10deg);">
+<div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">자신의 배포 링크 확인</div><div class="wda-sdsc">로키 AI가 알려준 GitHub Pages URL 확인</div></div></div>
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">링크 접속 테스트</div><div class="wda-sdsc">본인 사이트가 정상 작동하는지 확인</div></div></div>
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">강사에게 링크 전달</div><div class="wda-sdsc">채팅이나 이메일로 배포 링크 공유</div></div></div>
@@ -184,8 +176,7 @@ claude --dangerously-skip-permissions
 
 ### 서로의 사이트 체험하기
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:200px;padding-left:22px;padding-top:16px;padding-bottom:18px;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:185px;top:-22px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(12deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">함께 체험하기</span>
   최소 3명 이상의 다른 학생 사이트에 방문하여 회원가입, 게시물 작성, 댓글을 남겨보세요!
 </div>
@@ -201,13 +192,7 @@ claude --dangerously-skip-permissions
 
 ## 문제 발생 시 해결 방법
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:40px;top:-40px;right:4px;z-index:2;pointer-events:none;opacity:.73;transform:rotate(10deg);">
-  <img src="/images/decoration/별 아이콘 (11).webp" alt="" style="position:absolute;width:62px;top:30px;right:10%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
-</div>
-
-<div class="wda-memo" style="position:relative;padding-left:152px;padding-right:24px;padding-top:16px;padding-bottom:20px;text-align:left;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:142px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-7deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">트러블슈팅</span>
   <div class="wda-memo-body">
     1. 로키 AI에게 구체적인 에러 메시지를 알려주세요<br>
@@ -217,9 +202,8 @@ claude --dangerously-skip-permissions
   </div>
 </div>
 
-<div class="wda-done" style="position:relative;padding-right:145px;padding-left:22px;padding-bottom:22px;text-align:center;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:130px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(9deg);">
+<div class="wda-done" style="text-align:center;">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">커뮤니티 사이트 프로젝트 완성!</div>
-  <div>UI 기획부터 DB 설계, 실제 개발과 배포까지 완전한 웹 개발 프로세스를 경험했습니다. 여러분이 직접 기획한 커뮤니티 사이트가 전 세계에서 접속 가능한 실제 웹사이트가 되었습니다!</div>
+  <div>UI 기획부터 DB 설계, 실제 개발과 배포까지 완전한 웹 개발 프로세스를 경험했습니다.<br>여러분이 직접 기획한 커뮤니티 사이트가 전 세계에서 접속 가능한 실제 웹사이트가 되었습니다!</div>
 </div>

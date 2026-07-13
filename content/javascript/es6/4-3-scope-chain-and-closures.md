@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,23 +25,30 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-group2{display:flex;flex-wrap:wrap;gap:14px;margin:.8rem 0 1.6rem}
+.wda-group{flex:1 1 260px;border:1px solid rgba(128,128,128,.18);border-radius:12px;padding:14px 16px}
+.wda-group-ttl{font-size:.92rem;font-weight:700;margin-bottom:10px}
+.wda-group .wda-fgrid{margin:0}
+.wda-group .wda-fcard{flex:1 1 100%}
+.wda-group-good{border-left:3px solid rgba(34,197,94,.35);background:rgba(34,197,94,.02)}
+.wda-group-bad{border-left:3px solid rgba(244,129,110,.35);background:rgba(244,129,110,.025)}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -54,8 +61,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (3).webp" alt="" style="width:70px;top:-20px;right:4%;opacity:.78;transform:rotate(-8deg);">
+<div class="wda-goal">
   🧭 <strong>렉시컬 스코프</strong> — 함수가 <strong>선언된 위치</strong>에 따라 스코프가 결정됨을 이해합니다.<br>
   🔗 <strong>스코프 체인</strong> — 변수를 찾기 위해 <strong>상위 스코프로 이동</strong>하는 과정을 배웁니다.<br>
   🎒 <strong>클로저 (Closure)</strong> — 함수가 종료되어도 변수를 <strong>기억하는 원리</strong>를 익힙니다.<br>
@@ -64,10 +70,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 렉시컬(Lexical)이란?</h2>
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="width:48px;top:-10px;right:8px;opacity:.76;transform:rotate(9deg);">
-</div>
+## 1. 렉시컬(Lexical)이란?
 
 ### 1) 기본 정의
 
@@ -94,12 +97,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 렉시컬 스코프란, 코드를 실행하기도 전에, **이미 작성된 구조만 보고 스코프가 결정된다**는 뜻입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>이 개념이 중요한 이유는 <strong>"누가 불렀느냐"</strong>가 아니라 <strong>"어디에 태어났느냐"</strong>가 중요하다는 뜻이기 때문입니다.</li>
-    <li>코드를 짤 때 <code>function A</code> 안에서 <code>variable B</code>를 선언했다면, <code>variable B</code>는 <code>function A</code>의 렉시컬 환경에 기록됩니다. 이후 함수가 어디서 호출되더라도 변수를 찾는 기준 경로는 선언 위치를 따릅니다.</li>
+    <li>코드를 짤 때 <code>function A</code> 안에서 <code>variable B</code>를 선언했다면, <code>variable B</code>는 <code>function A</code>의 렉시컬 환경에 기록됩니다.<br>이후 함수가 어디서 호출되더라도 변수를 찾는 기준 경로는 선언 위치를 따릅니다.</li>
     <li>단, 변수의 실제 값은 실행 중에 바뀔 수 있습니다. 렉시컬 스코프가 고정된다는 말은 <strong>"변수를 어디서 찾을지의 경로"</strong>가 고정된다는 뜻입니다.</li>
     <li>즉, <strong>족보는 코드를 치는 순간 이미 정해져서 절대 바뀌지 않는다</strong>는 것이 자바스크립트의 대원칙입니다.</li>
   </ul>
@@ -107,10 +110,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 렉시컬 vs 동적 스코프</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (2).webp" alt="" style="width:60px;top:-13px;left:6%;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 2. 렉시컬 vs 동적 스코프
 
 ### 1) 개념 비교
 
@@ -156,7 +156,7 @@ bar();
 | **상위 스코프** | `Global` (전역) | `bar` 함수 (지역) |
 | **특징** | 족보가 고정됨 (정적) | 상황에 따라 계속 변함 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -168,10 +168,7 @@ bar();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 자바스크립트의 렉시컬 스코프</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (4).webp" alt="" style="width:56px;top:-12px;right:34%;opacity:.76;transform:rotate(9deg);">
-</div>
+## 3. 자바스크립트의 렉시컬 스코프
 
 ### 1) 코드 예시
 
@@ -202,14 +199,15 @@ outer();
 
 ### 3) 실행 결과
 
-**'outer'** — 만약 inner 안에 x가 없다면, 태어난 곳(outer)의 x를 봅니다. 전역(global)까지 나가지 않습니다.
+**'outer'** — 만약 inner 안에 x가 없다면, 태어난 곳(outer)의 x를 봅니다.  
+전역(global)까지 나가지 않습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>이것이 바로 <strong>"스코프 체인(Scope Chain)"</strong>의 시작입니다.</li>
-    <li><code>inner</code> 함수 입장에서 변수 <code>x</code>를 찾을 때, 자기 자신의 주머니(지역 스코프)를 뒤져보고 (없음), 자기가 태어난 곳인 엄마(outer)의 주머니를 뒤져봅니다 (있음! → <code>'outer'</code>).</li>
+    <li><code>inner</code> 함수 입장에서 변수 <code>x</code>를 찾을 때, 자기 자신의 주머니(지역 스코프)를 뒤져보고 (없음),<br>자기가 태어난 곳인 엄마(outer)의 주머니를 뒤져봅니다 (있음! → <code>'outer'</code>).</li>
     <li>거기서 찾았으니 만족하고 더 위의 할머니(global)까지는 가지 않는 것입니다. 이것을 <strong>"변수 섀도잉(Shadowing)"</strong>이라고도 부릅니다. (가까운 변수가 먼 변수를 가림)</li>
   </ul>
 </div>
@@ -217,10 +215,6 @@ outer();
 ---
 
 ## 💻 실습 : 렉시컬 스코프
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (2).webp" alt="" style="width:58px;left:42%;top:-2px;opacity:.76;transform:rotate(8deg);">
-</div>
 
 ### 1) Mission
 
@@ -273,9 +267,10 @@ check(); // 결과는?
 
 ### 3) 정답
 
-**"Global"** — `check` 함수 안에서 `print`를 불렀지만, 자바스크립트는 **렉시컬 스코프(태어난 곳 기준)**를 따르기 때문에 `print` 함수가 만들어진 바깥 세상의 `x = "Global"`을 출력합니다. `check` 안의 `"Local"`은 `print` 함수와는 아무런 상관이 없는 남남입니다.
+**"Global"** — `check` 함수 안에서 `print`를 불렀지만, 자바스크립트는 **렉시컬 스코프(태어난 곳 기준)**를 따르기 때문에 `print` 함수가 만들어진 바깥 세상의 `x = "Global"`을 출력합니다.  
+`check` 안의 `"Local"`은 `print` 함수와는 아무런 상관이 없는 남남입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -287,10 +282,7 @@ check(); // 결과는?
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 스코프 체인 (Scope Chain)</h2>
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (2).webp" alt="" style="width:64px;top:-14px;left:4%;opacity:.74;transform:rotate(7deg);">
-</div>
+## 4. 스코프 체인 (Scope Chain)
 
 ### 1) 변수 탐색 과정 (Scope Chaining)
 
@@ -327,17 +319,18 @@ outer();
 
 물방울이 아래에서 위로 올라가듯(Bubble Up), 변수 찾기는 **안쪽에서 바깥쪽으로**만 진행됩니다.
 
-<img src="/images/content/4-3/스크립트 범위 다이어그램.png" alt="스코프 체인 시각화 다이어그램" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
-
 - **inner 함수** : `c` (shadowed) → 못 찾으면 위로 ⬆️
 - **outer 함수** : `b` (shadowed), `c` → 못 찾으면 위로 ⬆️
 - **전역 (Global)** : `a`, `b` (최상위)
+
+<img src="/images/content/javascript/4-3/javascript-4-3-scope-diagram.png" alt="스코프 체인 시각화 다이어그램" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:480px;">[그림] 스코프 체인 구조 (전역 → outer 함수 → inner 함수 중첩 범위)</div>
 
 ### 3) 단방향 탐색
 
 식별자를 찾을 때까지 상위 스코프로 올라갑니다. **(하위 스코프로 내려가서 찾을 수는 없습니다!)**
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -349,14 +342,12 @@ outer();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 실행 컨텍스트(Execution Context)란?</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="width:60px;top:-13px;right:6px;opacity:.74;transform:rotate(-9deg);">
-</div>
+## 5. 실행 컨텍스트(Execution Context)란?
 
 ### 1) 기본 정의
 
-**코드가 실행되는 환경(Environment)** — 자바스크립트 엔진이 코드를 실행하기 위해 내부적으로 관리하는 실행 정보 묶음입니다. 일반 객체처럼 개발자가 직접 꺼내서 조작하는 대상은 아닙니다.
+**코드가 실행되는 환경(Environment)** — 자바스크립트 엔진이 코드를 실행하기 위해 내부적으로 관리하는 실행 정보 묶음입니다.  
+일반 객체처럼 개발자가 직접 꺼내서 조작하는 대상은 아닙니다.
 
 ### 2) 무엇을 기록하나요?
 
@@ -377,12 +368,12 @@ outer();
 
 코드는 혼자 실행되지 않습니다. 항상 **컨텍스트라는 무대 위**에서 동작합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>쉽게 말해 <strong>"자바스크립트 코드가 돌아가는 무대(Stage)"</strong>라고 생각하면 됩니다.</li>
-    <li>우리가 함수를 호출하는 순간, 자바스크립트 엔진은 보이지 않는 곳에서 "자, 이 함수 실행할 때 필요한 변수들은 이거고(<code>환경 레코드</code>), 얘 부모는 누구고(<code>외부 환경 참조</code>), 주인(<code>this</code>)은 얘야!"라고 적혀 있는 <strong>비밀 장부(객체)</strong>를 하나 만듭니다.</li>
+    <li>우리가 함수를 호출하는 순간, 자바스크립트 엔진은 보이지 않는 곳에서<br>"자, 이 함수 실행할 때 필요한 변수들은 이거고(<code>환경 레코드</code>), 얘 부모는 누구고(<code>외부 환경 참조</code>), 주인(<code>this</code>)은 얘야!"라고 적혀 있는 <strong>비밀 장부(객체)</strong>를 하나 만듭니다.</li>
     <li>그 장부가 바로 <strong>실행 컨텍스트</strong>입니다.</li>
     <li>코드가 그냥 실행되는 게 아니라, 이 장부의 지원을 받으며 실행된다는 점을 기억하세요.</li>
   </ul>
@@ -390,10 +381,7 @@ outer();
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 실행 컨텍스트 기초</h2>
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (3).webp" alt="" style="width:44px;top:-10px;left:38%;opacity:.76;transform:rotate(8deg);">
-</div>
+## 6. 실행 컨텍스트 기초
 
 ### 1) 콜 스택 (Call Stack)
 
@@ -423,14 +411,15 @@ first(); // 가장 먼저 first 함수를 호출
 
 자바스크립트 엔진은 **LIFO (Last In, First Out)**, 즉 **"나중에 들어온 녀석이 먼저 나가는"** 구조로 동작합니다.
 
-<img src="/images/content/4-3/함수 호출과 종료 순서 표기.png" alt="콜 스택 동작 시각화" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/4-3/javascript-4-3-function-call-return-order.png" alt="콜 스택 동작 시각화" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:480px;">[그림] 콜 스택 쌓임과 제거 순서 (first → second → third 호출, third 종료 후 제거)</div>
 
 - **1. first() 호출**: `[first, global]` (first가 스택에 쌓임)
 - **2. second() 호출**: `[second, first, global]` (first 위에 second가 쌓임)
 - **3. third() 호출**: `[third, second, first, global]` (가장 위에 third가 쌓임)
 - **4. third() 종료 후**: `[second, first, global]` (할 일을 마친 third가 스택에서 빠져나감. 다시 second 차례)
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -442,10 +431,7 @@ first(); // 가장 먼저 first 함수를 호출
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 클로저란 무엇인가?</h2>
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="width:58px;top:-14px;right:36%;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 7. 클로저란 무엇인가?
 
 ### 1) 클로저의 탄생 (코드 예시)
 
@@ -475,7 +461,8 @@ console.log(counter()); // 3
 
 **"함수와 그 함수가 선언된 렉시컬 환경(Lexical Environment)의 조합"** (MDN 정의)
 
-- **현상인가요, 함수인가요?** 엄밀히 말하면 스코프가 연결되는 **메커니즘(결합)** 자체를 의미하지만, 실무에서는 보통 "생명 주기가 끝난 외부함수의 변수를 참조하는 **내부함수 자체**"를 클로저라고 부릅니다.
+- **현상인가요, 함수인가요?** 엄밀히 말하면 스코프가 연결되는 **메커니즘(결합)** 자체를 의미합니다.  
+  실무에서는 보통 "생명 주기가 끝난 외부함수의 변수를 참조하는 **내부함수 자체**"를 클로저라고 부릅니다.
 
 ### 3) 핵심 정리
 
@@ -485,12 +472,12 @@ console.log(counter()); // 3
 - 외부 함수의 실행은 끝났지만, **내부 함수가 참조 중인 외부 변수의 렉시컬 환경은 유지될 수 있습니다.**
 - **"기억하는 함수"** (자기가 태어난 환경을 기억함)
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>클로저를 가장 쉽게 이해하는 비유는 <strong>"배낭(Backpack)"</strong>입니다.</li>
-    <li><code>createCounter</code> 함수가 실행을 마치고 퇴근할 때, 내부에 있던 익명 함수(<code>return function...</code>)에게 <strong>"이 <code>count</code> 변수는 네가 나중에 쓸 거니까 챙겨가"</strong>라며 배낭에 넣어주는 것과 같습니다.</li>
+    <li><code>createCounter</code> 함수가 실행을 마치고 퇴근할 때, 내부에 있던 익명 함수(<code>return function...</code>)에게<br><strong>"이 <code>count</code> 변수는 네가 나중에 쓸 거니까 챙겨가"</strong>라며 배낭에 넣어주는 것과 같습니다.</li>
     <li>그래서 우리는 밖에서 <code>counter()</code>를 호출할 때마다 배낭 속에 들어있는 <code>count</code>를 꺼내서 숫자를 셀 수 있는 것입니다.</li>
     <li>이 기능 덕분에 <strong>"데이터 은닉(Private Variable)"</strong>이 가능해집니다.</li>
   </ul>
@@ -507,10 +494,7 @@ console.log(counter()); // 3
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 클로저 동작 원리</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (2).webp" alt="" style="width:54px;top:-12px;left:40%;opacity:.76;transform:rotate(9deg);">
-</div>
+## 8. 클로저 동작 원리
 
 ### 1) 왜 count가 살아있을까?
 
@@ -535,28 +519,29 @@ const counter = createCounter();
 
 자바스크립트 엔진 내부에서 일어나는 일을 순서대로 정리했습니다.
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">① createCounter 실행 → count = 0 생성</div>
-    <div class="wda-fcard-dsc">함수가 호출되면서 지역 변수가 메모리에 만들어집니다.</div>
+<div class="wda-steps">
+  <div class="wda-step">
+    <div class="wda-snum">1</div>
+    <div class="wda-sbody"><div class="wda-sttl">createCounter 실행 → count = 0 생성</div><div class="wda-sdsc">함수가 호출되면서 지역 변수가 메모리에 만들어집니다.</div></div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">② 내부 함수가 count를 참조</div>
-    <div class="wda-fcard-dsc">리턴되는 함수가 "나 저 count 변수 쓸 거야!"라고 찜해놓습니다.</div>
+  <div class="wda-step">
+    <div class="wda-snum">2</div>
+    <div class="wda-sbody"><div class="wda-sttl">내부 함수가 count를 참조</div><div class="wda-sdsc">리턴되는 함수가 "나 저 count 변수 쓸 거야!"라고 찜해놓습니다.</div></div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">③ 내부 함수를 반환 → createCounter 종료</div>
-    <div class="wda-fcard-dsc">부모 함수는 할 일을 다 하고 퇴근(종료)합니다.</div>
+  <div class="wda-step">
+    <div class="wda-snum">3</div>
+    <div class="wda-sbody"><div class="wda-sttl">내부 함수를 반환 → createCounter 종료</div><div class="wda-sdsc">부모 함수는 할 일을 다 하고 퇴근(종료)합니다.</div></div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">④ 내부 함수가 count를 참조하므로 GC 대상 아님</div>
-    <div class="wda-fcard-dsc">청소부(GC)가 왔다가 "어? 이 변수는 아직 쓰는 놈이 있네?" 하고 청소하지 않고 남겨둡니다.</div>
+  <div class="wda-step">
+    <div class="wda-snum">4</div>
+    <div class="wda-sbody"><div class="wda-sttl">내부 함수가 count를 참조하므로 GC 대상 아님</div><div class="wda-sdsc">청소부(GC)가 왔다가 "어? 이 변수는 아직 쓰는 놈이 있네?" 하고 청소하지 않고 남겨둡니다.</div></div>
   </div>
 </div>
 
 ### 3) 렉시컬 환경 유지
 
-<img src="/images/content/4-3/함수와 생명 연결 다이어그램.png" alt="함수와 렉시컬 환경 생명 연결 다이어그램" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/4-3/javascript-4-3-function-lifetime-diagram.png" alt="함수와 렉시컬 환경 생명 연결 다이어그램" style="display:block;width:100%;max-width:340px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:340px;">[그림] 내부 함수의 참조로 살아있는 렉시컬 환경 (count: 0)</div>
 
 - <strong>"참조가 있으면 죽지 않는다"</strong>는 것이 핵심 원리입니다.
 - **내부 함수(`func counter`)** --- 참조 중 ---&gt; **Lexical Env (`count: 0`)**
@@ -571,7 +556,7 @@ const counter = createCounter();
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -579,17 +564,13 @@ const counter = createCounter();
     <li>이 청소부는 주기적으로 메모리를 돌아다니며 <strong>"아무도 안 쓰는 데이터"</strong>를 찾아서 갖다 버립니다.</li>
     <li>보통 함수가 끝나면 그 안의 변수들은 아무도 안 쓰게 되니 버려지는 게 정상입니다.</li>
     <li>하지만 클로저는 <strong>"외부로 나간 내부 함수(생존자)"</strong>가 <strong>"옛날 변수(count)"</strong>의 멱살을 잡고 놓아주지 않는 상황입니다.</li>
-    <li>GC는 참조 경로가 남아 있는 값은 수거하지 않습니다. 그래서 <code>count</code> 변수는 내부 함수의 참조가 유지되는 동안 메모리에 남아 있습니다. 이후 참조가 끊기면 GC 대상이 될 수 있습니다.</li>
+    <li>GC는 참조 경로가 남아 있는 값은 수거하지 않습니다.<br>그래서 <code>count</code> 변수는 내부 함수의 참조가 유지되는 동안 메모리에 남아 있습니다.<br>이후 참조가 끊기면 GC 대상이 될 수 있습니다.</li>
   </ul>
 </div>
 
 ---
 
 ## 💻 실습 : 클로저 기초
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="width:60px;right:6%;top:-2px;opacity:.76;transform:rotate(9deg);">
-</div>
 
 ### 1) Mission
 
@@ -641,7 +622,7 @@ console.log(counter()); // 1 (0 -> 1)
 console.log(counter()); // 2 (1 -> 2 : 아까 그 값을 기억함!)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -653,10 +634,7 @@ console.log(counter()); // 2 (1 -> 2 : 아까 그 값을 기억함!)
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 잠시, 가비지 컬렉터(GC)란?</h2>
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="width:60px;top:-14px;right:6px;opacity:.74;transform:rotate(10deg);">
-</div>
+## 10. 잠시, 가비지 컬렉터(GC)란?
 
 ### 1) 메모리 청소부 (Garbage Collector)
 
@@ -672,7 +650,8 @@ console.log(counter()); // 2 (1 -> 2 : 아까 그 값을 기억함!)
 
 ### 3) 데이터 생존 여부 시각화
 
-<img src="/images/content/4-3/살아남은 데이터와 삭제된 데이터.png" alt="가비지 컬렉터의 데이터 생존 여부 시각화" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/4-3/javascript-4-3-surviving-vs-deleted-data.png" alt="가비지 컬렉터의 데이터 생존 여부 시각화" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:480px;">[그림] Root 연결 여부에 따른 데이터 생존/삭제 비교 (도달 가능성)</div>
 
 ### 4) 클로저의 역할
 
@@ -729,7 +708,7 @@ console.log(account.getBalance()); // 여전히 1300 (안전함!)
 - **보호** — `balance`는 클로저 안에 숨겨져 있어서 외부에서 **직접 접근/수정 불가**합니다.
 - **캡슐화** — `deposit`, `withdraw`, `getBalance`만이 balance에 접근 가능합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -744,10 +723,6 @@ console.log(account.getBalance()); // 여전히 1300 (안전함!)
 ---
 
 ## 💻 실습 : 정보 은닉
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="width:48px;left:44%;top:0;opacity:.76;transform:rotate(-8deg);">
-</div>
 
 ### 1) Mission
 
@@ -806,10 +781,7 @@ console.log(mySafe.getSecret()); // "Gold"
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. IIFE vs 클로저 (정보 은닉 비교)</h2>
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="width:84px;top:-16px;right:0;opacity:.7;transform:rotate(-5deg);">
-</div>
+## 11. IIFE vs 클로저 (정보 은닉 비교)
 
 ### 1) 즉시 실행 함수 (IIFE)
 
@@ -859,8 +831,6 @@ const B = createCounter(); // B만을 위한 count 생성 (별개)
   </ul>
 </div>
 
-**보충 설명**
-
 | **비교 항목** | **🏠 IIFE (즉시 실행 함수)** | **🔐 클로저 (함수 팩토리)** |
 | --- | --- | --- |
 | **핵심 질문** | **"공유할 것인가?"** | **"각자 가질 것인가?"** |
@@ -871,10 +841,7 @@ const B = createCounter(); // B만을 위한 count 생성 (별개)
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>12. 클로저 활용 - 함수 팩토리</h2>
-  <img class="wda-deco" src="/images/decoration/포스트잇 (2).webp" alt="" style="width:56px;top:-12px;left:38%;opacity:.74;transform:rotate(8deg);">
-</div>
+## 12. 클로저 활용 - 함수 팩토리
 
 ### 1) 곱셈기 생성기 (Multiplier)
 
@@ -926,12 +893,12 @@ console.log(sayAnnyeong('Park'));   // '안녕, Park!'
 
 - **핵심**: 함수를 찍어내는 **"공장" 패턴**입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>이 패턴이 왜 좋을까요? 바로 <strong>"중복 제거(DRY)"</strong> 때문입니다.</li>
-    <li>만약 이 패턴을 쓰지 않는다면 <code>function double()...</code>, <code>function triple()...</code> 처럼 비슷한 코드를 계속 복사해서 만들어야 했을 겁니다.</li>
+    <li>만약 이 패턴을 쓰지 않는다면 <code>function double()...</code>, <code>function triple()...</code> 처럼<br>비슷한 코드를 계속 복사해서 만들어야 했을 겁니다.</li>
     <li><strong>함수 팩토리(Function Factory)</strong>를 사용하면, 틀(Template)은 하나만 만들어두고 설정값(매개변수)만 바꿔서 <strong>무한히 많은 변형 함수</strong>를 아주 쉽게 찍어낼 수 있습니다.</li>
     <li>이것이 바로 프로그래머들이 말하는 "우아한 코드"입니다.</li>
   </ul>
@@ -939,10 +906,7 @@ console.log(sayAnnyeong('Park'));   // '안녕, Park!'
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>13. 클로저 활용 - 커링 기초</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="width:62px;top:-14px;right:38%;opacity:.76;transform:rotate(-9deg);">
-</div>
+## 13. 클로저 활용 - 커링 기초
 
 ### 1) 커링(Currying)이란?
 
@@ -1000,22 +964,19 @@ api('/posts'); // https://api.example.com/posts 로 fetch 요청을 생성함
 
 - **장점**: 인자를 미리 고정해서 **재사용성 향상**
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li><strong>커링(Currying)</strong>은 쉽게 말해 <strong>"함수용 키핑(Keeping) 서비스"</strong>입니다.</li>
-    <li>술집에서 양주를 키핑해두고 갈 때마다 조금씩 마시는 것처럼, 함수에 필요한 데이터(인자)를 한 번에 다 넣지 않고, <strong>"일단 이거 먼저 기억해둬(클로저)"</strong> 하고 나중에 나머지 데이터를 넣어서 완성하는 것입니다.</li>
+    <li>술집에서 양주를 키핑해두고 갈 때마다 조금씩 마시는 것처럼, 함수에 필요한 데이터(인자)를 한 번에 다 넣지 않고,<br><strong>"일단 이거 먼저 기억해둬(클로저)"</strong> 하고 나중에 나머지 데이터를 넣어서 완성하는 것입니다.</li>
     <li>특히 실무에서는 예시처럼 <code>base URL</code>이나 <code>Header 설정</code> 등 <strong>변하지 않는 설정값</strong>을 미리 고정해두고, 실제 데이터만 바꿔가며 호출하는 방식으로 코드를 깔끔하게 만들 때 자주 사용합니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>14. 클로저와 메모리</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (3).webp" alt="" style="width:56px;top:-12px;left:6%;opacity:.76;transform:rotate(9deg);">
-</div>
+## 14. 클로저와 메모리
 
 ### 1) 메모리 누수 가능성
 
@@ -1035,7 +996,7 @@ const closure = heavyClosure();
 // hugeData가 메모리에 계속 남아있음!
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1077,22 +1038,19 @@ closure = null; // 참조 해제 -> GC 대상
 - **필요한 값만 클로저에 캡처** — 통째로 참조하지 말고 필요한 데이터만 변수에 담아 쓰세요.
 - **사용 끝나면 null로 참조 해제** — 참조를 끊으면 해당 데이터가 GC 대상이 될 수 있습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
     <li>클로저는 <strong>"강력한 기억력"</strong>을 가졌지만, 때로는 그 기억력이 독이 될 수 있습니다.</li>
-    <li>비유하자면, 도서관에서 책 한 페이지(<code>length</code>)만 필요한데 책장 전체(<code>hugeData</code>)를 대출해서 집에 계속 쌓아두는 것과 같습니다.</li>
+    <li>비유하자면, 도서관에서 책 한 페이지(<code>length</code>)만 필요한데<br>책장 전체(<code>hugeData</code>)를 대출해서 집에 계속 쌓아두는 것과 같습니다.</li>
     <li>책장에서 필요한 내용만 쪽지에 적어오거나(<code>betterClosure</code>), 다 읽은 책은 바로 반납함에 넣는 습관(<code>closure = null</code>) 이 두 가지만 기억하면 메모리 걱정 없이 클로저의 장점만 누릴 수 있습니다.</li>
   </ul>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>15. 반복문에서의 클로저 문제</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (2).webp" alt="" style="width:78px;top:-16px;right:4%;opacity:.76;transform:rotate(-7deg);">
-</div>
+## 15. 반복문에서의 클로저 문제
 
 ### 1) 클래식 문제: var 사용
 
@@ -1110,7 +1068,7 @@ for (var i = 0; i < 3; i++) {
 // 실제: 3, 3, 3 (?!)
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1122,18 +1080,18 @@ for (var i = 0; i < 3; i++) {
 
 자바스크립트의 실행 타이밍과 스코프 특성이 결합되어 발생한 현상입니다.
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">① 시간차 공격 (Time Diff)</div>
-    <div class="wda-fcard-dsc">반복문은 순식간에(0.0001초) 완료됨. 이때 <code>i</code>는 이미 <strong>3</strong>이 되어버림. 1초 뒤, 타이머가 깨어나서 <code>i</code>를 찾음. "어? <code>i</code>가 3이네?" → <strong>3 출력</strong></div>
+<div class="wda-steps">
+  <div class="wda-step">
+    <div class="wda-snum">1</div>
+    <div class="wda-sbody"><div class="wda-sttl">시간차 공격 (Time Diff)</div><div class="wda-sdsc">반복문은 순식간에(0.0001초) 완료됨. 이때 <code>i</code>는 이미 <strong>3</strong>이 되어버림. 1초 뒤, 타이머가 깨어나서 <code>i</code>를 찾음. "어? <code>i</code>가 3이네?" → <strong>3 출력</strong></div></div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">② var의 특성</div>
-    <div class="wda-fcard-dsc">var는 <strong>함수 스코프</strong>입니다. 반복문 블록({})마다 새로운 스코프를 만들지 않고, 함수 전체에서 <strong>하나의 <code>i</code>만 공유</strong>합니다.</div>
+  <div class="wda-step">
+    <div class="wda-snum">2</div>
+    <div class="wda-sbody"><div class="wda-sttl">var의 특성</div><div class="wda-sdsc">var는 <strong>함수 스코프</strong>입니다. 반복문 블록({})마다 새로운 스코프를 만들지 않고, 함수 전체에서 <strong>하나의 <code>i</code>만 공유</strong>합니다.</div></div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">③ 핵심 오해 풀기 (Snapshot vs Reference)</div>
-    <div class="wda-fcard-dsc">타이머 등록 때 <code>i</code> 값이 <strong>복사(대입)</strong>되는 게 아닙니다! 함수는 <code>i</code>가 있는 <strong>방의 위치(참조)</strong>만 기억합니다. 1초 뒤에 그 방을 열어보니, 값이 <strong>3으로 바뀌어 있는 것</strong>입니다.</div>
+  <div class="wda-step">
+    <div class="wda-snum">3</div>
+    <div class="wda-sbody"><div class="wda-sttl">핵심 오해 풀기 (Snapshot vs Reference)</div><div class="wda-sdsc">타이머 등록 때 <code>i</code> 값이 <strong>복사(대입)</strong>되는 게 아닙니다! 함수는 <code>i</code>가 있는 <strong>방의 위치(참조)</strong>만 기억합니다. 1초 뒤에 그 방을 열어보니, 값이 <strong>3으로 바뀌어 있는 것</strong>입니다.</div></div>
   </div>
 </div>
 
@@ -1144,7 +1102,7 @@ for (var i = 0; i < 3; i++) {
 > Q: 만약 setTimeout이 없다면?
 > A: 바로 실행되므로 0, 1, 2가 정상 출력됨. (즉, 비동기 + var 스코프의 합작품!)
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -1165,10 +1123,7 @@ for (var i = 0; i < 3; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>16. 반복문 클로저 해결 방법</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (5).webp" alt="" style="width:88px;top:-18px;right:2%;opacity:.76;transform:rotate(8deg);">
-</div>
+## 16. 반복문 클로저 해결 방법
 
 ### 1) 방법 1: let 사용 (Best)
 
@@ -1215,7 +1170,7 @@ for (var i = 0; i < 3; i++) {
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 이 두 가지 방법의 차이는 **"방을 새로 만드느냐(let)"** vs **"사진을 찍어두느냐(IIFE)"**의 차이입니다.
 
@@ -1228,14 +1183,7 @@ for (var i = 0; i < 3; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리</h2>
-  <img class="wda-deco" src="/images/character/오! 그렇구나.webp" alt="" style="width:128px;right:0;top:-100px;opacity:.88;">
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (3).webp" alt="" style="width:46px;left:4%;top:-8px;opacity:.76;transform:rotate(9deg);">
-</div>
+## 🔑 핵심 정리
 
 ### 1) 렉시컬 스코프 (Lexical Scope)
 
@@ -1251,22 +1199,53 @@ for (var i = 0; i < 3; i++) {
 
 함수가 종료되어도 변수가 살아남는 메커니즘을 정리했습니다.
 
-| **구성 요소** | **역할 및 동작** |
-| --- | --- |
-| **탄생 조건** | **외부 함수**가 종료되었는데, **내부 함수**가 외부 변수를 **참조**하고 있을 때 발생 |
-| **생존 이유** | **참조(Reference)**가 남아있으면 **가비지 컬렉터(GC)**가 청소하지 않음 |
-| **핵심 기능** | 상태(데이터)를 안전하게 **기억**하고 **유지**함 |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">탄생 조건</div>
+    <div class="wda-fcard-dsc"><strong>외부 함수</strong>가 종료되었는데, <strong>내부 함수</strong>가 외부 변수를 <strong>참조</strong>하고 있을 때 발생</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">생존 이유</div>
+    <div class="wda-fcard-dsc"><strong>참조(Reference)</strong>가 남아있으면 <strong>가비지 컬렉터(GC)</strong>가 청소하지 않음</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">핵심 기능</div>
+    <div class="wda-fcard-dsc">상태(데이터)를 안전하게 <strong>기억</strong>하고 <strong>유지</strong>함</div>
+  </div>
+</div>
 
 ### 3) 실전 활용 & 주의사항 (Do's & Don'ts)
 
 클로저를 언제 써야 하고, 언제 조심해야 하는지 비교했습니다.
 
-| **구분** | **활용 사례 / 주의점** | **설명** |
-| --- | --- | --- |
-| **✅ 활용 (Good)** | **정보 은닉 (Encapsulation)** | 변수를 함수 안에 숨겨서 외부 직접 접근을 차단하는 효과 |
-|  | **함수 팩토리 (Factory)** | 설정값이 적용된 함수를 공장처럼 찍어냄(커링, 부분 적용 등) |
-| **⚠️ 주의 (Bad)** | **메모리 누수 (Memory Leak)** | 불필요하게 큰 데이터를 계속 잡고 있으면 안 됨 → 다 썼으면 `null`로 해제 |
-|  | **반복문 실수 (Loop)** | `var`와 비동기를 함께 쓸 때 주의 → **`let`을 사용**하면 해결! |
+<div class="wda-group2">
+  <div class="wda-group wda-group-good">
+    <div class="wda-group-ttl">✅ 활용 (Good)</div>
+    <div class="wda-fgrid">
+      <div class="wda-fcard">
+        <div class="wda-fcard-ttl">정보 은닉 (Encapsulation)</div>
+        <div class="wda-fcard-dsc">변수를 함수 안에 숨겨서 외부 직접 접근을 차단하는 효과</div>
+      </div>
+      <div class="wda-fcard">
+        <div class="wda-fcard-ttl">함수 팩토리 (Factory)</div>
+        <div class="wda-fcard-dsc">설정값이 적용된 함수를 공장처럼 찍어냄(커링, 부분 적용 등)</div>
+      </div>
+    </div>
+  </div>
+  <div class="wda-group wda-group-bad">
+    <div class="wda-group-ttl">⚠️ 주의 (Bad)</div>
+    <div class="wda-fgrid">
+      <div class="wda-fcard">
+        <div class="wda-fcard-ttl">메모리 누수 (Memory Leak)</div>
+        <div class="wda-fcard-dsc">불필요하게 큰 데이터를 계속 잡고 있으면 안 됨 → 다 썼으면 <code>null</code>로 해제</div>
+      </div>
+      <div class="wda-fcard">
+        <div class="wda-fcard-ttl">반복문 실수 (Loop)</div>
+        <div class="wda-fcard-dsc"><code>var</code>와 비동기를 함께 쓸 때 주의 → <strong><code>let</code>을 사용</strong>하면 해결!</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ### 4) 헷갈리는 개념 비교
 

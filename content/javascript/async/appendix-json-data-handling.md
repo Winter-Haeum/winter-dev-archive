@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,21 +24,21 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -46,12 +46,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/번뜩.webp" alt="" style="width:118px;right:0;top:-15px;opacity:.9;transform:rotate(-4deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>JSON 개념</strong> — 서버·클라이언트가 데이터를 주고받는 "만국 공통어" 형식을 이해합니다.<br>
   <strong>JS Object와의 차이</strong> — JavaScript 객체와 JSON의 문법 차이를 정확히 구분합니다.<br>
   <strong>직렬화/역직렬화</strong> — `JSON.stringify()`, `JSON.parse()` 사용법을 익힙니다.
@@ -61,7 +62,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. JSON이란?</h2>
-  <img class="wda-deco" src="/images/decoration/포스트잇 (2).webp" alt="" style="width:76px;top:-16px;right:8px;opacity:.8;transform:rotate(6deg);">
 </div>
 
 데이터 교환을 위한 **"만국 공통어"**
@@ -100,7 +100,7 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
-**보충설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>만국 공통어란?</strong> — 한국인과 미국인이 대화할 때 '영어'를 공용어로 쓰듯이, 프로그래밍 세계에서는 <strong>Python 프로그램</strong>과 <strong>Java 프로그램</strong>이 대화하기 위해 <strong>JSON</strong>이라는 공용어 형식을 사용한다고 이해하면 쉽습니다.<br><br>
@@ -112,7 +112,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. JSON vs JavaScript Object 비교</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (7).webp" alt="" style="width:48px;top:-10px;left:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) JavaScript Object (자바스크립트 객체)
@@ -154,22 +153,19 @@ JSON에서는 key와 문자열 값에 반드시 쌍따옴표를 사용해야 합
 | **포함 가능 데이터** | 함수, undefined 등 | **순수 데이터만 (문자, 숫자, 불리언 등)** |
 | **주석** | 가능 | **불가능** |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 JSON은 이렇게 엄격할까요?</strong> — JSON은 특정 언어(자바스크립트)에 종속되지 않고, 파이썬이나 자바 같은 다른 언어에서도 쉽게 해석(Parsing)할 수 있어야 하기 때문입니다. 규칙이 단순하고 엄격할수록 컴퓨터가 데이터를 분석할 때 오류가 날 확률이 줄어듭니다.<br><br>
-  <strong>실수하기 쉬운 포인트</strong> — 초보자들이 가장 많이 하는 실수는 Key 값에 따옴표를 안 붙이거나, 홑따옴표(')를 사용하는 것입니다. JSON 파일(.json)을 작성할 때는 무조건 쌍따옴표(")만 쓴다고 기억하면 됩니다.
+  <strong>왜 JSON은 이렇게 엄격할까요?</strong> — JSON은 특정 언어(자바스크립트)에 종속되지 않고, 파이썬이나 자바 같은 다른 언어에서도 쉽게 해석(Parsing)할 수 있어야 하기 때문입니다.<br>
+  규칙이 단순하고 엄격할수록 컴퓨터가 데이터를 분석할 때 오류가 날 확률이 줄어듭니다.<br><br>
+  <strong>실수하기 쉬운 포인트</strong> — 초보자들이 가장 많이 하는 실수는 Key 값에 따옴표를 안 붙이거나, 홑따옴표(')를 사용하는 것입니다.<br>
+  JSON 파일(.json)을 작성할 때는 무조건 쌍따옴표(")만 쓴다고 기억하면 됩니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (7).webp" alt="" style="width:48px;top:6px;right:36%;opacity:.74;transform:rotate(8deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. JSON 데이터 vs JSON 객체</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (9).webp" alt="" style="width:56px;top:-12px;right:9%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 **데이터(String)와 도구(Object)의 차이를 명확히 구분해야 합니다.**
@@ -217,7 +213,6 @@ console.log(typeof JSON.parse); // "function"
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. JSON 사용법 (메서드)</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (6).webp" alt="" style="width:54px;top:-11px;left:8%;opacity:.78;transform:rotate(-7deg);">
 </div>
 
 직렬화(Stringify)와 역직렬화(Parse)의 개념과 사용법입니다.
@@ -285,25 +280,22 @@ console.log(user.name);
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>직렬화(Stringify)가 뭔가요?</strong> — 쉽게 말해 데이터를 <strong>'택배 포장'</strong> 하는 것입니다. 객체(Object) 상태로는 인터넷 선을 타고 날아갈 수 없기 때문에, 전송 가능한 형태인 <strong>문자열(String)</strong>로 납작하게 펴서 포장하는 과정입니다.<br><br>
-  <strong>역직렬화(Parse)가 뭔가요?</strong> — 도착한 택배의 <strong>'포장을 뜯는'</strong> 것입니다. 문자열 상태로는 <code>name</code>이나 <code>age</code>를 꺼내 쓸 수 없으니, 다시 우리가 프로그래밍에서 사용할 수 있는 <strong>객체(Object)</strong> 형태로 되돌리는 과정입니다.
+  <strong>직렬화(Stringify)가 뭔가요?</strong> — 쉽게 말해 데이터를 <strong>'택배 포장'</strong> 하는 것입니다.<br>
+  객체(Object) 상태로는 인터넷 선을 타고 날아갈 수 없기 때문에, 전송 가능한 형태인 <strong>문자열(String)</strong>로 납작하게 펴서 포장하는 과정입니다.<br><br>
+  <strong>역직렬화(Parse)가 뭔가요?</strong> — 도착한 택배의 <strong>'포장을 뜯는'</strong> 것입니다.<br>
+  문자열 상태로는 <code>name</code>이나 <code>age</code>를 꺼내 쓸 수 없으니, 다시 우리가 프로그래밍에서 사용할 수 있는 <strong>객체(Object)</strong> 형태로 되돌리는 과정입니다.
 </div>
 
-<img src="/images/content/appendix-json/JS 객체와 JSON 문자열 변환.png" alt="JS Object(메모리 상의 데이터)가 stringify를 거쳐 JSON String(전송/저장용 텍스트)으로, JSON String이 parse를 거쳐 다시 JS Object로 되돌아가는 양방향 변환 다이어그램" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] JS 객체와 JSON 문자열 변환</p>
+<img src="/images/content/javascript/appendix-json/javascript-appendix-json-object-string-conversion.png" alt="JS Object(메모리 상의 데이터)가 stringify를 거쳐 JSON String(전송/저장용 텍스트)으로, JSON String이 parse를 거쳐 다시 JS Object로 되돌아가는 양방향 변환 다이어그램" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] JS 객체와 JSON 문자열 변환</div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (5).webp" alt="" style="width:50px;top:6px;left:62%;opacity:.74;transform:rotate(-9deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 지원하는 데이터 타입</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="width:58px;top:-12px;right:33%;opacity:.78;transform:rotate(-7deg);">
 </div>
 
 가능한 것과 불가능한 것을 명확히 구분해야 데이터 손실을 막을 수 있습니다.
@@ -362,6 +354,8 @@ JSON 표준에서 허용하는 6가지 데이터 타입입니다.
 
 날짜(`Date`)는 JSON으로 변환(stringify)하면 **단순 문자열**로 바뀝니다.
 
+<div style="position:relative;overflow:visible;">
+
 ```js
 const today = { date: new Date() };
 
@@ -371,6 +365,8 @@ const jsonStr = JSON.stringify(today);
 // 주의: 다시 parse 해도 Date 객체가 아니라 "문자열"로 나옵니다!
 ```
 
+</div>
+
 다시 Date 객체로 사용하려면 parse 후 `new Date(saved.date)`처럼 직접 Date 객체로 변환해야 합니다.
 
 ```js
@@ -378,11 +374,15 @@ const parsed = JSON.parse(jsonStr);
 const date = new Date(parsed.date);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>`undefined`와 함수는 어떻게 되나요?</strong> — 객체의 프로퍼티 값이 <code>undefined</code>, 함수, <code>Symbol</code>이면 해당 프로퍼티는 JSON 문자열에서 <strong>제외</strong>됩니다. 배열 안에 들어 있는 <code>undefined</code>, 함수, <code>Symbol</code>은 <strong>`null`</strong>로 변환됩니다. 단, <code>undefined</code>나 함수 자체를 <code>JSON.stringify()</code>에 바로 넣으면 문자열 <code>"undefined"</code>가 아니라 실제 <code>undefined</code>가 반환됩니다.<br><br>
-  <strong>왜 다 지원 안 하나요?</strong> — JSON은 <strong>'데이터 교환'</strong>이 목적이기 때문입니다. 파이썬에는 자바스크립트의 '함수' 개념이 다르고, 자바에는 'undefined'가 없습니다. 서로 다른 언어끼리 오해 없이 주고받으려면 가장 <strong>기초적이고 공통적인 형태(숫자, 문자, 목록)</strong>만 남겨야 하기 때문입니다.
+  <strong>`undefined`와 함수는 어떻게 되나요?</strong> — 객체의 프로퍼티 값이 <code>undefined</code>, 함수, <code>Symbol</code>이면 해당 프로퍼티는 JSON 문자열에서 <strong>제외</strong>됩니다.<br>
+  배열 안에 들어 있는 <code>undefined</code>, 함수, <code>Symbol</code>은 <strong>`null`</strong>로 변환됩니다.<br>
+  단, <code>undefined</code>나 함수 자체를 <code>JSON.stringify()</code>에 바로 넣으면 문자열 <code>"undefined"</code>가 아니라 실제 <code>undefined</code>가 반환됩니다.<br><br>
+  <strong>왜 다 지원 안 하나요?</strong> — JSON은 <strong>'데이터 교환'</strong>이 목적이기 때문입니다.<br>
+  파이썬에는 자바스크립트의 '함수' 개념이 다르고, 자바에는 'undefined'가 없습니다.<br>
+  서로 다른 언어끼리 오해 없이 주고받으려면 가장 <strong>기초적이고 공통적인 형태(숫자, 문자, 목록)</strong>만 남겨야 하기 때문입니다.
 </div>
 
 ```js
@@ -405,14 +405,8 @@ JSON.stringify({ value: 10n });      // TypeError
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (5).webp" alt="" style="width:46px;top:6px;left:38%;opacity:.74;transform:rotate(7deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. 자주 겪는 에러와 궁금증 (FAQ &amp; Common Mistakes)</h2>
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="width:56px;top:-12px;right:8px;opacity:.78;transform:rotate(6deg);">
-  <img class="wda-deco" src="/images/character/꼭 기억.webp" alt="" style="width:110px;right:0;top:-94px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 ### 1) 🔴 SyntaxError (문법 오류)
@@ -456,7 +450,7 @@ const copy = JSON.parse(JSON.stringify(original));
   ⚠️ <strong>주의사항</strong> — 이 방법은 함수(Function), 날짜(Date), undefined 등 JSON이 지원하지 않는 데이터가 포함되어 있으면 유실되거나 변형됩니다. (완벽한 복사 방법은 아닙니다!)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   최신 JavaScript에서는 깊은 복사가 필요할 때 <code>structuredClone()</code>을 사용할 수도 있습니다. 다만 함수는 복사할 수 없고, 지원 환경을 확인해야 합니다.
@@ -476,14 +470,8 @@ const copy = structuredClone(original);
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (17).webp" alt="" style="width:108px;top:-10px;left:32%;opacity:.84;transform:rotate(-5deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 정리</h2>
-  <img class="wda-deco" src="/images/character/이해 완료.webp" alt="" style="width:116px;right:0;top:-96px;opacity:.9;transform:rotate(-3deg);">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (8).webp" alt="" style="width:78px;top:-18px;left:8%;opacity:.82;transform:rotate(8deg);">
 </div>
 
 <table class="wda-summary-table">

@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,16 +24,16 @@ tags:
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -44,8 +44,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 }
 </style>
 
-<div class="wda-callout wda-cy" style="position:relative;overflow:visible;padding-right:150px;">
-  <img class="wda-deco" src="/images/character/번뜩.webp" alt="" style="width:118px;right:0;top:-10px;opacity:.9;transform:rotate(-3deg);">
+<div class="wda-callout wda-cy">
   📎 <strong>부록(Appendix)</strong> — 이 문서는 정규 진도 번호(1-1~1-5)가 아니라, <strong>"1장 JavaScript 기본 문법"</strong>을 다시 복습할 수 있도록 보충하는 부록 문서입니다.
 </div>
 
@@ -66,10 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 📖 개념 설명
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>1. 타입 변환이란?</h3>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (2).webp" alt="" style="width:44px;top:-8px;right:8px;opacity:.74;transform:rotate(9deg);">
-</div>
+### 1. 타입 변환이란?
 
 타입 변환은 **값의 타입이 바뀌는 것**입니다.
 
@@ -84,7 +80,7 @@ var str = x.toString();
 - 하지만 `x` 자체는 여전히 **number** 타입 그대로 유지됩니다.
 - 즉, `x.toString()`은 `x`를 바꾼 게 아니라, `x`의 값을 바탕으로 새로운 문자열 값을 만들어서 돌려준 것입니다.
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   타입 변환에는 두 가지 방식이 있습니다.<br>
@@ -92,12 +88,10 @@ var str = x.toString();
   • <strong>명시적 타입 변환</strong> — 개발자가 <code>String()</code>, <code>Number()</code>, <code>Boolean()</code> 같은 함수로 직접 바꾸는 것
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>2. 암묵적 타입 변환</h3>
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="width:46px;top:-9px;left:36%;opacity:.76;transform:rotate(-7deg);">
-</div>
+### 2. 암묵적 타입 변환
 
-암묵적 타입 변환은 개발자가 직접 변환 명령을 하지 않아도, 자바스크립트 엔진이 **문맥(context)에 맞게** 타입을 자동으로 변환해주는 것을 말합니다. 문자열 연결 연산자, 산술 연산자, 비교 연산자, 조건식이라는 4가지 문맥에서 각각 다르게 동작합니다.
+암묵적 타입 변환은 개발자가 직접 변환 명령을 하지 않아도, 자바스크립트 엔진이 **문맥(context)에 맞게** 타입을 자동으로 변환해주는 것을 말합니다.  
+문자열 연결 연산자, 산술 연산자, 비교 연산자, 조건식이라는 4가지 문맥에서 각각 다르게 동작합니다.
 
 #### 2-1. 문자열 타입으로 변환
 
@@ -148,10 +142,11 @@ undefined + ''; // "undefined"
 Array + '';         // "function Array() { [native code] }"
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  Symbol 타입은 문자열로 암묵적 변환하려고 하면 <strong>TypeError</strong>가 발생합니다. Symbol은 의도적으로 문자열 변환을 막아두었기 때문에, 문자열로 쓰고 싶다면 <code>String(symbol)</code>처럼 명시적으로 변환해야 합니다.
+  Symbol 타입은 문자열로 암묵적 변환하려고 하면 <strong>TypeError</strong>가 발생합니다.<br>
+  Symbol은 의도적으로 문자열 변환을 막아두었기 때문에, 문자열로 쓰고 싶다면 <code>String(symbol)</code>처럼 명시적으로 변환해야 합니다.
 </div>
 
 #### 2-2. 숫자 타입으로 변환
@@ -190,9 +185,10 @@ Array + '';         // "function Array() { [native code] }"
 
 #### 2-3. 불리언 타입으로 변환
 
-`if`문 같은 **조건식**에서는 조건식의 결과가 boolean 타입이 아니어도, 자바스크립트 엔진이 값을 true 또는 false로 평가합니다. 이때 기준이 되는 것이 **Truthy(참으로 취급되는 값)**와 **Falsy(거짓으로 취급되는 값)**입니다.
+`if`문 같은 **조건식**에서는 조건식의 결과가 boolean 타입이 아니어도, 자바스크립트 엔진이 값을 true 또는 false로 평가합니다.  
+이때 기준이 되는 것이 **Truthy(참으로 취급되는 값)**와 **Falsy(거짓으로 취급되는 값)**입니다.
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <strong>Falsy 값 (반드시 암기!)</strong><br>
@@ -229,10 +225,7 @@ isFalsy('');    // true
 isTruthy('str'); // true
 ```
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>3. 명시적 타입 변환</h3>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (6).webp" alt="" style="width:48px;top:-9px;right:10%;opacity:.76;transform:rotate(7deg);">
-</div>
+### 3. 명시적 타입 변환
 
 명시적 타입 변환은 개발자가 **의도적으로** 타입을 바꾸는 것입니다. `String()`, `Number()`, `Boolean()`을 중심으로 정리합니다.
 
@@ -270,7 +263,7 @@ parseFloat('10.53'); // 10.53
 '0' * 1; // 0
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <code>parseInt</code>, <code>parseFloat</code>는 <strong>문자열만</strong> 숫자로 변환할 수 있습니다. 숫자나 다른 타입에는 사용할 이유가 없습니다.
@@ -295,23 +288,24 @@ Boolean([]);       // true
 !!'';  // false
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <code>Boolean('false')</code>가 <code>true</code>가 되는 게 처음에는 이상하게 느껴질 수 있습니다. 하지만 `'false'`는 <strong>"false"라는 글자가 들어있는 문자열</strong>일 뿐, 빈 문자열이 아닙니다. Falsy 값 목록에는 "빈 문자열(<code>''</code>)"만 있고 "false라는 글자가 들어있는 문자열"은 없기 때문에, 내용과 상관없이 <strong>비어있지 않은 문자열은 전부 Truthy</strong>입니다. 같은 이유로 <code>Boolean({})</code>, <code>Boolean([])</code>도 내용이 비어있어 보이지만 "객체"라는 존재 자체가 있으므로 Truthy가 됩니다.
+  <code>Boolean('false')</code>가 <code>true</code>가 되는 게 처음에는 이상하게 느껴질 수 있습니다.<br>
+  하지만 `'false'`는 <strong>"false"라는 글자가 들어있는 문자열</strong>일 뿐, 빈 문자열이 아닙니다.<br>
+  Falsy 값 목록에는 "빈 문자열(<code>''</code>)"만 있고 "false라는 글자가 들어있는 문자열"은 없기 때문에, 내용과 상관없이 <strong>비어있지 않은 문자열은 전부 Truthy</strong>입니다.<br>
+  같은 이유로 <code>Boolean({})</code>, <code>Boolean([])</code>도 내용이 비어있어 보이지만 "객체"라는 존재 자체가 있으므로 Truthy가 됩니다.
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>4. 단축 평가</h3>
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (4).webp" alt="" style="width:50px;top:-10px;left:8%;opacity:.76;transform:rotate(-8deg);">
-</div>
+### 4. 단축 평가
 
 단축 평가는 논리 연산자(`&&`, `||`)가 **결과를 이미 확신할 수 있는 순간, 나머지 평가를 멈추는 방식**입니다.
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
-  겨울 이불 속에서 이미 답을 찾았으면 굳이 이불 밖으로 나가서 더 찾아보지 않는 것과 같습니다. 논리 연산자는 <strong>항상 true/false만 반환하는 게 아니라, 판단에 사용된 값(피연산자) 자체를 그대로 반환</strong>할 수 있습니다.
+  겨울 이불 속에서 이미 답을 찾았으면 굳이 이불 밖으로 나가서 더 찾아보지 않는 것과 같습니다.<br>
+  논리 연산자는 <strong>항상 true/false만 반환하는 게 아니라, 판단에 사용된 값(피연산자) 자체를 그대로 반환</strong>할 수 있습니다.
 </div>
 
 ```jsx
@@ -322,12 +316,9 @@ Boolean([]);       // true
 - `'Cat' && 'Dog'`는 앞의 `'Cat'`이 이미 Truthy이므로, `&&`는 뒤의 값까지 마저 확인한 뒤 **마지막 값인 `'Dog'`**를 반환합니다.
 - `'Cat' || 'Dog'`는 앞의 `'Cat'`이 이미 Truthy이므로, 그 순간 결과가 확정되어 뒤는 보지도 않고 **`'Cat'`**을 그대로 반환합니다.
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>5. 논리 연산자를 사용한 단축 평가</h3>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (6).webp" alt="" style="width:52px;top:-11px;right:36%;opacity:.76;transform:rotate(6deg);">
-</div>
+### 5. 논리 연산자를 사용한 단축 평가
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   • <code>&&</code> — 앞 값이 <strong>Truthy</strong>이면 뒤 값을 반환하고, 앞 값이 <strong>Falsy</strong>이면 앞 값을 반환합니다.<br>
@@ -358,10 +349,11 @@ done && console.log('완료'); // "완료"
 done || console.log('미완료'); // 아무것도 출력 안 됨 (done이 Truthy이므로)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  단축 평가로 조건 처리를 아주 짧게 줄일 수 있지만, 코드가 익숙하지 않은 초보자에게는 오히려 <strong>일반 <code>if</code>문이 더 읽기 쉬울 수 있습니다.</strong> 팀 컨벤션이나 코드의 복잡도에 따라 편한 방식을 선택하면 됩니다.
+  단축 평가로 조건 처리를 아주 짧게 줄일 수 있지만, 코드가 익숙하지 않은 초보자에게는 오히려 <strong>일반 <code>if</code>문이 더 읽기 쉬울 수 있습니다.</strong><br>
+  팀 컨벤션이나 코드의 복잡도에 따라 편한 방식을 선택하면 됩니다.
 </div>
 
 #### 5-2. 기본값 설정
@@ -389,20 +381,15 @@ getStringLength();     // 0
 getStringLength('hi'); // 2
 ```
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>6. 옵셔널 체이닝 연산자 ?.</h3>
-</div>
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="width:44px;top:6px;right:12%;opacity:.76;transform:rotate(-6deg);">
-</div>
+### 6. 옵셔널 체이닝 연산자 ?.
 
 옵셔널 체이닝 연산자 `?.`는 객체가 `null` 또는 `undefined`일 수도 있는 상황에서, **에러 없이 안전하게** 프로퍼티에 접근할 수 있게 해주는 문법입니다.
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
-  문을 두드려보고, 안에 아무도 없으면 화내지 않고 그냥 조용히 돌아오는 것과 같습니다. <code>elem</code>이 있으면 <code>value</code>를 꺼내오고, <code>elem</code>이 없으면 에러 대신 그냥 <code>undefined</code>를 돌려줍니다.
+  문을 두드려보고, 안에 아무도 없으면 화내지 않고 그냥 조용히 돌아오는 것과 같습니다.<br>
+  <code>elem</code>이 있으면 <code>value</code>를 꺼내오고, <code>elem</code>이 없으면 에러 대신 그냥 <code>undefined</code>를 돌려줍니다.
 </div>
 
 ```jsx
@@ -425,16 +412,14 @@ str && str.length; // ''
 str?.length; // 0
 ```
 
-`''`는 `null`도 `undefined`도 아니지만 **Falsy 값**이기 때문에, `&&`를 쓰면 `str.length`까지 도달하지 못하고 `''`가 그대로 반환됩니다. 반면 `?.`는 오직 `null`/`undefined`인지만 확인하므로, 빈 문자열이어도 정상적으로 `str.length`인 `0`을 반환합니다.
+`''`는 `null`도 `undefined`도 아니지만 **Falsy 값**이기 때문에, `&&`를 쓰면 `str.length`까지 도달하지 못하고 `''`가 그대로 반환됩니다.  
+반면 `?.`는 오직 `null`/`undefined`인지만 확인하므로, 빈 문자열이어도 정상적으로 `str.length`인 `0`을 반환합니다.
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>7. null 병합 연산자 ??</h3>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (4).webp" alt="" style="width:60px;top:-13px;right:8px;opacity:.78;transform:rotate(9deg);">
-</div>
+### 7. null 병합 연산자 ??
 
 null 병합 연산자 `??`는 왼쪽 값이 **`null` 또는 `undefined`일 때만** 오른쪽의 기본값을 반환하는 연산자입니다.
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   "진짜 비어있을 때만" 켜지는 자동 조명이라고 생각하면 됩니다. 0이나 빈 문자열처럼 "값은 있지만 약한 값"이 들어와도 조명은 켜지지 않고, 오직 <code>null</code>·<code>undefined</code>일 때만 기본값이 켜집니다.
@@ -455,10 +440,11 @@ console.log(foo); // "default string"
 '' ?? 'default string'; // ""
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <code>0</code>이나 <code>''</code>처럼 "값은 있지만 Falsy인 값"도 **유효한 값으로 인정**해야 하는 상황이라면 `||`보다 `??`가 훨씬 더 적합합니다. 예를 들어 사용자가 수량을 `0`으로 입력했는데 `||`를 쓰면 기본값으로 덮어써버리는 버그가 생길 수 있지만, `??`를 쓰면 `0`이라는 값을 그대로 존중해줍니다.
+  <code>0</code>이나 <code>''</code>처럼 "값은 있지만 Falsy인 값"도 **유효한 값으로 인정**해야 하는 상황이라면 `||`보다 `??`가 훨씬 더 적합합니다.<br>
+  예를 들어 사용자가 수량을 `0`으로 입력했는데 `||`를 쓰면 기본값으로 덮어써버리는 버그가 생길 수 있지만, `??`를 쓰면 `0`이라는 값을 그대로 존중해줍니다.
 </div>
 
 ---

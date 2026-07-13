@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -33,16 +33,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -51,8 +51,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (14).webp" alt="" style="position:absolute;width:110px;top:-16px;right:26%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   📦 <strong>배열의 개념</strong> — 순서가 있는 데이터 집합의 필요성과 구조 이해합니다.<br>
   ➕ <strong>추가와 제거</strong> — push, pop, splice 등으로 배열 조작할 수 있습니다.<br>
   🔍 <strong>검색과 변환</strong> — find, slice, sort 등 다양한 메서드 활용할 수 있습니다.<br>
@@ -63,7 +62,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 배열이란 무엇인가?</h2>
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
 </div>
 
 데이터를 순서대로 담는 바구니를 **배열(Array)**이라고 합니다.
@@ -113,10 +111,6 @@ const students = ["철수", "영희"];
 
 실제 컴퓨터 언어는 아니지만, 사람이 이해하기 쉽게 프로그래밍 논리를 한글이나 영어로 적어 놓은 '가짜 코드'를 말합니다.
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:8px;left:33%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
 **🔹 생성**
 
 ```text
@@ -144,8 +138,6 @@ const students = ["철수", "영희"];
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 배열 생성</h2>
-  <img src="/images/character/개념 연결.webp" alt="" style="position:absolute;width:130px;right:0;top:-104px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/화살표 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-10px;left:30%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
 </div>
 
 가장 직관적인 리터럴 방식과 전통적인 생성자 방식을 알아봅니다.
@@ -160,7 +152,7 @@ const fruits = ["사과", "바나나"]; // 사과와 바나나가 들어있는 �
 const empty = []; // 비어있는 바구니 만들기 (빈 배열)
 ```
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">리터럴이란?</span>
@@ -170,7 +162,6 @@ const empty = []; // 비어있는 바구니 만들기 (빈 배열)
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>2) Array 생성자</h3>
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:36px;top:-14px;left:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 `new` 키워드를 사용하여 배열을 만듭니다.
@@ -182,16 +173,16 @@ const spaces = new Array(5); // [empty x 5]
 // 주의: 숫자 하나만 넣으면 데이터가 아니라 '길이'가 됩니다. 즉, 5칸짜리 빈 방을 만든 거예요.
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">생성자 주의점</span>
-  <code>new Array(5)</code>처럼 숫자 하나만 쓰면 숫자 '5'를 저장하는 게 아니라, <strong>"비어있는 5칸을 미리 만들어줘"</strong>라는 뜻이 됩니다. 헷갈리기 쉽기 때문에 리터럴 방식(<code>[]</code>)을 더 권장해요.
+  <code>new Array(5)</code>처럼 숫자 하나만 쓰면 숫자 '5'를 저장하는 게 아니라, <strong>"비어있는 5칸을 미리 만들어줘"</strong>라는 뜻이 됩니다.<br>
+  헷갈리기 쉽기 때문에 리터럴 방식(<code>[]</code>)을 더 권장해요.
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;배열 생성 - 특수&gt;</h3>
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:56px;top:-12px;right:6%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-7deg);">
 </div>
 
 특정 상황에서 사용하는 배열 생성 고급 방법입니다.
@@ -218,19 +209,16 @@ Array.from("Hello");
 // [해설] "Hello"라는 글자 뭉치를 하나하나 쪼개서 배열의 요소로 담아줍니다.
 ```
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">유사 배열이란?</span>
-  length 속성과 숫자 인덱스를 가지고 있어서 배열처럼 보이지만, 실제 배열은 아닌 객체를 말합니다. 그래서 <code>push</code>, <code>pop</code>, <code>map</code> 같은 배열 메서드를 바로 사용할 수 없습니다.<br>
+  length 속성과 숫자 인덱스를 가지고 있어서 배열처럼 보이지만, 실제 배열은 아닌 객체를 말합니다.<br>
+  그래서 <code>push</code>, <code>pop</code>, <code>map</code> 같은 배열 메서드를 바로 사용할 수 없습니다.<br>
   <code>Array.from()</code>은 이런 데이터들에게 "배열의 자격"을 주는 마법 같은 명령어입니다.
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:56px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(10deg);">
-</div>
 
 ## 3. 배열 접근
 
@@ -239,7 +227,7 @@ Array.from("Hello");
 - 읽기 : "0번 칸에 뭐 있어?" → "철수"
 - 쓰기 : "1번 칸을 '민수'로 바꿔줘" → (영희가 사라지고 민수가 들어감)
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">읽기와 쓰기의 차이</span>
@@ -256,10 +244,6 @@ Array.from("Hello");
 | **기존 데이터** | "철수" | "영희" | ? |
 | **수정 후** | "철수" | "민수" | ? |
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:58px;top:8px;right:6%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
-</div>
-
 **핵심 포인트**
 
 <div class="wda-callout wda-cs">
@@ -272,7 +256,6 @@ Array.from("Hello");
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;문법 및 활용&gt;</h3>
-  <img src="/images/decoration/말풍선 아이콘 (2).webp" alt="" style="position:absolute;width:56px;top:-10px;left:26%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 ### 3) 요소 읽기 (Read) - 기본
@@ -303,7 +286,7 @@ console.log(colors[colors.length - 1]);
 // 출력: "초록" (가장 마지막에 있는 데이터)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">왜 length - 1 인가요?</span>
@@ -316,7 +299,6 @@ console.log(colors[colors.length - 1]);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>5) 요소 쓰기 (Write)</h3>
-  <img src="/images/decoration/화살표 아이콘 (4).webp" alt="" style="position:absolute;width:56px;top:-10px;left:30%;z-index:2;pointer-events:none;opacity:.74;transform:scaleX(-1) rotate(-8deg);">
 </div>
 
 특정 인덱스 위치에 새로운 값을 대입하여 기존 내용을 수정하거나 추가합니다.
@@ -351,12 +333,12 @@ colors[5] = "보라";
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. 배열의 수정 - 심화</h2>
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:48px;top:-8px;left:50%;transform:translateX(-50%) rotate(6deg);z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 ### 1) length의 비밀 : 길이를 직접 수정하기
 
-자바스크립트에서는 배열의 길이를 나타내는 `length` 값을 강제로 바꿀 수 있습니다. 이 기능은 데이터를 삭제하거나 공간을 확보할 때 사용되지만 매우 주의해야 합니다.
+자바스크립트에서는 배열의 길이를 나타내는 `length` 값을 강제로 바꿀 수 있습니다.  
+이 기능은 데이터를 삭제하거나 공간을 확보할 때 사용되지만 매우 주의해야 합니다.
 
 ```js
 const arr = ["A", "B", "C"];
@@ -374,7 +356,8 @@ console.log(arr); // 결과: ["A", empty × 2]
 
 ### 2) 범위 밖 접근 (Out of bounds)
 
-배열에 존재하지 않는 번호(인덱스)를 부를 때 발생하는 현상입니다. 자바스크립트는 에러를 내뱉는 대신 `undefined`를 돌려줍니다.
+배열에 존재하지 않는 번호(인덱스)를 부를 때 발생하는 현상입니다.  
+자바스크립트는 에러를 내뱉는 대신 `undefined`를 돌려줍니다.
 
 ```js
 const arr = ["A", "B"];
@@ -390,17 +373,15 @@ console.log(arr[-1]); // 결과: undefined
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>3) 초보자를 위한 핵심 요약 (심화)</h3>
-  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-10px;left:50%;transform:translateX(-50%) rotate(5deg);z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">주의</span>
   length는 함부로 건드리지 마세요! 길이를 줄이는 순간 배열 뒷부분의 데이터는 완전히 삭제되어 복구할 수 없습니다.
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">undefined의 위험성</span>
@@ -411,7 +392,6 @@ console.log(arr[-1]); // 결과: undefined
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 접근과 수정</h2>
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-10px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 배열을 만들고 값을 변경하는 가장 기초적인 연습입니다.
@@ -442,10 +422,9 @@ console.log(signals.length);
 console.log(signals); // 결과: ["빨강", "노랑", "초록"]
 ```
 
-**실습 포인트 정리**
+**✅ 실습 포인트 정리**
 
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">실습 포인트</span>
   <ul>
     <li><strong>인덱스 번호 매기기</strong> : "파랑"이 몇 번째인지 셀 때 반드시 0부터(0, 1, 2) 세어야 한다는 것을 잊지 마세요!</li>
     <li><strong>값의 교체</strong> : signals[2] = "초록" 문법을 실행하면 기존에 있던 "파랑"은 완전히 사라지고 그 자리를 "초록"이 차지하게 됩니다.</li>
@@ -457,7 +436,6 @@ console.log(signals); // 결과: ["빨강", "노랑", "초록"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 배열 메서드의 추가/제거</h2>
-  <img src="/images/decoration/소품 아이콘 (6).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -498,7 +476,6 @@ const last = fruits.pop();
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🌈 [부록] pop()의 결과값(Return Value) 이해하기</h2>
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:70px;top:-16px;right:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-10deg);">
 </div>
 
 "삭제된 값이 어디로 갔을까?" 에 대한 보충 설명입니다.
@@ -565,11 +542,13 @@ const grabbedFruit = fruits.pop();
   </ul>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">왜 이 방법이 효율적인가요?</span>
-  "맨 마지막 인덱스만 건드리기 때문입니다." 앞에 있는 데이터들을 옆으로 밀거나 당길 필요 없이, 맨 뒤에 붙이거나 떼기만 하면 끝납니다. 그래서 데이터가 수만 개 있는 배열에서도 매우 빠르게 동작합니다.
+  "맨 마지막 인덱스만 건드리기 때문입니다."<br>
+  앞에 있는 데이터들을 옆으로 밀거나 당길 필요 없이, 맨 뒤에 붙이거나 떼기만 하면 끝납니다.<br>
+  그래서 데이터가 수만 개 있는 배열에서도 매우 빠르게 동작합니다.
 </div>
 
 ---
@@ -586,7 +565,6 @@ const grabbedFruit = fruits.pop();
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;앞에서 추가/제거&gt;</h3>
-  <img src="/images/decoration/핀 아이콘 (10).webp" alt="" style="position:absolute;width:54px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
 </div>
 
 배열의 왼쪽(첫 번째)에서 데이터를 넣고 빼는 방법입니다. 끝에서 작업하는 것보다 컴퓨터가 더 많은 일을 합니다.
@@ -620,11 +598,13 @@ console.log(fruits); // 출력: ["바나나", "오렌지"]
 console.log(first);  // 출력: "사과" (꺼낸 값을 변수에 담을 수 있습니다)
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">unshift와 shift가 느린 이유</span>
-  "모든 데이터의 번호표(인덱스)를 새로 붙여야 하기 때문입니다." 맨 앞에 하나가 들어오거나 나가면, 뒤에 줄 서 있던 모든 데이터가 한 칸씩 옆으로 이동해야 합니다. 데이터가 100만 개라면 100만 개를 다 옮겨야 하므로, 끝에서 작업하는 push/pop보다 훨씬 느리고 비효율적입니다.
+  "모든 데이터의 번호표(인덱스)를 새로 붙여야 하기 때문입니다."<br>
+  맨 앞에 하나가 들어오거나 나가면, 뒤에 줄 서 있던 모든 데이터가 한 칸씩 옆으로 이동해야 합니다.<br>
+  데이터가 100만 개라면 100만 개를 다 옮겨야 하므로, 끝에서 작업하는 push/pop보다 훨씬 느리고 비효율적입니다.
 </div>
 
 **핵심 요약**
@@ -642,7 +622,6 @@ console.log(first);  // 출력: "사과" (꺼낸 값을 변수에 담을 수 있
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 데이터 추가와 제거</h2>
-  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;width:116px;top:-22px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 push, unshift, shift 메서드를 실제 대기열 관리 시스템처럼 활용해 봅니다.
@@ -688,7 +667,6 @@ console.log(queue); // 출력: ["철수", "영희"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. 배열 메서드 - splice()</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (4).webp" alt="" style="position:absolute;width:56px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 배열의 중간에서 요소를 빼고, 넣고, 바꾸는 모든 작업을 수행하는 만능 도구입니다.
@@ -748,7 +726,6 @@ console.log(items); // 출력: ["A", "B", "C", "D"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. 배열 메서드 - splice 교체</h2>
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:104px;top:-20px;right:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
 </div>
 
 ### 1) 교체 메커니즘 이해
@@ -770,7 +747,6 @@ console.log(items); // 출력: ["A", "K", "C"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 자르고 붙이기 (splice)</h2>
-  <img src="/images/decoration/메모지 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-10px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-5deg);">
 </div>
 
 splice를 활용하여 실생활의 메뉴판을 수정하듯 배열을 자유자재로 다뤄봅니다.
@@ -801,7 +777,7 @@ console.log(menus);
 // 출력: ["짜장", "군만두", "콜라", "볶음밥"]
 ```
 
-**정리**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">splice 실습 정리</span>
@@ -816,7 +792,6 @@ console.log(menus);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 배열 메서드 - 검색</h2>
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:60px;top:-14px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 indexOf, includes 등을 사용하여 배열 안에 특정 요소가 있는지, 있다면 어디에 있는지 찾아냅니다.
@@ -838,14 +813,14 @@ arr.lastIndexOf("b");   // 결과: 3
 arr.indexOf("z");       // 결과: -1
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">중요 포인트</span>
   indexOf는 찾는 값이 없으면 에러가 아닌 -1을 내뱉습니다. 조건문을 쓸 때 이 -1을 체크하는 것이 매우 중요합니다.
 </div>
 
-**참고**
+**🔎 참고**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">왜 'O'를 대문자로 쓰나요? (카멜 케이스)</span>
@@ -876,7 +851,6 @@ fruits.includes("사과", 1); // 결과: false (1번 인덱스부터는 사과�
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>3) 검색 메서드 비교</h3>
-  <img src="/images/decoration/소품 아이콘 (8).webp" alt="" style="position:absolute;width:56px;top:-10px;right:2%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 | **메서드** | **결과값** | **용도** |
@@ -884,13 +858,13 @@ fruits.includes("사과", 1); // 결과: false (1번 인덱스부터는 사과�
 | **indexOf** | 숫자 (인덱스) | 데이터의 정확한 위치가 필요할 때 |
 | **includes** | 불리언 (T/F) | 존재 여부만 빠르게 확인할 때 |
 
-indexOf와 includes는 단순한 값(숫자, 문자열 등)을 비교하는 데 최적화되어 있습니다. 만약 배열 안에 들어있는 객체의 속성으로 데이터를 찾고 싶다면, 다음 챕터에서 배울 find() 메서드를 사용해야 합니다.
+indexOf와 includes는 단순한 값(숫자, 문자열 등)을 비교하는 데 최적화되어 있습니다.  
+만약 배열 안에 들어있는 객체의 속성으로 데이터를 찾고 싶다면, 다음 챕터에서 배울 find() 메서드를 사용해야 합니다.
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. 배열 메서드 - slice()와 concat()</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="position:absolute;width:56px;top:-12px;right:38%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-9deg);">
 </div>
 
 기존 배열은 그대로 유지하면서, 필요한 부분만 복사하거나 다른 배열과 합쳐서 새로운 배열을 만듭니다.
@@ -917,7 +891,6 @@ console.log(arr);   // 결과: ["a", "b", "c", "d", "e"] (변하지 않음)
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>2) concat(): 배열 합치기</h3>
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-10px;left:66%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 두 개 이상의 배열을 하나로 합쳐서 새로운 배열을 반환합니다.
@@ -944,10 +917,6 @@ console.log(added);    // 결과: [1, 2, 3, 4, 5]
 | **splice()** | O (변함) | 종이를 실제로 가위로 잘라내는 것 |
 | **slice()** | X (유지) | 종이를 그대로 두고 복사기(Copy)로 찍어내는 것 |
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:8px;right:4%;z-index:2;pointer-events:none;opacity:.72;">
-</div>
-
 **언제 무엇을 쓰나요?**
 
 <div class="wda-callout wda-cs">
@@ -962,7 +931,6 @@ console.log(added);    // 결과: [1, 2, 3, 4, 5]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>📂 자바스크립트 배열(Array) 중간 정리</h2>
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:78px;top:-16px;right:34%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
 </div>
 
 ### 🔹 배열의 기초: 접근과 수정
@@ -1051,7 +1019,6 @@ console.log(added);    // 결과: [1, 2, 3, 4, 5]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 배열 잘라내기 (slice)</h2>
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-10px;right:12%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 ### 1) 미션: 상위권 명단 추출하기
@@ -1089,7 +1056,6 @@ console.log(ranks); // 출력: ["A", "B", "C", "D", "E"] (원본 유지)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 배열 메서드 - sort()와 reverse()</h2>
-  <img src="/images/decoration/소품 아이콘 (11).webp" alt="" style="position:absolute;width:116px;top:-24px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 ### 1) reverse() : 순서 뒤집기
@@ -1124,7 +1090,7 @@ fruits.sort();
 console.log(fruits); // 결과: ["apple", "banana", "cherry"]
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">숫자를 정렬할 때 발생하는 문제</span>
@@ -1151,7 +1117,8 @@ a - b가 음수이면 a가 앞에 오고, 양수이면 b가 앞에 옵니다. �
 **해결책**
 
 <div class="wda-callout wda-cs">
-  숫자를 제대로 정렬하려면 나중에 배울 <strong>'비교 함수'</strong>를 sort() 안에 넣어주어야 합니다. 지금은 "기본적으로는 문자열 순서로 정렬된다"는 점만 기억하세요!
+  숫자를 제대로 정렬하려면 나중에 배울 <strong>'비교 함수'</strong>를 sort() 안에 넣어주어야 합니다.<br>
+  지금은 "기본적으로는 문자열 순서로 정렬된다"는 점만 기억하세요!
 </div>
 
 **핵심 요약**
@@ -1176,7 +1143,6 @@ const reversed = [...arr].reverse();
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. 배열 메서드 - sort() - 숫자 정렬</h2>
-  <img src="/images/decoration/하트 아이콘 (9).webp" alt="" style="position:absolute;width:44px;top:-8px;left:50%;transform:translateX(-50%) rotate(-6deg);z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 ### 1) 왜 그냥 sort()를 쓰면 안 되나요?
@@ -1214,7 +1180,7 @@ console.log(numbers); // 결과: [25, 10, 4, 2, 1]
   </ul>
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">sort 원본 변경 주의</span>
@@ -1228,7 +1194,6 @@ console.log(numbers); // 결과: [25, 10, 4, 2, 1]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>12. 배열 메서드 - 연결 join()</h2>
-  <img src="/images/decoration/말풍선 아이콘 (4).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 ### 1) join(): 배열을 문자열로 합치기
@@ -1287,7 +1252,6 @@ join()은 나중에 배울 문자열 메서드인 split()과 반대로 작동합
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🚀 join() 실전 활용 사례</h2>
-  <img src="/images/decoration/화살표 아이콘 (7).webp" alt="" style="position:absolute;width:108px;top:-20px;right:56%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
 </div>
 
 ### 1) 실무 활용 예시
@@ -1352,7 +1316,6 @@ console.log(html);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 배열 변환 (join &amp; reverse)</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-10px;right:12%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
 </div>
 
 ### 1) 미션 : 해시태그 만들기
@@ -1393,8 +1356,6 @@ console.log(tags);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>13. 배열 복사</h2>
-  <img src="/images/character/원리 이해.webp" alt="" style="position:absolute;width:150px;right:0;top:-76px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/구름 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-8px;left:20%;z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -1463,12 +1424,14 @@ console.log(original); // 결과: ["a", "b", "c", "d"] 😱 (원본도 변함!)
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">참조 복사 정리</span>
-  "배열을 =로 복사하는 것은 복사가 아니라 공유다." 원본을 유지해야 한다면 절대로 =를 사용하지 마세요. 쉽게 말하면 주소표가 복사되는 것처럼 동작합니다. 엄밀히 말하면 JavaScript는 값을 전달하지만, 참조 타입의 경우 그 값이 객체를 가리키는 참조값입니다. 초보자 단계에서는 '같은 배열을 함께 바라본다'라고 이해하면 됩니다.
+  "배열을 =로 복사하는 것은 복사가 아니라 공유다." 원본을 유지해야 한다면 절대로 =를 사용하지 마세요.<br>
+  쉽게 말하면 주소표가 복사되는 것처럼 동작합니다.<br>
+  엄밀히 말하면 JavaScript는 값을 전달하지만, 참조 타입의 경우 그 값이 객체를 가리키는 참조값입니다.<br>
+  초보자 단계에서는 '같은 배열을 함께 바라본다'라고 이해하면 됩니다.
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;올바른 방법&gt;</h3>
-  <img src="/images/decoration/잎사귀 아이콘 (6).webp" alt="" style="position:absolute;width:54px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
 </div>
 
 ### 4) 스프레드 문법 (추천)
@@ -1500,15 +1463,16 @@ const copy = original.slice();
 // 결과는 위와 동일
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">배열 안에 객체가 들어있다면?</span>
   <strong>얕은 복사(Shallow Copy)</strong>만으로는 부족할 수 있습니다. 배열 내부의 요소가 객체인 경우, 해당 객체까지 완전히 복사되지는 않습니다.<br>
-  해결책 : 깊은 복사가 필요할 때는 structuredClone()을 사용할 수 있습니다. JSON.stringify() / JSON.parse() 방식도 있지만, 함수, undefined, Date, Map 같은 값은 제대로 보존되지 않을 수 있으므로 주의해야 합니다.
+  해결책 : 깊은 복사가 필요할 때는 structuredClone()을 사용할 수 있습니다.<br>
+  JSON.stringify() / JSON.parse() 방식도 있지만, 함수, undefined, Date, Map 같은 값은 제대로 보존되지 않을 수 있으므로 주의해야 합니다.
 </div>
 
-**정리**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">복사 방법 정리</span>
@@ -1519,12 +1483,12 @@ const copy = original.slice();
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>14. 다차원 배열</h2>
-  <img src="/images/decoration/소품 아이콘 (14).webp" alt="" style="position:absolute;width:58px;top:-12px;left:32%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 ### 1) 다차원 배열이란?
 
-배열의 요소로 또 다른 배열이 들어있는 구조를 말합니다. 보통 2차원 배열이 가장 많이 쓰이며, 데이터를 표(Table) 형태로 관리할 때 유용합니다.
+배열의 요소로 또 다른 배열이 들어있는 구조를 말합니다.  
+보통 2차원 배열이 가장 많이 쓰이며, 데이터를 표(Table) 형태로 관리할 때 유용합니다.
 
 ### 2) 2차원 배열의 구조와 접근
 
@@ -1599,7 +1563,6 @@ for (let i = 0; i < matrix.length; i++) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>15. 배열 구조분해 맛보기</h2>
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:96px;top:-20px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
 </div>
 
 ### 1) 구조 분해 할당이란?
@@ -1656,11 +1619,7 @@ console.log(green); // "초록"
 | **유지보수** | 중앙 집중 관리 | 데이터나 변수명을 한곳에서 정의하고 관리하므로, 변경 사항 발생 시 수정 범위가 최소화됩니다. |
 | **실수 방지** | 인덱스 오류 차단 | arr[1], arr[2]와 같이 인덱스를 수동으로 입력할 때 발생하는 오타나 논리적 오류를 근본적으로 방지합니다. |
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/핀 아이콘 (7).webp" alt="" style="position:absolute;width:50px;top:8px;left:33%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-7deg);">
-</div>
-
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">구조분해 원리 분석</span>
@@ -1671,7 +1630,7 @@ console.log(green); // "초록"
   </ul>
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">구조분해 주의사항</span>
@@ -1698,7 +1657,6 @@ console.log(y); // 1
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>5) 나머지 할당 (Rest)</h3>
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:54px;top:-10px;left:55%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-7deg);">
 </div>
 
 특정 요소들을 제외한 나머지 요소들을 다시 하나의 배열로 모을 때 사용합니다.
@@ -1725,7 +1683,7 @@ const [a, , c] = [1, 2, 3]; // 가운데 쉼표로 건너뜀
 console.log(c); // 3
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">구조분해 원리</span>
@@ -1740,7 +1698,6 @@ console.log(c); // 3
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 구조분해 할당</h2>
-  <img src="/images/decoration/핀 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-12px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 배열의 값을 변수로 우아하게 추출해봅시다.
@@ -1766,11 +1723,7 @@ console.log(lastName);  // "Jobs"
 console.log(company);   // "Apple"
 ```
 
-**보충 설명**
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:6px;left:66%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(7deg);">
-</div>
+**💡 보충 설명**
 
 | **구분** | **핵심 원칙** | **상세 설명 및 예시** |
 | --- | --- | --- |
@@ -1782,7 +1735,6 @@ console.log(company);   // "Apple"
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>16. 기초 훈련 - 전통적인 배열 순회</h2>
-  <img src="/images/decoration/소품 아이콘 (27).webp" alt="" style="position:absolute;width:62px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 고차 함수를 배우기 전, 가장 기본이 되는 배열 순회 방법을 마스터합니다.
@@ -1815,7 +1767,7 @@ for (const member of members) {
 
 *특징 : 코드가 간결하며 가독성이 매우 좋습니다.*
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">순회 방식 선택 기준</span>
@@ -1830,7 +1782,6 @@ for (const member of members) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>17. 기초 훈련 - forEach 메서드</h2>
-  <img src="/images/decoration/말풍선 아이콘 (10).webp" alt="" style="position:absolute;width:112px;top:-22px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 배열에는 forEach라는 자체적인 순회 메서드가 내장되어 있습니다.
@@ -1857,7 +1808,7 @@ members.forEach((member, index) => {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">forEach 특징</span>
@@ -1881,7 +1832,6 @@ members.forEach((member, index) => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 배열 기본 조작</h2>
-  <img src="/images/decoration/하트 아이콘 (10).webp" alt="" style="position:absolute;width:46px;top:-8px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 ### 1) 미션: 나의 취미 리스트 관리
@@ -1930,7 +1880,6 @@ console.log(hobbies); // 결과: ["독서", "영상보기", "코딩"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 데이터 가공 Routine</h2>
-  <img src="/images/decoration/소품 아이콘 (16).webp" alt="" style="position:absolute;width:56px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 지금까지 배운 함수, 배열, 반복문을 조합하여 실제 서비스를 구축하듯 실습합니다.
@@ -1961,7 +1910,7 @@ const finalPrice = calculateTotal(cart);
 console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">cart 예제 해설</span>
@@ -1977,8 +1926,6 @@ console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>📂 자바스크립트 배열(Array) 요약</h2>
-  <img src="/images/character/한눈에 정리.webp" alt="" style="position:absolute;width:132px;right:0;top:-106px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/마스킹 테이프 (17).webp" alt="" style="position:absolute;width:100px;top:-38px;left:6%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-6deg);">
 </div>
 
 ### 1️⃣ 배열 생성: 상황별 선택 가이드
@@ -1992,7 +1939,6 @@ console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>2️⃣ 데이터 접근 및 수정: 기본 원칙</h3>
-  <img src="/images/decoration/메모지 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-10px;left:33%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
 </div>
 
 | **구분** | **문법 (Syntax)** | **원본 변경 여부** | **상세 설명 및 주의사항** |
@@ -2023,7 +1969,6 @@ console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>5️⃣ 정렬과 변환: 데이터 가공하기</h3>
-  <img src="/images/decoration/느낌표 아이콘 (5).webp" alt="" style="position:absolute;width:46px;top:-8px;right:6%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 ```js
@@ -2052,7 +1997,6 @@ const str = arr.join(", ");
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🚩 최종 핵심 요약: 실무 로직</h2>
-  <img src="/images/decoration/별 아이콘 (10).webp" alt="" style="position:absolute;width:66px;top:-14px;right:10%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-7deg);">
 </div>
 
 실무 데이터 가공 3단계 루틴입니다.

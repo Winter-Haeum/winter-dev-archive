@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -34,16 +34,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -52,8 +52,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (8).webp" alt="" style="position:absolute;width:106px;top:-22px;right:26%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   🎯 <strong>this 고정하기</strong> — call, apply, bind로 함수의 this를 원하는 객체로 지정하는 방법을 이해합니다.<br>
   📞 <strong>call과 apply</strong> — 즉시 실행되는 두 메서드의 인자 전달 방식 차이를 익힙니다.<br>
   ⏳ <strong>bind</strong> — this가 고정된 새 함수를 만들어 나중에 실행하는 패턴을 익힙니다.<br>
@@ -64,8 +63,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>부록 A. call, apply, bind (this를 내 마음대로 조종하기)</h2>
-  <img src="/images/character/체크 완료.webp" alt="" style="position:absolute;width:126px;right:0;top:-98px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:64px;top:-14px;left:30%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-9deg);">
 </div>
 
 ### A-1. 왜 필요한가요?
@@ -102,10 +99,6 @@ myGreet();
 `bind`를 사용해 `this`를 `person`으로 고정했습니다.
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:50px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-</div>
 
 ### A-2. call 메서드
 
@@ -144,7 +137,6 @@ introduce.call(user, 25, "서울");
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>A-3. apply 메서드</h3>
-  <img src="/images/decoration/핀 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 `call`과 기능은 똑같지만, 인자를 **배열**로 묶어서 전달한다는 점이 다릅니다.
@@ -182,7 +174,6 @@ introduce.apply(user, [30, "부산"]);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>A-4. bind 메서드</h3>
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:58px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 함수를 즉시 실행하지 않고, `this`가 바인딩된 **새로운 함수를 반환**합니다. 나중에 실행할 때 사용합니다.
@@ -222,7 +213,6 @@ introduceJisu(22);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>📊 this 바인딩 메서드 최종 비교</h2>
-  <img src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="position:absolute;width:48px;top:-10px;right:12%;transform:rotate(-6deg);z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 절대 헷갈리지 않도록 강사님의 설명을 논리적으로 표로 묶었습니다.
@@ -237,12 +227,12 @@ introduceJisu(22);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>부록 B. 배열 생성의 모든 것 (new Array, of, from 완벽 가이드)</h2>
-  <img src="/images/character/한눈에 정리.webp" alt="" style="position:absolute;width:170px;right:0;top:-134px;opacity:.88;z-index:2;pointer-events:none;">
 </div>
 
 ### B-1. new Array()의 함정
 
-`new Array()`는 인자의 개수와 타입에 따라 동작이 달라집니다. 이 "불일치" 때문에 실무에서는 잘 쓰지 않습니다.
+`new Array()`는 인자의 개수와 타입에 따라 동작이 달라집니다.  
+이 "불일치" 때문에 실무에서는 잘 쓰지 않습니다.
 
 #### 1) 인자가 숫자 1개일 때
 
@@ -277,7 +267,6 @@ console.log(arr.length); // 3
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>B-2. 희소 배열과 Empty의 정체</h3>
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:50px;top:-36px;right:10%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 구멍이 숭숭 뚫린 배열을 **희소 배열(Sparse Array)**이라고 하며, 이때의 구멍을 **Empty(비어있음)**라고 합니다.
@@ -297,7 +286,7 @@ arr.forEach(v => console.log(v));
 // (중간의 empty는 아예 무시됨!)
 ```
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">Empty vs Undefined</span>
@@ -309,17 +298,28 @@ arr.forEach(v => console.log(v));
 
 <div style="position:relative;overflow:visible;margin:1.1rem 0 0.3rem;">
   <h4>2) 희소 배열이 만들어지는 경우</h4>
-  <img src="/images/decoration/잎사귀 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:-8px;right:15%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(8deg);">
 </div>
 
-| **코드** | **결과** |
-| --- | --- |
-| `new Array(3)` | `[empty × 3]` |
-| `arr[10] = 1` (빈 배열에서) | `[empty × 10, 1]` |
-| `delete arr[0]` | `[empty, 2, 3]` |
-| `[1, , 3]` (쉼표 연속) | empty 생성 |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl"><code>new Array(3)</code></div>
+    <div class="wda-fcard-dsc"><code>[empty × 3]</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl"><code>arr[10] = 1</code> (빈 배열에서)</div>
+    <div class="wda-fcard-dsc"><code>[empty × 10, 1]</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl"><code>delete arr[0]</code></div>
+    <div class="wda-fcard-dsc"><code>[empty, 2, 3]</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl"><code>[1, , 3]</code> (쉼표 연속)</div>
+    <div class="wda-fcard-dsc">empty 생성</div>
+  </div>
+</div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">희소 배열 지양</span>
@@ -333,7 +333,6 @@ arr.forEach(v => console.log(v));
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>B-3. Array.of() - 일관성 있는 생성</h3>
-  <img src="/images/decoration/말풍선 아이콘 (3).webp" alt="" style="position:absolute;width:112px;top:-20px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:scaleX(-1) rotate(-7deg);">
 </div>
 
 ES6에서 도입된 `Array.of()`는 인자의 개수나 타입에 상관없이 **무조건 요소로 취급**하여 배열을 만듭니다.
@@ -366,17 +365,14 @@ console.log(arr2);
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;width:46px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
-
 ### B-4. Array.from() - 변화의 마법사
 
 유사 배열 객체(array-like object)나 반복 가능한 객체(iterable)를 **진짜 배열로 바꿔줍니다.**
 
 #### 1) 유사 배열을 배열로 (NodeList 등)
 
-DOM 요소들을 선택했을 때 반환되는 NodeList는 배열처럼 보이지만 진짜 배열은 아닙니다. forEach는 지원되는 환경이 많지만, map/filter/reduce 같은 배열 메서드는 바로 사용할 수 없습니다.
+DOM 요소들을 선택했을 때 반환되는 NodeList는 배열처럼 보이지만 진짜 배열은 아닙니다.  
+forEach는 지원되는 환경이 많지만, map/filter/reduce 같은 배열 메서드는 바로 사용할 수 없습니다.
 
 ```jsx
 // HTML: <div>A</div> <div>B</div> <div>C</div>
@@ -404,10 +400,10 @@ console.log(chars);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>B-5. Array.from()의 강력한 기능 - 매핑</h3>
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:44px;top:-6px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
-`Array.from()`은 두 번째 인자로 **변환 함수(Mapping Function)**를 받을 수 있습니다. `map()`을 한 번 더 쓸 필요가 없죠!
+`Array.from()`은 두 번째 인자로 **변환 함수(Mapping Function)**를 받을 수 있습니다.  
+`map()`을 한 번 더 쓸 필요가 없죠!
 
 #### 1) 문법
 
@@ -447,7 +443,6 @@ console.log(numbers);
 
 <div style="position:relative;overflow:visible;margin:1.1rem 0 0.3rem;">
   <h4>4) 배열 생성 도구 최종 비교</h4>
-  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:52px;top:6px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
 </div>
 
 | **방식** | **결과** | **특징 및 한계** |
@@ -461,7 +456,6 @@ console.log(numbers);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💡 핵심 정리</h2>
-  <img src="/images/decoration/마스킹 테이프 (11).webp" alt="" style="position:absolute;width:100px;top:24px;right:30%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-6deg);">
 </div>
 
 ### 1. 배열 생성 도구별 특징 비교
@@ -486,7 +480,6 @@ console.log(numbers);
 ### 3. Array.from() 마법사의 활용 (핵심)
 
 <div style="position:relative;overflow:visible;">
-  <img src="/images/decoration/소품 아이콘 (7).webp" alt="" style="position:absolute;width:54px;top:-8px;right:2%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
   <p>Array.from()은 유사 배열 변환이나 일정한 길이의 배열을 생성하면서 값을 채울 때 매우 유용합니다.</p>
 </div>
 
@@ -509,7 +502,7 @@ const numbers = Array.from({ length: 5 }, (v, i) => i + 1);
 // 결과: [1, 2, 3, 4, 5]
 ```
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">{ length: 5 }가 왜 유사 배열인가요?</span>

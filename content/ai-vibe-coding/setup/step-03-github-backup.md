@@ -16,7 +16,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -27,8 +27,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -37,8 +37,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -61,20 +61,27 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:198px;padding-left:14px;">
-  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:182px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(6deg);">
-  <img src="/images/decoration/반짝이 아이콘 (1).webp" alt="" style="position:absolute;width:44px;top:-22px;right:186px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-16deg);">
+<div class="wda-goal">
   Git MCP와 GitHub CLI를 설치하여, AI에게 <strong>"백업해줘"</strong> 한 마디로 GitHub에 프로젝트를 저장할 수 있는 환경을 구축한다.<br>📦 <strong>GitHub CLI 설치</strong> — gh CLI 설치 및 OAuth 인증으로 GitHub 연결<br>🤖 <strong>스킬 파일 등록</strong> — Claude가 GitHub 작업을 자동 수행하도록 설정<br>🚀 <strong>AI 백업 자동화</strong> — "백업해줘" 한 마디로 GitHub에 자동 저장
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;">
-  <img src="/images/decoration/꽃 아이콘 (13).webp" alt="" style="position:absolute;width:50px;bottom:-14px;right:14px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(12deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">이 단계를 완료하면</span>"이 프로젝트를 GitHub에 백업해줘" 라고 말하면 — Claude가 자동으로 저장소를 생성하고 코드를 업로드합니다!
 </div>
 
@@ -88,8 +95,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 GitHub는 전 세계 개발자들이 사용하는 가장 인기 있는 **클라우드 코드 저장소**입니다.
 
-<div class="wda-fgrid" style="position:relative;padding-top:26px;">
-<img src="/images/decoration/마스킹 테이프 (2).webp" alt="" style="position:absolute;width:88px;top:-10px;left:10px;z-index:1;pointer-events:none;opacity:.80;transform:rotate(3deg);">
+<div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">🛡️</div><div class="wda-fcard-ttl">안전한 백업</div><div class="wda-fcard-dsc">컴퓨터가 고장나도 코드는 GitHub에 안전하게 저장됩니다.</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🕒</div><div class="wda-fcard-ttl">버전 관리</div><div class="wda-fcard-dsc">언제든 이전 버전으로 돌아갈 수 있어요.</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">💼</div><div class="wda-fcard-ttl">포트폴리오</div><div class="wda-fcard-dsc">취업할 때 GitHub 주소로 실력을 보여줄 수 있어요.</div></div>
@@ -98,10 +104,6 @@ GitHub는 전 세계 개발자들이 사용하는 가장 인기 있는 **클라�
 <div class="wda-compare">
 <div class="wda-cbox wda-cbox-plain"><span class="wda-cbox-label">Git</span><div class="wda-cbox-ttl">💾 저장 버튼</div><div class="wda-cbox-body">내 컴퓨터에서 코드 변경 이력을 관리하는 도구</div></div>
 <div class="wda-cbox wda-cbox-flex"><span class="wda-cbox-label">GitHub</span><div class="wda-cbox-ttl">☁️ 클라우드 드라이브</div><div class="wda-cbox-body">Git으로 관리한 코드를 인터넷(클라우드)에 저장하는 서비스</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (9).webp" alt="" style="position:absolute;width:62px;top:-14px;right:4%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-35deg);">
 </div>
 
 ---
@@ -130,10 +132,10 @@ GitHub는 전 세계 개발자들이 사용하는 가장 인기 있는 **클라�
 
 #### 👤 사용자명 선택
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:182px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:134px;top:-18px;left:8px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(7deg);">
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:48px;top:-24px;left:142px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-22deg);">
-  <span class="wda-clabel">포인트</span>사용자명 = 포트폴리오 주소! <code>username.github.io</code> 형태로 사용됩니다.<br><strong>규칙:</strong> 영문 소문자 + 숫자, 간결하게<br><strong>좋은 예:</strong> john-dev, minsoo123, sunny-code<br><strong>피해야 할 예:</strong> asdf1234, test-user (포트폴리오로 사용하기 어려움)
+**💡 사용 팁**
+
+<div class="wda-callout wda-ci">
+  사용자명 = 포트폴리오 주소! <code>username.github.io</code> 형태로 사용됩니다.<br><strong>규칙:</strong> 영문 소문자 + 숫자, 간결하게<br><strong>좋은 예:</strong> john-dev, minsoo123, sunny-code<br><strong>피해야 할 예:</strong> asdf1234, test-user (포트폴리오로 사용하기 어려움)
 </div>
 
 ---
@@ -152,12 +154,7 @@ GitHub 가입 시 사용한 이메일 (예: `john@example.com`)
 
 **정보 정리** — 강사가 제시하는 양식에 따라 수집한 정보를 정리합니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:80px;top:-14px;right:4%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-18deg);">
-</div>
-
-<div class="wda-memo" style="position:relative;padding-right:158px;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:142px;top:-22px;right:4px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-9deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">✏️ 내 GitHub 정보 메모</span>
   <div class="wda-memo-body">
 
@@ -174,10 +171,6 @@ GitHub 이메일: ____________________
 
 ---
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/소품 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-10px;right:22%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(28deg);">
-</div>
-
 ## ⚙️ 동작 원리
 
 ### GitHub CLI OAuth 인증 방식
@@ -193,22 +186,29 @@ gh auth login
 명령어 하나로 브라우저 로그인만 하면 자동으로 인증이 완료됩니다. 브라우저 창이 열리면 GitHub 로그인 후 **Authorize** 클릭!
 
 <div class="wda-callout wda-cy">
-  <span class="wda-clabel">OAuth란?</span>"Open Authorization"의 약자입니다. 비밀번호를 직접 전달하지 않고, 신뢰하는 앱(GitHub CLI)에 특정 권한만 허용하는 인증 방식입니다. 구글 로그인으로 다른 앱에 가입하는 것과 같은 원리입니다.
+  <span class="wda-clabel">OAuth란?</span>
+  "Open Authorization"의 약자입니다.<br>
+  비밀번호를 직접 전달하지 않고, 신뢰하는 앱(GitHub CLI)에 특정 권한만 허용하는 인증 방식입니다.<br>
+  구글 로그인으로 다른 앱에 가입하는 것과 같은 원리입니다.
 </div>
 
 ---
 
 ### gh CLI 스킬 파일 방식
 
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;top:-72px;left:22%;width:44px;transform:rotate(-12deg);pointer-events:none;z-index:2;opacity:.76;">
-</div>
-
 이 단계에서는 MCP 서버 없이 gh CLI 명령어를 Claude가 직접 실행하는 방식을 사용합니다.
 
-<div class="wda-callout wda-ci"><span class="wda-clabel">동작 방식</span>MCP 서버 설치 없이 gh CLI 명령어를 Claude가 직접 실행합니다. <code>.claude/skills/gh_cli/skill.md</code> 파일에 명령어 가이드를 등록해두면, 이후 GitHub 작업 시 Claude가 자동으로 참조하여 처리합니다.</div>
+<div class="wda-callout wda-ci">
+  <span class="wda-clabel">동작 방식</span>
+  MCP 서버 설치 없이 gh CLI 명령어를 Claude가 직접 실행합니다.<br>
+  <code>.claude/skills/gh_cli/skill.md</code> 파일에 명령어 가이드를 등록해두면, 이후 GitHub 작업 시 Claude가 자동으로 참조하여 처리합니다.
+</div>
 
-<div class="wda-callout wda-cy"><span class="wda-clabel">스킬 파일이란?</span>Claude가 특정 작업을 수행할 때 참고하는 가이드 문서입니다. <code>.claude/skills/</code> 폴더에 저장해두면, Claude가 GitHub 작업 요청을 받을 때 이 파일을 참조하여 정확한 gh CLI 명령어를 실행합니다.</div>
+<div class="wda-callout wda-cy">
+  <span class="wda-clabel">스킬 파일이란?</span>
+  Claude가 특정 작업을 수행할 때 참고하는 가이드 문서입니다.<br>
+  <code>.claude/skills/</code> 폴더에 저장해두면, Claude가 GitHub 작업 요청을 받을 때 이 파일을 참조하여 정확한 gh CLI 명령어를 실행합니다.
+</div>
 
 ---
 
@@ -220,10 +220,6 @@ gh auth login
 </div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:88px;top:-8px;right:14px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-5deg);">
-</div>
 
 ## 💻 예제 코드
 
@@ -286,10 +282,6 @@ Active token scopes: ...
 ---
 
 ### 6. Claude Code 자동 설정 프롬프트
-
-<div style="position:relative;height:0;overflow:visible;margin:0;padding:0;">
-  <img src="/images/decoration/책갈피 아이콘 (5).webp" alt="" style="position:absolute;top:-78px;left:36%;width:50px;transform:rotate(-10deg);pointer-events:none;z-index:2;opacity:.78;">
-</div>
 
 아래 프롬프트를 그대로 복사하여 Claude Code에게 전달하세요.
 
@@ -396,10 +388,10 @@ GitHub 스킬이 제대로 등록되었는지 확인해줘.
 
 아래 6개의 프롬프트를 순서대로 Claude Code에 입력하세요.
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:196px;">
-  <img src="/images/character/실수 주의.webp" alt="" style="position:absolute;width:178px;top:-22px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
-  <img src="/images/decoration/반짝이 아이콘 (7).webp" alt="" style="position:absolute;width:46px;top:-28px;right:182px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(20deg);">
-  <span class="wda-clabel">실습 전 주의사항</span>반드시 순서대로 진행하세요! 각 단계가 완료된 후 다음 프롬프트를 입력해야 합니다.
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">실습 전 주의사항</span>
+  반드시 순서대로 진행하세요!<br>
+  각 단계가 완료된 후 다음 프롬프트를 입력해야 합니다.
 </div>
 
 ---
@@ -417,10 +409,6 @@ GitHub 스킬이 제대로 등록되었는지 확인해줘.
 ```
 
 **완료 확인** — `https://github.com/사용자명/my-first-website` 주소로 접속해서 저장소가 생성되었는지 확인하세요.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:76px;top:-32px;right:20%;z-index:2;pointer-events:none;opacity:.62;transform:rotate(6deg);">
-</div>
 
 ---
 
@@ -444,10 +432,6 @@ GitHub 스킬이 제대로 등록되었는지 확인해줘.
 
 **완료 확인** — GitHub 저장소 페이지를 새로고침하면 `test.txt` 파일이 보여야 합니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:62px;top:-20px;left:18%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-20deg);">
-</div>
-
 ---
 
 #### 실습 3: 파일 삭제 후 백업
@@ -465,10 +449,6 @@ GitHub 스킬이 제대로 등록되었는지 확인해줘.
 ```
 
 **완료 확인** — GitHub 저장소 페이지를 새로고침하면 `test.txt` 파일이 사라져야 합니다.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (9).webp" alt="" style="position:absolute;width:120px;top:-30px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(22deg);">
-</div>
 
 ---
 
@@ -489,10 +469,6 @@ GitHub 스킬이 제대로 등록되었는지 확인해줘.
 ```
 
 **완료 확인** — GitHub 저장소 페이지를 새로고침하면 `test.txt` 파일이 다시 나타나야 합니다.
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-12px;right:28%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-10deg);">
-</div>
 
 ---
 
@@ -544,10 +520,6 @@ npm-debug.log*
 
 #### 실습 6: 간단한 랜딩페이지 제작 및 GitHub Pages 배포
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/느낌표 아이콘 (2).webp" alt="" style="position:absolute;width:62px;top:-28px;right:3%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(15deg);">
-</div>
-
 이제 배운 내용을 활용해서 실제로 웹페이지를 만들고 인터넷에 공개해봅시다.
 
 ```
@@ -585,10 +557,6 @@ GitHub Actions 사용 (안정적)
 
 5. 배포 완료 후 URL 안내
 ```
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/소품 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-14px;right:8%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(0deg);">
-</div>
 
 **워크플로우 파일 (`.github/workflows/deploy.yml`)**
 
@@ -639,8 +607,7 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 
 **실습 6 완료 확인** — Claude가 안내하는 URL (예: `https://사용자명.github.io/my-first-website`)로 접속해서 내가 만든 웹페이지가 실제로 인터넷에 공개되었는지 확인하세요. 안내된 주소를 모바일에서도 접속해보세요. PC와 스마트폰 모두에서 잘 보이면 반응형 웹페이지 완성입니다.
 
-<div class="wda-done" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:88px;top:-10px;left:20px;z-index:4;pointer-events:none;opacity:.84;transform:rotate(-7deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">GitHub 백업 & 배포 실습 완료</div>
   <div>코드 작성 → GitHub 백업 → 웹사이트 배포까지, 전체 개발 사이클을 AI와 함께 완료할 수 있게 되었습니다!</div>
@@ -650,10 +617,6 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 
 ## ⚠️ 주의사항
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/느낌표 아이콘 (6).webp" alt="" style="position:absolute;width:62px;top:-20px;right:4%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(18deg);">
-</div>
-
 ### .gitignore가 중요한 이유
 
 | 항목 | 이유 |
@@ -662,9 +625,10 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 | `node_modules/` | 용량이 크고 `npm install`로 복구 가능 |
 | `.env` | 비밀번호나 API 키가 포함될 수 있음 |
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:192px;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:174px;top:-22px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
-  <span class="wda-clabel">특히 .env 파일 주의</span>API 키나 비밀번호가 GitHub에 올라가면 외부에서 무단 사용될 수 있습니다. 처음부터 <code>.gitignore</code>에 등록해두는 습관을 들이세요.
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">특히 .env 파일 주의</span>
+  API 키나 비밀번호가 GitHub에 올라가면 외부에서 무단 사용될 수 있습니다.<br>
+  처음부터 <code>.gitignore</code>에 등록해두는 습관을 들이세요.
 </div>
 
 ---
@@ -681,10 +645,6 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 <div class="wda-callout wda-ci"><span class="wda-clabel">Claude Code 재시작이 필요한 경우</span><code>/exit</code>로 종료 후 터미널에서 <code>claude</code>로 재실행하고, 자동 설정 프롬프트를 다시 붙여넣기하세요.</div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (16).webp" alt="" style="position:absolute;width:62px;top:-10px;left:20%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-18deg);">
-</div>
 
 ## 📝 핵심 정리
 
@@ -717,8 +677,7 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 
 **학습 포인트**
 
-<div class="wda-memo" style="position:relative;padding-right:174px;">
-  <img src="/images/character/복습하기.webp" alt="" style="position:absolute;width:158px;top:-20px;right:4px;z-index:3;pointer-events:none;opacity:.88;transform:rotate(-12deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">📌 핵심 개념 정리</span>
   <div class="wda-memo-body">
 📁 <strong>Git</strong> — 코드 버전 관리 시스템의 기본 개념 이해<br>

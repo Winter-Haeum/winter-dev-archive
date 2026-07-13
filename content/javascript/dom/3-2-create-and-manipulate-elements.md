@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,25 +25,32 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
+.wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
+.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
+.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -52,8 +59,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/말풍선 아이콘 (7).webp" alt="" style="position:absolute;width:60px;top:-18px;right:32%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-7deg);">
+<div class="wda-goal">
   🔍 <strong>요소 선택</strong> — querySelector 등 5가지 메서드를 익힙니다.<br>
   ✏️ <strong>내용 변경</strong> — textContent와 innerHTML의 차이를 이해합니다.<br>
   🏷️ <strong>속성과 클래스</strong> — getAttribute, classList 활용법을 익힙니다.<br>
@@ -63,10 +69,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 요소 선택이란?</h2>
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:62px;top:-14px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
+## 1. 요소 선택이란?
 
 ### 1) DOM에서 요소 찾기
 
@@ -93,9 +96,6 @@ const para = document.querySelector('p');
 
 ### 2) 선택 - 조작 흐름
 
-<img src="/images/content/3-2/선택-조작 흐름.webp" alt="선택-조작 흐름 다이어그램" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
-
-
 **핵심 포인트**
 
 <div class="wda-callout wda-cs">
@@ -104,12 +104,12 @@ const para = document.querySelector('p');
   </ul>
 </div>
 
+<img src="/images/content/javascript/3-2/javascript-3-2-select-manipulate-flow.webp" alt="선택-조작 흐름 다이어그램" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] DOM 선택 - 조작 흐름 (요소 선택 → 내용/속성/스타일 변경, 삭제·이동)</div>
+
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 요소 선택 전략 (Strategy)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (4).webp" alt="" style="position:absolute;width:48px;top:-10px;left:44%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
-</div>
+## 2. 요소 선택 전략 (Strategy)
 
 우리는 이미 1-3-1(개념편)에서 모든 선택자를 배웠습니다. 실무 전략은 심플합니다.
 
@@ -122,7 +122,7 @@ const para = document.querySelector('p');
   <div class="wda-fcard">
     <div class="wda-fcard-ico">2️⃣</div>
     <div class="wda-fcard-ttl">Rule #2</div>
-    <div class="wda-fcard-dsc">"성능 최적화는 나중에"<br><code>getElementById</code>가 빠르지만, 가독성과 개발 속도가 더 중요합니다. 일반적인 웹페이지에서는 선택 메서드 간 성능 차이를 체감하기 어렵기 때문에, 처음에는 가독성과 유지보수성을 우선하는 것이 좋습니다.</div>
+    <div class="wda-fcard-dsc">"성능 최적화는 나중에"<br><code>getElementById</code>가 빠르지만, 가독성과 개발 속도가 더 중요합니다.<br>일반적인 웹페이지에서는 선택 메서드 간 성능 차이를 체감하기 어렵기 때문에, 처음에는 가독성과 유지보수성을 우선하는 것이 좋습니다.</div>
   </div>
 </div>
 
@@ -138,10 +138,6 @@ const para = document.querySelector('p');
 ---
 
 ## 💻 실습 : 복잡한 선택자 연습
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (7).webp" alt="" style="position:absolute;width:52px;left:36%;top:6px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(9deg);">
-</div>
 
 ### 1) HTML 구조
 
@@ -173,7 +169,7 @@ console.log(document.querySelector('.error input'));
 console.log(document.querySelector('button[type="submit"]'));
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -185,28 +181,32 @@ console.log(document.querySelector('button[type="submit"]'));
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 내용 변경 (Content Manipulation)</h2>
-  <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:64px;top:-16px;right:22%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
-</div>
+## 3. 내용 변경 (Content Manipulation)
 
 요소 내부의 내용을 읽거나 바꾸는 두 가지 핵심 방법입니다.
 
 ### 1) textContent vs innerHTML 비교
 
-| **구분** | **`textContent`** | **`innerHTML`** |
-| --- | --- | --- |
-| **처리 방식** | 순수 텍스트만 다룹니다.<br>HTML 태그를 문자열로 취급합니다. | HTML 구조를 파싱합니다.<br>실제 DOM 요소로 변환합니다. |
-| **속도/안전성** | **가장 빠르고 안전함** | 느리고 **보안 위험 있음** (XSS 공격 취약) |
-| **`<strong>` 입력 시** | 태그 그대로 출력됩니다. | 글자가 **굵게** 표시됩니다. |
-| **예시** | `el.textContent = "반갑습니다!";` | `el.innerHTML = "<strong>반갑습니다!</strong>";` |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl"><code>textContent</code></div>
+    <strong>처리 방식</strong> : 순수 텍스트만 다룹니다. HTML 태그를 문자열로 취급합니다.<br>
+    <strong>속도/안전성</strong> : <strong>가장 빠르고 안전함</strong><br>
+    <strong><code>&lt;strong&gt;</code> 입력 시</strong> : 태그 그대로 출력됩니다.<br>
+    <strong>예시</strong> : <code>el.textContent = "반갑습니다!";</code>
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl"><code>innerHTML</code></div>
+    <strong>처리 방식</strong> : HTML 구조를 파싱합니다. 실제 DOM 요소로 변환합니다.<br>
+    <strong>속도/안전성</strong> : 느리고 <strong>보안 위험 있음</strong> (XSS 공격 취약)<br>
+    <strong><code>&lt;strong&gt;</code> 입력 시</strong> : 글자가 <strong>굵게</strong> 표시됩니다.<br>
+    <strong>예시</strong> : <code>el.innerHTML = "&lt;strong&gt;반갑습니다!&lt;/strong&gt;";</code>
+  </div>
+</div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 주의: XSS(Cross-Site Scripting) 보안 취약점</h2>
-  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(7deg);">
-</div>
+## 4. 주의: XSS(Cross-Site Scripting) 보안 취약점
 
 `innerHTML`에 사용자 입력을 직접 넣는 것은 집 문을 열어두는 것과 같습니다.
 
@@ -230,30 +230,31 @@ div.innerHTML = input;
 ### 2) 이 코드가 왜 위험한가요?
 
 <div class="wda-fgrid">
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-con">
     <div class="wda-fcard-ttl"><code>&lt;script&gt;</code> 차단</div>
     <div class="wda-fcard-dsc">innerHTML로 삽입한 <code>script</code> 태그는 일반적으로 그대로 실행되지 않는 경우가 많습니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-con">
     <div class="wda-fcard-ttl"><code>&lt;img&gt;</code> 우회</div>
     <div class="wda-fcard-dsc">존재하지 않는 주소('x')를 넣어 <code>onerror</code> 같은 이벤트 속성이 실행되게 됩니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-con">
     <div class="wda-fcard-ttl">자동 실행</div>
     <div class="wda-fcard-dsc">화면에 렌더링 즉시 발동하여 에러가 나면서 해커 코드가 실행됩니다.</div>
   </div>
 </div>
 
-하지만 img의 onerror 같은 이벤트 속성이나 다른 HTML 삽입 방식으로 악성 코드가 실행될 수 있어 위험합니다. 그래서 사용자 입력값은 기본적으로 textContent로 처리하는 것이 안전합니다.
+하지만 img의 onerror 같은 이벤트 속성이나 다른 HTML 삽입 방식으로 악성 코드가 실행될 수 있어 위험합니다.  
+그래서 사용자 입력값은 기본적으로 textContent로 처리하는 것이 안전합니다.
 
 ### 3) Safe Alternative
 
 <div class="wda-fgrid">
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ttl">textContent 사용</div>
     <div class="wda-fcard-dsc">태그가 무력화되어 안전합니다.</div>
   </div>
-  <div class="wda-fcard">
+  <div class="wda-fcard wda-fcard-pro">
     <div class="wda-fcard-ttl">DOMPurify 사용</div>
     <div class="wda-fcard-dsc">위험한 태그만 제거합니다.</div>
   </div>
@@ -270,20 +271,26 @@ div.innerHTML = input;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 속성(Attribute) vs 프로퍼티(Property)</h2>
-  <img src="/images/decoration/책갈피 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
-</div>
+## 5. 속성(Attribute) vs 프로퍼티(Property)
 
 가장 혼동하기 쉬운 개념입니다. **초기값(Blueprint)**과 **현재상태(Live)**의 차이입니다.
 
 ### 1) Attribute vs Property 비교
 
-| **구분** | **HTML Attribute** | **DOM Property** |
-| --- | --- | --- |
-| **의미** | **설계도 (Blueprint)**<br>HTML에 작성된 초기값 | **실제 객체 (Live Object)**<br>현재 화면의 실시간 값 |
-| **접근 방법** | `getAttribute()`로 접근 | `element.value`로 접근 |
-| **예시 코드** | `<input value="initial">` | `input.value = "current"` |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">HTML Attribute</div>
+    <strong>의미</strong> : <strong>설계도 (Blueprint)</strong> — HTML에 작성된 초기값<br>
+    <strong>접근 방법</strong> : <code>getAttribute()</code>로 접근<br>
+    <strong>예시 코드</strong> : <code>&lt;input value="initial"&gt;</code>
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">DOM Property</div>
+    <strong>의미</strong> : <strong>실제 객체 (Live Object)</strong> — 현재 화면의 실시간 값<br>
+    <strong>접근 방법</strong> : <code>element.value</code>로 접근<br>
+    <strong>예시 코드</strong> : <code>input.value = "current"</code>
+  </div>
+</div>
 
 ### 2) 코드 예시
 
@@ -295,7 +302,7 @@ input.getAttribute('value'); // -> "initial"
 input.value; // -> "user input"
 ```
 
-**실무 팁**
+**💼 실무 팁**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -305,14 +312,12 @@ input.value; // -> "user input"
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. data-* 속성과 dataset</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-10px;left:40%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-9deg);">
-</div>
+## 6. data-* 속성과 dataset
 
 ### 1) data- 속성 정의
 
-`data-`로 시작하는 커스텀 속성을 사용해 HTML 요소에 보조 데이터를 저장할 수 있습니다. 단, HTML에 그대로 노출되는 값이므로 비밀번호나 토큰 같은 민감한 정보는 저장하면 안 됩니다.
+`data-`로 시작하는 커스텀 속성을 사용해 HTML 요소에 보조 데이터를 저장할 수 있습니다.  
+단, HTML에 그대로 노출되는 값이므로 비밀번호나 토큰 같은 민감한 정보는 저장하면 안 됩니다.
 
 ### 2) HTML 코드
 
@@ -356,17 +361,23 @@ dataset으로 읽은 값은 항상 문자열입니다. 예를 들어 `data-user-
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 클래스(Class) 조작 - className과 classList</h2>
-  <img src="/images/decoration/하트 아이콘 (1).webp" alt="" style="position:absolute;width:44px;top:-10px;right:10px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(10deg);">
-</div>
+## 7. 클래스(Class) 조작 - className과 classList
 
 ### 1) className vs classList 비교
 
-| **구분** | **className** | **classList (권장)** |
-| --- | --- | --- |
-| **방식** | 문자열 전체를 통째로 다룹니다. | 개별 클래스를 메서드로 관리합니다. |
-| **단점/장점** | 오타가 나기 쉽고, 전체 교체 시 기존 클래스가 사라집니다. | `add`, `remove`, `toggle`, `contains`로 안전하게 관리합니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">className</div>
+    <strong>방식</strong> : 문자열 전체를 통째로 다룹니다.<br>
+    <strong>단점</strong> : 오타가 나기 쉽고, 전체 교체 시 기존 클래스가 사라집니다.
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-label">✅ 권장</div>
+    <div class="wda-compare-ttl">classList</div>
+    <strong>방식</strong> : 개별 클래스를 메서드로 관리합니다.<br>
+    <strong>장점</strong> : <code>add</code>, <code>remove</code>, <code>toggle</code>, <code>contains</code>로 안전하게 관리합니다.
+  </div>
+</div>
 
 ### 2) className (문자열 전체)
 
@@ -382,7 +393,7 @@ box.className = 'new-class';
 box.className += ' another';
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -406,7 +417,7 @@ box.classList.toggle('dark-mode');
 if (box.classList.contains('card')) { ... }
 ```
 
-**실무 팁**
+**💼 실무 팁**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -416,10 +427,7 @@ if (box.classList.contains('card')) { ... }
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 스타일(Style) 조작</h2>
-  <img src="/images/decoration/스탬프 아이콘 (5).webp" alt="" style="position:absolute;width:70px;top:-18px;right:6%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(9deg);">
-</div>
+## 8. 스타일(Style) 조작
 
 ### 1) element.style (인라인)
 
@@ -435,7 +443,7 @@ console.log(box.style.color);
 // CSS 파일에 있는 스타일은 못 읽음!
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -456,7 +464,7 @@ console.log(computed.fontSize); // "16px"
 console.log(computed.display);  // "block"
 ```
 
-**권장 방식**
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -525,7 +533,7 @@ box.classList.add('error');
 box.textContent = '오류 발생!';
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -537,19 +545,24 @@ box.textContent = '오류 발생!';
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. 요소 생성 (Memory) vs 삽입 (DOM)</h2>
-  <img src="/images/decoration/꽃 아이콘 (14).webp" alt="" style="position:absolute;width:58px;top:-14px;right:30%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
+## 9. 요소 생성 (Memory) vs 삽입 (DOM)
 
 `createElement`로 만든 요소는 공중에 떠 있는 풍선과 같습니다.
 
 ### 1) Memory vs DOM 비교
 
-| **구분** | **Memory (메모리)** | **DOM (화면)** |
-| --- | --- | --- |
-| **코드** | `document.createElement('div')` | `document.body.appendChild(div)` |
-| **상태** | 아직 화면에 보이지 않습니다.<br>DOM 트리에 연결되지 않은 상태입니다. | 이제 화면에 나타납니다.<br>DOM 트리의 자식으로 연결된 상태입니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">Memory (메모리)</div>
+    <strong>코드</strong> : <code>document.createElement('div')</code><br>
+    <strong>상태</strong> : 아직 화면에 보이지 않습니다. DOM 트리에 연결되지 않은 상태입니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">DOM (화면)</div>
+    <strong>코드</strong> : <code>document.body.appendChild(div)</code><br>
+    <strong>상태</strong> : 이제 화면에 나타납니다. DOM 트리의 자식으로 연결된 상태입니다.
+  </div>
+</div>
 
 ### 2) 계층 구조 조립
 
@@ -565,7 +578,7 @@ ul.appendChild(li);
 document.body.appendChild(ul);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -577,10 +590,6 @@ document.body.appendChild(ul);
 ---
 
 ## 💻 실습 : 새로운 카드 만들기
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:44px;left:calc(34% + 100px);top:4px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
 
 JavaScript로 카드를 만들고 화면에 붙여봅시다.
 
@@ -639,10 +648,7 @@ document.body.appendChild(card);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>10. 요소 삽입하기 (2) - 모던 메서드</h2>
-  <img src="/images/decoration/핀 아이콘 (10).webp" alt="" style="position:absolute;width:56px;top:-14px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-8deg);">
-</div>
+## 10. 요소 삽입하기 (2) - 모던 메서드
 
 기존 `appendChild()`는 노드 1개만 가능하고, 항상 맨 뒤에만 추가되는 단점이 있었습니다.
 
@@ -674,10 +680,7 @@ document.body.appendChild(card);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. 요소 삭제/교체/복제</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (4).webp" alt="" style="position:absolute;width:54px;top:-12px;left:calc(46% - 150px);z-index:2;pointer-events:none;opacity:.76;transform:rotate(11deg);">
-</div>
+## 11. 요소 삭제/교체/복제
 
 ### 1) 삭제와 교체
 
@@ -698,7 +701,7 @@ document.body.appendChild(card);
 | **`false`** | **얕은 복제** | 껍데기만 복제하며, 자식 요소는 제외합니다. |
 | **`true`** | **깊은 복제** | 모든 자식을 포함하여 완전히 똑같이 복제합니다. |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -710,10 +713,6 @@ document.body.appendChild(card);
 ---
 
 ## 💻 실습 : 할 일 목록
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:132px;right:0;top:186px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
 
 ### 1) 구현 목표
 
@@ -803,7 +802,7 @@ function addTodo() {
 | **2. 설정** | 글자를 채우고, 클래스나 이벤트를 부여합니다. | `textContent`, `classList`, `addEventListener` | **Memory** (조립 중) |
 | **3. 삽입** | 부모 요소와 연결하여 실제 화면에 띄웁니다. | `appendChild()`, `append()` | **DOM** (화면에 나타남) |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -827,10 +826,6 @@ function addTodo() {
 ---
 
 ## 💻 실습 : 다크모드 토글
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/구름 아이콘 (2).webp" alt="" style="position:absolute;width:60px;right:8%;top:2px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-9deg);">
-</div>
 
 버튼을 누르면 `body` 태그에 `dark-mode` 클래스를 붙였다 떼었다(Toggle) 합니다.
 
@@ -868,7 +863,7 @@ btn.addEventListener('click', () => {
 });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <ul>
@@ -880,11 +875,7 @@ btn.addEventListener('click', () => {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🚀 최종 핵심 정리</h2>
-  <img src="/images/character/이해 완료.webp" alt="" style="position:absolute;width:140px;right:0;top:-112px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/스탬프 아이콘 (6).webp" alt="" style="position:absolute;width:60px;top:-14px;right:150px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-6deg);">
-</div>
+## 🚀 최종 핵심 정리
 
 ### 1. 요소 선택 및 상태 (Selection)
 

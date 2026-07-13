@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,21 +25,21 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -47,12 +47,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/멘붕.webp" alt="" style="width:118px;right:0;top:-14px;opacity:.9;transform:rotate(-3deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>Promise 기초</strong> — 비동기 작업의 상태(State)를 이해하고 결과를 다룹니다.<br>
   <strong>체이닝과 에러 처리</strong> — then으로 작업을 연결하고 catch로 에러를 통합 관리합니다.<br>
   <strong>비동기 함수</strong> — async/await로 비동기 코드를 동기 코드처럼 작성합니다.<br>
@@ -63,7 +64,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 콜백 지옥에서 탈출!</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (10).webp" alt="" style="width:64px;top:-16px;right:6%;opacity:.8;transform:rotate(8deg);">
 </div>
 
 ### 1) Before (콜백 지옥) vs After (Promise)
@@ -101,9 +101,11 @@ login(user)
   중첩 없이 평탄하게! 에러 처리도 한 곳에서!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-이 비교가 Promise를 사용하는 이유의 전부입니다.
+<div class="wda-callout wda-ci">
+  이 비교가 Promise를 사용하는 이유의 전부입니다.
+</div>
 
 | **특징** | **콜백 패턴 (Before)** | **Promise (After)** |
 | --- | --- | --- |
@@ -114,7 +116,6 @@ login(user)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. Promise란?</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (7).webp" alt="" style="width:48px;top:-10px;left:34%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 미래에 완료될 작업의 결과를 나타내는 객체
@@ -169,7 +170,7 @@ const promise = new Promise((resolve, reject) => {
   Executor(실행자 함수)는 new Promise 선언과 동시에 "즉시 실행"됩니다. 결과만 나중에 비동기로 알려주는 것입니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"Executor가 즉시 실행된다"</strong>는 말은 초보자가 가장 많이 헷갈리는 부분입니다.
@@ -195,7 +196,6 @@ const myPromise = new Promise((resolve) => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. 🚦 Promise 상태 3가지</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (11).webp" alt="" style="width:52px;top:-11px;right:32%;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### 1) 한 번 결정되면 변경 불가!
@@ -221,7 +221,7 @@ Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니
   불변성: fulfilled나 rejected가 되면 다시 바뀌지 않습니다! (성공했다가 실패로 바뀌거나, 실패했다가 성공으로 바뀔 수 없음)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 3가지 상태는 Promise를 이해하는 <strong>가장 중요한 기초</strong>입니다.<br>
@@ -240,7 +240,6 @@ Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. Promise 생성</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (7).webp" alt="" style="width:56px;top:-12px;left:8%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) new Promise로 직접 만들기
@@ -291,22 +290,23 @@ delay(2000).then(() => {
   JS 엔진이 주입하는 함수. 작업을 실패로 처리하고 에러(reason)를 전달
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   사실 실무에서 <code>new Promise</code>를 직접 작성할 일은 생각보다 많지 않습니다. (<code>fetch</code>나 <code>axios</code> 같은 라이브러리가 이미 Promise를 만들어주기 때문이죠.)<br><br>
   하지만 <strong>"옛날 방식의 콜백 함수(setTimeout 등)를 최신 Promise로 감싸서(Wrapping) 쓸 때"</strong> 이 패턴이 필수적으로 사용됩니다. 이를 <strong>'Promisify(프로미스화)'</strong>라고 부릅니다.<br><br>
-  · <strong>핵심 포인트</strong> — <code>resolve</code>와 <code>reject</code>는 우리가 만드는 함수가 아닙니다. 자바스크립트 엔진이 <strong>"성공하면 이 버튼 누르고, 실패하면 저 버튼 누르세요"</strong>라고 우리 손에 쥐여주는 <strong>기폭장치(Trigger)</strong> 같은 것입니다. 우리는 상황에 맞춰 누르기만 하면 됩니다.
+  · <strong>핵심 포인트</strong> — <code>resolve</code>와 <code>reject</code>는 우리가 만드는 함수가 아닙니다.<br>
+  자바스크립트 엔진이 <strong>"성공하면 이 버튼 누르고, 실패하면 저 버튼 누르세요"</strong>라고 우리 손에 쥐여주는 <strong>기폭장치(Trigger)</strong> 같은 것입니다.<br>
+  우리는 상황에 맞춰 누르기만 하면 됩니다.
 </div>
 
-<img src="/images/content/5-2/Promise 상태 흐름.png" alt="new Promise() → Pending → resolve(val)이면 Fulfilled(.then()), reject(err)이면 Rejected(.catch())" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] Promise 상태 흐름</p>
+<img src="/images/content/javascript/5-2/javascript-5-2-promise-state-flow.png" alt="new Promise() → Pending → resolve(val)이면 Fulfilled(.then()), reject(err)이면 Rejected(.catch())" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] Promise 상태 흐름</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 📲 Promise 소비 - then, catch, finally</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="width:50px;top:-11px;right:8px;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### 1) Promise 결과 받아서 처리하기
@@ -351,9 +351,11 @@ promise.finally(() => {
   성공/실패 무관하게 실행. 인자 없음 (ES2018 도입)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-이 세 가지 메서드는 Promise를 사용하는 **가장 기본적인 패턴**입니다.
+<div class="wda-callout wda-ci">
+  이 세 가지 메서드는 Promise를 사용하는 <strong>가장 기본적인 패턴</strong>입니다.
+</div>
 
 | **메서드** | **의미 (비유)** | **역할** | **인자** |
 | --- | --- | --- | --- |
@@ -372,7 +374,6 @@ promise.finally(() => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. 🪄 체이닝으로 콜백 지옥 해결</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (8).webp" alt="" style="width:54px;top:-12px;left:36%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 평탄하고 읽기 쉬운 코드로!
@@ -428,7 +429,7 @@ login(user)
   ✓ 위에서 아래로 읽기 (사람의 사고 방식)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이것이 가능한 이유는 <strong><code>.then</code> 안에서 <code>return</code>한 값</strong>이 자동으로 <strong>다음 <code>.then</code>의 인자</strong>로 전달되기 때문입니다.<br><br>
@@ -438,11 +439,9 @@ login(user)
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="width:44px;top:6px;left:30%;opacity:.72;transform:rotate(9deg);">
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Mini Mission - 체이닝 연습</h2>
 </div>
-
-## 💻 실습 : Mini Mission - 체이닝 연습
 
 ### 1) Mission
 
@@ -477,7 +476,9 @@ Promise.resolve(10)
 15
 ```
 
-### 4) 정답 코드
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h3>4) 정답 코드</h3>
+</div>
 
 ```jsx
 // 1. 시작값 10으로 출발
@@ -497,9 +498,11 @@ Promise.resolve(10)
   });
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이 실습의 핵심은 **"return한 값이 다음 `then`의 파라미터(`num`)로 들어간다"**는 규칙을 이해하는 것입니다.
+<div class="wda-callout wda-ci">
+  이 실습의 핵심은 <strong>"return한 값이 다음 <code>then</code>의 파라미터(<code>num</code>)로 들어간다"</strong>는 규칙을 이해하는 것입니다.
+</div>
 
 | **반환 타입** | **코드 예시** | **동작 방식 (Process)** | **다음 then이 받는 것** |
 | --- | --- | --- | --- |
@@ -514,7 +517,6 @@ Promise.resolve(10)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. ❗ Promise 에러 처리</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="width:58px;top:-13px;right:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) catch()로 한 곳에서 처리
@@ -573,9 +575,11 @@ fetchUser(1)
   catch가 없으면 rejected 상태를 처리하지 못해 Uncaught Promise Rejection 또는 Unhandled Promise Rejection이 발생할 수 있습니다. 항상 체인의 끝에는 catch를 붙이는 습관을 들이세요.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-Promise의 에러 처리는 **"안전 그물(Safety Net)"**과 같습니다.
+<div class="wda-callout wda-ci">
+  Promise의 에러 처리는 <strong>"안전 그물(Safety Net)"</strong>과 같습니다.
+</div>
 
 | **구분** | **에러 전파 (Propagation)** | **에러 복구 (Recovery)** |
 | --- | --- | --- |
@@ -595,7 +599,6 @@ Promise의 에러 처리는 **"안전 그물(Safety Net)"**과 같습니다.
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 🛠️ Promise 정적 메서드 - 기본</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (11).webp" alt="" style="width:44px;top:-9px;left:8%;opacity:.74;transform:rotate(6deg);">
 </div>
 
 ### 1) 자주 쓰는 유틸리티 메서드
@@ -642,9 +645,11 @@ getData(false).then(data => console.log(data));
   캐시 히트 시 바로 반환. 함수가 항상 Promise 반환하도록
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-이 메서드들이 필요한 가장 큰 이유는 **"함수의 리턴 타입 통일(Consistency)"** 때문입니다.
+<div class="wda-callout wda-ci">
+  이 메서드들이 필요한 가장 큰 이유는 <strong>"함수의 리턴 타입 통일(Consistency)"</strong> 때문입니다.
+</div>
 
 `Promise.resolve(value)`는 즉시 fulfilled 상태의 Promise를 만들지만, `.then`에 등록한 콜백은 현재 동기 코드가 끝난 뒤 마이크로태스크로 실행됩니다. 또한 `Promise.reject`를 쓸 때는 `reject('실패')`처럼 문자열만 넘기기보다 `reject(new Error('실패'))`처럼 Error 객체를 넘기는 것이 디버깅에 더 좋습니다.
 
@@ -665,7 +670,6 @@ getData(false).then(data => console.log(data));
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. ☑️ Promise.all - 모두 성공해야</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (7).webp" alt="" style="width:56px;top:-12px;right:8px;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 ### 1) 여러 Promise를 병렬로 실행
@@ -714,9 +718,11 @@ Promise.all([userPromise, postsPromise, commentsPromise])
   하나라도 실패하면 즉시 rejected (fast-fail). (다른 작업이 성공했더라도 무시하고 바로 에러로 넘어갑니다.)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-`Promise.all`은 **성능 최적화(Performance)**의 핵심입니다.
+<div class="wda-callout wda-ci">
+  <code>Promise.all</code>은 <strong>성능 최적화(Performance)</strong>의 핵심입니다.
+</div>
 
 - **비유 (요리)**:
 
@@ -726,14 +732,15 @@ Promise.all([userPromise, postsPromise, commentsPromise])
 | **병렬 처리**(Promise.all) | 밥(30분), 찌개(20분), 계란(5분) **동시에 시작** | **최댓값 (Max)**<br>max(30, 20, 5) | **30분** | 식사 준비 끝<br>(고효율 🚀) |
 
 <div class="wda-callout wda-cw">
-  <strong>주의할 점 (Fail-Fast)</strong>: <code>Promise.all</code>은 "모두 다 성공해야 의미가 있는 작업"에 씁니다. 만약 찌개를 태워먹어서(에러) 밥상을 엎어야 한다면 <code>Promise.all</code>이 맞습니다. 하지만 찌개가 망해도 밥과 계란은 먹어야 한다면(부분 성공 허용), <code>Promise.allSettled</code>(ES2020)를 써야 합니다.
+  <strong>주의할 점 (Fail-Fast)</strong>: <code>Promise.all</code>은 "모두 다 성공해야 의미가 있는 작업"에 씁니다.<br>
+  만약 찌개를 태워먹어서(에러) 밥상을 엎어야 한다면 <code>Promise.all</code>이 맞습니다.<br>
+  하지만 찌개가 망해도 밥과 계란은 먹어야 한다면(부분 성공 허용), <code>Promise.allSettled</code>(ES2020)를 써야 합니다.
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 🏆 Promise.race - 가장 먼저 완료된 것</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (10).webp" alt="" style="width:42px;top:-9px;left:36%;opacity:.74;transform:rotate(9deg);">
 </div>
 
 ### 1) 가장 빠른 결과 하나만
@@ -790,9 +797,11 @@ fetchWithTimeout('/api/data', 3000)
   나머지 Promise는 계속 실행됨 (취소되지 않음). 결과를 무시할 뿐, 네트워크 요청 자체가 끊기는 것은 아닙니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-`Promise.race`는 말 그대로 **"달리기 시합"**입니다.
+<div class="wda-callout wda-ci">
+  <code>Promise.race</code>는 말 그대로 <strong>"달리기 시합"</strong>입니다.
+</div>
 
 | **구분** | **경기 내용 (Process)** | **승자 (Winner)** | **심판 판정 (Result)** |
 | --- | --- | --- | --- |
@@ -810,7 +819,6 @@ fetchWithTimeout('/api/data', 3000)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. Promise.allSettled / any</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (5).webp" alt="" style="width:50px;top:-11px;right:32%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 더 유연한 병렬 처리
@@ -858,16 +866,30 @@ Promise.any(promises)
 
 4가지 병렬 처리 메서드의 성공/완료 조건 차이를 비교했습니다.
 
-| **메서드** | **성공 조건 (Resolve)** | **특징** |
-| --- | --- | --- |
-| **all** | **모두 성공** | 하나라도 실패하면 즉시 에러 |
-| **race** | **먼저 완료** | 성공/실패 상관없이 1등 결과 |
-| **allSettled** | **모두 완료** | 성공/실패 상관없이 전체 결과 보고서 |
-| **any** | **하나 성공** | 실패는 무시, 첫 성공만 취함 |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">all</div>
+    <div class="wda-fcard-dsc"><strong>성공 조건:</strong> 모두 성공<br><strong>특징:</strong> 하나라도 실패하면 즉시 에러</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">race</div>
+    <div class="wda-fcard-dsc"><strong>성공 조건:</strong> 먼저 완료<br><strong>특징:</strong> 성공/실패 상관없이 1등 결과</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">allSettled</div>
+    <div class="wda-fcard-dsc"><strong>성공 조건:</strong> 모두 완료<br><strong>특징:</strong> 성공/실패 상관없이 전체 결과 보고서</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">any</div>
+    <div class="wda-fcard-dsc"><strong>성공 조건:</strong> 하나 성공<br><strong>특징:</strong> 실패는 무시, 첫 성공만 취함</div>
+  </div>
+</div>
 
-**보충 설명**
+**💡 보충 설명**
 
-이 메서드들은 `Promise.all`의 단점(하나만 망해도 전체가 망함)을 보완하기 위해 나왔습니다.
+<div class="wda-callout wda-ci">
+  이 메서드들은 <code>Promise.all</code>의 단점(하나만 망해도 전체가 망함)을 보완하기 위해 나왔습니다.
+</div>
 
 | **메서드** | **시나리오 (Scenario)** | **동작 방식 (Process)** | **활용 목적** |
 | --- | --- | --- | --- |
@@ -875,10 +897,6 @@ Promise.any(promises)
 | **any**(택 1) | **📡 백업 서버 찾기**(Resilience) | 서버 A가 다운(실패)돼도 **상관없음(무시함)**. B나 C 중 **하나라도 응답하면** 즉시 서비스를 계속함. | **최우선 성공 확보**<br>여러 경로 중 유효한 하나만 필요 |
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (9).webp" alt="" style="width:56px;top:-8px;right:10%;opacity:.76;transform:rotate(6deg);">
-</div>
 
 ## 💻 실습 : Promise 생성하기
 
@@ -934,7 +952,7 @@ function sendEmail() {
 sendEmail().then(console.log);
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   정답인 <code>resolve('이메일 전송 성공!')</code>는 Promise가 수행해야 할 가장 중요한 임무입니다.<br>
@@ -945,7 +963,9 @@ sendEmail().then(console.log);
 
 ---
 
-## 💻 실습 : Promise 에러 처리
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Promise 에러 처리</h2>
+</div>
 
 ### 1) Mission
 
@@ -1003,9 +1023,11 @@ fetchData()
   .catch(console.error); // 에러 출력
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
-이번 실습의 핵심은 **"에러를 던지는 법(`reject`)과 받는 법(`catch`)"**의 짝을 맞추는 것입니다.
+<div class="wda-callout wda-ci">
+  이번 실습의 핵심은 <strong>"에러를 던지는 법(<code>reject</code>)과 받는 법(<code>catch</code>)"</strong>의 짝을 맞추는 것입니다.
+</div>
 
 | **구분** | **코드 형태** | **동작 원리 (Mechanism)** | **실무 활용 팁 (Key Point)** |
 | --- | --- | --- | --- |
@@ -1022,7 +1044,9 @@ fetchData()
 
 ---
 
-## 💻 실습 : Promise 체이닝
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Promise 체이닝</h2>
+</div>
 
 ### 1) Mission
 
@@ -1073,7 +1097,7 @@ Promise.resolve(10) // 시작값 10
   .then(console.log); // 전달받은 15를 즉시 출력 (Point-free)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 | **개념** | **핵심 역할** | **상세 흐름 / 예시** |
 | --- | --- | --- |
@@ -1094,7 +1118,6 @@ Promise.resolve(10) // 시작값 10
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>12. async 함수</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="width:60px;top:-14px;left:34%;opacity:.78;transform:rotate(-9deg);">
 </div>
 
 ### 1) Promise를 반환하는 함수 선언
@@ -1154,9 +1177,11 @@ class UserService {
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-`async`는 복잡한 `new Promise` 문법을 **획기적으로 줄여주는 문법적 설탕(Syntactic Sugar)**입니다.
+<div class="wda-callout wda-ci">
+  <code>async</code>는 복잡한 <code>new Promise</code> 문법을 <strong>획기적으로 줄여주는 문법적 설탕(Syntactic Sugar)</strong>입니다.
+</div>
 
 | **구분** | **기존 방식 (Raw Promise)** | **Async 방식 (Syntactic Sugar)** |
 | --- | --- | --- |
@@ -1177,7 +1202,6 @@ class UserService {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>13. ⏸️ await 키워드</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (11).webp" alt="" style="width:52px;top:-11px;right:8px;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) Promise가 resolve될 때까지 대기
@@ -1225,9 +1249,11 @@ fetchAndDisplay(1)
   동기 코드처럼 위에서 아래로 읽힘. then 체이닝보다 훨씬 직관적. (콜백이나 .then 괄호 지옥에서 완전히 해방됩니다.)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
-`await`는 **Promise의 껍질을 까주는 도구**라고 생각하면 이해하기 쉽습니다.
+<div class="wda-callout wda-ci">
+  <code>await</code>는 <strong>Promise의 껍질을 까주는 도구</strong>라고 생각하면 이해하기 쉽습니다.
+</div>
 
 | **코드 형태** | **의미 (비유)** | **반환 타입 (Result)** | **데이터를 쓰려면?** |
 | --- | --- | --- | --- |
@@ -1241,12 +1267,14 @@ fetchAndDisplay(1)
   · <strong>With await</strong> — 자바스크립트가 배송 오자마자 상자를 뜯어서 내용물(<code>Value</code>)만 내 손에 쥐여준 상태입니다. 우리는 바로 물건을 쓰기만 하면 됩니다.
 </div>
 
-<img src="/images/content/5-2/AsyncAwait 흐름 설명.png" alt="Main Thread가 Async Fn을 호출하면 동기 실행 후 await로 Promise를 기다리는 동안 Main에 제어권을 반환(일시정지)하고, Promise가 settled되면 Async Fn이 재개됨" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] Async/Await 흐름</p>
+<img src="/images/content/javascript/5-2/javascript-5-2-async-await-flow.png" alt="Main Thread가 Async Fn을 호출하면 동기 실행 후 await로 Promise를 기다리는 동안 Main에 제어권을 반환(일시정지)하고, Promise가 settled되면 Async Fn이 재개됨" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] Async/Await 흐름</div>
 
 ---
 
-## 💻 실습 : Mini Mission - 변환 연습 (수정)
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Mini Mission - 변환 연습 (수정)</h2>
+</div>
 
 ### 1) Mission
 
@@ -1283,7 +1311,7 @@ async function getUser() {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 문제의 출제 의도는 <strong>"Promise 체인을 끊고, 동기 코드처럼 평평하게 만들 수 있는가?"</strong> 입니다.<br>
@@ -1298,7 +1326,6 @@ async function getUser() {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>14. async/await로 리팩토링</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (11).webp" alt="" style="width:44px;top:-9px;right:34%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) Promise 체이닝 (기존 방식)
@@ -1373,7 +1400,7 @@ async function processUser(id) {
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <code>async/await</code>를 사용할 때 가장 큰 장점 중 하나는 <strong>에러 처리</strong>가 쉬워진다는 점입니다.<br>
@@ -1397,7 +1424,6 @@ async function processUser(id) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>15. async/await 에러 처리</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (12).webp" alt="" style="width:50px;top:-11px;left:8%;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### try-catch로 깔끔하게
@@ -1439,7 +1465,7 @@ fetchData(1)
 | **(2) catch 블록** | 발생한 에러를 전달받아 예외 처리를 수행하는 영역 | 동기적인 에러(문법 오류)와 비동기 에러(네트워크 실패)를 모두 이곳에서 한 번에 처리 가능 |
 | **(3) finally 블록** | `try`나 `catch`의 실행 결과와 상관없이 무조건 마지막에 실행되는 영역 | 성공하든 실패하든 수행해야 하는 마무리 작업(로딩 화면 끄기, 파일 닫기 등)에 유용 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   코드 중간에 있는 <code>throw error;</code>는 매우 중요한 역할을 합니다.<br><br>
@@ -1451,7 +1477,6 @@ fetchData(1)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>16. 병렬 실행 패턴</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (11).webp" alt="" style="width:58px;top:-13px;right:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 순차 실행 (Sequential) - 느림
@@ -1500,7 +1525,6 @@ async function parallel() {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>17. await in loop 주의!</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (13).webp" alt="" style="width:60px;top:-14px;left:36%;opacity:.78;transform:rotate(9deg);">
 </div>
 
 ### 1) 잘못된 패턴 (느림)
@@ -1556,9 +1580,11 @@ async function fetchAllUsers(ids) {
 
 이 두 가지만 기억하시면 됩니다.
 
-**보충 설명**
+**💡 보충 설명**
 
-`forEach` 메서드 안에서는 `async/await`가 예상대로 작동하지 않습니다.
+<div class="wda-callout wda-ci">
+  <code>forEach</code> 메서드 안에서는 <code>async/await</code>가 예상대로 작동하지 않습니다.
+</div>
 
 ```jsx
 // ❌ 작동하지 않음
@@ -1573,7 +1599,9 @@ ids.forEach(async (id) => {
 
 ---
 
-## 💻 실습 : Async/Await 변환
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Async/Await 변환</h2>
+</div>
 
 ### 1) Mission
 
@@ -1643,7 +1671,9 @@ async function getInfo() {
 
 ---
 
-## 💻 실습 : Async/Await 에러 핸들링
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : Async/Await 에러 핸들링</h2>
+</div>
 
 ### 1) Mission
 
@@ -1711,12 +1741,15 @@ async function safeGetData() {
 **Graceful Shutdown(우아한 종료/대처)이란?**
 
 <div class="wda-callout wda-ci">
-  에러가 발생했을 때 프로그램이 '퍽' 하고 꺼지거나 하얀 화면(White Screen)이 되는 것을 막는 것을 말합니다. <code>catch</code> 블록에서 적절한 안내 문구를 띄우거나 기본 데이터(<code>null</code>, 빈 배열 <code>[]</code>)를 반환해주면, 사용자는 에러가 났더라도 앱을 계속 사용할 수 있습니다.
+  에러가 발생했을 때 프로그램이 '퍽' 하고 꺼지거나 하얀 화면(White Screen)이 되는 것을 막는 것을 말합니다.<br>
+  <code>catch</code> 블록에서 적절한 안내 문구를 띄우거나 기본 데이터(<code>null</code>, 빈 배열 <code>[]</code>)를 반환해주면, 사용자는 에러가 났더라도 앱을 계속 사용할 수 있습니다.
 </div>
 
 ---
 
-## 💻 실습 : 병렬 처리 최적화
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>💻 실습 : 병렬 처리 최적화</h2>
+</div>
 
 ### 1) Mission
 
@@ -1780,7 +1813,6 @@ async function loadAll() {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>18. Promise vs Async/Await 총정리</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (14).webp" alt="" style="width:56px;top:-12px;right:8px;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 ### 1) 왜 이렇게 발전했을까? (비동기 진화의 역사)
@@ -1807,7 +1839,7 @@ async function loadAll() {
 | **병렬 처리** | **Promise.all()** | 여러 작업을 동시에 시작해서 시간을 단축해야 할 때 |
 | **간단한 처리** | **Promise** | 함수가 단순히 Promise 객체를 리턴만 하거나, 로직이 매우 짧을 때 |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <code>async/await</code>는 완전히 새로운 기술이 아닙니다. 내부적으로는 여전히 <strong>Promise</strong>를 사용하고 있습니다.<br><br>
@@ -1819,7 +1851,6 @@ async function loadAll() {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 정리</h2>
-  <img class="wda-deco" src="/images/character/성공했어요.webp" alt="" style="width:118px;right:0;top:-100px;opacity:.9;transform:rotate(-3deg);">
 </div>
 
 ### 1) 주요 개념 비교
@@ -1879,8 +1910,10 @@ async function loadAll() {
   · <strong>안전장치 필수</strong> — <code>async</code> 함수에서 직접 에러를 처리해야 한다면 <code>try-catch</code>를 사용하세요. 다만 상위 호출자가 에러를 처리하도록 넘기는 구조라면 <code>try-catch</code>를 생략할 수도 있습니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  이미지에 언급된 <code>Promise.race</code>는 실무에서 <strong>'타임아웃'</strong> 기능을 구현할 때 주로 사용합니다. 예를 들어, "API 요청"과 "3초 타이머"를 경주(Race)시켜서, 3초가 먼저 지나면 시간 초과 에러를 반환할 수 있습니다. 다만 <code>Promise.race</code> 자체가 API 요청을 자동으로 취소하는 것은 아니며, 실제 요청 취소가 필요하다면 <code>AbortController</code> 같은 별도의 취소 로직이 필요합니다.
+  이미지에 언급된 <code>Promise.race</code>는 실무에서 <strong>'타임아웃'</strong> 기능을 구현할 때 주로 사용합니다.<br>
+  예를 들어, "API 요청"과 "3초 타이머"를 경주(Race)시켜서, 3초가 먼저 지나면 시간 초과 에러를 반환할 수 있습니다.<br>
+  다만 <code>Promise.race</code> 자체가 API 요청을 자동으로 취소하는 것은 아니며, 실제 요청 취소가 필요하다면 <code>AbortController</code> 같은 별도의 취소 로직이 필요합니다.
 </div>

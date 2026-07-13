@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,21 +25,21 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -47,12 +47,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/개념 연결.webp" alt="" style="width:118px;right:0;top:-14px;opacity:.9;transform:rotate(-4deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>고통의 시나리오</strong> — 코드를 나누지 않았을 때 발생하는 끔찍한 문제들을 체험합니다.<br>
   <strong>모듈 문법 (Import &amp; Export)</strong> — 공구함(Named)과 주인공(Default) 비유로 문법을 익힙니다.<br>
   <strong>실전 나누기</strong> — 실제로 <code>main.js</code>를 쪼개서 정리하는 연습을 합니다.
@@ -62,7 +63,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 시나리오: 개발팀의 비극</h2>
-  <img class="wda-deco" src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="width:58px;top:-13px;right:8px;opacity:.78;transform:rotate(7deg);">
 </div>
 
 ### 1) 현실 상황 (Before)
@@ -108,7 +108,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
 
 필요한 기능끼리 별도의 파일로 나눕니다. 그리고 **"세면도구에서 칫솔 꺼내줘!"(import)**라고 말하듯 필요한 것만 가져와서 사용합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   모듈 시스템의 가장 큰 장점은 <strong>'파일 스코프(File Scope)'</strong>가 생긴다는 점입니다.<br><br>
@@ -121,7 +121,6 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 모듈의 핵심: 각자의 방(Scope)</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="width:52px;top:-11px;left:32%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) "변수가 섞이지 않아요!"
@@ -137,7 +136,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
 
 일반 스크립트에서 `var`로 같은 이름의 전역 변수를 다시 선언하면 기존 값이 덮어써질 수 있습니다. 반면 `let`/`const`는 같은 스코프에서 같은 이름으로 다시 선언하면 `SyntaxError`가 발생합니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   HTML에서 자바스크립트 파일을 불러올 때 <code>&lt;script type="module" src="..."&gt;</code>처럼<br>
@@ -151,7 +150,6 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. Step 1. 문법 익히기 (설정)</h2>
-  <img class="wda-deco" src="/images/decoration/체크 아이콘 (3).webp" alt="" style="width:46px;top:-10px;right:34%;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### 1) 브라우저에게 알려주기
@@ -199,13 +197,8 @@ HTML 파일에서 스크립트를 불러올 때,
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="width:44px;top:6px;left:64%;opacity:.72;transform:rotate(-9deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. Step 2. 공구함 (Named Export) - 내보내기</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (14).webp" alt="" style="width:56px;top:-12px;right:8px;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 ### 1) 개념: "이 아이템들을 공개 공구함에 넣을게!"
@@ -252,7 +245,6 @@ export { saw, drill };
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. Step 2. 공구함 (Named Export) - 가져오기</h2>
-  <img class="wda-deco" src="/images/decoration/핀 아이콘 (6).webp" alt="" style="width:50px;top:-11px;left:10%;opacity:.76;transform:rotate(8deg);">
 </div>
 
 ### 1) 개념: "이름표 보고 필요한 것만 꺼내기"
@@ -292,7 +284,7 @@ driver(); // '윙~'
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   만약 가져온 변수의 이름이 마음에 안 들거나, 현재 파일의 변수명과 겹친다면 <strong><code>as</code></strong> 키워드를 써서 별명을 붙일 수 있습니다.
@@ -307,7 +299,6 @@ console.log(myHammer); // 이제부터는 myHammer라고 부르면 됨
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. Step 2. 공구함 - 별명 붙이기 (as)</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (3).webp" alt="" style="width:48px;top:-10px;right:32%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 개념: "이름이 겹치거나 너무 길다면?"
@@ -352,10 +343,6 @@ fixTool(); // '윙~' (driver 함수 실행)
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (2).webp" alt="" style="width:60px;top:-14px;left:36%;opacity:.8;transform:rotate(10deg);">
-</div>
-
 ## 💻 퀴즈 : Named Export 문법
 
 ### Q1. 내보내기
@@ -392,7 +379,6 @@ import _______ from './math.js';
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. Step 3. 주인공 (Default Export) - 내보내기</h2>
-  <img class="wda-deco" src="/images/decoration/구름 아이콘 (2).webp" alt="" style="width:60px;top:-13px;right:8px;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 개념: "파일당 딱 하나, 특별한 주인공!"
@@ -427,7 +413,6 @@ export default User;
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. Step 3. 주인공 (Default Export) - 가져오기</h2>
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="width:48px;top:-10px;left:8%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 개념: "주인공은 이름표(중괄호)가 필요 없어!"
@@ -468,7 +453,7 @@ const u = new MySuperUser('Dami');
 | **중괄호** | **필수 (`{}`)** | **없음 (쓰면 안 됨)** |
 | **이름** | 내보낸 이름과 **똑같이** | 내가 원하는 대로 **아무거나** |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   작명이 자유롭긴 하지만, 실무에서는 헷갈리지 않도록 파일 이름과 똑같이 짓는 것이 관례입니다.<br>
@@ -476,10 +461,6 @@ const u = new MySuperUser('Dami');
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (1).webp" alt="" style="width:52px;top:-9px;right:38%;opacity:.76;transform:rotate(6deg);">
-</div>
 
 ## 💻 퀴즈 : Mini Quiz: Default Export 문법
 
@@ -515,7 +496,6 @@ import ______ from './User.js';
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🌈 중간 정리: Named vs Default</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (2).webp" alt="" style="width:54px;top:-12px;right:10%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 한눈에 보는 비교
@@ -529,17 +509,16 @@ import ______ from './User.js';
 
 ### 2) 💡 초보자를 위한 팁
 
-<div class="wda-callout wda-cs" style="position:relative;overflow:visible;padding-top:16px;">
-  <img class="wda-deco" src="/images/decoration/마스킹 테이프 (16).webp" alt="" style="width:110px;top:-10px;right:20px;opacity:.85;transform:rotate(-6deg);">
+<div class="wda-callout wda-cs">
   "헷갈리면 일단 Named({})만 쓰세요. 실수가 가장 적습니다!"<br><br>
-  <strong>이유</strong> — <code>Default Export</code>는 이름을 마음대로 바꿔도 되기 때문에, 나중에 코드를 찾거나 리팩토링할 때 헷갈릴 수 있습니다. 반면 <strong>`Named Export`</strong>는 이름이 틀리면 바로 에러를 알려주므로 더 안전하게 코딩할 수 있습니다.
+  <strong>이유</strong> — <code>Default Export</code>는 이름을 마음대로 바꿔도 되기 때문에, 나중에 코드를 찾거나 리팩토링할 때 헷갈릴 수 있습니다.<br>
+  반면 <strong>`Named Export`</strong>는 이름이 틀리면 바로 에러를 알려주므로 더 안전하게 코딩할 수 있습니다.
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. 동적 import (심화)</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (2).webp" alt="" style="width:44px;top:-9px;left:34%;opacity:.74;transform:rotate(9deg);">
 </div>
 
 ### 1) 개념: "필요할 때만 모듈 로드하기"
@@ -574,19 +553,37 @@ async function loadAdminModule(user) {
 
 ### 3) 특징
 
-| **특징** | **설명** |
-| --- | --- |
-| **함수처럼 사용** | `import('경로')` 형태로 함수를 호출하듯 사용합니다. |
-| **비동기 동작** | 네트워크를 통해 파일을 가져오므로 **Promise**를 반환합니다. 따라서 반드시 **`await`**와 함께 써야 합니다. |
-| **성능 향상** | 초기 로딩 시 불필요한 파일을 받지 않아 웹사이트가 더 빨리 뜹니다. |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">함수처럼 사용</div>
+    <div class="wda-fcard-dsc"><code>import('경로')</code> 형태로 함수를 호출하듯 사용합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">비동기 동작</div>
+    <div class="wda-fcard-dsc">네트워크를 통해 파일을 가져오므로 <strong>Promise</strong>를 반환합니다. 따라서 반드시 <strong><code>await</code></strong>와 함께 써야 합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">성능 향상</div>
+    <div class="wda-fcard-dsc">초기 로딩 시 불필요한 파일을 받지 않아 웹사이트가 더 빨리 뜹니다.</div>
+  </div>
+</div>
 
 ### 4) 활용 사례
 
-| **활용 사례** | **상세 내용** |
-| --- | --- |
-| **무거운 라이브러리** | 차트, 3D 렌더링 등 용량이 큰 기능을 **사용자가 버튼을 눌렀을 때만** 불러옵니다. |
-| **특정 조건** | 관리자 페이지, 결제 모듈처럼 **모든 사용자에게 필요하지 않은** 기능. |
-| **다국어/테마** | 한국어 사용자에게는 **한국어 파일만** 로드. |
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">무거운 라이브러리</div>
+    <div class="wda-fcard-dsc">차트, 3D 렌더링 등 용량이 큰 기능을 <strong>사용자가 버튼을 눌렀을 때만</strong> 불러옵니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">특정 조건</div>
+    <div class="wda-fcard-dsc">관리자 페이지, 결제 모듈처럼 <strong>모든 사용자에게 필요하지 않은</strong> 기능.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">다국어/테마</div>
+    <div class="wda-fcard-dsc">한국어 사용자에게는 <strong>한국어 파일만</strong> 로드.</div>
+  </div>
+</div>
 
 ### 5) 💡 보충 설명
 
@@ -602,7 +599,6 @@ async function loadAdminModule(user) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 모듈 경로 규칙</h2>
-  <img class="wda-deco" src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="width:52px;top:-11px;right:32%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 상대 경로 (Relative Path)
@@ -649,7 +645,7 @@ import App from './App.js'; // ✅ .js 필수! 안 쓰면 에러 남
 import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   초보자들이 가장 많이 겪는 에러 중 하나가 바로 <strong>`./` 생략</strong>입니다.<br>
@@ -662,7 +658,6 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. CommonJS vs ES Modules</h2>
-  <img class="wda-deco" src="/images/decoration/책갈피 아이콘 (1).webp" alt="" style="width:56px;top:-12px;left:9%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 개념 비교: 과거와 현재
@@ -682,7 +677,9 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
 | **특징** | Node.js의 옛날 방식 | 자바스크립트 **공식 표준** |
 
 <div class="wda-callout wda-cy">
-  CommonJS는 주로 런타임에 <code>require()</code>로 동기 로딩하는 방식입니다. ES Modules는 정적 <code>import</code> 구조를 기반으로 브라우저/번들러가 모듈 의존성을 미리 분석하고 로드할 수 있습니다. 단순히 "기다리지 않고 다음 일을 처리한다"는 의미의 비동기와는 구분해서 이해해야 합니다.
+  CommonJS는 주로 런타임에 <code>require()</code>로 동기 로딩하는 방식입니다.<br>
+  ES Modules는 정적 <code>import</code> 구조를 기반으로 브라우저/번들러가 모듈 의존성을 미리 분석하고 로드할 수 있습니다.<br>
+  단순히 "기다리지 않고 다음 일을 처리한다"는 의미의 비동기와는 구분해서 이해해야 합니다.
 </div>
 
 ### 2) 코드 비교
@@ -722,7 +719,6 @@ import { add } from './math.js';
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>12. 실무 패턴: Mixed Export (같이 쓰기)</h2>
-  <img class="wda-deco" src="/images/decoration/하트 아이콘 (10).webp" alt="" style="width:50px;top:-11px;right:9%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 개념: "메인 요리와 반찬을 한 번에!"
@@ -773,7 +769,6 @@ import React, { useState, useEffect } from 'react';
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>13. 심화: Tree Shaking (트리 쉐이킹)</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (6).webp" alt="" style="width:76px;top:-18px;right:6%;opacity:.82;transform:rotate(8deg);">
 </div>
 
 ### 1) 개념: "죽은 낙엽 털어내기"
@@ -802,22 +797,19 @@ import React, { useState, useEffect } from 'react';
 | **Named Export**<br>`{ }` (공구함) | **유리함 (Good)** 🟢 | 각각 **독립적**으로 수출됨<br>안 쓰는 것은 **쉽게 발라낼 수 있음** (제거 용이) |
 | **Default Export**<br>(주인공) | **경우에 따라 불리할 수 있음** 🟡 | 여러 기능을 **하나의 객체로 묶어서** default export하는 경우가 많음<br>이럴 때는 **안 쓰는 기능만 골라 제거하기가 어려울 수 있음** |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>Named Export</strong>는 각 항목이 독립적으로 드러나기 때문에 Tree Shaking에 유리한 경우가 많습니다. 다만 <strong>Default Export 자체가 항상 나쁜 것은 아닙니다.</strong> 특히 여러 기능을 하나의 객체로 묶어서 default export하는 경우에는 안 쓰는 기능 제거가 어려워질 수 있습니다.<br><br>
+  <strong>Named Export</strong>는 각 항목이 독립적으로 드러나기 때문에 Tree Shaking에 유리한 경우가 많습니다.<br>
+  다만 <strong>Default Export 자체가 항상 나쁜 것은 아닙니다.</strong><br>
+  특히 여러 기능을 하나의 객체로 묶어서 default export하는 경우에는 안 쓰는 기능 제거가 어려워질 수 있습니다.<br><br>
   <code>lodash</code> 같은 거대 유틸리티 라이브러리를 쓸 때는 ESM을 지원하는 <code>lodash-es</code>에서 <code>import { map } from 'lodash-es'</code>처럼 가져오거나, <code>import map from 'lodash/map'</code>처럼 필요한 함수 파일만 직접 가져오는 방식이 Tree Shaking에 더 유리할 수 있습니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/느낌표 아이콘 (4).webp" alt="" style="width:50px;top:-9px;left:38%;opacity:.78;transform:rotate(-8deg);">
-</div>
-
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>자주 하는 실수 (함정 카드)</h2>
-  <img class="wda-deco" src="/images/character/헷갈려요.webp" alt="" style="width:116px;right:0;top:-98px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 | **실수 유형** | **잘못된 예시 (Error) ❌** | **올바른 해결 (Fixed) ✅** | **원인 및 설명** |
@@ -826,7 +818,7 @@ import React, { useState, useEffect } from 'react';
 | **2. 괄호 과잉**(Default인데 넣음) | `import { User } from ...` | `import User from ...` | **Default Export**는 주인공이므로 **중괄호 없이** 바로 데려와야 합니다. |
 | **3. 확장자 생략**(브라우저 환경) | `from './App'` | `from './App.js'` | 순수 자바스크립트(Vanilla JS)에서는 파일명 뒤에 **`.js`**를 안 붙이면 파일을 못 찾습니다 (404 에러). |
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>확장자(`.js`) 규칙은 환경마다 다릅니다.</strong><br><br>
@@ -835,10 +827,6 @@ import React, { useState, useEffect } from 'react';
 </div>
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img class="wda-deco" src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="width:54px;top:-8px;right:12%;opacity:.76;transform:rotate(6deg);">
-</div>
 
 ## 💻 퀴즈 : Pop Quiz! (개념 확인)
 
@@ -860,7 +848,7 @@ import React, { useState, useEffect } from 'react';
 
 **정답:** **Named Import** (Named Export로 내보낸 것을 가져올 때)
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 3가지만 기억하면 모듈 문법 때문에 에러가 나는 일은 거의 없을 것입니다.<br><br>
@@ -873,7 +861,6 @@ import React, { useState, useEffect } from 'react';
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 정리 (Summary)</h2>
-  <img class="wda-deco" src="/images/character/정리 완료.webp" alt="" style="width:118px;right:0;top:-100px;opacity:.9;transform:rotate(-3deg);">
 </div>
 
 ### 1) 모듈 시스템 총정리
@@ -942,9 +929,9 @@ import React, { useState, useEffect } from 'react';
   </tr>
 </table>
 
-**보충 설명**
+**💡 보충 설명**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
   실무에서는 <strong>Named Export</strong>로 유틸리티 함수들을 묶어서 관리하고,<br>
   <strong>Default Export</strong>로 리액트 컴포넌트 같은 메인 기능을 관리하며,<br>
   성능이 필요할 때 <strong>Dynamic Import</strong>를 섞어서 사용하는 것이 정석입니다.

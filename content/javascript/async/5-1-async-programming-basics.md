@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,21 +25,21 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -47,12 +47,13 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-right:150px;padding-top:14px;">
-  <img class="wda-deco" src="/images/character/빼꼼.webp" alt="" style="width:118px;right:0;top:-14px;opacity:.9;transform:rotate(-3deg);">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   <strong>동기와 비동기</strong> — 시간을 다루는 두 가지 방식의 결정적 차이를 이해합니다.<br>
   <strong>이벤트 루프</strong> — 싱글 스레드 JavaScript가 멀티태스킹을 하는 비밀을 파헤칩니다.<br>
   <strong>마이크로/매크로 태스크</strong> — 비동기 작업의 우선순위와 실행 순서를 완벽하게 예측합니다.<br>
@@ -63,7 +64,6 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 동기(Synchronous)란?</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (11).webp" alt="" style="width:64px;top:-16px;right:6%;opacity:.8;transform:rotate(8deg);">
 </div>
 
 ### 1) 순차적으로 한 줄씩 실행
@@ -79,7 +79,7 @@ console.log('4. 자리에 앉기');
 // 실행 순서: 반드시 1 -> 2 -> 3 -> 4
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   ☕ 커피를 받기 전까지 아무것도 못함!
@@ -104,13 +104,13 @@ console.log('4. 자리에 앉기');
 
 ### 3) 문제점
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   ⚠️ 오래 걸리는 작업이 있으면 전체 프로그램이 멈춤! ⏸️
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"동기(Synchronous)"</strong>라는 말은 <strong>"시간을 맞춘다"</strong>는 뜻입니다. 내 작업의 끝나는 시간과 다음 작업의 시작 시간을 딱 맞물리게 한다는 거죠.<br><br>
@@ -125,7 +125,6 @@ console.log('4. 자리에 앉기');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 비동기(Asynchronous)란?</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (8).webp" alt="" style="width:46px;top:-10px;left:34%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 기다리지 않고 다음 작업 진행
@@ -144,7 +143,7 @@ console.log('2. 자리 가서 노트북 켜기');
 // 실행 결과: 1 -> 2 -> (3초 후) 3
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   ☕ 진동벨 주고 다른 일 하기!
@@ -169,17 +168,21 @@ console.log('2. 자리 가서 노트북 켜기');
 
 ### 3) ❓ 실행 순서
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   1 -&gt; 2 -&gt; (3초 후) 3. 숫자 순서가 아니라 완료 순서!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>"비동기(Asynchronous)"</strong>의 핵심은 <strong>"진동벨"</strong>입니다. 카페에서 커피를 주문하고 진동벨을 받으면, 커피가 나올 때까지 카운터 앞에서 멍하니 서 있지 않죠? 자리에 가서 가방을 풀고(다른 작업), 노트북을 켜고(다른 작업), 진동벨이 울리면 그제야 커피를 받으러 갑니다.<br><br>
-  이것이 자바스크립트가 웹 브라우저에서 살아남은 비결입니다. 만약 유튜브 영상을 로딩하는 동안 브라우저가 멈춰버린다면(동기 방식), 우리는 영상이 다 받아질 때까지 댓글도 못 보고 스크롤도 못 내릴 겁니다. 자바스크립트는 비동기 방식을 통해 <strong>"무거운 일은 뒤로 미루고, 가벼운 일부터 처리"</strong>하여 쾌적한 사용자 경험을 제공합니다.<br><br>
+  <strong>"비동기(Asynchronous)"</strong>의 핵심은 <strong>"진동벨"</strong>입니다.<br>
+  카페에서 커피를 주문하고 진동벨을 받으면, 커피가 나올 때까지 카운터 앞에서 멍하니 서 있지 않죠?<br>
+  자리에 가서 가방을 풀고(다른 작업), 노트북을 켜고(다른 작업), 진동벨이 울리면 그제야 커피를 받으러 갑니다.<br><br>
+  이것이 자바스크립트가 웹 브라우저에서 살아남은 비결입니다.<br>
+  만약 유튜브 영상을 로딩하는 동안 브라우저가 멈춰버린다면(동기 방식), 우리는 영상이 다 받아질 때까지 댓글도 못 보고 스크롤도 못 내릴 겁니다.<br>
+  자바스크립트는 비동기 방식을 통해 <strong>"무거운 일은 뒤로 미루고, 가벼운 일부터 처리"</strong>하여 쾌적한 사용자 경험을 제공합니다.<br><br>
   여기서 등장한 <code>setTimeout</code>이 바로 "몇 초 뒤에 진동벨을 울려줘!"라고 예약하는 함수입니다.
 </div>
 
@@ -187,24 +190,24 @@ console.log('2. 자리 가서 노트북 켜기');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>3. 왜 비동기가 필요한가?</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (16).webp" alt="" style="width:52px;top:-11px;right:32%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 웹에서 시간이 오래 걸리는 작업들
 
 자바스크립트가 비동기 처리를 해야 하는 대표적인 3가지 상황입니다.
 
-<img src="/images/content/5-1/비동기처리.png" alt="네트워크 요청(100ms~수 초), 타이머(ms~분 단위), 사용자 입력(언제 발생할지 모름) 비교" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<img src="/images/content/javascript/5-1/javascript-5-1-async-processing.png" alt="네트워크 요청(100ms~수 초), 타이머(ms~분 단위), 사용자 입력(언제 발생할지 모름) 비교" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 비동기 처리가 필요한 3가지 상황 (네트워크 요청·타이머·사용자 입력)</div>
 
 ### 2) 핵심 문제
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   ⚠️ 만약 동기라면? 이미지 다운로드 중에 스크롤도, 클릭도 안 되는 끔찍한 UX!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <strong>"UX(사용자 경험)를 지켜라!"</strong> 이것이 비동기가 존재하는 가장 큰 이유입니다.<br><br>
@@ -217,7 +220,6 @@ console.log('2. 자리 가서 노트북 켜기');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. JavaScript는 싱글 스레드</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (1).webp" alt="" style="width:50px;top:-11px;left:8%;opacity:.76;transform:rotate(-6deg);">
 </div>
 
 ### 1) 한 번에 하나의 작업만 처리 가능
@@ -240,10 +242,12 @@ first(); // 스택에 push -> 실행 -> pop
 second(); // 스택에 push -> 실행 -> pop
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>"싱글 스레드(Single Thread)"</strong>라는 말은 <strong>"입이 하나"</strong>라는 뜻입니다. 사람이 밥을 먹으면서 동시에 말을 할 수 없듯이, 자바스크립트 엔진도 한 번에 딱 하나의 코드만 실행할 수 있습니다. 멀티태스킹처럼 보이는 것은 사실 엄청나게 빠른 속도로 이 작업, 저 작업을 번갈아 가며 처리하기 때문입니다.<br><br>
+  <strong>"싱글 스레드(Single Thread)"</strong>라는 말은 <strong>"입이 하나"</strong>라는 뜻입니다.<br>
+  사람이 밥을 먹으면서 동시에 말을 할 수 없듯이, 자바스크립트 엔진도 한 번에 딱 하나의 코드만 실행할 수 있습니다.<br>
+  멀티태스킹처럼 보이는 것은 사실 엄청나게 빠른 속도로 이 작업, 저 작업을 번갈아 가며 처리하기 때문입니다.<br><br>
   여기서 등장하는 <strong>'콜 스택(Call Stack)'</strong>은 접시 쌓기와 같습니다.<br>
   1. <code>first()</code> 함수가 호출되면 접시 쌓듯 스택에 올라갑니다(Push).<br>
   2. <code>console.log("첫 번째")</code>를 실행하고 함수가 끝나면 접시를 치웁니다(Pop).<br>
@@ -255,7 +259,6 @@ second(); // 스택에 push -> 실행 -> pop
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 대표적인 비동기 함수: setTimeout</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘 (8).webp" alt="" style="width:48px;top:-10px;right:8px;opacity:.76;transform:rotate(6deg);">
 </div>
 
 ### 1) 개념: "N초 뒤에 실행해줘"
@@ -289,13 +292,13 @@ console.log('3. 끝');
 
 ### 3) 실행 결과
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   1. 시작 → 3. 끝 → 2. 3초 지남! ⏰ (3초 후 등장)
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   여기서 가장 중요한 포인트는 <strong>"3. 끝"이 "2. 3초 지남!"보다 먼저 출력된다는 점</strong>입니다.<br><br>
@@ -306,7 +309,6 @@ console.log('3. 끝');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>6. ☪️ 대표적인 비동기 함수: setInterval</h2>
-  <img class="wda-deco" src="/images/decoration/메모지 아이콘(9).webp" alt="" style="width:56px;top:-12px;left:36%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 개념: "N초마다 계속 실행해줘"
@@ -344,35 +346,36 @@ const timerId = setInterval(() => {
 
 ### 3) 실행 결과
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   1초 지남... → 2초 지남... → 3초 지남... → 타이머 종료
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <code>setTimeout</code>과 <code>setInterval</code>의 결정적 차이는 <strong>"반복"</strong>입니다.<br>
   · <strong><code>setTimeout</code></strong>: "3초 뒤에 <strong>한 번만</strong> 실행해." (오븐 타이머 ⏲️)<br>
   · <strong><code>setInterval</code></strong>: "1초 <strong>마다 계속</strong> 실행해." (메트로놈 🎼)<br><br>
-  여기서 가장 중요한 핵심은 <strong><code>clearInterval</code> (멈춤 버튼)</strong>입니다. <code>setTimeout</code>은 실행이 끝나면 알아서 사라지지만, <code>setInterval</code>은 개발자가 <code>clearInterval(ID)</code>로 끄지 않으면 브라우저 탭을 닫기 전까지 <strong>영원히</strong> 돌아갑니다.<br><br>
-  이것을 깜빡하면 일명 <strong>'메모리 누수(Memory Leak)'</strong>가 발생합니다. 특히 리액트(React) 같은 SPA 환경에서 페이지를 이동해도 타이머가 백그라운드에서 계속 돌아가며 에러를 뿜어내는 주범이 되니, <strong>"켜면 반드시 끄는 코드도 같이 짠다"</strong>는 원칙을 꼭 기억하세요!
+  여기서 가장 중요한 핵심은 <strong><code>clearInterval</code> (멈춤 버튼)</strong>입니다.<br>
+  <code>setTimeout</code>은 실행이 끝나면 알아서 사라지지만, <code>setInterval</code>은 개발자가 <code>clearInterval(ID)</code>로 끄지 않으면 브라우저 탭을 닫기 전까지 <strong>영원히</strong> 돌아갑니다.<br><br>
+  이것을 깜빡하면 일명 <strong>'메모리 누수(Memory Leak)'</strong>가 발생합니다.<br>
+  특히 리액트(React) 같은 SPA 환경에서 페이지를 이동해도 타이머가 백그라운드에서 계속 돌아가며 에러를 뿜어내는 주범이 되니, <strong>"켜면 반드시 끄는 코드도 같이 짠다"</strong>는 원칙을 꼭 기억하세요!
 </div>
 
-<img src="/images/content/5-1/원칙 꼭 기억하기.png" alt="시간(setTimeout, setInterval)은 지금 배우고, 약속하다(Promise)와 비동기/await는 다음 시간에 배웁니다" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 더 불안해요!</p>
+<img src="/images/content/javascript/5-1/javascript-5-1-key-principle.png" alt="시간(setTimeout, setInterval)은 지금 배우고, 약속하다(Promise)와 비동기/await는 다음 시간에 배웁니다" style="display:block;width:100%;max-width:560px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:560px;">[그림] 더 불안해요!</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. 그래도 싱글 스레드인데?</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (12).webp" alt="" style="width:42px;top:-9px;right:8px;opacity:.74;transform:rotate(9deg);">
 </div>
 
 ### 1) ❓ 그런데...
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   싱글 스레드인데 어떻게 비동기가 가능한 거죠? 💭
@@ -390,7 +393,7 @@ const timerId = setInterval(() => {
   "요리사(JS)는 요리만 하고, 재료 손질과 서빙은 보조(브라우저)와 웨이터(이벤트 루프)가 담당하여 전체 식당이 돌아갑니다."
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   많은 분이 오해하는 것이 <strong>"자바스크립트가 멀티태스킹을 한다"</strong>는 것입니다. 정확히 말하면 자바스크립트는 여전히 혼자서(싱글 스레드) 일합니다. 하지만 <strong>든든한 지원군(브라우저)</strong>이 있습니다.
@@ -415,14 +418,13 @@ const timerId = setInterval(() => {
   즉, <strong>"자바스크립트 언어 자체는 싱글 스레드이지만, 자바스크립트가 실행되는 환경(브라우저)은 멀티 스레드"</strong>이기 때문에 비동기 처리가 가능한 것입니다.
 </div>
 
-<img src="/images/content/5-1/이벤트 루프 개념.png" alt="JavaScript 엔진(콜 스택) → Web APIs(setTimeout/fetch/DOM Events) → Task Queue → 이벤트 루프가 콜 스택으로 콜백을 옮기는 과정" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 이벤트 루프 개념</p>
+<img src="/images/content/javascript/5-1/javascript-5-1-event-loop-concept.png" alt="JavaScript 엔진(콜 스택) → Web APIs(setTimeout/fetch/DOM Events) → Task Queue → 이벤트 루프가 콜 스택으로 콜백을 옮기는 과정" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
+<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 이벤트 루프 개념</div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 이벤트 루프 동작</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (25).webp" alt="" style="width:58px;top:-13px;left:34%;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 실제 코드로 보는 실행 순서
@@ -449,13 +451,13 @@ console.log('3. 끝');     // 즉시 실행
 | **4** | `(비어있음)` | - | 콜백 |
 | **5** | `log('2')` | - | - |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   ⚠️ 핵심! setTimeout(0)도 스택이 비어야 실행됩니다. 0ms는 "최소한 0ms 후"라는 의미!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 장표는 자바스크립트 면접에서 가장 많이 나오는 함정 문제인 <strong><code>setTimeout(..., 0)</code></strong>의 비밀을 풀고 있습니다.<br><br>
@@ -470,7 +472,6 @@ console.log('3. 끝');     // 즉시 실행
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. 마이크로태스크 vs 매크로태스크</h2>
-  <img class="wda-deco" src="/images/decoration/말풍선 아이콘 (13).webp" alt="" style="width:50px;top:-11px;right:8px;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) 두 종류의 태스크 큐
@@ -507,7 +508,7 @@ console.log('3. 끝');     // 즉시 실행
 
 마이크로태스크는 현재 동기 코드가 끝난 직후 처리됩니다. 이벤트 루프는 매크로태스크 하나를 실행한 뒤 다시 마이크로태스크 큐를 확인하기 때문에, 매크로태스크 사이사이에도 마이크로태스크가 먼저 처리될 수 있습니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 이벤트 루프에는 **"계급"**이 존재합니다.
 
@@ -525,8 +526,6 @@ console.log('3. 끝');     // 즉시 실행
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>❓ 연습문제</h2>
-  <img class="wda-deco" src="/images/decoration/별 아이콘 (12).webp" alt="" style="width:60px;top:-16px;left:30%;opacity:.8;transform:rotate(9deg);">
-  <img class="wda-deco" src="/images/character/퀴즈 타임.webp" alt="" style="width:120px;right:0;top:-100px;opacity:.9;transform:rotate(3deg);">
 </div>
 
 ### 1) 📝 풀어보세요! (Quiz)
@@ -561,7 +560,7 @@ console.log('4');
   💡 "약속해(Promise) 주세요, Timeout보다 먼저! 이게 잘 작동합니다."
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 문제는 자바스크립트 비동기 면접의 <strong>'족보'</strong> 같은 문제입니다.<br>
@@ -575,7 +574,6 @@ console.log('4');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 타이머 함수</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (13).webp" alt="" style="width:48px;top:-10px;right:34%;opacity:.76;transform:rotate(-8deg);">
 </div>
 
 ### 1) 일정 시간 후 또는 주기적으로 실행
@@ -622,13 +620,13 @@ const intervalId = setInterval(() => {
   🔁 주기적 반복 실행
 </div>
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   ⚠️ clearInterval을 하지 않으면 불필요한 타이머가 계속 실행되어 리소스 낭비나 메모리 누수로 이어질 수 있음. React 같은 SPA에서는 컴포넌트가 사라질 때 타이머를 정리하는 습관이 필요합니다.
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 두 함수는 자바스크립트 비동기 처리의 <strong>기초 중의 기초</strong>입니다.
@@ -640,14 +638,15 @@ const intervalId = setInterval(() => {
 | **setInterval** | **메트로놈 🎼**<br>"딱, 딱, 딱" | **영원히 멈추지 않음**<br>(끄지 않으면 무한 반복) | **'주기적 갱신'**<br>(예: 주식 가격, 카운트다운) |
 
 <div class="wda-callout wda-ci">
-  가장 중요한 건 이미지 하단에 있는 <strong>경고 문구</strong>입니다. <code>setInterval</code>을 켜두고 페이지를 이동하면, 눈에는 안 보이지만 백그라운드에서 계속 타이머가 돌아가며 컴퓨터 자원을 갉아먹습니다(메모리 누수). 그래서 <strong>"타이머를 시작했으면, 끝내는 코드(<code>clearInterval</code>)도 반드시 세트로 만든다"</strong>는 습관을 들이세요!
+  가장 중요한 건 이미지 하단에 있는 <strong>경고 문구</strong>입니다.<br>
+  <code>setInterval</code>을 켜두고 페이지를 이동하면, 눈에는 안 보이지만 백그라운드에서 계속 타이머가 돌아가며 컴퓨터 자원을 갉아먹습니다(메모리 누수).<br>
+  그래서 <strong>"타이머를 시작했으면, 끝내는 코드(<code>clearInterval</code>)도 반드시 세트로 만든다"</strong>는 습관을 들이세요!
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. ⏱️ setTimeout 0의 진짜 의미</h2>
-  <img class="wda-deco" src="/images/decoration/화살표 아이콘 (13).webp" alt="" style="width:44px;top:-9px;left:8%;opacity:.74;transform:rotate(6deg);">
 </div>
 
 ### 1) "0ms 후"가 아닌 "현재 작업 다 끝난 후"
@@ -700,7 +699,7 @@ console.log('C');
   </div>
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <code>setTimeout(fn, 0)</code>은 자바스크립트 개발자들이 자주 쓰는 일종의 <strong>'새치기 양보 기술'</strong>입니다.<br><br>
@@ -712,7 +711,6 @@ console.log('C');
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>12. 📞 콜백 패턴</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (26).webp" alt="" style="width:56px;top:-12px;right:8px;opacity:.76;transform:rotate(-7deg);">
 </div>
 
 ### 1) 비동기 작업 완료 후 실행할 함수 전달
@@ -761,9 +759,11 @@ console.log('데이터 요청 완료!');
   ℹ️ 콜백 = 고차 함수에서 배운 "함수를 인자로 받는" 패턴의 비동기 버전!
 </div>
 
-**보충 설명 - 콜백 패턴의 탄생 배경과 원리**
+**💡 보충 설명 - 콜백 패턴의 탄생 배경과 원리**
 
-### 1) 탄생 이유와 해결책
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h3>1) 탄생 이유와 해결책</h3>
+</div>
 
 왜 `return`을 못 쓰고 콜백을 써야 하는지, 그 필연적인 이유입니다.
 
@@ -786,15 +786,16 @@ console.log('데이터 요청 완료!');
 
 <div class="wda-callout wda-ci">
   자바스크립트 엔진은 성격이 정말 급합니다. <code>loadData()</code>를 실행하자마자 서버에 "데이터 줘"라고 요청만 휙 던지고, 응답이 오기도 전에 바로 다음 줄로 넘어가서 변수에 값을 넣으려 시도합니다.<br><br>
-  당연히 아직 도착한 데이터가 없으니, 자바스크립트는 "어? 없네? 그럼 <code>undefined</code>!"라고 결론 내리고 넘어가 버리는 것입니다. 이런 성격 급한 녀석에게 <strong>"기다리지 말고, 나중에 이 함수나 실행시켜!"</strong>라고 달래는 것이 바로 <strong>콜백(Callback)</strong>의 핵심입니다.<br><br>
-  단, 이 <code>undefined</code> 현상은 <strong>콜백 기반</strong> 비동기 함수에서 별도의 <code>return</code>이 없을 때 생기는 결과입니다. 다음 단계에서 배울 <code>async function</code>은 항상 <strong>Promise</strong>를 반환하므로, 이 예시는 콜백 기반 함수에 해당하는 이야기입니다.
+  당연히 아직 도착한 데이터가 없으니, 자바스크립트는 "어? 없네? 그럼 <code>undefined</code>!"라고 결론 내리고 넘어가 버리는 것입니다.<br>
+  이런 성격 급한 녀석에게 <strong>"기다리지 말고, 나중에 이 함수나 실행시켜!"</strong>라고 달래는 것이 바로 <strong>콜백(Callback)</strong>의 핵심입니다.<br><br>
+  단, 이 <code>undefined</code> 현상은 <strong>콜백 기반</strong> 비동기 함수에서 별도의 <code>return</code>이 없을 때 생기는 결과입니다.<br>
+  다음 단계에서 배울 <code>async function</code>은 항상 <strong>Promise</strong>를 반환하므로, 이 예시는 콜백 기반 함수에 해당하는 이야기입니다.
 </div>
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>13. 에러 우선 콜백</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (17).webp" alt="" style="width:52px;top:-11px;left:36%;opacity:.76;transform:rotate(8deg);">
 </div>
 
 ### 1) Node.js 스타일의 콜백 패턴
@@ -835,7 +836,7 @@ fetchUser(1, (error, user) => {
 2. 두 번째 인자: 결과 데이터
 3. 에러 있으면 데이터는 null
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이 패턴은 <strong>Node.js</strong> 환경의 표준이나 다름없습니다. (일명 '국룰'입니다.)<br><br>
@@ -847,7 +848,6 @@ fetchUser(1, (error, user) => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>14. 콜백 지옥</h2>
-  <img class="wda-deco" src="/images/decoration/소품 아이콘 (28).webp" alt="" style="width:106px;top:-9px;right:10%;opacity:.8;transform:rotate(-5deg);">
 </div>
 
 ### 1) 형상화된 콜백의 결정체
@@ -881,7 +881,7 @@ login(user, (err1, token) => {
 
 ### 2) 🔺 피라미드 코드 모양
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   X 가독성 / X 끔찍한 유지 보수 / X 에러 처리
@@ -893,7 +893,7 @@ login(user, (err1, token) => {
   다음 시간에 학습. Promise 와 async/await !
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이미지의 코드는 <strong>"로그인 성공하면 ➔ 프로필 가져오고 ➔ 친구 목록 가져오고 ➔ 알림 가져와라"</strong> 라는 로직입니다.<br><br>
@@ -905,7 +905,6 @@ login(user, (err1, token) => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>15. 🐞 비동기 에러 처리의 어려움</h2>
-  <img class="wda-deco" src="/images/decoration/꽃 아이콘 (8).webp" alt="" style="width:54px;top:-12px;left:8%;opacity:.76;transform:rotate(7deg);">
 </div>
 
 ### 1) try-catch로 잡히지 않는 에러
@@ -928,7 +927,7 @@ try {
 // 1초 뒤 Uncaught Error 발생
 ```
 
-**핵심 개념**
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cy">
   🕒 시간의 흐름 (Timeline)<br>
@@ -967,7 +966,7 @@ setTimeout(() => {
   ⚠️ 비동기 에러 처리는 Promise 이전에는 정말 까다로웠습니다!
 </div>
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   이것이 바로 자바스크립트 초보자들이 겪는 가장 당혹스러운 순간, <strong>"유령 에러"</strong>입니다.<br><br>
@@ -982,7 +981,6 @@ setTimeout(() => {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>🔑 핵심 요약 : 비동기 완전 정복 (5대 요소)</h2>
-  <img class="wda-deco" src="/images/character/전체흐름.webp" alt="" style="width:118px;right:0;top:-100px;opacity:.9;transform:rotate(-3deg);">
 </div>
 
 ### 1) 핵심 요소별 상세 비교표
@@ -1030,9 +1028,9 @@ setTimeout(() => {
 | **2** | **`Promise.then`** | **Micro Queue** | **(비동기 VIP)** 동기가 다 끝나면 우르르 실행됨. |
 | **3** | **`setTimeout`** | **Macro Queue** | **(비동기 일반)** VIP까지 다 끝나고 스택이 비면 하나씩 실행됨. |
 
-**보충 설명**
+**💡 보충 설명**
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-ci" style="position:relative;overflow:visible;">
   이 표는 자바스크립트 비동기 메커니즘의 <strong>'지도'</strong>와 같습니다.<br><br>
   특히 <strong>'4. 태스크 큐 비교'</strong>와 <strong>'5. 콜백의 한계'</strong>는 실무에서 버그를 잡거나 코드를 리팩토링할 때 가장 중요한 기준이 됩니다.<br>
   · "왜 화면이 멈추지?" 👉 <strong>동기</strong> 작업이 너무 길거나, <strong>마이크로태스크</strong> 루프에 빠진 것.<br>

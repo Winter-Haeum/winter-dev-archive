@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -26,8 +26,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -36,8 +36,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.4rem 0 0;padding-left:1.1rem}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
@@ -59,17 +59,25 @@ status: "completed"
 .wda-confirm code{background:rgba(128,128,128,.1);padding:1px 5px;border-radius:4px;font-size:.85em}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 강사가 준비한 가비아 500원 특가 도메인을 활용하여 포트폴리오에 전문적인 커스텀 도메인을 연결합니다. GitHub Pages 기본 도메인에서 여러분만의 고유한 도메인으로 업그레이드해보세요!
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-left:20px;padding-top:14px;padding-right:206px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (4).webp" alt="" style="position:absolute;width:110px;top:-11px;left:30%;z-index:2;pointer-events:none;opacity:.82;">
-  <img src="/images/character/연결 성공.webp" alt="" style="position:absolute;width:184px;bottom:-68px;right:6px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
   🌐 <strong>전문적인 포트폴리오</strong> — 개인 도메인으로 브랜드 이미지 향상<br>
   🛠️ <strong>실무 DNS 설정</strong> — A레코드, CNAME 등 실제 도메인 관리 경험<br>
@@ -80,14 +88,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:46px;top:-8px;left:4px;z-index:2;pointer-events:none;opacity:.76;">
   <h2>🌐 커스텀 도메인의 중요성</h2>
 </div>
 
 포트폴리오에서 커스텀 도메인은 전문성과 신뢰도를 보여주는 핵심 요소입니다. 취업 지원 시 훨씬 더 인상적인 첫인상을 만들 수 있어요!
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:162px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/코딩 팁.webp" alt="" style="position:absolute;width:142px;bottom:-56px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">수업 진행 방식</span>
   강사가 미리 구매해둔 가비아 500원 특가 도메인을 활용하여 실시간으로 커스텀 도메인 연결 과정을 시연합니다. 실무에서 가장 많이 사용하는 방법이에요!
 </div>
@@ -95,7 +101,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 .5rem;">
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;width:48px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
   <h2>📊 도메인 연결 전후 비교</h2>
 </div>
 
@@ -122,10 +127,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🛠️ 단계별 설정 가이드</h2>
-  <img src="/images/decoration/별 아이콘 (6).webp" alt="" style="position:absolute;width:90px;top:-24px;right:8px;z-index:2;pointer-events:none;opacity:.70;transform:rotate(14deg);">
-</div>
+## 🛠️ 단계별 설정 가이드
 
 가비아 도메인을 GitHub Pages와 연결하는 전체 과정을 4단계로 나누어 진행합니다:
 
@@ -191,7 +193,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:50px;top:-10px;left:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-14deg);">
   <h2>💻 상세 설정 코드</h2>
 </div>
 
@@ -240,16 +241,16 @@ GitHub Pages 도메인 설정 순서:
 
 ---
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:56px;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/말풍선 아이콘 (4).webp" alt="" style="position:absolute;width:48px;top:-14px;right:10px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">강사 실시간 시연</span>
-  지금부터 실제 가비아 도메인을 사용해서 전체 과정을 라이브로 시연하겠습니다! 각 단계별로 화면을 보면서 따라해보세요.
+  지금부터 실제 가비아 도메인을 사용해서 전체 과정을 라이브로 시연하겠습니다!<br>
+  각 단계별로 화면을 보면서 따라해보세요.
 </div>
 
 ---
 
 <div style="overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2 style="overflow:visible;"><span style="position:relative;display:inline-block;white-space:nowrap;">📋 Claude에게 복사해서 붙여넣기<img src="/images/decoration/책갈피 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:50%;left:calc(100% + 12px);transform:translateY(-50%) rotate(10deg);z-index:2;pointer-events:none;opacity:.76;"></span></h2>
+  <h2 style="overflow:visible;"><span style="position:relative;display:inline-block;white-space:nowrap;">📋 Claude에게 복사해서 붙여넣기</span></h2>
 </div>
 
 아래 프롬프트를 통째로 복사해서 Claude에게 붙여넣으면, 커스텀 도메인 설정을 도와줍니다. 우측 상단 Copy 버튼을 클릭하세요!
@@ -304,7 +305,6 @@ curl -I https://내도메인.co.kr
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;padding-left:58px;">
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:50px;top:-12px;left:2px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
   <h2>🆘 문제 해결 가이드</h2>
 </div>
 
@@ -333,27 +333,25 @@ curl -I https://내도메인.co.kr
   </div>
 </div>
 
-<div class="wda-callout wda-cw" style="position:relative;padding-left:62px;padding-top:12px;overflow:visible;">
-  <img src="/images/decoration/느낌표 아이콘 (4).webp" alt="" style="position:absolute;width:44px;top:50%;left:8px;z-index:2;pointer-events:none;opacity:.78;transform:translateY(-50%);">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">CNAME 주의</span>
   가비아에서 CNAME 값 끝에 점(.)을 반드시 붙여야 합니다! (예: <code style="font-size:.9em;background:rgba(128,128,128,.12);padding:1px 5px;border-radius:4px;">username.github.io.</code>)
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-right:150px;padding-top:14px;overflow:visible;">
-  <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:132px;bottom:-50px;right:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(5deg);">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">도메인 설정 팁</span>
-  www 서브도메인을 사용하면 쿠키 문제를 방지하고 SEO에도 유리합니다! 저장소에 자동 생성된 CNAME 파일은 삭제하지 마세요.
+  www 서브도메인을 사용하면 쿠키 문제를 방지하고 SEO에도 유리합니다!<br>
+  저장소에 자동 생성된 CNAME 파일은 삭제하지 마세요.
 </div>
 
 ---
 
-<div class="wda-done" style="position:relative;overflow:visible;padding-top:20px;padding-left:188px;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:164px;bottom:-64px;left:8px;z-index:3;pointer-events:none;opacity:.92;transform:rotate(-5deg);">
-  <img src="/images/decoration/스탬프 아이콘 (2).webp" alt="" style="position:absolute;width:58px;top:-14px;right:18px;z-index:2;pointer-events:none;opacity:.82;transform:rotate(8deg);">
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;width:44px;top:-12px;left:42%;z-index:2;pointer-events:none;opacity:.78;">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">커스텀 도메인 연결 완료!</div>
-  축하합니다! 이제 여러분만의 전문적인 도메인으로 포트폴리오에 접속할 수 있습니다.<br>
+  축하합니다!<br>
+  이제 여러분만의 전문적인 도메인으로 포트폴리오에 접속할 수 있습니다.<br>
   <strong>https://www.여러분도메인.co.kr</strong> 에서 확인해보세요!<br>
   취업 지원 시 훨씬 더 전문적인 인상을 줄 수 있어요.
 </div>
+

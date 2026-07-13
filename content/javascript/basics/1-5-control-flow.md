@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,8 +25,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -34,16 +34,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -52,8 +52,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:118px;top:-16px;right:28%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal">
   📌 <strong>조건문</strong> — if, switch, 삼항 연산자로 분기 처리를 구현합니다.<br>
   🔁 <strong>반복문</strong> — for, while, do-while로 반복 작업을 수행합니다.<br>
   🔍 <strong>반복문 심화</strong> — for...in, for...of의 차이를 구분하고 활용합니다.<br>
@@ -62,10 +61,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 제어문이란? (Control Flow)</h2>
-  <img src="/images/decoration/꽃 아이콘 (3).webp" alt="" style="position:absolute;width:56px;top:-14px;right:6px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(12deg);">
-</div>
+## 1. 제어문이란? (Control Flow)
 
 **정의**: 코드의 실행 흐름(순서)을 개발자가 의도한 대로 제어하는 문장입니다.
 
@@ -125,10 +121,7 @@ for (let i = 0; i < 5; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. if 문 구조 (Structure)</h2>
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:66px;top:-20px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-8deg);">
-</div>
+## 2. if 문 구조 (Structure)
 
 조건이 **참(True)**일 때만 특정 코드를 실행하도록 흐름을 제어하는 가장 기본적인 조건문입니다.
 
@@ -197,10 +190,6 @@ if (score >= 90) {
 
 ## 💻 실습 : 성적 판별기
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/원리 이해.webp" alt="" style="position:absolute;width:144px;right:0;top:-120px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
-
 **1) 미션 목표 (Mission)**
 
 <div class="wda-fgrid">
@@ -243,7 +232,7 @@ if (score >= 90) {
 
 **3) 실행 결과 및 해석**
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"재수강"</code> 출력<br>
@@ -254,10 +243,7 @@ if (score >= 90) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. switch-case 문</h2>
-  <img src="/images/decoration/말풍선 아이콘 (6).webp" alt="" style="position:absolute;width:70px;top:-18px;left:50%;transform:translateX(-50%) rotate(-6deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 3. switch-case 문
 
 하나의 변수(값)를 여러 개의 케이스(case)와 비교하여, 딱 맞는 경우를 찾아 실행하는 분기문입니다.
 
@@ -331,11 +317,7 @@ switch (grade) {
 
 Fall-through 활용: 위 예시처럼 A와 B를 묶어서 처리하고 싶을 때는 의도적으로 break를 생략하기도 합니다.
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/실수 주의.webp" alt="" style="position:absolute;width:88px;right:0;top:-80px;opacity:.86;z-index:2;pointer-events:none;">
-</div>
-
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   • <strong>일치 비교(<code>===</code>)</strong>: switch 문은 내부적으로 <strong>엄격한 비교(<code>===</code>)</strong>를 사용합니다. 값뿐만 아니라 <strong>데이터 타입</strong>까지 같아야 매칭됩니다. (예: 문자열 <code>"1"</code>과 숫자 <code>1</code>은 서로 다름)<br>
@@ -378,14 +360,14 @@ switch (weather) {
 
 **3) 실행 결과 및 해석**
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"우산"</code> 출력<br>
   • 변수 <code>weather</code>의 값인 <code>"비"</code>와 일치하는 <code>case "비":</code>를 찾아 이동한 후, <code>console.log("우산")</code>을 실행하고 <code>break</code>를 만나 switch 문을 빠져나옵니다.
 </div>
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-cs">
   • <strong>Default의 역할</strong>: <code>if</code> 문의 <code>else</code>처럼, 어떤 케이스에도 해당하지 않을 때 실행되는 기본 경로입니다.<br>
@@ -394,10 +376,7 @@ switch (weather) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 삼항 연산자 (Ternary Operator)</h2>
-  <img src="/images/decoration/느낌표 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-12px;left:62%;pointer-events:none;opacity:.70;transform:rotate(10deg);z-index:2;">
-</div>
+## 4. 삼항 연산자 (Ternary Operator)
 
 간단한 양자택일(true/false) 상황을 한 줄로 깔끔하게 처리하는 연산자입니다.
 
@@ -491,7 +470,7 @@ console.log(result);
 
 **3) 실행 결과 및 해석**
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"홀수"</code> 출력<br>
@@ -499,7 +478,7 @@ console.log(result);
   • <code>1 === 0</code>은 <strong>거짓(False)</strong>이므로, 콜론(<code>:</code>) 뒤에 있는 <code>"홀수"</code>가 선택됩니다.
 </div>
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-cs">
   • <strong>나머지 연산자(%) 활용</strong>: 프로그래밍에서 홀짝 판별, 배수 찾기 등을 할 때 가장 많이 쓰이는 연산자입니다.<br>
@@ -508,10 +487,7 @@ console.log(result);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. for 문 구조 (for Loop)</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="position:absolute;width:56px;top:-14px;left:42%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-10deg);">
-</div>
+## 5. for 문 구조 (for Loop)
 
 가장 많이 쓰이는 반복문으로, 반복 횟수가 정해져 있을 때 주로 사용합니다.
 
@@ -581,10 +557,6 @@ for (let i = 0; i < 5; i++) {
   </div>
 </div>
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/스탬프 아이콘 (6).webp" alt="" style="position:absolute;width:78px;top:-72px;right:4%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(12deg);">
-</div>
-
 **4) 다양한 활용 예시**
 
 **① 배열 순회 (인덱스 필요할 때)**
@@ -647,7 +619,7 @@ for (let i = 1; i <= 9; i++) {
 2 x 9 = 18
 ```
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-cs">
   • <strong>초기값 설정</strong>: 배열 순회와 달리 구구단은 보통 1부터 곱하기 때문에 <code>let i = 1</code>로 시작해야 합니다.<br>
@@ -657,19 +629,13 @@ for (let i = 1; i <= 9; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. for...in 반복문 (객체 열거)</h2>
-</div>
+## 6. for...in 반복문 (객체 열거)
 
 객체가 가진 **열쇠(Key)**를 하나씩 꺼내서 순회할 때 사용하는, **객체 전용** 반복문입니다.
 
 **1) 구조 이해하기 (수도코드)**
 
 객체 꾸러미 안에서 속성 이름(Key)을 하나씩 뽑아내는 방식입니다.
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-28px;right:8px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
-</div>
 
 ```jsx
 // 공식
@@ -716,10 +682,12 @@ for (let index in arr) {
 // 3. 내가 만들지 않은 숨겨진 속성까지 다 튀어나옵니다.
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  <code>for...in</code>은 원래 <strong>객체의 key를 순회하는 용도</strong>입니다. 배열에 사용하면 인덱스 key를 순회하고, 추가된 enumerable 속성까지 나올 수 있어 배열 값 순회용으로 부적합합니다. 배열에는 <strong><code>for...of</code></strong>나 일반 <code>for</code> 문을 사용하세요.
+  <code>for...in</code>은 원래 <strong>객체의 key를 순회하는 용도</strong>입니다.<br>
+  배열에 사용하면 인덱스 key를 순회하고, 추가된 enumerable 속성까지 나올 수 있어 배열 값 순회용으로 부적합합니다.<br>
+  배열에는 <strong><code>for...of</code></strong>나 일반 <code>for</code> 문을 사용하세요.
 </div>
 
 **핵심 요약**
@@ -766,7 +734,7 @@ age: 20
 city: 서울
 ```
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-ci">
   • <strong>대괄호 표기법 필수</strong>: <code>me.key</code>라고 쓰면 컴퓨터는 진짜로 <code>key</code>라는 이름의 속성을 찾으려다 <code>undefined</code>를 반환합니다.<br>
@@ -775,10 +743,7 @@ city: 서울
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. for...of 반복문 (배열 순회)</h2>
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:62px;top:-20px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 7. for...of 반복문 (배열 순회)
 
 **배열, 문자열, Map, Set처럼 순회 가능한 값(iterable)**에 들어있는 **실제 값(내용물)**을 하나씩 꺼내 쓸 때 사용하는 반복문입니다.
 
@@ -821,7 +786,7 @@ for (let item of fruits) {
 | **비유** | "사물함 속 물건 꺼내기" | "사물함 번호 확인하기" | "0번부터 순서대로 세기" |
 | **언제 쓰나요?** | **그냥 데이터가 필요할 때** | **객체 속성을 볼 때** | **몇 번째인지(순서) 필요할 때** |
 
-실무 팁
+**💼 실무 팁**
 
 <div class="wda-callout wda-cs">
   • <strong>배열</strong>인데 내용물만 필요하다? 👉 <strong><code>for...of</code></strong> (가장 많이 씀)<br>
@@ -831,10 +796,7 @@ for (let item of fruits) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 : 장바구니 목록</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (2).webp" alt="" style="position:absolute;width:58px;top:12px;right:8%;transform:rotate(-8deg);z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 💻 실습 : 장바구니 목록
 
 **1) 미션: 쇼핑 리스트 (Mission)**
 
@@ -865,7 +827,7 @@ for (let item of cart) {
 장바구니: 계란
 ```
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-ci">
   • <strong>간결함</strong>: 만약 기본 <code>for</code> 문을 썼다면 <code>cart[i]</code>처럼 인덱스로 접근해야 했겠지만, <code>for...of</code>를 쓰면 <code>item</code>으로 바로 값을 쓸 수 있어 훨씬 직관적입니다.<br>
@@ -874,10 +836,7 @@ for (let item of cart) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🏟️ for...in vs for...of (완벽 비교)</h2>
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:58px;top:-16px;right:6px;z-index:2;pointer-events:none;opacity:.74;">
-</div>
+## 🏟️ for...in vs for...of (완벽 비교)
 
 **1) 한눈에 보는 차이점 (Comparison)**
 
@@ -931,10 +890,7 @@ for (let value of obj) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. while / do-while 구조</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (7).webp" alt="" style="position:absolute;width:52px;top:-14px;left:55%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
+## 8. while / do-while 구조
 
 조건을 **언제** 검사하느냐에 따라 실행 흐름이 달라지는 두 반복문을 비교합니다.
 
@@ -989,7 +945,7 @@ do {
 | **while 문** | 반복 횟수가 **불명확**할 때 (조건이 중요할 때) | "사용자가 '종료' 버튼을 누를 때까지"<br>"파일의 끝이 나올 때까지" |
 | **do-while 문** | **선 실행, 후 검사**가 필요할 때 (무조건 1번은 실행) | "입력을 먼저 받고(do) → 올바른 값인지 검사(while)"<br>"게임 일단 시작하고 → 죽었는지 확인" |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <strong>⚠️ 무한 루프 (Infinite Loop)</strong><br>
@@ -998,10 +954,7 @@ do {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 : 카운트다운</h2>
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:75px;top:-20px;right:4%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(8deg);">
-</div>
+## 💻 실습 : 카운트다운
 
 **1) 미션: 발사! (Mission)**
 
@@ -1038,18 +991,16 @@ console.log("발사!");
 발사!
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  만약 <code>count--</code>를 작성하지 않으면, <code>count</code>는 계속 5로 남아 조건(<code>5 > 0</code>)이 영원히 참이 됩니다. 이 경우 프로그램이 멈추지 않고 계속 돌아가는 <strong>무한 루프(Infinite Loop)</strong>에 빠지게 됩니다.
+  만약 <code>count--</code>를 작성하지 않으면, <code>count</code>는 계속 5로 남아 조건(<code>5 > 0</code>)이 영원히 참이 됩니다.<br>
+  이 경우 프로그램이 멈추지 않고 계속 돌아가는 <strong>무한 루프(Infinite Loop)</strong>에 빠지게 됩니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. break / continue 구조 (흐름 제어)</h2>
-  <img src="/images/decoration/꽃 아이콘 (6).webp" alt="" style="position:absolute;width:54px;top:-14px;right:30%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+## 9. break / continue 구조 (흐름 제어)
 
 반복문의 흐름을 개발자가 원하는 대로 **중단**하거나 **건너뛸 때** 사용합니다.
 
@@ -1138,10 +1089,7 @@ for (let i = 1; i <= 10; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 : 숫자 찾기 (break &amp; continue)</h2>
-  <img src="/images/decoration/하트 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:12px;right:6px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(14deg);">
-</div>
+## 💻 실습 : 숫자 찾기 (break &amp; continue)
 
 **1) 미션: 보물 찾기 (Mission)**
 
@@ -1183,14 +1131,14 @@ for (let i = 1; i <= 10; i++) {
 찾았다!
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <strong>짝수(2, 4, 6)</strong>: <code>continue</code>를 만나서 출력이 생략되었습니다.<br>
   • <strong>7</strong>: "찾았다!" 출력 후 <code>break</code>를 만나서 <strong>8, 9, 10</strong>은 아예 검사하지도 않고 프로그램이 끝났습니다.
 </div>
 
-**실습 포인트**
+**✅ 실습 포인트**
 
 <div class="wda-callout wda-cs">
   • <strong>break</strong>: "여기까지만 하고 끝내!" (반복문 파괴)<br>
@@ -1199,9 +1147,7 @@ for (let i = 1; i <= 10; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📌 제어문 핵심 요약</h2>
-</div>
+## 📌 제어문 핵심 요약
 
 제어문(조건문+반복문)의 방대한 내용을 실무 관점에서 압축했습니다. 시험 직전이나 코딩할 때 이 페이지를 참고하세요.
 
@@ -1234,7 +1180,7 @@ for (let i = 1; i <= 10; i++) {
 | **비유** | 사물함 물건 꺼내기 | 사물함 번호 확인 | 순서대로 세기 | 될 때까지 하기 |
 | **용도** | 데이터 전체 순회 | 속성 확인할 때 | 순서(i) 중요할 때 | 횟수 모를 때 |
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   • <strong>배열</strong>에는 <code>for...in</code>보다 <code>for...of</code>나 기본 <code>for</code>문을 사용하세요. <code>for...in</code>은 객체의 key 순회용이라, 배열에 쓰면 인덱스 key와 추가된 enumerable 속성까지 나올 수 있습니다.<br>
@@ -1266,10 +1212,7 @@ for (let i = 1; i <= 10; i++) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📋 최종 핵심 요약표</h2>
-  <img src="/images/character/이해 완료.webp" alt="" style="position:absolute;width:138px;right:0;top:-110px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 📋 최종 핵심 요약표
 
 <table class="wda-summary-table">
   <tr>

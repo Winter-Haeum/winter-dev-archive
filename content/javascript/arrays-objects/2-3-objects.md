@@ -10,7 +10,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ tags:
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -33,16 +33,16 @@ tags:
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.75;line-height:1.55}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -51,8 +51,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (9).webp" alt="" style="position:absolute;width:108px;top:-16px;right:26%;z-index:2;pointer-events:none;opacity:.80;">
+<div class="wda-goal" style="position:relative;overflow:visible;">
   🗂️ <strong>객체의 개념</strong> — key-value 쌍으로 데이터를 구조화하는 방법 이해합니다.<br>
   🔑 <strong>프로퍼티 다루기</strong> — 접근, 추가, 수정, 삭제 방법을 익힙니다.<br>
   🔁 <strong>객체 순회</strong> — for...in과 Object 메서드로 객체를 탐색할 수 있습니다.<br>
@@ -63,7 +62,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. 객체란 무엇인가?</h2>
-  <img src="/images/decoration/꽃 아이콘 (11).webp" alt="" style="position:absolute;width:112px;top:-22px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 관련 데이터와 기능을 묶은 집합을 **객체(Object)**라고 합니다.
@@ -102,7 +100,6 @@ const user = {
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>4) 구조 시각화</h3>
-  <img src="/images/decoration/반짝이 아이콘 (5).webp" alt="" style="position:absolute;width:48px;top:-8px;left:33%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-7deg);">
 </div>
 
 객체는 **현실의 사물을 코드로 옮겨놓은 것**과 같습니다. (예: 명함, 프로필 카드)
@@ -127,7 +124,7 @@ const user = {
 
 > "이름(Key)표가 붙은 여러 개의 서랍(Value)"
 
-**개념**
+**📌 개념**
 
 <div class="wda-callout wda-cy">
   <span class="wda-clabel">Key와 Value</span>
@@ -151,7 +148,8 @@ const user = {
 | **Key (키)** | **"문자열"** | `"name"`, `"age"` |
 | **Value (값)** | **모든 타입** | `"철수"`, `25`, `true`, `[]` 등 |
 
-객체의 key는 대부분 문자열처럼 사용됩니다. 다만 JavaScript에서는 Symbol도 객체 key로 사용할 수 있습니다. 초보자 단계에서는 문자열 key를 기본으로 이해하면 됩니다.
+객체의 key는 대부분 문자열처럼 사용됩니다. 다만 JavaScript에서는 Symbol도 객체 key로 사용할 수 있습니다.  
+초보자 단계에서는 문자열 key를 기본으로 이해하면 됩니다.
 
 ### 7) 실제 코드
 
@@ -166,8 +164,6 @@ const user = {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>2. 객체 생성</h2>
-  <img src="/images/character/이해 완료.webp" alt="" style="position:absolute;width:130px;right:0;top:-104px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/화살표 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-60px;right:22%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -214,7 +210,6 @@ user.age = 25;
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;키 룰 (Key Rules)&gt;</h3>
-  <img src="/images/decoration/핀 아이콘 (11).webp" alt="" style="position:absolute;width:90px;top:-16px;right:6%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 키는 **문자열**이어야 하며, **특수문자가 포함되면 따옴표가 필요**합니다.
@@ -248,10 +243,6 @@ const special = {
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:54px;left:66%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(9deg);">
-</div>
-
 ## 3. 프로퍼티 접근
 
 **점 표기법**과 **대괄호 표기법**으로 프로퍼티에 접근합니다.
@@ -284,7 +275,7 @@ console.log(user["name"]); // "철수"
 console.log(user["age"]);  // 25
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">언제 무엇을 쓸까?</span>
@@ -301,11 +292,10 @@ console.log(user["age"]);  // 25
 | **가독성** | **우수 (권장)** | 보통 |
 | **특수문자 키** | 사용 불가 | **사용 가능** |
 | **변수로 접근** | 사용 불가 | **사용 가능** |
-| **주의사항** | 키 이름을 그대로 작성 | 키 이름을 **"문자열"**로 감싸기 |
+| **⚠️ 주의사항** | 키 이름을 그대로 작성 | 키 이름을 **"문자열"**로 감싸기 |
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt; 동적 접근&gt;</h3>
-  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-10px;right:10%;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 변수를 사용하여 키에 접근하거나, 특수 문자가 포함된 키에 접근할 때 사용합니다.
@@ -325,7 +315,7 @@ console.log(user.key); // undefined
 console.log(user[key]); // "철수"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">점 표기법이 undefined를 반환하는 이유</span>
@@ -347,7 +337,7 @@ data["user-id"];      // OK
 data["home address"]; // OK
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">언제 대괄호를 쓰나요?</span>
@@ -361,7 +351,6 @@ data["home address"]; // OK
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 생성과 접근</h2>
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-10px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 객체를 만들고 다양한 방법으로 값을 꺼내봅시다.
@@ -397,7 +386,6 @@ console.log(myPhone["color"]); // "Black"
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>4. 프로퍼티 조작</h2>
-  <img src="/images/decoration/말풍선 아이콘 (7).webp" alt="" style="position:absolute;width:116px;top:-22px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -451,7 +439,6 @@ console.log(user);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;삭제와 const&gt;</h3>
-  <img src="/images/decoration/느낌표 아이콘 (1).webp" alt="" style="position:absolute;width:46px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 `delete` 연산자로 삭제하며, `const` 객체도 수정 가능함을 주의하세요.
@@ -492,7 +479,6 @@ user = { name: "민수" }; // Error
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 수정과 삭제</h2>
-  <img src="/images/decoration/스탬프 아이콘 (3).webp" alt="" style="position:absolute;width:116px;top:-22px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 객체의 정보를 업데이트하고 불필요한 정보를 지워봅시다.
@@ -548,7 +534,6 @@ console.log(myPhone);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>5. 계산된 프로퍼티 (Computed Property)</h2>
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 대괄호 `[]` 안에 표현식을 넣어 키 이름을 **동적**으로 생성할 수 있습니다.
@@ -581,10 +566,6 @@ console.log(obj);
 - **에러 방지** : 이미지의 주의사항처럼 변수명을 대괄호 없이 키 위치에 그대로 쓰면, 변수에 담긴 값이 아닌 변수명 자체가 키가 되거나 문법 에러가 발생할 수 있습니다. 동적 키를 원한다면 반드시 `[]`가 필요합니다.
 
 ---
-
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/별 아이콘 (4).webp" alt="" style="position:absolute;width:66px;left:33%;top:0;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-8deg);">
-</div>
 
 ## 6. 단축 문법 (Shorthand)
 
@@ -633,13 +614,12 @@ const user2 = {
 ### 3) 특징
 
 - **메서드 정의** : 단축 메서드 문법(`greet() {}`)은 기존 방식(`greet: function() {}`)과 기능적으로 거의 동일하지만, 코드가 훨씬 간결해집니다.
-- **주의사항** : 단축 프로퍼티 사용 시, 참조하려는 변수가 스코프 내에 반드시 존재해야 하며 이름이 정확히 일치해야 합니다.
+- **⚠️ 주의사항** : 단축 프로퍼티 사용 시, 참조하려는 변수가 스코프 내에 반드시 존재해야 하며 이름이 정확히 일치해야 합니다.
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>7. 프로퍼티 존재 확인</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-10px;right:8px;z-index:2;pointer-events:none;opacity:.70;">
 </div>
 
 객체에 특정 키가 있는지 확인할 때는 `in` 연산자나 `hasOwnProperty()` 메서드를 사용합니다.
@@ -687,7 +667,6 @@ Object.hasOwn(user, "name"); // true
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>8. 안전한 접근 - 옵셔널 체이닝 (Optional Chaining)</h2>
-  <img src="/images/decoration/소품 아이콘 (2).webp" alt="" style="position:absolute;width:56px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 `?.` 연산자는 값이 존재하는지 확인하면서 접근합니다. (없으면 `undefined` 반환)
@@ -720,13 +699,12 @@ console.log(user.address?.city); // undefined
 
 - **안정성** : 데이터가 중첩된 객체 구조(예: API 응답 데이터)에서 특정 값이 있는지 확신할 수 없을 때 에러 방지를 위해 필수적으로 사용합니다.
 - **동작 원리** : `?.` 앞의 평가 대상이 `null`이거나 `undefined`이면 평가를 멈추고 즉시 `undefined`를 반환합니다.
-- **주의사항** : 존재하지 않아도 괜찮은 대상에만 선택적으로 사용해야 합니다. 반드시 있어야 하는 데이터임에도 옵셔널 체이닝을 남용하면 디버깅이 어려워질 수 있습니다.
+- **⚠️ 주의사항** : 존재하지 않아도 괜찮은 대상에만 선택적으로 사용해야 합니다. 반드시 있어야 하는 데이터임에도 옵셔널 체이닝을 남용하면 디버깅이 어려워질 수 있습니다.
 
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>9. 객체 순회 - for...in</h2>
-  <img src="/images/decoration/하트 아이콘 (6).webp" alt="" style="position:absolute;width:46px;top:-10px;left:50%;transform:translateX(-50%) rotate(6deg);z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 객체의 모든 키(key)를 하나씩 꺼내서 반복문을 실행할 때 사용합니다.
@@ -764,7 +742,8 @@ for (const key in user) {
 
 ### 3) 부모 객체에 메서드 추가 시 주의점 (hasOwnProperty)
 
-`for...in`은 상속받은 부모의 프로퍼티까지 순회합니다. 본인의 속성만 출력하려면 `hasOwnProperty` 체크가 필요합니다.
+`for...in`은 상속받은 부모의 프로퍼티까지 순회합니다.  
+본인의 속성만 출력하려면 `hasOwnProperty` 체크가 필요합니다.
 
 ```jsx
 // 부모 격인 Object 프로토타입에 메서드 추가 (예시)
@@ -783,7 +762,7 @@ for (const key in user) {
 }
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">프로토타입 체인 주의</span>
@@ -797,7 +776,6 @@ for (const key in user) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>10. 객체 순회 - Loops 비교</h2>
-  <img src="/images/decoration/책갈피 아이콘 (4).webp" alt="" style="position:absolute;width:52px;top:-10px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 객체는 `for...in`, 배열은 `for...of`를 사용합니다.
@@ -840,7 +818,6 @@ for (const val of arr) {
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>11. 객체 순회 - Keys &amp; Values</h2>
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:44px;top:-8px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 객체의 키(Key) 목록이나 값(Value) 목록만 따로 뽑아낼 수 있습니다.
@@ -881,7 +858,6 @@ console.log(values.includes("철수")); // true
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>3) 특징 및 주의사항</h3>
-  <img src="/images/decoration/메모지 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-8px;left:38%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 - **데이터 타입 변환** : 이 메서드들은 객체(Object)를 배열(Array) 형태로 변환해 줍니다. 따라서 변환 후에는 `length` 속성이나 `includes()` 같은 배열 전용 메서드를 즉시 사용할 수 있어 데이터 처리가 매우 편리해집니다.
@@ -892,7 +868,6 @@ console.log(values.includes("철수")); // true
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>12. 객체 순회 - Entries</h2>
-  <img src="/images/decoration/소품 아이콘 (20).webp" alt="" style="position:absolute;width:56px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-6deg);">
 </div>
 
 객체의 키(Key)와 값(Value)을 한꺼번에 배열로 변환하여 순회하는 방법입니다.
@@ -935,7 +910,6 @@ for...in 보다 더 현대적이고 안전한 방법입니다.
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 객체 순회</h2>
-  <img src="/images/decoration/말풍선 아이콘 (11).webp" alt="" style="position:absolute;width:54px;top:-10px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 객체의 모든 정보를 반복문을 통해 출력해 봅시다.
@@ -970,8 +944,6 @@ console.log(keys);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>13. 객체 복사와 병합</h2>
-  <img src="/images/character/꼭 기억.webp" alt="" style="position:absolute;width:220px;right:0;top:-150px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/핀 아이콘 (1).webp" alt="" style="position:absolute;width:50px;top:-8px;left:28%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-7deg);">
 </div>
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
@@ -1022,7 +994,6 @@ console.log(target); // { a: 1, b: 2 }
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;깊은 복사&gt;</h3>
-  <img src="/images/decoration/소품 아이콘 (18).webp" alt="" style="position:absolute;width:52px;top:-10px;right:8%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
 </div>
 
 객체 안에 객체가 있을 때(중첩), 얕은 복사는 참조만 복사하는 문제가 있습니다.
@@ -1070,7 +1041,6 @@ const deep2 = structuredClone(original);
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>14. 중첩 객체</h2>
-  <img src="/images/decoration/소품 아이콘 (23).webp" alt="" style="position:absolute;width:58px;top:-12px;right:8px;z-index:2;pointer-events:none;opacity:.74;">
 </div>
 
 객체 안에 또 다른 객체가 들어갈 수 있습니다. 관련된 데이터를 계층적으로 표현할 때 유용합니다.
@@ -1119,7 +1089,6 @@ console.log(user.address["zip"]);
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>&lt;수정과 주의점&gt;</h3>
-  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:88px;top:-16px;right:10%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(7deg);">
 </div>
 
 중첩된 객체의 값을 수정하거나 새로운 중첩 객체를 추가할 수 있습니다.
@@ -1156,7 +1125,7 @@ const fax = user.contacts?.fax ?? "없음";
 
 - **에러 방어** : 중첩 객체를 다룰 때는 항상 상위 객체의 존재 여부를 확신할 수 없으므로, `?.`와 `??`(널 병합 연산자)를 조합하여 안전한 기본값을 설정하는 것이 표준적인 방식입니다.
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">중첩 객체 접근 방식의 다양한 조합</span>
@@ -1197,7 +1166,6 @@ obj?.["props"]?.["props"]
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>15. 메서드 (1) - 정의와 호출</h2>
-  <img src="/images/decoration/소품 아이콘 (9).webp" alt="" style="position:absolute;width:56px;top:-12px;left:40%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(6deg);">
 </div>
 
 **객체의 프로퍼티가 함수일 때, 이를 메서드(Method)라고 합니다.**
@@ -1241,7 +1209,6 @@ console.log(diff); // 6
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>4) this를 사용하는 이유</h3>
-  <img src="/images/decoration/구름 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:-14px;left:50%;transform:translateX(-50%);z-index:2;pointer-events:none;opacity:.72;">
 </div>
 
 메서드 내부에서 `this`를 사용하면 **"메서드를 호출한 객체"**를 가리킵니다.
@@ -1289,8 +1256,6 @@ user.greet(); // undefined (또는 에러)
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 : 메서드 만들기</h2>
-  <img src="/images/character/체크 완료.webp" alt="" style="position:absolute;width:120px;right:0;top:-96px;opacity:.88;z-index:2;pointer-events:none;">
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:48px;top:-8px;left:26%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
 </div>
 
 객체에 기능을 추가하여 스스로 행동하게 만들어봅시다.
@@ -1327,10 +1292,6 @@ myPhone.showModel();
 - **this의 역할** : 메서드 내부의 `this`는 해당 메서드를 소유한 `myPhone` 객체를 가리키므로, 객체 외부의 변수명에 의존하지 않고 내부 데이터에 접근할 수 있습니다.
 - **주의점** : 메서드 정의 시 화살표 함수를 사용하면 `this`가 `myPhone`을 가리키지 못해 `undefined`가 출력되므로, 반드시 일반 함수나 단축 문법을 사용해야 합니다.
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/마스킹 테이프 (13).webp" alt="" style="position:absolute;width:98px;top:-22px;right:18%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-5deg);">
-</div>
-
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
@@ -1357,7 +1318,6 @@ myPhone.showModel();
 
 <div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
   <h3>3. 객체 순회 방식 선택 가이드</h3>
-  <img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;width:46px;top:-8px;right:4%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(6deg);">
 </div>
 
 | **순회 방식** | **대상** | **주요 특징** | **사용 결과** |

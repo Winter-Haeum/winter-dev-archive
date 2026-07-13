@@ -11,7 +11,7 @@ tags:
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.83rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,16 +24,20 @@ tags:
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 120px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
-.wda-fcard-ttl{font-size:.84rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:180px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
-.wda-callout p{margin:0 0 .45rem;font-size:.83rem;line-height:1.75}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
@@ -42,18 +46,15 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-top:14px;overflow:visible;">
-  <img src="/images/decoration/마스킹 테이프 (10).webp" alt="" style="position:absolute;width:130px;top:-14px;right:24%;z-index:2;pointer-events:none;opacity:.82;">
+<div class="wda-goal">
+
   🔢 <strong>연산자</strong> — 산술, 비교, 논리 연산자를 활용할 수 있다.<br>
   ⚡ <strong>실전 활용</strong> — truthy / falsy, 단축 평가, 삼항 연산자 <code>? :</code>, 옵셔널 체이닝 <code>?.</code>, <code>??</code> 를 실무에 적용할 수 있다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 산술 연산자 (Arithmetic Operators)</h2>
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="position:absolute;width:100px;top:-28px;right:16%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-14deg);">
-</div>
+## 1. 산술 연산자 (Arithmetic Operators)
 
 숫자를 계산하여 새로운 값을 만드는 연산자입니다.
 
@@ -84,7 +85,7 @@ console.log(10 ** 3); // 거듭제곱 (결과: 1000)
 console.log("Hello" + " " + "World"); // 결과: "Hello World"
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <code>n % 2 === 0</code> 조건을 사용하면 해당 숫자가 짝수인지 홀수인지 쉽게 판별할 수 있습니다.<br>
@@ -95,12 +96,18 @@ console.log("Hello" + " " + "World"); // 결과: "Hello World"
 
 값을 1씩 증가시키거나 감소시키는 연산자입니다. 기호의 위치가 매우 중요합니다.
 
-| 구분 | 형태 | 동작 방식 |
-|---|---|---|
-| **전위** | `++x` | 먼저 1 증가 후 값 반환 — "지금 당장 1 더해!" |
-| **전위** | `--x` | 먼저 1 감소 후 값 반환 — "지금 당장 1 빼!" |
-| **후위** | `x++` | 먼저 값 반환 후 1 증가 — "일단 지금 값 쓰고, 이 줄 끝나면 그때 1 더해!" |
-| **후위** | `x--` | 먼저 값 반환 후 1 감소 — "일단 지금 값 쓰고, 이 줄 끝나면 그때 1 빼!" |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">전위 (Prefix)</div>
+    • <code>++x</code>: 먼저 1 증가 후 값 반환 — "지금 당장 1 더해!"<br>
+    • <code>--x</code>: 먼저 1 감소 후 값 반환 — "지금 당장 1 빼!"
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">후위 (Postfix)</div>
+    • <code>x++</code>: 먼저 값 반환 후 1 증가 — "일단 지금 값 쓰고, 이 줄 끝나면 그때 1 더해!"<br>
+    • <code>x--</code>: 먼저 값 반환 후 1 감소 — "일단 지금 값 쓰고, 이 줄 끝나면 그때 1 빼!"
+  </div>
+</div>
 
 ```jsx
 let x = 5;
@@ -114,7 +121,7 @@ console.log(x++); // 현재 값인 5를 먼저 출력하고, 이후에 1을 더�
 console.log(x--); // 현재 값인 6을 먼저 출력하고, 이후에 1을 뺌 (출력: 6, 현재 x: 5)
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <strong>전위(<code>++x</code>)</strong>: "지금 당장 1 더해!"<br>
@@ -124,10 +131,7 @@ console.log(x--); // 현재 값인 6을 먼저 출력하고, 이후에 1을 뺌 
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 할당 연산자 (Assignment Operators)</h2>
-  <img src="/images/decoration/책갈피 아이콘 (4).webp" alt="" style="position:absolute;width:64px;top:-14px;right:28%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(6deg);">
-</div>
+## 2. 할당 연산자 (Assignment Operators)
 
 변수에 값을 저장하거나, 연산과 저장을 한 번에 처리합니다.
 
@@ -144,17 +148,17 @@ let y = x; // x의 값(10)을 y에 넣는다
 
 **⚙️ 복합 할당**
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/반짝이 아이콘 (8).webp" alt="" style="position:absolute;top:-28px;left:60%;width:48px;pointer-events:none;opacity:.76;transform:rotate(16deg);"></div>
+
 
 연산과 할당을 한 번에 처리하여 코드를 간결하게 만듭니다.
 
-| 연산자 | 의미 | 풀어쓰기 |
-|---|---|---|
-| **`+=`** | 덧셈 후 할당 | `x = x + n` |
-| **`-=`** | 뺄셈 후 할당 | `x = x - n` |
-| **`*=`** | 곱셈 후 할당 | `x = x * n` |
-| **`/=`** | 나눗셈 후 할당 | `x = x / n` |
-| **`%=`** | 나머지 후 할당 | `x = x % n` |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>+=</code></div><div class="wda-fcard-dsc">덧셈 후 할당 — <code>x = x + n</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>-=</code></div><div class="wda-fcard-dsc">뺄셈 후 할당 — <code>x = x - n</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>*=</code></div><div class="wda-fcard-dsc">곱셈 후 할당 — <code>x = x * n</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>/=</code></div><div class="wda-fcard-dsc">나눗셈 후 할당 — <code>x = x / n</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>%=</code></div><div class="wda-fcard-dsc">나머지 후 할당 — <code>x = x % n</code></div></div>
+</div>
 
 ```jsx
 let x = 10;
@@ -168,7 +172,7 @@ let str = "홍길동";
 str += "님"; // str = "홍길동" + "님"; 과 같음 (결과: "홍길동님")
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <code>x = x + 5</code>라고 길게 쓰는 대신 <code>x += 5</code>라고 짧게 줄여 쓸 수 있습니다.<br>
@@ -177,10 +181,7 @@ str += "님"; // str = "홍길동" + "님"; 과 같음 (결과: "홍길동님")
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 비교 연산자 (Comparison Operators)</h2>
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-12px;right:6%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-18deg);">
-</div>
+## 3. 비교 연산자 (Comparison Operators)
 
 값을 비교하여 참(<code>true</code>) 또는 거짓(<code>false</code>)인 **불리언(boolean)** 값을 반환합니다.
 
@@ -197,9 +198,7 @@ str += "님"; // str = "홍길동" + "님"; 과 같음 (결과: "홍길동님")
 
 **⚖️ 동등 비교 vs 일치 비교 (중요!)**
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/중요.webp" alt="" style="position:absolute;width:100px;right:0;top:-100px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+
 
 자바스크립트에는 두 값이 같은지 비교하는 두 가지 방법이 있으며, 결과가 다를 수 있습니다.
 
@@ -224,7 +223,7 @@ null == undefined;   // true (⚠️)
 null === undefined;  // false
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • <code>==</code> 연산자는 자바스크립트가 내부적으로 타입을 마음대로 바꿔서 비교하기 때문에 버그의 원인이 됩니다.<br>
@@ -233,10 +232,7 @@ null === undefined;  // false
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 삼항 연산자 (Ternary Operator)</h2>
-  <img src="/images/decoration/말풍선 아이콘 (1).webp" alt="" style="position:absolute;width:100px;top:-24px;right:32%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
+## 4. 삼항 연산자 (Ternary Operator)
 
 `조건 ? 참 : 거짓` 형태로 사용하는 간결한 조건문입니다. 실무(특히 React 등)에서 필수적으로 사용됩니다.
 
@@ -262,7 +258,7 @@ let message2 = age >= 18 ? "성인" : "미성년자";
 console.log(message2); // "성인" 출력
 ```
 
-**실무 팁**
+**💼 실무 팁**
 
 <div class="wda-callout wda-cs">
   React 같은 최신 프레임워크에서 화면에 특정 요소를 보여줄지 말지 결정하는 <strong>'조건부 렌더링'</strong>을 할 때 밥 먹듯이 사용합니다.
@@ -270,18 +266,15 @@ console.log(message2); // "성인" 출력
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 논리 연산자 (Logical Operators)</h2>
-  <img src="/images/decoration/종이 클립 아이콘 (1).webp" alt="" style="position:absolute;width:60px;top:-16px;left:50%;transform:translateX(-50%) rotate(-10deg);z-index:2;pointer-events:none;opacity:.76;">
-</div>
+## 5. 논리 연산자 (Logical Operators)
 
 boolean 값을 조합합니다.
 
-| 연산자 | 이름 | 의미 |
-|---|---|---|
-| **`&&`** | AND | 둘 다 `true`여야 `true` |
-| **`\|\|`** | OR | 하나라도 `true`면 `true` |
-| **`!`** | NOT | 반대로 뒤집기 |
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>&&</code> (AND)</div><div class="wda-fcard-dsc">둘 다 <code>true</code>여야 <code>true</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>||</code> (OR)</div><div class="wda-fcard-dsc">하나라도 <code>true</code>면 <code>true</code></div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl"><code>!</code> (NOT)</div><div class="wda-fcard-dsc">반대로 뒤집기</div></div>
+</div>
 
 **&& (AND) — 둘 다 true여야 true**
 
@@ -339,9 +332,7 @@ if (!isLoggedIn) {
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. truthy / falsy 값</h2>
-</div>
+## 6. truthy / falsy 값
 
 JavaScript에서는 boolean 타입이 아닌 값도 조건문 내에서 참(`true`) 또는 거짓(`false`)으로 평가됩니다.
 
@@ -370,10 +361,10 @@ JavaScript에서는 boolean 타입이 아닌 값도 조건문 내에서 참(`tru
     <div class="wda-fcard-ttl"><code>undefined</code></div>
     <div class="wda-fcard-dsc">정의되지 않음</div>
   </div>
-  <div class="wda-fcard" style="position:relative;overflow:visible;">
+  <div class="wda-fcard">
     <div class="wda-fcard-ttl"><code>NaN</code></div>
     <div class="wda-fcard-dsc">숫자가 아님</div>
-    <img src="/images/decoration/구름 아이콘 (3).webp" alt="" style="position:absolute;width:64px;top:-14px;right:-26px;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-6deg);">
+
   </div>
 </div>
 
@@ -386,7 +377,8 @@ if (!0) {
 ```
 
 <div class="wda-callout wda-ci">
-  기초 단계에서 자주 외우는 falsy 값은 <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>입니다. 추가로 <strong>BigInt의 <code>0n</code></strong>도 falsy입니다.
+  기초 단계에서 자주 외우는 falsy 값은 <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>입니다.<br>
+  추가로 <strong>BigInt의 <code>0n</code></strong>도 falsy입니다.
 </div>
 
 **✅ truthy 값 (나머지 전부)**
@@ -409,7 +401,7 @@ if ([]) {
 }
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   • <strong>빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 truthy입니다.</strong> 데이터가 비어있더라도 객체 자체가 존재하기 때문입니다.<br>
@@ -417,16 +409,11 @@ if ([]) {
   &nbsp;&nbsp;→ <code>arr.length === 0</code>
 </div>
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/디버깅.webp" alt="" style="position:absolute;width:100px;right:0;top:-110px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 단축 평가 (Short-circuit Evaluation)</h2>
-  <img src="/images/decoration/꽃 아이콘 (2).webp" alt="" style="position:absolute;width:64px;top:-16px;right:12%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(16deg);">
-</div>
+## 7. 단축 평가 (Short-circuit Evaluation)
 
 논리 연산 시 결과가 확정되면 나머지 연산을 생략하고 즉시 값을 반환하는 기능입니다.
 
@@ -473,23 +460,18 @@ console.log(displayName); // 결과: "익명"
   예: <code>0 && "출력"</code> → <code>0</code> / <code>"이름" || "익명"</code> → <code>"이름"</code>
 </div>
 
-**요약**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   • <strong><code>A && B</code></strong>: A가 <strong>참</strong>일 때만 B가 실행됨 — 주로 특정 조건에서 실행할 때 사용<br>
   • <strong><code>A || B</code></strong>: A가 <strong>거짓</strong>일 때 B가 실행됨 — 주로 데이터가 없을 때 기본값을 줄 때 사용
 </div>
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/헷갈려요.webp" alt="" style="position:absolute;width:124px;right:2%;top:-80px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 호출 및 접근 연산자</h2>
-  <img src="/images/decoration/핀 아이콘 (8).webp" alt="" style="position:absolute;width:92px;top:-24px;right:6px;z-index:2;pointer-events:none;opacity:.76;transform:rotate(-14deg);">
-</div>
+## 8. 호출 및 접근 연산자
 
 함수를 실행하거나 객체 내부의 데이터를 꺼낼 때 사용하는 연산자입니다.
 
@@ -524,12 +506,18 @@ user.age;   // 결과: 20 (가장 일반적으로 사용함)
 user["age"]; // 결과: 20 (속성 이름을 문자열로 넣어서 접근함)
 ```
 
-| 표기법 | 형태 | 사용 상황 |
-|---|---|---|
-| **점 표기법** | `user.age` | 일반적인 속성 접근 — 간결하고 가독성이 좋음 |
-| **대괄호 표기법** | `user["age"]` | 속성 이름에 공백이 있거나, 변수로 동적 접근이 필요할 때 필수 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">점 표기법 — <code>user.age</code></div>
+    일반적인 속성 접근 — 간결하고 가독성이 좋음
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">대괄호 표기법 — <code>user["age"]</code></div>
+    속성 이름에 공백이 있거나, 변수로 동적 접근이 필요할 때 필수
+  </div>
+</div>
 
-**요약**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   • <strong>함수 호출</strong>: <code>()</code>가 없으면 함수는 움직이지 않습니다. 함수 이름 뒤에 반드시 붙여야 명령이 실행됩니다.<br>
@@ -539,17 +527,13 @@ user["age"]; // 결과: 20 (속성 이름을 문자열로 넣어서 접근함)
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>9. 그 외 연산자들 (참고용)</h2>
-</div>
+## 9. 그 외 연산자들 (참고용)
 
 비트 연산자처럼 자주 쓰이지는 않는 연산자와, 뒤에서 자세히 다룰 옵셔널 체이닝을 간단히 먼저 살펴봅니다.
 
 **🔢 비트 연산자 (`&`, `|`, `^`, `<<`)**
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/decoration/소품 아이콘 (1).webp" alt="" style="position:absolute;width:64px;top:-28px;right:38%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
+
 
 숫자를 이진수(0과 1) 비트 단위로 조작하는 연산자입니다.
 
@@ -574,7 +558,7 @@ let user = null;
 user?.address?.city;
 ```
 
-**보충 설명**
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • "데이터가 있으면 가져오고, 없으면 에러 내지 말고 그냥 통과해줘"라는 뜻입니다.<br>
@@ -583,16 +567,11 @@ user?.address?.city;
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습: 연산자 놀이터</h2>
-  <img src="/images/decoration/핀 아이콘 (9).webp" alt="" style="position:absolute;width:40px;top:-10px;left:36%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(14deg);">
-</div>
+## 💻 실습: 연산자 놀이터
 
 복잡한 연산자들을 직접 섞어보며 결과를 예측하고 익혀봅시다.
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/코딩 중.webp" alt="" style="position:absolute;width:220px;right:0;top:-120px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+
 
 **🧩 비교 미로 찾기**
 
@@ -671,7 +650,7 @@ if (user && user.profile) {
 
 **✅ ?. 사용 (안전)**
 
-<div aria-hidden="true" style="position:relative;height:0;overflow:visible;z-index:2;"><img src="/images/decoration/체크 아이콘 (4).webp" alt="" style="position:absolute;top:-26px;left:44%;width:46px;pointer-events:none;opacity:.76;transform:rotate(-10deg);"></div>
+
 
 에러 대신 `undefined`를 반환하여 프로그램의 흐름을 유지합니다.
 
@@ -692,7 +671,7 @@ let arr = null;
 arr?.[0];             // undefined (배열이 존재할 때만 0번째 인덱스 확인)
 ```
 
-**요약**
+**📝 핵심 정리**
 
 <div class="wda-callout wda-cs">
   • <strong>등장 배경</strong>: ES2020에 추가된 문법으로, 데이터가 있을 수도 없을 수도 있는 상황(예: API 응답 데이터 처리)에서 매우 유용합니다.<br>
@@ -702,14 +681,9 @@ arr?.[0];             // undefined (배열이 존재할 때만 0번째 인덱스
 
 ---
 
-<div style="position:relative;overflow:visible;height:0;">
-  <img src="/images/character/잠깐 생각해보기.webp" alt="" style="position:absolute;width:126px;left:3%;top:24px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>11. ?? (nullish 병합) 연산자</h2>
-  <img src="/images/decoration/하트 아이콘 (5).webp" alt="" style="position:absolute;width:44px;top:-12px;left:60%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(10deg);">
-</div>
+
+## 11. ?? (nullish 병합) 연산자
 
 `null` 또는 `undefined`일 때만 기본값을 사용합니다.
 
@@ -729,7 +703,7 @@ let display = text || "없음";
 // 결과: "없음" (빈 문자열이 falsy라서 기본값으로 대체됨!)
 ```
 
-**주의사항**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   0이나 ""가 실제 의미 있는 값임에도 불구하고 기본값으로 바뀌어 데이터가 왜곡될 수 있음.
@@ -755,21 +729,17 @@ null ?? "기본"      // 결과: "기본"
 undefined ?? "기본" // 결과: "기본"
 ```
 
-**요약**
+**📝 핵심 정리**
 
-<div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:60px;top:-40px;left:28%;transform:rotate(-14deg);z-index:2;pointer-events:none;opacity:.74;">
+<div class="wda-callout wda-cs">
+
   • <strong>결정적 차이</strong>: <code>0</code>과 <code>""</code>를 기본값으로 <strong>대체</strong>하고 싶다면 <code>||</code>를, 유효한 데이터로 <strong>유지</strong>하고 싶다면 <code>??</code>를 선택해야 합니다.<br>
   • <strong>원칙</strong>: 0이나 빈 문자열을 유효한 값으로 유지해야 할 때는 <strong><code>??</code></strong>를 사용하고, 모든 falsy 값을 기본값으로 대체하고 싶을 때는 <code>||</code>를 사용할 수 있습니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📌 연산자 최종 핵심 요약</h2>
-  <img src="/images/decoration/별 아이콘 (2).webp" alt="" style="position:absolute;width:72px;top:-22px;left:40%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-16deg);">
-  <img src="/images/character/코딩 팁.webp" alt="" style="position:absolute;width:130px;right:0;top:-112px;opacity:.88;z-index:2;pointer-events:none;">
-</div>
+## 📌 연산자 최종 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

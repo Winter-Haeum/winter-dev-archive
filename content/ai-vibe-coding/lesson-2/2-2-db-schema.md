@@ -13,7 +13,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,8 +24,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -34,8 +34,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
 .wda-memo-body{font-size:.81rem;line-height:1.6}
@@ -55,15 +55,23 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid,.wda-cbox{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:204px;padding-top:16px;padding-bottom:20px;">
-  <img src="/images/character/집중탐구.webp" alt="" style="position:absolute;width:184px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
-  <img src="/images/character/데이터베이스.webp" alt="" style="position:absolute;width:160px;bottom:-18px;right:8px;z-index:2;pointer-events:none;opacity:.88;transform:rotate(-6deg);">
+<div class="wda-goal">
   📋 <strong>DB 개념 이해</strong> — 데이터베이스가 표의 디지털 버전임을 일상 예시로 파악<br>
   🔑 <strong>키-벨류 구조</strong> — 데이터 검색의 핵심 원리 이해<br>
   🌐 <strong>웹사이트 연결</strong> — 모든 웹페이지가 DB와 연결된다는 개념 파악<br>
@@ -74,10 +82,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 데이터베이스(DB)란 무엇인가?
 
-<div class="wda-callout wda-cy" style="position:relative;padding-right:198px;padding-top:16px;">
-  <img src="/images/character/오!그렇구나.webp" alt="" style="position:absolute;width:180px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-7deg);">
-  <span class="wda-clabel">핵심 개념</span>
-  데이터베이스는 웹사이트에서 정보를 체계적으로 저장하고 관리하는 시스템입니다. 쉽게 말해 <strong>디지털 서랍장</strong>과 같은 역할을 합니다. 일상생활에서 우리가 이미 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다.
+**🔑 핵심 개념**
+
+<div class="wda-callout wda-cy">
+  데이터베이스는 웹사이트에서 정보를 체계적으로 저장하고 관리하는 시스템입니다.<br>쉽게 말해 <strong>디지털 서랍장</strong>과 같은 역할을 합니다.<br>일상생활에서 우리가 이미 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다.
 </div>
 
 ### 1. 사람에 대한 '정보'를 어떻게 정리할 수 있는가?
@@ -100,29 +108,21 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | 제로콜라 | 코카콜라 | 0kcal | 0g | 있음 | 1,500원 |
 | 오렌지주스 | 미닛메이드 | 180kcal | 42g | 없음 | 2,000원 |
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (5).webp" alt="" style="position:absolute;width:52px;top:-8px;right:28px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(12deg);">
-</div>
+**🔑 핵심 개념**
 
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">핵심 비유</span>
-  위처럼 일상에서 정보를 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다. 사람 정보 표 → 웹사이트의 "회원 테이블", 음료수 정보 표 → 쇼핑몰의 "상품 테이블"이 됩니다.
+  위처럼 일상에서 정보를 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다.<br>사람 정보 표 → 웹사이트의 "회원 테이블", 음료수 정보 표 → 쇼핑몰의 "상품 테이블"이 됩니다.
 </div>
 
 ---
 
 <div style="display:flex;align-items:center;gap:26px;margin-top:1.5rem;margin-bottom:0.75rem;">
   <h2 style="margin:0;">엑셀 vs 데이터베이스</h2>
-  <img src="/images/decoration/꽃 아이콘 (10).webp" alt="" style="width:64px;opacity:.65;transform:rotate(-8deg);pointer-events:none;flex-shrink:0;">
 </div>
 
 <div class="wda-compare">
 <div class="wda-cbox"><span class="wda-cbox-label">엑셀 (우리가 아는 방식)</span><div class="wda-cbox-ttl">📋 스프레드시트</div><div class="wda-cbox-body"><strong>행(Row)</strong> — 각각의 데이터<br><strong>열(Column)</strong> — 데이터의 종류<br><em>예시: 이름, 나이, 전화번호</em></div></div>
 <div class="wda-cbox"><span class="wda-cbox-label">데이터베이스 (웹에서 사용)</span><div class="wda-cbox-ttl">🗄️ 디지털 저장소</div><div class="wda-cbox-body"><strong>레코드(Record)</strong> — 각각의 데이터<br><strong>필드(Field)</strong> — 데이터의 종류<br><em>예시: 회원정보, 게시물, 댓글</em></div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:6px;right:24px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(12deg);">
 </div>
 
 ---
@@ -148,19 +148,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">벨류 가져오기</div><div class="wda-sdsc">해당 행의 <strong>phone(키)</strong>에서 <strong>"010-1234-1234"(벨류)</strong> 가져오기</div></div></div>
 </div>
 
-<div class="wda-memo" style="position:relative;padding-right:198px;padding-top:6px;">
-  <img src="/images/character/잠깐생각해보기.webp" alt="" style="position:absolute;width:180px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-6deg);">
-  <img src="/images/decoration/핀 아이콘 (3).webp" alt="" style="position:absolute;width:50px;top:-30px;left:165px;z-index:2;pointer-events:none;opacity:.62;transform:rotate(-6deg);">
+<div class="wda-memo">
   <span class="wda-memo-label">키-벨류 핵심 원리</span>
   <div class="wda-memo-body">
   키(Key) → 정보의 이름·분류 (name, phone, email …)<br>
   벨류(Value) → 키에 해당하는 실제 값 ("홍길동", "010-1234-1234" …)<br>
   <strong>이것이 데이터베이스에서 정보를 검색하는 기본 원리입니다!</strong>
   </div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/마스킹 테이프 (5).webp" alt="" style="position:absolute;width:108px;top:-6px;left:30%;z-index:1;pointer-events:none;opacity:.80;transform:rotate(-3deg);">
 </div>
 
 ---
@@ -177,10 +171,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">완성 — 페이지 렌더링</div><div class="wda-sdsc">내 프로필 정보 표시 · 내가 작성한 글 목록 · 친구/팔로워 수 · "홍길동님 환영합니다" 메시지</div></div></div>
 </div>
 
-<div class="wda-callout wda-cs" style="position:relative;padding-left:100px;padding-top:16px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:76px;top:4px;left:10px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-5deg);">
-  <span class="wda-clabel">핵심 포인트</span>
-  우리가 보는 모든 웹페이지는 실시간으로 데이터베이스에서 정보를 가져와서 만들어집니다. 이것이 바로 <strong>동적 웹사이트</strong>의 핵심 원리입니다.
+**🔑 핵심 개념**
+
+<div class="wda-callout wda-cs">
+  우리가 보는 모든 웹페이지는 실시간으로 데이터베이스에서 정보를 가져와서 만들어집니다.<br>이것이 바로 <strong>동적 웹사이트</strong>의 핵심 원리입니다.
 </div>
 
 ### 웹페이지별 DB 연결 구조
@@ -190,10 +184,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">📰</div><div class="wda-fcard-ttl">뉴스기사</div><div class="wda-fcard-dsc">기사 테이블 + 기자 테이블 + 언론사 테이블</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🛒</div><div class="wda-fcard-ttl">상품목록</div><div class="wda-fcard-dsc">상품 테이블 + 이미지 테이블 + 재고 테이블</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📦</div><div class="wda-fcard-ttl">상품상세</div><div class="wda-fcard-dsc">상품 테이블 + 리뷰 테이블 + 주문 테이블</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:46px;top:6px;right:26px;z-index:2;pointer-events:none;opacity:.66;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -209,23 +199,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">🔄</div><div class="wda-fcard-ttl">데이터 흐름 이해</div><div class="wda-fcard-dsc">입력 → DB 저장 → 화면 출력 전체 과정을 고려한 설계</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:50px;top:6px;right:22px;z-index:2;pointer-events:none;opacity:.60;transform:rotate(15deg);">
-</div>
-
-<div class="wda-callout wda-ci" style="position:relative;padding-right:202px;padding-top:16px;">
-  <img src="/images/character/꼭기억.webp" alt="" style="position:absolute;width:184px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(7deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">디자이너 레벨업</span>
-  DB 지식을 가진 디자이너는 개발자가 "이건 데이터가 없어서 안 돼요"라는 말을 하기 전에 미리 현실적인 디자인을 설계할 수 있습니다. 협업 효율이 크게 올라갑니다.
+  DB 지식을 가진 디자이너는 개발자가 "이건 데이터가 없어서 안 돼요"라는 말을 하기 전에 미리 현실적인 디자인을 설계할 수 있습니다.<br>협업 효율이 크게 올라갑니다.
 </div>
 
 <div class="wda-compare">
 <div class="wda-cbox"><span class="wda-cbox-label">디자인 업무에서 강점</span><div class="wda-cbox-ttl">🎯 실제 작동하는 디자인</div><div class="wda-cbox-body">실제 작동하는 디자인 제안 가능<br>"이 데이터는 어디서 가져오나요?" 질문에 정확한 답변<br>개발자와 소통 시 전문성 인정</div></div>
 <div class="wda-cbox"><span class="wda-cbox-label">클라이언트 미팅에서 강점</span><div class="wda-cbox-ttl">💬 정확한 제안</div><div class="wda-cbox-body">"이 기능 구현 가능한가요?" 질문에 정확한 답변<br>디자인 단계에서 기술적 한계 미리 파악<br>현실적인 제안서 작성 가능</div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:54px;top:6px;left:26%;z-index:2;pointer-events:none;opacity:.64;transform:rotate(-8deg);">
 </div>
 
 ---
@@ -238,17 +219,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">🚀</div><div class="wda-fcard-ttl">고급 기능 맛보기</div><div class="wda-fcard-dsc">별점 시스템 · 실시간 채팅 · 설문조사 사이트 · 자동 배포</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:58px;top:6px;left:20px;z-index:2;pointer-events:none;opacity:.64;transform:rotate(8deg);">
-</div>
-
-<div class="wda-done" style="position:relative;padding-right:198px;padding-bottom:26px;padding-top:20px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:184px;top:-30px;right:4px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🗄️</div>
   <div class="wda-done-ttl">DB 개념 학습 완료!</div>
-  <div>이제 웹 개발에서 데이터베이스의 역할과 중요성을 완전히 이해했습니다. 다음 단계에서는 이 지식을 바탕으로 실제 프로젝트를 만들어보겠습니다!</div>
+  <div>이제 웹 개발에서 데이터베이스의 역할과 중요성을 완전히 이해했습니다.<br>다음 단계에서는 이 지식을 바탕으로 실제 프로젝트를 만들어보겠습니다!</div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (4).webp" alt="" style="position:absolute;width:54px;top:6px;right:24px;z-index:2;pointer-events:none;opacity:.60;transform:rotate(-14deg);">
-</div>

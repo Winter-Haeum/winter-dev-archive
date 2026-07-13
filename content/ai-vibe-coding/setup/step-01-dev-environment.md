@@ -18,7 +18,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.81rem;line-height:1.6}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -29,8 +29,8 @@ status: "completed"
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 160px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
-.wda-fcard-ttl{font-size:.81rem;font-weight:700;margin-bottom:3px}
-.wda-fcard-dsc{font-size:.78rem;opacity:.72;line-height:1.5}
+.wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
@@ -39,8 +39,8 @@ status: "completed"
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.81rem;font-weight:700;margin-bottom:2px}
-.wda-sdsc{font-size:.78rem;opacity:.7;line-height:1.5}
+.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
+.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
 .wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
 .wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
@@ -48,8 +48,8 @@ status: "completed"
 .wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
 .wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
 .wda-fnode-ico{font-size:1.1rem;margin-bottom:4px}
-.wda-fnode-ttl{font-size:.78rem;font-weight:700;margin-bottom:2px}
-.wda-fnode-dsc{font-size:.7rem;opacity:.65;line-height:1.4}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
 .wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
 .wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
@@ -59,19 +59,24 @@ td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;li
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:1.6rem;margin-bottom:.2rem}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem}
+p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
+p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-deco{position:absolute;z-index:2;pointer-events:none}
+.wda-char{position:absolute;z-index:3;pointer-events:none}
+@media (max-width:640px){
+.wda-deco{max-width:55px !important}
+.wda-char{max-width:110px !important}
+.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
+}
+@media (max-width:554px){
+.wda-char{display:none !important}
+}
 </style>
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;padding-right:205px;">
-  <img src="/images/character/공부 시작.webp" alt="" style="position:absolute;width:185px;top:-24px;right:6px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(-8deg);">
+<div class="wda-goal">
   🔧 <strong>핵심 도구 설치</strong> — Git · Node.js · Claude Code · VSCode<br>🖥️ <strong>운영체제별 설치</strong> — Windows / Mac 각 환경에 맞게 설치<br>✅ <strong>환경 검증</strong> — 설치된 도구의 버전 확인 및 동작 검증<br>🤖 <strong>Claude Code 인증</strong> — VSCode 터미널에서 AI 개발 환경 완성
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (7).webp" alt="" style="position:absolute;width:44px;bottom:-14px;right:12%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-8deg);">
 </div>
 
 ---
@@ -90,18 +95,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 초보자를 위한 보충 설명
 
-<div class="wda-callout wda-ci" style="position:relative;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (8).webp" alt="" style="position:absolute;width:88px;top:-10px;right:24px;z-index:4;pointer-events:none;opacity:.86;transform:rotate(-7deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">패키지 관리자란?</span><strong>winget</strong>: Windows 10/11에 기본 내장된 패키지 관리자. 명령어 한 줄로 프로그램을 설치할 수 있어 복잡한 설치 과정이 필요 없습니다.<br><strong>Homebrew</strong>: macOS 전용 패키지 관리자. Mac에는 기본 내장되어 있지 않아 별도 설치가 필요합니다.<br><strong>npm install -g</strong>: <code>-g</code> 플래그는 "global"의 약자로, 특정 프로젝트가 아닌 시스템 전체에서 사용할 수 있도록 설치합니다.
 </div>
 
 ---
 
 ## ⚙️ 동작 원리
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (4).webp" alt="" style="position:absolute;width:50px;top:-18px;right:24%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(12deg);">
-</div>
 
 ### 설치 의존 관계
 
@@ -120,10 +120,6 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 Git과 Node.js는 독립적으로 설치되며, Claude Code는 Node.js의 npm을 통해 설치됩니다.
 Claude Code 설치 후 `claude install`을 실행하면 npm 패키지보다 빠르고 안정적인 네이티브 실행 파일로 업그레이드됩니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/꽃 아이콘 (4).webp" alt="" style="position:absolute;width:44px;bottom:-14px;right:14%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
 ---
 
 ## 💻 예제 코드
@@ -132,20 +128,18 @@ Claude Code 설치 후 `claude install`을 실행하면 npm 패키지보다 빠�
 
 ## 1. Windows 설치 가이드
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:175px;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (13).webp" alt="" style="position:absolute;width:82px;top:-10px;right:20px;z-index:4;pointer-events:none;opacity:.86;transform:rotate(5deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">Windows 설치 방법</span>PowerShell에서 <code>winget</code> 명령어를 사용하여 간편하게 설치할 수 있습니다.</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (2).webp" alt="" style="position:absolute;width:50px;top:-18px;left:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-14deg);">
-</div>
 
 ---
 
 ### 📦 winget이란?
 
+**📌 개념**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">개념</span>winget은 Windows 10/11에 기본 내장된 패키지 관리자입니다. 복잡한 설치 과정 없이 명령어 한 줄로 프로그램을 설치할 수 있어요!</div>
+  winget은 Windows 10/11에 기본 내장된 패키지 관리자입니다.<br>
+  복잡한 설치 과정 없이 명령어 한 줄로 프로그램을 설치할 수 있어요!</div>
 
 ---
 
@@ -173,9 +167,10 @@ winget install Git.Git
 winget install OpenJS.NodeJS
 ```
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:195px;padding-top:14px;">
-  <img src="/images/decoration/마스킹 테이프 (6).webp" alt="" style="position:absolute;width:82px;top:-10px;right:20px;z-index:4;pointer-events:none;opacity:.88;transform:rotate(-8deg);">
-  <span class="wda-clabel">⚠ 주의</span>Git과 Node.js 설치 후에는 <strong>반드시 PowerShell을 닫고 새로 열어야</strong> 명령어가 인식됩니다.
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  Git과 Node.js 설치 후에는 <strong>반드시 PowerShell을 닫고 새로 열어야</strong> 명령어가 인식됩니다.
 </div>
 
 ---
@@ -209,10 +204,6 @@ v20.x.x
 (npm 버전)
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (2).webp" alt="" style="position:absolute;width:52px;top:-18px;left:24%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-10deg);">
-</div>
-
 ---
 
 ### 🔧 npm 명령어 오류 발생 시 해결 방법
@@ -227,10 +218,6 @@ npm 명령어가 인식되지 않거나 오류가 발생하는 경우 다음 단
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">관리자 PowerShell 종료</div><div class="wda-sdsc">현재 관리자 권한 PowerShell을 닫습니다.</div></div></div>
 <div class="wda-step"><div class="wda-snum">6</div><div class="wda-sbody"><div class="wda-sttl">일반 PowerShell 실행</div><div class="wda-sdsc">Windows 키 → "powershell" 입력 → 일반으로 실행</div></div></div>
 <div class="wda-step"><div class="wda-snum">7</div><div class="wda-sbody"><div class="wda-sttl">npm 정상 인식 확인</div><div class="wda-sdsc"><code>npm --version</code></div></div></div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/반짝이 아이콘 (3).webp" alt="" style="position:absolute;width:46px;top:-18px;right:26%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(16deg);">
 </div>
 
 ---
@@ -257,9 +244,7 @@ claude --version
 
 ### ✅ Windows 설치 완료
 
-<div class="wda-done" style="position:relative;padding-right:205px;">
-  <img src="/images/character/화이팅.webp" alt="" style="position:absolute;width:185px;opacity:.90;transform:rotate(-8deg);top:-24px;right:6px;z-index:3;pointer-events:none;">
-  <img src="/images/decoration/잎사귀 아이콘 (3).webp" alt="" style="position:absolute;width:54px;top:-8px;left:10px;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-12deg);">
+<div class="wda-done">
   <div class="wda-done-ico">✅</div>
   <div class="wda-done-ttl">Git, Node.js, Claude Code 설치 완료!</div>
   <div>아래의 "VSCode 설정 및 실행 확인" 섹션으로 진행하세요.</div>
@@ -292,10 +277,12 @@ claude --version
 
 ---
 
-<h2>2. Mac 설치 가이드<img src="/images/decoration/잎사귀 아이콘 (2).webp" alt="" style="display:inline-block;width:62px;vertical-align:middle;margin-left:16px;opacity:.78;transform:rotate(10deg);pointer-events:none;"></h2>
+## 2. Mac 설치 가이드
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">Mac 설치 방법</span>macOS 사용자는 Homebrew를 사용하여 설치합니다. 터미널을 열고 다음 단계를 따라주세요.</div>
+  <span class="wda-clabel">Mac 설치 방법</span>
+  macOS 사용자는 Homebrew를 사용하여 설치합니다.<br>
+  터미널을 열고 다음 단계를 따라주세요.</div>
 
 ---
 
@@ -325,16 +312,15 @@ Mac에서 개발 도구를 쉽게 설치하기 위해 Homebrew를 먼저 설치�
 
 Homebrew를 사용하여 Node.js를 설치합니다.
 
+**🔎 참고**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">참고</span>Git은 macOS에 기본 포함되어 있습니다.</div>
+  Git은 macOS에 기본 포함되어 있습니다.
+</div>
 
 ```bash
 brew install node
 ```
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/잎사귀 아이콘 (5).webp" alt="" style="position:absolute;width:64px;top:-14px;right:20%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(8deg);">
-</div>
 
 ---
 
@@ -358,14 +344,13 @@ sudo 명령어를 사용하여 Claude Code를 전역으로 설치합니다.
 sudo npm install -g @anthropic-ai/claude-code
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/소품 아이콘 (2).webp" alt="" style="position:absolute;width:40px;top:-14px;right:14%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(12deg);">
-</div>
-
 ---
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">비밀번호 입력 안내</span>터미널에 <code>Password:</code> 가 표시되면 Mac 로그인 비밀번호를 입력하세요. 입력 시 화면에 표시되지 않지만 정상적으로 입력되고 있습니다. 입력 완료 후 Enter를 누르세요.
+  <span class="wda-clabel">비밀번호 입력 안내</span>
+  터미널에 <code>Password:</code> 가 표시되면 Mac 로그인 비밀번호를 입력하세요.<br>
+  입력 시 화면에 표시되지 않지만 정상적으로 입력되고 있습니다.<br>
+  입력 완료 후 Enter를 누르세요.
 </div>
 
 ---
@@ -392,10 +377,6 @@ ln -s $(npm root -g)/@anthropic-ai/claude-code/bin/claude /opt/homebrew/bin/clau
 
 설치가 완료되면 다음 명령어로 확인합니다.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/책갈피 아이콘 (3).webp" alt="" style="position:absolute;width:82px;top:-88px;right:4%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(-8deg);">
-</div>
-
 ```bash
 claude --version
 ```
@@ -411,23 +392,14 @@ claude doctor
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">기능 설명</span><code>claude doctor</code> 명령어는 설치 상태를 자동으로 진단하고, 문제가 있는 경우 해결 방법을 안내합니다.</div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/전구 아이콘.webp" alt="" style="position:absolute;width:52px;top:-16px;right:20%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-5deg);">
-</div>
-
 ---
 
 ### ✅ Mac 설치 완료
 
-<div class="wda-done" style="position:relative;padding-right:150px;">
-  <img src="/images/character/빌드 성공.webp" alt="" style="position:absolute;width:130px;opacity:.90;transform:rotate(-7deg);top:-18px;right:6px;z-index:3;pointer-events:none;">
+<div class="wda-done">
   <div class="wda-done-ico">✅</div>
   <div class="wda-done-ttl">Git, Node.js, Claude Code 설치 완료!</div>
   <div>아래의 "VSCode 설정 및 실행 확인" 섹션으로 진행하세요.</div>
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/핀 아이콘 (4).webp" alt="" style="position:absolute;width:40px;top:-16px;right:12%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-12deg);">
 </div>
 
 ---
@@ -448,8 +420,7 @@ claude doctor
 
 #### 설치되는 도구
 
-<div class="wda-fgrid" style="position:relative;">
-  <img src="/images/decoration/반짝이 아이콘 (6).webp" alt="" style="position:absolute;width:96px;top:-20px;right:8%;z-index:3;pointer-events:none;opacity:.78;transform:rotate(-16deg);">
+<div class="wda-fgrid">
 <div class="wda-fcard"><div class="wda-fcard-ico">📁</div><div class="wda-fcard-ttl">Git</div><div class="wda-fcard-dsc">코드 버전 관리 도구 (macOS 기본 포함)</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">⬡</div><div class="wda-fcard-ttl">Node.js</div><div class="wda-fcard-dsc">JavaScript 실행 환경</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📦</div><div class="wda-fcard-ttl">npm</div><div class="wda-fcard-dsc">패키지 설치 도구</div></div>
@@ -457,21 +428,12 @@ claude doctor
 <div class="wda-fcard"><div class="wda-fcard-ico">🍺</div><div class="wda-fcard-ttl">Homebrew</div><div class="wda-fcard-dsc">Mac 패키지 관리자</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (8).webp" alt="" style="position:absolute;width:88px;top:-30px;right:2%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
-
 ---
 
 ## 3. VSCode 설정 및 실행 확인
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:185px;padding-bottom:50px;">
-  <img src="/images/character/전체흐름.webp" alt="" style="position:absolute;width:165px;top:-22px;right:8px;z-index:3;pointer-events:none;opacity:.90;transform:rotate(5deg);">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">이 섹션에서는</span>VSCode를 설치하고 터미널 환경을 최적화한 후, Claude Code를 실행하여 인증을 완료합니다.</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/소품 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-18px;right:20%;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-10deg);">
-</div>
 
 ---
 
@@ -486,10 +448,6 @@ VSCode가 설치되어 있지 않다면 **[https://code.visualstudio.com](https:
 1. 바탕화면(또는 원하는 위치)에 **`my_ai_web`** 폴더를 생성합니다.
 2. VSCode를 실행합니다.
 3. **File → Open Folder → `my_ai_web` 폴더 선택**
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/책갈피 아이콘 (2).webp" alt="" style="position:absolute;width:62px;top:-14px;right:18%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(-10deg);">
-</div>
 
 ---
 
@@ -507,8 +465,11 @@ VSCode가 설치되어 있지 않다면 **[https://code.visualstudio.com](https:
 
 여러 터미널을 동시에 사용하려면 **Split Terminal** 버튼(분할 아이콘)을 클릭합니다.
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">Tip</span>터미널을 분할하면 한쪽에서 Claude Code를 실행하고, 다른 쪽에서 명령어를 테스트할 수 있어요.</div>
+  터미널을 분할하면 한쪽에서 Claude Code를 실행하고, 다른 쪽에서 명령어를 테스트할 수 있어요.
+</div>
 
 ---
 
@@ -522,10 +483,6 @@ claude --version
 
 버전 번호가 출력되면 정상입니다. 인식되지 않는 경우 아래 **"명령어 인식 문제 해결"** 항목을 먼저 진행하세요.
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (3).webp" alt="" style="position:absolute;width:52px;top:-14px;left:16%;z-index:2;pointer-events:none;opacity:.76;transform:rotate(8deg);">
-</div>
-
 ---
 
 ### ⬆️ 네이티브 설치 업데이트
@@ -536,9 +493,11 @@ npm 버전에서 성능이 더 좋은 네이티브(Native) 버전으로 업데�
 claude install
 ```
 
-<div class="wda-callout wda-ci" style="position:relative;padding-left:190px;">
-  <img src="/images/character/기억해두기.webp" alt="" style="position:absolute;width:145px;opacity:.90;transform:rotate(8deg);top:-44px;left:8px;z-index:3;pointer-events:none;">
-  <span class="wda-clabel">개념</span><code>claude install</code>은 npm 패키지 버전보다 빠르고 안정적인 네이티브 실행 파일로 업데이트합니다. 설치 후 <code>~/.local/bin/</code>에 배치되며 성능이 향상됩니다.
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>claude install</code>은 npm 패키지 버전보다 빠르고 안정적인 네이티브 실행 파일로 업데이트합니다.<br>
+  설치 후 <code>~/.local/bin/</code>에 배치되며 성능이 향상됩니다.
 </div>
 
 ---
@@ -653,8 +612,7 @@ Write-Host "--------------------------------"
 
 ### 📋 Windows 스크립트 실행 후
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:190px;padding-bottom:40px;">
-  <img src="/images/character/빼꼼.webp" alt="" style="position:absolute;width:170px;opacity:.90;transform:rotate(-12deg);top:-22px;right:6px;z-index:3;pointer-events:none;">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">확인</span>스크립트 실행 후 Claude / Node.js / npm 버전이 출력되면 정상입니다.<br>"Claude를 찾을 수 없습니다."가 나오면 VSCode를 완전히 닫고 다시 열어서 재시도하세요.
 </div>
 
@@ -773,7 +731,9 @@ echo "--------------------------------"
 ### 📋 Mac 스크립트 실행 후
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">확인</span>스크립트 실행 후 터미널을 닫고 VSCode를 재시작하면 PATH 설정이 완전히 적용됩니다. Homebrew 환경에서 심볼릭 링크도 자동 복구됩니다.</div>
+  <span class="wda-clabel">확인</span>
+  스크립트 실행 후 터미널을 닫고 VSCode를 재시작하면 PATH 설정이 완전히 적용됩니다.<br>
+  Homebrew 환경에서 심볼릭 링크도 자동 복구됩니다.</div>
 
 ---
 
@@ -782,11 +742,9 @@ echo "--------------------------------"
 Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">인증 순서 안내</span>아래 순서를 차례대로 따라 진행합니다. 브라우저와 터미널을 번갈아가며 사용합니다.
-</div>
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/하트 아이콘 (8).webp" alt="" style="position:absolute;width:44px;top:-16px;left:22%;z-index:2;pointer-events:none;opacity:.68;transform:rotate(-8deg);">
+  <span class="wda-clabel">인증 순서 안내</span>
+  아래 순서를 차례대로 따라 진행합니다.<br>
+  브라우저와 터미널을 번갈아가며 사용합니다.
 </div>
 
 <div class="wda-steps">
@@ -797,25 +755,20 @@ Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">코드 입력</div><div class="wda-sdsc">터미널로 돌아가서 코드를 붙여넣고 Enter</div></div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (2).webp" alt="" style="position:absolute;width:45px;top:-16px;left:10%;z-index:2;pointer-events:none;opacity:.70;transform:rotate(-14deg);">
-</div>
-
 ---
 
 ### ⚠️ 인증 코드 주의사항
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">⚠ 주의</span>인증 코드는 <strong>제한 시간</strong>이 있으므로 빠르게 진행하세요. 시간이 초과되면 다시 <code>claude</code> 명령어를 실행하세요.
+  인증 코드는 <strong>제한 시간</strong>이 있으므로 빠르게 진행하세요.<br>
+  시간이 초과되면 다시 <code>claude</code> 명령어를 실행하세요.
 </div>
 
 ---
 
 ### 🎉 개발환경 구축 완료
 
-<div class="wda-done" style="position:relative;padding-right:205px;padding-left:205px;">
-  <img src="/images/character/도전시작.webp" alt="" style="position:absolute;width:185px;opacity:.90;transform:rotate(-5deg);top:-24px;right:6px;z-index:3;pointer-events:none;">
-  <img src="/images/decoration/별 아이콘 (12).webp" alt="" style="position:absolute;width:56px;top:14px;left:16px;z-index:2;pointer-events:none;opacity:.78;transform:rotate(-8deg);">
+<div class="wda-done">
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">개발환경 구축 완료!</div>
   <div>Git, Node.js, Claude Code 설치와 VSCode 설정이 모두 완료되었습니다.<br>이제 AI와 함께 웹 개발을 시작할 준비가 되었어요!</div>
@@ -827,23 +780,23 @@ Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
 
 #### VSCode 설정 순서
 
-| 순서 | 작업 | 방법 |
-|------|------|------|
-| ① | VSCode 설치 | code.visualstudio.com 다운로드 |
-| ② | my_ai_web 폴더 생성 | — |
-| ③ | VSCode에서 폴더 열기 | File → Open Folder |
-| ④ | 터미널 우측 이동 | Move Panel Right |
-| ⑤ | 터미널 분할 (선택) | Split Terminal |
-| ⑥ | Claude 버전 확인 | `claude --version` |
-| ⑦ | 네이티브 설치 업데이트 | `claude install` |
-| ⑧ | Claude 실행 | `claude` |
-| ⑨ | 로그인 인증 | Log in with subscription → 브라우저 인증 → 코드 입력 |
-| ⑩ | 개발 시작 🎉 | — |
+<div class="wda-steps">
+<div class="wda-step"><div class="wda-snum">①</div><div class="wda-sbody"><div class="wda-sttl">VSCode 설치</div><div class="wda-sdsc">code.visualstudio.com 다운로드</div></div></div>
+<div class="wda-step"><div class="wda-snum">②</div><div class="wda-sbody"><div class="wda-sttl">my_ai_web 폴더 생성</div></div></div>
+<div class="wda-step"><div class="wda-snum">③</div><div class="wda-sbody"><div class="wda-sttl">VSCode에서 폴더 열기</div><div class="wda-sdsc">File → Open Folder</div></div></div>
+<div class="wda-step"><div class="wda-snum">④</div><div class="wda-sbody"><div class="wda-sttl">터미널 우측 이동</div><div class="wda-sdsc">Move Panel Right</div></div></div>
+<div class="wda-step"><div class="wda-snum">⑤</div><div class="wda-sbody"><div class="wda-sttl">터미널 분할 (선택)</div><div class="wda-sdsc">Split Terminal</div></div></div>
+<div class="wda-step"><div class="wda-snum">⑥</div><div class="wda-sbody"><div class="wda-sttl">Claude 버전 확인</div><div class="wda-sdsc"><code>claude --version</code></div></div></div>
+<div class="wda-step"><div class="wda-snum">⑦</div><div class="wda-sbody"><div class="wda-sttl">네이티브 설치 업데이트</div><div class="wda-sdsc"><code>claude install</code></div></div></div>
+<div class="wda-step"><div class="wda-snum">⑧</div><div class="wda-sbody"><div class="wda-sttl">Claude 실행</div><div class="wda-sdsc"><code>claude</code></div></div></div>
+<div class="wda-step"><div class="wda-snum">⑨</div><div class="wda-sbody"><div class="wda-sttl">로그인 인증</div><div class="wda-sdsc">Log in with subscription → 브라우저 인증 → 코드 입력</div></div></div>
+<div class="wda-step"><div class="wda-snum">⑩</div><div class="wda-sbody"><div class="wda-sttl">개발 시작 🎉</div></div></div>
+</div>
 
 #### 이번 단계 목표
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">목표</span>VSCode 안에서 Claude Code를 실행하고 인증까지 완료하여 AI 개발 환경을 완성한다.
+  VSCode 안에서 Claude Code를 실행하고 인증까지 완료하여 AI 개발 환경을 완성한다.
 </div>
 
 ---
@@ -860,12 +813,11 @@ Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
 <div class="wda-fcard"><div class="wda-fcard-ico">🗂️</div><div class="wda-fcard-ttl">vscode-icons</div><div class="wda-fcard-dsc">파일 아이콘 가독성 향상</div></div>
 </div>
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (3).webp" alt="" style="position:absolute;width:64px;top:-14px;right:6%;z-index:2;pointer-events:none;opacity:.74;transform:rotate(16deg);">
-</div>
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">Best Practice</span>확장 프로그램은 처음에 최소한으로만 설치한다. 너무 많은 확장은 에디터를 느리게 하고, 어떤 확장이 문제를 일으키는지 파악하기 어렵게 만든다.
+  확장 프로그램은 처음에 최소한으로만 설치한다.<br>
+  너무 많은 확장은 에디터를 느리게 하고, 어떤 확장이 문제를 일으키는지 파악하기 어렵게 만든다.
 </div>
 
 ### VS Code 기본 설정
@@ -922,13 +874,11 @@ git config --global user.email "이메일@example.com"
 git config --global core.autocrlf input
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/체크 아이콘 (1).webp" alt="" style="position:absolute;width:42px;top:-14px;left:12px;z-index:4;pointer-events:none;opacity:.80;transform:rotate(-8deg);">
-</div>
+**✅ 실습 포인트**
 
-<div class="wda-callout wda-ci" style="position:relative;padding-right:180px;">
-  <img src="/images/character/번뜩.webp" alt="" style="position:absolute;width:160px;opacity:.90;transform:rotate(-10deg);top:-22px;right:6px;z-index:3;pointer-events:none;">
-  <span class="wda-clabel">Practice</span>터미널에서 <code>git --version</code>을 입력해보자. <code>git version 2.x.x</code>가 출력되면 설치가 완료된 것이다.
+<div class="wda-callout wda-ci">
+  터미널에서 <code>git --version</code>을 입력해보자.<br>
+  <code>git version 2.x.x</code>가 출력되면 설치가 완료된 것이다.
 </div>
 
 ---
@@ -949,12 +899,12 @@ v20.11.0
 git version 2.x.x
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (5).webp" alt="" style="position:absolute;width:56px;top:-14px;right:14px;z-index:4;pointer-events:none;opacity:.78;transform:rotate(14deg);">
-</div>
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">Remember</span>Node.js를 설치하면 <code>npm</code>이 자동으로 함께 설치된다. 별도로 설치할 필요 없다.</div>
+  Node.js를 설치하면 <code>npm</code>이 자동으로 함께 설치된다.<br>
+  별도로 설치할 필요 없다.
+</div>
 
 ---
 
@@ -967,7 +917,12 @@ VS Code에서 코드 스타일을 자동으로 관리하기 위해 두 가지 �
 <div class="wda-fcard"><div class="wda-fcard-ico">🔍</div><div class="wda-fcard-ttl">ESLint</div><div class="wda-fcard-dsc">코드 품질 검사 — 문법 오류, 사용하지 않는 변수 탐지</div></div>
 </div>
 
-<div class="wda-callout wda-ci"><span class="wda-clabel">Concept</span>Prettier는 <strong>어떻게 보이는지</strong> (스타일)를 담당하고, ESLint는 <strong>올바르게 쓰였는지</strong> (품질)를 담당한다. 두 도구는 역할이 다르므로 함께 사용한다.</div>
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  Prettier는 <strong>어떻게 보이는지</strong> (스타일)를 담당하고, ESLint는 <strong>올바르게 쓰였는지</strong> (품질)를 담당한다.<br>
+  두 도구는 역할이 다르므로 함께 사용한다.
+</div>
 
 ### Prettier 설정
 
@@ -983,7 +938,12 @@ VS Code에서 코드 스타일을 자동으로 관리하기 위해 두 가지 �
 }
 ```
 
-<div class="wda-callout wda-ci"><span class="wda-clabel">Remember</span><code>.prettierrc</code>는 프로젝트마다 다를 수 있다. 팀 협업 시에는 팀 전체가 동일한 <code>.prettierrc</code>를 공유해야 포맷이 일치한다.</div>
+**💡 보충 설명**
+
+<div class="wda-callout wda-ci">
+  <code>.prettierrc</code>는 프로젝트마다 다를 수 있다.<br>
+  팀 협업 시에는 팀 전체가 동일한 <code>.prettierrc</code>를 공유해야 포맷이 일치한다.
+</div>
 
 ### ESLint 설정
 
@@ -1010,13 +970,11 @@ export default [
 ];
 ```
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/별 아이콘 (7).webp" alt="" style="position:absolute;width:62px;top:-22px;left:18%;z-index:2;pointer-events:none;opacity:.72;transform:rotate(-12deg);">
-</div>
+**⚠️ 주의사항**
 
-<div class="wda-callout wda-cw" style="position:relative;padding-right:190px;">
-  <img src="/images/character/어려움.webp" alt="" style="position:absolute;width:170px;opacity:.90;transform:rotate(12deg);top:-22px;right:6px;z-index:3;pointer-events:none;">
-  <span class="wda-clabel">주의</span>ESLint 설정 파일명이 <code>.eslintrc.js</code>가 아닌 <code>eslint.config.js</code>인 것에 주의하자. ESLint v9부터 새로운 Flat Config 형식을 사용한다.
+<div class="wda-callout wda-cw">
+  ESLint 설정 파일명이 <code>.eslintrc.js</code>가 아닌 <code>eslint.config.js</code>인 것에 주의하자.<br>
+  ESLint v9부터 새로운 Flat Config 형식을 사용한다.
 </div>
 
 ### 저장 시 자동 포맷 확인
@@ -1030,15 +988,14 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">Best Practice</span><code>formatOnSave</code>를 활성화하면 파일 저장 시 자동으로 포맷이 정리된다. 커밋 전 포맷을 정리하는 번거로움을 없앨 수 있다.
+  <code>formatOnSave</code>를 활성화하면 파일 저장 시 자동으로 포맷이 정리된다.<br>
+  커밋 전 포맷을 정리하는 번거로움을 없앨 수 있다.
 </div>
 
 ---
-
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/종이 클립 아이콘 (3).webp" alt="" style="position:absolute;width:53px;top:-8px;right:10%;z-index:3;pointer-events:none;opacity:.78;transform:rotate(8deg);">
-</div>
 
 ## ⚠️ 주의사항
 
@@ -1097,6 +1054,3 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 - [ ] Windows: 실행 정책(ExecutionPolicy)을 변경했는가?
 - [ ] Mac: 심볼릭 링크가 올바르게 연결되어 있는가?
 
-<div style="position:relative;height:0;overflow:visible;margin:0;">
-  <img src="/images/decoration/구름 아이콘 (4).webp" alt="" style="position:absolute;width:110px;top:-24px;right:2%;z-index:2;pointer-events:none;opacity:.80;transform:rotate(8deg);">
-</div>
