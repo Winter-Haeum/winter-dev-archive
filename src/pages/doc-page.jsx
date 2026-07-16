@@ -21,6 +21,7 @@ import Sidebar from '@/components/common/sidebar';
 import NavigationDrawer from '@/components/common/NavigationDrawer';
 import Breadcrumb from '@/components/common/breadcrumb';
 import MarkdownRenderer from '@/components/markdown/MarkdownRenderer';
+import ChapterComments from '@/components/markdown/ChapterComments';
 import CategoryBadgeLink from '@/components/ui/CategoryBadgeLink';
 import StatusBadge from '@/components/ui/StatusBadge';
 import NotFoundPage from '@/pages/not-found-page';
@@ -336,6 +337,9 @@ function DocPage() {
                   </Box>
                 </>
               )}
+
+              {/* 챕터 하단 댓글 영역 (기본 접힘) */}
+              <ChapterComments />
             </>
           )}
           </Box>
