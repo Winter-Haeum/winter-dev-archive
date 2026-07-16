@@ -21,6 +21,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import { useColorMode } from '@/hooks/use-color-mode';
+import VisitorCounter from '@/components/ui/VisitorCounter';
 
 function Header({ onMenuClick, isDrawerOpen = false }) {
   const { mode, toggleColorMode } = useColorMode();
@@ -89,27 +90,31 @@ function Header({ onMenuClick, isDrawerOpen = false }) {
           </Typography>
         </Box>
 
-        <IconButton
-          onClick={toggleColorMode}
-          aria-label={toggleLabel}
-          title={toggleLabel}
-          aria-pressed={mode === 'dark'}
-          sx={{
-            color: 'text.secondary',
-            borderRadius: '6px',
-            '&:hover': { backgroundColor: 'action.hover', color: 'text.primary' },
-            '&:focus-visible': {
-              outline: '2px solid',
-              outlineColor: 'primary.main',
-              outlineOffset: '2px',
-            },
-          }}
-        >
-          {mode === 'light'
-            ? <DarkModeOutlinedIcon sx={{ fontSize: '1.25rem' }} />
-            : <LightModeOutlinedIcon sx={{ fontSize: '1.25rem' }} />
-          }
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+          <VisitorCounter />
+
+          <IconButton
+            onClick={toggleColorMode}
+            aria-label={toggleLabel}
+            title={toggleLabel}
+            aria-pressed={mode === 'dark'}
+            sx={{
+              color: 'text.secondary',
+              borderRadius: '6px',
+              '&:hover': { backgroundColor: 'action.hover', color: 'text.primary' },
+              '&:focus-visible': {
+                outline: '2px solid',
+                outlineColor: 'primary.main',
+                outlineOffset: '2px',
+              },
+            }}
+          >
+            {mode === 'light'
+              ? <DarkModeOutlinedIcon sx={{ fontSize: '1.25rem' }} />
+              : <LightModeOutlinedIcon sx={{ fontSize: '1.25rem' }} />
+            }
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
     {/* 고정 Header 높이만큼 본문이 가려지지 않도록 공간 확보 */}
