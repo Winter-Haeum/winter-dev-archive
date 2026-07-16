@@ -15,12 +15,10 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
@@ -31,20 +29,36 @@ tags:
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
 tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
 </style>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   📎 <strong>부록(Appendix)</strong> — 이 문서는 정규 진도 번호(1-1~1-5)가 아니라, <strong>"1장 JavaScript 기본 문법"</strong>을 다시 복습할 수 있도록 보충하는 부록 문서입니다.
 </div>
 
@@ -82,7 +96,7 @@ var str = x.toString();
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   타입 변환에는 두 가지 방식이 있습니다.<br>
   • <strong>암묵적 타입 변환</strong> — 개발자가 시키지 않아도 자바스크립트가 알아서 바꿔주는 것<br>
   • <strong>명시적 타입 변환</strong> — 개발자가 <code>String()</code>, <code>Number()</code>, <code>Boolean()</code> 같은 함수로 직접 바꾸는 것
@@ -190,7 +204,7 @@ Array + '';         // "function Array() { [native code] }"
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>Falsy 값 (반드시 암기!)</strong><br>
   • <code>false</code><br>
   • <code>undefined</code><br>
@@ -303,7 +317,7 @@ Boolean([]);       // true
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   겨울 이불 속에서 이미 답을 찾았으면 굳이 이불 밖으로 나가서 더 찾아보지 않는 것과 같습니다.<br>
   논리 연산자는 <strong>항상 true/false만 반환하는 게 아니라, 판단에 사용된 값(피연산자) 자체를 그대로 반환</strong>할 수 있습니다.
 </div>
@@ -320,7 +334,7 @@ Boolean([]);       // true
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   • <code>&&</code> — 앞 값이 <strong>Truthy</strong>이면 뒤 값을 반환하고, 앞 값이 <strong>Falsy</strong>이면 앞 값을 반환합니다.<br>
   • <code>||</code> — 앞 값이 <strong>Truthy</strong>이면 앞 값을 반환하고, 앞 값이 <strong>Falsy</strong>이면 뒤 값을 반환합니다.
 </div>
@@ -387,7 +401,7 @@ getStringLength('hi'); // 2
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   문을 두드려보고, 안에 아무도 없으면 화내지 않고 그냥 조용히 돌아오는 것과 같습니다.<br>
   <code>elem</code>이 있으면 <code>value</code>를 꺼내오고, <code>elem</code>이 없으면 에러 대신 그냥 <code>undefined</code>를 돌려줍니다.
 </div>
@@ -421,7 +435,7 @@ null 병합 연산자 `??`는 왼쪽 값이 **`null` 또는 `undefined`일 때�
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "진짜 비어있을 때만" 켜지는 자동 조명이라고 생각하면 됩니다. 0이나 빈 문자열처럼 "값은 있지만 약한 값"이 들어와도 조명은 켜지지 않고, 오직 <code>null</code>·<code>undefined</code>일 때만 기본값이 켜집니다.
 </div>
 
@@ -595,29 +609,79 @@ null ?? 'default string';      // "default string"
 
 ## ✅ 핵심 정리
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>타입 변환</strong></td>
-    <td>• 타입 변환은 값의 타입이 바뀌는 것이다.<br>• 암묵적 타입 변환은 자바스크립트가 자동으로 타입을 바꾸는 것이다.<br>• 명시적 타입 변환은 개발자가 직접 타입을 바꾸는 것이다.</td>
-  </tr>
-  <tr>
-    <td><strong>변환 문맥</strong></td>
-    <td>• 문자열 연결에서는 문자열 변환이 일어날 수 있다.<br>• 산술 연산에서는 숫자 변환이 일어날 수 있다.<br>• 조건식에서는 불리언 변환이 일어난다.</td>
-  </tr>
-  <tr>
-    <td><strong>Truthy / Falsy</strong></td>
-    <td>• Falsy 값은 false, undefined, null, 0, -0, NaN, '' 이다.<br>• 그 외 대부분의 값은 Truthy이다.</td>
-  </tr>
-  <tr>
-    <td><strong>단축 평가</strong></td>
-    <td>• &&와 ||는 단축 평가를 수행한다.<br>• 논리 연산자는 boolean이 아닌 피연산자 값 자체를 반환할 수 있다.</td>
-  </tr>
-  <tr>
-    <td><strong>?. / ??</strong></td>
-    <td>• ?.는 null 또는 undefined일 때 에러 대신 undefined를 반환한다.<br>• ??는 null 또는 undefined일 때만 기본값을 사용한다.<br>• ||와 ??는 기본값 처리 기준이 다르다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>타입 변환은 <strong>값의 타입이 바뀌는 것</strong>이다 — 암묵적 타입 변환은 자바스크립트가 자동으로, 명시적 타입 변환은 개발자가 직접 타입을 바꾸는 것이다.</li>
+    <li>문자열 연결에서는 <strong>문자열 변환</strong>, 산술 연산에서는 <strong>숫자 변환</strong>, 조건식에서는 <strong>불리언 변환</strong>이 문맥에 따라 일어난다.</li>
+    <li>Falsy 값은 <strong>false, undefined, null, 0, -0, NaN, ''</strong> 7가지이고, 그 외 대부분의 값은 Truthy이다.</li>
+    <li>&&와 ||는 <strong>단축 평가</strong>를 수행하며, boolean이 아닌 <strong>피연산자 값 자체</strong>를 반환할 수 있다.</li>
+    <li>?.는 null 또는 undefined일 때 에러 대신 undefined를 반환하고, ??는 null 또는 undefined일 때만 기본값을 사용한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ||와 ??는 기본값 처리 기준이 같다?</div>
+    <div class="wda-mistake-right">정답: <strong>||와 ??는 기본값 처리 기준이 다르다</strong> — ||는 모든 Falsy 값을 기본값으로 바꾸지만, ??는 null 또는 undefined일 때만 기본값을 사용한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 논리 연산자는 항상 true/false만 반환한다?</div>
+    <div class="wda-mistake-right">정답: <strong>논리 연산자는 boolean이 아닌 피연산자 값 자체</strong>를 반환할 수 있다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 변환 문맥</div>
+    <div class="wda-formula-block-body">
+      <code>문자열 연결 → 문자열 변환</code><br>
+      <code>산술 연산 → 숫자 변환</code><br>
+      <code>조건식 → 불리언 변환</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Truthy / Falsy</div>
+    <div class="wda-formula-block-body">
+      <code>Falsy = false, undefined, null, 0, -0, NaN, ''</code><br>
+      <code>그 외 전부 Truthy</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · ?. / ??</div>
+    <div class="wda-formula-block-body">
+      <code>?. → null/undefined면 undefined 반환</code><br>
+      <code>?? → null/undefined일 때만 기본값 사용</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">타입 변환의 두 종류는?</div>
+    <div class="wda-flip-back">암묵적 타입 변환(자바스크립트가 자동으로)과 명시적 타입 변환(개발자가 직접)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Falsy 값 7가지는?</div>
+    <div class="wda-flip-back">false, undefined, null, 0, -0, NaN, '' — 그 외 대부분은 Truthy다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">&&/||의 단축 평가가 반환하는 것은?</div>
+    <div class="wda-flip-back">true/false가 아니라 판단에 사용된 피연산자 값 자체를 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">?.는 언제 undefined를 반환하나?</div>
+    <div class="wda-flip-back">접근 대상이 null 또는 undefined일 때 에러 대신 undefined를 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">??가 ||와 다른 점은?</div>
+    <div class="wda-flip-back">??는 null/undefined일 때만 기본값을 사용해 0이나 빈 문자열 같은 값을 그대로 보존한다.</div>
+  </div>
+</div>

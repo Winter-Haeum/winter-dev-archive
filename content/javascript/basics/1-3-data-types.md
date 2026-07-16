@@ -19,16 +19,14 @@ tags:
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy{background:rgba(234,179,8,.06);border-color:#eab308}
-.wda-cy .wda-clabel{color:#ca8a04}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
+.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.89rem;line-height:1.65}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
@@ -40,22 +38,34 @@ tags:
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-legacy{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.79rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -187,7 +197,7 @@ let multi = `첫째 줄
 둘째 줄`;
 ```
 
-<div class="wda-callout wda-ci">
+<div class="wda-callout wda-cs">
   <span class="wda-clabel">🔹 백틱(`) 사용 시 장점</span>
   • 변수 삽입 가능<br>
   • 여러 줄 문자열 가능<br>
@@ -211,7 +221,8 @@ lastName + firstName;            // 더하기(+)로 연결
 `1 더하기 2는 ${1 + 2}입니다`;
 ```
 
-핵심 정리:
+**📝 핵심 정리**
+
 - 문자열은 `" "`, `' '`, `` ` ` `` 세 가지로 만든다.
 - 문자열 연결은 `+` 또는 **템플릿 리터럴**을 사용한다.
 - 템플릿 리터럴은 **${}**, **여러 줄**, **가독성** 때문에 실무 필수다.
@@ -399,12 +410,12 @@ console.log(typeof undefined);  // "undefined"
 console.log(typeof null);       // "object" (자바스크립트의 유명한 설계상 오류)
 ```
 
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">📌 핵심 요약</span>
+**📝 핵심 정리**
+
+<div class="wda-callout wda-ci">
   • <strong>boolean</strong> — 스위치처럼 온/오프 상태를 나타낸다.<br>
   • <strong>undefined</strong> — 선언 후 할당되지 않은 상태다.<br>
   • <strong>null</strong> — 의도적으로 비워둔 상태다.
-
 </div>
 
 ---
@@ -572,7 +583,9 @@ typeof function(){}  // "function"
   <code>typeof</code>는 함수가 아니다! <code>typeof(123)</code>처럼 괄호를 써도 작동은 하지만, 원래는 <code>typeof 123</code>처럼 한 칸 띄우고 쓰는 연산자다. 마치 <code>+</code>, <code>-</code> 같은 기호와 비슷한 지위라고 생각하면 된다.
 </div>
 
-⚠️ **typeof 주의점** — 자바스크립트의 오래된 설계상 오류(버그)와 배열 확인법을 반드시 기억해야 한다.
+**⚠️ typeof 주의점**
+
+자바스크립트의 오래된 설계상 오류(버그)와 배열 확인법을 반드시 기억해야 한다.
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">🔹 typeof null === "object" (유명한 버그)</span>
@@ -701,57 +714,91 @@ empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
 
 ## 📌 데이터 타입 최종 핵심 요약
 
-<table class="wda-summary-table">
-  <thead>
-    <tr>
-      <th>주제</th>
-      <th>핵심 내용</th>
-      <th>⚠️ 암기 포인트</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>메모리 저장 방식<br><small>(참조 타입의 함정)</small></td>
-      <td>
-        • 원시 타입은 <strong>값 자체</strong>가 복사된다.<br>
-        • <code>a = 10; b = a;</code> 일 때 둘은 남남이다.<br>
-        • 참조 타입은 <strong>주소(열쇠)</strong>가 복사된다.<br>
-        • <code>a = {name: "Kim"}; b = a;</code> 일 때 한쪽을 바꾸면 <strong>둘 다 바뀐다.</strong>
-      </td>
-      <td>• <code>[] === []</code> 또는 <code>{} === {}</code>는 항상 <strong>false</strong>다.<br>• 모양이 같아도 사물함 열쇠(주소)가 다르기 때문이다.</td>
-    </tr>
-    <tr>
-      <td>"없음"의 두 상태</td>
-      <td>
-        • <code>undefined</code> — 변수 선언 후 값이 할당되지 않아 <strong>시스템이 자동</strong>으로 넣은 상태다.<br>
-        • <code>null</code> — 개발자가 "여기는 확실히 비어있다"고 <strong>의도적으로</strong> 표시한 상태다.
-      </td>
-      <td>• 값이 의도적으로 비어 있음을 표현할 때는 개발자가 직접 <strong><code>null</code></strong>을 사용하면 의도를 더 분명히 드러낼 수 있다.</td>
-    </tr>
-    <tr>
-      <td>숫자 연산 2대 결함</td>
-      <td>
-        • <strong>NaN</strong> — 숫자가 아닌 연산의 결과물이다.<br>
-        • <strong>부동소수점 오차</strong> — <code>0.1 + 0.2 !== 0.3</code>이다.<br>
-        • 해결: 정수 변환 계산 또는 <code>.toFixed()</code> 사용
-      </td>
-      <td>• <code>NaN === NaN</code> → <strong>false</strong><br>• 자기 자신과도 같지 않은 유일한 값</td>
-    </tr>
-    <tr>
-      <td>typeof 한계</td>
-      <td>
-        • <code>typeof null</code> → <strong><code>"object"</code></strong> (JS의 대표적인 설계 버그)<br>
-        • <code>typeof []</code>와 <code>typeof {}</code>는 둘 다 <strong><code>"object"</code></strong>다.
-      </td>
-      <td>• null 확인: <code>x === null</code> 직접 비교<br>• 배열 확인: <strong><code>Array.isArray(arr)</code></strong></td>
-    </tr>
-    <tr>
-      <td>안전한 타입 변환</td>
-      <td>
-        • <code>.toString()</code>은 <code>null</code>이나 <code>undefined</code>를 만나면 에러를 내며 멈춘다.<br>
-        • <code>String(value)</code>는 어떤 상황에서도 에러 없이 변환한다.
-      </td>
-      <td>• <strong><code>String(value)</code></strong> 사용 원칙<br>• <code>.toString()</code>은 null 시 TypeError</td>
-    </tr>
-  </tbody>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>원시 타입은 <strong>값 자체</strong>가 복사되고(<code>a = 10; b = a;</code> 둘은 남남), 참조 타입은 <strong>주소(열쇠)</strong>가 복사된다(<code>a = {name: "Kim"}; b = a;</code> 한쪽을 바꾸면 둘 다 바뀐다).</li>
+    <li><code>undefined</code>는 변수 선언 후 값이 할당되지 않아 <strong>시스템이 자동</strong>으로 넣은 상태고, <code>null</code>은 개발자가 "여기는 확실히 비어있다"고 <strong>의도적으로</strong> 표시한 상태다.</li>
+    <li><strong>NaN</strong>은 숫자가 아닌 연산의 결과물이고, <strong>부동소수점 오차</strong> 때문에 <code>0.1 + 0.2 !== 0.3</code>이다 — 해결책은 정수 변환 계산 또는 <code>.toFixed()</code> 사용이다.</li>
+    <li><code>typeof null</code> → <strong><code>"object"</code></strong>(JS의 대표적인 설계 버그)이고, <code>typeof []</code>와 <code>typeof {}</code>도 둘 다 <strong><code>"object"</code></strong>다.</li>
+    <li><code>.toString()</code>은 <code>null</code>이나 <code>undefined</code>를 만나면 에러를 내며 멈추지만, <code>String(value)</code>는 어떤 상황에서도 에러 없이 변환한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 모양이 같은 배열/객체는 ===로 비교하면 true다?</div>
+    <div class="wda-mistake-right">정답: <code>[] === []</code> 또는 <code>{} === {}</code>는 항상 <strong>false</strong>다 — 모양이 같아도 사물함 열쇠(주소)가 다르기 때문이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: typeof로 null과 배열을 구분할 수 있다?</div>
+    <div class="wda-mistake-right">정답: <code>typeof null</code>과 <code>typeof []</code>는 둘 다 <code>"object"</code>라 구분이 안 된다 — null 확인은 <code>x === null</code> 직접 비교, 배열 확인은 <strong><code>Array.isArray(arr)</code></strong>를 쓴다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: NaN === NaN은 true다?</div>
+    <div class="wda-mistake-right">정답: <code>NaN === NaN</code> → <strong>false</strong> — 자기 자신과도 같지 않은 유일한 값이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: .toString()과 String()은 완전히 같다?</div>
+    <div class="wda-mistake-right">정답: <strong><code>String(value)</code></strong> 사용이 원칙이다 — <code>.toString()</code>은 <code>null</code>일 때 TypeError가 난다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 복사 방식</div>
+    <div class="wda-formula-block-body">
+      <code>원시 타입 = 값 복사(남남)</code><br>
+      <code>참조 타입 = 주소 복사(연동)</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 숫자 함정</div>
+    <div class="wda-formula-block-body">
+      <code>NaN === NaN → false</code><br>
+      <code>0.1 + 0.2 !== 0.3</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 안전 변환/확인</div>
+    <div class="wda-formula-block-body">
+      <code>String(value) 항상 안전</code><br>
+      <code>null 확인 = x === null</code><br>
+      <code>배열 확인 = Array.isArray()</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">원시 타입과 참조 타입, 복사되는 것은?</div>
+    <div class="wda-flip-back">원시 타입은 값 자체가, 참조 타입은 주소(열쇠)가 복사된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">undefined와 null의 차이는?</div>
+    <div class="wda-flip-back">undefined는 시스템이 자동으로 채운 상태, null은 개발자가 의도적으로 비운 상태다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">NaN === NaN의 결과는?</div>
+    <div class="wda-flip-back">false — 자기 자신과도 같지 않은 유일한 값이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">typeof null의 결과는?</div>
+    <div class="wda-flip-back">"object" — JS의 대표적인 설계 버그다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열인지 안전하게 확인하는 방법은?</div>
+    <div class="wda-flip-back">Array.isArray(arr)를 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">null/undefined를 문자열로 안전하게 바꾸려면?</div>
+    <div class="wda-flip-back">.toString() 대신 String(value)를 사용한다.</div>
+  </div>
+</div>

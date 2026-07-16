@@ -24,31 +24,29 @@ tags:
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
+.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.89rem;line-height:1.65}
 .wda-fcard-list li::before{content:"· "}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(252,206,150,.32);color:#8a6d3b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
-.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-legacy{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.79rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
+.wda-hint{border-color:rgba(59,130,246,.25);background:rgba(59,130,246,.035)}
+.wda-caution{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
@@ -56,6 +54,31 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 같은 세트 내부 하위 항목(미니 소제목)의 위쪽 여백을 좁혀 형제 항목처럼 붙어 보이게
+   한다 — 상위 소제목이 "새 세트 시작"의 넓은 여백을 그대로 유지하도록, 이 클래스는
+   하위 항목들만 감싼 wrapper 안에서만 적용한다. 셀렉터 특이도(0,3,1)가 기본 padding-top
+   규칙(단일 클래스, 0,1,0)보다 높아 !important 없이도 항상 이긴다. */
+.wda-substep-set p.wda-minihead.wda-minihead{padding-top:.5rem}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일(2026-07 40차 개편 — 1-1에도 적용).
+   색은 background/border/accent에만 쓰고, 본문 텍스트는 카드 색과 무관하게 진회색
+   (#2C2840)·strong은 #1F1B2E로 고정한다. 먼저 외울 것과 공식 보드 바깥은 neutral,
+   헷갈리기 쉬운 것(피치)·공식 카드 안쪽(핑크)·클릭 복습 카드(라벤더/그린)에만 색 포인트. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -96,13 +119,13 @@ JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 
 
 **🚫 다른 언어는?**
 
-<div class="wda-callout wda-cw">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">브라우저에서 직접 실행되지 않음</span>
   • Python / Java / C++ 코드는 일반적인 브라우저에서 그대로 직접 실행되지 않는다.<br>
   • 브라우저는 기본적으로 JavaScript 엔진을 내장하고 있기 때문에 JavaScript를 바로 실행할 수 있다.
 </div>
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-ci">
   💡 웹사이트에서 버튼 클릭 처리, 폼 검증, 동적인 화면 변경 같은 대표적인 기능은 JavaScript로 구현된다.
 </div>
 
@@ -193,7 +216,7 @@ ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
 
 **📌 핵심 구분**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   • ECMAScript는 <strong>실행되는 언어가 아니라 규칙 문서</strong>다.<br>
   • 브라우저에서 실제로 사용하는 것은 <strong>항상 JavaScript</strong>다.<br>
   • <strong>"ECMAScript = 표준 / JavaScript = 구현"</strong>으로 구분한다.
@@ -289,7 +312,7 @@ document.querySelector('button');
 
 **💬 배치 원칙**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-ci">
   • script는 <strong>HTML 파싱 순서의 영향을 받는다</strong>.<br>
   • head에 두면 <strong>요소가 아직 없어 실패할 수 있다</strong>.<br>
   • body 끝에 두면 <strong>HTML 생성 후 실행되어 안전하다</strong>.<br>
@@ -334,7 +357,7 @@ document.querySelector('button');
 | 유지 관리 | 어렵다 | 쉽다 |
 | 특징 요약 | 간단한 테스트용이다 | 확장성과 지속성이 높다 |
 
-**예시 코드 비교**
+**🆚 예시 코드 비교**
 
 <div class="wda-compare">
   <div class="wda-compare-card wda-legacy">
@@ -400,7 +423,7 @@ console.log("기록이 남습니다");
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   프로그램이 지금 무슨 생각을 하고 있는지 확인할 수 있다.
 </div>
 
@@ -497,6 +520,8 @@ PI = 5;
 
 **🛡️ use strict로 막아주는 대표 실수**
 
+<div class="wda-substep-set">
+
 **🔹 변수 선언 필수**
 
 ```javascript
@@ -508,8 +533,6 @@ x =10;
 
 • let, const 없이 변수를 사용하면 에러가 발생한다.<br>
 • 의도치 않은 전역 변수 생성을 막는다.
-
----
 
 **🔹 예약어 사용 금지**
 
@@ -523,8 +546,6 @@ let public =10;
 • JavaScript에서 예약된 단어는 변수명으로 사용할 수 없다.<br>
 • 문법 단계에서 바로 에러를 발생시킨다.
 
----
-
 **🔹 조용히 실패하던 에러를 밖으로 드러낸다**
 
 ```javascript
@@ -535,10 +556,13 @@ obj.name = "Java";
 // ❌ TypeError: Cannot assign to read only property 'name' of object
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">🔹 설명</span>
   • Object.freeze로 고정한 객체는 속성을 변경할 수 없다.<br>
   • 일반 모드에서는 조용히 무시되던 변경 시도가 strict 모드에서는 즉시 에러로 표시된다.
+</div>
+
 </div>
 
 ---
@@ -566,11 +590,24 @@ obj.name = "Java";
 
 **✨ 특징**
 
-• **독립성** — 서로의 변수를 침범하지 않는다.<br>
-• **strict 자동 적용** — `"use strict"`를 따로 작성하지 않아도 자동으로 엄격 모드가 적용된다.<br>
-• **지연 실행** — `defer`처럼 HTML 해석 이후 실행된다.
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">독립성</div>
+    <div class="wda-fcard-dsc">서로의 변수를 침범하지 않는다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">strict 자동 적용</div>
+    <div class="wda-fcard-dsc"><code>"use strict"</code>를 따로 작성하지 않아도 자동으로 엄격 모드가 적용된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">지연 실행</div>
+    <div class="wda-fcard-dsc"><code>defer</code>처럼 HTML 해석 이후 실행된다.</div>
+  </div>
+</div>
 
 **🔧 응용**
+
+<div class="wda-substep-set">
 
 **🔹 일반 script 방식**
 
@@ -594,6 +631,8 @@ let x =10;// 이 파일 안에서만 유효
 • 해당 파일 내부에서만 변수가 유효하다.<br>
 • 전역 변수 오염을 방지한다.<br>
 • strict 모드가 자동 적용된다.
+
+</div>
 
 **📌 요약 정리**
 
@@ -621,88 +660,116 @@ const languageName ="JavaScript";
 
 **🔹 힌트 & 트러블슈팅**
 
-**🖥️ Console 안 보일 때**
-
-• F12<br>
-• 우클릭 → 검사<br>
-• Console 탭
-
-**⚠️ 에러 발생 시**
-
-• SyntaxError → 오타 확인<br>
-• Assignment to constant variable → let 사용
+<div class="wda-compare">
+  <div class="wda-compare-card wda-hint">
+    <div class="wda-compare-ttl">🖥️ Console 안 보일 때</div>
+    • F12<br>
+    • 우클릭 → 검사<br>
+    • Console 탭
+  </div>
+  <div class="wda-compare-card wda-caution">
+    <div class="wda-compare-ttl">⚠️ 에러 발생 시</div>
+    • SyntaxError → 오타 확인<br>
+    • Assignment to constant variable → let 사용
+  </div>
+</div>
 
 ---
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>JavaScript 기본</strong></td>
-    <td>• JavaScript는 <strong>브라우저가 이해하는 유일한 언어</strong>다.<br>• 웹의 <strong>동작(행동)</strong>을 담당한다.</td>
-  </tr>
-  <tr>
-    <td><strong>브라우저 구조</strong></td>
-    <td>• HTML 파서 + CSS 파서 + <strong>JavaScript 엔진</strong>으로 구성된다.<br>• JS 엔진 예: <strong>V8, SpiderMonkey</strong></td>
-  </tr>
-  <tr>
-    <td><strong>다른 언어와 차이</strong></td>
-    <td>• Python / Java / C++ 코드는 <strong>브라우저에서 그대로 직접 실행되지 않는다</strong>.<br>• 이유: 브라우저는 기본적으로 JavaScript 엔진만 내장하고 있다.</td>
-  </tr>
-  <tr>
-    <td><strong>ECMAScript vs JavaScript</strong></td>
-    <td>• <strong>ECMAScript = 규칙(표준 문서)</strong>다.<br>• <strong>JavaScript = 그 규칙을 구현한 실제 언어</strong>다.</td>
-  </tr>
-  <tr>
-    <td><strong>script 작성 방식</strong></td>
-    <td>• 내부 스크립트: HTML 안에 직접 작성한다.<br>• 외부 스크립트: JS 파일을 분리해 불러온다.</td>
-  </tr>
-  <tr>
-    <td><strong>script 위치 핵심</strong></td>
-    <td>• HTML은 <strong>위 → 아래 순서로 해석</strong>된다.<br>• script 위치에 따라 실행 시점이 달라진다.</td>
-  </tr>
-  <tr>
-    <td><strong>head 배치 문제</strong></td>
-    <td>• HTML 요소 생성 전에 JS가 실행될 수 있다.<br>• DOM을 못 찾아 <strong>오류 발생 가능</strong>하다.</td>
-  </tr>
-  <tr>
-    <td><strong>body 끝 배치</strong></td>
-    <td>• HTML 생성 후 JS 실행된다.<br>• DOM 접근이 <strong>가장 안전</strong>하다.</td>
-  </tr>
-  <tr>
-    <td><strong>defer (중요)</strong></td>
-    <td>• HTML 파싱과 동시에 다운로드한다.<br>• <strong>HTML 완료 후 실행</strong>된다.<br>• head에 둬도 안전하다.</td>
-  </tr>
-  <tr>
-    <td><strong>async 특징</strong></td>
-    <td>• 다운로드 완료 즉시 실행된다.<br>• 실행 순서가 <strong>보장되지 않는다</strong>.</td>
-  </tr>
-  <tr>
-    <td><strong>Legacy vs Modern</strong></td>
-    <td>• Legacy: HTML·CSS·JS가 섞여 있다.<br>• Modern: <strong>구조·표현·동작 분리</strong>한다.</td>
-  </tr>
-  <tr>
-    <td><strong>console.log</strong></td>
-    <td>• 개발자용 출력 도구다.<br>• 디버깅·값 확인에 사용한다.<br>• 사용자 화면에는 보이지 않는다.</td>
-  </tr>
-  <tr>
-    <td><strong>Node.js 개념</strong></td>
-    <td>• 브라우저 밖에서 JS 실행한다.<br>• 파일 접근, 서버, DB 연결 가능하다.</td>
-  </tr>
-  <tr>
-    <td><strong>use strict</strong></td>
-    <td>• JavaScript를 <strong>엄격 모드</strong>로 실행한다.<br>• 실수를 즉시 에러로 만든다.</td>
-  </tr>
-  <tr>
-    <td><strong>module 핵심</strong></td>
-    <td>• 모듈은 <strong>독립된 파일 단위</strong>다.<br>• 전역 오염 방지 + strict 자동 적용</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>• <strong>script → defer</strong><br>• <strong>Modern 방식 사용</strong><br>• <strong>module = 자동 strict</strong></td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>JavaScript는 <strong>브라우저가 이해하는 유일한 언어</strong>이며, 웹의 <strong>동작(행동)</strong>을 담당한다.</li>
+    <li>브라우저는 HTML 파서 + CSS 파서 + <strong>JavaScript 엔진</strong>(예: V8, SpiderMonkey)으로 구성된다.</li>
+    <li>내부 스크립트는 HTML 안에 직접 작성하고, 외부 스크립트는 JS 파일을 분리해 불러온다.</li>
+    <li>HTML은 <strong>위 → 아래 순서로 해석</strong>되며, script 위치에 따라 실행 시점이 달라진다.</li>
+    <li>console.log는 디버깅·값 확인용 개발자 도구이며, 사용자 화면에는 보이지 않는다.</li>
+    <li>Node.js는 브라우저 밖에서 JS를 실행하며, 파일 접근·서버·DB 연결이 가능하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Python/Java/C++ 코드도 브라우저에서 그대로 실행된다?</div>
+    <div class="wda-mistake-right">정답: 브라우저는 기본적으로 <strong>JavaScript 엔진만 내장</strong>하고 있어, 다른 언어 코드는 그대로 실행되지 않는다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ECMAScript와 JavaScript는 같은 것이다?</div>
+    <div class="wda-mistake-right">정답: <strong>ECMAScript = 규칙(표준 문서)</strong>이고, <strong>JavaScript = 그 규칙을 구현한 실제 언어</strong>다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: script는 head에 둬도 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: head에 두면 HTML 요소 생성 전에 JS가 실행돼 DOM을 못 찾아 <strong>오류가 날 수 있다</strong>. body 끝에 두면 HTML 생성 후 실행돼 DOM 접근이 <strong>가장 안전</strong>하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: defer와 async는 같은 방식이다?</div>
+    <div class="wda-mistake-right">정답: defer는 HTML 파싱과 동시에 다운로드하고 <strong>HTML 완료 후 실행</strong>되어 head에 둬도 안전하지만, async는 다운로드 완료 즉시 실행되어 <strong>순서가 보장되지 않는다</strong>.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Legacy와 Modern 방식은 코드 작성법만 다르다?</div>
+    <div class="wda-mistake-right">정답: Legacy는 HTML·CSS·JS가 섞여 있고, Modern은 <strong>구조·표현·동작을 분리</strong>한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: use strict와 module은 서로 관련이 없다?</div>
+    <div class="wda-mistake-right">정답: use strict는 JS를 <strong>엄격 모드</strong>로 실행해 실수를 즉시 에러로 만들고, module은 <strong>독립된 파일 단위</strong>로 전역 오염을 방지하며 strict가 자동 적용된다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 스크립트 로딩</div>
+    <div class="wda-formula-block-body"><code>script → defer</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 코드 스타일</div>
+    <div class="wda-formula-block-body"><code>Modern 방식 사용</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 모듈</div>
+    <div class="wda-formula-block-body"><code>module = 자동 strict</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JavaScript란?</div>
+    <div class="wda-flip-back">브라우저가 이해하는 유일한 언어이며, 웹의 동작(행동)을 담당한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">브라우저의 3대 구성요소는?</div>
+    <div class="wda-flip-back">HTML 파서 + CSS 파서 + JavaScript 엔진(V8, SpiderMonkey 등)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">ECMAScript와 JavaScript의 차이는?</div>
+    <div class="wda-flip-back">ECMAScript는 규칙(표준 문서)이고, JavaScript는 그 규칙을 구현한 실제 언어다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">script를 head에 두면 왜 위험한가?</div>
+    <div class="wda-flip-back">HTML 요소 생성 전에 JS가 실행돼 DOM을 찾지 못해 오류가 날 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">defer와 async의 차이는?</div>
+    <div class="wda-flip-back">defer는 HTML 완료 후 실행되어 순서가 보장되지만, async는 다운로드 즉시 실행되어 순서가 보장되지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">console.log는 왜 쓰나?</div>
+    <div class="wda-flip-back">디버깅과 값 확인용 개발자 도구이며, 사용자 화면에는 보이지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">use strict는 무엇을 하나?</div>
+    <div class="wda-flip-back">JavaScript를 엄격 모드로 실행해 실수를 즉시 에러로 만든다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">module의 핵심 특징은?</div>
+    <div class="wda-flip-back">독립된 파일 단위로 전역 오염을 방지하고, strict 모드가 자동 적용된다.</div>
+  </div>
+</div>

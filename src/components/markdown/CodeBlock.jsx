@@ -41,6 +41,10 @@ function CodeBlock({ language, children }) {
 
   return (
     <Box
+      // MarkdownRenderer.jsx의 GlobalStyles가 "코드블록 바로 뒤 후속 설명" 간격을
+      // 조정할 때 이 wrapper(실제 DOM에서 margin을 갖는 최상위 요소)를 식별하는 데
+      // 쓰는 마커 클래스. 내부 <pre>는 margin:0이라 직접 타깃이 될 수 없다.
+      className='wda-codeblock'
       sx={(theme) => {
         const t = CODE_THEME[theme.palette.mode];
         return {

@@ -21,12 +21,14 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
 import Box from '@mui/material/Box';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import Typography from '@mui/material/Typography';
 import MuiLink from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
 import { Link as RouterLink } from 'react-router-dom';
 import Callout from './Callout';
 import CodeBlock from './CodeBlock';
+import FlipCard from './FlipCard';
 
 // rehype-raw → rehype-highlight 순서 필수: raw HTML 파싱 후 코드 하이라이트 적용
 const rehypePlugins = [rehypeRaw, [rehypeHighlight, { ignoreMissing: true }]];
@@ -89,6 +91,127 @@ function StrongText({ children }) {
   );
 }
 
+// 이모지+볼드 단독 문단(미니 소제목)의 margin을 강제로 0으로 고정하는 클래스.
+// 문서 내 <style> 블록에 남아있는 구버전 `p:has(> strong:only-child){margin-top:2.2rem
+// !important}` 규칙(특이도 0,1,2)을 확실히 이기기 위해 이중 클래스 셀렉터(특이도 0,2,1)로
+// GlobalStyles에 주입한다.
+const WDA_MINIHEAD_CLASS = 'wda-minihead';
+// 코드블록/일반 박스 뒤 후속 설명 간격 규칙(아래 wdaMinheadGlobalStyles)의 적용 대상.
+// 문서 <style> 블록에서 흔히 쓰이는 박스 클래스만 포함한다(표는 클래스명이 없어 제외).
+const WDA_BOX_SELECTORS = ['.wda-codeblock', '.wda-callout', '.wda-fgrid', '.wda-steps', '.wda-compare', '.wda-flow'];
+// 미니 소제목 바로 앞 문단/목록은 자체 margin-bottom(0.9rem)에 소제목의
+// padding-top(1.2rem)이 그대로 더해져 간격이 다소 넓어 보이므로, "바로 다음 형제가
+// 소제목인 경우"만 :has(+ ...)로 선별해 margin-bottom을 살짝 줄인다 — 소제목과 무관한
+// 일반 문단의 margin-bottom(0.9rem)은 그대로 둔다.
+const wdaMinheadGlobalStyles = {
+  [`p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}`]: {
+    marginTop: '0 !important',
+    marginBottom: '0 !important',
+  },
+  [`p:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}), ul:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}), ol:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS})`]: {
+    marginBottom: '0.5rem !important',
+  },
+  // 미니 소제목 바로 다음에 오는 일반 문단/목록(코드블록·callout 같은 "박스"가
+  // 아닌 p·ul·ol)은 그 소제목이 여는 설명이므로 한 묶음처럼 붙어야 한다(2026-07
+  // 21차 개편 — JavaScript 1-2 재검토로 발견). 뒤따르는 요소가 "박스"일 때는 이미
+  // 위 박스 규칙(10·20차 개편)이 margin-top을 0.5rem으로 강제하지만, 뒤따르는
+  // 요소가 박스가 아닌 일반 p/ul/ol일 때는 그 어떤 규칙도 margin-top을 지정하지
+  // 않아 브라우저 기본값(약 0.93~0.95rem, p의 font-size 기준 1em)이 그대로
+  // 노출되고 있었다 — 미니 소제목 자신의 margin-bottom은 이미 0으로 강제돼 있어
+  // 병합할 상대가 없으므로 이 기본값이 그대로 화면에 남았다(예: "📌 1단계: 선언"
+  // 바로 아래 bullet 문단, "⚙️ 2단계: 초기화" 바로 아래 bullet 문단).
+  [`.${WDA_MINIHEAD_CLASS} + p:not(.${WDA_MINIHEAD_CLASS}), .${WDA_MINIHEAD_CLASS} + ul, .${WDA_MINIHEAD_CLASS} + ol`]: {
+    marginTop: '0.5rem !important',
+  },
+  // 코드블록(CodeBlock.jsx)/일반 박스(callout·카드 그리드·단계형·비교·흐름) 바로 뒤에
+  // 오는 설명 문단/목록은 그 박스의 해석·결론이므로 한 묶음처럼 붙어 보여야 한다.
+  // 대상: .wda-codeblock(CodeBlock.jsx wrapper) / .wda-callout / .wda-fgrid(카드 그리드)
+  // / .wda-steps(단계형) / .wda-compare(비교 박스) / .wda-flow(흐름 박스) — 모두 문서
+  // <style> 블록 또는 컴포넌트 sx에 자체 margin-bottom(코드블록 0.9rem, 나머지는 문서별
+  // .8~1.6rem)을 갖고 있다.
+  // 버그(2026-07 8차 개편에서 발견): 다음 요소의 margin-top만 0으로 강제하면 두 마진이
+  // "병합(collapse)"될 기회 자체가 사라져 박스 자신의 margin-bottom이 그대로 다 보이고,
+  // 그 위에 다음 요소의 padding-top(0.5rem)이 추가로 더해져 오히려 이전(병합 시 최대값
+  // 하나만 적용되던 상태)보다 더 넓어 보였다 — 코드블록 기준 실측 0.9rem + 0.5rem = 1.4rem.
+  // 해결: 박스 쪽 margin-bottom도 함께 0으로 강제해, 다음 요소의 padding-top(0.5rem)
+  // 하나만으로 간격이 정확히 결정되게 한다.
+  // 다음 요소가 미니 소제목(.wda-minihead)이거나 새 실제 헤딩(h2/h3/h4)이면 이 규칙들을
+  // 적용하지 않아 — 특이도 계산에 기대지 않고 명시적으로 — 그 소제목/헤딩 자신의 넓은
+  // 섹션 전환 여백이 항상 그대로 유지되도록 한다.
+  [WDA_BOX_SELECTORS.map((s) => `${s}:has(+ p:not(.${WDA_MINIHEAD_CLASS})), ${s}:has(+ ul), ${s}:has(+ ol)`).join(', ')]: {
+    marginBottom: '0 !important',
+  },
+  [WDA_BOX_SELECTORS.map((s) => `${s} + p:not(.${WDA_MINIHEAD_CLASS}), ${s} + ul, ${s} + ol`).join(', ')]: {
+    marginTop: '0 !important',
+    paddingTop: '0.5rem',
+  },
+  // 미니 소제목/설명 문장(일반 p·ul·ol) 바로 다음에 오는 코드블록/일반 박스는 그
+  // 소제목·문장이 소개하는 예제이므로 한 묶음처럼 붙어 보여야 한다(2026-07 10차 개편
+  // — JavaScript 1-1 재검토로 발견).
+  // 문제: 코드블록/박스는 자기 자신의 margin-top(코드블록 1.5rem, 나머지는 문서별
+  // .8rem)을 갖는데, 직전 문단의 margin-bottom(일반 문단 0.9rem, 미니 소제목은 이미
+  // 0으로 강제됨)과 병합(collapse)돼도 항상 박스 자신의 더 큰 margin-top이 그대로
+  // 남아, "같은 세트"인 미니 소제목/설명 문장 뒤에서도 "새 섹션 시작"과 똑같이 넓게
+  // 보였다. 반대로 실제 h2/h3/h4 제목 뒤에 오는 코드블록/박스는 이 규칙 대상이 아니므로
+  // (아래 선택자에 h2/h3/h4는 포함하지 않음) margin-top 1.5rem이 그대로 유지된다 —
+  // 큰 섹션 전환과 같은 세트 내부를 역할로 구분한다.
+  // 해결: 직전 문단(미니 소제목이 아닌 일반 p) 쪽 margin-bottom을 0으로 강제해 병합
+  // 경쟁을 없애고, 코드블록/박스 자신의 margin-top을 0.5rem으로 강제해 그 값 하나로만
+  // 간격이 결정되게 한다. 미니 소제목은 이미 자체 margin-bottom이 0으로 강제되어 있어
+  // 별도 처리가 필요 없다.
+  // 박스가 박스를 바로 뒤따르는 경우(예: callout 설명 → 코드블록 예시, 코드블록 →
+  // 두 번째 코드블록)도 같은 세트다(2026-07 20차 개편 — JavaScript 1-2 재검토로 발견).
+  // 기존 규칙은 "선행 요소가 미니 소제목/일반 p/ul/ol일 때"만 다음 박스의 margin-top을
+  // 좁혔는데, 선행 요소가 박스 자신인 경우는 대상에서 빠져 있어 두 박스 자신의 기본
+  // margin(코드블록 1.5rem, callout 1.1rem 등)이 그대로 병합돼 넓게 보였다.
+  // 값 재조정(2026-07 22차 개편 — JavaScript 1-2 재검토로 발견): "텍스트(미니 소제목/
+  // 일반 p·ul·ol) → 박스"와 "박스 → 박스"는 같은 세트라도 밀도를 다르게 둔다. 텍스트는
+  // 배경/border가 없어 0.5rem만으로도 자연스럽게 붙어 보이지만, callout/카드/코드블록처럼
+  // 배경·border가 있는 "박스형 UI"끼리 연속되면 0.5rem(8px)은 숨 쉴 공간 없이 붙어
+  // 보인다 — 그래서 박스 → 박스는 0.75rem(12px)으로 살짝 더 띄운다. 아래 두 쌍 중 첫
+  // 번째는 "텍스트 → 박스"(0.5rem 유지), 두 번째는 "박스 → 박스"(0.75rem로 조정)를
+  // 각각 별도 규칙으로 분리해 서로 다른 값을 적용한다.
+  [WDA_BOX_SELECTORS.map((s) => `p:not(.${WDA_MINIHEAD_CLASS}):has(+ ${s}), ul:has(+ ${s}), ol:has(+ ${s})`).join(', ')]: {
+    marginBottom: '0 !important',
+  },
+  [WDA_BOX_SELECTORS.map((s) => `.${WDA_MINIHEAD_CLASS} + ${s}, p:not(.${WDA_MINIHEAD_CLASS}) + ${s}, ul + ${s}, ol + ${s}`).join(', ')]: {
+    marginTop: '0.5rem !important',
+  },
+  [WDA_BOX_SELECTORS.map((s) => WDA_BOX_SELECTORS.map((b) => `${b}:has(+ ${s})`).join(', ')).join(', ')]: {
+    marginBottom: '0 !important',
+  },
+  [WDA_BOX_SELECTORS.map((s) => WDA_BOX_SELECTORS.map((b) => `${b} + ${s}`).join(', ')).join(', ')]: {
+    marginTop: '0.75rem !important',
+  },
+  // h2/h3 섹션 제목 바로 다음에 오는 첫 문단(그 섹션을 여는 도입 문장)은 p 컴포넌트가
+  // margin-top을 지정하지 않아 브라우저 기본값(약 0.93~0.95rem, p의 font-size 기준
+  // 1em)이 그대로 적용되고, h2/h3 자신의 margin-bottom(h2: 0.6rem, h3: 0.35rem)과
+  // 병합(collapse)되어도 더 큰 브라우저 기본값이 남아 다소 넓어 보였다. h2의
+  // 구분선(border-bottom)은 유지한 채, 그 바로 다음 문단만 margin-top을 줄여
+  // "같은 섹션의 시작 문장"답게 붙어 보이게 한다.
+  // 값 재조정(2026-07 23차 개편 — 사용자 피드백): 기존에는 margin-top만 0.5rem으로
+  // 줄이고 !important를 쓰지 않아, h2 자신의 margin-bottom(0.6rem=9.6px)이 병합 시
+  // 더 커서 실제로는 9.6px가 그대로 남았다(h3는 margin-bottom이 0.35rem=5.6px로 더
+  // 작아 0.5rem이 이겨 8px이 됐음 — 같은 규칙인데 h2/h3에서 결과가 달랐다). 또한
+  // "숫자 h2 섹션 제목 바로 다음에 도입 문장 없이 곧장 미니 소제목이 오는 경우"는 이
+  // 규칙 대상이 아니었다 — 미니 소제목 자신의 margin-top은 이미 항상 0으로
+  // 강제되므로 h2/h3의 margin-bottom(collapse 상대 없음)과 미니 소제목 자신의
+  // padding-top(1.2rem=19.2px)이 그대로 더해져 "문장이 오면 8px, 미니 소제목이
+  // 오면 그보다 훨씬 넓게" 보이는 불일치가 있었다. 아래에서 h2/h3의 margin-bottom을
+  // 두 경우 모두 0으로 강제하고, 문장은 margin-top 0.5rem, 미니 소제목은 자신의
+  // padding-top을 0.5rem으로 강제해 "숫자 h2/h3 제목 → 문장이든 미니 소제목이든
+  // 항상 8px"로 통일한다. h4에는 영향을 주지 않는다.
+  'h2:has(+ p:not(.wda-minihead)), h3:has(+ p:not(.wda-minihead)), h2:has(+ p.wda-minihead.wda-minihead), h3:has(+ p.wda-minihead.wda-minihead)': {
+    marginBottom: '0 !important',
+  },
+  'h2 + p:not(.wda-minihead), h3 + p:not(.wda-minihead)': {
+    marginTop: '0.5rem !important',
+  },
+  'h2 + p.wda-minihead.wda-minihead, h3 + p.wda-minihead.wda-minihead': {
+    paddingTop: '0.5rem !important',
+  },
+};
+
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
@@ -116,7 +239,11 @@ const markdownComponents = {
         // mt는 코드블록(1.5rem)/표(1.2rem)/wda-fgrid·wda-steps(1.6rem) 등 콘텐츠 요소의
         // margin-bottom보다 항상 커야 마진 병합(collapse) 후에도 "새 섹션" 느낌을 주는
         // 넉넉한 간격이 보장된다 (2026-07 개편, 여백 정책 참고).
-        mt: '3rem',
+        // 값 재조정(2026-07 25차 개편 — 사용자 피드백): 3rem(48px)은 학습 목표 박스(.wda-goal,
+        // mb 1.6rem) 등 박스 콘텐츠 바로 다음에 h2가 이어질 때 흐름이 끊겨 보일 만큼 과했다.
+        // 2.2rem(35.2px)으로 줄여도 여전히 박스 콘텐츠의 margin-bottom(1.1~1.6rem대)보다
+        // 커서 병합 후에도 "새 섹션" 여백은 그대로 보장된다.
+        mt: '2.2rem',
         mb: '0.6rem',
         fontSize: { xs: '1.18rem', md: '1.28rem' },
         fontWeight: 700,
@@ -175,9 +302,17 @@ const markdownComponents = {
     return (
       <Box
         component='p'
+        // margin은 인접 요소와 병합(collapse)되어 실제 화면 간격이 의도보다 줄어들 수
+        // 있으므로 padding으로 간격을 강제한다. 문서 내 <style> 블록에 남아있는 구버전
+        // `p:has(> strong:only-child){margin-top:2.2rem !important}` 규칙은 :has()
+        // 특이도가 단일 클래스보다 높아 sx의 !important만으로는 이기지 못했다 — 아래
+        // WDA_MINIHEAD_CLASS의 이중 클래스 셀렉터(GlobalStyles)로 특이도를 그 이상으로
+        // 올려 확실히 덮어쓴다 (2026-07 5차 개편).
+        className={isLoneStrong ? WDA_MINIHEAD_CLASS : undefined}
         sx={{
-          mt: isLoneStrong ? '2.2rem' : undefined,
-          mb: isLoneStrong ? '0.2rem' : '0.9rem',
+          pt: isLoneStrong ? '1.2rem' : undefined,
+          pb: isLoneStrong ? '0.2rem' : undefined,
+          mb: isLoneStrong ? undefined : '0.9rem',
           color: 'text.primary',
           fontSize: { xs: '0.93rem', md: '0.95rem' },
           lineHeight: 1.75,
@@ -226,11 +361,18 @@ const markdownComponents = {
   },
 
   // ── 리스트 ──────────────────────────────────────────────────────────
+  // className을 읽어 isTaskList만 판별하고 실제 렌더링된 Box에는 전달하지 않던
+  // 버그가 있었다(2026-07 13차 개편 — 발견). rehype-raw로 들어온 raw HTML
+  // `<ul class="wda-fcard-list">` 같은 커스텀 클래스가 렌더링 결과에서 통째로
+  // 사라져, 문서 <style> 블록의 `.wda-fcard-list{...}` 같은 규칙이 실제 DOM의
+  // 어떤 요소와도 매칭되지 않았다 — 그 결과 자식 li가 문서 최상위 기본값(16px)을
+  // 그대로 상속해 카드 본문 폰트 위계가 깨졌다. className을 그대로 전달해 해결한다.
   ul: ({ children, className }) => {
     const isTaskList = className === 'contains-task-list';
     return (
       <Box
         component='ul'
+        className={className}
         sx={{
           mb: isTaskList ? 2 : 3,
           pl: isTaskList ? 0 : 3,
@@ -256,6 +398,7 @@ const markdownComponents = {
     return (
       <Box
         component='li'
+        className={className}
         sx={{
           lineHeight: isTask ? 1.6 : 1.75,
           ...(isTask && {
@@ -306,11 +449,18 @@ const markdownComponents = {
     );
   },
 
-  // ── 구분선 ──────────────────────────────────────────────────────────
+  // ── 구분선 (큰 섹션 전환 전용) ──────────────────────────────────────
+  // mt/mb를 비대칭으로 둔다: 구분선은 "이전 섹션의 끝"을 표시하는 역할이므로
+  // 직전 내용과는 가깝게(mt), 다음 h2/h3 제목과는 섹션 전환이 느껴질 만큼
+  // 여유 있게(mb) 붙인다. mt(1rem)는 직전 요소의 margin-bottom(문단 0.9rem 등)과
+  // 병합(collapse)되어 실제로는 약 1rem 안팎이 되고, mb(2rem)는 다음에 오는 h2의
+  // margin-top(3rem)이 항상 더 크므로 병합 후 시각적으로는 h2 쪽 여백이 그대로
+  // 유지된다(2026-07 9차 개편 — 이전 마지막 문장과 구분선 사이가 넓어 보이는 문제 수정).
   hr: () => (
     <Divider
       sx={(theme) => ({
-        my: '2rem',
+        mt: '1rem',
+        mb: '2rem',
         borderColor: theme.palette.mode === 'light' ? 'rgba(43,37,32,0.12)' : 'rgba(240,235,227,0.10)',
       })}
     />
@@ -428,6 +578,23 @@ const markdownComponents = {
       {children}
     </Box>
   ),
+
+  // ── raw HTML <div> 패스스루 + FlipCard 감지 ──────────────────────────
+  // 문서 전역에 style="..."만 있고 class가 없는 데코 div가 많으므로, node를 제외한
+  // 모든 props를 그대로 전달해 기존 동작(기본 div 렌더링)을 절대 바꾸지 않는다.
+  // class에 'wda-flip-card'가 있을 때만 FlipCard로 가로챈다.
+  // eslint-disable-next-line no-unused-vars -- node는 DOM에 전달하지 않기 위해 rest에서 분리만 함
+  div: ({ node, className, children, ...rest }) => {
+    const classes = (className || '').split(' ');
+    if (classes.includes('wda-flip-card')) {
+      return <FlipCard>{children}</FlipCard>;
+    }
+    return (
+      <div className={className} {...rest}>
+        {children}
+      </div>
+    );
+  },
 };
 
 function MarkdownRenderer({ content, docId = '' }) {
@@ -480,6 +647,7 @@ function MarkdownRenderer({ content, docId = '' }) {
 
   return (
     <Box sx={{ width: '100%', minWidth: 0, wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+      <GlobalStyles styles={wdaMinheadGlobalStyles} />
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}

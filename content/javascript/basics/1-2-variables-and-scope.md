@@ -25,38 +25,72 @@ tags:
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
+.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.89rem;line-height:1.65}
 .wda-fcard-list li::before{content:"· "}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(252,206,150,.32);color:#8a6d3b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
-.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-legacy{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.79rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
 .wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:200px}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 같은 세트 내부 하위 항목(미니 소제목)의 위쪽 여백을 좁혀 형제 항목처럼 붙어 보이게
+   한다 — 상위 소제목이 "새 세트 시작"의 넓은 여백을 그대로 유지하도록, 이 클래스는
+   하위 항목들만 감싼 wrapper 안에서만 적용한다. 셀렉터 특이도(0,3,1)가 기본 padding-top
+   규칙(단일 클래스, 0,1,0)보다 높아 !important 없이도 항상 이긴다. */
+.wda-substep-set p.wda-minihead.wda-minihead{padding-top:.5rem}
+/* 핵심 요약 전용 복습 UI — 색상 균형 조정(2026-07 38차 개편 — 4영역 전부에 강한 색을
+   주면 알록달록해 보여, 먼저 외울 것과 공식 보드 바깥은 neutral로 낮추고 헷갈리기
+   쉬운 것(피치)·공식 카드 안쪽(핑크)·클릭 복습 카드(라벤더/그린)에만 색 포인트를
+   남긴다). 색은 background/border/accent에만 쓰고, 본문 텍스트는 카드 색과 무관하게
+   진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+/* 공식 보드 — 바깥은 neutral(색 면적을 줄여 알록달록함 방지), 안쪽 카드 3개만 연핑크
+   포인트로 통일한다(공식 1/2/3을 서로 다른 색으로 나누지 않는다). */
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+/* 클릭 복습 카드(FlipCard.jsx) 컨테이너 — 카드 자체의 모양/뒤집기 애니메이션·색(purple/green)은
+   컴포넌트가 sx로 직접 관리하고, 여기서는 여러 장을 배치하는 grid 레이아웃만 담당한다. */
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -74,17 +108,20 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 변수는 **데이터를 저장한 위치에 붙이는 이름표**다.
 
-**📦 상자와 라벨 개념**
-
-• 상자에는 **값**이 들어간다.<br>
-• 라벨은 **이름(식별자)**이다.
-
-**🧠 메모리 포인트**
-
-• 컴퓨터는 데이터를 **메모리에 저장**한다.<br>
-• 메모리 주소 예시: `0x7FF2A1 (복잡)`<br>
-• 개발자는 주소 대신 **이름으로 접근**한다.<br>
-• 활용명 예시: `name` (이해하기 쉬운 이름)
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">📦 상자와 라벨 개념</div>
+    • 상자에는 <strong>값</strong>이 들어간다.<br>
+    • 라벨은 <strong>이름(식별자)</strong>이다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🧠 메모리 포인트</div>
+    • 컴퓨터는 데이터를 <strong>메모리에 저장</strong>한다.<br>
+    • 메모리 주소 예시: <code>0x7FF2A1 (복잡)</code><br>
+    • 개발자는 주소 대신 <strong>이름으로 접근</strong>한다.<br>
+    • 활용명 예시: <code>name</code> (이해하기 쉬운 이름)
+  </div>
+</div>
 
 ---
 
@@ -115,7 +152,7 @@ console.log(price +3000);// 배송비 포함
 // 가격이 바뀌면 price만 수정하면 된다
 ```
 
-• 변수를 사용하면 **코드 재사용, 유지 보수, 가독성**이 좋아진다.
+변수를 사용하면 **코드 재사용, 유지 보수, 가독성**이 좋아진다.
 
 ---
 
@@ -212,10 +249,24 @@ let score =90;// Error! 재선언 불가
 
 **✅ let의 장점**
 
-• **재선언 불가** — 같은 이름의 변수를 다시 만들 수 없다.<br>
-• **블록 스코프** — `{}` 안에서만 유효하다.<br>
-• **TDZ 적용** — 선언 전에 접근하면 에러가 발생한다.<br>
-• 값이 **변할 수 있는 경우**에 사용한다.
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">재선언 불가</div>
+    <div class="wda-fcard-dsc">같은 이름의 변수를 다시 만들 수 없다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">블록 스코프</div>
+    <div class="wda-fcard-dsc"><code>{}</code> 안에서만 유효하다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">TDZ 적용</div>
+    <div class="wda-fcard-dsc">선언 전에 접근하면 에러가 발생한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">재할당 가능</div>
+    <div class="wda-fcard-dsc">값이 변할 수 있는 경우에 사용한다.</div>
+  </div>
+</div>
 
 **💡 보충 설명**
 
@@ -306,7 +357,7 @@ birthDay ="2000-12-25";// Error! 재할당 불가
 // const 값은 변경할 수 없다
 ```
 
-• 콘솔에서 **Uncaught TypeError**를 직접 확인하는 것이 중요하다.
+콘솔에서 **Uncaught TypeError**를 직접 확인하는 것이 중요하다.
 
 ---
 
@@ -332,8 +383,6 @@ userName ="철수";// 할당은 원래 위치
 • 선언과 초기화가 동시에 이루어진다.<br>
 • 그래서 undefined가 나온다.
 
----
-
 **🔒 let / const 호이스팅**
 
 ```javascript
@@ -348,13 +397,15 @@ let userName ="철수";
 // userName = "철수";     // 여기서부터 사용 가능
 ```
 
-• 호이스팅은 되지만 **TDZ 때문에 접근이 차단**된다.
+호이스팅은 되지만 **TDZ 때문에 접근이 차단**된다.
 
-**🤔 왜 호이스팅이 생기나?**
+**💡 왜 호이스팅이 생기나?**
 
-• JavaScript 엔진은 실행 전 **실행 컨텍스트(Execution Context)**를 먼저 만든다.<br>
-• 이 과정에서 선언 정보를 미리 등록한다.<br>
-• 그래서 선언부가 끌어올려진 것처럼 보인다.
+<div class="wda-callout wda-ci">
+  • JavaScript 엔진은 실행 전 <strong>실행 컨텍스트(Execution Context)</strong>를 먼저 만든다.<br>
+  • 이 과정에서 선언 정보를 미리 등록한다.<br>
+  • 그래서 선언부가 끌어올려진 것처럼 보인다.
+</div>
 
 ---
 
@@ -375,25 +426,41 @@ let score = 100;     // ← TDZ 끝 (선언문)
 console.log(score);  // 100
 ```
 
-> 주의: 같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 앞서 5번 항목에서 `score`를 이미 선언했다면, 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 앞서 5번 항목에서 <code>score</code>를 이미 선언했다면, 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
+</div>
 
 **🔢 TDZ 3단계**
 
-• **선언** — 스코프에 등록된다.<br>
-• 초기화 — 메모리 확보 + undefined 할당 (아직 값은 없다.)<br>
-• **할당** — 실제 값이 들어간다.
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">선언</div><div class="wda-fnode-dsc">스코프에 등록된다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">초기화</div><div class="wda-fnode-dsc">메모리 확보 + undefined 할당<br>아직 값은 없다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">할당</div><div class="wda-fnode-dsc">실제 값이 들어간다.</div></div>
+</div>
 
 **⚖️ var vs let/const 차이**
 
-• **var** — 선언 + 초기화 동시 → TDZ 없음<br>
-• **let / const** — 선언만 먼저 → 실행 시점까지 TDZ 유지
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">var</div>
+    선언 + 초기화 동시 → TDZ 없음
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">let / const</div>
+    선언만 먼저 → 실행 시점까지 TDZ 유지
+  </div>
+</div>
 
 **💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   • let/const는 <strong>코드가 실제로 읽히는 시점 이후</strong>에만 접근해야 한다.<br>
   • 선언 전에 접근하면 <strong>초기화 전 접근 오류</strong>가 발생한다.<br>
-  TDZ는 버그를 막기 위한 <strong>의도적인 안전장치</strong>다.<br>
+  • TDZ는 버그를 막기 위한 <strong>의도적인 안전장치</strong>다.<br>
   • "왜 안 되지?"가 아니라 "실수를 막아주고 있구나"라고 이해하면 된다.
 </div>
 
@@ -401,7 +468,7 @@ console.log(score);  // 100
 
 ## 10. 스코프: 전역 vs 지역
 
-<span>스코프는 <strong>변수에 접근할 수 있는 범위</strong>다.</span>
+스코프는 **변수에 접근할 수 있는 범위**다.
 
 **🌍 전역 스코프 (Global)**
 
@@ -419,7 +486,7 @@ console.log(globalVar);
 // 어디서든 접근 가능하다
 ```
 
-• 어디서든 접근 가능하다.
+어디서든 접근 가능하다.
 
 **📦 지역 스코프 (Local)**
 
@@ -437,7 +504,7 @@ console.log(localVar);
 // Error! 함수 밖에서는 접근 불가다
 ```
 
-• 선언된 범위 안에서만 접근 가능하다.
+선언된 범위 안에서만 접근 가능하다.
 
 **⚠️ 주의**
 
@@ -450,7 +517,7 @@ console.log(localVar);
 
 ## 11. 스코프: 블록 vs 함수
 
-<span>var와 let/const는 <strong>스코프 범위가 다르다</strong>.</span>
+var와 let/const는 **스코프 범위가 다르다**.
 
 **⚡ 함수 스코프 — var**
 
@@ -470,7 +537,7 @@ console.log(x);
 // Error! 함수 밖에서는 접근 불가다
 ```
 
-• var는 **함수 단위 스코프**를 가진다.
+var는 **함수 단위 스코프**를 가진다.
 
 **🔒 블록 스코프 — let / const**
 
@@ -490,7 +557,7 @@ console.log(y);
 // Error! 함수 밖 접근 불가다
 ```
 
-• let/const는 `{}` 단위로 스코프가 생성된다.
+let/const는 `{}` 단위로 스코프가 생성된다.
 
 **💡 보충 설명**
 
@@ -526,7 +593,11 @@ outer();
 • 가장 가까운 스코프부터 탐색한다.<br>
 • 없으면 상위 스코프로 계속 올라간다.
 
-> 주의: 같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  같은 콘솔에서 이미 선언한 let/const 변수명을 다시 사용하면 재선언 에러가 날 수 있습니다. 예제를 다시 실행할 때는 새로고침하거나 변수명을 바꿔보세요.
+</div>
 
 **🌑 섀도잉 (Shadowing)**
 
@@ -585,14 +656,14 @@ console.log(banana);
 
 좋은 변수명은 **코드를 문서처럼 만든다**.
 
+<div class="wda-substep-set">
+
 **📋 기본 규칙**
 
 • 문자, 숫자, `_`, `$` 사용 가능하다.<br>
 • 숫자로 시작할 수 없다.<br>
 • 예약어 사용 불가다 (let, const, if, for 등).<br>
 • 대소문자를 구분한다 (`name` ≠ `Name`).
-
----
 
 **🐪 camelCase 컨벤션**
 
@@ -611,6 +682,8 @@ let a =true;// 의미 없는 이름
 • 첫 단어는 소문자다.<br>
 • 이후 단어의 첫 글자는 대문자다.<br>
 • JavaScript 표준 컨벤션이다.
+
+</div>
 
 ---
 
@@ -686,7 +759,7 @@ let totalTax = price *TAX_RATE;
 // 세금 계산에 상수를 사용한다
 ```
 
-• **대문자 =** "이 값은 절대 바꾸지 마라"는 신호다.
+**대문자 =** "이 값은 절대 바꾸지 마라"는 신호다.
 
 **📅 언제 사용하나?**
 
@@ -792,46 +865,102 @@ console.log("제 나이는 " + myAge +"살입니다.");
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <thead>
-    <tr>
-      <th>구분</th>
-      <th>핵심 내용</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>변수 기본</strong></td>
-      <td>
-        • 변수는 <strong>데이터를 저장하는 이름(공간)</strong>이다.<br>
-        • 변수 생성 순서는 <strong>선언 → 초기화 → 할당</strong>이다.
-      </td>
-    </tr>
-    <tr>
-      <td><strong>선언 키워드</strong></td>
-      <td>
-        • <strong>var ❌</strong> 사용하지 않는다 (재선언·호이스팅 위험).<br>
-        • <strong>const ✅ 기본값</strong>으로 사용한다.<br>
-        • 값이 바뀌면 <strong>let</strong>을 사용한다.<br>
-        👉 <strong>공식:</strong> <code>const 먼저 → 안 되면 let</code>
-      </td>
-    </tr>
-    <tr>
-      <td><strong>스코프</strong></td>
-      <td>
-        • <strong>let / const → 블록 스코프 <code>{}</code></strong><br>
-        • <strong>var → 함수 스코프</strong><br>
-        • 스코프는 <strong>가장 가까운 곳부터 탐색</strong>한다 (스코프 체인).<br>
-        • 같은 이름이면 <strong>안쪽 변수가 우선</strong>된다 (섀도잉).
-      </td>
-    </tr>
-    <tr>
-      <td><strong>호이스팅 &amp; TDZ</strong></td>
-      <td>
-        • 호이스팅은 <strong>모든 선언에서 발생</strong>한다.<br>
-        • <strong>var</strong> → 선언 전 접근 시 <code>undefined</code><br>
-        • <strong>let / const</strong> → <strong>TDZ 때문에 선언 전 접근 불가 (에러)</strong>
-      </td>
-    </tr>
-  </tbody>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>변수는 <strong>데이터를 저장하는 이름(공간)</strong>이다.</li>
+    <li>변수 생성 순서는 <strong>선언 → 초기화 → 할당</strong>이다.</li>
+    <li><strong>var ❌</strong> 사용하지 않는다 (재선언·호이스팅 위험).</li>
+    <li><strong>const ✅ 기본값</strong>으로 사용한다.</li>
+    <li>값이 바뀌면 <strong>let</strong>을 사용한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: var도 블록 스코프다?</div>
+    <div class="wda-mistake-right">정답: let/const는 <strong>블록 스코프</strong>, var는 <strong>함수 스코프</strong>다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 스코프는 아무 데서나 찾을 수 있다?</div>
+    <div class="wda-mistake-right">정답: <strong>가장 가까운 스코프부터</strong> 차례로 탐색한다 (스코프 체인).</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 같은 이름이면 바깥쪽(전역) 변수가 우선된다?</div>
+    <div class="wda-mistake-right">정답: <strong>안쪽(가까운) 변수가 우선</strong>된다 (섀도잉).</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 호이스팅은 var에서만 발생한다?</div>
+    <div class="wda-mistake-right">정답: 호이스팅은 <strong>모든 선언에서 발생</strong>한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 선언 전에 접근하면 항상 에러가 난다?</div>
+    <div class="wda-mistake-right">정답: var는 <code>undefined</code>가 나오고, let/const만 <strong>TDZ 때문에 에러</strong>가 난다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 선언 키워드</div>
+    <div class="wda-formula-block-body">
+      <code>const 먼저 → 안 되면 let</code><br>
+      <code>var는 레거시</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 스코프</div>
+    <div class="wda-formula-block-body">
+      <code>let / const = 블록 스코프</code><br>
+      <code>var = 함수 스코프</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 선언 전 접근</div>
+    <div class="wda-formula-block-body">
+      <code>var = undefined</code><br>
+      <code>let / const = TDZ 에러</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">변수란?</div>
+    <div class="wda-flip-back">데이터를 저장한 위치에 붙이는 이름(공간)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">변수 생성 순서 3단계는?</div>
+    <div class="wda-flip-back">선언 → 초기화 → 할당 순서로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">const와 let은 언제 구분하나?</div>
+    <div class="wda-flip-back">기본은 const를 사용하고, 값이 바뀔 때만 let을 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">var를 피하는 이유는?</div>
+    <div class="wda-flip-back">재선언이 허용되고 호이스팅 위험이 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">TDZ란?</div>
+    <div class="wda-flip-back">let/const가 선언 전에 접근되지 않도록 막는 구간이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스코프 체인이란?</div>
+    <div class="wda-flip-back">변수를 찾을 때 가장 가까운 스코프부터 상위로 계속 탐색해 올라가는 과정이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">섀도잉이란?</div>
+    <div class="wda-flip-back">같은 이름의 변수가 있을 때 가장 안쪽(가까운) 스코프의 변수가 우선되는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">선언 전 접근 시 var와 let/const의 차이는?</div>
+    <div class="wda-flip-back">var는 undefined가 나오지만, let/const는 TDZ 때문에 에러가 발생한다.</div>
+  </div>
+</div>
