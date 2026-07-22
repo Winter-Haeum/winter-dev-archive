@@ -17,18 +17,20 @@ tags:
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cb{background:rgba(59,130,246,.035);border-color:rgba(59,130,246,.25)}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cy .wda-clabel{color:#92400e}
+.wda-cb .wda-clabel{color:#2563eb}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) SPA 개념 이해</strong> — MPA와 SPA의 차이를 이해하고, 부드러운 화면 전환의 원리를 학습합니다<br>
-  <strong>2) Router 설정</strong> — react-router-dom을 설치하고 초기 설정을 완료합니다<br>
-  <strong>3) 페이지 이동</strong> — Link 태그와 useNavigate 훅을 사용하여 페이지를 이동합니다<br>
-  <strong>4) 동적 라우팅</strong> — URL 파라미터를 통해 상세 페이지를 구현합니다
+  • <strong>SPA 개념 이해</strong> — MPA와 SPA의 차이를 이해하고, 부드러운 화면 전환의 원리를 학습합니다<br>
+  • <strong>Router 설정</strong> — react-router-dom을 설치하고 초기 설정을 완료합니다<br>
+  • <strong>페이지 이동</strong> — Link 태그와 useNavigate 훅을 사용하여 페이지를 이동합니다<br>
+  • <strong>동적 라우팅</strong> — URL 파라미터를 통해 상세 페이지를 구현합니다
 </div>
 
 ---
@@ -85,7 +87,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **💡 핵심 도구 : React Router**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>"React Router는 이 SPA 라우팅을 표준적으로 구현해주는 라이브러리입니다."</p>
   <p>쉽게 말해, 사용자가 주소창에 URL을 입력하거나 링크를 클릭했을 때,<br>
   서버에 새로 요청하지 않고 리액트가 알아서 화면만 샥- 바꿔주는 기능을 담당합니다.</p>
@@ -208,7 +210,7 @@ export default App;
 - **장점**: 새로고침 없이 필요한 부분만 부드럽게 렌더링됩니다. (깜빡임 없음!)
 - **용도**: 앱 내부에서 페이지를 이동할 때는 무조건 이것을 사용해야 합니다.
 
-### 3) 사용법 (Code)
+**📝 사용법 (Code)**
 
 `href` 대신 `to` 속성을 사용한다는 점만 기억하세요!
 
@@ -293,7 +295,7 @@ Link와 똑같지만, "현재 내가 이 경로에 있는지"를 알고 있습�
   isPending은 Data Router 기반 라우팅에서 이동이 진행 중일 때 활용할 수 있는 값입니다. 입문 단계에서는 현재 경로를 강조하는 isActive 사용법을 먼저 익히면 됩니다.</p>
 </div>
 
-### 2) 사용법 (Style 적용)
+**📝 사용법 (Style 적용)**
 
 조건부 스타일링을 통해 현재 사용자가 머물고 있는 페이지의 메뉴를 강조(Highlight)할 때 유용하게 사용할 수 있습니다.
 
@@ -432,7 +434,7 @@ export default LocationInfo;
 
 **실제 URL**: `/product/12345`
 
-### 2) useParams 사용법
+**📝 useParams 사용법**
 
 ```jsx
 import { useParams } from 'react-router-dom';
@@ -609,13 +611,13 @@ export default BackButton;
 
 <h2>12. 💻 실습 : 라우팅 체험</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - 상단 메뉴바(Link 역할)를 만듭니다.
 - 클릭 시 Route 영역의 내용이 바뀌는지 확인합니다.
 - 새로고침 없이 내용만 교체되는 SPA 경험하기
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cb">
   <p><strong>[체크 포인트]</strong></p>
   <ul>
     <li>브라우저 주소창의 URL이 바뀌나요? ( / ↔ /about )</li>
@@ -624,13 +626,13 @@ export default BackButton;
   </ul>
 </div>
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - 현재 경로: `/`
 - 메뉴바 형태: Home, About
 - 화면 출력: 메인 페이지 (환영합니다!)
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 **1. Provider 설정 (main.jsx)**
 
@@ -693,7 +695,7 @@ export default App;
 
 ---
 
-<h2>13. 🔑 핵심 정리</h2>
+<h2>13. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

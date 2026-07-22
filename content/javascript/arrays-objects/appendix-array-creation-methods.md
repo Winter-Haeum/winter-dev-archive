@@ -47,9 +47,7 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
-<div class="wda-callout wda-cy" style="position:relative;overflow:visible;">
-  📎 <strong>부록(Appendix)</strong> — <code>new Array()</code>, <code>Array.of()</code>, <code>Array.from()</code>의 차이를 정리하는 보충 가이드입니다.
-</div>
+📎 <strong>부록(Appendix)</strong> — <code>new Array()</code>, <code>Array.of()</code>, <code>Array.from()</code>의 차이를 정리하는 보충 가이드입니다.
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>1. new Array()의 함정</h2>
@@ -173,7 +171,7 @@ delete arr[0];
 
 ES6에서 도입된 `Array.of()` 는 인자의 개수나 타입에 상관없이 **무조건 요소로 취급**하여 배열을 만듭니다.
 
-### 1) 문법
+**📝 문법**
 
 ```jsx
 Array.of(items...);
@@ -247,7 +245,7 @@ console.log(chars);
 `Array.from()` 은 두 번째 인자로 **변환 함수(Mapping Function)**를 받을 수 있습니다.  
 `map()` 을 한 번 더 쓸 필요가 없죠!
 
-### 1) 문법
+**📝 문법**
 
 ```jsx
 Array.from(target, mapFn);
@@ -285,7 +283,7 @@ console.log(numbers);
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💡 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1) 배열 생성 도구별 특징 비교
@@ -349,9 +347,7 @@ const numbers = Array.from({ length: 5 }, (v, i) => i + 1);
 // 결과: [1, 2, 3, 4, 5]
 ```
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>🧐 <code>{ length: 5 }</code>가 왜 유사 배열인가요?</h3>
-</div>
+**🧐 `{ length: 5 }`가 왜 유사 배열인가요?**
 
 **💡 보충 설명**
 

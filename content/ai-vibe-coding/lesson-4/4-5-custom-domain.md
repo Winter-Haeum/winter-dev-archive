@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,14 +24,14 @@ status: "completed"
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -44,7 +44,7 @@ status: "completed"
 .wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-compare-ex{font-size:.76rem;font-family:monospace;background:rgba(128,128,128,.07);padding:4px 8px;border-radius:6px;margin-bottom:8px;word-break:break-all;line-height:1.5}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:2px}
@@ -79,10 +79,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
-  🌐 <strong>전문적인 포트폴리오</strong> — 개인 도메인으로 브랜드 이미지 향상<br>
-  🛠️ <strong>실무 DNS 설정</strong> — A레코드, CNAME 등 실제 도메인 관리 경험<br>
-  🔒 <strong>SSL 인증서 적용</strong> — HTTPS 보안 연결 자동 설정<br>
-  🆘 <strong>문제 해결 능력</strong> — 도메인 연결 시 발생하는 이슈 대응법
+  • <strong>전문적인 포트폴리오</strong> — 개인 도메인으로 브랜드 이미지 향상<br>
+  • <strong>실무 DNS 설정</strong> — A레코드, CNAME 등 실제 도메인 관리 경험<br>
+  • <strong>SSL 인증서 적용</strong> — HTTPS 보안 연결 자동 설정<br>
+  • <strong>문제 해결 능력</strong> — 도메인 연결 시 발생하는 이슈 대응법
 </div>
 
 ---

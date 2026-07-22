@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -128,7 +128,7 @@ export default App;
 
 <h2>2. 💻 실습 1 : 텍스트 변환기 (Transformer)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 **목표**
 
@@ -142,7 +142,7 @@ export default App;
 2. `{text.toUpperCase()}` 로 변환 출력
 3. 가장 기본적인 '제어 + 가공' 패턴
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - **입력**: "hello react"
 - **화면 출력**:
@@ -151,7 +151,7 @@ export default App;
 - **입력 (15자 초과)**: "hello react happy hacking"
     - 글자 수: **25 / 15자** (빨간색으로 변경됨)
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from "react";
@@ -236,19 +236,19 @@ export default function Transformer() {
 
 <h2>3. 💻 실습 2 : 메뉴 주문 (Option)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - `select`로 커피 메뉴를, `radio` 버튼으로 사이즈를 선택합니다.
 - 선택한 주문 내역을 하단에 표시하세요.
 
-### 2) 예제 코드 (데이터 구조)
+**📝 예제 코드 (데이터 구조)**
 
 ```javascript
 const [menu, setMenu] = useState('americano');
 const [size, setSize] = useState('tall');
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **[UI 구성]**
 
@@ -256,7 +256,7 @@ const [size, setSize] = useState('tall');
 - **사이즈:** ○ Tall ◉ Grande ○ Venti (Radio 버튼)
 - **주문 내역:** 카페라떼 / GRANDE
 
-<h3>4) 정답 코드</h3>
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -362,13 +362,13 @@ export default function MenuOrder() {
 
 <h2>4. 💻 실습 3 : 비밀번호 가드 (Validation)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - 비밀번호 입력 필드를 만듭니다.
 - 8글자 미만일 때 **빨간색 에러 메시지**를 띄우세요.
 - 8글자 이상이면 에러 메시지가 사라져야 합니다.
 
-### 2) 예제 코드 (힌트)
+**📝 예제 코드 (힌트)**
 
 ```jsx
 // 렌더링 부분
@@ -380,7 +380,7 @@ export default function MenuOrder() {
 )}
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **[UI 구성]**
 
@@ -388,7 +388,7 @@ export default function MenuOrder() {
 - **메시지:** 8자 이상 입력해주세요! (빨간색 텍스트 표시됨)
 - *(8자 이상 입력 시 메시지 사라짐)*
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -449,12 +449,12 @@ export default function PasswordGuard() {
 
 <h2>5. 💻 실습 4 : 로그인 처리 (Submit)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - `form` 태그로 감싸고 `onSubmit`을 처리하세요.
 - 제출 시 새로고침을 막고(`preventDefault`) 알림창을 띄우세요.
 
-### 2) 예제 코드 (중요 코드)
+**📝 예제 코드 (중요 코드)**
 
 ```jsx
 const handleSubmit = (e) => {
@@ -467,7 +467,7 @@ const handleSubmit = (e) => {
 </form>
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **[UI 구성]**
 
@@ -475,7 +475,7 @@ const handleSubmit = (e) => {
 - **[ 로그인 ]** (보라색 버튼)
 - *(버튼 클릭 시 "로그인 시도: 입력한이메일" 알림창 팝업)*
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';

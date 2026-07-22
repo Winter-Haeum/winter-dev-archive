@@ -54,9 +54,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>고통의 시나리오</strong> — 코드를 나누지 않았을 때 발생하는 끔찍한 문제들을 체험합니다.<br>
-  <strong>모듈 문법 (Import &amp; Export)</strong> — 공구함(Named)과 주인공(Default) 비유로 문법을 익힙니다.<br>
-  <strong>실전 나누기</strong> — 실제로 <code>main.js</code>를 쪼개서 정리하는 연습을 합니다.
+  • <strong>고통의 시나리오</strong> — 코드를 나누지 않았을 때 발생하는 끔찍한 문제들을 체험합니다.<br>
+  • <strong>모듈 문법 (Import &amp; Export)</strong> — 공구함(Named)과 주인공(Default) 비유로 문법을 익힙니다.<br>
+  • <strong>실전 나누기</strong> — 실제로 <code>main.js</code>를 쪼개서 정리하는 연습을 합니다.
 </div>
 
 ---
@@ -207,7 +207,7 @@ HTML 파일에서 스크립트를 불러올 때,
 
 마치 **공구함(Toolbox)**에 공구를 넣어두는 것처럼 외부에서 가져갈 수 있게 만드는 과정입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // tools.js 파일
@@ -227,7 +227,7 @@ const drill = '🔩';
 export { saw, drill };
 ```
 
-### 3) 문법 규칙
+**📝 문법 규칙**
 
 - **키워드:** `const`, `function`, `class` 앞에 **`export`**만 붙이면 됩니다.
   - 예: `export const 변수명 = 값;`
@@ -251,7 +251,7 @@ export { saw, drill };
 
 공구함(`tools.js`)에 들어있는 수많은 도구 중에서, 내가 지금 **필요한 것만 콕 집어서** 가져오는 과정입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // main.js
@@ -267,7 +267,7 @@ console.log(hammer); // '🔨'
 driver(); // '윙~'
 ```
 
-### 3) 🔑 문법 규칙 (절대 준수)
+**🔑 문법 규칙 (절대 준수)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -307,7 +307,7 @@ console.log(myHammer); // 이제부터는 myHammer라고 부르면 됨
 
 이름이 너무 길어서 부르기 힘들 때 **`as`** 키워드를 사용하여 **새로운 별명**을 붙여줄 수 있습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // main.js
@@ -325,9 +325,9 @@ console.log(myHammer); // '🔨'
 fixTool(); // '윙~' (driver 함수 실행)
 ```
 
-### 3) 문법 규칙
+**📝 문법 규칙**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>형식</strong> : <code>import { 원래이름 as 새이름 } from '경로';</code><br>
   <strong>제약</strong> : 별명을 짓고 나면 <strong>원래 이름</strong>은 해당 파일에서 더 이상 사용할 수 없습니다. (개명 신청과 비슷합니다.)
 </div>
@@ -385,7 +385,7 @@ import _______ from './math.js';
 
 여러 개를 담는 공구함과 달리, 이 파일에서 **가장 중요한 단 하나의 기능(주인공)**을 지정하여 내보내는 방식입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // User.js
@@ -400,9 +400,9 @@ class User {
 export default User;
 ```
 
-### 3) 문법 규칙
+**📝 문법 규칙**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>키워드</strong> : <code>export default</code>를 사용하여 값을 내보냅니다.<br>
   <strong>횟수 제한</strong> : 한 파일당 <strong>딱 1번만</strong> 사용할 수 있습니다. (주인공이 두 명일 수는 없으니까요!)<br>
   <strong>익명 가능</strong> : 변수명 없이 값(함수, 클래스 등)만 바로 내보낼 수도 있습니다.<br>
@@ -423,7 +423,7 @@ export default User;
 
 그냥 가져오면 그게 바로 주인공입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // main.js
@@ -438,7 +438,7 @@ import MySuperUser from './User.js';
 const u = new MySuperUser('Dami');
 ```
 
-### 3) 🔑 문법 규칙 (매우 중요)
+**🔑 문법 규칙 (매우 중요)**
 
 <div class="wda-callout wda-cw">
   1. <strong>중괄호 { } 금지</strong> : Default Export만 있는 파일에서 <code>import { User } from './User.js'</code>처럼 중괄호를 사용하면, 해당 이름의 Named Export가 없기 때문에 보통 모듈 로딩 단계에서 에러가 발생합니다. 주인공은 <strong>그냥</strong> 데려옵니다.<br>
@@ -527,7 +527,7 @@ import ______ from './User.js';
 
 **코드 실행 도중에 필요한 순간**에 모듈을 불러오는 방식입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```js
 // 버튼 클릭 시 로드 (이벤트 핸들러 앞에도 async 필수)
@@ -676,7 +676,7 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
 | **로딩 방식** | **주로 런타임에 `require()`로 동기 로딩**<br>(파일을 다 읽을 때까지 멈춤) | **정적 `import` 구조 기반**<br>(브라우저/번들러가 의존성을 미리 분석하고 로드) |
 | **특징** | Node.js의 옛날 방식 | 자바스크립트 **공식 표준** |
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   CommonJS는 주로 런타임에 <code>require()</code>로 동기 로딩하는 방식입니다.<br>
   ES Modules는 정적 <code>import</code> 구조를 기반으로 브라우저/번들러가 모듈 의존성을 미리 분석하고 로드할 수 있습니다.<br>
   단순히 "기다리지 않고 다음 일을 처리한다"는 의미의 비동기와는 구분해서 이해해야 합니다.
@@ -686,7 +686,7 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
 
 코드를 보면 모양이 확연히 다릅니다.
 
-**(1) CommonJS (구식)**
+**🆚 CommonJS (구식)**
 
 ```js
 // 내보내기
@@ -696,7 +696,7 @@ module.exports = { add };
 const { add } = require('./math');
 ```
 
-**(2) ES Modules (표준)**
+**🆚 ES Modules (표준)**
 
 ```js
 // 내보내기
@@ -783,7 +783,7 @@ import React, { useState, useEffect } from 'react';
 
 번들러는 코드를 포장할 때 다음과 같이 생각하며 불필요한 부품을 뺍니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "사용자가 tools.js에서 <strong>hammer(망치)</strong>만 가져갔네?<br>
   그럼 안 쓰는 <strong>saw(톱)</strong>는 최종 파일에서 빼버려야지! 용량을 줄여야 하니까."
 </div>
@@ -860,7 +860,7 @@ import React, { useState, useEffect } from 'react';
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리 (Summary)</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1) 모듈 시스템 총정리

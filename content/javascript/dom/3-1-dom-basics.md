@@ -67,10 +67,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🌳 <strong>DOM의 개념</strong> — Document Object Model이 무엇인지 이해하게 됩니다.<br>
-  🔗 <strong>노드와 트리 구조</strong> — 노드 타입과 부모-자식-형제 관계를 파악합니다.<br>
-  📄 <strong>document 객체</strong> — DOM의 진입점인 document 객체를 활용합니다.<br>
-  🖥️ <strong>렌더링 과정</strong> — 브라우저가 HTML을 화면에 그리는 과정을 이해합니다.
+  • <strong>DOM의 개념</strong> — Document Object Model이 무엇인지 이해하게 됩니다.<br>
+  • <strong>노드와 트리 구조</strong> — 노드 타입과 부모-자식-형제 관계를 파악합니다.<br>
+  • <strong>document 객체</strong> — DOM의 진입점인 document 객체를 활용합니다.<br>
+  • <strong>렌더링 과정</strong> — 브라우저가 HTML을 화면에 그리는 과정을 이해합니다.
 </div>
 
 ---
@@ -813,7 +813,7 @@ DOM 메서드에 따라 반환되는 컬렉션 타입이 다르며, 동작 방�
 | **메서드** | `getElementsByClassName` | 특정 클래스를 가진 모든 요소를 실시간으로 관리합니다. |
 | **속성** | `children` | 부모 요소의 자식 요소들을 실시간으로 관리합니다. |
 
-### 2) 예시 코드 (동작 방식)
+**🧪 예시 코드 (동작 방식)**
 
 ```jsx
 const divs = document.getElementsByTagName("div");
@@ -862,7 +862,7 @@ console.log(divs.length); // 4
 | --- | --- | --- | --- |
 | **메서드** | **`querySelectorAll`** | CSS 선택자로 요소를 찾고 그 시점의 목록을 고정하여 반환합니다. | **NodeList (Static)** |
 
-### 3) 예시 코드 (불변성 확인)
+**🧪 예시 코드 (불변성 확인)**
 
 ```jsx
 const divs = document.querySelectorAll("div");
@@ -904,7 +904,7 @@ console.log(divs.length); // 3 (여전히)
 | **요소 개수 추적** | 새로운 요소가 추가/삭제되는 것을 별도 코드 없이 즉시 반영받고 싶을 때 사용합니다. | 다시 조회하지 않아도 `length`가 최신화됩니다. |
 | **전통적 DOM API** | `document.forms`, `document.images` 등은 대표적인 Live Collection입니다. | 폼 요소나 이미지 리스트 관리에 여전히 쓰입니다. |
 
-### 2) 활용 예시 코드
+**🧪 활용 예시 코드**
 
 ```jsx
 // 자식 요소들(children)은 Live Collection
@@ -975,7 +975,7 @@ const newItems = document.querySelectorAll(".item");
 
 ---
 
-## 📋 DOM 핵심 질문 정리
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <thead>

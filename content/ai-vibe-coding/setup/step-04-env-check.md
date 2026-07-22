@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,7 +25,7 @@ status: "completed"
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -33,7 +33,7 @@ status: "completed"
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -66,7 +66,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>📁 <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>🤖 <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
+  setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>
+  • <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>
+  • <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
 </div>
 
 ---
@@ -258,7 +260,7 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 
 ---
 
-## 📝 핵심 정리
+## ✅ 핵심 요약
 
 ### 4. 예상 결과
 

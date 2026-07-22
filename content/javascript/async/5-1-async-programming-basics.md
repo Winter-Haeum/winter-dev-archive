@@ -54,10 +54,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>동기와 비동기</strong> — 시간을 다루는 두 가지 방식의 결정적 차이를 이해합니다.<br>
-  <strong>이벤트 루프</strong> — 싱글 스레드 JavaScript가 멀티태스킹을 하는 비밀을 파헤칩니다.<br>
-  <strong>마이크로/매크로 태스크</strong> — 비동기 작업의 우선순위와 실행 순서를 완벽하게 예측합니다.<br>
-  <strong>콜백과 타이머</strong> — setTimeout과 콜백 패턴으로 비동기 코드를 직접 작성해봅니다.
+  • <strong>동기와 비동기</strong> — 시간을 다루는 두 가지 방식의 결정적 차이를 이해합니다.<br>
+  • <strong>이벤트 루프</strong> — 싱글 스레드 JavaScript가 멀티태스킹을 하는 비밀을 파헤칩니다.<br>
+  • <strong>마이크로/매크로 태스크</strong> — 비동기 작업의 우선순위와 실행 순서를 완벽하게 예측합니다.<br>
+  • <strong>콜백과 타이머</strong> — setTimeout과 콜백 패턴으로 비동기 코드를 직접 작성해봅니다.
 </div>
 
 ---
@@ -170,7 +170,7 @@ console.log('2. 자리 가서 노트북 켜기');
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   1 -&gt; 2 -&gt; (3초 후) 3. 숫자 순서가 아니라 완료 순서!
 </div>
 
@@ -274,7 +274,7 @@ second(); // 스택에 push -> 실행 -> pop
   </div>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 순서대로 실행되지 않는 비동기의 특징을 확인해보세요.
 
@@ -290,11 +290,11 @@ setTimeout(() => {
 console.log('3. 끝');
 ```
 
-### 3) 실행 결과
+**✅ 실행 결과**
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   1. 시작 → 3. 끝 → 2. 3초 지남! ⏰ (3초 후 등장)
 </div>
 
@@ -324,7 +324,7 @@ console.log('3. 끝');
   </div>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 1초마다 카운트가 올라가고, 3초가 되면 멈추는 코드입니다.
 
@@ -344,11 +344,11 @@ const timerId = setInterval(() => {
 }, 1000); // 1초마다 실행
 ```
 
-### 3) 실행 결과
+**✅ 실행 결과**
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   1초 지남... → 2초 지남... → 3초 지남... → 타이머 종료
 </div>
 
@@ -377,13 +377,13 @@ const timerId = setInterval(() => {
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   싱글 스레드인데 어떻게 비동기가 가능한 거죠? 💭
 </div>
 
 ### 2) 💡 비밀은...
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   JS 엔진 (코드 실행) + 브라우저 (비동기 처리) + 이벤트 루프 (조율)
 </div>
 
@@ -486,7 +486,7 @@ console.log('3. 끝');     // 즉시 실행
 - `queueMicrotask(): 직접 만든 VIP 작업`
 - `MutationObserver: DOM 감지`
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   ⭐ 우선순위: VIP (매우 높음). 일반 대기열(매크로)보다 무조건 먼저 실행!
 </div>
 
@@ -496,13 +496,13 @@ console.log('3. 끝');     // 즉시 실행
 - `이벤트 핸들러 (click 등)`
 - `I/O 작업`
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   우선순위: 낮음. 마이크로 다 끝난 후 처리
 </div>
 
 ### 2) 실행 순서
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   ➜ 실행 순서: 콜 스택 ➜ 마이크로태스크 전부 ➜ 매크로태스크 1개 ➜ 반복
 </div>
 
@@ -528,7 +528,7 @@ console.log('3. 끝');     // 즉시 실행
   <h2>❓ 연습문제</h2>
 </div>
 
-### 1) 📝 풀어보세요! (Quiz)
+**📝 풀어보세요! (Quiz)**
 
 다음 코드를 실행했을 때, 콘솔에 출력되는 순서를 맞춰보세요.
 
@@ -547,7 +547,7 @@ Promise.resolve()
 console.log('4');
 ```
 
-### 2) ✅ 정답 : 1, 4, 3, 2
+**✅ 정답 : 1, 4, 3, 2**
 
 | **순서** | **출력** | **이유** |
 | --- | --- | --- |
@@ -556,7 +556,7 @@ console.log('4');
 | **3** | **3** | **마이크로태스크** (Promise는 setTimeout보다 우선!) |
 | **4** | **2** | **매크로태스크** (모든 작업이 끝나고 마지막 실행) |
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   💡 "약속해(Promise) 주세요, Timeout보다 먼저! 이게 잘 작동합니다."
 </div>
 
@@ -593,7 +593,7 @@ const timerId = setTimeout(() => {
 clearTimeout(timerId);
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   🕒 한 번만 실행
 </div>
 
@@ -616,7 +616,7 @@ const intervalId = setInterval(() => {
 }, 1000);
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   🔁 주기적 반복 실행
 </div>
 
@@ -737,7 +737,7 @@ console.log('데이터 요청 완료!');
 
 ### 2) ƒ 콜백이란?
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "나중에 불러줘" = Call Back. 작업 완료 시 호출되는 함수
 </div>
 
@@ -761,9 +761,7 @@ console.log('데이터 요청 완료!');
 
 **💡 보충 설명 - 콜백 패턴의 탄생 배경과 원리**
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>1) 탄생 이유와 해결책</h3>
-</div>
+### 1) 탄생 이유와 해결책
 
 왜 `return`을 못 쓰고 콜백을 써야 하는지, 그 필연적인 이유입니다.
 
@@ -826,7 +824,7 @@ fetchUser(1, (error, user) => {
 
 ### 2) ❗️ 왜 에러가 첫 번째 매개변수?
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   에러 처리를 강제하기 위해. 첫 번째 인자를 무시하기 어려움
 </div>
 
@@ -929,7 +927,7 @@ try {
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   🕒 시간의 흐름 (Timeline)<br>
   <strong>Now</strong> : try 블록 실행 ➔ setTimeout 예약 ➔ try 종료 (감시 끝!) 👋<br>
   ⬇️ (이후 1초 경과)<br>
@@ -980,7 +978,7 @@ setTimeout(() => {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 요약 : 비동기 완전 정복 (5대 요소)</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1) 핵심 요소별 상세 비교표

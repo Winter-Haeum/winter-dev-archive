@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -54,9 +54,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 개념과 필요성</strong> — 반복되는 로직을 함수로 추출하여 재사용성을 높이는 원리를 이해합니다<br>
-  <strong>2) use 접두사 규칙</strong> — 리액트가 Hook을 인식하도록 돕는 명명 규칙(Convention)을 익힙니다<br>
-  <strong>3) 로직 추출 실습</strong> — 실제 컴포넌트에서 중복되는 코드를 찾아 Custom Hook으로 분리해봅니다
+  • <strong>개념과 필요성</strong> — 반복되는 로직을 함수로 추출하여 재사용성을 높이는 원리를 이해합니다<br>
+  • <strong>use 접두사 규칙</strong> — 리액트가 Hook을 인식하도록 돕는 명명 규칙(Convention)을 익힙니다<br>
+  • <strong>로직 추출 실습</strong> — 실제 컴포넌트에서 중복되는 코드를 찾아 Custom Hook으로 분리해봅니다
 </div>
 
 ---
@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 1) 정의 (Definition)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>"이름이 use로 시작하는 자바스크립트 함수입니다."</strong></p>
   <p>단순한 함수가 아니라, <strong>내부에서 다른 Hook(useState, useEffect 등)을 호출</strong>하여 상태 관련 로직(Stateful Logic)을 재사용 가능한 형태로 추출해 낸 리액트의 고유 패턴입니다.</p>
 </div>
@@ -79,7 +79,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 3) 공식 (Formula)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>use로 시작하는 함수</strong> + <strong>다른 Hook 사용</strong> = <strong>Custom Hook</strong></p>
 </div>
 
@@ -164,11 +164,11 @@ const email = useInput("");
 
 ### 1) 구조 흐름 (Flow)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>use로 시작</strong> 👉 <strong>내부에서 Hook 사용</strong> 👉 <strong>값/함수 반환</strong></p>
 </div>
 
-### 2) 예제 코드 (Template)
+**📝 예제 코드 (Template)**
 
 보통 `src/hooks` 폴더 안에 파일을 따로 만들어 관리합니다.
 
@@ -222,7 +222,7 @@ export default useXxx;
 **"켰다 껐다 하는 모든 곳에!"**
 모달(Modal), 체크박스, 아코디언 메뉴, 사이드바 등 **ON/OFF(Boolean) 상태**가 필요한 모든 곳에 사용합니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 ```jsx
 // hooks/useToggle.js
@@ -292,7 +292,7 @@ export default DarkModeToggle;
 
 <h2>5. 분석 : useInput</h2>
 
-### 1) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 `e.target.value`를 업데이트하는 로직을 미리 만들어둡니다.
 
@@ -435,7 +435,7 @@ const { reset, setValue, ...inputProps } = useInput("");
 **"화면 크기를 실시간으로 알고 싶어요."**
 반응형 레이아웃을 구현하거나, HTML5 Canvas처럼 창 크기에 맞춰 다시 그려야 하는 요소가 있을 때 사용합니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 `window.innerWidth`와 `window.innerHeight`를 상태로 관리합니다.
 
@@ -503,7 +503,7 @@ export default useWindowSize;
 **"로딩 중, 에러, 데이터를 한 번에 관리하고 싶어요."**
 서버에서 데이터를 가져올 때는 항상 3가지 상태(**로딩 중, 성공 시 데이터, 에러**)를 관리해야 합니다. 컴포넌트마다 이 로직을 매번 짜는 대신, `useFetch` 하나로 통합하여 관리합니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 ```jsx
 // hooks/useFetch.js
@@ -593,7 +593,7 @@ function UserList() {
 **"비동기 통신의 정석 패턴"**
 서버에서 데이터를 가져와야 하는데, 매번 `useEffect`와 `fetch`를 반복해서 작성하기 귀찮을 때 사용합니다. `async/await` 문법을 사용하여 가독성을 높이고 에러 처리를 강화한 버전입니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 `useEffect` 안에서는 `async`를 직접 쓸 수 없기 때문에, **내부에 함수를 만들고 즉시 호출**하는 패턴을 사용해야 합니다.
 
@@ -690,7 +690,7 @@ useEffect(() => {
 
 ### 5) 실무 팁
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>"이걸 더 편하게 해주는 라이브러리가 있나요?"</strong></p>
   <p>실무에서는 이 <code>useFetch</code>를 직접 구현해서 쓰기보다는, <strong>React Query (TanStack Query)</strong> 같은 라이브러리를 주로 사용합니다.<br>우리가 만든 훅보다 훨씬 강력한 기능(캐싱, 자동 재시도, 윈도우 포커스 시 갱신 등)을 제공하기 때문입니다.<br>하지만 Custom Hook의 원리를 이해하기 위해 이 패턴을 아는 것은 매우 중요합니다.</p>
 </div>
@@ -704,7 +704,7 @@ useEffect(() => {
 **"새로고침해도 데이터가 살아있어요."**
 브라우저의 `localStorage`를 사용하여 상태를 저장합니다. 테마 설정(다크 모드), 로그인 아이디 기억하기 등 **사용자의 설정을 유지**할 때 필수적으로 사용됩니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 이 코드의 핵심은 `useState` 초기값에 **함수**를 전달하는 **'지연 초기화(Lazy Initialization)'** 기법입니다.
 
@@ -866,7 +866,7 @@ const { data: userB } = useFetch('/api/B');
 **"Hook 안에서 Hook 호출하기"**
 Custom Hook의 가장 강력한 점은 **다른 Hook들을 조합**할 수 있다는 것입니다. 마치 **레고 블록**처럼 작은 Hook(`useState`, `useFetch`)들을 모아 더 큰 기능(`useUser`)을 만듭니다.
 
-### 2) 예제 코드 (Combination)
+**📝 예제 코드 (Combination)**
 
 `useFetch`가 데이터를 가져오면, `useUser`가 그 데이터를 가공해서 관리하는 구조입니다.
 
@@ -998,7 +998,7 @@ function useUser(userId) {
 
 ---
 
-<h2>14. 🔑 핵심 정리</h2>
+<h2>14. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

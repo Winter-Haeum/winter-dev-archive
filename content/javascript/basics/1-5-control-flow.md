@@ -15,19 +15,17 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.71rem;line-height:1.6;opacity:.75}
+.wda-fcard-list{list-style:none;padding:0;margin:.4rem 0 0;font-size:.89rem;line-height:1.65}
 .wda-fcard-list li::before{content:"· "}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
@@ -36,27 +34,38 @@ tags:
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  📌 <strong>조건문</strong> — if, switch, 삼항 연산자로 분기 처리를 구현합니다.<br>
-  🔁 <strong>반복문</strong> — for, while, do-while로 반복 작업을 수행합니다.<br>
-  🔍 <strong>반복문 심화</strong> — for...in, for...of의 차이를 구분하고 활용합니다.<br>
-  🎯 <strong>흐름 제어</strong> — break, continue로 반복을 제어합니다.
+  • <strong>조건문</strong> — if, switch, 삼항 연산자로 분기 처리를 구현합니다.<br>
+  • <strong>반복문</strong> — for, while, do-while로 반복 작업을 수행합니다.<br>
+  • <strong>반복문 심화</strong> — for...in, for...of의 차이를 구분하고 활용합니다.<br>
+  • <strong>흐름 제어</strong> — break, continue로 반복을 제어합니다.
 </div>
 
 ---
@@ -65,9 +74,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **정의**: 코드의 실행 흐름(순서)을 개발자가 의도한 대로 제어하는 문장입니다.
 
-개념 정리
+**📌 개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   프로그래밍의 모든 코드는 기본적으로 <strong>위에서 아래로</strong> 실행됩니다. 제어문은 이 흐름을 <strong>분기</strong>하거나 <strong>반복</strong>시키는 역할을 합니다.
 </div>
 
@@ -91,7 +100,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-**1) 순차 (Sequence)** — 위에서 아래로 한 줄씩 실행 (기본값)
+**📌 순차 (Sequence)**
+
+위에서 아래로 한 줄씩 실행 (기본값)
 
 ```jsx
 let a = 1;
@@ -100,7 +111,9 @@ let c = a + b;
 // 막힘없이 순서대로 쭉 실행됨
 ```
 
-**2) 분기 (Branch)** — 조건에 따라 다른 경로로 이동
+**📌 분기 (Branch)**
+
+조건에 따라 다른 경로로 이동
 
 ```jsx
 if (score >= 60) {
@@ -110,7 +123,9 @@ if (score >= 60) {
 }
 ```
 
-**3) 반복 (Loop)** — 같은 코드를 여러 번 실행
+**📌 반복 (Loop)**
+
+같은 코드를 여러 번 실행
 
 ```jsx
 for (let i = 0; i < 5; i++) {
@@ -125,7 +140,7 @@ for (let i = 0; i < 5; i++) {
 
 조건이 **참(True)**일 때만 특정 코드를 실행하도록 흐름을 제어하는 가장 기본적인 조건문입니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 조건문은 위에서부터 아래로 순서대로 검사하며 내려옵니다.
 
@@ -145,7 +160,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-**2) 기본 문법 (Syntax)**
+**📝 기본 문법 (Syntax)**
 
 조건에 따라 서로 다른 등급을 매기는 예제입니다.
 
@@ -166,7 +181,7 @@ if (score >= 90) {
 // 결과: "B등급"
 ```
 
-**3) ⚠️ 조건식 작성 요령 (Best Practices)**
+**⚠️ 조건식 작성 요령 (Best Practices)**
 
 깔끔하고 명확한 코드를 위해 지켜야 할 관례입니다.
 
@@ -190,7 +205,7 @@ if (score >= 90) {
 
 ## 💻 실습 : 성적 판별기
 
-**1) 미션 목표 (Mission)**
+**🎯 미션 목표 (Mission)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -211,7 +226,7 @@ if (score >= 90) {
   </div>
 </div>
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `score`가 65점일 때의 실행 예시입니다.
 
@@ -230,9 +245,7 @@ if (score >= 90) {
 }
 ```
 
-**3) 실행 결과 및 해석**
-
-**💡 보충 설명**
+**✅ 실행 결과 및 해석**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"재수강"</code> 출력<br>
@@ -247,7 +260,7 @@ if (score >= 90) {
 
 하나의 변수(값)를 여러 개의 케이스(case)와 비교하여, 딱 맞는 경우를 찾아 실행하는 분기문입니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 특정 **값(Value)**에 딱 맞는 라벨(case)로 점프하는 방식입니다.
 
@@ -269,7 +282,7 @@ if (score >= 90) {
 }
 ```
 
-**2) 기본 문법 (Syntax)**
+**📝 기본 문법 (Syntax)**
 
 요일 번호에 따라 요일명을 출력하는 예제입니다.
 
@@ -293,7 +306,7 @@ switch (day) {
 // 결과: "수요일"
 ```
 
-**3) ⚠️ 핵심 주의사항: break와 Fall-through**
+**⚠️ 핵심 주의사항: break와 Fall-through**
 
 `break`가 없으면 멈추지 않고 다음 케이스까지 뚫고 지나가는 현상(**Fall-through**)이 발생합니다.
 
@@ -329,7 +342,7 @@ Fall-through 활용: 위 예시처럼 A와 B를 묶어서 처리하고 싶을 �
 
 ## 💻 실습 : 요일별 코디
 
-**1) 미션: 오늘의 옷차림 (Mission)**
+**🎯 미션: 오늘의 옷차림 (Mission)**
 
 날씨에 맞춰 준비물을 챙기는 로직을 작성하세요.
 
@@ -338,7 +351,7 @@ Fall-through 활용: 위 예시처럼 A와 B를 묶어서 처리하고 싶을 �
 3. `"비"`면 `"우산"`을 출력합니다.
 4. 그 외(**기타**)의 경우에는 `"그냥 나가"`를 출력합니다.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `weather`가 "비"일 때의 작성 예시입니다.
 
@@ -358,9 +371,7 @@ switch (weather) {
 }
 ```
 
-**3) 실행 결과 및 해석**
-
-**💡 보충 설명**
+**✅ 실행 결과 및 해석**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"우산"</code> 출력<br>
@@ -369,7 +380,7 @@ switch (weather) {
 
 **✅ 실습 포인트**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-cw">
   • <strong>Default의 역할</strong>: <code>if</code> 문의 <code>else</code>처럼, 어떤 케이스에도 해당하지 않을 때 실행되는 기본 경로입니다.<br>
   • <strong>Break 누락 주의</strong>: 만약 <code>case "비"</code>에 <code>break</code>를 안 쓰면, <code>"그냥 나가"</code>까지 같이 출력되는 참사가 일어납니다.
 </div>
@@ -380,7 +391,7 @@ switch (weather) {
 
 간단한 양자택일(true/false) 상황을 한 줄로 깔끔하게 처리하는 연산자입니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 조건에 따라 왼쪽(참) 혹은 오른쪽(거짓) 값 중 하나를 선택합니다.
 
@@ -392,7 +403,7 @@ switch (weather) {
 const ageStatus = (age >= 18) ? "성인" : "미성년자";
 ```
 
-**2) if 문과 비교 (Why Use It?)**
+**🆚 if 문과 비교 (Why Use It?)**
 
 코드를 획기적으로 줄여주어 가독성을 높입니다.
 
@@ -411,7 +422,7 @@ if (age >= 18) {
 let status2 = age >= 18 ? "성인" : "미성년자";
 ```
 
-**3) 실무 활용 패턴 (Best Practices)**
+**💼 실무 활용 패턴 (Best Practices)**
 
 프론트엔드 개발(React, Vue 등)에서 조건부 렌더링을 할 때 필수적으로 사용됩니다.
 
@@ -423,7 +434,7 @@ let message = isLoggedIn ? "환영합니다!" : "로그인해주세요";
 let name = inputName ? inputName : "익명";
 ```
 
-**4) ⚠️ 주의사항: 중첩 금지**
+**⚠️ 주의사항: 중첩 금지**
 
 삼항 연산자를 여러 번 겹쳐 쓰면(중첩) 코드를 읽기가 매우 어려워집니다.
 
@@ -435,7 +446,7 @@ let grade = score >= 90 ? "A"
           : score >= 70 ? "C" : "D";
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   • "단순한 조건은 한 줄로!" — <code>조건 ? 참 : 거짓</code> 형태를 기억하세요.<br>
@@ -446,7 +457,7 @@ let grade = score >= 90 ? "A"
 
 ## 💻 실습 : 짝수 홀수 판별
 
-**1) 미션: 홀짝 게임 (Mission)**
+**🎯 미션: 홀짝 게임 (Mission)**
 
 숫자를 판별하여 결과를 출력하는 로직을 작성하세요.
 
@@ -455,7 +466,7 @@ let grade = score >= 90 ? "A"
 3. 숫자가 **홀수**면 `"홀수"`를 저장합니다.
 4. **힌트**: 짝수는 2로 나눴을 때 나머지가 0입니다. (`number % 2 === 0`)
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `number`가 7일 때의 작성 예시입니다.
 
@@ -468,9 +479,7 @@ let result = number % 2 === 0 ? "짝수" : "홀수";
 console.log(result);
 ```
 
-**3) 실행 결과 및 해석**
-
-**💡 보충 설명**
+**✅ 실행 결과 및 해석**
 
 <div class="wda-callout wda-ci">
   • <strong>결과</strong>: <code>"홀수"</code> 출력<br>
@@ -491,7 +500,7 @@ console.log(result);
 
 가장 많이 쓰이는 반복문으로, 반복 횟수가 정해져 있을 때 주로 사용합니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 **시작점, 조건, 증감**이 한 줄에 모두 모여 있어 흐름을 파악하기 좋습니다.
 
@@ -503,7 +512,7 @@ console.log(result);
 }
 ```
 
-**2) 기본 문법 (Basic Count)**
+**📝 기본 문법 (Basic Count)**
 
 가장 기초적인 카운트 예제입니다.
 
@@ -515,7 +524,7 @@ for (let i = 0; i < 5; i++) {
 // 출력: 0, 1, 2, 3, 4
 ```
 
-**3) 실행 순서 (매우 중요)**
+**📍 실행 순서 (매우 중요)**
 
 위 코드의 작동 순서입니다. **1번은 처음에 딱 한 번만 실행된다**는 점을 꼭 기억하세요.
 
@@ -557,9 +566,9 @@ for (let i = 0; i < 5; i++) {
   </div>
 </div>
 
-**4) 다양한 활용 예시**
+**🧪 다양한 활용 예시**
 
-**① 배열 순회 (인덱스 필요할 때)**
+**🧪 배열 순회 (인덱스 필요할 때)**
 
 ```jsx
 let fruits = ["사과", "바나나", "포도"];
@@ -570,7 +579,7 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
-**② 누적 합 구하기**
+**🧪 누적 합 구하기**
 
 ```jsx
 // 1부터 100까지 더하기
@@ -581,7 +590,7 @@ for (let i = 1; i <= 100; i++) {
 console.log(sum); // 5050
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   • <strong>한 줄 요약</strong>: <code>초기화</code> → <code>조건</code> → <code>실행</code> → <code>증감</code> 순으로 뱅글뱅글 돕니다.<br>
@@ -592,13 +601,13 @@ console.log(sum); // 5050
 
 ## 💻 실습 : 구구단 2단 만들기
 
-**1) 미션: 2단 출력 (Mission)**
+**🎯 미션: 2단 출력 (Mission)**
 
 1. **반복 구간 설정**: 1부터 9까지 숫자가 변하도록 `for` 문을 작성하세요.
 2. **출력 포맷**: `console.log`와 템플릿 리터럴을 사용하여 **"2 x 숫자 = 결과"** 형식으로 출력하세요.
 3. **힌트**: 계산식은 `2 * i` 입니다.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `i`가 1부터 9까지 1씩 증가하는 것이 핵심입니다.
 
@@ -610,7 +619,7 @@ for (let i = 1; i <= 9; i++) {
 }
 ```
 
-**3) 실행 결과**
+**✅ 실행 결과**
 
 ```jsx
 2 x 1 = 2
@@ -633,7 +642,7 @@ for (let i = 1; i <= 9; i++) {
 
 객체가 가진 **열쇠(Key)**를 하나씩 꺼내서 순회할 때 사용하는, **객체 전용** 반복문입니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 객체 꾸러미 안에서 속성 이름(Key)을 하나씩 뽑아내는 방식입니다.
 
@@ -645,7 +654,7 @@ for (let i = 1; i <= 9; i++) {
 }
 ```
 
-**2) 기본 문법 (Syntax)**
+**📝 기본 문법 (Syntax)**
 
 `key` 변수에는 속성 이름("name", "age" 등)이 들어오며, 값은 `객체[key]`로 접근합니다.
 
@@ -664,7 +673,7 @@ for (let key in user) {
 }
 ```
 
-**3) ⚠️ 배열에는 사용 금지 (비권장)**
+**⚠️ 배열에는 사용 금지 (비권장)**
 
 배열도 객체의 일종이라 `for...in`이 동작은 하지만, 치명적인 단점이 있어 실무에서는 절대 사용하지 않습니다.
 
@@ -690,7 +699,7 @@ for (let index in arr) {
   배열에는 <strong><code>for...of</code></strong>나 일반 <code>for</code> 문을 사용하세요.
 </div>
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <strong>"객체에는 in, 배열에는 of"</strong><br>
@@ -702,13 +711,13 @@ for (let index in arr) {
 
 ## 💻 실습 : 내 정보 출력 (Object Loop)
 
-**1) 미션: 자기소개 (Mission)**
+**🎯 미션: 자기소개 (Mission)**
 
 1. **객체 생성**: `me`라는 변수에 본인의 정보(이름, 나이, 거주지 등)를 담은 객체를 만드세요.
 2. **순회**: `for...in` 문을 사용하여 객체 안의 모든 속성을 훑으세요.
 3. **출력**: 템플릿 리터럴을 활용하여 `"Key: Value"` 형태(예: `name: 철수`)로 출력하세요.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 핵심은 `me[key]`로 값에 접근하는 것입니다.
 
@@ -726,7 +735,7 @@ for (let key in me) {
 }
 ```
 
-**3) 실행 결과**
+**✅ 실행 결과**
 
 ```jsx
 name: 철수
@@ -747,7 +756,7 @@ city: 서울
 
 **배열, 문자열, Map, Set처럼 순회 가능한 값(iterable)**에 들어있는 **실제 값(내용물)**을 하나씩 꺼내 쓸 때 사용하는 반복문입니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 복잡한 인덱스(`i`, `i++`) 신경 쓸 필요 없이, 그냥 보따리 안의 내용물을 순서대로 하나씩 꺼냅니다.
 
@@ -759,7 +768,7 @@ city: 서울
 }
 ```
 
-**2) 기본 문법 (Syntax)**
+**📝 기본 문법 (Syntax)**
 
 배열 안의 값을 직접 변수에 담아줍니다.
 
@@ -777,7 +786,7 @@ for (let item of fruits) {
 // 포도
 ```
 
-**3) 반복문 3대장**
+**🆚 반복문 3대장**
 
 | **구분** | **for...of (추천 👍)** | **for...in** | **기본 for 문** |
 | --- | --- | --- | --- |
@@ -798,13 +807,13 @@ for (let item of fruits) {
 
 ## 💻 실습 : 장바구니 목록
 
-**1) 미션: 쇼핑 리스트 (Mission)**
+**🎯 미션: 쇼핑 리스트 (Mission)**
 
 1. **배열 생성**: `cart`라는 변수에 사고 싶은 물건 3개(문자열)를 담으세요.
 2. **순회**: `for...of` 문을 사용하여 장바구니 안의 모든 물건을 훑으세요.
 3. **출력**: 템플릿 리터럴을 활용하여 `"장바구니: 물건이름"` 형식으로 출력하세요.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `item` 변수에 배열 안의 내용물이 하나씩 순서대로 들어옵니다.
 
@@ -819,7 +828,7 @@ for (let item of cart) {
 }
 ```
 
-**3) 실행 결과**
+**✅ 실행 결과**
 
 ```jsx
 장바구니: 사과
@@ -838,7 +847,7 @@ for (let item of cart) {
 
 ## 🏟️ for...in vs for...of (완벽 비교)
 
-**1) 한눈에 보는 차이점 (Comparison)**
+**🆚 한눈에 보는 차이점 (Comparison)**
 
 | **구분** | **for...in** | **for...of** |
 | --- | --- | --- |
@@ -846,9 +855,9 @@ for (let item of cart) {
 | **반환값** | **Key (속성 이름)** | **Value (실제 값)** |
 | **비유** | "명단에서 이름(Key) 부르기" | "상자에서 물건(Value) 꺼내기" |
 
-**2) 코드 예시로 확인하기**
+**🧪 코드 예시로 확인하기**
 
-**① for...in (객체 → Key 순회)**
+**📌 for...in (객체 → Key 순회)**
 
 ```jsx
 let obj = { a: 1, b: 2, c: 3 };
@@ -864,7 +873,7 @@ for (let index in arr) {
 }
 ```
 
-**② for...of (배열 → Value 순회)**
+**📌 for...of (배열 → Value 순회)**
 
 ```jsx
 let arr = [10, 20, 30];
@@ -880,9 +889,9 @@ for (let value of obj) {
 }
 ```
 
-초압축 암기법
+**🧠 초압축 암기법**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   헷갈릴 땐 단어의 스펠링을 보세요.<br>
   • <strong>for...in</strong> = key <strong>in</strong> object (객체 안의 key를 꺼낸다)<br>
   • <strong>for...of</strong> = <strong>"Of the Array" (배열의)</strong>라고 기억하면 쉽습니다.
@@ -894,7 +903,7 @@ for (let value of obj) {
 
 조건을 **언제** 검사하느냐에 따라 실행 흐름이 달라지는 두 반복문을 비교합니다.
 
-**1) 구조 비교**
+**🆚 구조 비교**
 
 가장 큰 차이점은 **"검문소가 어디에 있는가"**입니다.
 
@@ -904,7 +913,7 @@ for (let value of obj) {
 | **특징** | 조건이 처음부터 거짓이면 **아예 실행 안 됨** | 조건이 거짓이어도 **무조건 1번은 실행됨** |
 | **코드** | `while (조건) { 실행 }` | `do { 실행 } while (조건);` |
 
-**2) while 반복문 (기본)**
+**📌 while 반복문 (기본)**
 
 조건식만 두고 반복하며, 반복 횟수가 명확하지 않을 때 주로 사용합니다.
 
@@ -919,7 +928,7 @@ while (count < 3) {
 // 결과: 0, 1, 2
 ```
 
-**3) do-while 반복문 (무조건 1회)**
+**📌 do-while 반복문 (무조건 1회)**
 
 코드 블록을 **최소 한 번은 무조건 실행**시켜야 할 때 사용합니다.
 
@@ -935,7 +944,7 @@ do {
 // (만약 while문이었다면 조건이 안 맞아서 아무것도 출력되지 않음)
 ```
 
-**4) 반복문 선택 기준표**
+**🧭 반복문 선택 기준표**
 
 반복문을 사용할 때, 상황에 맞춰 골라 쓰세요.
 
@@ -956,14 +965,14 @@ do {
 
 ## 💻 실습 : 카운트다운
 
-**1) 미션: 발사! (Mission)**
+**🎯 미션: 발사! (Mission)**
 
 1. **초기화**: `count` 변수를 만들고 숫자 **5**를 넣으세요.
 2. **조건**: `count`가 **0보다 큰 동안** 반복하세요.
 3. **실행**: 숫자를 출력하고, **1씩 감소**(`count--`)시키세요.
 4. **종료**: 반복이 끝나면 **"발사!"**를 출력하세요.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `while` 문은 시작점과 증감식이 분리되어 있어, **감소시키는 코드**를 빼먹지 않도록 주의해야 합니다.
 
@@ -980,7 +989,7 @@ while (count > 0) {
 console.log("발사!");
 ```
 
-**3) 실행 결과**
+**✅ 실행 결과**
 
 ```jsx
 5
@@ -1004,11 +1013,13 @@ console.log("발사!");
 
 반복문의 흐름을 개발자가 원하는 대로 **중단**하거나 **건너뛸 때** 사용합니다.
 
-**1) 구조 이해하기 (수도코드)**
+**📌 구조 이해하기 (수도코드)**
 
 화살표의 흐름을 잘 보세요. **어디로 점프하는지**가 다릅니다.
 
-**① break (탈출)** — 반복문 밖으로 완전히 나갑니다.
+**📌 break (탈출)**
+
+반복문 밖으로 완전히 나갑니다.
 
 ```jsx
 반복해라 ( ... ) {
@@ -1019,7 +1030,9 @@ console.log("발사!");
 // ──────> 여기서부터 다시 계속
 ```
 
-**② continue (건너뛰기)** — 이번만 건너뛰고, 다시 위(반복문 시작)로 올라갑니다.
+**📌 continue (건너뛰기)**
+
+이번만 건너뛰고, 다시 위(반복문 시작)로 올라갑니다.
 
 ```jsx
 반복해라 ( ... ) {
@@ -1030,16 +1043,18 @@ console.log("발사!");
 } // <─────────┘
 ```
 
-**2) 차이점 비교 (Comparison)**
+**🆚 차이점 비교 (Comparison)**
 
 | **구분** | **break (탈출)** | **continue (건너뛰기)** |
 | --- | --- | --- |
 | **동작** | 반복문을 **완전히 박살내고** 밖으로 나갑니다. | **이번 회차만 패스**하고 다시 반복하러 올라갑니다. |
 | **비유** | "퇴근해!" (집으로 감) | "잠깐 쉬고 다음 일 해!" (다시 일하러 감) |
 
-**3) 기본 문법 및 예시**
+**📝 기본 문법 및 예시**
 
-**① break (중단)** — 원하는 조건을 만나면 즉시 종료합니다.
+**📌 break (중단)**
+
+원하는 조건을 만나면 즉시 종료합니다.
 
 ```jsx
 // 0부터 9까지 반복하려고 했으나...
@@ -1052,7 +1067,9 @@ for (let i = 0; i < 10; i++) {
 // 출력: 0, 1, 2, 3, 4 (5부터는 안 나옴)
 ```
 
-**② continue (건너뛰기)** — 특정 조건만 쏙 빼고 실행하고 싶을 때 사용합니다.
+**📌 continue (건너뛰기)**
+
+특정 조건만 쏙 빼고 실행하고 싶을 때 사용합니다.
 
 ```jsx
 // 0부터 4까지 반복
@@ -1065,7 +1082,7 @@ for (let i = 0; i < 5; i++) {
 // 출력: 0, 1, 3, 4 (2만 빠짐)
 ```
 
-**4) 실무 활용: 짝수만 출력하기**
+**💼 실무 활용: 짝수만 출력하기**
 
 `continue`를 활용하면 불필요한 연산을 줄일 수 있습니다.
 
@@ -1080,7 +1097,7 @@ for (let i = 1; i <= 10; i++) {
 // 출력: 2, 4, 6, 8, 10
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   • <strong>break</strong>: 반복문 <strong>완전 종료</strong> (The End)<br>
@@ -1091,14 +1108,14 @@ for (let i = 1; i <= 10; i++) {
 
 ## 💻 실습 : 숫자 찾기 (break &amp; continue)
 
-**1) 미션: 보물 찾기 (Mission)**
+**🎯 미션: 보물 찾기 (Mission)**
 
 1. **반복**: 1부터 10까지 숫자를 하나씩 확인합니다.
 2. **종료 조건**: 숫자가 **7**이면 **"찾았다!"**를 출력하고 반복을 완전히 **종료(break)**합니다.
 3. **건너뛰기**: 숫자가 **짝수**면 아무것도 하지 말고 다음 숫자로 **넘어갑니다(continue)**.
 4. **출력**: 위 조건에 걸리지 않는 숫자(홀수)만 출력합니다.
 
-**2) 작성 코드 (Solution)**
+**📝 작성 코드 (Solution)**
 
 `break`는 반복문을 **파괴**하고, `continue`는 이번 턴만 **스킵**합니다.
 
@@ -1122,7 +1139,7 @@ for (let i = 1; i <= 10; i++) {
 }
 ```
 
-**3) 실행 결과 및 해석**
+**✅ 실행 결과 및 해석**
 
 ```jsx
 1
@@ -1147,7 +1164,7 @@ for (let i = 1; i <= 10; i++) {
 
 ---
 
-## 📌 제어문 핵심 요약
+## 🧭 제어문 선택 가이드
 
 제어문(조건문+반복문)의 방대한 내용을 실무 관점에서 압축했습니다. 시험 직전이나 코딩할 때 이 페이지를 참고하세요.
 
@@ -1212,52 +1229,100 @@ for (let i = 1; i <= 10; i++) {
 
 ---
 
-## 📋 최종 핵심 요약표
+## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-    <th>암기 포인트</th>
-  </tr>
-  <tr>
-    <td><strong>if 문</strong></td>
-    <td>• 조건이 참(True)일 때 코드 블록 실행<br>• 위에서 아래로 검사, 첫 true 하나만 실행</td>
-    <td>• <code>==</code> 대신 <code>===</code> 사용<br>• <code>if (items.length > 0)</code>처럼 명시적으로</td>
-  </tr>
-  <tr>
-    <td><strong>switch 문</strong></td>
-    <td>• 딱 떨어지는 값(<code>===</code>)과 비교할 때 사용<br>• 해당 case로 바로 점프하여 실행</td>
-    <td>• 각 case마다 <strong>break 필수</strong><br>• 없으면 Fall-through 발생</td>
-  </tr>
-  <tr>
-    <td><strong>삼항 연산자</strong></td>
-    <td>• <code>조건 ? 참 : 거짓</code> 형태로 한 줄 처리<br>• 단순 양자택일에 적합</td>
-    <td>• 중첩 삼항 금지<br>• 복잡하면 if 문으로</td>
-  </tr>
-  <tr>
-    <td><strong>for 문</strong></td>
-    <td>• 반복 횟수가 명확할 때<br>• 초기화 → 조건 → 실행 → 증감 순으로 동작</td>
-    <td>• 인덱스가 필요할 때 사용<br>• <code>let i = 0; i &lt; arr.length; i++</code></td>
-  </tr>
-  <tr>
-    <td><strong>for...in</strong></td>
-    <td>• 객체의 Key(속성명)를 순회<br>• 배열에 사용하면 안 됨</td>
-    <td>• <strong>객체 전용</strong><br>• <code>obj[key]</code> 대괄호 표기법 필수</td>
-  </tr>
-  <tr>
-    <td><strong>for...of</strong></td>
-    <td>• 배열의 Value(실제 값)를 순회<br>• 인덱스 없이 바로 값 사용 가능</td>
-    <td>• <strong>배열 같은 iterable 순회에 사용</strong> (가장 많이 씀)<br>• 일반 객체는 iterable이 아니므로 바로 사용하면 TypeError가 발생한다</td>
-  </tr>
-  <tr>
-    <td><strong>while / do-while</strong></td>
-    <td>• while: 선검사 (처음부터 false면 실행 안 됨)<br>• do-while: 후검사 (무조건 1회 실행)</td>
-    <td>• 탈출 조건 갱신 필수<br>• 없으면 <strong>무한 루프</strong></td>
-  </tr>
-  <tr>
-    <td><strong>break / continue</strong></td>
-    <td>• break: 반복문 완전 종료<br>• continue: 현재 회차만 건너뛰기</td>
-    <td>• break = 퇴근 (완전 끝)<br>• continue = 이번만 패스 (다음 진행)</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>if 문</strong>: 조건이 참(True)일 때 코드 블록을 실행하며, 위에서 아래로 검사해 첫 true 하나만 실행한다 — <code>==</code> 대신 <code>===</code>를 쓰고, <code>if (items.length > 0)</code>처럼 명시적으로 작성한다.</li>
+    <li><strong>switch 문</strong>: 딱 떨어지는 값(<code>===</code>)과 비교할 때 사용하며 해당 case로 바로 점프해 실행한다 — 각 case마다 <strong>break가 필수</strong>이며, 없으면 Fall-through가 발생한다.</li>
+    <li><strong>삼항 연산자</strong>: <code>조건 ? 참 : 거짓</code> 형태로 한 줄 처리하는 단순 양자택일용이다 — 중첩 삼항은 금지하고, 복잡하면 if 문으로 바꾼다.</li>
+    <li><strong>for 문</strong>: 반복 횟수가 명확할 때 초기화 → 조건 → 실행 → 증감 순으로 동작한다 — 인덱스가 필요할 때 사용하며 형태는 <code>let i = 0; i &lt; arr.length; i++</code>다.</li>
+    <li><strong>for...in</strong>: 객체의 Key(속성명)를 순회하는 <strong>객체 전용</strong> 반복문이다(배열에 사용하면 안 됨) — <code>obj[key]</code> 대괄호 표기법이 필수다.</li>
+    <li><strong>for...of</strong>: 배열의 Value(실제 값)를 인덱스 없이 순회하며, <strong>배열 같은 iterable 순회에 가장 많이 쓴다</strong> — 일반 객체는 iterable이 아니므로 바로 사용하면 TypeError가 발생한다.</li>
+    <li><strong>while / do-while</strong>: while은 선검사(처음부터 false면 실행 안 됨), do-while은 후검사(무조건 1회 실행)다 — 탈출 조건 갱신이 필수이며, 없으면 <strong>무한 루프</strong>에 빠진다.</li>
+    <li><strong>break / continue</strong>: break는 반복문을 완전 종료(퇴근)하고, continue는 현재 회차만 건너뛰고(이번만 패스) 계속 진행한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: switch에서 break가 없어도 알아서 멈춘다?</div>
+    <div class="wda-mistake-right">정답: break가 없으면 <strong>Fall-through</strong>가 발생해 아래 case까지 전부 실행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: for...in을 배열에 써도 상관없다?</div>
+    <div class="wda-mistake-right">정답: for...in은 <strong>객체 Key 순회 전용</strong>이다 — 배열에는 for...of나 기본 for 문을 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: for...of는 일반 객체에도 그냥 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: 일반 객체는 iterable이 아니므로 for...of에 바로 사용하면 <strong>TypeError</strong>가 발생한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: while과 do-while은 완전히 같다?</div>
+    <div class="wda-mistake-right">정답: while은 <strong>선검사</strong>(처음부터 false면 실행 안 됨), do-while은 <strong>후검사</strong>(무조건 1회 실행)다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 조건문 선택</div>
+    <div class="wda-formula-block-body">
+      <code>if = 범용</code><br>
+      <code>switch = 값 매칭(===)</code><br>
+      <code>삼항 = 단순 대입</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 반복문 대상</div>
+    <div class="wda-formula-block-body">
+      <code>for...in = 객체 Key</code><br>
+      <code>for...of = 배열 Value</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 흐름 제어</div>
+    <div class="wda-formula-block-body">
+      <code>break = 완전 종료</code><br>
+      <code>continue = 이번만 건너뛰기</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">if 문은 언제, 어떻게 실행되나?</div>
+    <div class="wda-flip-back">조건이 참(True)일 때 실행되며, 위에서 아래로 검사해 첫 true 하나만 실행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">switch에서 break를 빼먹으면?</div>
+    <div class="wda-flip-back">Fall-through가 발생해 아래 case까지 전부 실행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">삼항 연산자를 중첩해도 되나?</div>
+    <div class="wda-flip-back">안 된다 — 복잡해지면 if 문으로 바꾼다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">기본 for 문은 언제 쓰나?</div>
+    <div class="wda-flip-back">인덱스가 필요하고 반복 횟수가 명확할 때, 초기화→조건→실행→증감 순으로 쓴다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">for...in과 for...of의 차이는?</div>
+    <div class="wda-flip-back">for...in은 객체의 Key를, for...of는 배열의 Value를 순회한다 — for...of를 일반 객체에 쓰면 TypeError가 난다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">while과 do-while의 차이는?</div>
+    <div class="wda-flip-back">while은 선검사(처음부터 false면 미실행), do-while은 후검사(무조건 1회 실행)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">break와 continue의 차이는?</div>
+    <div class="wda-flip-back">break는 반복문을 완전 종료하고, continue는 현재 회차만 건너뛰고 계속 진행한다.</div>
+  </div>
+</div>

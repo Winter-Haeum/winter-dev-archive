@@ -24,13 +24,13 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) useState의 한계</strong> — 복잡한 상태 로직에서 발생하는 관리의 어려움을 이해합니다<br>
-  <strong>2) Reducer 패턴</strong> — Action, Dispatch, Reducer의 데이터 흐름을 파악합니다<br>
-  <strong>3) 실전 구현</strong> — useReducer를 활용하여 복잡한 상태 로직을 제어합니다<br>
-  <strong>4) 선택 기준</strong> — 언제 useState 대신 useReducer를 사용해야 하는지 판단합니다
+  • <strong>useState의 한계</strong> — 복잡한 상태 로직에서 발생하는 관리의 어려움을 이해합니다<br>
+  • <strong>Reducer 패턴</strong> — Action, Dispatch, Reducer의 데이터 흐름을 파악합니다<br>
+  • <strong>실전 구현</strong> — useReducer를 활용하여 복잡한 상태 로직을 제어합니다<br>
+  • <strong>선택 기준</strong> — 언제 useState 대신 useReducer를 사용해야 하는지 판단합니다
 </div>
 
 ---
@@ -138,9 +138,9 @@ const toggle = (id) => {
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">New State</div><div class="wda-sdsc">작업이 끝나면 새로운 상태가 업데이트되고 화면이 바뀝니다.</div></div></div>
 </div>
 
-**💡 핵심 요약**
+**🔎 한 줄 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>컴포넌트는 더 이상 "어떻게(How)" 바꿀지 고민하지 않습니다.</p>
   <p>단지 "무엇을(What)" 원하는지 주문(dispatch)만 하면 됩니다.</p>
 </div>
@@ -253,7 +253,7 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">payload (선택)</div><div class="wda-fcard-dsc">작업에 필요한 실제 데이터입니다. 이름은 마음대로 지어도 되지만, 보통 payload(화물, 적재량)라는 이름을 가장 많이 씁니다.</div></div>
 </div>
 
-### 3) 예제 코드 (Patterns)
+**📝 예제 코드 (Patterns)**
 
 상황에 따라 주문서의 모양이 조금씩 다릅니다.
 
@@ -301,7 +301,7 @@ const updateAction = {
   <div class="wda-fcard"><div class="wda-fcard-ttl">성능은요?</div><div class="wda-fcard-dsc">dispatch 함수 자체는 참조값이 변하지 않음(Stable)이 보장됩니다. 따라서 useEffect나 useCallback 의존성 배열에 굳이 넣지 않아도 됩니다. (넣어도 상관없지만, 안 넣어도 안전합니다.)</div></div>
 </div>
 
-### 3) 사용 코드 (Code Examples)
+**📝 사용 코드**
 
 두 가지 방식이 있습니다. "그냥 해줘(Type만)" vs "이 데이터로 해줘(Payload 포함)"
 
@@ -480,7 +480,7 @@ function Counter() {
 export default Counter;
 ```
 
-### 4) 손필기 핵심 정리
+### 4) 손필기 요약 메모
 
 1) `{ type: type }` → `{ type }`
 
@@ -761,7 +761,7 @@ export default TodoList;
 
 **💡 핵심 포인트**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>하이브리드 패턴</strong>: 복잡한 todos 배열은 useReducer로 관리하고, 단순한 input 입력값은 useState로 관리합니다. 둘을 적절히 섞어 쓰는 것이 베스트입니다.</p>
   <p><strong>로직 재사용</strong>: 이제 todoReducer 함수만 따로 파일로 저장해 두면, 다른 컴포넌트에서도 똑같은 Todo 로직을 가져다 쓸 수 있습니다.</p>
 </div>
@@ -848,7 +848,7 @@ function formReducer(state, action) {
 
 **💡 한 줄 요약 (Golden Rule)**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>"다음 상태가 이전 상태에 의존하고, 로직이 복잡하면 ➡️ useReducer"</p>
 </div>
 
@@ -979,7 +979,7 @@ Context
 
 **🔎 한 줄 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>같은 useTodos()를 사용하지만 todos는 화면 출력용, dispatch는 상태 변경용이다.</p>
 </div>
 
@@ -1050,7 +1050,7 @@ Reducer는 입력이 같으면 결과도 무조건 같아야 하는 '순수 함�
 
 ---
 
-<h2>16. 🔑 핵심 정리 (Summary)</h2>
+<h2>16. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

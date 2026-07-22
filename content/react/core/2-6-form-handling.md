@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,11 +55,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 제어 컴포넌트</strong> — "Single Source of Truth" 개념을 완벽히 이해합니다.<br>
-  <strong>2) 텍스트 입력</strong> — <code>input</code>과 <code>textarea</code>의 값을 state와 동기화합니다.<br>
-  <strong>3) 선택형 입력</strong> — <code>select</code>, <code>radio</code>, <code>checkbox</code>의 다양한 처리법을 익힙니다.<br>
-  <strong>4) 복합 상태 관리</strong> — 여러 개의 입력을 하나의 객체 state로 관리합니다.<br>
-  <strong>5) 제출과 유효성</strong> — <code>onSubmit</code> 이벤트 처리와 기초적인 유효성 검사를 구현합니다.
+  • <strong>제어 컴포넌트</strong> — "Single Source of Truth" 개념을 완벽히 이해합니다.<br>
+  • <strong>텍스트 입력</strong> — <code>input</code>과 <code>textarea</code>의 값을 state와 동기화합니다.<br>
+  • <strong>선택형 입력</strong> — <code>select</code>, <code>radio</code>, <code>checkbox</code>의 다양한 처리법을 익힙니다.<br>
+  • <strong>복합 상태 관리</strong> — 여러 개의 입력을 하나의 객체 state로 관리합니다.<br>
+  • <strong>제출과 유효성</strong> — <code>onSubmit</code> 이벤트 처리와 기초적인 유효성 검사를 구현합니다.
 </div>
 
 ---
@@ -158,7 +158,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 가장 기본적인 텍스트 입력
 
-### 1) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState } from "react";
@@ -414,7 +414,7 @@ export default Form;
 
 **onSubmit과 preventDefault**
 
-### 1) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState } from "react";
@@ -533,7 +533,7 @@ const handleSubmit = (e) => {
 
 ---
 
-<h2>11. 🔑 핵심 정리</h2>
+<h2>11. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

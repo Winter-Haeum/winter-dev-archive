@@ -68,6 +68,7 @@
 - 원문에 이미 `🎯 학습 목표`로 되어 있으면 그대로 유지한다.
 - 제목 표기만 통일하며, 학습 목표 섹션의 의미나 내용(항목 수, 문장, 설명)은 바꾸지 않는다.
 - 원본 문서에 학습 목표 섹션이 아예 없는 경우에는 새로 만들지 않는다. 단, 사용자가 업로드 요청에서 학습 목표 생성을 명시한 경우에는 예외로 생성한다.
+- **학습 목표 박스(`wda-goal`) 내부 항목은 아이콘·번호 없이 점블릿을 기본으로 한다(2026-07 개편 — JavaScript 1-5 재검토로 확정).** 박스 제목(`🎯 학습 목표`)에 이미 아이콘이 있으므로 내부 목록까지 항목마다 아이콘/번호(`1)` 등)를 반복하지 않는다 — `<strong>제목</strong> — 설명` 형식만 유지한다. 기존 문서에 항목별 아이콘/번호가 있으면 리팩토링 시 제거한다.
 
 ### JavaScript Basics 챕터 기본 구조 (2026-07 18차 개편 — "2-1 기준" 표기 정리)
 
@@ -507,7 +508,7 @@ Coding Test 문서는 원본 자료가 표 형태로 정리된 경우가 많아 
 | 일반 개념 / 구조 설명 / 예시 / 구성 요소 / 용도 설명 / 단순 비교 | **기본 카드 유지**(색상 accent 없음) | 정의, 문제 설명, 입력 & 제약조건, 예시, 프로그래밍 기초, "언제 쓰나?"류 용도 설명, ES5/ES6/ESNext 등 단순 정보 나열 |
 | 학습 목표 / 긍정 / 권장 / 장점 / 올바른 태도 / 현재 방식 / 실무 팁 | **green** (`wda-fcard-pro`, 2분할 비교 박스는 `wda-modern`, 학습 목표는 `wda-goal`) | 장점(Pros), 올바른 마인드셋, 권장 방식, Modern(오늘날), 실무 팁 |
 | 주의 / 경고 / 문제 가능성 / 에러 / 위험 / 비추천 / Legacy / 금지 | **orange** (`wda-fcard-con`, 2분할 비교 박스는 `wda-legacy`/`wda-caution`) | 단점(Cons), 주의사항, Legacy(초창기 웹), "에러 발생 시" |
-| 도움말 / 사용 팁 / 안내 / 힌트 / 트러블슈팅 | **blue** (카드형은 `wda-hint`) | "Console이 안 보일 때" 같은 사용법 안내, 조작 가이드 |
+| 도움말 / 사용 팁 / 안내 / 힌트 / 트러블슈팅 | **blue** (카드형은 `wda-hint`, callout은 `wda-cb`) | "Console이 안 보일 때" 같은 사용법 안내, 조작 가이드 |
 | 설명 / 개념 / 보충 설명 / 핵심 개념 | **purple** (카드형 modifier 아직 없음 — 이 성격은 주로 callout `wda-ci`로 표현) | 개념 정의, 핵심 구분, 보충 설명 |
 | 단계 / 흐름 / 레벨 상승 | 단계형(`wda-steps`)/흐름형(`wda-flow`) 구조 자체로 표현 (별도 색상보다 번호·화살표·연한 강조색 우선) | 난이도 체계, 문제 풀이 순서 |
 
@@ -781,6 +782,15 @@ h2/h3 제목
 - `hr{margin-bottom: 2rem}` + `h2{margin-top: 2.2rem}`(25차 개편 — 기존 `3rem`) → 실제 렌더링은 병합 후 **`2.2rem`**(h2 쪽이 이김, hr의 `2rem`은 사실상 무의미).
 
 h2/h3, p, hr, 코드블록 전후 간격을 검토할 때는 항상 이 방식대로 "collapse 후 실제값"을 계산한 뒤 판단한다. 상세 계산 근거는 [19-4-B]를 따른다.
+
+### 7-G. 하위 소제목 번호 · 아이콘 · 박스 내부 목록 기준 (2026-07 개편 — 신설, JavaScript 1-5 재검토로 확정)
+
+- **큰 섹션 제목(번호 있는 `h2`, 예: `## 1. 제어문이란?`)은 번호를 유지한다.** 목차·진도·학습 흐름 파악에 필요하다.
+- **큰 섹션 아래 일반 하위 소제목(미니 소제목)에는 `1)`/`(1)`/`①`/`②` 같은 번호를 쓰지 않는다.** 대신 의미별 고정 이모지 + minihead 형식(`**{이모지} {제목}**`)을 쓴다 — 예: `**📌 구조 이해하기**`, `**📝 기본 문법**`, `**🧪 예시 코드**`, `**⚠️ 주의사항**`, `**💡 사용 팁**`, `**🆚 차이점 비교**`. 라벨별 이모지는 [19-2]의 고정 이모지 사전을 그대로 따르고, 표에 없는 새 라벨이 필요하면 그 표에 추가한다.
+- **숫자는 미니 소제목이 아니라, 실제 순서·절차를 설명하는 본문 안에서만 쓴다** — 실행 순서, 처리/설치 단계, 미션 수행 순서처럼 `1 → 2 → 3` 순서 자체가 의미를 가지는 절차 설명에 한정한다.
+- **카드(`wda-fcard`/`wda-fnode` 등) 내부 제목의 번호는 유지할 수 있다.** 카드 내부 텍스트는 minihead가 아니므로 이 번호 제거 대상이 아니다 — 예: `① score 변수 설정`, `② 90점 이상`.
+- **같은 레벨의 형제 항목은 같은 이모지를 써도 된다** — 예: `for...in`/`for...of` 같은 병렬 개념 쌍, 실습의 미션/코드/결과 3종 세트. **단, 상위 묶음 제목과 바로 아래 하위 항목이 같은 이모지로 3개 이상 연속되면 위계가 흐려지므로, 상위 묶음 제목의 이모지만 다르게 조정한다** — 예: 상위 `**💡 다양한 활용 예시**` 아래 하위 `**🧪 배열 순회**`/`**🧪 누적 합 구하기**`. 모든 이모지를 억지로 다르게 만들 필요는 없다.
+- **박스형 보충 설명/주의사항/실무 팁 라벨은 기존 callout 라벨 규칙([19-1]~[19-2])을 그대로 따른다** — 라벨은 박스 안이 아니라 박스 밖에 `**{이모지} {라벨}**` 형식으로 둔다. 이 항목은 새 규칙이 아니라 위치 안내이며, 상세 기준은 [19-2]를 참고한다.
 
 ### 8. 데코 · 캐릭터 · 이미지 처리 기준
 
@@ -1892,7 +1902,7 @@ Puppeteer QA와 스크린샷 생성은 사용자가 명시적으로 요청한 �
 | 설명 / 개념 정의 / 기본 개념 / 보충 설명 / 배경 설명 / 핵심 구분 | `wda-ci` | 보라색(purple) | 개념을 정의·보충하거나 맥락을 추가할 때 — 예: "🚫 다른 언어는?", "📌 핵심 구분", "📌 개념", "💡 설명", "💬 배치 원칙" |
 | 주의사항 / 경고 / 문제 가능성 / 위험 요소 / 비추천 / Legacy | `wda-cw` | 주황색(orange) | 실수하기 쉬운 내용, 위험 요소 경고, 이전/비권장 방식 |
 | 학습 목표 / 권장 / 안전 / 좋은 방식 / Modern / 실무 팁 | `wda-cs` | 초록색(green) | 권장 방식, 실무 팁, 사용 팁, 안전한 방식 |
-| 도움말 / 안내 / 힌트 / 트러블슈팅 | (카드형 `wda-hint`, callout에도 필요하면 동일 색상값으로 신규 modifier 추가) | 파란색(blue) | 사용법 안내, 조작 가이드, 트러블슈팅 |
+| 도움말 / 안내 / 힌트 / 트러블슈팅 | 카드형 `wda-hint`, callout은 `wda-cb`(동일 색상값, 필요한 문서의 로컬 `<style>` 블록에 추가) | 파란색(blue) | 사용법 안내, 조작 가이드, 트러블슈팅, 체크 포인트, 학습 방향 |
 
 - **`wda-cy`(연노랑)는 폐기한다.** "개념 정의는 `wda-cy`를 쓴다"는 과거 규칙을 대체하며, 개념/정의/보충 설명은 이제 예외 없이 `wda-ci`(purple) 하나로 고정한다. 상세 배경과 카드(비callout) modifier까지 포함한 전체 색상 체계는 **[19-5. 박스/카드/callout 색상 고정 체계](#19-5-박스카드callout-색상-고정-체계-2026-07-15차-개편--전면-교체-javascript-1-1-재검토로-확정)**를 따른다 — 이 표는 그 요약이다.
 - red 계열 callout/카드 색상은 쓰지 않는다. 위험/에러/Legacy는 orange로 통일한다.
@@ -2041,19 +2051,21 @@ Puppeteer QA와 스크린샷 생성은 사용자가 명시적으로 요청한 �
   ```js
   sx={{
     pt: isLoneStrong ? '1.2rem' : undefined,
-    pb: isLoneStrong ? '0.2rem' : undefined,
+    pb: isLoneStrong ? 0 : undefined,
     mb: isLoneStrong ? undefined : '0.9rem',
     fontSize: { xs: '0.93rem', md: '0.95rem' },
     lineHeight: 1.75,
   }}
   ```
+  (2026-07 개편 — `pb`는 과거 `'0.2rem'`이었으나 `0`으로 변경했다. 미니 소제목 아래 간격은 이 `pb`가 아니라 아래 콘텐츠 쪽 `margin-top(0.5rem)`이 전담한다.)
   margin(`mt`/`mb` = 0)은 위 GlobalStyles의 `p.wda-minihead.wda-minihead{margin-top:0!important;margin-bottom:0!important}`가 담당하고, padding(`pt`/`pb`)은 이 sx가 직접 담당한다 — **하나의 `.wda-minihead{...}` CSS 클래스에 모든 값이 모여 있는 게 아니라, margin은 GlobalStyles, padding은 컴포넌트 sx로 두 군데에 나뉘어 있다.** 향후 값을 바꿀 때는 두 곳을 모두 확인해야 한다.
 - **최종 확정값 요약표**:
 
   | 대상 | 속성 | 값 |
   | --- | --- | --- |
   | 미니 소제목 자신 | margin-top / margin-bottom | `0` (GlobalStyles, `!important`) |
-  | 미니 소제목 자신 | padding-top / padding-bottom | `1.2rem` / `0.2rem` (컴포넌트 sx) |
+  | 미니 소제목 자신 | padding-top / padding-bottom | `1.2rem` / `0`(컴포넌트 sx, 2026-07 개편 — 과거 `0.2rem`이던 padding-bottom을 제거했다. 아래 콘텐츠 쪽 `margin-top(0.5rem)`과 중복 적용되어 미니 소제목 → 아래 콘텐츠 실측 간격이 정책이 명시한 `0.5rem`(8px)이 아니라 `0.7rem`(11.2px)으로 렌더링되고 있었다 — 이제 아래 콘텐츠의 `margin-top` 하나만으로 간격이 결정된다) |
+  | 미니 소제목 직후 표(`table`) | margin-top | `0.5rem` (GlobalStyles, `!important`, 2026-07 개편 — 신설) — `table`은 `WDA_BOX_SELECTORS`에 없고 `table` 컴포넌트가 `margin-bottom`을 `<table>`이 아니라 감싸는 바깥 wrapper(고유 class 없음)에 두므로, `:has(> table)`로 그 wrapper를 구조적으로 찾아 다른 박스와 동일하게 `0.5rem`을 부여한다 |
   | 미니 소제목 직전 p/ul/ol (다음이 소제목일 때만) | margin-bottom | `0.5rem` (GlobalStyles, `!important`) |
   | 코드블록/일반 박스(`.wda-codeblock`/`.wda-callout`/`.wda-fgrid`/`.wda-steps`/`.wda-compare`/`.wda-flow`) 자신 (다음이 소제목·새 헤딩이 **아닐** 때만) | margin-bottom | `0` (GlobalStyles, `!important`, 2026-07 8차 개편) |
   | 위 코드블록/일반 박스 직후 p/ul/ol (다음이 소제목·새 헤딩이 **아닐** 때만) | margin-top / padding-top | `0` / `0.5rem` (GlobalStyles) |
@@ -2062,7 +2074,7 @@ Puppeteer QA와 스크린샷 생성은 사용자가 명시적으로 요청한 �
   | 일반 문단(미니 소제목 아님) | margin-bottom | `0.9rem` (컴포넌트 sx, 변경 없음) |
   | `CodeBlock` wrapper(`.wda-codeblock`) | margin-top / margin-bottom(기본값, 직전·직후가 위 규칙 대상이 아닐 때) | `1.5rem` / `0.9rem` (컴포넌트 sx, 변경 없음) |
   | `.wda-callout` | font-size / line-height / margin | `.9rem` / `1.75` / `.8rem 0 1.1rem` (문서 `<style>` 블록, 콘텐츠 파일 CSS — 컴포넌트 관리 아님, 직전·직후가 위 규칙 대상이 아닐 때의 기본값) |
-  | callout 라벨(미니 소제목) → 바로 아래 `.wda-callout` 박스 | 실제 합산 간격 | **약 `0.7rem`**(= 라벨의 `padding-bottom .2rem`(병합 안 됨, 항상 더해짐) + 라벨→박스 `margin-top .5rem`(위 10차 개편 규칙, collapse 후 그대로) — 2026-07 17차 개편에서 실측 확정, 과거 문서화됐던 `약 1.0rem`은 10차 개편으로 이미 낡은 값이었음을 뒤늦게 확인해 갱신) |
+  | callout 라벨(미니 소제목) → 바로 아래 `.wda-callout` 박스 | 실제 합산 간격 | **`0.5rem`**(= 라벨의 `padding-bottom 0` + 라벨→박스 `margin-top .5rem` — 2026-07 개편으로 padding-bottom을 제거해 `0.5rem`으로 정정. 과거에는 라벨의 `padding-bottom .2rem`이 항상 더해져 실제로 `0.7rem`(11.2px)이었다) |
   | 박스(코드블록/일반 박스) 자신 (다음이 **또 다른 박스**일 때) | margin-bottom | `0` (GlobalStyles, `!important`, 2026-07 20차 개편 — 신설) |
   | 위 박스 직후에 오는 **또 다른 박스**(코드블록 자기 자신과의 조합 포함, 다음이 소제목·새 헤딩이 **아닐** 때) | margin-top | **`0.75rem`**(GlobalStyles, `!important`, 2026-07 20차 개편 신설 → 22차 개편에서 `0.5rem`→`0.75rem`로 재조정, 예: callout 설명 → 코드블록 예시, 코드블록 → 두 번째 코드블록) |
   | 미니 소제목 직후 일반 문단/목록(코드블록·callout 등 "박스"가 **아닌** p/ul/ol) | margin-top | `0.5rem` (GlobalStyles, `!important`, 2026-07 21차 개편 — 신설, 예: `📌 1단계: 선언`/`⚙️ 2단계: 초기화` 바로 아래 bullet 문단) |
@@ -2092,6 +2104,9 @@ Puppeteer QA와 스크린샷 생성은 사용자가 명시적으로 요청한 �
   1. **코드블록/일반 박스 → 그 바로 뒤에 오는 미니 소제목**: `:not(.wda-minihead)` 조건 때문에 이 조합에는 위 박스 간격 규칙이 적용되지 않는다. 실제 간격 = 박스의 기본 `margin-bottom`(코드블록 `0.9rem`, callout `1.1rem` 등)과 소제목의 `margin-top(0, !important로 강제)`이 병합되어 그 값 그대로 + 소제목 자신의 `padding-top(1.2rem)`이 그 위에 더해진다(코드블록 기준 **총 약 2.1rem**, padding은 병합되지 않고 항상 더해짐).
   - (2026-07 10차 개편 참고) "미니 소제목 → 그 바로 아래 코드블록/박스"와 "callout 라벨(미니 소제목) → 바로 아래 `.wda-callout` 박스"는 과거 이 목록에 "전용 규칙 없음"으로 기재돼 있었으나, 10차 개편에서 위 표의 `.wda-minihead + 박스` 규칙(`margin-top: 0.5rem !important`)이 신설되어 더 이상 병합 값에 의존하지 않는다 — 실제 값은 위 요약표의 "callout 라벨 → 바로 아래 박스" 행(**약 `0.7rem`**)을 기준으로 삼는다.
   - 위 1번 값이 지금 화면에서 과하거나 부족해 보이면, "전용 규칙이 없어서 생긴 부수 효과"임을 먼저 인지하고, 고칠 때는 어느 쪽(코드블록 자신의 margin, 소제목의 padding) 값을 바꿀지 명확히 정한 뒤 단 하나의 컴포넌트/클래스에서만 수정한다.
+  - **(2026-07 개편 — 이전 콘텐츠 → 미니 소제목 간격, `MarkdownRenderer.jsx` 전역 규칙으로 관리)** 위 "총 약 2.1rem" 병합 값은 이전 요소의 `margin-bottom`과 미니 소제목의 `padding-top(1.2rem)`이 그대로 겹쳐, 새 소제목 시작 간격치고 과하게 벌어져 보이는 문제였다. **이전 콘텐츠가 문장 `p`/`ul`/`ol`, 코드블록, box류(`.wda-callout`/`.wda-fgrid`/`.wda-steps`/`.wda-compare`/`.wda-flow`/`.wda-check-note`/`.wda-mistake-notes`/`.wda-formula-board`), 표(`table`) wrapper 중 무엇이든, 바로 다음 요소가 미니 소제목(`.wda-minihead`)이면 이전 요소의 `margin-bottom`을 0으로 제거하고, 미니 소제목 자신의 `padding-top`만 새 시작 간격으로 사용한다** — 두 값이 동시에 적용되면 간격이 과하게 벌어지기 때문이다. `WDA_MINIHEAD_BOX_SELECTORS`(`WDA_BOX_SELECTORS` + check-note/mistake-notes/formula-board 3종) 배열로 box류를 일괄 처리하고, 표는 `margin-bottom`이 `<table>`이 아니라 그걸 감싸는 바깥 wrapper(고유 class 없음)에 있으므로 `:has(> table)`로 그 wrapper를 구조적으로 찾아 타겟팅한다. `p`는 `p:has(+ p.wda-minihead.wda-minihead){margin-bottom:0!important}`로 기존 `0.5rem` 값 자체를 `0`으로 정정했다(과거엔 GlobalStyles에 이미 있던 이 규칙과, 특이도가 더 낮은 문서 로컬 override가 충돌해 로컬 규칙이 항상 졌었다 — 지금은 이 규칙 자체가 유일한 전역 값이라 특이도 문제가 없다). **금지**: 모든 `p`/코드블록/박스/표의 `margin-bottom`을 일괄 제거하지 않는다 — `:has(+ p.wda-minihead.wda-minihead)` 조건 덕분에 다음 요소가 미니 소제목이 **아닌** 경우는 이 규칙에 걸리지 않고 기존 간격이 그대로 유지된다. p/코드블록/박스와 미니 소제목 사이에 구분선(`---`)이 끼는 경우(`p → hr → minihead`)는 1-1/1-2/1-3 어디에도 실제 사례가 없어 규칙을 추가하지 않았다 — 추후 실제 사례가 생기면 같은 원칙(구분선 자체의 margin은 그대로 두고, 구분선 앞 `p`의 `margin-bottom`만 제거)으로 검토한다.
+  - **(2026-07 개편 — 미니 소제목 → 아래 콘텐츠 간격, `MarkdownRenderer.jsx` 전역 규칙으로 관리)** 미니 소제목 자신의 `padding-bottom`은 과거 `0.2rem`이었으나 `0`으로 제거했다 — 아래 콘텐츠 쪽 `margin-top(0.5rem)`과 중복 적용되어 실제 간격이 정책이 명시한 `0.5rem`(8px)이 아니라 `0.7rem`(11.2px)으로 렌더링되고 있었기 때문이다. 이제 미니 소제목 → 일반 문장/`ul`/`ol`/코드블록/box류(`WDA_BOX_SELECTORS`)/표(`:has(> table)`)/check-note·mistake-notes·formula-board(전용 규칙 추가, `WDA_BOX_SELECTORS`에는 없어 별도 처리)까지 모두 `margin-top: 0.5rem !important` 하나로 통일되어 실제 간격이 정확히 8px이 된다. 미니 소제목 `padding-top(1.2rem)`과 h2/h3 바로 아래 미니 소제목의 `padding-top: 0.5rem` 예외 규칙은 그대로 유지했다.
+  - **(2026-07 개편 — 전역 승격 완료)** 위 두 방향 모두 `content/javascript/basics/1-1-js-execution-environment.md`/`1-2-variables-and-scope.md`/`1-3-data-types.md`에서 문서 로컬 `<style>` override로 먼저 검증한 뒤 `MarkdownRenderer.jsx`의 `wdaMinheadGlobalStyles`로 전역 승격했다. **개별 문서는 더 이상 이 간격을 위해 로컬 `<style>` 규칙을 추가하지 않는다** — 세 문서에 남아있던 관련 로컬 override는 전역 승격 후 전부 제거했다. 이 규칙은 전역 컴포넌트 변경이라 사이트 전체 문서에 즉시 적용된다.
 - **이전 콘텐츠 → 미니 소제목 간격 > 미니 소제목 → 아래 내용 간격**의 비대칭 구조를 항상 유지한다: 소제목의 `padding-top(1.2rem)`은 h4 헤딩의 `mt:2.1rem`보다 작게 설정해, 실제 헤딩보다는 가볍지만 일반 문단 전환보다는 뚜렷한 "작은 전환 단위"로 느껴지게 했다.
 - **개별 문서는 이 간격을 위해 아무것도 하지 않는다.** `MarkdownRenderer.jsx`/`CodeBlock.jsx` 두 컴포넌트가 전체 문서에 자동 적용하므로, 특정 문서에서 이 간격이 깨져 보이면 문서 자체를 고치지 말고 이 두 컴포넌트의 로직/값을 먼저 확인한다.
 - 실제 마크다운 헤딩(`##`/`###`/`####`)의 여백은 `MarkdownRenderer.jsx`의 h2/h3/h4 컴포넌트 `mt`/`mb` 값으로 별도 중앙 제어되며(h2: `2.2rem`/`0.6rem`(25차 개편 — 기존 `3rem`), h3: `2.6rem`/`0.35rem`, h4: `2.1rem`/`0.3rem`), 이미 충분히 넉넉하므로 개별 문서에서 조정하지 않는다. `<div style="...margin:...">`로 헤딩을 감싸는 경우에도 CSS 마진 병합 규칙에 따라 헤딩 자체의 더 큰 margin이 항상 우선 적용된다.
@@ -2103,13 +2118,13 @@ Puppeteer QA와 스크린샷 생성은 사용자가 명시적으로 요청한 �
 
 | 정보 성격 | 색상 | callout class | 카드 modifier class |
 | --- | --- | --- | --- |
-| 일반 정보 / 구조 설명 / 버전 / 용도 설명 / 단순 비교 | **neutral**(무채색) | (색상 class 없이 `wda-callout`만 쓰지 않는다 — 이 성격은 애초에 callout이 아니라 기본 카드/표/본문으로 표현한다) | 없음(기본 `.wda-fcard`/`.wda-compare-card` 그대로) |
+| 일반 정보 / 구조 설명 / 버전 / 용도 설명 / 단순 비교 / 문서 소개·안내 배너 | **neutral**(무채색) | (색상 class 없이 `wda-callout`만 쓰지 않는다 — 이 성격은 애초에 callout이 아니라 기본 카드/표/본문으로 표현한다. `wda-cn` 같은 neutral 전용 callout modifier는 신설하지 않는다) | 없음(기본 `.wda-fcard`/`.wda-compare-card` 그대로) |
 | 학습 목표 / 권장 / 안전 / 좋은 방식 / Modern / 실무 팁 | **green** | `wda-cs` | `wda-modern`, `wda-fcard-pro`, 학습 목표는 `wda-goal` |
 | 주의 / 경고 / 문제 가능성 / 에러 / 위험 / 비추천 / Legacy / 금지 | **orange** | `wda-cw` | `wda-legacy`, `wda-caution`, `wda-fcard-con` |
 | 설명 / 개념 / 보충 설명 / 핵심 개념 / 핵심 구분 | **purple** | `wda-ci` | (카드형에는 아직 별도 modifier 없음 — 이 성격은 주로 callout으로 표현) |
-| 도움말 / 안내 / 힌트 / 트러블슈팅 | **blue** | (카드형이 아닌 순수 callout에 blue가 필요하면 `wda-hint`와 동일 색상값으로 신규 callout modifier를 추가할 것 — 아직 미신설) | `wda-hint` |
+| 도움말 / 안내 / 힌트 / 트러블슈팅 / 사용 방법 안내 / 체크 포인트 / 학습 방향 | **blue** | `wda-cb`(2026-07 확정 — `wda-hint`와 동일 색상값. 전역 class가 아니라 필요한 문서의 로컬 `<style>` 블록에 추가) | `wda-hint` |
 
-- **`wda-cy`(노랑)는 폐기한다.** 과거 "개념 정의는 `wda-ci` 대신 `wda-cy`를 쓴다"는 규칙과 "팁/보충 설명은 노랑 또는 보라"라는 선택지 규칙을 모두 대체한다 — 이제 개념/설명/보충 설명/핵심 개념은 예외 없이 `wda-ci`(purple) 하나로 고정한다. 기존 문서에 남아있는 `wda-cy` 사용은 이 문서를 리팩토링할 때 `wda-ci`로 교체한다. 문서 `<style>` 블록에 `.wda-cy` 정의 자체가 남아있어도(하위 호환), 새로 작성하거나 수정하는 문서에서는 이 클래스를 사용하지 않는다.
+- **`wda-cy`(노랑)는 폐기한다.** 과거 "개념 정의는 `wda-ci` 대신 `wda-cy`를 쓴다"는 규칙과 "팁/보충 설명은 노랑 또는 보라"라는 선택지 규칙을 모두 대체한다. 실제 콘텐츠 사용례를 전수 재분류(2026-07)한 결과, `wda-cy`는 성격에 따라 개념/설명(`wda-ci`), 권장/실무 팁(`wda-cs`), 주의/경고(`wda-cw`), 도움말/안내(`wda-cb`) 중 하나로 나뉘거나, 일반 정보/문서 소개 배너처럼 neutral 성격이면 `wda-callout` 구조 자체를 제거하고 일반 문단으로 전환한다 — 예외 없이 `wda-ci` 하나로만 고정하지 않는다. 문서 `<style>` 블록에 `.wda-cy` 정의 자체가 남아있어도(하위 호환, 삭제 대상 아님), 새로 작성하거나 수정하는 문서에서는 `wda-cy`를 기본 선택지로 쓰지 않는다.
 - **red 계열은 사용하지 않는다.** 위험/에러/Legacy/비추천은 모두 **orange**로 통일한다(`wda-cw`/`wda-legacy`/`wda-caution`/`wda-fcard-con`). 과거 `.wda-legacy`가 빨강(`rgba(239,68,68,...)`)이었던 것은 폐기하고, `.wda-caution`과 같은 주황 계열(`border-color: rgba(245,158,11,.28); background: rgba(245,158,11,.035)`)로 통일한다. 문서 전체 톤을 해치는 강한 빨강은 쓰지 않는다.
 - **팁/권장 내용에 `wda-cw`(orange)를 사용하지 않는다.** 팁/권장/안전/Modern/실무 팁은 항상 green(`wda-cs`)이다.
 - **개념/설명/보충 설명/핵심 개념에 `wda-cs`(green)나 `wda-cw`(orange)를 사용하지 않는다.** 이 성격은 항상 purple(`wda-ci`)이다 — 예: "🚫 다른 언어는?"처럼 배경지식을 설명하는 callout, "💬 배치 원칙"처럼 규칙을 정리하는 callout도 결론에 권장 문구가 섞여 있더라도 주된 역할이 "설명"이면 purple로 분류한다.

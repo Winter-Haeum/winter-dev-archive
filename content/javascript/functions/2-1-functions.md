@@ -52,10 +52,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  ♻️ <strong>함수의 개념</strong> — 재사용 가능한 코드 블록의 필요성과 구조를 이해합니다.<br>
-  📝 <strong>선언 방식</strong> — 함수 선언문과 표현식의 차이점을 파악합니다.<br>
-  🔢 <strong>매개변수와 반환값</strong> — 입력과 출력을 통한 함수 활용법을 익힙니다.<br>
-  🚀 <strong>고급 패턴</strong> — 콜백 함수와 IIFE로 실전 활용법을 익힙니다.
+  • <strong>함수의 개념</strong> — 재사용 가능한 코드 블록의 필요성과 구조를 이해합니다.<br>
+  • <strong>선언 방식</strong> — 함수 선언문과 표현식의 차이점을 파악합니다.<br>
+  • <strong>매개변수와 반환값</strong> — 입력과 출력을 통한 함수 활용법을 익힙니다.<br>
+  • <strong>고급 패턴</strong> — 콜백 함수와 IIFE로 실전 활용법을 익힙니다.
 </div>
 
 ---
@@ -454,7 +454,7 @@ introduce("영희");
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">정의 vs 호출</span>
   <code>function introduce() { ... }</code>만 작성하고 실행 버튼을 누르면 아무 일도 일어나지 않습니다. 반드시 밑에서 <code>introduce();</code>라고 <strong>이름을 불러(Call)</strong>주어야 코드가 실행됩니다.
 </div>
@@ -558,7 +558,7 @@ console.log(`1~10 짝수 합: ${total}`); // 30
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cw">
   <span class="wda-clabel">변수 위치 주의</span>
   <code>let sum = 0;</code>은 반드시 <strong>반복문 밖(위)</strong>에 있어야 합니다. 반복문 안에서 만들면 매번 0으로 초기화되어 합계가 쌓이지 않습니다.
 </div>
@@ -667,7 +667,7 @@ console.log(localVar); // ReferenceError
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">중요 포인트</span>
   함수를 정의할 때 괄호 안에 넣은 매개변수(<code>name</code>, <code>age</code> 등)도 함수 내부에서만 쓸 수 있는 <strong>지역 변수</strong>로 취급됩니다.<br>
   밖에서는 부를 수 없습니다.
@@ -882,7 +882,7 @@ function add(a, b) {
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">원리</span>
   엔진이 "아, add라는 함수가 있네? 내가 미리 챙겨놔야지!" 하고 함수 <strong>전체(이름+내용)</strong>를 스코프 최상단으로 끌어올려 놓습니다.
 </div>
@@ -1199,15 +1199,13 @@ console.log(config.isProduction); // true
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
-  <span class="wda-clabel">요즘 사용 빈도</span>
-  모듈 시스템(<code>import</code>/<code>export</code>)이 발전하면서 IIFE의 사용 빈도는 줄었습니다.<br>
-  하지만 레거시 코드나 즉각적인 초기화 패턴에서 여전히 자주 보이므로, 읽을 수 있는 것이 중요합니다.
-</div>
+<span class="wda-clabel">요즘 사용 빈도</span>
+모듈 시스템(<code>import</code>/<code>export</code>)이 발전하면서 IIFE의 사용 빈도는 줄었습니다.<br>
+하지만 레거시 코드나 즉각적인 초기화 패턴에서 여전히 자주 보이므로, 읽을 수 있는 것이 중요합니다.
 
 ---
 
-## 📋 최종 핵심 요약표
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <thead>

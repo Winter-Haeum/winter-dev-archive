@@ -72,10 +72,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🔔 <strong>이벤트 개념 이해</strong> — 브라우저에서 발생하는 다양한 이벤트 종류를 알아봅니다.<br>
-  ◀️▶️ <strong>이벤트 핸들러 등록</strong> — addEventListener를 사용한 등록법을 익힙니다.<br>
-  { } <strong>이벤트 객체 활용</strong> — 이벤트의 상세 정보를 담은 객체를 활용합니다.<br>
-  🔁 <strong>이벤트 전파와 위임</strong> — 버블링 개념과 위임 패턴을 이해합니다.
+  • <strong>이벤트 개념 이해</strong> — 브라우저에서 발생하는 다양한 이벤트 종류를 알아봅니다.<br>
+  • <strong>이벤트 핸들러 등록</strong> — addEventListener를 사용한 등록법을 익힙니다.<br>
+  • <strong>이벤트 객체 활용</strong> — 이벤트의 상세 정보를 담은 객체를 활용합니다.<br>
+  • <strong>이벤트 전파와 위임</strong> — 버블링 개념과 위임 패턴을 이해합니다.
 </div>
 
 ---
@@ -98,7 +98,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **핵심 원리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>이벤트는 항상 발생하지만, <strong>우리가 리스너를 등록한 이벤트만 처리</strong>할 수 있습니다.</li>
   </ul>
@@ -193,7 +193,7 @@ button.addEventListener('click', function() {
 
 ## 💻 실습 : 마우스 이벤트
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -220,7 +220,7 @@ button.addEventListener('click', function() {
 </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <button id="my-btn">테스트 버튼</button>
@@ -316,7 +316,7 @@ input.addEventListener('keydown', function(e) {
 | **✔️ 받아야 할 때** | **구체적인 정보가 필요할 때** | 어떤 키를 눌렀는지(`e.key`)<br>마우스 좌표가 어디인지(`e.clientX`)<br>입력된 값이 무엇인지(`e.target.value`)<br>기본 동작을 막아야 할 때(`e.preventDefault()`) |
 | **❌ 안 받아도 될 때** | **단순 실행만 하면 될 때** | 그냥 "클릭되었다"는 사실만 중요할 때<br>단순한 메뉴 열기/닫기<br>고정된 메시지 출력 |
 
-### 3) 실습 코드
+**📝 예제 코드**
 
 ```jsx
 // 1. 안 받는 경우 (e 필요 없음)
@@ -343,7 +343,7 @@ btn.addEventListener('click', function(e) {
 
 ## 💻 실습 : 키보드 이벤트
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -362,7 +362,7 @@ btn.addEventListener('click', function(e) {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <input type="text" id="chat-input" placeholder="메시지 입력">
@@ -447,7 +447,7 @@ input.addEventListener('change', function(e) {
 
 ## 💻 실습 : 폼 이벤트
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -470,7 +470,7 @@ input.addEventListener('change', function(e) {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <input type="text" id="msg-input" placeholder="내용 입력">
@@ -556,7 +556,7 @@ window.addEventListener('beforeunload', function(e) {
 
 ## 💻 실습 : 문서/창 이벤트
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -575,7 +575,7 @@ window.addEventListener('beforeunload', function(e) {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 스크롤 이벤트 (scroll)
@@ -683,7 +683,7 @@ form.addEventListener('submit', function(e) {
 
 ## 💻 실습 : 기본 동작 막기
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -702,7 +702,7 @@ form.addEventListener('submit', function(e) {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <a href="https://www.naver.com" id="my-link">네이버로 이동</a>
@@ -831,7 +831,7 @@ btn.addEventListener('click', function() {
 
 ## 7. addEventListener 상세
 
-### 1) 기본 문법
+**📝 기본 문법**
 
 ```jsx
 element.addEventListener(type, handler, options);
@@ -916,7 +916,7 @@ btn.removeEventListener('click', function(e) {
   - 게임 시작 버튼
   - 초기 데이터 로딩 트리거
 
-**코드 예시**
+**🧪 예시 코드**
 
 ```jsx
 btn.addEventListener('click', function() {
@@ -931,7 +931,7 @@ btn.addEventListener('click', function() {
 - **설명**: 브라우저의 이벤트 전파 단계 중 '캡처링' 단계에서 이벤트를 발생시킵니다.
 - **기본값**: `false` (기본적으로는 버블링 단계에서 실행됨)
 
-**코드 예시**
+**🧪 예시 코드**
 
 ```jsx
 elem.addEventListener('click', handler, {
@@ -943,7 +943,7 @@ elem.addEventListener('click', handler, {
 
 이벤트는 발생 시 특정 방향으로 흐릅니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li><strong>캡처링(Capturing)</strong> — 이벤트가 <code>window</code>에서부터 실제 타겟 요소(클릭한 지점)로 <strong>내려가는</strong> 단계입니다.</li>
     <li><strong>버블링(Bubbling)</strong> — 이벤트가 타겟 요소에서 다시 <code>window</code> 방향으로 <strong>올라가는</strong> 단계입니다.</li>
@@ -977,7 +977,7 @@ elem.addEventListener('click', handler, {
 - **touchstart**, **touchmove** (모바일 터치)
 - **scroll** (스크롤 바)
 
-### 3) 실습 코드
+**📝 예제 코드**
 
 ```jsx
 document.addEventListener('touchstart', handler, {
@@ -1010,7 +1010,7 @@ document.addEventListener('touchstart', handler, {
 
 ## 💻 실습 : 이벤트 리스너
 
-### 1) Mission (미션)
+**🎯 Mission (미션)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -1036,7 +1036,7 @@ document.addEventListener('touchstart', handler, {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <button id="btn">5초만 작동하는 버튼</button>        <!-- 5초 뒤 이벤트가 사라질 버튼 -->
@@ -1200,7 +1200,7 @@ btn.addEventListener('click', function(e) {
 
 현재 화면상의 위치(`clientY`)에 스크롤로 인해 위로 올라가 가려진 부분(`scrollY`)을 더하면 문서 전체 기준의 위치(`pageY`)가 됩니다.
 
-### 4) 실습 코드 활용 예시
+**📝 예제 코드 활용 예시**
 
 ```jsx
 const target = document.querySelector('.box');
@@ -1232,13 +1232,13 @@ target.addEventListener('click', function(e) {
 
 **⭐ 중요**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>버블링 현상으로 인해 이 두 요소는 서로 다를 수 있습니다.</li>
   </ul>
 </div>
 
-### 2) 실습 코드
+**📝 예제 코드**
 
 부모 요소인 `div`에 리스너를 달고 내부의 `button`을 클릭했을 때의 동작을 확인하는 코드입니다.
 
@@ -1284,7 +1284,7 @@ parent.addEventListener('click', function(e) {
 
 ## 💻 실습 : 타겟 구분하기 (`target` vs `currentTarget`)
 
-### 1) Mission
+**🎯 Mission**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -1307,7 +1307,7 @@ parent.addEventListener('click', function(e) {
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <div id="outer" class="p-4 bg-gray-200">   <!-- 클릭 이벤트를 걸 부모 요소 -->
@@ -1335,7 +1335,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 | **내부 버튼 클릭 시** | `inner` | `outer` | 버튼에서 발생한 이벤트가 부모(`outer`)로 **버블링**되었기 때문입니다. |
 | **배경(outer) 클릭 시** | `outer` | `outer` | 발생지와 핸들러 위치가 동일하므로 두 값이 같습니다. |
 
-**📝 핵심 정리**
+**🆚 비교 정리**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -1392,7 +1392,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 **기본 동작**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li><code>addEventListener</code>의 기본값은 버블링 단계에서 실행되도록 설정되어 있습니다. 즉, 특별한 옵션을 주지 않으면 이벤트는 아래에서 위로 올라오며 실행됩니다.</li>
   </ul>
@@ -1477,7 +1477,7 @@ document.getElementById('child')
 - `focus`, `blur`
 - `mouseenter`, `mouseleave` 등
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -1490,7 +1490,7 @@ document.getElementById('child')
 
 ## 💻 실습 : 버블링 제어(`stopPropagation`)
 
-### 1) Mission
+**🎯 Mission**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -1514,7 +1514,7 @@ document.getElementById('child')
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <div class="box1">
@@ -1541,7 +1541,7 @@ boxes.forEach(box => {
 </script>
 ```
 
-### 3) 결과 및 핵심 정리
+### 3) 📝 요약 메모
 
 Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올라가려 합니다.  
 `box2` 핸들러에서 `e.stopPropagation()`이 호출되면서 전파가 중단되어, 콘솔에는 **"box3 클릭!"**, **"box2 클릭!"**까지만 출력됩니다.
@@ -1652,7 +1652,7 @@ menu.appendChild(newLi);
 
 ## 💻 실습 : 이벤트 위임 기초
 
-### 1) Mission
+**🎯 Mission**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -1675,7 +1675,7 @@ menu.appendChild(newLi);
   </div>
 </div>
 
-### 2) 실습 코드
+**📝 정답 코드**
 
 ```jsx
 <ul id="list">
@@ -1702,7 +1702,7 @@ list.addEventListener('click', function(e) {
 </script>
 ```
 
-### 3) 핵심 정리 및 동작 원리
+### 3) 💡 보충 설명
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -2024,7 +2024,7 @@ function displayResults(items) {
 
 ---
 
-## 🚀 최종 핵심 정리
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

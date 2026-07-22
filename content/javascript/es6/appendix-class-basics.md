@@ -58,9 +58,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>Class의 정체</strong> — Class가 생성자 함수를 감싼 Syntactic Sugar(문법적 설탕)임을 이해합니다.<br>
-  <strong>기본 문법</strong> — `class`, `constructor`, 메서드 작성 규칙을 익힙니다.<br>
-  <strong>상속과 정적 메서드</strong> — `extends`/`super`로 기능을 물려받고, `static`으로 유틸리티 기능을 만드는 법을 배웁니다.
+  • <strong>Class의 정체</strong> — Class가 생성자 함수를 감싼 Syntactic Sugar(문법적 설탕)임을 이해합니다.<br>
+  • <strong>기본 문법</strong> — `class`, `constructor`, 메서드 작성 규칙을 익힙니다.<br>
+  • <strong>상속과 정적 메서드</strong> — `extends`/`super`로 기능을 물려받고, `static`으로 유틸리티 기능을 만드는 법을 배웁니다.
 </div>
 
 ---
@@ -130,7 +130,7 @@ class User {
 
 ### 3) 중요 포인트
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   Class는 기존 프로토타입 기반 객체 생성 방식을 더 읽기 쉬운 문법으로 제공하는 형태입니다.
 </div>
 
@@ -181,7 +181,7 @@ class Hero {          // 1. 선언
 }
 ```
 
-### 💻 예제 코드
+**📝 예제 코드**
 
 ```js
 class Hero {
@@ -233,9 +233,9 @@ bat.attack(); // "배트맨의 공격!"
 | **super()**(생성자 호출) | **"부모의 생성자를 실행합니다."** | `super()` | • **필수 조건**: 자식 `constructor`에서 `this`를 사용하기 전에 반드시 호출해야 함<br>• 자식 클래스에 `constructor`를 직접 작성하지 않으면 JavaScript가 기본 constructor를 자동으로 만들어 부모 constructor를 호출함 |
 | **super.method()**(메서드 호출) | **"부모의 기능을 빌려 씁니다."** | `super.메서드명()` | • **기능 확장**: 부모의 기본 기능을 그대로 실행하면서, 뒤에 새로운 기능을 얹을 때 사용 |
 
-### 3) 코드 예제 (Legacy vs Modern)
+**📝 예제 코드 (Legacy vs Modern)**
 
-**① 부모 클래스 (기본 기능)**
+**🧪 부모 클래스 (기본 기능)**
 
 동물이라면 누구나 가진 이름과 달리기 기능입니다.
 
@@ -253,7 +253,7 @@ class Animal {
 }
 ```
 
-**② 자식 클래스 (기능 확장)**
+**🧪 자식 클래스 (기능 확장)**
 
 `Animal`의 기능을 물려받은 `Rabbit`입니다.
 
@@ -274,7 +274,7 @@ class Rabbit extends Animal {
 }
 ```
 
-**③ 실행 결과**
+**✅ 실행 결과**
 
 ```js
 const bunny = new Rabbit('토끼');
@@ -325,7 +325,7 @@ bunny.run(5);
 | **객체 생성 불필요** | 굳이 메모리를 써가며 객체를 만들 필요가 없을 때<br>(순수 기능만 필요할 때 효율적) |
 | **팩토리 메서드** | 입력받은 데이터를 가공해서 객체를 대신 만들어주는 함수를 구현할 때 |
 
-### 3) 코드 예제
+**📝 예제 코드**
 
 ```js
 class MathUtil {
@@ -364,7 +364,7 @@ const m = new MathUtil();
 
 ---
 
-## 5. 핵심 요약 (Summary)
+## 5. ✅ 핵심 요약
 
 Class 문법 도입으로 변화된 **3가지 핵심 포인트**입니다.
 

@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -119,7 +119,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 <h2>2. 실습: Paint Flashing으로 Paint 영역 확인하기</h2>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>Paint Flashing이 보여주는 것</strong>
   <p>Paint Flashing은 React 컴포넌트가 리렌더링되었는지를 직접 보여주는 도구가 아닙니다. 브라우저가 실제로 다시 Paint한 영역을 녹색으로 보여주는 기능입니다. 따라서 "React 리렌더링 확인"보다는 "브라우저 Paint 영역 확인"이라고 설명하는 것이 정확합니다.</p>
   <p>Paint Flashing은 React의 가상 DOM 비교(Diffing) 과정을 직접 보여주는 도구도 아닙니다. 대신 React 상태 변경 이후 브라우저가 실제로 다시 칠한(Paint) 영역이 어디인지 확인하는 데 사용합니다.</p>
@@ -146,9 +146,9 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 </div>
 
-<h3>💡 결과 해석</h3>
+**💡 결과 해석**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>화면이 어떻게 반짝이나요?</strong>
   <ul>
     <li>🟢 <strong>좁은 영역만 반짝임:</strong> 변경된 텍스트 주변의 작은 영역만 반짝이면, 브라우저가 비교적 좁은 영역만 다시 Paint한 것으로 볼 수 있습니다.</li>
@@ -165,7 +165,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 Performance 탭과 Paint Flashing, 두 가지 도구로 React 렌더링 성능을 직접 확인하는 방법을 정리합니다.
 

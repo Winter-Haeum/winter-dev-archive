@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>🎯 this의 정체</strong> — 함수가 호출되는 방식에 따라 결정되는 원리를 이해합니다.<br>
-  <strong>4가지 규칙</strong> — 기본, 암시적, 명시적, new 바인딩의 작동 방식을 익힙니다.<br>
-  <strong>우선순위</strong> — 규칙이 충돌할 때 어떤 것이 먼저 적용되는지 배웁니다.<br>
-  <strong>{} 실전 활용</strong> — 화살표 함수와 bind를 활용해 this 이슈를 해결합니다.
+  • <strong>🎯 this의 정체</strong> — 함수가 호출되는 방식에 따라 결정되는 원리를 이해합니다.<br>
+  • <strong>4가지 규칙</strong> — 기본, 암시적, 명시적, new 바인딩의 작동 방식을 익힙니다.<br>
+  • <strong>우선순위</strong> — 규칙이 충돌할 때 어떤 것이 먼저 적용되는지 배웁니다.<br>
+  • <strong>{} 실전 활용</strong> — 화살표 함수와 bind를 활용해 this 이슈를 해결합니다.
 </div>
 
 ---
@@ -120,7 +120,7 @@ fn();
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   누가 이 함수를 어떻게 호출했는가에 따라 this가 결정됩니다 (동적 바인딩)
 </div>
 
@@ -164,7 +164,7 @@ new obj.method();   // this = 새 객체
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   화살표 함수는 자신만의 this를 만들지 않고, 만들어진 위치의 상위 스코프 this를 그대로 사용합니다.
 </div>
 
@@ -215,7 +215,7 @@ new obj.method();   // this = 새 객체
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   오른쪽으로 갈수록 결속력(우선순위)이 강해집니다.<br>
   (규칙이 충돌하면 오른쪽 규칙이 이깁니다!)
 </div>
@@ -244,7 +244,7 @@ new obj.method();   // this = 새 객체
   1. **비엄격 모드**: 전역 객체 (**Window**)
   2. **엄격 모드**: 정의되지 않음 (**undefined**)
 
-### 2) 코드 예시
+**🧪 예시 코드**
 
 가장 흔하게 보는 일반 함수 호출입니다.
 
@@ -343,7 +343,7 @@ myTag();
 
 **이 셋을 구분하는 팁**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   · <strong>call</strong>은 <strong>comma(콤마)</strong>로 인자를 주고,<br>
   · <strong>apply</strong>는 <strong>array(배열)</strong>로 인자를 줍니다. (기능은 똑같습니다.)<br>
   · <strong>bind</strong>는 영어 단어 뜻 그대로 <strong>"꽉 묶어놓기만"</strong> 합니다. 실행은 하지 않고, <code>this</code>를 영구적으로 고정한 <strong>새로운 리모컨(함수)</strong>을 복사해서 만들어줍니다. 그래서 이벤트 리스너(<code>onClick</code> 등)처럼 <strong>"지금 말고 나중에 실행해줘"</strong>라고 할 때 가장 많이 쓰입니다.
@@ -392,7 +392,7 @@ pikaAttack('Iron Tail'); // 나중에 필요할 때 실행
 
 `new` 연산자는 **공장 가동 버튼**입니다. 누르는 순간 **완전히 새로운 제품(Instance)**이 뚝딱 만들어지고, 그 제품 겉면에 `this`라는 라벨이 붙습니다.
 
-### 2) 코드 예시
+**🧪 예시 코드**
 
 함수는 그대로지만 `new`를 만나는 순간 공장으로 변신합니다.
 
@@ -418,7 +418,7 @@ const bot = new Robot('Wally');
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   New Object (Instance): <code>this = { name: ... }</code><br>
   <strong>갓 태어난 이 객체</strong>가 무조건 <code>this</code>입니다.
 </div>
@@ -653,7 +653,7 @@ setTimeout(function() {
 }, 1000);
 ```
 
-**정리 포인트**
+**💡 결론**
 
 <div class="wda-callout wda-cs">
   결론: 화살표 함수가 가장 깔끔!
@@ -727,7 +727,7 @@ user.greet(); // "Hi, undefined"
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   객체의 this를 사용해야 하는 메서드는 일반 함수로, 상위 this를 유지해야 하는 콜백은 화살표 함수로 작성하는 경우가 많습니다.
 </div>
 
@@ -785,7 +785,7 @@ console.log(myGagu.location); // Global
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   화살표 함수는 "내가 서 있는 곳"의 this를 기억합니다.<br>
   객체를 만들 때 우리는 Global에 서 있었으므로, 화살표 함수의 this도 Global이 됩니다.
 </div>
@@ -860,14 +860,14 @@ if (true) {
 
 ## 🌈 실습: this 바인딩 예측하기
 
-### 1) Mission
+**🎯 Mission**
 
 1. 오른쪽 코드를 확인하세요.
 2. 각 `console.log`가 출력할 값을 예측해보세요.
 
 > 힌트: 호출 방식과 함수 종류(화살표 vs 일반)를 확인하세요!
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 const obj = {
@@ -884,7 +884,7 @@ obj.print();       // 1. ?
 obj.printArrow();  // 2. ?
 ```
 
-### 3) 정답 및 해설
+**💡 정답 및 해설**
 
 - **1. obj.print() ➡ "Woowa"** — `print`는 **일반 함수**입니다. 메서드로 호출(`obj.print`)되었으므로 `this`는 점 앞의 객체 **`obj`**가 됩니다.
 - **2. obj.printArrow() ➡ undefined** — `printArrow`는 **화살표 함수**입니다. 화살표 함수는 자신이 정의된 곳의 상위 스코프(여기서는 전역, Global)의 `this`를 사용합니다. 전역에는 `name`이 없으므로 **undefined**가 출력됩니다.
@@ -901,7 +901,7 @@ obj.printArrow();  // 2. ?
 
 ---
 
-## 🔑 핵심 정리 (Summary)
+## 🧭 this 판단 가이드
 
 ### 1) 🕒 결정 시점
 
@@ -978,7 +978,7 @@ myApp.run();
 
 ---
 
-## 📋 최종 핵심 요약표
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

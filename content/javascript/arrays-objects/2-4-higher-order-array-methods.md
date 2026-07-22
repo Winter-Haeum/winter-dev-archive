@@ -59,10 +59,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>ƒ 고차 함수 (HOF)</strong> — 함수를 인자로 받거나 반환하는 함수형 프로그래밍의 기초를 다집니다.<br>
-  <strong>배열 3대장</strong> — map, filter, reduce의 작동 원리와 활용법을 마스터합니다.<br>
-  <strong>합성과 파이프라인</strong> — 메서드 체이닝으로 데이터를 우아하게 처리하는 법을 배웁니다.<br>
-  <strong>불변성</strong> — 원본을 지키며 새로운 데이터를 만드는 안전한 패턴을 익힙니다.
+  • <strong>ƒ 고차 함수 (HOF)</strong> — 함수를 인자로 받거나 반환하는 함수형 프로그래밍의 기초를 다집니다.<br>
+  • <strong>배열 3대장</strong> — map, filter, reduce의 작동 원리와 활용법을 마스터합니다.<br>
+  • <strong>합성과 파이프라인</strong> — 메서드 체이닝으로 데이터를 우아하게 처리하는 법을 배웁니다.<br>
+  • <strong>불변성</strong> — 원본을 지키며 새로운 데이터를 만드는 안전한 패턴을 익힙니다.
 </div>
 
 ---
@@ -213,14 +213,14 @@ console.log(result); // undefined
   <h2>💻 실습 : forEach 맛보기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. `foods` 배열을 순회하세요.
 2. 각 음식을 콘솔에 출력하세요.
 
 > Hint: 콜백 함수의 첫 번째 인자는 현재 요소(element)입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -231,7 +231,7 @@ const foods = ['Pizza', 'Burger', 'Sushi'];
 foods.forEach(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 매개변수의 이름은 자유롭게 지을 수 있지만, 배열 이름의 단수형(food)으로 짓는 것이 관례입니다.
 
@@ -279,7 +279,7 @@ console.log(numbers); // [1, 2, 3, 4, 5]
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   콜백 매개변수: <code>map((element, index, array) => return newValue)</code><br>
   ✅ 원본 배열 변경 없이 새로운 배열 반환
 </div>
@@ -310,7 +310,7 @@ const formatted = users.map(user => ({
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   ⚛️ React에서 리스트 렌더링 시 필수!
 </div>
 
@@ -327,14 +327,14 @@ const formatted = users.map(user => ({
 
 ## 💻 실습 : map 맛보기
 
-### 1) Mission
+**🎯 Mission**
 
 1. `prices` 배열의 각 요소를 변환하세요.
 2. 각 가격 뒤에 "원"을 붙여 문자열로 만드세요.
 
 > Hint: 템플릿 리터럴 `${price}원` 을 사용해보세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -345,7 +345,7 @@ const prices = [1000, 2000, 3000];
 const tagged = prices.map(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 숫자였던 가격이 "원"이 붙은 문자열로 변신해서 **새로운 배열**에 담깁니다.
 
@@ -394,7 +394,7 @@ console.log(big); // [6, 7, 8, 9, 10]
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   콜백 매개변수: <code>filter((element, index, array) => return boolean)</code><br>
   콜백이 true를 반환하는 요소만 새 배열에 포함됩니다
 </div>
@@ -438,14 +438,14 @@ const result = products.filter(
 
 ## 💻 실습 : filter 맛보기
 
-### 1) Mission
+**🎯 Mission**
 
 1. `items` 배열에서 비싼 물건을 찾으세요.
 2. 가격(price)이 3000원 이상인 것만 남기세요.
 
 > Hint: 조건식이 true 인 요소만 남습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -460,7 +460,7 @@ const items = [
 const expensive = items.filter(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 배열 안에 **객체**가 들어있으므로, 점(`.`)을 찍어 가격(`price`)에 접근해야 합니다.
 
@@ -513,7 +513,7 @@ console.log(sum2); // 15
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   콜백 매개변수: <code>reduce((acc, cur, index, array) => return newAcc, initial)</code><br>
   <code>reduce((누산기, 현재값) => 계산, 초기값)</code><br>
   배열을 하나의 값으로 축소
@@ -625,14 +625,14 @@ const byTeam = people.reduce((acc, person) => {
 
 ## 💻 실습 : reduce 맛보기
 
-### 1) Mission
+**🎯 Mission**
 
 1. `scores`의 모든 점수를 더하세요.
 2. 초기값(`0`)을 반드시 설정하세요.
 
 > Hint: acc는 누적값, cur는 현재 점수입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -643,7 +643,7 @@ const scores = [10, 20, 30, 40];
 const total = scores.reduce(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 가장 전형적인 합계 구하기 패턴입니다.
 
@@ -702,7 +702,7 @@ console.log(notFound); // undefined
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   콜백 매개변수: <code>find((element, index, array) => return boolean)</code>
 </div>
 
@@ -760,14 +760,14 @@ console.log(notFound); // -1
 
 ## 💻 실습 : find 맛보기
 
-### 1) Mission
+**🎯 Mission**
 
 1. `users` 배열에서 특정 유저를 찾으세요.
 2. `id`가 3인 유저 객체를 반환하세요.
 
 > Hint: find는 요소를 찾으면 그 즉시 반복을 멈춥니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -782,7 +782,7 @@ const users = [
 const found = users.find(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 찾으려는 조건(`id === 3`)을 함수로 만들어서 전달하면 됩니다.
 
@@ -828,7 +828,7 @@ console.log(hasBig); // false
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   하나라도 조건을 만족하면 true. 찾으면 바로 멈춤 (단락 평가)
 </div>
 
@@ -850,13 +850,13 @@ console.log(allExcellent); // false (78, 88)
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   모두 조건을 만족해야 true. 하나라도 실패하면 바로 멈춤
 </div>
 
-### 3) 핵심 요약
+### 3) 🆚 비교 정리
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   💡 some은 OR 조건, every는 AND 조건으로 생각하세요!
 </div>
 
@@ -886,14 +886,14 @@ console.log(allExcellent); // false (78, 88)
   <h2>💻 실습 : some / every 맛보기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. 비밀번호 유효성을 검사하세요.
 2. `every`를 사용해 모두 4자 이상인지 확인하세요.
 
 > Hint: some은 하나라도, every는 전부 다 만족해야 합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -904,7 +904,7 @@ const pwList = ['1234', 'abcd', 'ok'];
 const isSafe = pwList.every(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 문자열의 길이는 `.length` 속성으로 알 수 있습니다.
 
@@ -1010,14 +1010,14 @@ const sorted = users.toSorted((a, b) => a.age - b.age);
 
 ## 💻 실습 : sort 맛보기
 
-### 1) Mission
+**🎯 Mission**
 
 1. 숫자 배열을 정렬하세요.
 2. 오름차순 (작은 수 -> 큰 수)으로 정렬하세요.
 
 > Hint: a - b가 음수면 a가 앞으로 옵니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -1028,7 +1028,7 @@ const nums = [10, 5, 20, 1];
 nums.sort(/* ??? */);
 ```
 
-### 3) 정답
+**📝 정답**
 
 숫자를 비교할 때는 반드시 **비교 함수**를 넣어줘야 합니다.
 
@@ -1102,7 +1102,7 @@ const result = users
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   ✅ 각 단계가 명확하게 구분됨. 데이터 흐름을 따라가기 쉬움
 </div>
 
@@ -1144,7 +1144,7 @@ const updated = arr.map((x, i) =>
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   ✅ 원본을 변경하지 않고 새로운 데이터를 생성
 </div>
 
@@ -1173,7 +1173,7 @@ function addToCart(item) {
 
 **🔑 핵심 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   순수 함수는 예측 가능하고 테스트하기 쉬움
 </div>
 
@@ -1201,7 +1201,7 @@ function addToCart(item) {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💡 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1) 메서드 분류

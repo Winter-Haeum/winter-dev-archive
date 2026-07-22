@@ -52,10 +52,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  🗂️ <strong>객체의 개념</strong> — key-value 쌍으로 데이터를 구조화하는 방법 이해합니다.<br>
-  🔑 <strong>프로퍼티 다루기</strong> — 접근, 추가, 수정, 삭제 방법을 익힙니다.<br>
-  🔁 <strong>객체 순회</strong> — for...in과 Object 메서드로 객체를 탐색할 수 있습니다.<br>
-  🛠️ <strong>메서드</strong> — 객체 내부의 함수와 this 키워드를 알게 됩니다.
+  • <strong>객체의 개념</strong> — key-value 쌍으로 데이터를 구조화하는 방법 이해합니다.<br>
+  • <strong>프로퍼티 다루기</strong> — 접근, 추가, 수정, 삭제 방법을 익힙니다.<br>
+  • <strong>객체 순회</strong> — for...in과 Object 메서드로 객체를 탐색할 수 있습니다.<br>
+  • <strong>메서드</strong> — 객체 내부의 함수와 this 키워드를 알게 됩니다.
 </div>
 
 ---
@@ -98,9 +98,7 @@ const user = {
 - **의미의 명확성** : `user`라는 하나의 바구니 안에 이름, 나이, 이메일이 담겨 있어 "누구의 데이터인지" 한눈에 파악됩니다.
 - **구조화된 관리** : 관련 있는 데이터를 `Key-Value` 쌍으로 묶어 프로그래밍적으로 훨씬 다루기 쉬운 상태가 됩니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>4) 구조 시각화</h3>
-</div>
+### 4) 구조 시각화
 
 객체는 **현실의 사물을 코드로 옮겨놓은 것**과 같습니다. (예: 명함, 프로필 카드)
 
@@ -126,7 +124,7 @@ const user = {
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">Key와 Value</span>
   객체는 <strong>Key(키)</strong>와 <strong>Value(값)</strong>의 쌍으로 이루어져 있습니다.
 </div>
@@ -166,9 +164,7 @@ const user = {
   <h2>2. 객체 생성</h2>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;리터럴&gt;</h3>
-</div>
+**📌 리터럴**
 
 중괄호를 사용하여 객체를 만드는 **객체 리터럴 방식**이 가장 일반적입니다.
 
@@ -208,9 +204,7 @@ user.age = 25;
   </ul>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;키 룰 (Key Rules)&gt;</h3>
-</div>
+**📝 키 룰 (Key Rules)**
 
 키는 **문자열**이어야 하며, **특수문자가 포함되면 따옴표가 필요**합니다.
 
@@ -285,7 +279,7 @@ console.log(user["age"]);  // 25
   · <strong>변수를 통해 접근할 때</strong> : 키 이름이 변수에 담겨 있다면 반드시 <code>user[variable]</code> 형식을 써야 합니다.
 </div>
 
-**② 요약 비교**
+**🆚 요약 비교**
 
 | **구분** | **점 표기법 (.)** | **대괄호 표기법 ([])** |
 | --- | --- | --- |
@@ -294,9 +288,7 @@ console.log(user["age"]);  // 25
 | **변수로 접근** | 사용 불가 | **사용 가능** |
 | **⚠️ 주의사항** | 키 이름을 그대로 작성 | 키 이름을 **"문자열"**로 감싸기 |
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt; 동적 접근&gt;</h3>
-</div>
+**📌 동적 접근**
 
 변수를 사용하여 키에 접근하거나, 특수 문자가 포함된 키에 접근할 때 사용합니다.
 
@@ -355,7 +347,7 @@ data["home address"]; // OK
 
 객체를 만들고 다양한 방법으로 값을 꺼내봅시다.
 
-### 1) 미션: 내 폰 정보 저장하기
+**🎯 미션: 내 폰 정보 저장하기**
 
 다음 조건에 맞는 자바스크립트 코드를 작성하세요.
 
@@ -363,7 +355,7 @@ data["home address"]; // OK
 2. **점 표기법**으로 `model`을 출력하세요.
 3. **대괄호 표기법**으로 `color`를 출력하세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 객체 생성
@@ -388,9 +380,7 @@ console.log(myPhone["color"]); // "Black"
   <h2>4. 프로퍼티 조작</h2>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;추가와 수정&gt;</h3>
-</div>
+**📌 추가와 수정**
 
 **값을 할당하면 자동으로 추가되거나 수정됩니다.**
 
@@ -437,9 +427,7 @@ console.log(user);
 - **재할당과의 차이** : `const`로 선언된 객체 변수 자체를 통째로 바꾸는 것은 불가능하지만, 위 예시처럼 객체 내부의 '프로퍼티'를 조작하는 것은 언제든 가능합니다.
 - **덮어쓰기** : 수정 시 기존 데이터는 보존되지 않고 완전히 대체되므로 주의가 필요합니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;삭제와 const&gt;</h3>
-</div>
+**⚠️ 삭제와 const**
 
 `delete` 연산자로 삭제하며, `const` 객체도 수정 가능함을 주의하세요.
 
@@ -483,7 +471,7 @@ user = { name: "민수" }; // Error
 
 객체의 정보를 업데이트하고 불필요한 정보를 지워봅시다.
 
-### 1) 미션: 폰 정보 업데이트
+**🎯 미션: 폰 정보 업데이트**
 
 이미 생성된 `myPhone` 객체를 대상으로 다음 지시사항을 수행하세요.
 
@@ -492,7 +480,7 @@ user = { name: "민수" }; // Error
 3. **color 속성을 삭제하세요.**
 4. **최종 객체를 출력하세요.**
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 객체 생성 (기본 데이터)
@@ -544,7 +532,7 @@ console.log(myPhone);
 - 문자열 결합 등 표현식 사용 가능 ✅
 - 대괄호 없이 쓰면 에러 발생 ❗
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 const key = "name";
@@ -856,9 +844,7 @@ console.log(values);
 console.log(values.includes("철수")); // true
 ```
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>3) 특징 및 주의사항</h3>
-</div>
+### 3) 특징 및 주의사항
 
 - **데이터 타입 변환** : 이 메서드들은 객체(Object)를 배열(Array) 형태로 변환해 줍니다. 따라서 변환 후에는 `length` 속성이나 `includes()` 같은 배열 전용 메서드를 즉시 사용할 수 있어 데이터 처리가 매우 편리해집니다.
 - **고유 속성만 추출** : `for...in` 루프와 달리, 상속받은 프로퍼티는 제외하고 해당 객체가 직접 가지고 있는 프로퍼티들만 결과 배열에 담깁니다.
@@ -914,13 +900,13 @@ for...in 보다 더 현대적이고 안전한 방법입니다.
 
 객체의 모든 정보를 반복문을 통해 출력해 봅시다.
 
-### 1) 미션: 모든 정보 출력하기
+**🎯 미션: 모든 정보 출력하기**
 
 1. `for...in` 반복문을 사용하세요.
 2. `console.log` 로 **키: 값** 형태로 출력하세요. (예: "model: iPhone")
 3. (선택) `Object.keys()` 를 사용해 키 목록만 배열로 만드세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1, 2. for...in 순회
@@ -946,9 +932,7 @@ console.log(keys);
   <h2>13. 객체 복사와 병합</h2>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;얕은 복사&gt;</h3>
-</div>
+**📌 얕은 복사**
 
 원본 객체를 보존하면서 새로운 객체를 만들 때 사용합니다. **스프레드 연산자**가 가장 널리 쓰입니다.
 
@@ -992,9 +976,7 @@ console.log(target); // { a: 1, b: 2 }
 - **덮어쓰기 규칙** : 동일한 키가 존재할 경우, 뒤에 작성된 프로퍼티가 앞의 값을 덮어씁니다(`Override`).
 - **얕은 복사의 한계** : 객체 내부의 중첩된 객체까지 복사하지는 않으며, 1단계 수준의 프로퍼티만 복사됩니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;깊은 복사&gt;</h3>
-</div>
+**📌 깊은 복사**
 
 객체 안에 객체가 있을 때(중첩), 얕은 복사는 참조만 복사하는 문제가 있습니다.
 
@@ -1087,9 +1069,7 @@ console.log(user.address["zip"]);
 - **체이닝(Chaining)** : 하위 속성으로 내려갈 때마다 마침표(`.`)나 대괄호(`[]`)를 추가하여 연결하며, 순차적으로 접근이 이루어집니다.
 - **에러 주의** : 존재하지 않는 상위 객체에 대해 하위 접근을 시도할 경우 에러가 발생하므로, 앞서 배운 옵셔널 체이닝(`?.`)과 병행하여 사용하는 것이 안전합니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;수정과 주의점&gt;</h3>
-</div>
+**⚠️ 수정과 주의점**
 
 중첩된 객체의 값을 수정하거나 새로운 중첩 객체를 추가할 수 있습니다.
 
@@ -1207,9 +1187,7 @@ console.log(diff); // 6
 - **문법 최적화** : **단축 문법**은 `function` 키워드와 콜론(`:`)을 생략하여 코드의 가독성을 높여주므로 현대 자바스크립트에서는 이 방식을 우선적으로 사용합니다.
 - **호출 방식** : 메서드는 반드시 해당 메서드가 속한 객체를 통해 호출되어야 하며, 호출 시 소괄호`()`를 사용하여 인자를 전달합니다.
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>4) this를 사용하는 이유</h3>
-</div>
+### 4) this를 사용하는 이유
 
 메서드 내부에서 `this`를 사용하면 **"메서드를 호출한 객체"**를 가리킵니다.
 
@@ -1260,13 +1238,13 @@ user.greet(); // undefined (또는 에러)
 
 객체에 기능을 추가하여 스스로 행동하게 만들어봅시다.
 
-### 1) 미션: 폰 기능 추가
+**🎯 미션: 폰 기능 추가**
 
 1. `myPhone` 에 `showModel` 메서드를 추가하세요.
 2. 메서드 내부에서 `this` 를 사용해 모델명을 출력하세요. (예: "내 폰은 iPhone입니다.")
 3. 메서드를 호출하여 결과를 확인하세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 객체 생성 (기본 데이터)
@@ -1295,7 +1273,7 @@ myPhone.showModel();
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>📊 객체(Object) 핵심 요약 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1. 객체 접근 및 확인 방법 비교
@@ -1316,9 +1294,7 @@ myPhone.showModel();
 | **프로퍼티 단축** | `{name, age}` | 변수명과 키 이름이 같을 경우 `: 값` 부분을 생략 가능함 |
 | **메서드 단축** | `greet() { }` | `function` 키워드 생략. 현대 JS에서 가장 권장되는 방식 |
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>3. 객체 순회 방식 선택 가이드</h3>
-</div>
+### 3. 객체 순회 방식 선택 가이드
 
 | **순회 방식** | **대상** | **주요 특징** | **사용 결과** |
 | --- | --- | --- | --- |

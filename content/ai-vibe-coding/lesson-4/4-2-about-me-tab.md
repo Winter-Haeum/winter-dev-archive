@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,14 +24,14 @@ status: "completed"
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -70,10 +70,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
-  🙋 <strong>About Me 탭 설계</strong> — 자기소개, 기술 스택, 경력/학력을 담은 상세 소개 페이지를 구성한다<br>
-  🔗 <strong>데이터 구조 설계</strong> — 홈 탭과 About Me 탭이 같은 데이터를 공유하도록 구조를 설계한다<br>
-  ⚡ <strong>Context API 활용</strong> — 전역 상태 관리를 통해 탭 간 데이터를 자동으로 연동한다<br>
-  ✅ <strong>완성도 점검</strong> — 실제 취업/프리랜서 포트폴리오 기준으로 완성도를 체크한다
+  • <strong>About Me 탭 설계</strong> — 자기소개, 기술 스택, 경력/학력을 담은 상세 소개 페이지를 구성한다<br>
+  • <strong>데이터 구조 설계</strong> — 홈 탭과 About Me 탭이 같은 데이터를 공유하도록 구조를 설계한다<br>
+  • <strong>Context API 활용</strong> — 전역 상태 관리를 통해 탭 간 데이터를 자동으로 연동한다<br>
+  • <strong>완성도 점검</strong> — 실제 취업/프리랜서 포트폴리오 기준으로 완성도를 체크한다
 </div>
 
 ---
@@ -235,7 +235,7 @@ const skillsData = [
 
 주된 효과: About Me 탭의 데이터가 홈 탭에 자동으로 요약되어 표시되는 실시간 연동 시스템을 구축합니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">핵심 개념 — Context API</span>
   Context API를 사용하면 <strong>컴포넌트 트리 어디서든 같은 데이터에 접근</strong>할 수 있습니다.<br>
   About Me 탭에서 내용을 수정하면 홈 탭에도 즉시 반영됩니다.<br>

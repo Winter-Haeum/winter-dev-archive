@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,11 +55,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 이벤트 처리를 연습할 새로운 놀이터를 만들어봅시다.
 
-### 1) Mission
+**🎯 Mission**
 
 터미널을 열고 Vite를 사용하여 새 리액트 프로젝트를 생성하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 터미널에 다음 명령어를 입력하세요.
 
@@ -73,11 +73,11 @@ cd ~/Workspace
 npm create vite@latest
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 명령어를 입력하면 프로젝트 설정을 묻는 선택지(옵션)가 나타납니다.
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 <div style="position:relative;overflow:visible;margin:0.5rem 0;">
 방향키와 엔터키를 사용하여 아래와 같이 선택하세요.
@@ -112,7 +112,7 @@ npm run dev
 
 단순히 마우스 위치를 찍는 것이 아니라, **특정 영역(컨테이너) 내부에서의 정확한 좌표**를 계산하는 고급 실습입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/MouseTracker.jsx`를 만들고 다음 목표를 달성하세요.
 
@@ -134,12 +134,12 @@ const x = (e.clientX - rect.left) / scale;
 const y = (e.clientY - rect.top) / scale;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 - 어두운 박스 위로 마우스를 올리면, 마우스 커서를 따라다니는 원(또는 십자선)이 생깁니다.
 - 박스 왼쪽 상단 끝에 가면 `x: 0, y: 0`에 가까워져야 합니다.
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 로직과 JSX 구조를 합친 완성된 코드입니다.
 
@@ -231,7 +231,7 @@ export default MouseTracker;
   </ul>
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><code>onMouseMove</code>는 마우스를 움직이는 동안 매우 자주 실행됩니다.<br>실제 서비스에서는 필요한 경우 <code>requestAnimationFrame</code>이나 throttle을 사용해 업데이트 빈도를 줄일 수 있습니다.<br>이번 실습에서는 이벤트 좌표 계산을 이해하는 것이 목적이므로 그대로 사용합니다.</p>
 </div>
 
@@ -241,7 +241,7 @@ export default MouseTracker;
 
 입력창의 상태(포커스)를 감지하여 스타일을 바꾸고, 키보드 엔터(Enter) 키로 메시지를 전송하는 기능을 구현합니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/KeyboardInput.jsx`를 만들고 다음 목표를 달성하세요.
 
@@ -249,7 +249,7 @@ export default MouseTracker;
 2. **키보드 처리:** `onKeyDown`을 사용하여 **Enter 키**를 눌렀을 때만 메시지가 전송되게 하세요.
 3. **마무리:** 전송 후에는 입력창을 비우고, 화면에 결과 메시지를 띄우세요(alert 또는 텍스트 표시).
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸(`???`)을 채워 코드를 완성해 보세요.
 
@@ -298,7 +298,7 @@ function KeyboardInput() {
 export default KeyboardInput;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -315,7 +315,7 @@ export default KeyboardInput;
   </div>
 </div>
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 <div style="position:relative;overflow:visible;margin:0.5rem 0;">
 한글 입력 시 발생하는 중복 전송 버그(IME 이슈) 해결 로직이 포함된 정답입니다.
@@ -405,7 +405,7 @@ export default KeyboardInput;
 
 <h2>4. 💻 실습 3 : 스크롤 스파이</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 **목표**
 
@@ -420,12 +420,12 @@ target.scrollHeight - target.scrollTop <= target.clientHeight
 ((스크롤 전체 길이) - (스크롤 내린 만큼) <= (눈에 보이는 화면 높이))
 ```
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - **초기 상태**: 약관 동의 버튼 비활성화 (스크롤을 끝까지 내리세요)
 - **완료 상태**: 스크롤을 끝까지 내리면 "약관 동의 완료!" 버튼 활성화 (보라색 변경)
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from "react";
@@ -513,7 +513,7 @@ export default function ScrollSpy() {
 
 <h2>5. 💻 실습 4 : 이벤트 전파 (태그 관리자)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 **목표**
 
@@ -521,7 +521,7 @@ export default function ScrollSpy() {
 - **자식 클릭(X)**: 태그 삭제
 - **핵심**: 삭제 버튼 클릭 시 부모의 선택 이벤트가 발생하지 않도록 `stopPropagation` 필수 적용
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from "react";

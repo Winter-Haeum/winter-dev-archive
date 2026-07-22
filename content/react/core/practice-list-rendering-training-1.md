@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -53,7 +53,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. 💻 실습 1 : 데이터 목록 표시 (map)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - `map()` 함수를 사용하여 배열 렌더링
 - 각 항목에 `key` 속성 부여 (`id` 사용)
@@ -63,13 +63,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 { id: 1, name: 'Apple', type: 'Fruit' }
 ```
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - **Apple** 🍎 Fruit
 - **Carrot** 🥕 Vegetable
 - **Banana** 🍌 Fruit
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 function FruitList() {
@@ -105,13 +105,13 @@ function FruitList() {
 
 <h2>2. 💻 실습 2 : 가격 필터링 (filter)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - `filter()` 함수를 사용하여 데이터 걸러내기
 - 입력된 가격보다 비싼 상품만 보여주기 (최소 가격 설정)
 - 원본 데이터(products)는 변형되지 않고 보존되어야 함
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 (최소 가격이 $40으로 설정된 경우)
 
@@ -120,7 +120,7 @@ function FruitList() {
 - **Monitor** $300
 - *(Mouse는 $20이므로 제외됨)*
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 function PriceFilter() {

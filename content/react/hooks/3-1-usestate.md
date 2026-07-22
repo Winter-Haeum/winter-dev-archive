@@ -24,13 +24,13 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 객체와 배열 state</strong> — 복잡한 데이터 구조를 불변성을 지키며 업데이트하는 방법을 배웁니다<br>
-  <strong>2) 상태 끌어올리기</strong> — 여러 컴포넌트가 같은 데이터를 공유하는 패턴을 익힙니다<br>
-  <strong>3) state 설계 원칙</strong> — 효율적이고 유지보수하기 좋은 state 구조를 설계합니다<br>
-  <strong>4) 성능과 최적화</strong> — React가 state 변경을 감지하는 방식과 불변성이 렌더링에 미치는 영향을 이해합니다
+  • <strong>객체와 배열 state</strong> — 복잡한 데이터 구조를 불변성을 지키며 업데이트하는 방법을 배웁니다<br>
+  • <strong>상태 끌어올리기</strong> — 여러 컴포넌트가 같은 데이터를 공유하는 패턴을 익힙니다<br>
+  • <strong>state 설계 원칙</strong> — 효율적이고 유지보수하기 좋은 state 구조를 설계합니다<br>
+  • <strong>성능과 최적화</strong> — React가 state 변경을 감지하는 방식과 불변성이 렌더링에 미치는 영향을 이해합니다
 </div>
 
 ---
@@ -121,7 +121,7 @@ const newObj = { ...obj, a: 2 }; // 새로운 객체 생성 (Spread 연산자)
 
 **왜 중요한가요?**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>React는 효율적인 렌더링을 위해 객체의 내용 전체를 비교하지 않고, <strong>"이전 객체와 새 객체의 주소값(Reference)"만 빠르게 비교</strong>합니다.<br>따라서 기존 객체를 직접 수정해버리면 주소값이 변하지 않아 렌더링이 일어나지 않는 버그가 발생합니다.</p>
   <p>즉, <code>setUser(user)</code>처럼 <strong>같은 참조(주소값)를 그대로 다시 넘기면</strong> React는 "이전과 동일한 객체"라고 판단해 변경이 없다고 여기고 리렌더링을 건너뜁니다.<br>그래서 값을 바꿀 때는 항상 <code>{ ...user, age: 26 }</code>처럼 <strong>새로운 참조를 가진 객체/배열로 교체</strong>해서 setter에 전달해야 합니다.</p>
 </div>
@@ -223,7 +223,7 @@ slice()   // 배열의 일부분을 잘라내어 복사
 
 **🧠 기억법**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>원본을 변경하는 메서드는 금지, 새 배열을 반환하는 메서드는 OK.</strong></p>
 </div>
 
@@ -268,15 +268,15 @@ setItems((prevItems) =>
 
 <h2>6. 🛠️ 미니 실습: 배열 조작하기</h2>
 
-### 1) Mission
+**🎯 Mission**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>배열 상태 만들기</strong>: <code>useState</code>를 사용하여 빈 배열로 초기화하세요.<br>
   <strong>추가 함수 구현</strong>: 배열에 새로운 아이템을 추가하는 함수를 작성하세요. (<code>push</code> 사용 금지!)<br>
   <strong>삭제 함수 구현</strong>: <code>filter</code>를 사용하여 특정 인덱스의 아이템을 삭제하는 함수를 작성하세요.</p>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -301,7 +301,7 @@ function MiniTodo() {
 export default MiniTodo;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">초기 상태</div><div class="wda-fcard-dsc"><code>[]</code></div></div>
@@ -310,7 +310,7 @@ export default MiniTodo;
   <div class="wda-fcard"><div class="wda-fcard-ttl">첫 번째 항목(0번 인덱스) 삭제</div><div class="wda-fcard-dsc"><code>["운동하기"]</code></div></div>
 </div>
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -447,7 +447,7 @@ updateUser(draft => {
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>여러 컴포넌트가 같은 데이터를 공유</strong></p>
 </div>
 
@@ -459,7 +459,7 @@ updateUser(draft => {
 
 공통 부모 컴포넌트에 state를 두고, props로 내려주기.
 
-### 3) 예제 코드 : 온도 변환기
+**📝 예제 코드 : 온도 변환기**
 
 ```jsx
 import { useState } from 'react';
@@ -571,7 +571,7 @@ export default TemperatureCalculator;
 
 ---
 
-<h2>12. 🔑 핵심 정리</h2>
+<h2>12. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

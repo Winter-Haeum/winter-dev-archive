@@ -52,10 +52,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  📦 <strong>배열의 개념</strong> — 순서가 있는 데이터 집합의 필요성과 구조 이해합니다.<br>
-  ➕ <strong>추가와 제거</strong> — push, pop, splice 등으로 배열 조작할 수 있습니다.<br>
-  🔍 <strong>검색과 변환</strong> — find, slice, sort 등 다양한 메서드 활용할 수 있습니다.<br>
-  🧬 <strong>복사와 구조</strong> — 얕은 복사, 다차원 배열의 개념 이해합니다.
+  • <strong>배열의 개념</strong> — 순서가 있는 데이터 집합의 필요성과 구조 이해합니다.<br>
+  • <strong>추가와 제거</strong> — push, pop, splice 등으로 배열 조작할 수 있습니다.<br>
+  • <strong>검색과 변환</strong> — find, slice, sort 등 다양한 메서드 활용할 수 있습니다.<br>
+  • <strong>복사와 구조</strong> — 얕은 복사, 다차원 배열의 개념 이해합니다.
 </div>
 
 ---
@@ -154,15 +154,13 @@ const empty = []; // 비어있는 바구니 만들기 (빈 배열)
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">리터럴이란?</span>
   '리터럴(Literal)'은 복잡한 과정 없이 보이는 그대로의 값을 써서 데이터를 만드는 방식을 말해요.<br>
   배열에서는 <code>[]</code>가 그 약속입니다.
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>2) Array 생성자</h3>
-</div>
+### 2) Array 생성자
 
 `new` 키워드를 사용하여 배열을 만듭니다.
 
@@ -181,9 +179,7 @@ const spaces = new Array(5); // [empty x 5]
   헷갈리기 쉽기 때문에 리터럴 방식(<code>[]</code>)을 더 권장해요.
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;배열 생성 - 특수&gt;</h3>
-</div>
+**📌 배열 생성 - 특수**
 
 특정 상황에서 사용하는 배열 생성 고급 방법입니다.
 
@@ -211,7 +207,7 @@ Array.from("Hello");
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">유사 배열이란?</span>
   length 속성과 숫자 인덱스를 가지고 있어서 배열처럼 보이지만, 실제 배열은 아닌 객체를 말합니다.<br>
   그래서 <code>push</code>, <code>pop</code>, <code>map</code> 같은 배열 메서드를 바로 사용할 수 없습니다.<br>
@@ -229,7 +225,7 @@ Array.from("Hello");
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">읽기와 쓰기의 차이</span>
   <ul>
     <li><strong>읽기(Access)</strong> : 배열 안의 값을 건드리지 않고 무엇이 들어있는지만 확인하는 작업입니다. 원본은 그대로 유지됩니다.</li>
@@ -254,9 +250,7 @@ Array.from("Hello");
   </ul>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;문법 및 활용&gt;</h3>
-</div>
+**📝 문법 및 활용**
 
 ### 3) 요소 읽기 (Read) - 기본
 
@@ -297,9 +291,7 @@ console.log(colors[colors.length - 1]);
   </ul>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>5) 요소 쓰기 (Write)</h3>
-</div>
+### 5) 요소 쓰기 (Write)
 
 특정 인덱스 위치에 새로운 값을 대입하여 기존 내용을 수정하거나 추가합니다.
 
@@ -319,7 +311,7 @@ colors[5] = "보라";
 // 중간에 비어있는 칸(empty)들이 생겨 관리가 어려워지므로 순서대로 추가하는 것이 좋습니다.
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">읽기와 쓰기 정리</span>
@@ -371,9 +363,7 @@ console.log(arr[-1]); // 결과: undefined
 // [해설] 파이썬 등 다른 언어와 달리 자바스크립트는 뒤에서부터 세는 기능을 지원하지 않습니다.
 ```
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>3) 초보자를 위한 핵심 요약 (심화)</h3>
-</div>
+### 3) 초보자를 위한 헷갈림 정리 (심화)
 
 **⚠️ 주의사항**
 
@@ -396,13 +386,13 @@ console.log(arr[-1]); // 결과: undefined
 
 배열을 만들고 값을 변경하는 가장 기초적인 연습입니다.
 
-### 1) 미션: 신호등 만들기
+**🎯 미션: 신호등 만들기**
 
 1. `signals` 배열을 생성하고 "빨강", "노랑", "파랑"을 넣으세요.
 2. "파랑"을 "초록"으로 수정하세요.
 3. 배열의 길이를 출력하세요.
 
-### 2) 정답 코드 및 해설
+**📝 정답 코드 및 해설**
 
 ```js
 // 1. signals 배열 생성 및 데이터 초기화
@@ -438,9 +428,7 @@ console.log(signals); // 결과: ["빨강", "노랑", "초록"]
   <h2>5. 배열 메서드의 추가/제거</h2>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;끝에서 추가/제거&gt;</h3>
-</div>
+**📌 끝에서 추가/제거**
 
 배열의 오른쪽(끝)에서 데이터를 넣고 빼는 가장 빠르고 효율적인 방법입니다.
 
@@ -531,7 +519,7 @@ const grabbedFruit = fruits.pop();
 // 나중에 console.log(grabbedFruit)라고 부르면 "바나나"를 다시 꺼내 쓸 수 있습니다.
 ```
 
-### 🔹 핵심 요약
+### 🔹 요약 메모
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">pop() 관점별 요약</span>
@@ -553,7 +541,7 @@ const grabbedFruit = fruits.pop();
 
 ---
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">push와 pop 정리</span>
@@ -563,9 +551,7 @@ const grabbedFruit = fruits.pop();
   </ul>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;앞에서 추가/제거&gt;</h3>
-</div>
+**📌 앞에서 추가/제거**
 
 배열의 왼쪽(첫 번째)에서 데이터를 넣고 빼는 방법입니다. 끝에서 작업하는 것보다 컴퓨터가 더 많은 일을 합니다.
 
@@ -607,7 +593,7 @@ console.log(first);  // 출력: "사과" (꺼낸 값을 변수에 담을 수 있
   데이터가 100만 개라면 100만 개를 다 옮겨야 하므로, 끝에서 작업하는 push/pop보다 훨씬 느리고 비효율적입니다.
 </div>
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">초보자를 위한 핵심 요약</span>
@@ -626,14 +612,14 @@ console.log(first);  // 출력: "사과" (꺼낸 값을 변수에 담을 수 있
 
 push, unshift, shift 메서드를 실제 대기열 관리 시스템처럼 활용해 봅니다.
 
-### 1) 미션: 대기열 관리
+**🎯 미션: 대기열 관리**
 
 1. `queue` 배열에 "철수", "영희"를 차례로 뒤에 추가하세요.
 2. "민수"를 새치기(맨 앞) 시키세요.
 3. 맨 앞의 사람을 입장(제거) 시키고 이름을 출력하세요.
 4. 현재 대기열 상태를 확인하세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```js
 const queue = [];
@@ -751,14 +737,14 @@ console.log(items); // 출력: ["A", "K", "C"]
 
 splice를 활용하여 실생활의 메뉴판을 수정하듯 배열을 자유자재로 다뤄봅니다.
 
-### 1) 미션: 점심 메뉴 수정
+**🎯 미션: 점심 메뉴 수정**
 
 1. `menus` 배열을 생성하고 `["짜장", "짬뽕", "탕수육", "볶음밥"]`을 넣으세요.
 2. "짬뽕"을 삭제하세요.
 3. "탕수육" 자리에 **"군만두"**와 **"콜라"**를 교체(삽입)하세요.
 4. 최종 메뉴를 확인하세요.
 
-### 2) 정답 코드 및 해설
+**📝 정답 코드 및 해설**
 
 ```js
 const menus = ["짜장", "짬뽕", "탕수육", "볶음밥"];
@@ -777,7 +763,7 @@ console.log(menus);
 // 출력: ["짜장", "군만두", "콜라", "볶음밥"]
 ```
 
-**📝 핵심 정리**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">splice 실습 정리</span>
@@ -849,9 +835,7 @@ fruits.includes("포도");   // 결과: false
 fruits.includes("사과", 1); // 결과: false (1번 인덱스부터는 사과가 없음)
 ```
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>3) 검색 메서드 비교</h3>
-</div>
+### 3) 검색 메서드 비교
 
 | **메서드** | **결과값** | **용도** |
 | --- | --- | --- |
@@ -889,9 +873,7 @@ arr.slice(-2);      // 결과: ["d", "e"] (뒤에서 2개)
 console.log(arr);   // 결과: ["a", "b", "c", "d", "e"] (변하지 않음)
 ```
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>2) concat(): 배열 합치기</h3>
-</div>
+### 2) concat(): 배열 합치기
 
 두 개 이상의 배열을 하나로 합쳐서 새로운 배열을 반환합니다.
 
@@ -989,7 +971,7 @@ console.log(added);    // 결과: [1, 2, 3, 4, 5]
 
 **개념 체크**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">검색 메서드 체크</span>
   <ul>
     <li><strong>-1의 의미</strong> : indexOf에서 값을 찾지 못했을 때 0을 반환하면 0번 인덱스와 헷갈릴 수 있기 때문에, 존재하지 않음을 뜻하는 -1을 반환하는 것입니다.</li>
@@ -1021,13 +1003,13 @@ console.log(added);    // 결과: [1, 2, 3, 4, 5]
   <h2>💻 실습 : 배열 잘라내기 (slice)</h2>
 </div>
 
-### 1) 미션: 상위권 명단 추출하기
+**🎯 미션: 상위권 명단 추출하기**
 
 1. `ranks` 배열을 생성하고 `["A", "B", "C", "D", "E"]`를 넣으세요.
 2. slice를 사용해 상위 3명("A", "B", "C")만 따로 복사해 `top3` 변수에 담으세요.
 3. 원본 배열(ranks)과 복사본(top3)을 각각 출력해서 비교하세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```js
 // 1. 초기 배열 생성
@@ -1121,7 +1103,7 @@ a - b가 음수이면 a가 앞에 오고, 양수이면 b가 앞에 옵니다. �
   지금은 "기본적으로는 문자열 순서로 정렬된다"는 점만 기억하세요!
 </div>
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">reverse와 sort 정리</span>
@@ -1237,7 +1219,7 @@ join()은 나중에 배울 문자열 메서드인 split()과 반대로 작동합
   </ul>
 </div>
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">join() 정리</span>
@@ -1301,7 +1283,7 @@ console.log(html);
 // 결과: "<ul><li>메뉴1</li><li>메뉴2</li></ul>"
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">join 활용 정리</span>
@@ -1318,13 +1300,13 @@ console.log(html);
   <h2>💻 실습 : 배열 변환 (join &amp; reverse)</h2>
 </div>
 
-### 1) 미션 : 해시태그 만들기
+**🎯 미션: 해시태그 만들기**
 
 1. `tags` 배열을 생성하고 `["맛집", "여행", "서울"]`을 넣으세요.
 2. 이 태그들을 # 기호로 연결하여 하나의 문자열로 만드세요. (예: "맛집#여행#서울")
 3. tags 배열의 순서를 뒤집어 보세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```js
 // 1. 초기 배열 생성
@@ -1358,9 +1340,7 @@ console.log(tags);
   <h2>13. 배열 복사</h2>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;참조의 함정&gt;</h3>
-</div>
+**⚠️ 참조의 함정**
 
 ### 1) 현상: 왜 원본까지 같이 변할까?
 
@@ -1420,7 +1400,7 @@ console.log(original); // 결과: ["a", "b", "c", "d"] 😱 (원본도 변함!)
   </div>
 </div>
 
-**핵심 요약**
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">참조 복사 정리</span>
@@ -1430,9 +1410,7 @@ console.log(original); // 결과: ["a", "b", "c", "d"] 😱 (원본도 변함!)
   초보자 단계에서는 '같은 배열을 함께 바라본다'라고 이해하면 됩니다.
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>&lt;올바른 방법&gt;</h3>
-</div>
+**✅ 올바른 방법**
 
 ### 4) 스프레드 문법 (추천)
 
@@ -1472,7 +1450,7 @@ const copy = original.slice();
   JSON.stringify() / JSON.parse() 방식도 있지만, 함수, undefined, Date, Map 같은 값은 제대로 보존되지 않을 수 있으므로 주의해야 합니다.
 </div>
 
-**📝 핵심 정리**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">복사 방법 정리</span>
@@ -1655,9 +1633,7 @@ console.log(x); // 2
 console.log(y); // 1
 ```
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>5) 나머지 할당 (Rest)</h3>
-</div>
+### 5) 나머지 할당 (Rest)
 
 특정 요소들을 제외한 나머지 요소들을 다시 하나의 배열로 모을 때 사용합니다.
 
@@ -1702,13 +1678,13 @@ console.log(c); // 3
 
 배열의 값을 변수로 우아하게 추출해봅시다.
 
-### 1) 미션: 사용자 정보 추출
+**🎯 미션: 사용자 정보 추출**
 
 1. `user = ["Steve", "Jobs", "Apple"]` 배열이 있습니다.
 2. 구조분해 할당을 사용하여 firstName, lastName 변수에 값을 담으세요.
 3. "Apple"은 company 변수에 담으세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```js
 // 1. 초기 배열 생성
@@ -1834,14 +1810,14 @@ members.forEach((member, index) => {
   <h2>💻 실습 : 배열 기본 조작</h2>
 </div>
 
-### 1) 미션: 나의 취미 리스트 관리
+**🎯 미션: 나의 취미 리스트 관리**
 
 1. `hobbies`라는 이름의 빈 배열을 생성하세요.
 2. push() 메서드를 사용하여 취미 3개를 문자열로 추가하세요.
 3. 두 번째 취미를 콘솔에 출력하세요.
 4. 배열의 마지막 취미를 "코딩"으로 변경하세요.
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```js
 // 1. 빈 배열 생성
@@ -1865,7 +1841,7 @@ hobbies[2] = "코딩";
 console.log(hobbies); // 결과: ["독서", "영상보기", "코딩"]
 ```
 
-**핵심 요약**
+**📝 요약 메모**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">배열 조작 실습 정리</span>
@@ -1937,9 +1913,7 @@ console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 | **숫자 n 하나만 요소로** | `Array.of(n)` | `Array.of(3); // 결과: [3]` |
 | **문자열/유사배열 변환** | `Array.from()` | `Array.from("ABC"); // ["A","B","C"]` |
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>2️⃣ 데이터 접근 및 수정: 기본 원칙</h3>
-</div>
+### 2️⃣ 데이터 접근 및 수정: 기본 원칙
 
 | **구분** | **문법 (Syntax)** | **원본 변경 여부** | **상세 설명 및 주의사항** |
 | --- | --- | --- | --- |
@@ -1967,9 +1941,7 @@ console.log(`총 결제 금액: ${finalPrice.toLocaleString()}원`);
 | **특정 범위 복사** | `slice(시작, 끝)` | 새로운 배열 | 원본을 유지하는 비파괴적 메서드입니다. |
 | **배열 합치기** | `concat()` | 새로운 배열 | 기존 배열들을 건드리지 않고 하나로 합친 새 배열을 만듭니다. |
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>5️⃣ 정렬과 변환: 데이터 가공하기</h3>
-</div>
+### 5️⃣ 정렬과 변환: 데이터 가공하기
 
 ```js
 // 1. 순서 뒤집기 (원본 변경)
@@ -1996,7 +1968,7 @@ const str = arr.join(", ");
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🚩 최종 핵심 요약: 실무 로직</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 실무 데이터 가공 3단계 루틴입니다.

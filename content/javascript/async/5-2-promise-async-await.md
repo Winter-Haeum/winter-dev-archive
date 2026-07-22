@@ -54,10 +54,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>Promise 기초</strong> — 비동기 작업의 상태(State)를 이해하고 결과를 다룹니다.<br>
-  <strong>체이닝과 에러 처리</strong> — then으로 작업을 연결하고 catch로 에러를 통합 관리합니다.<br>
-  <strong>비동기 함수</strong> — async/await로 비동기 코드를 동기 코드처럼 작성합니다.<br>
-  <strong>병렬 처리</strong> — Promise.all로 여러 작업을 동시에 실행하여 성능을 높입니다.
+  • <strong>Promise 기초</strong> — 비동기 작업의 상태(State)를 이해하고 결과를 다룹니다.<br>
+  • <strong>체이닝과 에러 처리</strong> — then으로 작업을 연결하고 catch로 에러를 통합 관리합니다.<br>
+  • <strong>비동기 함수</strong> — async/await로 비동기 코드를 동기 코드처럼 작성합니다.<br>
+  • <strong>병렬 처리</strong> — Promise.all로 여러 작업을 동시에 실행하여 성능을 높입니다.
 </div>
 
 ---
@@ -97,7 +97,7 @@ login(user)
 
 ### 2) ✅ 핵심 변화
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   중첩 없이 평탄하게! 에러 처리도 한 곳에서!
 </div>
 
@@ -146,7 +146,7 @@ const promise = new Promise((resolve, reject) => {
 
 ### 2) Promise = 약속
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "지금은 결과가 없지만, 작업이 끝나면 알려줄게!"
 </div>
 
@@ -210,7 +210,7 @@ Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니
 
 ### 2) 상태 변화 흐름 (Flow)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   1. pending ➔ fulfilled (성공)<br>
   2. pending ➔ rejected (실패)
 </div>
@@ -273,20 +273,20 @@ delay(2000).then(() => {
 
 ### 2) ⚙️ executor 함수
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <code>new Promise(executor)</code><br>
   <code>executor = (resolve, reject) => { }</code>
 </div>
 
 ### 3) ✅ resolve(value)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   JS 엔진이 주입하는 함수. 작업을 성공으로 처리하고 결과(value)를 전달
 </div>
 
 ### 4) ❌ reject(reason)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   JS 엔진이 주입하는 함수. 작업을 실패로 처리하고 에러(reason)를 전달
 </div>
 
@@ -335,19 +335,19 @@ promise.finally(() => {
 
 ### 2) ✅ then(onFulfilled)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   성공 시 콜백 실행. resolve된 값을 인자로 받음
 </div>
 
 ### 3) ❗ catch(onRejected)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   실패 시 콜백 실행. reject된 에러를 인자로 받음
 </div>
 
 ### 4) 🏁 finally(onFinally)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   성공/실패 무관하게 실행. 인자 없음 (ES2018 도입)
 </div>
 
@@ -423,7 +423,7 @@ login(user)
 
 ### 4) ✅ 핵심 변화
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   ✓ 들여쓰기 한 단계 (Depth 1)<br>
   ✓ 에러 처리 통합 (catch 하나로 끝)<br>
   ✓ 위에서 아래로 읽기 (사람의 사고 방식)
@@ -443,11 +443,11 @@ login(user)
   <h2>💻 실습 : Mini Mission - 체이닝 연습</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 다음 코드를 3초 안에 해석해보세요! (콘솔에 어떤 숫자가 찍힐까요?)
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `then`을 통해 값이 어떻게 전달되고 변하는지 추적하는 문제입니다.
 
@@ -466,7 +466,7 @@ Promise.resolve(10)
   });
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 순서대로 다음 숫자들이 출력됩니다.
 
@@ -476,9 +476,7 @@ Promise.resolve(10)
 15
 ```
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>4) 정답 코드</h3>
-</div>
+**📝 정답 코드**
 
 ```jsx
 // 1. 시작값 10으로 출발
@@ -550,7 +548,7 @@ fetchUser(1)
 
 ### 2) ⛓️ 에러 전파
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   체인 어디서든 에러 발생 ➔ 가장 가까운 catch로 점프. 중간 단계를 건너뛰고 즉시 에러 핸들러로 이동합니다.
 </div>
 
@@ -629,19 +627,19 @@ getData(false).then(data => console.log(data));
 
 ### 2) ✅ Promise.resolve(value)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   주어진 값으로 즉시 fulfilled. 동기 값을 Promise로 감쌀 때
 </div>
 
 ### 3) ❌ Promise.reject(reason)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   주어진 이유로 즉시 rejected. 테스트나 에러 전파에 유용
 </div>
 
 ### 4) 💡 활용
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   캐시 히트 시 바로 반환. 함수가 항상 Promise 반환하도록
 </div>
 
@@ -702,13 +700,13 @@ Promise.all([userPromise, postsPromise, commentsPromise])
 
 ### 2) ☑️ Promise.all 특징
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   배열의 모든 Promise 병렬 실행. 결과도 배열로 반환 (순서 유지). (먼저 끝난 순서가 아니라, 배열에 넣은 순서대로 결과를 줍니다.)
 </div>
 
 ### 3) ✅ 성공 조건
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   모든 Promise가 성공해야 전체가 성공으로 처리
 </div>
 
@@ -770,7 +768,7 @@ fetchWithTimeout('/api/data', 3000)
 
 ### 2) 🏆 Promise.race 특징
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   가장 먼저 settled된 Promise의 결과 사용. (성공(fulfilled)이든 실패(rejected)든, 1등으로 들어온 결과만 취합니다.)
 </div>
 
@@ -852,13 +850,13 @@ Promise.any(promises)
 
 ### 2) 🏁 allSettled (ES2020)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   모든 Promise 완료 후 결과 배열 반환. <code>{ status, value/reason }</code> 형태의 객체로 상태와 결과를 알려줍니다. (중간에 에러가 터져도 멈추지 않고 끝까지 다 실행합니다.)
 </div>
 
 ### 3) 🎯 any (ES2021)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   하나라도 성공하면 그 값 반환. race와 달리 실패한 것은 무시하고, 첫 번째 성공을 기다립니다. (모두 실패해야만 rejected 됩니다.)
 </div>
 
@@ -900,7 +898,7 @@ Promise.any(promises)
 
 ## 💻 실습 : Promise 생성하기
 
-### 1) Mission
+**🎯 Mission**
 
 1. `sendEmail` 함수를 완성하세요.
 2. 1초(`setTimeout`) 뒤에 성공 메시지를 반환해야 합니다.
@@ -908,7 +906,7 @@ Promise.any(promises)
 
 > 힌트: new Promise((resolve, reject) => { ... })
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 비동기 함수를 완성하는 문제입니다.
 
@@ -925,7 +923,7 @@ function sendEmail() {
 sendEmail().then(console.log);
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 1초 뒤에 콘솔에 메시지가 출력되어야 합니다.
 
@@ -933,7 +931,7 @@ sendEmail().then(console.log);
 이메일 전송 성공!
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 function sendEmail() {
@@ -967,7 +965,7 @@ sendEmail().then(console.log);
   <h2>💻 실습 : Promise 에러 처리</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. 실패 조건(`!success`)일 때 에러를 발생시키세요.
 2. `reject` 와 `Error` 객체를 사용하세요.
@@ -975,7 +973,7 @@ sendEmail().then(console.log);
 
 > 힌트: reject는 Promise를 거부(Rejected) 상태로 만듭니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 에러를 발생시키고 잡아내는 로직을 완성하는 문제입니다.
 
@@ -993,7 +991,7 @@ fetchData()
   .then(console.log)
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 콘솔에 에러 내용이 빨간색(또는 에러 형식)으로 출력되어야 합니다.
 
@@ -1001,7 +999,7 @@ fetchData()
 Error: 데이터 가져오기 실패
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 function fetchData() {
@@ -1048,7 +1046,7 @@ fetchData()
   <h2>💻 실습 : Promise 체이닝</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. 숫자 10을 받습니다.
 2. 첫 번째 `then` : 2배로 곱합니다.
@@ -1057,7 +1055,7 @@ fetchData()
 
 > 힌트: then 에서 값을 반환(return)하면 다음 then 으로 넘어갑니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 값이 체인을 타고 이동하도록 만드세요.
 
@@ -1074,7 +1072,7 @@ Promise.resolve(10)
   .then(console.log);
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 계산된 최종 결과값이 출력됩니다.
 
@@ -1082,7 +1080,7 @@ Promise.resolve(10)
 15
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 Promise.resolve(10) // 시작값 10
@@ -1151,13 +1149,13 @@ class UserService {
 
 ### 2) ƒ async 키워드
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   함수를 비동기로 만드는 선언자. 이 함수는 무조건 Promise를 반환하도록 변환됩니다. (숫자나 문자를 리턴해도 Promise로 감싸집니다.)
 </div>
 
 ### 3) ✅ return 값
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   return 값 ➔ resolve(값)<br>
   throw 에러 ➔ reject(에러)<br>
   (new Promise를 직접 쓰지 않아도 내부적으로 변환해 줍니다.)
@@ -1233,7 +1231,7 @@ fetchAndDisplay(1)
 
 ### 2) ⏸️ await 동작
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   Promise를 기다리는 연산자. Promise가 처리(settled)될 때까지 함수의 실행을 <strong>"일시 정지"</strong>합니다. (성공하면 결과값을 반환하고, 실패하면 에러를 던집니다.)
 </div>
 
@@ -1276,14 +1274,14 @@ fetchAndDisplay(1)
   <h2>💻 실습 : Mini Mission - 변환 연습 (수정)</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. Promise 코드를 `async/await` 로 변환하세요.
 2. `.then()` 대신 `await` 를 사용해 가독성을 높이세요.
 
 > 힌트: fetch 도 Promise를 반환하므로 await 가 필요합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 기존의 Promise 체이닝 방식을 사용하는 코드입니다.
 
@@ -1296,11 +1294,11 @@ function getUser() {
 }
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **출력 없음** (문법 변환에 집중하는 문제입니다)
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 /* 변환 후 */
@@ -1563,7 +1561,7 @@ async function fetchAllUsers(ids) {
 }
 ```
 
-### 3) 핵심 요약
+### 3) 🆚 비교 정리
 
 | **구분** | **설명** | **핵심 특징/예시** |
 | --- | --- | --- |
@@ -1603,7 +1601,7 @@ ids.forEach(async (id) => {
   <h2>💻 실습 : Async/Await 변환</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. `Promise` 체이닝 코드를 `async/await`로 바꾸세요.
 2. `await` 키워드를 적절히 사용하여 순차적으로 실행되게 만드세요.
@@ -1611,7 +1609,7 @@ ids.forEach(async (id) => {
 
 > 힌트: 함수 앞에 async를 붙여야 합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 /* 기존 코드 (Promise 체이닝) */
@@ -1627,13 +1625,13 @@ function getInfo() {
 }
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 ```jsx
 { id: 1, detail: "상세 정보입니다..." }
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 함수 선언에 async 추가
@@ -1675,14 +1673,14 @@ async function getInfo() {
   <h2>💻 실습 : Async/Await 에러 핸들링</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. **`try-catch`** 블록을 추가하세요.
 2. API 호출이 실패하면 **"에러 발생!"**을 출력하고 **`null`**을 반환하세요.
 
 > 힌트: 동기 코드의 에러 처리와 문법이 같습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 async function safeGetData() {
@@ -1697,7 +1695,7 @@ async function safeGetData() {
 }
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **성공 시:**
 
@@ -1712,7 +1710,7 @@ async function safeGetData() {
 null
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 async function safeGetData() {
@@ -1751,7 +1749,7 @@ async function safeGetData() {
   <h2>💻 실습 : 병렬 처리 최적화</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. 두 API(`getA`, `getB`)가 서로 의존성이 없습니다.
 2. 순차 실행(`await` 두 번)을 **병렬 실행**으로 고치세요.
@@ -1759,7 +1757,7 @@ async function safeGetData() {
 
 > 힌트: Promise.all([ ... ])을 사용하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 async function loadAll() {
@@ -1774,14 +1772,14 @@ async function loadAll() {
 }
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 ```jsx
 // 1.5초 후에 출력됨
 { a: "Data A", b: "Data B" }
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 async function loadAll() {
@@ -1850,7 +1848,7 @@ async function loadAll() {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1) 주요 개념 비교

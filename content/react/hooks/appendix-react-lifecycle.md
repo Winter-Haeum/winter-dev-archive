@@ -24,12 +24,12 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -56,10 +56,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 🌱 생명주기 흐름 이해</strong> — 마운트(Mount), 업데이트(Update), 언마운트(Unmount)의 과정을 이해합니다<br>
-  <strong>2) 🕒 Class vs Hooks 비교</strong> — 과거 클래스 메서드와 현재 useEffect Hook의 대응 관계를 파악합니다<br>
-  <strong>3) 𝑓𝑥 useEffect 심화</strong> — 의존성 배열(deps)에 따른 실행 시점을 정확히 제어합니다<br>
-  <strong>4) ❗️ 주의사항 숙지</strong> — 무한 루프, Cleanup 누락, Strict Mode 등 흔한 실수를 방지하는 법을 배웁니다
+  • <strong>생명주기 흐름 이해</strong> — 마운트(Mount), 업데이트(Update), 언마운트(Unmount)의 과정을 이해합니다<br>
+  • <strong>Class vs Hooks 비교</strong> — 과거 클래스 메서드와 현재 useEffect Hook의 대응 관계를 파악합니다<br>
+  • <strong>useEffect 심화</strong> — 의존성 배열(deps)에 따른 실행 시점을 정확히 제어합니다<br>
+  • <strong>주의사항 숙지</strong> — 무한 루프, Cleanup 누락, Strict Mode 등 흔한 실수를 방지하는 법을 배웁니다
 </div>
 
 ---
@@ -115,9 +115,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">Cleanup 함수 실행</div><div class="wda-sdsc">타이머 해제(<code>clearInterval</code>), 이벤트 리스너 제거(<code>removeEventListener</code>) 등 메모리 누수를 막기 위한 <strong>최종 뒷정리</strong>를 수행합니다.</div></div></div>
 </div>
 
-**핵심 요약**
+**🔁 흐름 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>Render(화면 그리기) 👉 Effect(부수 효과) 👉 Cleanup(뒷정리)</strong></p>
   <p>이 순서만 기억하면 됩니다! 특히 <strong>Updating</strong> 과정에서 <strong>'이전 Cleanup → 새 Effect'</strong> 순서로 실행된다는 점을 꼭 기억해 주세요. (청소를 하고 새 물건을 들여놓는 것과 같습니다!)</p>
 </div>
@@ -134,7 +134,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl">3. Effect 실행 (Passive Effect)</div><div class="wda-fcard-dsc">화면이 다 그려진 직후에 <code>useEffect</code>가 실행됩니다. 따라서 API 호출이나 구독 설정 등은 이미 화면이 나온 뒤에 처리됩니다.</div></div>
 </div>
 
-### 2) 코드 예시 (Execution Order)
+**🧪 예시 코드 (Execution Order)**
 
 콘솔이 찍히는 순서를 주목해 주세요!
 
@@ -158,9 +158,9 @@ function UserProfile() {
 export default UserProfile;
 ```
 
-**핵심 요약**
+**🔁 흐름 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>순서: Rendering... 👉 (화면 표시) 👉 Mounted!</strong></p>
   <p>사용자가 빈 화면을 보지 않도록 <strong>UI를 먼저 보여주고</strong>, 그다음에 <strong>Effect(데이터 가져오기 등)</strong>를 실행하는 것이 리액트의 기본 원칙입니다.</p>
 </div>
@@ -177,7 +177,7 @@ export default UserProfile;
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">새 Effect 실행</div><div class="wda-sdsc">청소가 끝난 후, 새로운 <code>props</code>/<code>state</code>로 업데이트된 <strong>새로운 Effect</strong>를 실행합니다.</div></div></div>
 </div>
 
-### 2) 코드 예시 & 실행 순서
+**🧪 예시 코드 & 실행 순서**
 
 `userId`가 **1에서 2로 바뀔 때** 어떤 순서로 실행되는지 주목해 주세요.
 
@@ -201,9 +201,9 @@ useEffect(() => {
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">구독 시작 (Effect)</div><div class="wda-sdsc"><code>userId: 2</code>에 대한 새로운 로직이 실행됩니다. ("구독 시작: 2")</div></div></div>
 </div>
 
-**핵심 요약**
+**🔁 흐름 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>"치우고(Clean) 👉 새로 깝니다(Effect)"</strong></p>
   <p>새로운 가구가 들어오기 전에 헌 가구를 먼저 버리는 것과 같습니다. 항상 <strong>'이전 값 정리(Cleanup 1)'</strong>가 먼저 실행되고, 그다음에 <strong>'새로운 값 적용(Start 2)'</strong>이 일어난다는 순서를 꼭 기억하세요!</p>
 </div>
@@ -257,7 +257,7 @@ useEffect(() => {
 
 이 부분이 가장 중요합니다! 단순히 문법만 바뀐 게 아니라 **생각하는 방식**이 바뀌었습니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>Class는 "시점(When)"</strong>을 기준으로 코드를 쪼갭니다.<br>
   <strong>Hooks는 "무엇(What)"</strong>을 관찰할지를 기준으로 코드를 뭉칩니다.</p>
 </div>
@@ -308,7 +308,7 @@ useEffect(() => {
 
 ---
 
-<h2>7. 📋 요약 정리 : Lifecycle & useEffect</h2>
+<h2>7. ✅ 핵심 요약</h2>
 
 ### 1) Lifecycle Phases (생명주기 3단계)
 
@@ -334,11 +334,11 @@ Hooks는 이 모든 과정을 **`useEffect`라는 하나의 API**로 통합하�
 
 <h2>8. ⁉️ 마무리 퀴즈</h2>
 
-### 1) 질문 (Question)
+**❓ 질문**
 
 **"Q. 컴포넌트가 화면에서 사라지기 직전에 타이머를 해제하려면 useEffect 안에서 무엇을 해야 할까요?"**
 
-### 2) 정답 (Answer)
+**📝 정답**
 
 **정답: Cleanup 함수를 반환(Return)해야 합니다.**
 
@@ -355,7 +355,7 @@ useEffect(() => {
 }, []);
 ```
 
-### 3) 해설
+**💡 해설**
 
 <div class="wda-callout wda-ci">
   <p><code>useEffect</code>의 <strong>첫 번째 인자로 전달된 함수 내부에서</strong> 또 다른 함수를 <strong>return</strong>하면, 리액트는 그 반환된 함수를 <strong>'뒷정리 함수(Cleanup Function)'</strong>로 간주합니다.<br>이 함수는 컴포넌트가 <strong>언마운트(Unmount)</strong>되거나, 다음 이펙트가 실행되기 직전에 호출되어 타이머 해제나 이벤트 리스너 제거 같은 청소 작업을 수행합니다.</p>

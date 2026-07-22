@@ -197,27 +197,27 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 💻 실습 : 의사 코드 작성해보기
 
-**1) Mission**
+**🎯 Mission**
 
 배열에서 가장 큰 수를 찾는 과정을 <strong>한글(의사 코드)</strong>로 논리정연하게 적어봅니다.
 
 문제 설명: 정수 배열 numbers가 주어집니다. 배열의 원소 중 가장 큰 값을 return 하세요.
 
-**2) 예시 (Example)**
+**🧪 예시 (Example)**
 
 아래 입력이 들어왔을 때, 정답을 어떻게 찾아낼지 머릿속으로 그려보세요.
 
 • 입력: [3, 1, 4, 1, 5, 9, 2, 6]<br>
 • 출력: 9
 
-**3) 정답 의사 코드 (Solution)**
+**📝 정답 의사 코드 (Solution)**
 
 가장 큰 값을 담을 변수 max를 만들고, 배열의 첫 번째 값으로 설정한다.
 배열의 값을 처음부터 끝까지 하나씩 꺼내어 반복한다.(반복문)
 만약(if) 현재 꺼낸 값이 max보다 크다면, max의 값을 현재 값으로 변경한다.
 반복이 끝나면 max를 반환한다.
 
-**4) 실제 코드 (Implementation)**
+**📝 실제 코드 (Implementation)**
 
 ```js
 function solution(numbers) {
@@ -248,7 +248,7 @@ function solution(numbers) {
 
 ## 6. 실전 전략 : 막혔을 때 & 시간 관리
 
-**1) 🛑 막혔을 때 대처법 (Troubleshooting)**
+**🛑 막혔을 때 대처법 (Troubleshooting)**
 
 문제가 안 풀릴 때 당황해서 멍하니 있거나 포기하면 안 됩니다. 다음 행동 지침을 따르세요.
 
@@ -274,11 +274,11 @@ function solution(numbers) {
   10분 동안 고민해도 도저히 모르겠다면? 과감히 다음 문제로 넘어가고, 나중에 다시 돌아오세요!
 </div>
 
-**2) ⏰ 시간 관리 전략 (Time Management)**
+**⏰ 시간 관리 전략 (Time Management)**
 
 시험 시간은 한정되어 있습니다. 점수를 극대화하기 위한 시간 배분 전략입니다.
 
-**① 기본 전략 (Basic Strategy)**
+**📍 기본 전략 (Basic Strategy)**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">전체 훑어보기 (5분)</div><div class="wda-sdsc">모든 문제를 확인하고, 쉬운 문제가 무엇인지 먼저 파악합니다.</div></div></div>
@@ -287,7 +287,7 @@ function solution(numbers) {
   <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">검토 (마지막 10분)</div><div class="wda-sdsc">제출 전 코드를 확인하고 실수한 게 없는지 점검합니다.</div></div></div>
 </div>
 
-**② 2시간 시험 예시 (3문제 기준)**
+**🧪 2시간 시험 예시 (3문제 기준)**
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">훑어보기</div><div class="wda-fnode-dsc">5분<br>문제 파악</div></div>
@@ -313,7 +313,7 @@ function solution(numbers) {
 
 ## 7. 입문자를 위한 팁 & 핵심 정리
 
-**1) 🐣 입문자를 위한 팁 (Tips for Beginners)**
+**🐣 입문자를 위한 팁 (Tips for Beginners)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Lv.0부터 시작</div><div class="wda-fcard-dsc">어려운 문제에 바로 도전하지 말고, 쉬운 것부터 풀며 자신감을 쌓으세요.</div></div>
@@ -326,7 +326,7 @@ function solution(numbers) {
 
 ---
 
-## ✅ 핵심 정리 (Core Summary)
+## ✅ 핵심 요약
 
 오늘 배운 문제 풀이의 정석과 실전 전략을 요약한 표입니다. 이 3가지만 기억해도 실전에서 크게 당황하지 않습니다.
 

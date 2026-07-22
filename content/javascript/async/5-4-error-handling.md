@@ -61,9 +61,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>에러와 예외</strong> — 프로그램 중단을 막기 위해 예상치 못한 상황을 관리합니다.<br>
-  <strong>try-catch-finally</strong> — 에러를 포착하고 리소스를 정리하는 안전한 패턴을 익힙니다.<br>
-  <strong>비동기 에러 처리</strong> — Promise와 async/await에서의 에러 전파와 처리 방법을 배웁니다.
+  • <strong>에러와 예외</strong> — 프로그램 중단을 막기 위해 예상치 못한 상황을 관리합니다.<br>
+  • <strong>try-catch-finally</strong> — 에러를 포착하고 리소스를 정리하는 안전한 패턴을 익힙니다.<br>
+  • <strong>비동기 에러 처리</strong> — Promise와 async/await에서의 에러 전파와 처리 방법을 배웁니다.
 </div>
 
 ---
@@ -147,7 +147,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 3) 코드 예제
+**📝 예제 코드**
 
 ```js
 // 1. 에러 객체 직접 생성해보기
@@ -219,37 +219,37 @@ try {
 
 **Q. 다음 코드를 실행했을 때, 각각 어떤 에러(Error Name)가 발생할지 맞춰보세요!**
 
-### 1) 문제편
+**❓ 문제편**
 
-**(1) Case 1** — 값이 비어있는 상태에서 기능을 수행하려고 합니다.
+**🧪 Case 1** — 값이 비어있는 상태에서 기능을 수행하려고 합니다.
 
 ```js
 null.toString()
 ```
 
-**(2) Case 2** — 선언한 적 없는 변수를 출력하려고 합니다.
+**🧪 Case 2** — 선언한 적 없는 변수를 출력하려고 합니다.
 
 ```js
 console.log(x)
 ```
 
-**(3) Case 3** — JSON 문법에 맞지 않는 문자열을 해석하려고 합니다.
+**🧪 Case 3** — JSON 문법에 맞지 않는 문자열을 해석하려고 합니다.
 
 ```js
 JSON.parse('bad')
 ```
 
-### 2) 정답 및 해설편
+**💡 정답 및 해설편**
 
-**(1) Case 1 정답 : `TypeError`**
+**✅ Case 1 정답 : `TypeError`**
 
 - **이유** — `null`이나 `undefined`는 비어있는 값이기 때문에 `toString()` 같은 메서드(기능)를 가지고 있지 않습니다. 타입(Type)이 맞지 않는 기능을 억지로 쓰려고 해서 발생합니다.
 
-**(2) Case 2 정답 : `ReferenceError`**
+**✅ Case 2 정답 : `ReferenceError`**
 
 - **이유** — `x`라는 변수는 어디에도 선언된 적이 없습니다. 메모리에 존재하지 않는(Reference가 없는) 대상을 참조하려고 할 때 발생합니다.
 
-**(3) Case 3 정답 : `SyntaxError`**
+**✅ Case 3 정답 : `SyntaxError`**
 
 - **이유** — `JSON.parse()` 안에는 반드시 `{"key": "value"}` 형태의 올바른 JSON 문자열이 들어와야 합니다. `'bad'`라는 텍스트는 JSON 문법 규칙(Syntax)에 맞지 않기 때문에 해석할 수 없습니다.
 
@@ -270,7 +270,7 @@ JSON.parse('bad')
 
 **에러를 잡아서(Catch) 유연하게 처리하기**
 
-### 1) 문법 구조 (Syntax Structure)
+**📝 문법 구조**
 
 | **구문 (Block)** | **의미 (Meaning)** | **역할 및 특징 (Description)** |
 | --- | --- | --- |
@@ -283,7 +283,7 @@ JSON.parse('bad')
 - **성공 시** : `try` 실행 ➡ `finally` 실행 (끝)
 - **실패 시** : `try` 실행하다 에러 ➡ `catch` 점프 ➡ `finally` 실행 (끝)
 
-### 2) 코드 예제
+**📝 예제 코드**
 
 에러가 발생해도 프로그램이 멈추지 않고 끝까지 실행되는 흐름을 확인해 보세요.
 
@@ -327,7 +327,7 @@ console.log('프로그램 계속 진행');
 
 **Q. 다음 코드를 실행했을 때, 콘솔에 출력되는 알파벳의 순서는?**
 
-### 1) 문제편
+**❓ 문제편**
 
 코드를 눈으로 따라가며 실행 순서를 예측해 보세요.
 
@@ -347,7 +347,7 @@ try {
 }
 ```
 
-### 2) 정답 및 해설편
+**💡 정답 및 해설편**
 
 **✅ 정답 : A ➡ C ➡ D**
 
@@ -447,7 +447,7 @@ try {
 - **Error 객체** — "A함수가 B를 부르고, B가 C를 불렀는데 C의 5번째 줄에서 터짐" ➡ 발자국이 선명해서 범인을 바로 잡을 수 있음.
 - **문자열/숫자** — "그냥 터짐" ➡ 발자국이 없어서 코드를 처음부터 다 뒤져야 함.
 
-### 4) 코드 예제
+**📝 예제 코드**
 
 ```js
 // 유효성 검사 함수
@@ -616,9 +616,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h3>2) 원인 : 다른 차원의 실행 (Context)</h3>
-</div>
+### 2) 원인 : 다른 차원의 실행 (Context)
 
 **메인 도로 vs 옆길(국도)**
 
@@ -655,7 +653,7 @@ async function processData() {
 
 <div class="wda-callout wda-ci">
   <strong>Promise의 경우 (`.catch`)</strong> — `async/await`를 쓰지 않고 `Promise`를 직접 쓸 때는 <code>.then().catch()</code> 체이닝을 이용해야 에러를 잡을 수 있습니다. 하지만 코드가 복잡해지면 가독성이 떨어지므로, 최신 문법인 <code>async/await</code> + <code>try-catch</code> 조합을 가장 많이 사용합니다.<br><br>
-  <strong>핵심 요약</strong><br>
+  <strong>🆚 비교 정리</strong><br>
   • <code>setTimeout</code> 같은 콜백 방식 ➡ <strong>바깥쪽</strong> <code>try-catch</code>로는 <strong>불가능</strong> (콜백 내부에 직접 넣어야 처리 가능)<br>
   • <code>Promise</code> + <code>Async/Await</code> ➡ <code>try-catch</code> <strong>가능</strong> (동기 코드처럼 편하게 처리)
 </div>
@@ -666,7 +664,7 @@ async function processData() {
 
 **Q. 이 탐정(try-catch)은 과연 소매치기(Error)를 잡을 수 있을까요?**
 
-### 1) 문제편
+**❓ 문제편**
 
 다음 코드를 실행했을 때, 콘솔에 `"잡았다!"`가 출력될까요?
 
@@ -683,7 +681,7 @@ try {
 }
 ```
 
-### 2) 정답 및 해설편
+**💡 정답 및 해설편**
 
 **✅ 정답 : ❌ 못 잡습니다 (No)**
 
@@ -796,7 +794,7 @@ fetchUser(1)
 | **통합 처리**(Unified) | 전체 로직을 **하나의 `try`**로 감쌉니다. | • **"어디서 터지든 한곳에서 처리한다"**는 전략입니다.<br>• 에러 로그를 남기거나 상위로 던질 때 유용합니다. |
 | **개별 처리**(Individual) | **특정 `await`만** `try`로 감쌉니다. | • 에러가 나도 죽지 않고 **기본값(Fallback)으로 복구**하여 진행할 때 사용합니다.<br>(예: 유저 정보 조회 실패 ➡ 비회원 모드로 진행) |
 
-### 3) 코드 예제
+**📝 예제 코드**
 
 ```js
 // 1. 기본 패턴 (통합 처리 + 재전파)
@@ -890,7 +888,7 @@ async function loadParallelData() {
   </div>
 </div>
 
-### 3) 코드 예제
+**📝 예제 코드**
 
 ```js
 // 1. 일반적인 동기 에러 방어선
@@ -998,7 +996,7 @@ try {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리 (Core Summary)</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 **에러 핸들링 마스터를 위한 5가지 핵심 기둥**입니다.

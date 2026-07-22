@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,7 +55,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 가장 기본이 되는 숫자를 세는 기능입니다. 아래 가이드에 따라 증가와 감소 기능을 모두 구현해 봅시다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/Counter.jsx`를 만들고 다음을 구현하세요.
 
@@ -65,12 +65,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
    - `-1` 버튼을 누르면 숫자가 1 감소합니다.
 3. **핵심:** 이전 값을 기반으로 안전하게 변경하는 **함수형 업데이트**(`prev => ...`)를 사용해 보세요.
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - **+1 클릭:** 0 ➡ 1 ➡ 2
 - **-1 클릭:** 2 ➡ 1 ➡ 0 ➡ -1
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -113,7 +113,7 @@ export default Counter;
 
 스위치를 껐다 켰다 하는 ON/OFF 기능입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/Toggle.jsx`를 만들고 다음을 구현하세요.
 
@@ -121,12 +121,12 @@ export default Counter;
 2. **화면:** 상태가 `true`면 **"ON"**, `false`면 **"OFF"**라고 글자가 보여야 합니다. (삼항 연산자 사용)
 3. **기능:** 버튼을 클릭할 때마다 상태가 반대로(`true ↔ false`) 바뀌어야 합니다.
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - 초기 화면: **상태: OFF**
 - 버튼 클릭: **상태: ON** ➡ **상태: OFF** (반복)
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -166,7 +166,7 @@ export default Toggle;
 
 입력한 글자를 거울처럼 실시간으로 보여주는 기능입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/Mirror.jsx`를 만들고 다음을 구현하세요.
 
@@ -174,11 +174,11 @@ export default Toggle;
 2. **연결:** `input` 태그의 `value`와 `onChange`를 State에 연결하세요.
 3. **출력:** 입력된 글자가 바로 아래 `<p>` 태그에 똑같이 나타나야 합니다.
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 입력창에 "안녕하세요" 입력 ➡ 아래에 **"입력값: 안녕하세요"** 출력
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -214,7 +214,7 @@ export default Mirror;
 
 배열과 인덱스를 활용하여 색상을 순서대로 변경하는 로직입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/ColorBox.jsx`를 만들고 다음을 구현하세요.
 
@@ -222,7 +222,7 @@ export default Mirror;
 2. **State:** 현재 색상이 아닌, **현재 색상의 순서(index)**를 저장하는 숫자 state를 만드세요. (0부터 시작)
 3. **기능:** 버튼을 누를 때마다 인덱스가 1씩 증가해야 하며, 마지막 색상 다음에는 다시 첫 번째(`0`)로 돌아와야 합니다. (나머지 연산자 `%` 활용)
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -243,7 +243,7 @@ export default Mirror;
   </div>
 </div>
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -289,7 +289,7 @@ export default ColorBox;
 
 객체(Object)를 활용하여 다음 상태를 미리 정의해두는 패턴입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/TrafficLight.jsx`를 만들고 다음을 구현하세요.
 
@@ -300,11 +300,11 @@ export default ColorBox;
    - green ➡ red
 3. **기능:** 버튼을 누르면 이 객체를 참조하여 다음 색상으로 변경하세요.
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 버튼을 누를 때마다 원의 색상이 **빨강 ➡ 노랑 ➡ 초록 ➡ 빨강** 순서로 바뀝니다.
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -355,7 +355,7 @@ export default TrafficLight;
 
 여러 개의 입력값(Input)을 검사하여 버튼을 활성화/비활성화하는 기능입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/LoginCheck.jsx`를 만들고 다음을 구현하세요.
 
@@ -363,7 +363,7 @@ export default TrafficLight;
 2. **Input:** 각각의 input 태그를 만들고 state와 연결하세요.
 3. **유효성 검사:** 아이디와 비밀번호가 **둘 다 입력되었을 때만** 버튼이 눌리도록 만드세요. (하나라도 비어있으면 `disabled`)
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -380,7 +380,7 @@ export default TrafficLight;
   </div>
 </div>
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -439,7 +439,7 @@ export default LoginCheck;
 
 현재 선택된 탭이 무엇인지 기억하고, 그에 따라 다른 내용을 보여주는 UI 패턴입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/TabMenu.jsx`를 만들고 다음을 구현하세요.
 
@@ -448,12 +448,12 @@ export default LoginCheck;
 3. **스타일:** 선택된 버튼은 글자색이나 배경색을 다르게 하여 표시하세요. (조건부 스타일링)
 4. **내용:** 선택된 탭에 따라 아래 텍스트가 바뀌어야 합니다. (조건부 렌더링)
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 - **초기:** 'Home' 버튼이 활성화되어 있고 "🏠 홈 화면입니다."가 보임.
 - **About 클릭:** 'About' 버튼 색이 바뀌고 내용이 "ℹ️ 소개 화면입니다."로 교체됨.
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -519,7 +519,7 @@ export default TabMenu;
 
 클릭하면 내용이 펼쳐지고, 다시 클릭하면 접히는 UI입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src/components/Accordion.jsx`를 만들고 다음을 구현하세요.
 
@@ -528,7 +528,7 @@ export default TabMenu;
 3. **기능:** 제목을 클릭할 때마다 `isOpen` 상태가 반전(`true ↔ false`)되어야 합니다.
 4. **내용:** `isOpen`이 `true`일 때만 상세 내용이 화면에 나타나야 합니다.
 
-### 2) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -545,7 +545,7 @@ export default TabMenu;
   </div>
 </div>
 
-<h3>3) 정답 코드</h3>
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';

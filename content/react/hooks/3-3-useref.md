@@ -24,11 +24,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +55,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) useRef 란 & 사용법</strong> — <code>useRef</code>의 문법적 구조와 올바른 사용 방법을 배웁니다<br>
-  <strong>2) DOM 요소 접근</strong> — <code>focus</code>, <code>scroll</code> 등 DOM API를 직접 제어하는 방법을 익힙니다<br>
-  <strong>3) 값 유지 (No Render)</strong> — 렌더링 없이 값을 유지하는 <code>useRef</code>의 특성을 이해합니다<br>
-  <strong>4) useState vs useRef</strong> — 화면 갱신 필요 여부에 따른 올바른 Hook 선택 기준을 정립합니다
+  • <strong>useRef 란 & 사용법</strong> — <code>useRef</code>의 문법적 구조와 올바른 사용 방법을 배웁니다<br>
+  • <strong>DOM 요소 접근</strong> — <code>focus</code>, <code>scroll</code> 등 DOM API를 직접 제어하는 방법을 익힙니다<br>
+  • <strong>값 유지 (No Render)</strong> — 렌더링 없이 값을 유지하는 <code>useRef</code>의 특성을 이해합니다<br>
+  • <strong>useState vs useRef</strong> — 화면 갱신 필요 여부에 따른 올바른 Hook 선택 기준을 정립합니다
 </div>
 
 ---
@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ### 1) 정의 (Definition)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>"렌더링을 유발하지 않고 값을 저장할 수 있는 변경 가능한 저장소입니다."</strong></p>
 </div>
 
@@ -76,7 +76,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl">렌더링 방지</div><div class="wda-fcard-dsc">값이 바뀌어도 화면은 갱신(Re-rendering)되지 않습니다.</div></div>
 </div>
 
-### 2) 기본 문법 (Code Snippet)
+**📝 기본 문법**
 
 ```jsx
 import { useRef } from 'react';
@@ -128,7 +128,7 @@ function MyComponent() {
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">수정 (Mutation)</div><div class="wda-sdsc">값을 바꿀 때도 <strong>.current</strong>에 새로운 값을 대입합니다. 값을 바꿔도 <strong>리렌더링이 발생하지 않습니다.</strong> (화면은 그대로임)</div></div></div>
 </div>
 
-### 2) 예제 코드 (Example.jsx)
+**📝 예제 코드 (Example.jsx)**
 
 ```jsx
 // 1. Import
@@ -215,7 +215,7 @@ const count = useRef(0);
 
 <h2>4. DOM 요소 접근하기</h2>
 
-### 1) 예제 코드 : 버튼 클릭 시 포커스
+**📝 예제 코드 : 버튼 클릭 시 포커스**
 
 ```jsx
 import { useRef } from 'react';
@@ -274,7 +274,7 @@ export default TextInput;
 
 <h2>5. focus() 활용 예제</h2>
 
-### 1) 예제 코드 : 검색어 자동 포커스
+**📝 예제 코드 : 검색어 자동 포커스**
 
 ```jsx
 import { useRef, useEffect } from 'react';
@@ -320,7 +320,7 @@ export default SearchForm;
 
 <h2>6. scrollIntoView() 활용</h2>
 
-### 1) 예제 코드 : 채팅 자동 스크롤
+**📝 예제 코드 : 채팅 자동 스크롤**
 
 채팅 앱처럼 **새로운 메시지가 도착했을 때** 화면을 자동으로 맨 아래로 내려주는 기능입니다.
 
@@ -378,9 +378,9 @@ export default MessageList;
 
 <h2>7. 💻 실습 1 : 미디어 제어하기</h2>
 
-### 1) Mission
+**🎯 Mission**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>HTMLMediaElement 직접 제어하기</strong></p>
   <p>리액트의 데이터 흐름(State)으로 처리하기 까다로운 비디오/오디오 API를 <code>useRef</code>를 사용해 직접 호출해 봅니다.</p>
   <ul>
@@ -390,7 +390,7 @@ export default MessageList;
   </ul>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 // 1. 비디오 태그를 담을 ref 생성
@@ -407,7 +407,7 @@ const handlePause = () => {
 };
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">화면</div><div class="wda-fcard-dsc">비디오 플레이어와 'Play', 'Pause' 버튼이 있습니다.</div></div>
@@ -417,7 +417,7 @@ const handlePause = () => {
 <img src="/images/content/react/3-3/react-3-3-media-control-demo.png" alt="비디오 테이프 아이콘과 Play(초록), Pause(빨강) 버튼, 현재 상태 Paused 표시" style="display:block;width:100%;max-width:260px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:260px;white-space:nowrap;">[그림] 비디오 Play/Pause 제어 데모 화면</div>
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useRef } from 'react';
@@ -523,9 +523,9 @@ function Counter() {
 }
 ```
 
-### 3) 핵심 요약 (Decision Rule)
+### 3) 🧭 선택 가이드
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>화면에 표시할 값</strong> 👉 <code>useState</code> (예: 카운터 숫자, 입력창 내용, 게시글 목록)<br>
   <strong>내부에서만 쓸 값</strong> 👉 <code>useRef</code> (예: 타이머 ID, 스크롤 위치, 이전 값 기억)</p>
 </div>
@@ -539,7 +539,7 @@ function Counter() {
 **"렌더링 후 저장 = 다음 번엔 과거의 값"**
 `useEffect`가 **화면이 다 그려진 뒤에 실행된다**는 점을 이용한 고급 패턴입니다. 현재의 값을 `ref`에 저장해두면, 다음 렌더링 때 그 값은 **'직전 값(Previous Value)'** 이 됩니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState, useRef, useEffect } from 'react';
@@ -591,7 +591,7 @@ function Counter() {
 **"렌더링에 영향을 주지 않는 변수 저장소"**
 컴포넌트 내에서 **값이 바뀌어도 화면을 다시 그릴(Re-render) 필요가 없는 데이터**를 관리할 때 `useRef`를 사용합니다. 가장 대표적인 예시가 바로 `setInterval`의 **타이머 ID**입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useEffect, useRef, useState } from 'react';
@@ -689,7 +689,7 @@ export default Stopwatch;
 
 <h2>12. 유용한 패턴 1 : useIsMounted</h2>
 
-### 1) 코드 구현 (Implementation)
+**📝 구현 코드**
 
 이 커스텀 훅(Custom Hook)은 **컴포넌트가 현재 화면에 붙어있는지(Mount) 아니면 사라졌는지(Unmount)** 를 판단해줍니다.
 
@@ -741,7 +741,7 @@ if (isMounted.current) {
 
 <h2>13. 유용한 패턴 2 : useClickOutside</h2>
 
-### 1) 코드 구현 (Implementation)
+**📝 구현 코드**
 
 모달(Modal)이나 드롭다운 메뉴가 열려 있을 때, **그 영역의 바깥쪽을 클릭하면 닫히게 만드는** 커스텀 훅입니다.
 
@@ -777,7 +777,7 @@ function useClickOutside(callback) {
 
 **"모달 창 닫기 구현의 국룰 패턴"**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>상황</strong>: 사용자가 모달 창을 띄웠다가, 취소 버튼을 누르지 않고 그냥 <strong>어두운 배경(Dimmed Area)을 클릭</strong>해서 닫고 싶어 할 때 사용합니다.</p>
 </div>
 
@@ -809,7 +809,7 @@ function useClickOutside(callback) {
 
 <h2>14. 유용한 예제 : Canvas API</h2>
 
-### 1) 코드 구현 (Implementation)
+**📝 구현 코드**
 
 리액트의 가상 DOM은 캔버스 내부의 픽셀 단위 그래픽을 제어할 수 없습니다. 따라서 `ref`를 사용하여 실제 캔버스 요소에 접근한 뒤, 그래픽 명령(`getContext`)을 직접 내려야 합니다.
 
@@ -868,7 +868,7 @@ function CanvasDraw() {
 **"조건부 렌더링 요소 포커스"**
 버튼을 누르면 숨겨져 있던 입력창(`input`)이 나타나면서, 동시에 **자동으로 커서가 깜빡이게(Focus)** 만드는 UI 패턴입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState, useRef } from 'react';
@@ -927,12 +927,12 @@ function ToggleFocus() {
 
 <h2>16. (보충) 토글 포커스 (useEffect 버전)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 **"렌더링이 끝난 뒤에 포커스 주기"**
 `setTimeout`으로 시간을 억지로 지연시키는 대신, **"화면 그리기(Render)가 완료되면 실행하라"**는 `useEffect`의 본래 기능을 활용합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { useState, useRef, useEffect } from 'react';
@@ -996,7 +996,7 @@ export default ToggleFocusEffect;
 즉 React 19 이상에서는 `forwardRef`가 **필수가 아니며**, React 팀에서도 향후 버전에서 **점진적으로 제거(deprecate)할 예정**이라고 안내하고 있습니다.  
 다만 기존 코드(React 18 이하)나 라이브러리에는 `forwardRef`가 여전히 많이 쓰이고 있으므로, 아래 예제처럼 **읽고 이해할 수 있어야** 합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 import { forwardRef, useRef, useEffect } from 'react';
@@ -1060,7 +1060,7 @@ export default Parent;
   <div class="wda-fcard"><div class="wda-fcard-ttl">해결책</div><div class="wda-fcard-dsc"><code>Map</code>이나 <code>Array</code> 같은 컬렉션(Collection)을 저장소로 만듭니다. <code>ref</code> 속성에 변수 대신 함수(Callback)를 전달하여, 각 요소를 저장소에 직접 등록합니다.</div></div>
 </div>
 
-### 2) 예제 코드 (종합)
+**📝 예제 코드 (종합)**
 
 두 가지 패턴을 하나의 컴포넌트에서 비교하는 코드입니다.
 
@@ -1194,7 +1194,7 @@ export default ItemList;
   <div class="wda-fcard"><div class="wda-fcard-ttl">Map(객체) 방식</div><div class="wda-fcard-dsc">그냥 <strong>해당 ID(id_5)의 데이터만 쏙 빼내면 끝</strong>입니다. 다른 아이템(id_1, id_9)에는 아무런 영향을 주지 않습니다.</div></div>
 </div>
 
-**📝 핵심 정리**
+**🧭 선택 가이드**
 
 <div class="wda-callout wda-cs">
   <p><strong>결론</strong></p>
@@ -1217,7 +1217,7 @@ export default ItemList;
 | **값 바꾸는 법** | `setState(새값)` 함수 사용 | `.current = 새값` 직접 할당 |
 | **대표 예시** | 카운터 숫자, 입력창 내용, 게시글 | 타이머 ID, 스크롤 위치, input 태그 |
 
-### 2) 예제 코드 비교
+**📝 예제 코드 비교**
 
 ```jsx
 // 1. 화면에 보여줄 값 👉 useState
@@ -1310,7 +1310,7 @@ function Good() {
   값을 바꾸는 행위는 항상 <strong>이벤트 핸들러</strong>(<code>onClick</code>)나 <strong>useEffect</strong> 안에서만 수행해야 합니다.</p>
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cw">
   <p><strong>정리하면: ref.current는 "화면에 무엇을 그릴지"를 결정하는 값으로 쓰지 않는 것이 좋습니다.</strong></p>
   <p><code>ref.current</code>를 바꿔도 리액트는 리렌더링을 트리거하지 않으므로, 만약 <code>ref.current</code> 값을 기준으로 JSX 내용을 다르게 그리려고 하면 화면이 실제 값과 어긋나는(stale) 상태로 남을 수 있습니다.<br>
   그래서 <code>ref.current</code>는 일반적으로 <strong>이벤트 핸들러나 useEffect 안에서 읽고 쓰는 용도</strong>(DOM 접근, 타이머 ID 보관 등)로 사용하는 것이 안전하며, 화면에 표시되어야 하는 값이라면 <code>useState</code>로 관리하는 것이 맞습니다.</p>
@@ -1318,7 +1318,7 @@ function Good() {
 
 ---
 
-<h2>21. 🔑 핵심 정리 (Key Takeaways)</h2>
+<h2>21. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

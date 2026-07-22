@@ -53,9 +53,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>JSON 개념</strong> — 서버·클라이언트가 데이터를 주고받는 "만국 공통어" 형식을 이해합니다.<br>
-  <strong>JS Object와의 차이</strong> — JavaScript 객체와 JSON의 문법 차이를 정확히 구분합니다.<br>
-  <strong>직렬화/역직렬화</strong> — `JSON.stringify()`, `JSON.parse()` 사용법을 익힙니다.
+  • <strong>JSON 개념</strong> — 서버·클라이언트가 데이터를 주고받는 "만국 공통어" 형식을 이해합니다.<br>
+  • <strong>JS Object와의 차이</strong> — JavaScript 객체와 JSON의 문법 차이를 정확히 구분합니다.<br>
+  • <strong>직렬화/역직렬화</strong> — `JSON.stringify()`, `JSON.parse()` 사용법을 익힙니다.
 </div>
 
 ---
@@ -177,7 +177,7 @@ JSON에서는 key와 문자열 값에 반드시 쌍따옴표를 사용해야 합
 - **타입 (Type)** : 무조건 **`string` (문자열)** 입니다.
 - **특징** — 겉모습은 객체처럼 생겼지만, 실제로는 긴 텍스트 덩어리입니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   JSON은 텍스트 기반 데이터 형식입니다. JavaScript에서 서버로 전송하거나 저장소에 저장할 때는 보통 문자열 형태의 JSON으로 다룹니다. 다만 JSON 문법 자체는 객체, 배열, 문자열, 숫자, 불리언, null 같은 값을 표현할 수 있습니다.
 </div>
 
@@ -201,9 +201,9 @@ console.log(typeof JSON);       // "object"
 console.log(typeof JSON.parse); // "function"
 ```
 
-**핵심 요약**
+**💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "JSON 객체(도구)를 사용해서, JSON 데이터(문자열)를 다룹니다."<br><br>
   <strong>JSON 데이터</strong> = 재료 (String)<br>
   <strong>JSON 객체</strong> = 요리 도구 (Tool)
@@ -471,7 +471,7 @@ const copy = structuredClone(original);
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 <table class="wda-summary-table">

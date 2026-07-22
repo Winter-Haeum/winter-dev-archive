@@ -63,7 +63,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 체계적인 순서를 따르면 문제가 쉬워집니다.
 
-**1) 문제 해결 프로세스**
+**📍 문제 해결 프로세스**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -88,7 +88,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-**2) 실전 적용 팁**
+**💡 실전 적용 팁**
 
 **⚠️ 주의사항**
 
@@ -140,21 +140,21 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 이것만 확인해도 실수가 줄어듭니다.
 
-**1) 입력 확인**
+**📌 입력 확인**
 
 • 입력 타입은? (숫자, 문자열, 배열)<br>
 • 값의 범위는? (최소, 최대)<br>
 • 배열 길이는? (빈 배열 가능?)<br>
 • 특수문자, 공백 포함?
 
-**2) 출력 확인**
+**📌 출력 확인**
 
 • 반환 타입은? (숫자, 문자열, 배열)<br>
 • 정렬이 필요한가?<br>
 • 소수점 처리는?<br>
 • 없는 경우 반환값은?
 
-**3) 예외 케이스**
+**📌 예외 케이스**
 
 • 빈 입력 / 값이 하나뿐 / 모두 같은 값<br>
 • 음수 포함 / 0 포함 / 매우 큰 수
@@ -165,7 +165,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 입출력 예시를 손으로 직접 따라가며 로직을 이해하는 과정입니다.
 
-**1) 손으로 따라가기 (Dry Run)**
+**🧪 손으로 따라가기 (Dry Run)**
 
 단순히 눈으로 보는 것이 아니라, 변수의 변화 과정을 하나씩 기록해 봅니다.
 
@@ -184,7 +184,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">5번째 — 10 + 5</div><div class="wda-sdsc">sum = 15 ✅</div></div></div>
 </div>
 
-**2) 왜 손으로 따라가야 하나요?**
+**💡 왜 손으로 따라가야 하나요?**
 
 • <strong>과정의 시각화</strong>: 내가 어떤 과정을 거쳤는지 정확히 알아야 코드로 옮길 수 있습니다.<br>
 • <strong>로직 오류 발견</strong>: 코드를 짜기 전, 머릿속 설계의 허점을 미리 찾아낼 수 있습니다.
@@ -202,7 +202,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 모든 예시에서 공통된 패턴을 찾아보세요.
 
-**1) 패턴 발견하기**
+**🧭 패턴 발견하기**
 
 여러 개의 입출력 예시를 비교하면 문제의 숨은 로직(평균, 합계 등)을 명확히 알 수 있습니다.
 
@@ -212,7 +212,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | 예시 2 | `[1, 2]` | 1.5 | (1+2) / 2 = 1.5 → 맞음 |
 | 예시 3 | `[5]` | 5 | 5 / 1 = 5 → 맞음 |
 
-**2) 예시 분석의 결론**
+**💡 예시 분석의 결론**
 
 • <strong>중간값인가? 평균인가?</strong>: 예시 1만 봤을 때는 중간값(2)인지 평균(2)인지 헷갈릴 수 있지만, 예시 2를 통해 평균을 구하는 문제임을 확신할 수 있습니다.<br>
 • <strong>예외 확인</strong>: 요소가 하나인 경우(예시 3)에도 로직이 그대로 적용되는지 확인합니다.
@@ -230,7 +230,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 코드를 작성하기 전, 논리 흐름을 일상 언어로 정리하여 시행착오를 줄이는 단계입니다.
 
-**1) 의사코드(Pseudo-code) 작성의 중요성**
+**📌 의사코드(Pseudo-code) 작성의 중요성**
 
 의사코드는 프로그래밍 언어가 아닌 일상 언어로 적는 논리 흐름입니다.
 
@@ -252,7 +252,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-**2) 📝 의사코드 작성 예시**
+**📝 의사코드 작성 예시**
 
 문제: 배열에서 짝수만 골라 합 구하기
 
@@ -281,7 +281,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 계획한 논리를 바탕으로 한 단계씩 차근차근 구현하는 과정입니다.
 
-**1) 구현 가이드라인**
+**📝 구현 가이드라인**
 
 무작정 전체 코드를 한꺼번에 완성하려 하지 말고, 작은 단위로 나누어 작성하세요.
 
@@ -302,7 +302,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-**2) 🐞 디버깅 팁**
+**🐞 디버깅 팁**
 
 코드가 예상대로 동작하는지 확인하기 위해 중간 결과를 출력해 보는 습관이 중요합니다.
 
@@ -327,7 +327,7 @@ console.log("현재 num:", num);
 
 제출 전 반드시 테스트를 거쳐 정답을 확신하는 과정입니다.
 
-**(1) 기본 테스트**
+**🧪 기본 테스트**
 
 가장 먼저 문제에서 제공한 예시 케이스를 넣어 결과가 맞는지 확인합니다.
 
@@ -337,7 +337,7 @@ console.log(solution([1, 2, 3, 4, 5])); // 15
 console.log(solution([10, 20, 30]));    // 60
 ```
 
-**(2) 엣지 케이스 (Edge Case)**
+**🧪 엣지 케이스 (Edge Case)**
 
 프로그램이 고장 나기 쉬운 예외 상황을 직접 만들어 테스트합니다.
 
@@ -348,7 +348,7 @@ console.log(solution([5]));     // 5 (단일 요소 처리)
 console.log(solution([-1, 2])); // 음수 처리
 ```
 
-**(3) 검증 체크리스트**
+**📌 검증 체크리스트**
 
 제출 버튼을 누르기 전, 다음 항목들을 마지막으로 점검하세요.
 
@@ -370,7 +370,7 @@ console.log(solution([-1, 2])); // 음수 처리
 
 60분 기준 시간을 어떻게 효율적으로 쓸까요?
 
-**(1) 단계별 권장 시간**
+**📍 단계별 권장 시간**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">문제 읽기 📖</div><div class="wda-sdsc">5분</div></div></div>
@@ -380,7 +380,7 @@ console.log(solution([-1, 2])); // 음수 처리
   <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">검증 ✅</div><div class="wda-sdsc">10분</div></div></div>
 </div>
 
-**(2) ⚠️ 중요 포인트**
+**⚠️ 중요 포인트**
 
 <div class="wda-callout wda-cw">
   • 계획(3단계)에 10분을 투자하면 코드 작성이 훨씬 빨라집니다.<br>

@@ -16,7 +16,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -25,14 +25,14 @@ status: "completed"
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -78,7 +78,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  Git MCP와 GitHub CLI를 설치하여, AI에게 <strong>"백업해줘"</strong> 한 마디로 GitHub에 프로젝트를 저장할 수 있는 환경을 구축한다.<br>📦 <strong>GitHub CLI 설치</strong> — gh CLI 설치 및 OAuth 인증으로 GitHub 연결<br>🤖 <strong>스킬 파일 등록</strong> — Claude가 GitHub 작업을 자동 수행하도록 설정<br>🚀 <strong>AI 백업 자동화</strong> — "백업해줘" 한 마디로 GitHub에 자동 저장
+  Git MCP와 GitHub CLI를 설치하여, AI에게 <strong>"백업해줘"</strong> 한 마디로 GitHub에 프로젝트를 저장할 수 있는 환경을 구축한다.<br>
+  • <strong>GitHub CLI 설치</strong> — gh CLI 설치 및 OAuth 인증으로 GitHub 연결<br>
+  • <strong>스킬 파일 등록</strong> — Claude가 GitHub 작업을 자동 수행하도록 설정<br>
+  • <strong>AI 백업 자동화</strong> — "백업해줘" 한 마디로 GitHub에 자동 저장
 </div>
 
 <div class="wda-callout wda-cs">
@@ -185,7 +188,7 @@ gh auth login
 
 명령어 하나로 브라우저 로그인만 하면 자동으로 인증이 완료됩니다. 브라우저 창이 열리면 GitHub 로그인 후 **Authorize** 클릭!
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">OAuth란?</span>
   "Open Authorization"의 약자입니다.<br>
   비밀번호를 직접 전달하지 않고, 신뢰하는 앱(GitHub CLI)에 특정 권한만 허용하는 인증 방식입니다.<br>
@@ -204,7 +207,7 @@ gh auth login
   <code>.claude/skills/gh_cli/skill.md</code> 파일에 명령어 가이드를 등록해두면, 이후 GitHub 작업 시 Claude가 자동으로 참조하여 처리합니다.
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">스킬 파일이란?</span>
   Claude가 특정 작업을 수행할 때 참고하는 가이드 문서입니다.<br>
   <code>.claude/skills/</code> 폴더에 저장해두면, Claude가 GitHub 작업 요청을 받을 때 이 파일을 참조하여 정확한 gh CLI 명령어를 실행합니다.
@@ -646,7 +649,7 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 
 ---
 
-## 📝 핵심 정리
+## ✅ 핵심 요약
 
 ### 핵심 기능 4가지
 

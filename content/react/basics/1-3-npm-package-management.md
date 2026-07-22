@@ -23,12 +23,12 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -37,7 +37,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
@@ -61,10 +61,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>package.json 이해하기</strong> — 프로젝트 설정 파일의 구조와 역할을 파악합니다.<br>
-  <strong>의존성 관리하기</strong> — `dependencies`와 `devDependencies`의 차이를 이해합니다.<br>
-  <strong>버전 관리 규칙</strong> — 시맨틱 버저닝과 버전 범위 표기법을 익힙니다.<br>
-  <strong>npm 명령어 활용</strong> — `npm install`, `run`, `npx` 등 실무 명령어를 마스터합니다.
+  • <strong>package.json 이해하기</strong> — 프로젝트 설정 파일의 구조와 역할을 파악합니다.<br>
+  • <strong>의존성 관리하기</strong> — `dependencies`와 `devDependencies`의 차이를 이해합니다.<br>
+  • <strong>버전 관리 규칙</strong> — 시맨틱 버저닝과 버전 범위 표기법을 익힙니다.<br>
+  • <strong>npm 명령어 활용</strong> — `npm install`, `run`, `npx` 등 실무 명령어를 마스터합니다.
 </div>
 
 ---
@@ -351,7 +351,7 @@ package-lock.json은 실제 설치된 의존성 트리와 정확한 버전을 �
 
 ### 2) 왜 둘 다 써야 하나요?
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   확장 프로그램은 보기 편하게 해주고, npm 패키지는 실제 검사관 역할을 합니다.
 </div>
 
@@ -513,7 +513,7 @@ npm create vite@latest
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 Node.js 프로젝트 관리의 심장인 파일(`package.json`)과 실행 도구(`npx`)의 차이입니다.
 

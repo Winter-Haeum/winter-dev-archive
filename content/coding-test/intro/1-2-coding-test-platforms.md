@@ -78,10 +78,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표 (Learning Objectives)
 
 <div class="wda-goal">
-🌐 <strong>주요 플랫폼 파악</strong> — 프로그래머스, 백준, LeetCode 등 개발자들이 가장 많이 사용하는 주요 플랫폼을 알아봅니다.<br>
-⚖️ <strong>특징 비교</strong> — 각 플랫폼이 가진 장단점과 고유한 특징을 비교하여 분석합니다.<br>
-⭐ <strong>플랫폼 선택</strong> — 나의 현재 실력과 목표 기업에 맞춰 나에게 맞는 플랫폼을 선택할 수 있습니다.<br>
-🚀 <strong>시작 준비</strong> — 회원가입부터 첫 문제 풀기까지, 학습을 시작하기 위한 모든 준비를 마칩니다.
+• <strong>주요 플랫폼 파악</strong> — 프로그래머스, 백준, LeetCode 등 개발자들이 가장 많이 사용하는 주요 플랫폼을 알아봅니다.<br>
+• <strong>특징 비교</strong> — 각 플랫폼이 가진 장단점과 고유한 특징을 비교하여 분석합니다.<br>
+• <strong>플랫폼 선택</strong> — 나의 현재 실력과 목표 기업에 맞춰 나에게 맞는 플랫폼을 선택할 수 있습니다.<br>
+• <strong>시작 준비</strong> — 회원가입부터 첫 문제 풀기까지, 학습을 시작하기 위한 모든 준비를 마칩니다.
 </div>
 
 ---
@@ -141,7 +141,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 국내 기업 채용 필수 코딩테스트 플랫폼입니다.
 
-**1) ✅ 장점 (Pros)**
+**✅ 장점 (Pros)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">한국어 완벽 지원</div><div class="wda-fcard-dsc">문제 설명부터 해설까지 모두 한국어로 되어 있어 언어 장벽이 없습니다.</div></div>
@@ -151,7 +151,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">채용 연계</div><div class="wda-fcard-dsc">문제를 풀고 포트폴리오를 등록하면 기업 제안을 받을 수도 있습니다.</div></div>
 </div>
 
-**2) ❗ 단점 (Cons)**
+**❗ 단점 (Cons)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">문제 수</div><div class="wda-fcard-dsc"><strong>백준(BOJ)</strong>에 비하면 전체적인 문제 수가 적은 편입니다.</div></div>
@@ -159,7 +159,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">고급 문제 부족</div><div class="wda-fcard-dsc">대회 준비 등을 위한 아주 어려운 고급 알고리즘 문제는 상대적으로 부족합니다.</div></div>
 </div>
 
-**3) 📊 난이도 체계 (Level System)**
+**📊 난이도 체계 (Level System)**
 
 입문자는 Lv.0부터 시작하면 됩니다.
 
@@ -181,7 +181,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 국내에서 가장 역사가 깊고 방대한 데이터를 보유한 알고리즘 특화 플랫폼입니다.
 
-**1) ✅ 장점 (Pros)**
+**✅ 장점 (Pros)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">방대한 문제 수</div><div class="wda-fcard-dsc">20,000개가 넘는 압도적인 문제 데이터베이스를 보유하고 있습니다.</div></div>
@@ -190,7 +190,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">커뮤니티 활성화</div><div class="wda-fcard-dsc">질문 게시판과 다양한 풀이 공유 문화가 잘 형성되어 있습니다.</div></div>
 </div>
 
-**2) ❗ 단점 (Cons)**
+**❗ 단점 (Cons)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">불친절한 UI</div><div class="wda-fcard-dsc">사용자 인터페이스가 다소 <strong>올드(Old)</strong>하여 처음 접하면 당황할 수 있습니다.</div></div>
@@ -198,7 +198,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">언어 장벽</div><div class="wda-fcard-dsc">한글 문제도 많지만, 번역되지 않은 영어 문제도 꽤 섞여 있습니다.</div></div>
 </div>
 
-**3) 🏆 solved.ac 티어 (Tier System)**
+**🏆 solved.ac 티어 (Tier System)**
 
 백준 자체 난이도보다 solved.ac의 티어 구분을 주로 참고합니다.
 
@@ -222,7 +222,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 전 세계 개발자들이 가장 많이 사용하는 글로벌 1위 코딩테스트 플랫폼입니다.
 
-**1) ✅ 장점 (Pros)**
+**✅ 장점 (Pros)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">FAANG 면접 필수</div><div class="wda-fcard-dsc">해외 빅테크 기업의 인터뷰 프로세스는 대부분 리트코드를 기반으로 합니다.</div></div>
@@ -231,7 +231,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">기업별 통계</div><div class="wda-fcard-dsc">특정 기업(Google, Meta 등)에서 최근 자주 출제된 문제 리스트를 볼 수 있습니다. (일부 유료)</div></div>
 </div>
 
-**2) ❗ 단점 (Cons)**
+**❗ 단점 (Cons)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">영어 기반</div><div class="wda-fcard-dsc">모든 문제와 해설이 영어로 되어 있습니다. (하지만 개발 용어 위주라 적응하면 어렵지 않습니다.)</div></div>
@@ -239,7 +239,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">국내 기출 부재</div><div class="wda-fcard-dsc">한국 기업 특유의 문제 스타일과는 다소 차이가 있을 수 있습니다.</div></div>
 </div>
 
-**3) 📊 난이도 및 활용 팁 (Levels & Tips)**
+**📊 난이도 및 활용 팁 (Levels & Tips)**
 
 난이도는 직관적인 3단계 색상으로 구분됩니다.
 
@@ -303,7 +303,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 나의 현재 실력과 <strong>목표(취업, 해외, 대회 등)</strong>에 따라 주력으로 사용해야 할 플랫폼이 다릅니다.
 
-**1) 👶 완전 입문자라면 (Absolute Beginner)**
+**👶 완전 입문자라면 (Absolute Beginner)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -335,14 +335,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   정말 기초 문법부터 연습이 필요하다면 코드업(CodeUp) 사이트도 좋습니다.
 </div>
 
-**2) 💼 취준생이라면 (Job Seeker)**
+**💼 취준생이라면 (Job Seeker)**
 
 국내 기업 취업을 본격적으로 준비하는 분들을 위한 로드맵입니다.
 
 • <strong>한국 기업 목표</strong>: 프로그래머스 기출문제(카카오, 202x 공채 등)를 반드시 풀어보세요. 백준에서는 실버~골드 난이도를 목표로 연습하세요.<br>
 • <strong>삼성 목표</strong>: SW Expert Academy 사이트 이용이 필수입니다.
 
-**3) ✈️ 해외 취업이라면 (Global Career)**
+**✈️ 해외 취업이라면 (Global Career)**
 
 구글, 아마존 등 해외 빅테크 기업을 목표로 한다면 전략이 다릅니다.
 
@@ -350,7 +350,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 2. LeetCode Easy 난이도 100문제를 풉니다.
 3. LeetCode Medium에 도전하고, Blind 75(필수 75제)를 완주하세요.
 
-**4) 🏆 대회/경쟁이 좋다면 (Competition)**
+**🏆 대회/경쟁이 좋다면 (Competition)**
 
 자신의 한계를 시험하고 랭킹 올리는 재미를 원하신다면 이곳이 맞습니다.
 
@@ -420,7 +420,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-## ✅ 핵심 정리
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -36,7 +36,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
 .wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
@@ -65,10 +65,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>Node.js 이해하기</strong> — JavaScript 런타임의 개념과 역할을 알아봅니다.<br>
-  <strong>npm 이해하기</strong> — 패키지 매니저의 역할과 필요성을 파악합니다.<br>
-  <strong>프론트엔드와의 관계</strong> — React 개발에서 Node.js가 필요한 이유를 이해합니다.<br>
-  <strong>개발 환경 구성</strong> — 모던 개발 환경의 기본 구조를 파악합니다.
+  • <strong>Node.js 이해하기</strong> — JavaScript 런타임의 개념과 역할을 알아봅니다.<br>
+  • <strong>npm 이해하기</strong> — 패키지 매니저의 역할과 필요성을 파악합니다.<br>
+  • <strong>프론트엔드와의 관계</strong> — React 개발에서 Node.js가 필요한 이유를 이해합니다.<br>
+  • <strong>개발 환경 구성</strong> — 모던 개발 환경의 기본 구조를 파악합니다.
 </div>
 
 ---
@@ -304,9 +304,9 @@ React나 Vue 같은 프론트엔드 라이브러리는 브라우저에서 실행
   </div>
 </div>
 
-**핵심 요약**
+**💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "개발과 빌드에 필요하지, 실제 서비스는 브라우저에서 실행됨!"<br><br>
   우리가 Node.js를 설치하는 이유는 <strong>브라우저가 이해할 수 있는 형태(HTML, CSS, JS)로 변환해 주는 '도구'들을 실행하기 위함</strong>입니다.
 </div>
@@ -363,9 +363,9 @@ Node.js 안에서는 소스 코드가 다음과 같은 과정을 거쳐 완성�
 | **전역 객체**(Global Object) | **`global`**<br>`console.log(global)` | **`window`**<br>`console.log(window)` |
 | **주요 API** | `require('fs')`<br>`process.env` (환경 변수) | `window.location.href`<br>`localStorage` (저장소) |
 
-**핵심 요약**
+**🆚 비교 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   "같은 JavaScript지만 사용 가능한 API가 다르다!"<br><br>
   문법(<code>if</code>, <code>for</code>, <code>function</code> 등)은 똑같지만, Node.js는 <strong>파일/서버 관리</strong>에 특화되어 있고, 브라우저는 <strong>화면(UI) 제어</strong>에 특화되어 있습니다.<br>
   따라서 Node.js에서 <code>alert()</code>를 쓰거나 브라우저에서 <code>fs.readFile()</code>을 쓰면 에러가 발생합니다.
@@ -438,7 +438,7 @@ npm처럼 라이브러리를 설치하고 관리해 주는 다른 도구들입�
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

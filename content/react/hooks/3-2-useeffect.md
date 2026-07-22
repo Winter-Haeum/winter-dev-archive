@@ -24,13 +24,13 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) Side Effect 이해</strong> — 순수 함수와 부수 효과의 차이를 이해하고 설명합니다<br>
-  <strong>2) useEffect 문법</strong> — 의존성 배열을 활용하여 실행 시점을 제어합니다<br>
-  <strong>3) Cleanup 함수</strong> — 메모리 누수를 방지하기 위한 정리 작업을 수행합니다<br>
-  <strong>4) 실무 패턴 활용</strong> — 데이터 페칭, 타이머 등 다양한 실무 사례를 익힙니다
+  • <strong>Side Effect 이해</strong> — 순수 함수와 부수 효과의 차이를 이해하고 설명합니다<br>
+  • <strong>useEffect 문법</strong> — 의존성 배열을 활용하여 실행 시점을 제어합니다<br>
+  • <strong>Cleanup 함수</strong> — 메모리 누수를 방지하기 위한 정리 작업을 수행합니다<br>
+  • <strong>실무 패턴 활용</strong> — 데이터 페칭, 타이머 등 다양한 실무 사례를 익힙니다
 </div>
 
 ---
@@ -205,7 +205,7 @@ React 컴포넌트의 주 업무는 "화면을 그리는 것(UI 렌더링)"입�
 
 `useEffect`의 두 번째 인자로 빈 배열(`[]`)을 전달하면, 이 코드는 컴포넌트가 **처음 화면에 나타날 때(마운트) 단 한 번만 실행**되고, 그 이후에는 절대 다시 실행되지 않습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 useEffect(() => {
@@ -250,7 +250,7 @@ useEffect(() => {
 
 `useEffect`의 의존성 배열에 변수(예: `count`)를 넣으면, **"처음 렌더링 될 때"** 그리고 **"그 변수의 값이 바뀔 때마다"** 이펙트가 실행됩니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 useEffect(() => {
@@ -328,7 +328,7 @@ useEffect(() => {
 
 <h2>8. 💻 미니 실습 : 실행 시점 예측</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 다음 두 가지 `useEffect` 코드가 **언제 실행되는지** 예측해 보세요.
 
@@ -350,7 +350,7 @@ useEffect(() => {
 }, [count]); // 의존성 배열에 count가 있음
 ```
 
-### 3) 정답 확인
+**✅ 정답 확인**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">케이스 1 정답: 마운트 시 1회만 실행</div><div class="wda-fcard-dsc">화면이 처음 그려진 직후 딱 한 번만 <code>Hello</code>가 출력되고, 그 뒤로는 절대 실행되지 않습니다.</div></div>
@@ -373,7 +373,7 @@ useEffect(() => {
 **빈 배열 `[]` = 처음 나타날 때 1번만 실행**
 컴포넌트가 화면에 처음 나타나는 시점(Mount)에 딱 한 번만 코드를 실행하고 싶다면, 의존성 배열을 비워두면 됩니다.
 
-### 2) 예제 코드 : 데이터 페칭
+**📝 예제 코드 : 데이터 페칭**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -412,7 +412,7 @@ export default UserProfile;
 **`[dep]` = 의존성 값이 변할 때마다 실행**
 `useEffect`의 두 번째 인자인 배열에 변수(예: `query`)를 넣으면, 컴포넌트가 **처음 나타날 때**와 그 **변수의 값이 바뀔 때마다** 코드가 다시 실행됩니다.
 
-### 2) 예제 코드 : 검색 결과 조회
+**📝 예제 코드 : 검색 결과 조회**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -464,7 +464,7 @@ export default SearchResults;
 
 **Cleanup은 Unmount 때만 실행되는 것이 아닙니다.** 의존성 배열의 값이 바뀌어 **다음 Effect가 다시 실행되기 직전에도** 먼저 실행됩니다. 즉 "완전히 사라질 때" 한 번만이 아니라, "이전 Effect를 정리하고 새 Effect를 시작하기 직전"마다 매번 호출된다고 이해하는 것이 정확합니다. (자세한 실행 순서는 부록 문서 "리액트 라이프사이클 — Updating" 부분에서 다룹니다.)
 
-### 2) 예제 코드 : 타이머 정리
+**📝 예제 코드 : 타이머 정리**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -510,7 +510,7 @@ export default Timer;
 
 <h2>12. 데이터 페칭 패턴 (Data Fetching)</h2>
 
-### 1) 예제 코드 : 게시글 조회
+**📝 예제 코드 : 게시글 조회**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -574,7 +574,7 @@ export default PostDetail;
 
 <h2>13. 이벤트 리스너 패턴</h2>
 
-### 1) 예제 코드 : 창 크기 감지
+**📝 예제 코드 : 창 크기 감지**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -629,7 +629,7 @@ export default WindowSize;
 
 <h2>14. 타이머 패턴</h2>
 
-### 1) 예제 코드 : 카운트다운
+**📝 예제 코드 : 카운트다운**
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -760,7 +760,7 @@ useEffect(() => {
 
 ---
 
-<h2>17. 🔑 핵심 정리</h2>
+<h2>17. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

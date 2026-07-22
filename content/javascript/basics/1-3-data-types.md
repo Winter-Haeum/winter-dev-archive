@@ -38,8 +38,8 @@ tags:
 .wda-sdsc ul{margin:.3rem 0 0;padding-left:1.1rem}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-legacy{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
@@ -71,10 +71,8 @@ tags:
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-
-
-  📌 <strong>데이터 타입</strong> — 원시 타입과 참조 타입을 구분하고 특징을 설명할 수 있다.<br>
-  🔄 <strong>타입 변환</strong> — 암묵적 타입 변환과 명시적 타입 변환의 동작을 이해한다.
+  • <strong>데이터 타입</strong> — 원시 타입과 참조 타입을 구분하고 특징을 설명할 수 있다.<br>
+  • <strong>타입 변환</strong> — 암묵적 타입 변환과 명시적 타입 변환의 동작을 이해한다.
 </div>
 
 ---
@@ -91,13 +89,24 @@ tags:
 | 특징 요약 | 단순한 값 | 복합 구조 |
 | 메모리 개념 | 값 자체가 변수에 들어간다 | 변수에는 주소만 들어간다 |
 
-타입이 중요한 이유는 다음과 같다.
-- **연산** — 의도한 숫자 계산은 number 타입에서 안전하게 수행된다.<br>
-  JavaScript는 암묵적 타입 변환이 있어 문자열도 숫자로 바뀌는 경우가 있지만, 예측하기 어려워 버그의 원인이 될 수 있다.
-- **메모리** — 타입마다 저장 방식이 다르다.
-- **에러 방지** — 잘못된 연산을 미리 막을 수 있다.
+**🎯 타입이 중요한 이유**
 
-**📝 핵심 정리**
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">연산</div>
+    <div class="wda-fcard-dsc">의도한 숫자 계산은 number 타입에서 안전하게 수행된다.<br>JavaScript는 암묵적 타입 변환이 있어 문자열도 숫자로 바뀌는 경우가 있지만, 예측하기 어려워 버그의 원인이 될 수 있다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">메모리</div>
+    <div class="wda-fcard-dsc">타입마다 저장 방식이 다르다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">에러 방지</div>
+    <div class="wda-fcard-dsc">잘못된 연산을 미리 막을 수 있다.</div>
+  </div>
+</div>
+
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   JavaScript의 값은 크게 <strong>원시 타입(값 자체)</strong>과 <strong>참조 타입(주소)</strong>로 나뉜다.
@@ -148,7 +157,11 @@ JavaScript의 원시 타입은 정확히 **7가지**(`string`, `number`, `boolea
   </div>
 </div>
 
-> 스택/힙 설명은 실제 엔진 내부 구현을 단순화한 비유다. 핵심은 원시 타입은 값 자체가 복사되고, 참조 타입은 객체를 가리키는 참조가 복사된다는 점이다.
+**💡 보충 설명**
+
+<div class="wda-callout wda-ci">
+  스택/힙 설명은 실제 엔진 내부 구현을 단순화한 비유다. 핵심은 원시 타입은 값 자체가 복사되고, 참조 타입은 객체를 가리키는 참조가 복사된다는 점이다.
+</div>
 
 ```javascript
 // 원시 타입 — 값 자체가 복사된다
@@ -172,7 +185,9 @@ let objectB = objectA;
 
 문자열을 표현하는 타입이다.
 
-**📝 문자열 선언 방법** — 따옴표 3가지 방식을 모두 사용할 수 있다.
+**📝 문자열 선언 방법**
+
+따옴표 3가지 방식을 모두 사용할 수 있다.
 
 ```javascript
 let str1 = "큰따옴표";   // 큰따옴표 문자열
@@ -184,7 +199,9 @@ let name = "철수";
 let greeting = "안녕, " + name; // 안녕, 철수
 ```
 
-**⚡ 템플릿 리터럴 (ES6)** — `${}` 안에 변수·표현식을 삽입하고, 여러 줄 문자열도 가능하다.
+**⚡ 템플릿 리터럴 (ES6)**
+
+`${}` 안에 변수·표현식을 삽입하고, 여러 줄 문자열도 가능하다.
 
 ```javascript
 let name = "영희";
@@ -197,8 +214,9 @@ let multi = `첫째 줄
 둘째 줄`;
 ```
 
+**🔹 백틱(`) 사용 시 장점**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">🔹 백틱(`) 사용 시 장점</span>
   • 변수 삽입 가능<br>
   • 여러 줄 문자열 가능<br>
   → <strong>실무에서 권장</strong>
@@ -221,7 +239,7 @@ lastName + firstName;            // 더하기(+)로 연결
 `1 더하기 2는 ${1 + 2}입니다`;
 ```
 
-**📝 핵심 정리**
+**📝 요약 메모**
 
 - 문자열은 `" "`, `' '`, `` ` ` `` 세 가지로 만든다.
 - 문자열 연결은 `+` 또는 **템플릿 리터럴**을 사용한다.
@@ -245,7 +263,9 @@ true             // 불리언 리터럴
 
 "템플릿 리터럴"은 문자열 값을 만드는 새로운 표기법이라는 뜻이다.
 
-**❌ 리터럴이 아닌 것** — 변수나 식은 계산되거나 참조되어야 값이 된다.
+**❌ 리터럴이 아닌 것**
+
+변수나 식은 계산되거나 참조되어야 값이 된다.
 
 ```javascript
 let age = 20;
@@ -276,15 +296,18 @@ let negInf = -Infinity; // 음의 무한대
 let notNum = NaN;       // Not a Number
 ```
 
-**❓ NaN (Not a Number)** — 숫자가 아닌 연산 결과다.
+**❓ NaN (Not a Number)**
+
+숫자가 아닌 연산 결과다.
 
 ```javascript
 let result  = "abc" * 2; // NaN
 let invalid = 0 / 0;     // NaN
 ```
 
+**🔹 NaN 확인 방법**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">🔹 NaN 확인 방법</span>
   <code>isNaN(result);         // true</code><br>
   <code>Number.isNaN(result);  // true (더 정확)</code>
 </div>
@@ -309,14 +332,18 @@ let invalid = 0 / 0;     // NaN
   한정된 메모리로 매우 큰 수와 작은 수를 모두 표현하기 위해, <strong>범위</strong>와 <strong>속도</strong>를 얻는 대신 <strong>정확성</strong>을 일부 포기했다.
 </div>
 
-**🔢 방법 1. 정수로 변환하여 계산** — 소수점을 제거하기 위해 10의 배수를 곱해 정수로 만든 뒤, 다시 나누는 방식이다.
+**🔢 방법 1. 정수로 변환하여 계산**
+
+소수점을 제거하기 위해 10의 배수를 곱해 정수로 만든 뒤, 다시 나누는 방식이다.
 
 ```javascript
 (0.1 * 10 + 0.2 * 10) / 10
 // 3 / 10 = 0.3
 ```
 
-**📐 방법 2. 반올림 함수 사용** — `toFixed()` 메서드를 사용하여 소수점 자릿수를 제한한다.
+**📐 방법 2. 반올림 함수 사용**
+
+`toFixed()` 메서드를 사용하여 소수점 자릿수를 제한한다.
 
 ```javascript
 (0.1 + 0.2).toFixed(1)
@@ -371,7 +398,9 @@ console.log(isLoggedIn); // true 출력
   • 이 결과값들이 모여서 서비스의 복잡한 로직(예: 권한이 있는가? 품절인가?)을 결정하게 된다.
 </div>
 
-**🔄 undefined vs null** — 두 타입 모두 "값이 없다"는 의미를 가지지만, 사용 목적이 명확히 다르다.
+**🔄 undefined vs null**
+
+두 타입 모두 "값이 없다"는 의미를 가지지만, 사용 목적이 명확히 다르다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -410,7 +439,7 @@ console.log(typeof undefined);  // "undefined"
 console.log(typeof null);       // "object" (자바스크립트의 유명한 설계상 오류)
 ```
 
-**📝 핵심 정리**
+**📝 요약 메모**
 
 <div class="wda-callout wda-ci">
   • <strong>boolean</strong> — 스위치처럼 온/오프 상태를 나타낸다.<br>
@@ -517,13 +546,15 @@ console.log(greet("영희")); // 결과: "안녕, 영희!"
 
 **💡 보충 설명: 원시 타입 vs 참조 타입 (메모리 비유)**
 
-<div class="wda-callout wda-ci">
-
-| **구분** | **비유** | **특징** |
-| --- | --- | --- |
-| **원시 타입** | 포스트잇 | 값 자체를 직접 주머니에 넣는다. 복사하면 포스트잇을 하나 더 써서 주는 것과 같아 **서로 영향을 주지 않는다.** |
-| **참조 타입** | 사물함 키 | 물건(데이터)은 거대한 사물함(Heap)에 넣고, 주머니에는 그 **사물함 키(주소)**만 넣는다. 복사하면 키만 하나 더 주는 것이라, **같은 사물함을 열게 되어 서로 영향을 준다.** |
-
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">📮 원시 타입 — 포스트잇</div>
+    값 자체를 직접 주머니에 넣는다. 복사하면 포스트잇을 하나 더 써서 주는 것과 같아 <strong>서로 영향을 주지 않는다.</strong>
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🔑 참조 타입 — 사물함 키</div>
+    물건(데이터)은 거대한 사물함(Heap)에 넣고, 주머니에는 그 <strong>사물함 키(주소)</strong>만 넣는다. 복사하면 키만 하나 더 주는 것이라, <strong>같은 사물함을 열게 되어 서로 영향을 준다.</strong>
+  </div>
 </div>
 
 ---
@@ -587,8 +618,9 @@ typeof function(){}  // "function"
 
 자바스크립트의 오래된 설계상 오류(버그)와 배열 확인법을 반드시 기억해야 한다.
 
+**🔹 typeof null === "object" (유명한 버그)**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">🔹 typeof null === "object" (유명한 버그)</span>
   • <code>null</code>은 빈 값임에도 불구하고 <code>typeof</code>를 쓰면 <code>"object"</code>가 나온다.<br>
   • 이는 자바스크립트 초기의 버그이지만, 기존 웹사이트들과의 호환성 때문에 수정되지 않고 유지되고 있다.<br>
   • <strong>해결책:</strong> <code>null</code>인지 확인하려면 <code>typeof</code> 대신 <strong>직접 비교</strong>를 사용하라.
@@ -599,8 +631,9 @@ let x = null;
 console.log(x === null); // 결과: true (이 방법이 정확함)
 ```
 
+**🔹 배열(Array) 확인 방법**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">🔹 배열(Array) 확인 방법</span>
   • 배열에 <code>typeof</code>를 쓰면 <code>"object"</code>가 나오기 때문에, 일반 객체인지 배열인지 구분할 수 없다.<br>
   • <strong>해결책:</strong> <code>Array.isArray()</code> 메서드를 사용하라.
 </div>
@@ -639,7 +672,9 @@ Array.isArray([]) // true (배열 판독기)
 
 자바스크립트는 상황에 따라 데이터의 타입을 자동으로 바꾸기도 하고, 개발자가 직접 바꾸기도 한다.
 
-**🤖 암묵적 변환 (Type Coercion)** — 자바스크립트가 편의를 위해 자동으로 타입을 바꾸는 현상이다.  
+**🤖 암묵적 변환 (Type Coercion)**
+
+자바스크립트가 편의를 위해 자동으로 타입을 바꾸는 현상이다.
 예측하기 어려워 버그의 원인이 되기도 한다.
 
 ```javascript
@@ -651,7 +686,9 @@ Array.isArray([]) // true (배열 판독기)
 "10" == 10  // 결과: true (타입을 숫자로 맞춰본 후 비교함)
 ```
 
-**🎯 명시적 변환** — 개발자가 의도를 가지고 함수를 사용하여 타입을 직접 바꾸는 방식이다. (권장 방법)
+**🎯 명시적 변환**
+
+개발자가 의도를 가지고 함수를 사용하여 타입을 직접 바꾸는 방식이다. (권장 방법)
 
 ```javascript
 // 문자열로 변환
@@ -712,7 +749,7 @@ empty.toString(); // 결과: 🚨 TypeError! (에러 발생하며 코드 중단)
 
 ---
 
-## 📌 데이터 타입 최종 핵심 요약
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

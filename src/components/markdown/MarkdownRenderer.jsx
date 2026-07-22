@@ -99,17 +99,42 @@ const WDA_MINIHEAD_CLASS = 'wda-minihead';
 // 코드블록/일반 박스 뒤 후속 설명 간격 규칙(아래 wdaMinheadGlobalStyles)의 적용 대상.
 // 문서 <style> 블록에서 흔히 쓰이는 박스 클래스만 포함한다(표는 클래스명이 없어 제외).
 const WDA_BOX_SELECTORS = ['.wda-codeblock', '.wda-callout', '.wda-fgrid', '.wda-steps', '.wda-compare', '.wda-flow'];
-// 미니 소제목 바로 앞 문단/목록은 자체 margin-bottom(0.9rem)에 소제목의
-// padding-top(1.2rem)이 그대로 더해져 간격이 다소 넓어 보이므로, "바로 다음 형제가
-// 소제목인 경우"만 :has(+ ...)로 선별해 margin-bottom을 살짝 줄인다 — 소제목과 무관한
-// 일반 문단의 margin-bottom(0.9rem)은 그대로 둔다.
+// 미니 소제목과 "직접 인접"할 때만 적용하는 간격 규칙(아래 두 방향)의 적용 대상.
+// WDA_BOX_SELECTORS에 핵심 요약 전용 복습 UI 3종을 더한 것 — 이 3종은 box↔box(0.75rem)/
+// box↔일반텍스트 규칙까지 확장할 필요가 없어(항상 사이에 minihead가 끼어 나오므로) 별도
+// 배열로 분리한다(2026-07 개편 — JavaScript 1-1/1-2/1-3 재검토로 전역 승격).
+const WDA_MINIHEAD_BOX_SELECTORS = [...WDA_BOX_SELECTORS, '.wda-check-note', '.wda-mistake-notes', '.wda-formula-board'];
+// 미니 소제목과 인접한 콘텐츠 블록(이전 요소든 다음 요소든)은 미니 소제목 자신의
+// padding-top(1.2rem, 진입 시 새 시작 간격)/padding-bottom(0, 2026-07 개편으로 제거)
+// 두 값만으로 위계를 표현하고, 인접한 콘텐츠 블록 쪽 margin은 항상 제거하거나 0.5rem
+// 하나로 통일한다 — "이전 콘텐츠 margin-bottom 제거 + 미니 소제목 padding-top 유지"
+// "미니 소제목 padding-bottom 미사용 + 다음 콘텐츠 margin-top 0.5rem" 두 원칙을
+// 모든 콘텐츠 타입(p/ul/ol/codeblock/box류/table wrapper)에 동일하게 적용한다.
 const wdaMinheadGlobalStyles = {
   [`p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}`]: {
     marginTop: '0 !important',
     marginBottom: '0 !important',
   },
+  // 이전 콘텐츠 → 미니 소제목: 이전 요소의 margin-bottom을 0으로 제거해, 미니 소제목
+  // 자신의 padding-top(1.2rem)만으로 진입 간격이 결정되게 한다. 과거 p/ul/ol만
+  // 0.5rem으로 "살짝" 줄였으나, 아래 콘텐츠 → 미니 소제목(margin-top 0.5rem)과의
+  // 대칭을 맞추기 위해 0으로 통일했다(2026-07 개편).
   [`p:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}), ul:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}), ol:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS})`]: {
-    marginBottom: '0.5rem !important',
+    marginBottom: '0 !important',
+  },
+  // 코드블록/일반 박스(callout·카드 그리드·단계형·비교·흐름·핵심요약 노트) 바로 다음이
+  // 미니 소제목인 경우도 같은 원칙 — 박스 자신의 margin-bottom(코드블록 0.9rem, 나머지
+  // 1.1~1.6rem)을 0으로 제거한다(2026-07 개편 — JavaScript 1-1/1-2/1-3 로컬 override로
+  // 검증 후 전역 승격).
+  [`.wda-codeblock:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS}), ${WDA_MINIHEAD_BOX_SELECTORS.map((s) => `${s}:has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS})`).join(', ')}`]: {
+    marginBottom: '0 !important',
+  },
+  // 표(table) wrapper → 미니 소제목: table 컴포넌트는 margin-bottom(1.2rem)을 <table>
+  // 자신이 아니라 감싸는 바깥 wrapper(Box, 고유 class 없음)에 두므로, ":has(> table)"로
+  // "직계 자식이 table인 요소"를 구조적으로 찾아 그 wrapper의 margin-bottom을 제거한다
+  // (2026-07 개편 — JavaScript 1-1 로컬 override로 검증 후 전역 승격).
+  [`:has(> table):has(+ p.${WDA_MINIHEAD_CLASS}.${WDA_MINIHEAD_CLASS})`]: {
+    marginBottom: '0 !important',
   },
   // 미니 소제목 바로 다음에 오는 일반 문단/목록(코드블록·callout 같은 "박스"가
   // 아닌 p·ul·ol)은 그 소제목이 여는 설명이므로 한 묶음처럼 붙어야 한다(2026-07
@@ -121,6 +146,20 @@ const wdaMinheadGlobalStyles = {
   // 병합할 상대가 없으므로 이 기본값이 그대로 화면에 남았다(예: "📌 1단계: 선언"
   // 바로 아래 bullet 문단, "⚙️ 2단계: 초기화" 바로 아래 bullet 문단).
   [`.${WDA_MINIHEAD_CLASS} + p:not(.${WDA_MINIHEAD_CLASS}), .${WDA_MINIHEAD_CLASS} + ul, .${WDA_MINIHEAD_CLASS} + ol`]: {
+    marginTop: '0.5rem !important',
+  },
+  // 미니 소제목 → 표(table) wrapper: 위와 같은 구조적 이유로 ":has(> table)"을 사용한다
+  // (2026-07 개편 — JavaScript 1-1 재검토로 발견, minihead padding-bottom 제거에 따른 보정).
+  [`.${WDA_MINIHEAD_CLASS} + :has(> table)`]: {
+    marginTop: '0.5rem !important',
+  },
+  // 미니 소제목 → 핵심 요약 노트(check-note/mistake-notes/formula-board): 이 3종은
+  // WDA_BOX_SELECTORS 기반 "미니 소제목 + 박스" 규칙(아래) 대상이 아니므로 별도로
+  // margin-top 0.5rem을 부여한다 — 그렇지 않으면 각 class 자체 margin-top(0.8rem)이
+  // 그대로 남아 다른 박스(0.5rem)와 간격이 달라진다(2026-07 개편 — 신규, "📌 먼저
+  // 외울 것 → check-note", "🧠 헷갈리기 쉬운 것 → mistake-notes", "🎯 최종 암기 공식
+  // → formula-board" 전환에서 발견).
+  [`.${WDA_MINIHEAD_CLASS} + .wda-check-note, .${WDA_MINIHEAD_CLASS} + .wda-mistake-notes, .${WDA_MINIHEAD_CLASS} + .wda-formula-board`]: {
     marginTop: '0.5rem !important',
   },
   // 코드블록(CodeBlock.jsx)/일반 박스(callout·카드 그리드·단계형·비교·흐름) 바로 뒤에
@@ -311,7 +350,13 @@ const markdownComponents = {
         className={isLoneStrong ? WDA_MINIHEAD_CLASS : undefined}
         sx={{
           pt: isLoneStrong ? '1.2rem' : undefined,
-          pb: isLoneStrong ? '0.2rem' : undefined,
+          // 미니 소제목 아래 간격은 이 padding-bottom이 아니라 아래 콘텐츠 쪽의
+          // margin-top(0.5rem, wdaMinheadGlobalStyles)이 전담한다. 과거 pb:'0.2rem'이
+          // 남아있어 실제 간격이 0.2rem+0.5rem=0.7rem(11.2px)으로, 정책이 명시한
+          // 0.5rem(8px)보다 넓게 렌더링되고 있었다(2026-07 개편 — JavaScript 1-1/1-2/1-3
+          // 재검토로 발견). 아래 콘텐츠가 margin-top 규칙의 적용 대상이 아닌 경우(예: 표)는
+          // wdaMinheadGlobalStyles에 별도 보정 규칙을 둔다.
+          pb: isLoneStrong ? 0 : undefined,
           mb: isLoneStrong ? undefined : '0.9rem',
           color: 'text.primary',
           fontSize: { xs: '0.93rem', md: '0.95rem' },

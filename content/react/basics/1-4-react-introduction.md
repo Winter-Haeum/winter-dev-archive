@@ -16,18 +16,20 @@ tags:
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cb{background:rgba(59,130,246,.035);border-color:rgba(59,130,246,.25)}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cy .wda-clabel{color:#92400e}
+.wda-cb .wda-clabel{color:#2563eb}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -67,10 +69,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>React 이해하기</strong> — UI 라이브러리의 개념과 등장 배경을 알아봅니다.<br>
-  <strong>컴포넌트 이해하기</strong> — 재사용 가능한 UI 조각의 개념을 파악합니다.<br>
-  <strong>JSX 알아보기</strong> — JavaScript 안에서 HTML을 작성하는 문법을 맛봅니다.<br>
-  <strong>왜 React인가?</strong> — React를 배워야 하는 이유와 장점을 이해합니다.
+  • <strong>React 이해하기</strong> — UI 라이브러리의 개념과 등장 배경을 알아봅니다.<br>
+  • <strong>컴포넌트 이해하기</strong> — 재사용 가능한 UI 조각의 개념을 파악합니다.<br>
+  • <strong>JSX 알아보기</strong> — JavaScript 안에서 HTML을 작성하는 문법을 맛봅니다.<br>
+  • <strong>왜 React인가?</strong> — React를 배워야 하는 이유와 장점을 이해합니다.
 </div>
 
 ---
@@ -159,7 +161,7 @@ data.forEach(item => {
 - **특징:** `getElementById`, `createElement`, `appendChild` 등 브라우저가 일하는 절차를 개발자가 **일일이 다 명령**하고 있습니다.
 - **단점:** 코드가 길고, 중간에 순서가 바뀌면 에러가 날 확률이 높습니다.
 
-<h3>2) 선언적 (Declarative) - React 코드</h3>
+### 2) 선언적 (Declarative) - React 코드
 
 **"무엇(What)"**을 보여줄지만 선언하는 방식입니다. (택시 기사님께 "시청으로 가주세요"라고 목적지만 말하는 것과 같습니다.)
 
@@ -183,9 +185,9 @@ function List({ data }) {
 - **장점:** 복잡한 과정은 React가 알아서 처리하므로(DOM 조작 처리), 개발자는 **데이터와 결과 화면**에만 집중할 수 있습니다.
 - **key:** React에서 배열을 렌더링할 때는 각 항목을 구분하기 위해 `key`가 필요합니다. 실무에서는 가능하면 고유한 `id` 값을 `key`로 사용합니다.
 
-**📝 핵심 요약**
+**🆚 비교 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   위 두 코드의 비유가 핵심입니다!<br><br>
   • <strong>명령형:</strong> "좌회전, 우회전, 직진..." (과정 통제)<br>
   • <strong>선언적:</strong> "목적지는 시청입니다." (결과 중심)
@@ -216,9 +218,9 @@ function MyComponent(props) {
 - **입력 (Input):** **`props`** (재료, 설정값) — 함수에 인자를 넣듯이, 컴포넌트에도 데이터를 전달할 수 있습니다.
 - **출력 (Output):** **`UI (JSX)`** (결과물) — 일반 함수는 숫자나 문자를 반환하지만, 컴포넌트 함수는 **"보여질 화면(HTML 태그)"**을 반환합니다.
 
-### 💡 핵심 요약
+### 💡 보충 설명
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>"입력을 받아 UI를 뱉어내는 함수"</strong><br><br>
   그냥 함수를 하나 만들고, 그 안에서 HTML 태그를 리턴하면 그것이 바로 리액트 컴포넌트입니다. 아주 간단하죠?
 </div>
@@ -261,7 +263,7 @@ function App() {
 
 ### 3) 이렇게 하면 뭐가 좋은가요?
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   "독립적으로 개발, 테스트, 재사용 가능!"
 </div>
 
@@ -515,7 +517,7 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 ### 💡 결론
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <strong>"가장 많이 쓰이는 데는 이유가 있습니다."</strong><br><br>
   생태계가 가장 크다는 것은, <strong>일자리가 가장 많고, 공부할 자료도 가장 많다</strong>는 뜻입니다. 이것이 여러분이 지금 리액트를 배우는 가장 큰 이유입니다.
 </div>
@@ -547,7 +549,7 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 ### 💡 학습 방향
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cb">
   <strong>"우리는 최신 방식(Hooks)으로 배웁니다!"</strong><br><br>
   인터넷에 2019년 이전 자료(클래스형)가 있다면 과감히 패스하셔도 됩니다. 지금은 <strong>함수형 컴포넌트가 확실한 대세</strong>입니다.
 </div>
@@ -579,7 +581,7 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 ### 💡 결론
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <strong>"안정성과 표준을 먼저 잡습니다."</strong><br><br>
   우리는 가장 널리 쓰이고 안정적인 <strong>React 18</strong>을 마스터하는 것을 목표로 하고, 이후에 19의 신기능을 얹는 방식으로 갈 것입니다.
 </div>
@@ -624,11 +626,11 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 <h2>💻 실습 : React 설치하기</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 Vite의 **Interactive(대화형) 모드**를 사용하여 복잡한 옵션을 외울 필요 없이, 화살표 키로 선택하며 안전하게 React 프로젝트를 생성하고 실행하세요.
 
-### 2) 예제 코드 (터미널 입력)
+**📝 예제 코드 (터미널 입력)**
 
 VS Code 터미널을 열고 다음 명령어를 입력하여 설치 마법사를 시작합니다.
 
@@ -636,7 +638,7 @@ VS Code 터미널을 열고 다음 명령어를 입력하여 설치 마법사를
 npm create vite@latest
 ```
 
-### 3) 결과 예시 (선택 과정)
+**✅ 결과 예시 (선택 과정)**
 
 명령어를 입력하면 아래와 같은 질문들이 나옵니다. **화살표 키(⬆️⬇️)**로 이동하고 **엔터(Enter)**로 선택하세요.
 
@@ -664,7 +666,7 @@ npm create vite@latest
   </div>
 </div>
 
-### 4) 정답 코드 (실행 및 확인)
+**📝 정답 코드 (실행 및 확인)**
 
 프로젝트 생성이 완료되면, 터미널에 안내된 다음 명령어들을 **한 줄씩 순서대로** 입력하여 서버를 실행합니다.
 
@@ -827,7 +829,7 @@ Vite로 React 프로젝트를 만들 때 가장 먼저 입력해야 하는 명�
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

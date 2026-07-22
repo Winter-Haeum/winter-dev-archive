@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +55,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) React 이벤트 문법 이해</strong> — HTML 이벤트와 React 이벤트의 차이점인 camelCase와 함수 참조 전달 방식을 이해합니다.<br>
-  <strong>2) 이벤트 핸들러 작성하기</strong> — onClick, onChange, onSubmit에서 실행할 이벤트 핸들러 함수를 작성할 수 있습니다.<br>
-  <strong>3) 이벤트 객체 활용하기</strong> — <code>e.preventDefault()</code>, <code>e.stopPropagation()</code>, <code>e.target.value</code> 같은 이벤트 객체 사용법을 익힙니다.<br>
-  <strong>4) 인자 전달 패턴 익히기</strong> — 이벤트 핸들러에 id 같은 값을 전달할 때 화살표 함수로 감싸는 패턴을 이해합니다.
+  • <strong>React 이벤트 문법 이해</strong> — HTML 이벤트와 React 이벤트의 차이점인 camelCase와 함수 참조 전달 방식을 이해합니다.<br>
+  • <strong>이벤트 핸들러 작성하기</strong> — onClick, onChange, onSubmit에서 실행할 이벤트 핸들러 함수를 작성할 수 있습니다.<br>
+  • <strong>이벤트 객체 활용하기</strong> — <code>e.preventDefault()</code>, <code>e.stopPropagation()</code>, <code>e.target.value</code> 같은 이벤트 객체 사용법을 익힙니다.<br>
+  • <strong>인자 전달 패턴 익히기</strong> — 이벤트 핸들러에 id 같은 값을 전달할 때 화살표 함수로 감싸는 패턴을 이해합니다.
 </div>
 
 ---
@@ -80,7 +80,7 @@ HTML 이벤트와 비슷하지만 다릅니다.
 
 **🔑 핵심 차이**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>React는 카멜케이스로 이벤트명 작성, 함수 참조를 전달합니다.</p>
 </div>
 
@@ -90,7 +90,7 @@ HTML 이벤트와 비슷하지만 다릅니다.
 
 가장 자주 사용하는 클릭 이벤트입니다.
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 ```jsx
 function App() {
@@ -136,7 +136,7 @@ function App() {
 
 화살표 함수로 감싸서 전달하기 (Wrapper Function)
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 매개변수(ID 등)를 전달해야 할 때는 작성법이 달라집니다.
 
@@ -249,7 +249,7 @@ function App() {
 
 사용자가 입력창에 무언가를 입력하여 **값이 변경될 때** 발생하는 이벤트입니다.
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 입력한 글자가 화면에 실시간으로 반영되는 가장 기본적인 패턴입니다.
 
@@ -293,7 +293,7 @@ function App() {
 
 폼(Form)이 제출될 때 발생하는 이벤트입니다.
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 `form` 태그 내부의 버튼을 클릭하면 실행됩니다.
 
@@ -358,7 +358,7 @@ export default App;
 onClick={() => 함수이름(전달할값)}
 ```
 
-### 3) 코드 예시
+**🧪 예시 코드**
 
 ```jsx
 function App() {
@@ -442,7 +442,7 @@ function App() {
 
 ---
 
-<h2>11. 🔑 핵심 정리</h2>
+<h2>11. ✅ 핵심 요약</h2>
 
 이번 챕터에서 배운 이벤트 처리의 3가지 핵심 원칙입니다.
 

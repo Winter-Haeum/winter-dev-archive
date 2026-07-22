@@ -15,41 +15,49 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 120px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 120px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:180px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-
-  🔢 <strong>연산자</strong> — 산술, 비교, 논리 연산자를 활용할 수 있다.<br>
-  ⚡ <strong>실전 활용</strong> — truthy / falsy, 단축 평가, 삼항 연산자 <code>? :</code>, 옵셔널 체이닝 <code>?.</code>, <code>??</code> 를 실무에 적용할 수 있다.
+  • <strong>연산자</strong> — 산술, 비교, 논리 연산자를 활용할 수 있다.<br>
+  • <strong>실전 활용</strong> — truthy / falsy, 단축 평가, 삼항 연산자 <code>? :</code>, 옵셔널 체이닝 <code>?.</code>, <code>??</code> 를 실무에 적용할 수 있다.
 </div>
 
 ---
@@ -455,14 +463,16 @@ console.log(displayName); // 결과: "익명"
 // 해석: "userName이 비어있으면(false)? 대신 뒤에 있는 '익명'을 써라"
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  주의: <code>&&</code>와 <code>||</code>는 항상 boolean만 반환하는 것이 아니라, 조건 판단에 사용된 실제 값을 그대로 반환합니다.<br>
+  <code>&&</code>와 <code>||</code>는 항상 boolean만 반환하는 것이 아니라, 조건 판단에 사용된 실제 값을 그대로 반환합니다.<br>
   예: <code>0 && "출력"</code> → <code>0</code> / <code>"이름" || "익명"</code> → <code>"이름"</code>
 </div>
 
-**📝 핵심 정리**
+**📝 요약 메모**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout">
   • <strong><code>A && B</code></strong>: A가 <strong>참</strong>일 때만 B가 실행됨 — 주로 특정 조건에서 실행할 때 사용<br>
   • <strong><code>A || B</code></strong>: A가 <strong>거짓</strong>일 때 B가 실행됨 — 주로 데이터가 없을 때 기본값을 줄 때 사용
 </div>
@@ -517,7 +527,7 @@ user["age"]; // 결과: 20 (속성 이름을 문자열로 넣어서 접근함)
   </div>
 </div>
 
-**📝 핵심 정리**
+**💡 사용 팁**
 
 <div class="wda-callout wda-cs">
   • <strong>함수 호출</strong>: <code>()</code>가 없으면 함수는 움직이지 않습니다. 함수 이름 뒤에 반드시 붙여야 명령이 실행됩니다.<br>
@@ -671,9 +681,9 @@ let arr = null;
 arr?.[0];             // undefined (배열이 존재할 때만 0번째 인덱스 확인)
 ```
 
-**📝 핵심 정리**
+**💡 보충 설명**
 
-<div class="wda-callout wda-cs">
+<div class="wda-callout wda-ci">
   • <strong>등장 배경</strong>: ES2020에 추가된 문법으로, 데이터가 있을 수도 없을 수도 있는 상황(예: API 응답 데이터 처리)에서 매우 유용합니다.<br>
   • <strong>핵심 원리</strong>: <code>?.</code> 앞의 대상이 <code>null</code> 혹은 <code>undefined</code>라면 즉시 평가를 멈추고 <code>undefined</code>를 반환합니다.<br>
   • <strong>가독성</strong>: 기존의 복잡한 <code>if</code>문이나 <code>&&</code> 연산자를 나열하던 방어 코드를 획기적으로 줄여줍니다.
@@ -729,45 +739,87 @@ null ?? "기본"      // 결과: "기본"
 undefined ?? "기본" // 결과: "기본"
 ```
 
-**📝 핵심 정리**
+**💡 사용 팁**
 
 <div class="wda-callout wda-cs">
-
   • <strong>결정적 차이</strong>: <code>0</code>과 <code>""</code>를 기본값으로 <strong>대체</strong>하고 싶다면 <code>||</code>를, 유효한 데이터로 <strong>유지</strong>하고 싶다면 <code>??</code>를 선택해야 합니다.<br>
   • <strong>원칙</strong>: 0이나 빈 문자열을 유효한 값으로 유지해야 할 때는 <strong><code>??</code></strong>를 사용하고, 모든 falsy 값을 기본값으로 대체하고 싶을 때는 <code>||</code>를 사용할 수 있습니다.
 </div>
 
 ---
 
-## 📌 연산자 최종 핵심 요약
+## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>비교의 정석</strong></td>
-    <td>• <strong><code>==</code></strong>: 타입을 멋대로 바꿔 비교 — 예측 불가 버그 원인. 절대 사용하지 마세요.<br>• <strong><code>===</code></strong>: 값과 타입이 모두 같아야 참. <strong>모든 비교는 이 연산자</strong>를 기준으로 삼으십시오.</td>
-  </tr>
-  <tr>
-    <td><strong>기초 Falsy 값<br>(무조건 암기)</strong></td>
-    <td>• <code>false</code>, <code>0</code>, <code>""</code>(빈 문자열), <code>null</code>, <code>undefined</code>, <code>NaN</code> (추가로 BigInt의 <code>0n</code>도 falsy)<br>• <strong>주의</strong>: 빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 비어있어도 <strong>truthy</strong>입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>단축 평가 공식</strong></td>
-    <td>• <strong><code>A && B</code></strong>: "A가 참일 때만 B를 해라." — 조건부 실행<br>• <strong><code>A || B</code></strong>: "A가 거짓이면 B(기본값)를 써라." — 포괄적 기본값</td>
-  </tr>
-  <tr>
-    <td><strong>?. 옵셔널 체이닝</strong></td>
-    <td>• 데이터가 있을지 없을지 모를 때 에러로 프로그램이 멈추는 것을 막는 <strong>최강의 방어막</strong>입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>?? nullish 병합</strong></td>
-    <td>• <code>0</code>이나 <code>""</code>이 실제 의미 있는 데이터라면, <code>||</code> 대신 반드시 <code>??</code>를 써야 데이터 왜곡을 막을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>• <strong>비교는 항상 <code>===</code></strong><br>• <strong>falsy 6가지</strong>: false / 0 / "" / null / undefined / NaN<br>• <strong><code>?.</code></strong> → 에러 방어막 / <strong><code>??</code></strong> → 정밀 기본값</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong><code>==</code></strong>는 타입을 멋대로 바꿔 비교해 예측 불가 버그의 원인이 되므로 절대 사용하지 않는다 — <strong><code>===</code></strong>는 값과 타입이 모두 같아야 참이므로 <strong>모든 비교는 이 연산자</strong>를 기준으로 삼는다.</li>
+    <li>기초 Falsy 값(무조건 암기): <code>false</code>, <code>0</code>, <code>""</code>(빈 문자열), <code>null</code>, <code>undefined</code>, <code>NaN</code> (추가로 BigInt의 <code>0n</code>도 falsy) — 빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>는 비어있어도 <strong>truthy</strong>다.</li>
+    <li>단축 평가 공식: <strong><code>A && B</code></strong>는 "A가 참일 때만 B를 해라"(조건부 실행), <strong><code>A || B</code></strong>는 "A가 거짓이면 B(기본값)를 써라"(포괄적 기본값)다.</li>
+    <li><code>?.</code>(옵셔널 체이닝)은 데이터가 있을지 없을지 모를 때 에러로 프로그램이 멈추는 것을 막는 <strong>최강의 방어막</strong>이다.</li>
+    <li><code>0</code>이나 <code>""</code>이 실제 의미 있는 데이터라면, <code>||</code> 대신 반드시 <strong><code>??</code></strong>(nullish 병합)를 써야 데이터 왜곡을 막을 수 있다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 빈 배열 []과 빈 객체 {}도 falsy다?</div>
+    <div class="wda-mistake-right">정답: <strong>빈 배열 []과 빈 객체 {}는 비어있어도 truthy</strong>다 — falsy 6가지는 false / 0 / "" / null / undefined / NaN뿐이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 0이나 ""를 기본값으로 대체하고 싶을 때도 ||를 쓰면 된다?</div>
+    <div class="wda-mistake-right">정답: <code>0</code>이나 <code>""</code>이 실제 의미 있는 데이터라면 <strong>??</strong>를 써야 한다 — <code>||</code>는 falsy 값을 전부 기본값으로 바꿔버려 데이터가 왜곡될 수 있다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 비교</div>
+    <div class="wda-formula-block-body">
+      <code>비교는 항상 ===</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Falsy 6가지</div>
+    <div class="wda-formula-block-body">
+      <code>false / 0 / "" / null / undefined / NaN</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · ?. / ??</div>
+    <div class="wda-formula-block-body">
+      <code>?. → 에러 방어막</code><br>
+      <code>?? → 정밀 기본값</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">== 대신 항상 무엇을 써야 하나?</div>
+    <div class="wda-flip-back">===. ==는 타입을 멋대로 바꿔 비교해 예측 불가 버그의 원인이 된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Falsy 값 6가지는?</div>
+    <div class="wda-flip-back">false, 0, "", null, undefined, NaN. 빈 배열/빈 객체는 truthy다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">A && B와 A || B의 차이는?</div>
+    <div class="wda-flip-back">&&는 "A가 참일 때만 B를 해라"(조건부 실행), ||는 "A가 거짓이면 B를 써라"(기본값)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">?.는 무슨 역할을 하나?</div>
+    <div class="wda-flip-back">데이터가 없을 때 에러로 멈추지 않도록 막아주는 방어막이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">0이나 ""를 유효한 값으로 지키려면?</div>
+    <div class="wda-flip-back">||가 아니라 ??를 사용한다.</div>
+  </div>
+</div>

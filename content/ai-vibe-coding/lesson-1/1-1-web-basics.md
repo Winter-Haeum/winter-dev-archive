@@ -13,14 +13,14 @@ description: "웹의 기본 원리, 인터넷 통신 방식, 현대적 웹사이
 .wda-ctag{display:inline-block;font-size:.7rem;font-weight:700;color:#8b5cf6;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;background:rgba(139,92,246,.1);border-radius:4px;padding:2px 8px;margin-bottom:8px}
 .wda-ctitle{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
 .wda-cbody{font-size:.82rem;line-height:1.6;opacity:.7;margin:0 0 3px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.8rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.8rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:12px;padding:3px 14px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-weight:700;font-size:.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 .wda-stitle{font-weight:700;font-size:.875rem;line-height:1.2;margin:0}
 .wda-sdesc{font-size:.82rem;opacity:.65;line-height:1.2;margin:0}
 .wda-compare-grid{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.8rem}
-.wda-compare-card{flex:1 1 220px;border-radius:10px;padding:18px}
+.wda-compare-card{flex:1 1 220px;background:rgba(128,128,128,.03);border-radius:10px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-uicard{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2)}
 .wda-uxcard{background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.2)}
 .wda-ctype{font-size:.7rem;font-weight:600;letter-spacing:.08em;opacity:.55;margin:0 0 2px}
@@ -39,7 +39,7 @@ description: "웹의 기본 원리, 인터넷 통신 방식, 현대적 웹사이
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
 .wda-note{border-radius:10px;padding:13px 16px;margin:.8rem 0 1.2rem;border-left:3px solid rgba(245,158,11,.7);background:rgba(245,158,11,.06)}
 .wda-note-ttl{font-size:.75rem;font-weight:700;color:#f59e0b;letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px}
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -48,7 +48,7 @@ description: "웹의 기본 원리, 인터넷 통신 방식, 현대적 웹사이
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -85,10 +85,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🌐 <strong>웹의 기본 원리</strong> — 인터넷 통신 방식 이해<br>
-  🏗️ <strong>현대적 웹사이트</strong> — 구조 분류 학습<br>
-  🎨 <strong>UI/UX 기본 개념</strong> — 현대적 UI 용어 숙지<br>
-  🔄 <strong>웹 개발 흐름</strong> — 전체적인 방향성 파악
+  • <strong>웹의 기본 원리</strong> — 인터넷 통신 방식 이해<br>
+  • <strong>현대적 웹사이트</strong> — 구조 분류 학습<br>
+  • <strong>UI/UX 기본 개념</strong> — 현대적 UI 용어 숙지<br>
+  • <strong>웹 개발 흐름</strong> — 전체적인 방향성 파악
 </div>
 
 ---
@@ -633,7 +633,7 @@ button:hover {
 
 ---
 
-## 📝 핵심 정리
+## ✅ 핵심 요약
 
 | 개념 | 요약 |
 |------|------|

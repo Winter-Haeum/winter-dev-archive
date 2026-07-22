@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +55,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>DOM 이해하기</strong> — Document Object Model의 개념과 구조를 파악합니다.<br>
-  <strong>DOM 조작의 문제점</strong> — 직접 DOM 조작이 성능에 미치는 영향을 이해합니다.<br>
-  <strong>가상 DOM 이해하기</strong> — 메모리 상의 가상 트리 개념과 동작 원리를 파악합니다.<br>
-  <strong>재조정 알아보기</strong> — Diffing(비교)과 Reconciliation(재조정) 과정을 이해합니다.
+  • <strong>DOM 이해하기</strong> — Document Object Model의 개념과 구조를 파악합니다.<br>
+  • <strong>DOM 조작의 문제점</strong> — 직접 DOM 조작이 성능에 미치는 영향을 이해합니다.<br>
+  • <strong>가상 DOM 이해하기</strong> — 메모리 상의 가상 트리 개념과 동작 원리를 파악합니다.<br>
+  • <strong>재조정 알아보기</strong> — Diffing(비교)과 Reconciliation(재조정) 과정을 이해합니다.
 </div>
 
 ---
@@ -201,7 +201,7 @@ const virtualElement = {
 
 **📝 핵심 용어 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>Diff &amp; Patch</strong>
   <ul>
     <li><strong>Diff (비교):</strong> 틀린 그림 찾기처럼 변경된 부분을 찾아내는 과정입니다.</li>
@@ -236,7 +236,7 @@ const virtualElement = {
 <div className="old"> ➔ <div className="new">
 ```
 
-<h3>2) Key의 중요성 (List Keys)</h3>
+### 2) Key의 중요성 (List Keys)
 
 리스트(목록)를 출력할 때 가장 중요한 규칙입니다.
 
@@ -317,7 +317,7 @@ const virtualElement = {
 
 **🔑 핵심: Batch Update (일괄 처리)**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>여러 번 고치지 않고 한 번에!</strong>
   <p>5번 단계가 리액트 속도의 비결입니다.<br><br>데이터를 100번 연속으로 바꿔도, 리액트는 그것을 가능한 한 모아뒀다가 <strong>최소한의 횟수로</strong> 실제 DOM을 수정합니다.<br><br>덕분에 브라우저가 힘든 일(렌더링)을 최소화할 수 있습니다.</p>
 </div>
@@ -465,7 +465,7 @@ box.style.color = 'red';
 return <div style={{ color: 'red' }}>안녕하세요</div>;
 ```
 
-<h3>3) 크로스 플랫폼 (Cross Platform)</h3>
+### 3) 크로스 플랫폼 (Cross Platform)
 
 웹(Web)뿐만 아니라 앱(App)도 만들 수 있습니다.
 
@@ -540,7 +540,7 @@ setCount(count);
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 지금까지 배운 React의 이론적 배경을 관통하는 핵심 키워드입니다.
 

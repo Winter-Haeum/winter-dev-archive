@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -53,10 +53,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 컴포넌트 이해하기</strong> — 컴포넌트가 무엇이고 왜 필요한지 설명할 수 있습니다.<br>
-  <strong>2) 함수 컴포넌트 만들기</strong> — 함수 컴포넌트를 직접 작성할 수 있습니다.<br>
-  <strong>3) 파일 분리하기</strong> — 컴포넌트를 별도 파일로 분리하고 import할 수 있습니다.<br>
-  <strong>4) 컴포넌트 조합하기</strong> — 여러 컴포넌트를 조합해 페이지를 구성할 수 있습니다.
+  • <strong>컴포넌트 이해하기</strong> — 컴포넌트가 무엇이고 왜 필요한지 설명할 수 있습니다.<br>
+  • <strong>함수 컴포넌트 만들기</strong> — 함수 컴포넌트를 직접 작성할 수 있습니다.<br>
+  • <strong>파일 분리하기</strong> — 컴포넌트를 별도 파일로 분리하고 import할 수 있습니다.<br>
+  • <strong>컴포넌트 조합하기</strong> — 여러 컴포넌트를 조합해 페이지를 구성할 수 있습니다.
 </div>
 
 ---
@@ -104,7 +104,7 @@ export default Header;
 
 **📏 파일명 규칙**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>파일명 = 컴포넌트 이름</strong>
   <p>헷갈리지 않도록 이름을 통일해야 합니다.</p>
   <ul>
@@ -119,7 +119,7 @@ export default Header;
 
 이전에 만든 `react-study` 프로젝트에서 계속 진행합니다. 코드를 정리하기 위해 폴더를 나누고 첫 번째 컴포넌트 파일을 만들어봅니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `src` 폴더 안에서 다음 단계를 수행하세요.
 
@@ -127,7 +127,7 @@ export default Header;
 2. **파일 생성:** 그 안에 `Button.jsx` 파일을 만드세요. ⚠️ **주의:** 파일명 첫 글자는 반드시 **대문자**여야 합니다. (`button.jsx` (x) → `Button.jsx` (o))
 3. **코드 작성:** 아래 예제 코드를 작성하고 저장하세요.
 
-### 2) 예제 코드 (Button.jsx)
+**📝 예제 코드 (Button.jsx)**
 
 새로 만든 `src/components/Button.jsx` 파일에 작성할 내용입니다.
 
@@ -147,17 +147,17 @@ export default Button;
   <p><code>Button</code>은 우리가 만든 React 컴포넌트이고, <code>button</code>은 브라우저가 기본으로 아는 HTML 태그입니다.<br>대문자 <code>Button</code>과 소문자 <code>button</code>은 React에서 완전히 다르게 해석됩니다.</p>
 </div>
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 **아직 화면에는 아무것도 나오지 않습니다.** 이유: 부품(Button)을 만들기만 했고, 메인 화면(App.jsx)에 조립하지 않았기 때문입니다. 에러가 안 나면 성공입니다.
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 위의 예제 코드가 곧 정답입니다. `export default Button;`을 빠뜨리지 않도록 주의하세요.
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>파일명 대소문자 규칙 (PascalCase)</strong>
   <p>리액트 컴포넌트 파일은 항상 <strong>대문자로 시작</strong>해야 합니다.</p>
   <ul>
@@ -211,7 +211,7 @@ import { formatDate, API_URL } from './utils';
 import { formatDate as format } from './utils';
 ```
 
-**📝 핵심 정리 (Tip)**
+**🧭 선택 가이드**
 
 <div class="wda-callout wda-cs">
   <strong>언제 무엇을 쓰나요?</strong>
@@ -227,7 +227,7 @@ import { formatDate as format } from './utils';
 
 혼잡한 `App.jsx`를 정리하는 시간입니다. 새로운 부품인 `Header`를 만들고, 기존의 `Button`과 함께 조립해 봅니다.
 
-### 1) Mission
+**🎯 Mission**
 
 다음 순서대로 코드를 작성하고 파일을 연결하세요.
 
@@ -285,7 +285,7 @@ function App() {
 export default App;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 브라우저를 확인하면 다음과 같이 구성된 화면이 나와야 합니다.
 
@@ -318,7 +318,7 @@ export default App;
 1. **Self-closing (닫는 태그 생략):** 내용이나 자식 요소가 없을 때 사용합니다. 끝에 슬래시 `/`를 붙여서 한 번에 닫습니다. 예: `<Header />`
 2. **열고 닫기:** 안에 다른 내용이나 컴포넌트를 감쌀 때 사용합니다. 예: `<Card>내용</Card>`
 
-### 2) 예제 코드 (App.jsx)
+**📝 예제 코드 (App.jsx)**
 
 아래 코드는 컴포넌트 사용 방식을 보여주는 **설명용 예시**입니다.  
 실제로 실행하려면 `Card.jsx`와 `Footer.jsx` 파일이 먼저 만들어져 있어야 합니다.  
@@ -409,7 +409,7 @@ function Header() {
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>파스칼 케이스(PascalCase)란?</strong>
   <p>모든 단어의 첫 글자를 대문자로 쓰는 표기법입니다.</p>
   <ul>
@@ -431,7 +431,7 @@ HTML에서 `<div>` 안에 `<span>`을 넣듯, 리액트에서도 컴포넌트 �
 - **부모(Parent):** 감싸는 쪽 (`Card`)
 - **자식(Child):** 담기는 쪽 (`CardHeader`, `CardBody` 등)
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `Card` 컴포넌트가 하위 컴포넌트 3개를 품고 있고, `App`은 완성된 `Card`를 화면에 보여주는 구조입니다.
 
@@ -491,14 +491,14 @@ function App() {
 
 Header, Button에 이어 Footer까지 만들고, 이들을 조합해 전체 페이지의 구조(Layout)를 잡아봅니다.
 
-### 1) Mission
+**🎯 Mission**
 
 다음 2단계에 걸쳐 미션을 수행하세요.
 
 1. **Footer 만들기 (DIY):** `src/components` 폴더에 `Footer.jsx`를 직접 생성하세요. `<footer>Copyright 2024</footer>`를 반환해야 합니다. 마지막에 `export default Footer`로 내보내는 것을 잊지 마세요.
 2. **App 완성하기:** 방금 만든 `Footer`와 기존 `Header`, `Button`을 모두 불러오세요(`import`). 제시된 구조대로 `App.jsx`를 작성하여 화면을 완성하세요.
 
-### 2) 예제 코드 (App.jsx 구조)
+**📝 예제 코드 (App.jsx 구조)**
 
 `App.jsx` 작성 시 아래 구조를 참고하여 빈칸을 채우거나 코드를 완성해 보세요.
 
@@ -532,7 +532,7 @@ function App() {
 export default App;
 ```
 
-<h3>3) 결과 예시</h3>
+**✅ 결과 예시**
 
 브라우저 화면이 아래 순서대로 배치되어야 성공입니다.
 
@@ -540,7 +540,7 @@ export default App;
 2. **본문:** "환영합니다!" 제목과 버튼 2개 (Main 영역, 여백 있음)
 3. **하단:** Copyright 2024 (Footer)
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 작성한 코드와 비교해 보세요.
 
@@ -617,7 +617,7 @@ export default App;
 
 ---
 
-<h2>10. 🔑 핵심 정리</h2>
+<h2>10. ✅ 핵심 요약</h2>
 
 오늘 배운 **컴포넌트(Component)** 챕터의 3가지 핵심 내용입니다.
 

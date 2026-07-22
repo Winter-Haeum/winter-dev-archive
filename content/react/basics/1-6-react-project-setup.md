@@ -23,12 +23,12 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +55,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>프로젝트 정리하기</strong> — Boilerplate 제거와 초기화 방법을 익힙니다.<br>
-  <strong>개발 도구 활용</strong> — React DevTools 설치 및 사용법을 배웁니다.<br>
-  <strong>StrictMode 이해</strong> — 개발 시 두 번 실행되는 이유와 대처법을 배웁니다.<br>
-  <strong>실수 방지 가이드</strong> — 초보자가 자주 하는 실수를 미리 방지합니다.
+  • <strong>프로젝트 정리하기</strong> — Boilerplate 제거와 초기화 방법을 익힙니다.<br>
+  • <strong>개발 도구 활용</strong> — React DevTools 설치 및 사용법을 배웁니다.<br>
+  • <strong>StrictMode 이해</strong> — 개발 시 두 번 실행되는 이유와 대처법을 배웁니다.<br>
+  • <strong>실수 방지 가이드</strong> — 초보자가 자주 하는 실수를 미리 방지합니다.
 </div>
 
 ---
@@ -560,7 +560,7 @@ export default App;
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

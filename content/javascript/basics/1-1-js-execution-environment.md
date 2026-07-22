@@ -84,10 +84,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🟡 <strong>JavaScript 정의</strong> — JavaScript가 무엇이고 웹에서 어떤 역할을 하는지 이해한다.<br>
-  🔄 <strong>Modern vs Legacy</strong> — alert, script 태그의 올바른 사용법과 변화를 이해한다.<br>
-  ⚙️ <strong>실행 환경</strong> — 브라우저 Console과 Node.js 환경의 차이를 이해한다.<br>
-  🔒 <strong>엄격 모드</strong> — use strict가 왜 필요한지 실수 예시를 통해 체감한다.
+  • <strong>JavaScript 정의</strong> — JavaScript가 무엇이고 웹에서 어떤 역할을 하는지 이해한다.<br>
+  • <strong>Modern vs Legacy</strong> — alert, script 태그의 올바른 사용법과 변화를 이해한다.<br>
+  • <strong>실행 환경</strong> — 브라우저 Console과 Node.js 환경의 차이를 이해한다.<br>
+  • <strong>엄격 모드</strong> — use strict가 왜 필요한지 실수 예시를 통해 체감한다.
 </div>
 
 ---

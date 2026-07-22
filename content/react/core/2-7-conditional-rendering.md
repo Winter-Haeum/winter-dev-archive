@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -53,10 +53,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 조건부 렌더링 개념</strong> — 조건에 따라 다른 컴포넌트나 요소를 렌더링하는 방법을 이해합니다.<br>
-  <strong>2) 다양한 조건부 렌더링 패턴</strong> — if문, 삼항 연산자, && 연산자 등 상황별 패턴을 배웁니다.<br>
-  <strong>3) 실전 활용</strong> — 로딩/에러/성공 상태 처리, 권한별 UI 등을 구현합니다.<br>
-  <strong>4) 주의사항</strong> — Falsy 값(0) 렌더링 등 흔한 실수를 방지하는 법을 익힙니다.
+  • <strong>조건부 렌더링 개념</strong> — 조건에 따라 다른 컴포넌트나 요소를 렌더링하는 방법을 이해합니다.<br>
+  • <strong>다양한 조건부 렌더링 패턴</strong> — if문, 삼항 연산자, && 연산자 등 상황별 패턴을 배웁니다.<br>
+  • <strong>실전 활용</strong> — 로딩/에러/성공 상태 처리, 권한별 UI 등을 구현합니다.<br>
+  • <strong>주의사항</strong> — Falsy 값(0) 렌더링 등 흔한 실수를 방지하는 법을 익힙니다.
 </div>
 
 ---
@@ -153,7 +153,7 @@ function Greeting({ isLoggedIn }) {
 }
 ```
 
-### 2) 문법
+**📝 문법**
 
 - `조건` ? `참일때` : `거짓일때`
 
@@ -204,7 +204,7 @@ function Mailbox({ unreadCount }) {
 
 <h2>5. || 연산자로 기본값 표시</h2>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>값이 없을 때 대체 내용 표시</strong></p>
 </div>
 
@@ -225,7 +225,7 @@ function Profile({ user }) {
 // user.name이 빈 문자열이면 '익명 사용자' 표시
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>원리:</strong> <code>값</code> || <code>기본값</code> - 값이 falsy면 기본값 사용</p>
 </div>
 
@@ -248,7 +248,7 @@ function Profile({ user }) {
 
 <h2>6. 로딩/에러/성공 상태 처리</h2>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>실전 패턴: 3가지 상태 분기</strong></p>
 </div>
 
@@ -298,7 +298,7 @@ function DataDisplay({ isLoading, error, data }) {
   </div>
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>Early Return 패턴으로 각 상태를 순차적으로 처리합니다.</strong></p>
 </div>
 
@@ -306,7 +306,7 @@ function DataDisplay({ isLoading, error, data }) {
 
 <h2>7. 컴포넌트 조건부 렌더링</h2>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>다른 컴포넌트를 조건에 따라 선택</strong></p>
 </div>
 
@@ -331,7 +331,7 @@ function Page({ isAdmin }) {
 }
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>핵심 원리:</strong> 컴포넌트도 JavaScript 값이므로 변수에 저장하고 조건부로 사용 가능합니다.</p>
 </div>
 
@@ -359,7 +359,7 @@ function PageInline({ isAdmin }) {
 
 <h2>8. null로 아무것도 렌더링하지 않기</h2>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>조건이 맞지 않으면 숨기기</strong></p>
 </div>
 
@@ -384,7 +384,7 @@ function WarningBanner({ show, message }) {
 <WarningBanner show={hasError} message="에러가 발생했습니다!" />
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>핵심 원리:</strong> <code>return null</code>: 컴포넌트가 아무것도 렌더링하지 않음을 명시적으로 표현합니다.</p>
 </div>
 
@@ -425,7 +425,7 @@ function WarningBanner({ show, message }) {
 
 ---
 
-<h2>10. 🔑 핵심 정리</h2>
+<h2>10. ✅ 핵심 요약</h2>
 
 ### 1) Patterns
 
@@ -446,13 +446,13 @@ function WarningBanner({ show, message }) {
   </div>
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>if문은 복잡한 분기에, 삼항 연산자는 둘 중 하나 선택에, &&는 단순 표시 여부에 사용합니다.</strong></p>
 </div>
 
 ### 2) Early Return
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>복잡한 중첩을 피하기 위해, 예외 케이스나 로딩 상태 등을 함수 상단에서 먼저 반환하여 코드를 깔끔하게 유지합니다.</strong></p>
 </div>
 
@@ -464,7 +464,7 @@ function WarningBanner({ show, message }) {
 
 ### 3) Caveats
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cw">
   <p><strong>숫자 0은 Falsy지만 화면에 "0"으로 출력되므로, <code>count &gt; 0 &amp;&amp; ...</code> 처럼 명시적인 boolean 비교가 필요합니다.</strong></p>
 </div>
 

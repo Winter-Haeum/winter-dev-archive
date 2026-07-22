@@ -23,11 +23,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -53,12 +53,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. 💻 실습 1 : 로그인 토글 구현</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - **삼항 연산자**(`조건 ? 참일 때 보여줄 값 : 거짓일 때 보여줄 값`)를 활용하여 로그인 상태에 따라 화면을 변경합니다.
 - 로그인 상태(`isLoggedIn`)에 따라 **버튼 텍스트**와 **메시지**가 자동으로 바뀌도록 구현하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 // 상태 선언
@@ -68,12 +68,12 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
 {isLoggedIn ? '환영합니다' : '로그인이 필요합니다'}
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 - **로그인 전:** "로그인이 필요합니다" 메시지와 [로그인] 버튼 표시
 - **로그인 후:** "환영합니다" 메시지와 [로그아웃] 버튼 표시
 
-<h3>4) 정답 코드</h3>
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -112,12 +112,12 @@ export default LoginToggle;
 
 <h2>2. 💻 실습 2 : 경고 배너 (&& 연산자)</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - **&& 연산자**를 사용하여 에러 상태(`hasError`)가 `true`일 때만 경고 배너를 화면에 표시합니다.
 - 에러가 없을 때는 배너가 화면에 렌더링되지 않도록 구현하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 // 상태 선언
@@ -127,12 +127,12 @@ const [hasError, setHasError] = useState(false);
 {hasError && <div className="warning-banner">...</div>}
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 - **에러 없음 (false):** 화면에 아무것도 나타나지 않음
 - **에러 발생 (true):** "시스템 경고 발생!" 배너가 화면에 나타남
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';
@@ -178,7 +178,7 @@ export default WarningSystem;
 
 <h2>3. 💻 실습 과제 : 삼항 + && 조합 로그인 UI</h2>
 
-### 1) Mission
+**🎯 Mission**
 
 - **목표:** 로그인 상태(`isLoggedIn`)에 따라 환영 메시지와 버튼 텍스트가 바뀌는 컴포넌트를 만듭니다.
 - **요구사항:**
@@ -190,7 +190,7 @@ export default WarningSystem;
     - 로그아웃 상태일 때만 **&& 연산자**로 안내 문구("더 많은 기능을 보시려면 로그인하세요")를 표시하세요.
     - 확인용으로 `isLoggedIn` 값을 `.toString()`으로 변환해 화면에 출력하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 // 1. 상태 선언 (useState)
@@ -202,7 +202,7 @@ const handleLogin = () => {
 };
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -215,7 +215,7 @@ const handleLogin = () => {
   </div>
 </div>
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 import { useState } from 'react';

@@ -53,10 +53,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  🎯 <strong>this 고정하기</strong> — call, apply, bind로 함수의 this를 원하는 객체로 지정하는 방법을 이해합니다.<br>
-  📞 <strong>call과 apply</strong> — 즉시 실행되는 두 메서드의 인자 전달 방식 차이를 익힙니다.<br>
-  ⏳ <strong>bind</strong> — this가 고정된 새 함수를 만들어 나중에 실행하는 패턴을 익힙니다.<br>
-  📦 <strong>배열 생성</strong> — new Array, Array.of, Array.from의 차이와 희소 배열의 위험성을 이해합니다.
+  • <strong>this 고정하기</strong> — call, apply, bind로 함수의 this를 원하는 객체로 지정하는 방법을 이해합니다.<br>
+  • <strong>call과 apply</strong> — 즉시 실행되는 두 메서드의 인자 전달 방식 차이를 익힙니다.<br>
+  • <strong>bind</strong> — this가 고정된 새 함수를 만들어 나중에 실행하는 패턴을 익힙니다.<br>
+  • <strong>배열 생성</strong> — new Array, Array.of, Array.from의 차이와 희소 배열의 위험성을 이해합니다.
 </div>
 
 ---
@@ -104,13 +104,13 @@ myGreet();
 
 함수를 즉시 실행하며, 첫 번째 인자로 `this`로 사용할 객체를 전달합니다.
 
-#### 1) 문법
+**📝 문법**
 
 ```jsx
 func.call(thisArg, arg1, arg2, ...);
 ```
 
-#### 2) 예시 코드
+**🧪 예시 코드**
 
 ```jsx
 const user = { name: "영희" };
@@ -125,7 +125,7 @@ function introduce(age, city) {
 introduce.call(user, 25, "서울");
 ```
 
-#### 3) 실행 결과
+**✅ 실행 결과**
 
 ```jsx
 "영희는 25살, 서울 거주"
@@ -135,19 +135,17 @@ introduce.call(user, 25, "서울");
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>A-3. apply 메서드</h3>
-</div>
+### A-3. apply 메서드
 
 `call`과 기능은 똑같지만, 인자를 **배열**로 묶어서 전달한다는 점이 다릅니다.
 
-#### 1) 문법
+**📝 문법**
 
 ```jsx
 func.apply(thisArg, [argsArray]);
 ```
 
-#### 2) 예시 코드
+**🧪 예시 코드**
 
 ```jsx
 const user = { name: "민수" };
@@ -162,7 +160,7 @@ function introduce(age, city) {
 introduce.apply(user, [30, "부산"]);
 ```
 
-#### 3) 실행 결과
+**✅ 실행 결과**
 
 ```jsx
 "민수는 30살, 부산 거주"
@@ -172,19 +170,17 @@ introduce.apply(user, [30, "부산"]);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>A-4. bind 메서드</h3>
-</div>
+### A-4. bind 메서드
 
 함수를 즉시 실행하지 않고, `this`가 바인딩된 **새로운 함수를 반환**합니다. 나중에 실행할 때 사용합니다.
 
-#### 1) 문법
+**📝 문법**
 
 ```jsx
 const boundFunc = func.bind(thisArg, arg1, arg2, ...);
 ```
 
-#### 2) 예시 코드
+**🧪 예시 코드**
 
 ```jsx
 const user = { name: "지수" };
@@ -200,7 +196,7 @@ const introduceJisu = introduce.bind(user);
 introduceJisu(22);
 ```
 
-#### 3) 실행 결과
+**✅ 실행 결과**
 
 ```jsx
 "지수는 22살"
@@ -265,9 +261,7 @@ console.log(arr.length); // 3
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>B-2. 희소 배열과 Empty의 정체</h3>
-</div>
+### B-2. 희소 배열과 Empty의 정체
 
 구멍이 숭숭 뚫린 배열을 **희소 배열(Sparse Array)**이라고 하며, 이때의 구멍을 **Empty(비어있음)**라고 합니다.
 
@@ -288,7 +282,7 @@ arr.forEach(v => console.log(v));
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">Empty vs Undefined</span>
   <ul>
     <li><strong>Empty</strong> : 빈 슬롯(empty slot)입니다. 해당 인덱스에 요소 자체가 없는 상태라서 forEach 같은 일부 배열 메서드에서 건너뜁니다.</li>
@@ -296,9 +290,7 @@ arr.forEach(v => console.log(v));
   </ul>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.1rem 0 0.3rem;">
-  <h4>2) 희소 배열이 만들어지는 경우</h4>
-</div>
+#### 2) 희소 배열이 만들어지는 경우
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -331,13 +323,11 @@ arr.forEach(v => console.log(v));
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>B-3. Array.of() - 일관성 있는 생성</h3>
-</div>
+### B-3. Array.of() - 일관성 있는 생성
 
 ES6에서 도입된 `Array.of()`는 인자의 개수나 타입에 상관없이 **무조건 요소로 취급**하여 배열을 만듭니다.
 
-#### 1) 문법
+**📝 문법**
 
 ```jsx
 Array.of(items...);
@@ -398,14 +388,12 @@ console.log(chars);
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.2rem 0 0.3rem;">
-  <h3>B-5. Array.from()의 강력한 기능 - 매핑</h3>
-</div>
+### B-5. Array.from()의 강력한 기능 - 매핑
 
 `Array.from()`은 두 번째 인자로 **변환 함수(Mapping Function)**를 받을 수 있습니다.  
 `map()`을 한 번 더 쓸 필요가 없죠!
 
-#### 1) 문법
+**📝 문법**
 
 ```jsx
 Array.from(target, mapFn);
@@ -441,9 +429,7 @@ console.log(numbers);
   </div>
 </div>
 
-<div style="position:relative;overflow:visible;margin:1.1rem 0 0.3rem;">
-  <h4>4) 배열 생성 도구 최종 비교</h4>
-</div>
+#### 4) 배열 생성 도구 최종 비교
 
 | **방식** | **결과** | **특징 및 한계** |
 | --- | --- | --- |
@@ -455,7 +441,7 @@ console.log(numbers);
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💡 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 ### 1. 배열 생성 도구별 특징 비교
@@ -504,7 +490,7 @@ const numbers = Array.from({ length: 5 }, (v, i) => i + 1);
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">{ length: 5 }가 왜 유사 배열인가요?</span>
   <ul>
     <li><strong>유사 배열의 조건</strong> : 숫자 형태의 인덱스와 <strong>length 속성</strong>만 있으면 유사 배열로 간주됩니다.</li>

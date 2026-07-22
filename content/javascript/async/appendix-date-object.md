@@ -54,9 +54,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>생성과 조회</strong> — `new Date()`로 날짜를 만들고 `get...` 메서드로 값을 꺼내는 법을 익힙니다.<br>
-  <strong>포맷팅과 계산</strong> — 날짜를 원하는 형태로 표시하고, 두 날짜의 차이를 계산하는 방법을 배웁니다.<br>
-  <strong>타임존과 실무 함정</strong> — UTC/KST 차이, Setter의 자동 보정 등 실수하기 쉬운 지점을 짚습니다.
+  • <strong>생성과 조회</strong> — `new Date()`로 날짜를 만들고 `get...` 메서드로 값을 꺼내는 법을 익힙니다.<br>
+  • <strong>포맷팅과 계산</strong> — 날짜를 원하는 형태로 표시하고, 두 날짜의 차이를 계산하는 방법을 배웁니다.<br>
+  • <strong>타임존과 실무 함정</strong> — UTC/KST 차이, Setter의 자동 보정 등 실수하기 쉬운 지점을 짚습니다.
 </div>
 
 ---
@@ -455,7 +455,7 @@ console.log(formatKorean(new Date()));
 - **단위 변환** : 밀리초(ms) 단위의 차이를 **초 → 분 → 시간 → 일** 순서로 나눕니다.
 - **조건문 순서** — **작은 단위부터** 걸러내는 것이 중요합니다. (초가 60보다 작으면 "방금 전", 아니면 분을 체크...)
 
-### 2) 구현 코드
+**📝 구현 코드**
 
 ```js
 function timeAgo(date) {
@@ -551,7 +551,7 @@ console.log(d.toLocaleDateString());
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>🔑 핵심 정리</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 <table class="wda-summary-table">

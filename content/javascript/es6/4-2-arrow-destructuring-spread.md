@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🏹 <strong>화살표 함수</strong> — 함수를 간결하게 작성하고 this 바인딩 차이를 이해합니다.<br>
-  📦 <strong>구조분해 할당</strong> — 배열과 객체에서 필요한 값을 쉽게 추출하는 법을 배웁니다.<br>
-  🌊 <strong>스프레드 연산자</strong> — 배열과 객체를 펼쳐서 복사하거나 병합합니다.<br>
-  🔀 <strong>Rest와 Spread 구분</strong> — 같은 문법(...)이지만 역할이 다른 두 개념을 구분합니다.
+  • <strong>화살표 함수</strong> — 함수를 간결하게 작성하고 this 바인딩 차이를 이해합니다.<br>
+  • <strong>구조분해 할당</strong> — 배열과 객체에서 필요한 값을 쉽게 추출하는 법을 배웁니다.<br>
+  • <strong>스프레드 연산자</strong> — 배열과 객체를 펼쳐서 복사하거나 병합합니다.<br>
+  • <strong>Rest와 Spread 구분</strong> — 같은 문법(...)이지만 역할이 다른 두 개념을 구분합니다.
 </div>
 
 ---
@@ -452,11 +452,11 @@ const p = new Person('Kim');
 
 ## 💻 실습 : 화살표 함수로 변환하기
 
-### 1) Mission
+**🎯 Mission**
 
 아래 작성된 '일반 함수(`function`)' 코드를 보고, 최신 '화살표 함수(`=>`)' 문법으로 리팩토링해 보세요.
 
-### 🔹 문제 1 : 덧셈 함수
+**❓ 문제 1 : 덧셈 함수**
 
 ```jsx
 const add = function(a, b) {
@@ -464,14 +464,14 @@ const add = function(a, b) {
 };
 ```
 
-### 🔹 정답 1
+**📝 정답 1**
 
 ```jsx
 // return과 중괄호를 생략한 가장 간결한 형태
 const add = (a, b) => a + b;
 ```
 
-### 🔹 문제 2 : forEach 콜백
+**❓ 문제 2 : forEach 콜백**
 
 ```jsx
 const arr = [1, 2, 3];
@@ -481,7 +481,7 @@ arr.forEach(function(x) {
 });
 ```
 
-### 🔹 정답 2
+**📝 정답 2**
 
 ```jsx
 // 매개변수 괄호와 실행문 중괄호를 모두 생략
@@ -756,11 +756,11 @@ const UserCard = ({ name, email, avatar }) => {
 
 ## 💻 실습 : 구조분해로 데이터 뽑기
 
-### 1) Mission
+**🎯 Mission**
 
 다음 API 응답 객체에서 필요한 정보를 구조분해 할당으로 한 번에 추출해보세요!
 
-### 2) 문제 (Question)
+**❓ 문제**
 
 **Q. 사용자 정보 추출하기**
 
@@ -779,7 +779,7 @@ const response = {
 // const ... = response;
 ```
 
-### 3) 정답
+**📝 정답**
 
 ```jsx
 // 한 번에 파고들기
@@ -940,11 +940,11 @@ const newState = { ...state, count: state.count + 1 };
 
 ## 💻 실습 : 불변성 지키며 수정하기
 
-### 1) Mission
+**🎯 Mission**
 
 원본 객체(`state`)를 건드리지 않고, 내용을 수정한 새로운 객체(`newState`)를 만들어보세요.
 
-### 2) 문제 (Question)
+**❓ 문제**
 
 **Q. 상태 업데이트 (불변성 유지)**
 
@@ -959,7 +959,7 @@ const state = {
 // 'newState' 객체를 만드세요. (state 변경 X)
 ```
 
-### 3) 정답
+**📝 정답**
 
 ```jsx
 const newState = {
@@ -1097,7 +1097,7 @@ console.log(...items);
 
 ---
 
-## 🔑 핵심 정리 (Summary)
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

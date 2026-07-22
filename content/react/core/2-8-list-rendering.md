@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -55,10 +55,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) map()으로 리스트 렌더링</strong> — 배열 데이터를 JSX 요소 목록으로 변환하는 방법을 배웁니다.<br>
-  <strong>2) key 속성 이해</strong> — React가 리스트를 효율적으로 업데이트하는 원리를 이해합니다.<br>
-  <strong>3) 리스트 조작</strong> — 아이템 추가, 삭제, 필터링 등 실전 패턴을 익힙니다.<br>
-  <strong>4) 주의사항</strong> — Index를 Key로 사용할 때의 문제점과 해결책을 배웁니다.
+  • <strong>map()으로 리스트 렌더링</strong> — 배열 데이터를 JSX 요소 목록으로 변환하는 방법을 배웁니다.<br>
+  • <strong>key 속성 이해</strong> — React가 리스트를 효율적으로 업데이트하는 원리를 이해합니다.<br>
+  • <strong>리스트 조작</strong> — 아이템 추가, 삭제, 필터링 등 실전 패턴을 익힙니다.<br>
+  • <strong>주의사항</strong> — Index를 Key로 사용할 때의 문제점과 해결책을 배웁니다.
 </div>
 
 ---
@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>배열 데이터를 반복해서 화면에 표시</strong></p>
 </div>
 
@@ -78,7 +78,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 const fruits = ['사과', '바나나', '오렌지'];
 ```
 
-<h3>2) 화면 (리스트)</h3>
+### 2) 화면 (리스트)
 
 ```jsx
 <ul>
@@ -88,7 +88,7 @@ const fruits = ['사과', '바나나', '오렌지'];
 </ul>
 ```
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>핵심:</strong> 배열의 각 요소를 <strong>map()</strong>으로 순회하며 JSX 요소로 변환합니다.</p>
 </div>
 
@@ -104,11 +104,11 @@ const fruits = ['사과', '바나나', '오렌지'];
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>배열을 JSX 배열로 변환</strong></p>
 </div>
 
-### 1) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 function FruitList() {
@@ -160,7 +160,7 @@ function FruitList() {
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>React가 어떤 항목이 변경되었는지 식별</strong></p>
 </div>
 
@@ -206,7 +206,7 @@ function FruitList() {
   </div>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 ```jsx
 // 1순위: 가장 안전하고 권장하는 방법 (데이터베이스 ID)
@@ -237,7 +237,7 @@ function FruitList() {
 
 **📌 개념**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>데이터가 담긴 객체 배열을 화면에 표시하기</strong></p>
 </div>
 
@@ -540,7 +540,7 @@ export default TodoList;
 
 ---
 
-<h2>11. 🔑 핵심 정리</h2>
+<h2>11. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

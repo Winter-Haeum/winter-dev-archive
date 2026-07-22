@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -35,7 +35,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
@@ -59,10 +59,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) Fragment 이해하기</strong> — 여러 JSX 요소를 불필요한 div 없이 하나로 묶는 방법을 배웁니다.<br>
-  <strong>2) JSX 속성 규칙 익히기</strong> — className, htmlFor, camelCase 속성 규칙을 익힙니다.<br>
-  <strong>3) 중괄호 표현식 사용하기</strong> — JSX 안에서 JavaScript 변수, 연산, 삼항 연산자를 사용하는 방법을 이해합니다.<br>
-  <strong>4) 인라인 스타일 작성하기</strong> — JSX에서 style을 객체 형태로 작성하는 방법을 익힙니다.
+  • <strong>Fragment 이해하기</strong> — 여러 JSX 요소를 불필요한 div 없이 하나로 묶는 방법을 배웁니다.<br>
+  • <strong>JSX 속성 규칙 익히기</strong> — className, htmlFor, camelCase 속성 규칙을 익힙니다.<br>
+  • <strong>중괄호 표현식 사용하기</strong> — JSX 안에서 JavaScript 변수, 연산, 삼항 연산자를 사용하는 방법을 이해합니다.<br>
+  • <strong>인라인 스타일 작성하기</strong> — JSX에서 style을 객체 형태로 작성하는 방법을 익힙니다.
 </div>
 
 ---
@@ -78,7 +78,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 - **문제:** 그렇다고 매번 `<div>`로 감싸면, 실제 HTML에도 `<div>`가 생겨서 스타일(CSS)이 꼬이거나 불필요한 태그가 늘어납니다.
 - **해결:** 이때 **Fragment**를 사용하면 코드는 묶어주되, 실제 브라우저에는 아무 흔적도 남기지 않습니다.
 
-### 2) 사용법 (Syntax)
+**📝 사용법**
 
 두 가지 방법이 있지만, 주로 짧은 문법을 사용합니다.
 
@@ -276,7 +276,7 @@ export default App;
 2. **속성명 수정:** `onclick`을 대문자가 섞인 **`onClick`**으로 수정하세요.
 3. **함수 전달:** `onClick`에는 클릭했을 때 실행할 함수를 전달해야 합니다. `alert`를 직접 넣기보다, 원하는 메시지를 실행하도록 화살표 함수로 감싸는 것이 안전합니다. → `onClick={() => alert("클릭")}`
 
-### ✅ 정답 코드
+**📝 정답 코드**
 
 ```jsx
 function App() {
@@ -291,7 +291,7 @@ function App() {
 
 **🔑 핵심 포인트**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>"리액트는 엄격한 선생님입니다"</strong>
   <p>HTML은 대충 태그를 안 닫아도 브라우저가 눈감아주지만, 리액트는 아주 사소한 문법 오류(오타, 대소문자, 닫는 태그)도 용납하지 않고 바로 에러를 띄웁니다.</p>
 </div>
@@ -359,7 +359,7 @@ HTML에서는 `input`, `br` 같은 태그들을 닫지 않아도 브라우저가
   </div>
 </div>
 
-### 3) 예시 코드 (Example)
+**🧪 예시 코드**
 
 아래 예제 코드에서 변수와 연산, 삼항 연산자가 어떻게 쓰이는지 확인해 보세요.
 
@@ -402,7 +402,7 @@ function Profile() {
 
 자바스크립트 변수를 만들고 중괄호 `{}`를 사용해 화면에 보여주는 미션입니다.
 
-### 1) Mission
+**🎯 Mission**
 
 `App.jsx` 파일을 열고 다음 3가지 미션을 수행하세요.
 
@@ -410,7 +410,7 @@ function Profile() {
 2. **로직 테스트:** `score`를 **50점**으로 바꿔보고 화면에 "불합격"이 나오는지 확인하세요.
 3. **연산 추가:** 점수 옆에 연산식(예: `{score + 10}`)을 넣어보세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 실습을 시작하기 위한 기본 코드입니다. 작성 후 미션을 수행해 보세요.
 
@@ -435,7 +435,7 @@ function App() {
 export default App;
 ```
 
-<h3>3) 결과 예시</h3>
+**✅ 결과 예시**
 
 기본 코드 실행 시 브라우저 화면입니다.
 
@@ -444,7 +444,7 @@ export default App;
 - 점수: 90점
 - 결과: 합격
 
-### 4) 정답 코드 (미션 적용 후)
+**📝 정답 코드 (미션 적용 후)**
 
 점수를 50점으로 바꾸면 결과가 자동으로 변하는 것을 확인하세요.
 
@@ -553,7 +553,7 @@ HTML의 `class` 속성은 JSX에서 무엇으로 바꿔서 써야 하나요?
 
 ---
 
-<h2>11. 🔑 핵심 정리</h2>
+<h2>11. ✅ 핵심 요약</h2>
 
 지금까지 배운 JSX 문법의 핵심 규칙 4가지를 요약해 드립니다. 이 규칙들만 잘 지켜도 리액트 문법 에러의 90%는 예방할 수 있습니다.
 

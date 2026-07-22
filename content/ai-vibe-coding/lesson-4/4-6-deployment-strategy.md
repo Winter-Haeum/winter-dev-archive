@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -24,7 +24,7 @@ status: "completed"
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -68,10 +68,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-goal">
   <span class="wda-goal-label">이번 챕터 목표</span>
-  ⚠️ <strong>무료 플랜 한계 이해</strong> — 제한사항을 미리 알고 대비<br>
-  💰 <strong>비용 효율적 운영</strong> — 필요한 시점에 유료 전환<br>
-  ⚡ <strong>성능 최적화</strong> — 제한된 자원으로 최대 효과<br>
-  🆘 <strong>응급 상황 대응</strong> — 한계 초과 시 즉시 대처
+  • <strong>무료 플랜 한계 이해</strong> — 제한사항을 미리 알고 대비<br>
+  • <strong>비용 효율적 운영</strong> — 필요한 시점에 유료 전환<br>
+  • <strong>성능 최적화</strong> — 제한된 자원으로 최대 효과<br>
+  • <strong>응급 상황 대응</strong> — 한계 초과 시 즉시 대처
 </div>
 
 ---

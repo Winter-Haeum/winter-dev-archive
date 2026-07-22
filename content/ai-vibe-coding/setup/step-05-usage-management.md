@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.4rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -23,14 +23,14 @@ status: "completed"
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
 .wda-done-ico{font-size:1.8rem;margin-bottom:6px}
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -66,9 +66,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  ⏱️ <strong>사용량 이해</strong> — Pro Plan 제한 구조와 현황 파악<br>
-  📊 <strong>실시간 확인</strong> — 사용량 모니터링 방법 습득<br>
-  💳 <strong>Wallet 설정</strong> — 자동 충전으로 수업 중단 없이 활용
+  • <strong>사용량 이해</strong> — Pro Plan 제한 구조와 현황 파악<br>
+  • <strong>실시간 확인</strong> — 사용량 모니터링 방법 습득<br>
+  • <strong>Wallet 설정</strong> — 자동 충전으로 수업 중단 없이 활용
 </div>
 
 ---
@@ -85,7 +85,7 @@ Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니�
   <div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">공유 사용량</div><div class="wda-fcard-dsc">웹 Claude와 사용량 공유</div></div>
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">사용량이 공유된다는 것은?</span>
   <code>claude.ai</code> 웹사이트에서 대화를 나누는 것과 Claude Code CLI에서 사용하는 것이 동일한 월간 사용량 풀을 나눠 씁니다.<br>
   웹에서 많이 사용했다면 Claude Code에서 사용할 수 있는 양이 줄어들 수 있습니다.
@@ -123,7 +123,7 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
   <span class="wda-clabel">흐름</span>Pro Plan 한도 도달 → Wallet 잔액 자동 차감 (설정 시) → 수업 중단 없이 계속 사용 가능
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <span class="wda-clabel">Wallet이란?</span>
   Claude 계정에 충전해두는 선불 크레딧입니다.<br>
   Pro Plan 구독 한도를 초과해도 Wallet 잔액이 있으면 API 사용량처럼 과금되면서 계속 사용할 수 있습니다.<br>
@@ -163,7 +163,7 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 ---
 
-## 📝 핵심 정리
+## ✅ 핵심 요약
 
 <div class="wda-memo">
   <span class="wda-memo-label">📋 Pro Plan 사용량 요약</span>

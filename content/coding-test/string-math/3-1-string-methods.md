@@ -61,10 +61,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-🔍 <strong>검색 메서드</strong> — indexOf, includes로 문자를 찾습니다.<br>
-✂️ <strong>추출 메서드</strong> — slice, substring으로 일부를 잘라냅니다.<br>
-🔄 <strong>변환 메서드</strong> — 대소문자, 공백 제거 등 형태를 바꿉니다.<br>
-🧩 <strong>분리/치환 메서드</strong> — split, replace로 나누고 바꿉니다.
+• <strong>검색 메서드</strong> — indexOf, includes로 문자를 찾습니다.<br>
+• <strong>추출 메서드</strong> — slice, substring으로 일부를 잘라냅니다.<br>
+• <strong>변환 메서드</strong> — 대소문자, 공백 제거 등 형태를 바꿉니다.<br>
+• <strong>분리/치환 메서드</strong> — split, replace로 나누고 바꿉니다.
 </div>
 
 ---
@@ -73,7 +73,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 문자열의 특징과 기본 속성
 
-**1) 문자열의 특징**
+**📌 문자열의 특징**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -93,7 +93,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-**2) 기본 문법**
+**📝 기본 문법**
 
 ```js
 const str = "Hello";
@@ -107,7 +107,7 @@ str[0] = 'X'; // 안 됨!
 console.log(str); // 여전히 "Hello"
 ```
 
-**3) 배열과의 차이**
+**🆚 배열과의 차이**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -134,7 +134,7 @@ console.log(str); // 여전히 "Hello"
 
 문자열에서 특정 텍스트를 찾는 방법들입니다.
 
-**1) indexOf (위치 찾기)**
+**📝 indexOf (위치 찾기)**
 
 특정 문자가 **몇 번째 인덱스(Index)**에 있는지 숫자로 반환합니다.
 
@@ -153,7 +153,7 @@ str.indexOf("X");     // -1 (없음)
 str.indexOf("o", 5);  // 7 (인덱스 5 이후부터 검색하여 찾은 'o')
 ```
 
-**2) lastIndexOf (뒤에서 찾기)**
+**📝 lastIndexOf (뒤에서 찾기)**
 
 문자열의 뒤에서부터 검색하여 위치를 찾습니다.
 
@@ -164,7 +164,7 @@ str.lastIndexOf("o"); // 7 (뒤쪽에 있는 'o')
 str.lastIndexOf("l"); // 9 (뒤쪽에 있는 'l')
 ```
 
-**3) includes (있는지만 확인)**
+**📝 includes (있는지만 확인)**
 
 위치가 어디인지는 중요하지 않고, 포함되어 있는지 여부만 알고 싶을 때 사용합니다.
 
@@ -184,7 +184,7 @@ if (str.includes("Hello")) {
 }
 ```
 
-**4) 메서드 비교 및 요약**
+**🆚 메서드 비교 및 요약**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -211,7 +211,7 @@ if (str.includes("Hello")) {
 
 문자열의 시작 부분과 끝부분을 확인하는 메서드입니다.
 
-**1) startsWith**
+**📝 startsWith**
 
 문자열이 특정 문자로 시작하는지 확인합니다.
 
@@ -229,7 +229,7 @@ str.startsWith("hello"); // false (대소문자 구분!)
 str.startsWith("World", 6); // true
 ```
 
-**2) endsWith**
+**📝 endsWith**
 
 문자열이 특정 문자로 끝나는지 확인합니다.
 
@@ -245,7 +245,7 @@ str.endsWith("d");     // true
 str.endsWith("Hello", 5); // true
 ```
 
-**3) 코테 활용 (실무 예제)**
+**💼 코테 활용 (실무 예제)**
 
 파일 확장자나 URL 주소 형식을 검사할 때 매우 유용합니다.
 
@@ -266,7 +266,7 @@ if (url.startsWith("https://")) {
 }
 ```
 
-**4) 메서드 비교**
+**🆚 메서드 비교**
 
 | 메서드 | 확인 위치 | 반환값 |
 |---|---|---|
@@ -293,7 +293,7 @@ if (url.startsWith("https://")) {
 
 문자열의 일부분을 잘라내서 새로운 문자열로 만드는 방법입니다.
 
-**1) slice (추천 ⭐)**
+**📝 slice (추천 ⭐)**
 
 시작 인덱스부터 끝 인덱스 직전까지 잘라냅니다.  
 음수를 사용하면 뒤에서부터 셀 수 있어 매우 편리합니다.
@@ -318,7 +318,7 @@ str.slice(-5, -1); // "Worl" (뒤에서 5번째부터 뒤에서 1번째 전까�
 console.log(str);  // "Hello World"
 ```
 
-**2) slice vs substring**
+**🆚 slice vs substring**
 
 두 메서드는 양수 인덱스에서는 거의 똑같이 동작하지만, 음수 처리 방식이 다릅니다.
 
@@ -337,7 +337,7 @@ str.slice(-3);       // "llo" (뒤에서 3글자 가져옴 ✅)
 str.substring(-3);   // "Hello" (-3을 0으로 바꿔서 처음부터 다 가져옴 ❌)
 ```
 
-**3) 메서드 비교 및 결론**
+**🆚 메서드 비교 및 결론**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -364,7 +364,7 @@ str.substring(-3);   // "Hello" (-3을 0으로 바꿔서 처음부터 다 가져
 
 영문 알파벳을 모두 대문자나 소문자로 바꾸는 메서드입니다 (toUpperCase, toLowerCase).
 
-**1) 기본 사용법**
+**📝 기본 사용법**
 
 문자열의 모든 알파벳을 변환합니다.
 
@@ -382,7 +382,7 @@ str.toLowerCase(); // "hello world" (모두 소문자)
 console.log(str);  // "Hello World"
 ```
 
-**2) 대소문자 무시 비교**
+**🆚 대소문자 무시 비교**
 
 사용자 입력이 "HELLO"이든 "hello"이든 똑같이 처리해야 할 때 사용합니다.
 
@@ -398,7 +398,7 @@ input === answer; // false
 input.toLowerCase() === answer.toLowerCase(); // true
 ```
 
-**3) 코테 활용 패턴**
+**💡 코테 활용 패턴**
 
 코딩 테스트나 실무에서 자주 쓰이는 패턴들입니다.
 
@@ -446,7 +446,7 @@ ch === ch.toLowerCase(); // false (소문자 아님)
 
 문자열의 양쪽 끝에 있는 불필요한 공백을 제거하는 메서드입니다.
 
-**1) 기본 사용법**
+**📝 기본 사용법**
 
 공백을 제거하는 위치에 따라 세 가지 메서드가 있습니다.
 
@@ -476,7 +476,7 @@ str.trimEnd();   // "  Hello World" (뒤만 제거)
 console.log(str); // "  Hello World  "
 ```
 
-**2) 시각화 (동작 비교)**
+**💡 시각화 (동작 비교)**
 
 공백이 어디서 사라지는지 한눈에 비교해 보세요.
 
@@ -487,7 +487,7 @@ console.log(str); // "  Hello World  "
 | trimStart() | 앞 공백 제거 | `[Hello World ]` |
 | trimEnd() | 뒤 공백 제거 | `[ Hello World]` |
 
-**3) 코테 활용 (실무 예제)**
+**💼 코테 활용 (실무 예제)**
 
 사용자의 입력 실수를 방지하거나 데이터를 깔끔하게 만들 때 필수입니다.
 
@@ -534,7 +534,7 @@ str.trim().split(" ");
 
 문자열을 특정 구분자(Separator)를 기준으로 잘라서 **배열(Array)**로 만들어주는 메서드입니다.
 
-**1) 기본 사용법**
+**📝 기본 사용법**
 
 괄호 안에 무엇을 기준으로 자를지 정해주면 됩니다.
 
@@ -556,7 +556,7 @@ str.split();    // ["a,b,c,d"]
 str.split(",", 2); // ["a", "b"]
 ```
 
-**2) 시각화 (동작 원리)**
+**💡 시각화 (동작 원리)**
 
 어떤 구분자를 쓰느냐에 따라 결과물이 완전히 달라집니다.
 
@@ -565,7 +565,7 @@ str.split(",", 2); // ["a", "b"]
 | , (콤마) | "a,b,c,d" | ["a", "b", "c", "d"] | 콤마를 없애고 그 자리에서 자름 |
 | "" (빈값) | "Hello" | ["H", "e", "l", "l", "o"] | 글자 하나하나 다 쪼갬 |
 
-**3) 자주 쓰는 패턴**
+**💡 자주 쓰는 패턴**
 
 실무나 코딩 테스트에서 데이터를 가공할 때 정말 많이 쓰이는 패턴들입니다.
 
@@ -602,7 +602,7 @@ str.split(",", 2); // ["a", "b"]
 
 배열(Array) 안에 있는 요소들을 특정 구분자로 연결해서 하나의 **문자열(String)**로 만드는 메서드입니다.
 
-**1) 기본 사용법**
+**📝 기본 사용법**
 
 괄호 안에 "무엇으로 연결할지"를 넣어주면 됩니다.
 
@@ -625,7 +625,7 @@ arr.join(" "); // "a b c"
 arr.join();    // "a,b,c"
 ```
 
-**2) split ↔ join (환상의 짝꿍)**
+**💡 split ↔ join (환상의 짝꿍)**
 
 문자열을 배열로 바꿨다가(split), 다시 문자열로 돌려놓는(join) 패턴은 매우 강력합니다.
 
@@ -637,7 +637,7 @@ str.split("")   // ["H", "e", "l", "l", "o"] (배열로 쪼개고)
    .join("");   // "olleh" (다시 문자열로 합침)
 ```
 
-**3) 코테 필수 패턴**
+**💡 코테 필수 패턴**
 
 코딩 테스트에서 문자열을 조작할 때 '공식'처럼 쓰이는 패턴들입니다.
 
@@ -683,7 +683,7 @@ split으로 자르고 join으로 그냥 붙이면 해당 문자가 사라지는 
 
 특정 문자를 다른 문자로 교체
 
-**1) 기본 사용법**
+**📝 기본 사용법**
 
 ```js
 const str = "Hello World";
@@ -701,7 +701,7 @@ str.replace(/o/g, "0");
 // "Hell0 W0rld"
 ```
 
-**2) 코테 활용 패턴**
+**💡 코테 활용 패턴**
 
 🔹모든 공백 제거
 
@@ -736,7 +736,7 @@ str.replace(/o/g, "0");
 
 반복과 채우기
 
-**1) repeat (반복)**
+**📝 repeat (반복)**
 
 ```js
 "ab".repeat(3); // "ababab"
@@ -748,7 +748,7 @@ console.log("=".repeat(20));
 // ====================
 ```
 
-**2) padStart/padEnd**
+**📝 padStart/padEnd**
 
 ```js
 // padStart: 앞에 채우기
@@ -760,7 +760,7 @@ console.log("=".repeat(20));
 "Hi".padEnd(5, "."); // "Hi..."
 ```
 
-**3) 코테 활용**
+**💡 코테 활용**
 
 ```js
 // 별 피라미드
@@ -774,7 +774,7 @@ for (let i = 1; i <= 5; i++) {
 // *****
 ```
 
-**4) `<>` 실전 예시**
+**🧪 실전 예시**
 
 ```js
 // 시간 포맷 (09:05:03)
@@ -791,7 +791,7 @@ const h = 9, m = 5, s = 3;
 
 문자와 코드 다루기
 
-**1) charAt**
+**📝 charAt**
 
 ```js
 const str = "Hello";
@@ -805,7 +805,7 @@ str[0];  // "H"
 str[10]; // undefined (차이점!)
 ```
 
-**2) charCodeAt & fromCharCode**
+**📝 charCodeAt & fromCharCode**
 
 ```js
 // 문자 -> 코드
@@ -817,7 +817,7 @@ String.fromCharCode(65); // "A"
 String.fromCharCode(97); // "a"
 ```
 
-**3) charAt vs [ ]**
+**🆚 charAt vs [ ]**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -832,7 +832,7 @@ String.fromCharCode(97); // "a"
   </div>
 </div>
 
-**4) 💡 코테 활용**
+**💡 코테 활용**
 
 ```js
 // 알파벳 순서 계산
@@ -846,7 +846,7 @@ String.fromCharCode(
 
 ---
 
-## ✅ 문자열 메서드 핵심 정리
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

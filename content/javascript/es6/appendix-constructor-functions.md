@@ -308,7 +308,7 @@ console.log(bot);
 
 ## 🌈 실전 예제 1: 쇼핑몰 장바구니
 
-### 1) 미션
+**🎯 미션**
 
 생성자 함수로 여러 개의 상품을 표준화해서 만들어봅시다.
 
@@ -421,7 +421,7 @@ const mage = Character('마법사', 50);
 
 ---
 
-## 🔑 핵심 정리
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

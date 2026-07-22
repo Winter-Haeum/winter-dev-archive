@@ -62,10 +62,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🧭 <strong>렉시컬 스코프</strong> — 함수가 <strong>선언된 위치</strong>에 따라 스코프가 결정됨을 이해합니다.<br>
-  🔗 <strong>스코프 체인</strong> — 변수를 찾기 위해 <strong>상위 스코프로 이동</strong>하는 과정을 배웁니다.<br>
-  🎒 <strong>클로저 (Closure)</strong> — 함수가 종료되어도 변수를 <strong>기억하는 원리</strong>를 익힙니다.<br>
-  🔐 <strong>클로저 활용</strong> — 정보 은닉, 커링 등 <strong>실전 패턴</strong>을 구현하고 응용합니다.
+  • <strong>렉시컬 스코프</strong> — 함수가 <strong>선언된 위치</strong>에 따라 스코프가 결정됨을 이해합니다.<br>
+  • <strong>스코프 체인</strong> — 변수를 찾기 위해 <strong>상위 스코프로 이동</strong>하는 과정을 배웁니다.<br>
+  • <strong>클로저 (Closure)</strong> — 함수가 종료되어도 변수를 <strong>기억하는 원리</strong>를 익힙니다.<br>
+  • <strong>클로저 활용</strong> — 정보 은닉, 커링 등 <strong>실전 패턴</strong>을 구현하고 응용합니다.
 </div>
 
 ---
@@ -123,7 +123,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **상위 스코프** | 선언된 위치에 따라 **이미 정해짐** | 호출하는 순간마다 **계속 바뀜** |
 | **특징** | 어디서 호출되든 고향은 **바뀌지 않음** | **호출한 사람의 주머니**를 뒤짐 |
 
-### 2) 코드 예시
+**🧪 예시 코드**
 
 `foo` 함수가 어디서 선언되었고, 어디서 호출되었는지를 주목해 보세요.
 
@@ -170,7 +170,7 @@ bar();
 
 ## 3. 자바스크립트의 렉시컬 스코프
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 ```jsx
 const x = 'global';
@@ -216,7 +216,7 @@ outer();
 
 ## 💻 실습 : 렉시컬 스코프
 
-### 1) Mission
+**🎯 Mission**
 
 코드를 보고 출력될 값을 예측해 보는 퀴즈입니다. (Global vs Local)
 
@@ -243,7 +243,7 @@ outer();
 
 > 힌트: 함수가 어디서 태어났는지 보세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `print` 함수가 어디에 정의되어 있는지가 핵심입니다.
 
@@ -265,7 +265,7 @@ function check() {
 check(); // 결과는?
 ```
 
-### 3) 정답
+**📝 정답**
 
 **"Global"** — `check` 함수 안에서 `print`를 불렀지만, 자바스크립트는 **렉시컬 스코프(태어난 곳 기준)**를 따르기 때문에 `print` 함수가 만들어진 바깥 세상의 `x = "Global"`을 출력합니다.  
 `check` 안의 `"Local"`은 `print` 함수와는 아무런 상관이 없는 남남입니다.
@@ -464,7 +464,7 @@ console.log(counter()); // 3
 - **현상인가요, 함수인가요?** 엄밀히 말하면 스코프가 연결되는 **메커니즘(결합)** 자체를 의미합니다.  
   실무에서는 보통 "생명 주기가 끝난 외부함수의 변수를 참조하는 **내부함수 자체**"를 클로저라고 부릅니다.
 
-### 3) 핵심 정리
+### 3) 📌 기억 포인트
 
 클로저가 되기 위한 조건입니다.
 
@@ -485,7 +485,7 @@ console.log(counter()); // 3
 
 **내가 정의한 클로저**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>외부 함수의 실행은 끝났지만, 내부 함수가 외부 함수의 변수를 계속 참조하고 있기 때문에 그 변수 환경은 바로 사라지지 않는다.</li>
     <li>외부에서는 직접 접근할 수 없고, 해당 변수를 참조하고 있는 내부 함수를 통해서만 사용할 수 있다.</li>
@@ -549,7 +549,7 @@ const counter = createCounter();
 
 **핵심 포인트**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>내부 함수가 외부 변수를 참조하면, 그 변수의 렉시컬 환경이 메모리에 유지됩니다.</li>
     <li><strong>GC(가비지 컬렉터)</strong>는 도달 가능한 값, 즉 아직 참조 경로가 남아 있는 값을 수거하지 않습니다.</li>
@@ -572,7 +572,7 @@ const counter = createCounter();
 
 ## 💻 실습 : 클로저 기초
 
-### 1) Mission
+**🎯 Mission**
 
 직접 코드를 작성하여 클로저가 어떻게 데이터를 보존하는지 확인해보세요.
 
@@ -598,7 +598,7 @@ const counter = createCounter();
   </div>
 </div>
 
-### 2) 정답 (Answer)
+**📝 정답**
 
 외부에서 `count` 변수에 직접 접근할 수는 없지만, `counter` 함수를 통해서만 값을 올릴 수 있습니다.
 
@@ -703,7 +703,7 @@ account.balance = 999999;     // 객체에 새 balance 속성이 추가될 뿐, 
 console.log(account.getBalance()); // 여전히 1300 (안전함!)
 ```
 
-### 6) 핵심 정리
+### 6) 📝 요약 메모
 
 - **보호** — `balance`는 클로저 안에 숨겨져 있어서 외부에서 **직접 접근/수정 불가**합니다.
 - **캡슐화** — `deposit`, `withdraw`, `getBalance`만이 balance에 접근 가능합니다.
@@ -724,7 +724,7 @@ console.log(account.getBalance()); // 여전히 1300 (안전함!)
 
 ## 💻 실습 : 정보 은닉
 
-### 1) Mission
+**🎯 Mission**
 
 직접 코드를 작성하여 중요한 데이터를 외부로부터 숨기는 패턴을 연습합니다.
 
@@ -751,7 +751,7 @@ console.log(account.getBalance()); // 여전히 1300 (안전함!)
   </div>
 </div>
 
-### 2) 정답
+**📝 정답**
 
 금고(`createSafe`) 안에 있는 금(`Gold`)은 오직 열쇠(`getSecret`)를 통해서만 꺼낼 수 있습니다.
 
@@ -821,11 +821,11 @@ const B = createCounter(); // B만을 위한 count 생성 (별개)
 
 - **여러 개 생성 가능 (Instance)** — 호출할 때마다 새로운 환경 생성. 독립적인 저장소가 필요할 때 사용
 
-### 3) 핵심 요약
+### 3) 🆚 비교 정리
 
 두 방식의 차이를 기억하는 것이 중요합니다.
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>IIFE는 전역 오염을 줄이고 하나의 공유 저장소를 만들 때 자주 사용되며, 클로저 팩토리는 호출할 때마다 독립된 상태를 만드는 패턴에 자주 사용됩니다.</li>
   </ul>
@@ -1008,7 +1008,7 @@ const closure = heavyClosure();
 
 메모리를 효율적으로 관리하기 위한 두 가지 방법입니다.
 
-**① 필요한 값만 캡처하기**
+**💡 필요한 값만 캡처하기**
 
 ```jsx
 function betterClosure() {
@@ -1022,7 +1022,7 @@ function betterClosure() {
 }
 ```
 
-**② 사용 후 명시적 해제**
+**💡 사용 후 명시적 해제**
 
 ```jsx
 // 또는 사용 후 명시적 해제
@@ -1031,7 +1031,7 @@ let closure = heavyClosure();
 closure = null; // 참조 해제 -> GC 대상
 ```
 
-### 3) 핵심 정리
+### 3) 📌 기억 포인트
 
 안전한 클로저 사용을 위한 수칙입니다.
 
@@ -1183,7 +1183,7 @@ for (var i = 0; i < 3; i++) {
 
 ---
 
-## 🔑 핵심 정리
+## ✅ 핵심 요약
 
 ### 1) 렉시컬 스코프 (Lexical Scope)
 

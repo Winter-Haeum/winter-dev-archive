@@ -63,10 +63,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-🎯 <strong>코딩테스트 이해</strong> — 코딩테스트가 무엇이고 왜 필요한지 이해합니다.<br>
-🏢 <strong>활용 분야 파악</strong> — 어떤 기업에서 어떻게 활용하는지 알아봅니다.<br>
-🧩 <strong>문제 유형 파악</strong> — 어떤 유형의 문제가 출제되는지 살펴봅니다.<br>
-📚 <strong>준비 방법 이해</strong> — 효과적인 준비 방법과 마인드셋을 배웁니다.
+• <strong>코딩테스트 이해</strong> — 코딩테스트가 무엇이고 왜 필요한지 이해합니다.<br>
+• <strong>활용 분야 파악</strong> — 어떤 기업에서 어떻게 활용하는지 알아봅니다.<br>
+• <strong>문제 유형 파악</strong> — 어떤 유형의 문제가 출제되는지 살펴봅니다.<br>
+• <strong>준비 방법 이해</strong> — 효과적인 준비 방법과 마인드셋을 배웁니다.
 </div>
 
 ---
@@ -75,7 +75,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 프로그래밍 문제를 풀어 실력을 검증하는 시험입니다.
 
-**1) 정의**
+**📌 정의**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">정의</div><div class="wda-fcard-dsc">주어진 문제를 코드로 해결하는 테스트입니다.</div></div>
@@ -84,14 +84,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl">평가 방식</div><div class="wda-fcard-dsc">사람이 아닌 자동 채점 시스템이 코드를 실행하여 평가합니다.</div></div>
 </div>
 
-**2) 목적 (Why?)**
+**📌 목적 (Why?)**
 
 • 지원자의 문제 해결 능력을 검증하기 위함입니다.<br>
 • 단순 암기가 아닌 논리적 사고력을 평가합니다.<br>
 • 기본적인 프로그래밍 역량(문법 활용 등)을 확인합니다.<br>
 • 수많은 지원자를 효율적으로 선발하기 위한 수단입니다.
 
-**3) 비유로 이해하기**
+**💡 비유로 이해하기**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -125,7 +125,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 IT 기업 채용의 필수 관문이자, 교육 기회를 얻기 위한 수단으로 활용됩니다.
 
-**1) 기업 채용 (Recruitment)**
+**📌 기업 채용 (Recruitment)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -138,12 +138,12 @@ IT 기업 채용의 필수 관문이자, 교육 기회를 얻기 위한 수단�
   </div>
 </div>
 
-**2) 교육 및 성장 (Education)**
+**📌 교육 및 성장 (Education)**
 
 • 🎓 교육/장학 프로그램 — 국가나 기업에서 지원하는 무료 고품질 개발 교육에 들어가기 위해서도 코딩테스트를 통과해야 합니다.<br>
 &nbsp;&nbsp;대표 프로그램 : SSAFY(삼성 청년 SW 아카데미), SW 마에스트로, 우아한테크코스, 네이버 부스트캠프
 
-**3) 자격 및 인증 (Certification)**
+**📌 자격 및 인증 (Certification)**
 
 📜 <strong>자격증</strong>
 
@@ -196,7 +196,7 @@ IT 기업 채용의 필수 관문이자, 교육 기회를 얻기 위한 수단�
 
 실제 코딩테스트 플랫폼(프로그래머스 등)의 문제 풀이 화면 구성입니다. 크게 문제 설명, 코드 작성, 결과 확인 세 부분으로 나뉩니다.
 
-**1) 📄 문제 예시 (Description)**
+**📄 문제 예시 (Description)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">문제 설명</div><div class="wda-fcard-dsc">해결해야 할 과제가 텍스트로 주어집니다. (예: 정수 배열 numbers가 주어집니다. 배열의 모든 요소의 합을 반환하세요.)</div></div>
@@ -204,7 +204,7 @@ IT 기업 채용의 필수 관문이자, 교육 기회를 얻기 위한 수단�
   <div class="wda-fcard"><div class="wda-fcard-ttl">예시 (Example)</div><div class="wda-fcard-dsc">[1, 2, 3] 입력 시 6이 나와야 한다는 입출력 예시를 보여줍니다.</div></div>
 </div>
 
-**2) 💻 풀이 코드 (Coding Area)**
+**💻 풀이 코드 (Coding Area)**
 
 이미지 속에 작성된 실제 풀이 코드입니다. 보통 solution 함수 내부에 로직을 채워 넣는 방식입니다.
 
@@ -228,7 +228,7 @@ function solution(numbers) {
 }
 ```
 
-**3) ✅ 채점 결과 (Grading)**
+**✅ 채점 결과 (Grading)**
 
 • <strong>테스트 통과</strong>: 작성한 코드를 제출하면 시스템이 테스트 케이스를 돌려봅니다.<br>
 • <strong>실행 시간</strong>: 0.02ms, 0.01ms 처럼 코드가 실행되는 데 걸린 시간이 표시됩니다.<br>
@@ -249,7 +249,7 @@ function solution(numbers) {
 
 시간 관리와 채점 기준을 모르면 문제를 다 풀고도 떨어질 수 있습니다.
 
-**1) ⏱️ 시간 구성 (Time Limit)**
+**⏱️ 시간 구성 (Time Limit)**
 
 기업마다 다르지만, 보통 한 문제당 30분~1시간 정도의 시간이 주어집니다.
 
@@ -259,7 +259,7 @@ function solution(numbers) {
 | 카카오 | 5시간 | 7문제 | 긴 시간 동안 집중력 유지 필요 |
 | 삼성 | 3시간 | 2문제 | 문제 수는 적지만 난이도가 높음 |
 
-**2) ✅ 채점 방식 (Grading)**
+**✅ 채점 방식 (Grading)**
 
 단순히 "답이 맞았다"고 끝이 아닙니다. 다음 3가지 기준을 모두 통과해야 합니다.
 
@@ -269,7 +269,7 @@ function solution(numbers) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">메모리 (Memory)</div><div class="wda-fcard-dsc">불필요하게 너무 많은 RAM을 사용하지 않는지 체크합니다.</div></div>
 </div>
 
-**3) 🚀 시간 복잡도 (Time Complexity)**
+**🚀 시간 복잡도 (Time Complexity)**
 
 코딩테스트에서 가장 중요한 개념 중 하나입니다. "내 코드가 얼마나 빠른가?"를 의미합니다.
 
@@ -279,7 +279,7 @@ function solution(numbers) {
 | 시간 초과 (Time Limit Exceeded) | 비효율적인 코드를 짜면 답이 맞아도 오답 처리됩니다. |
 | 전략 | 입력 데이터의 크기(N)를 보고, <strong>"아, 이 문제는 이중 반복문(O(N^2))을 쓰면 시간 초과가 나겠구나"</strong>라고 예상할 수 있어야 합니다. |
 
-**4) ⚠️ 주의사항 (Caution)**
+**⚠️ 주의사항 (Caution)**
 
 | 구분 | 상세 내용 |
 |---|---|
@@ -293,7 +293,7 @@ function solution(numbers) {
 
 무엇을 준비해야 할까요? 크게 기초 문법, 문제 해결력, 자료구조, 알고리즘 4가지가 필요합니다.
 
-**1) 프로그래밍 기초**
+**📌 프로그래밍 기초**
 
 가장 기본이 되는 도구 사용법입니다. JavaScript 기초 과정(Section 1)에서 배운 내용들이 여기에 해당합니다.
 
@@ -304,7 +304,7 @@ function solution(numbers) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">문자열 처리</div><div class="wda-fcard-dsc">텍스트 데이터를 가공하는 능력입니다.</div></div>
 </div>
 
-**2) 🧠 문제 해결 능력**
+**🧠 문제 해결 능력**
 
 단순히 코드를 짜는 것이 아니라, 문제를 어떻게 풀지 생각하는 힘입니다.
 
@@ -315,7 +315,7 @@ function solution(numbers) {
 | 패턴 인식 | "아, 이 문제는 예전에 풀었던 그 방식이랑 비슷하네?"라고 파악하는 능력입니다. |
 | 디버깅 | 코드가 왜 안 돌아가는지 원인을 찾아 고치는 능력입니다. |
 
-**3) 📚 자료구조 이해**
+**📚 자료구조 이해**
 
 데이터를 효율적으로 저장하고 관리하는 방법에 대한 이해입니다. 상황에 맞는 '그릇'을 골라야 합니다.
 
@@ -325,7 +325,7 @@ function solution(numbers) {
 | 선형 구조 | 스택 (Stack), 큐 (Queue) | 데이터가 줄 지어 있는 형태 |
 | 비선형 구조 | 해시맵 (Map, Set) / 트리 (Tree), 그래프 (Graph) | 데이터가 복잡하게 연결된 형태 |
 
-**4) 알고리즘 기초**
+**📌 알고리즘 기초**
 
 문제를 해결하기 위한 <strong>절차나 방법(공식)</strong>입니다.
 
@@ -340,7 +340,7 @@ function solution(numbers) {
 
 ## 7. 어떻게 준비할까? (Preparation Strategy)
 
-**1) 효과적인 3단계 준비법**
+**📍 효과적인 3단계 준비법**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -377,7 +377,7 @@ function solution(numbers) {
   </div>
 </div>
 
-**2) 📅 추천 학습 로드맵 (비전공자/입문자 기준)**
+**📅 추천 학습 로드맵 (비전공자/입문자 기준)**
 
 딱 <strong>8주(2달)</strong>만 투자해 보세요. 입문자도 충분히 기초를 잡을 수 있습니다.
 
@@ -400,7 +400,7 @@ function solution(numbers) {
 
 코딩테스트에 대한 두려움을 이기는 자세입니다. 잘못된 오해를 버리고 올바른 태도를 갖춰야 합니다.
 
-**1) ❌ 흔한 오해 (Myths)**
+**❌ 흔한 오해 (Myths)**
 
 **잘못된 생각들**
 
@@ -410,7 +410,7 @@ function solution(numbers) {
   • <strong>"천재만 잘할 수 있어"</strong> — 🙅‍♂️ 아닙니다. 재능보다는 연습량이 실력을 만듭니다.
 </div>
 
-**2) ✅ 올바른 마인드셋 (Right Attitude)**
+**✅ 올바른 마인드셋 (Right Attitude)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">과정을 즐기기</div><div class="wda-fcard-dsc">문제를 풀었을 때의 쾌감, 문제 푸는 재미를 느껴보세요.</div></div>
@@ -421,7 +421,7 @@ function solution(numbers) {
 
 ---
 
-## ✅ 코딩테스트 핵심 요약
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

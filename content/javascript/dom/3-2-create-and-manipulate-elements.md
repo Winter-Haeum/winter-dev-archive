@@ -60,11 +60,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🔍 <strong>요소 선택</strong> — querySelector 등 5가지 메서드를 익힙니다.<br>
-  ✏️ <strong>내용 변경</strong> — textContent와 innerHTML의 차이를 이해합니다.<br>
-  🏷️ <strong>속성과 클래스</strong> — getAttribute, classList 활용법을 익힙니다.<br>
-  🎨 <strong>스타일 조작</strong> — style 프로퍼티와 클래스 토글을 다룹니다.<br>
-  🧩 <strong>요소 생성 및 조작</strong> — createElement, appendChild 등을 활용합니다.
+  • <strong>요소 선택</strong> — querySelector 등 5가지 메서드를 익힙니다.<br>
+  • <strong>내용 변경</strong> — textContent와 innerHTML의 차이를 이해합니다.<br>
+  • <strong>속성과 클래스</strong> — getAttribute, classList 활용법을 익힙니다.<br>
+  • <strong>스타일 조작</strong> — style 프로퍼티와 클래스 토글을 다룹니다.<br>
+  • <strong>요소 생성 및 조작</strong> — createElement, appendChild 등을 활용합니다.
 </div>
 
 ---
@@ -154,12 +154,12 @@ const para = document.querySelector('p');
 </form>
 ```
 
-### 2) Mission
+**🎯 Mission**
 
 1. 에러가 발생한 입력창 찾기
 2. 로그인 버튼 찾기
 
-### 3) 미션 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 에러가 발생한 입력창 찾기
@@ -212,7 +212,7 @@ console.log(document.querySelector('button[type="submit"]'));
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li><strong>XSS란?</strong> 공격자가 웹사이트에 악성 스크립트를 주입하는 보안 취약점입니다.</li>
     <li>사용자의 쿠키(정보)를 탈취하거나, 악성 동작을 수행할 수 있습니다.</li>
@@ -292,7 +292,7 @@ div.innerHTML = input;
   </div>
 </div>
 
-### 2) 코드 예시
+**🧪 예시 코드**
 
 ```jsx
 // 1. HTML 초기값 확인
@@ -486,7 +486,7 @@ console.log(computed.display);  // "block"
 </div>
 ```
 
-### 2) Mission
+**🎯 Mission**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -519,7 +519,7 @@ console.log(computed.display);  // "block"
   </div>
 </div>
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 선택
@@ -593,7 +593,7 @@ document.body.appendChild(ul);
 
 JavaScript로 카드를 만들고 화면에 붙여봅시다.
 
-### 1) Mission
+**🎯 Mission**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -622,7 +622,7 @@ JavaScript로 카드를 만들고 화면에 붙여봅시다.
   </div>
 </div>
 
-### 2) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 // 1. 생성 (풍선 만들기)
@@ -813,7 +813,7 @@ function addTodo() {
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>모든 인터랙티브한 웹 사이트의 기본 연결 고리입니다: <code>addBtn.addEventListener('click', addTodo);</code></li>
     <li><strong>addEventListener</strong> : "이벤트가 발생하는지 계속 듣고 있어라"</li>
@@ -875,7 +875,7 @@ btn.addEventListener('click', () => {
 
 ---
 
-## 🚀 최종 핵심 정리
+## ✅ 핵심 요약
 
 ### 1. 요소 선택 및 상태 (Selection)
 

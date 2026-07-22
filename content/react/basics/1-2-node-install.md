@@ -16,18 +16,20 @@ tags:
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
 .wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cb{background:rgba(59,130,246,.035);border-color:rgba(59,130,246,.25)}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cy .wda-clabel{color:#92400e}
+.wda-cb .wda-clabel{color:#2563eb}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -36,7 +38,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
@@ -60,9 +62,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>Node.js 설치하기</strong> — 공식 사이트에서 Node.js를 다운로드 및 설치합니다.<br>
-  <strong>설치 확인하기</strong> — 터미널 명령어로 설치 상태를 확인합니다.<br>
-  <strong>첫 프로젝트 생성</strong> — `npm init`으로 프로젝트를 초기화합니다.
+  • <strong>Node.js 설치하기</strong> — 공식 사이트에서 Node.js를 다운로드 및 설치합니다.<br>
+  • <strong>설치 확인하기</strong> — 터미널 명령어로 설치 상태를 확인합니다.<br>
+  • <strong>첫 프로젝트 생성</strong> — `npm init`으로 프로젝트를 초기화합니다.
 </div>
 
 ---
@@ -123,7 +125,7 @@ npm --version
 
 ### ✅ 체크 포인트
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cb">
   "버전 번호가 숫자로 출력되면 설치 성공입니다!"<br><br>
   만약 "명령어를 찾을 수 없음(command not found)"이라는 메시지가 뜬다면, 설치가 제대로 안 된 것이니 재설치하거나 터미널을 껏다 켜보세요.
 </div>
@@ -292,9 +294,9 @@ npm init -y
 | **devDependencies** | **개발용 재료** | **개발할 때만 필요한 패키지** 목록입니다. (예: Prettier, ESLint) |
 | **main** | **시작점** | 프로그램이 처음 시작되는 파일입니다. (보통 `index.js`) |
 
-### 💡 핵심 요약
+### 💼 실무 포인트
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   "이 파일이 명세서(Spec Sheet)입니다!"<br><br>
   협업할 때 동료에게 거대한 <code>node_modules</code> 폴더를 통째로 압축해서 주는 게 아니라, 가벼운 <strong>`package.json` 파일 하나만 공유</strong>하면 됩니다. 동료는 <code>npm install</code> 명령어 한 방으로 똑같은 환경을 만들 수 있기 때문입니다.
 </div>
@@ -467,9 +469,9 @@ my-first-project/
   </div>
 </div>
 
-### 💡 핵심 요약
+### 💼 실무 포인트
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   "동료에게 줄 때는 node_modules만 빼고 줍니다!"<br><br>
   동료는 <code>package.json</code>과 <code>package-lock.json</code>만 있으면, <code>npm install</code> 명령어 한 번으로 <code>node_modules</code>를 다시 복원할 수 있기 때문입니다. 복원 시간은 프로젝트 크기와 네트워크 상태에 따라 달라질 수 있습니다.
 </div>
@@ -506,7 +508,7 @@ my-first-project/
 
 ---
 
-<h2>🔑 핵심 정리</h2>
+<h2>✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

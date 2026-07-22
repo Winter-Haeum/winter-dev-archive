@@ -22,11 +22,11 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -53,9 +53,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) props 개념</strong> — props가 무엇이고 부모 컴포넌트에서 자식 컴포넌트로 어떻게 전달하는지 이해합니다.<br>
-  <strong>2) 구조 분해 할당</strong> — 자바스크립트의 '구조 분해 할당' 문법을 사용하여 props 코드를 더 간결하고 읽기 좋게 작성할 수 있습니다.<br>
-  <strong>3) children과 합성</strong> — <code>children</code>이라는 특별한 props를 활용하여 컴포넌트 사이에 다른 컴포넌트를 끼워 넣는 합성 방식을 배웁니다.
+  • <strong>props 개념</strong> — props가 무엇이고 부모 컴포넌트에서 자식 컴포넌트로 어떻게 전달하는지 이해합니다.<br>
+  • <strong>구조 분해 할당</strong> — 자바스크립트의 '구조 분해 할당' 문법을 사용하여 props 코드를 더 간결하고 읽기 좋게 작성할 수 있습니다.<br>
+  • <strong>children과 합성</strong> — <code>children</code>이라는 특별한 props를 활용하여 컴포넌트 사이에 다른 컴포넌트를 끼워 넣는 합성 방식을 배웁니다.
 </div>
 
 ---
@@ -229,7 +229,7 @@ function Student({ name, age }) {
 
 가장 기본적인 props 전달을 연습해봅시다. `StudentCard` 컴포넌트를 만들고 데이터를 띄워보세요.
 
-### 1) Mission
+**🎯 Mission**
 
 다음 3단계에 걸쳐 미션을 수행하세요.
 
@@ -237,7 +237,7 @@ function Student({ name, age }) {
 2. **데이터 전달 (부모):** `App.jsx`에서 `name`과 `studentId`라는 이름으로 데이터를 전달하세요.
 3. **데이터 표시 (자식):** `StudentCard`에서 props를 받아서 화면에 표시하세요.
 
-### 2) 예제 코드 (작성 가이드)
+**📝 예제 코드 (작성 가이드)**
 
 아래의 빈칸을 채우거나 주석을 참고하여 코드를 작성해 보세요.
 
@@ -273,14 +273,14 @@ function App() {
 export default App;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 브라우저에 다음과 같은 학생증 카드가 나타나면 성공입니다.
 
 - **카드 1:** 이름: 김철수 / 학번: 2024001
 - **카드 2:** 이름: 이영희 / 학번: 2024002
 
-<h3>4) 정답 코드</h3>
+**📝 정답 코드**
 
 작성한 코드와 비교해 보세요.
 
@@ -336,7 +336,7 @@ export default App;
 
 `props.name`, `props.studentId` 처럼 매번 `props.`을 붙이는 것은 번거롭습니다. 최신 문법으로 코드를 깔끔하게(Refactoring) 고쳐봅시다.
 
-### 1) Mission
+**🎯 Mission**
 
 실습 1에서 만든 `StudentCard.jsx` 파일을 열고 다음 3가지를 수정하세요.
 
@@ -435,7 +435,7 @@ function Student({ name, role = "학생" }) {
 
 모든 학생이 전공이 정해진 것은 아닙니다. 전공 데이터가 없을 때 자동으로 "전공 미정"이라고 뜨도록 처리해 봅시다.
 
-### 1) Mission
+**🎯 Mission**
 
 다음 3가지 단계를 수행하여 코드를 수정하세요.
 
@@ -443,7 +443,7 @@ function Student({ name, role = "학생" }) {
 2. **데이터 차별:** `App.jsx`에서 첫 번째 학생에게는 전공을 넣어주고, 두 번째 학생은 전공을 넣지 마세요.
 3. **기본값 처리:** 전공을 넣지 않은 학생은 화면에 **"전공 미정"**이라고 나오도록 기본값을 설정하세요.
 
-### 2) 예제 코드 (작성 가이드)
+**📝 예제 코드 (작성 가이드)**
 
 아래 주석을 참고하여 빈칸을 채워보세요.
 
@@ -483,14 +483,14 @@ function App() {
 export default App;
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 브라우저에서 다음과 같이 보여야 합니다.
 
 - **김철수:** 전공: 컴퓨터공학
 - **이영희:** 전공: **전공 미정** (자동 적용)
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 **src/components/StudentCard.jsx**
 
@@ -530,7 +530,7 @@ export default StudentCard;
 
 부모 컴포넌트가 자식 컴포넌트의 **시작 태그와 종료 태그 사이**에 넣은 모든 것(HTML 태그, 텍스트, 또 다른 컴포넌트 등)이 `children`이라는 이름으로 전달됩니다.
 
-### 2) 코드 예시
+**🧪 예시 코드**
 
 **(1) 보내는 쪽 (App.jsx)**
 
@@ -597,7 +597,7 @@ export default CardLayout;
 
 ---
 
-<h2>11. 🔑 핵심 정리</h2>
+<h2>11. ✅ 핵심 요약</h2>
 
 이번 챕터에서 반드시 기억해야 할 3가지 핵심 내용입니다.
 

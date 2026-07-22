@@ -46,15 +46,13 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 </style>
 
-<div class="wda-callout wda-cy" style="position:relative;overflow:visible;">
-  📎 <strong>부록(Appendix)</strong> — map·filter·reduce·forEach·find·some/every·sort를 실무형 문제 12개로 반복 연습하는 실습 전용 부록입니다.
-</div>
+📎 <strong>부록(Appendix)</strong> — map·filter·reduce·forEach·find·some/every·sort를 실무형 문제 12개로 반복 연습하는 실습 전용 부록입니다.
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
   <h2>💻 실습 1 : Map (1) - 데이터 변환하기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 DB에서 가져온 `user` 정보를 프론트엔드에서 보여줄 **UI 전용 모델**로 변환하세요.
 
@@ -63,7 +61,7 @@ DB에서 가져온 `user` 정보를 프론트엔드에서 보여줄 **UI 전용 
 
 > Tip: 화살표 함수에서 객체를 바로 리턴할 땐 (`{}`) 괄호를 잊지 마세요!
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -80,7 +78,7 @@ const uiModels = users.map(/* ... */);
 console.log(uiModels);
 ```
 
-### 3) 정답
+**📝 정답**
 
 템플릿 리터럴로 이름을 합치고, 비교 연산자로 성인 여부를 판단합니다. 가장 중요한 건 **객체를 반환할 때 소괄호 `()`로 감싸는 것**입니다.
 
@@ -134,7 +132,7 @@ console.log(uiModels);
   <h2>💻 실습 2 : Map (2) - 데이터 포맷팅</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 가격(price) 데이터를 ₩ 통화 기호와 천 단위 콤마( , )가 포함된 문자열로 변환하세요.
 
@@ -142,7 +140,7 @@ console.log(uiModels);
 
 > Tip: map은 원본 배열의 개수와 동일한 새 배열을 만듭니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -159,7 +157,7 @@ const prices = products.map(/* ... */);
 console.log(prices);
 ```
 
-### 3) 정답
+**📝 정답**
 
 숫자에 쉼표를 찍을 때 복잡한 정규식 대신 `toLocaleString()`을 사용하면 아주 쉽습니다.
 
@@ -195,13 +193,13 @@ console.log(prices);
   <h2>💻 실습 3 : Map (3) - Null 안전 처리</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 서버 데이터 중 일부가 빠져있을 수 있습니다( `null` or `undefined` ). `address` 가 없으면 "주소 없음"으로 표시되도록 처리하세요.
 
 > Tip: item.address || '주소 없음' 패턴은 실무에서 매우 자주 쓰입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -218,7 +216,7 @@ const shippingLabels = orders.map(/* ... */);
 console.log(shippingLabels);
 ```
 
-### 3) 정답
+**📝 정답**
 
 논리 연산자 `||` (OR)를 사용하여 **'데이터가 없으면(False) 이걸 써라'**는 기본값 설정을 할 수 있습니다.
 
@@ -266,13 +264,13 @@ label: order.address ?? '주소 없음'
   <h2>💻 실습 4 : Filter (1) - 복잡한 조건</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 "재고가 있고( `stock > 0` )" 그리고 "가격이 100만원 이상( `price >= 1000000` )"인 프리미엄 상품만 골라내세요.
 
 > Tip: 두 조건이 모두 참이어야 할 땐 && (AND) 연산자를 사용합니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -290,7 +288,7 @@ const premiumInStock = items.filter(/* ... */);
 console.log(premiumInStock);
 ```
 
-### 3) 정답
+**📝 정답**
 
 논리 연산자 `&&`를 사용하면 여러 개의 필터링 조건을 한 번에 연결할 수 있습니다.
 
@@ -339,13 +337,13 @@ console.log(premiumInStock);
   <h2>💻 실습 5 : Filter (2) - 유효 데이터만 남기기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 배열에 `null` , `undefined` , 빈 문자열 `""` 같은 허수 데이터가 섞여 있습니다. 실제 존재하는 값(Truthy)만 남기세요.
 
 > Tip: filter(Boolean)은 filter(item => Boolean(item))과 같습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -365,7 +363,7 @@ const validFruits = rawInput.filter(/* ... */);
 console.log(validFruits);
 ```
 
-### 3) 정답
+**📝 정답**
 
 `Boolean` 함수 그 자체를 콜백으로 넘겨주면, 거짓 같은 값(Falsy)들은 알아서 다 걸러집니다.
 
@@ -390,7 +388,7 @@ console.log(validFruits);
   이 코드는 자바스크립트 고수들이 즐겨 쓰는 <strong>'데이터 청소기'</strong> 패턴입니다. 자바스크립트에는 <strong>Falsy Value (거짓으로 취급되는 값)</strong> 라는 개념이 있습니다.
 </div>
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   · <code>null</code><br>
   · <code>undefined</code><br>
   · <code>0</code><br>
@@ -418,13 +416,13 @@ const cleaned = rawInput.filter(item => item != null);
   <h2>💻 실습 6 : Reduce (1) - 합계 구하기 (쇼핑몰)</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 장바구니에 담긴 상품들의 **총 결제 금액**을 계산하세요. ( `price` * `qty` 의 총합)
 
 > Tip: acc는 누적값, cur는 현재 상품 객체입니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -441,7 +439,7 @@ const totalPrice = cart.reduce(/* ... */, 0);
 console.log(totalPrice);
 ```
 
-### 3) 정답
+**📝 정답**
 
 `cur`가 단순 숫자가 아니라 **객체**이므로, `cur.price`와 `cur.qty`에 접근해서 계산해야 합니다.
 
@@ -484,13 +482,13 @@ console.log(totalPrice);
   <h2>💻 실습 7 : Reduce (2) - 그룹핑 (Grouping)</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 사람들을 `role` (직업) 별로 그룹핑하여 **객체**로 만드세요. (실무 면접 단골 문제입니다!)
 
 > Tip: acc[cur.role] 배열이 없으면 [] 로 초기화 후 push!
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸을 채워 완성해 보세요.
 
@@ -507,7 +505,7 @@ const grouped = team.reduce(/* ... */, {});
 console.log(grouped);
 ```
 
-### 3) 정답
+**📝 정답**
 
 배열 안의 객체들을 특정 키(Key) 값에 따라 분류해서 넣는 로직입니다.
 
@@ -573,11 +571,11 @@ console.log(grouped);
   <h2>💻 실습 8 : Reduce (3) - Lookup Table 만들기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 배열을 `id`를 키(Key)로 하는 **객체(Lookup Table)**로 변환하세요. 이렇게 하면 특정 ID의 데이터를 찾을 때 `O(1)` 속도로 매우 빠르게 접근할 수 있습니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 빈칸(`/* ... */`)을 채워 배열을 객체로 만드는 문제입니다.
 
@@ -601,7 +599,7 @@ const userMap = users.reduce((acc, cur) => {
 console.log(userMap);
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 배열이 아닌 **객체(Object)** 형태여야 합니다.
 
@@ -649,11 +647,11 @@ const userMap = users.reduce((acc, cur) => {
   <h2>💻 실습 9 : forEach - 단순 반복 (Logging)</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 반환값이 필요 없습니다. 단순히 각 사용자에게 이메일을 발송하는 흉내를 내보세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `forEach`를 사용하여 배열의 요소를 하나씩 꺼내 작업을 수행하는 문제입니다.
 
@@ -669,7 +667,7 @@ members.forEach(member => {
 });
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 단순히 콘솔에 로그가 찍히면 성공입니다.
 
@@ -679,7 +677,7 @@ Sending email to Sarah...
 Sending email to Mike...
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 const members = ['John', 'Sarah', 'Mike'];
@@ -719,11 +717,11 @@ members.forEach(member => {
   <h2>💻 실습 10 : Find - 특정 데이터 찾기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 ID가 `3` 인 유저를 찾으세요. ( `users` 배열 가정) 없으면 `undefined` 가 나옵니다.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `find` 메서드를 사용하여 조건에 맞는 첫 번째 요소를 찾아내는 문제입니다.
 
@@ -741,7 +739,7 @@ const target = userList.find(/* ... */);
 console.log(target);
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 배열이 아닌, 찾은 **객체 그 자체**가 반환되어야 합니다.
 
@@ -749,7 +747,7 @@ console.log(target);
 { id: 3, name: 'C' }
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 const userList = [
@@ -795,12 +793,12 @@ console.log(target);
   <h2>💻 실습 11 : Some / Every - 검증하기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 1. `some` : 하나라도 `admin` 권한이 있는가?
 2. `every` : 모두가 `active` 상태인가?
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `some`과 `every`를 사용하여 배열 내 데이터의 조건을 검증하는 문제입니다.
 
@@ -815,7 +813,7 @@ const hasAdmin = staff.some(/* ... */);
 const allActive = staff.every(/* ... */);
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 반환값은 `true` 또는 `false`여야 합니다.
 
@@ -824,7 +822,7 @@ hasAdmin: true // admin이 한 명 있으니까
 allActive: false // 마지막 사람이 false니까
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 const staff = [
@@ -870,11 +868,11 @@ console.log('allActive:', allActive);
   <h2>💻 실습 12 : Sort - 정렬하기</h2>
 </div>
 
-### 1) Mission
+**🎯 Mission**
 
 점수(score)가 높은 순서대로(내림차순) 정렬하세요.
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 `sort` 메서드를 사용하여 배열의 순서를 재배치하는 문제입니다.
 
@@ -884,7 +882,7 @@ const scores = [85, 100, 70, 95];
 // scores.sort(...)
 ```
 
-### 3) 결과 예시
+**✅ 결과 예시**
 
 숫자가 큰 것부터 작은 순서로 나열되어야 합니다.
 
@@ -892,7 +890,7 @@ const scores = [85, 100, 70, 95];
 [100, 95, 85, 70]
 ```
 
-### 4) 정답 코드
+**📝 정답 코드**
 
 ```jsx
 const scores = [85, 100, 70, 95];

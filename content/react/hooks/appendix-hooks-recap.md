@@ -25,12 +25,12 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -57,10 +57,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) 전체 지도 그리기</strong> — 지금까지 배운 Hook들을 5가지 카테고리로 분류해 한눈에 복습합니다<br>
-  <strong>2) 핵심 Hook 재복습</strong> — useState·useEffect·useContext·useRef의 역할과 특징을 다시 정리합니다<br>
-  <strong>3) 최적화 Hook 구분</strong> — useMemo와 useCallback의 차이를 명확히 이해합니다<br>
-  <strong>4) 신규 Hook 맛보기</strong> — useTransition, useId 같은 React 18+ Hook의 쓰임새를 살펴봅니다
+  • <strong>전체 지도 그리기</strong> — 지금까지 배운 Hook들을 5가지 카테고리로 분류해 한눈에 복습합니다<br>
+  • <strong>핵심 Hook 재복습</strong> — useState·useEffect·useContext·useRef의 역할과 특징을 다시 정리합니다<br>
+  • <strong>최적화 Hook 구분</strong> — useMemo와 useCallback의 차이를 명확히 이해합니다<br>
+  • <strong>신규 Hook 맛보기</strong> — useTransition, useId 같은 React 18+ Hook의 쓰임새를 살펴봅니다
 </div>
 
 ---
@@ -86,7 +86,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **💡 팁**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p>초보자라면 <code>useState</code>, <code>useEffect</code> 두 가지만 확실히 익혀도 대부분의 기능을 구현할 수 있습니다.<br>성능 최적화 훅(<code>useMemo</code>, <code>useCallback</code>)은 앱이 느려졌다고 느껴질 때 도입해도 늦지 않습니다.</p>
 </div>
 
@@ -168,7 +168,7 @@ const handleClick = useCallback(() => {
 
 ### 1) 개념 (Concept)
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>useTransition은 긴급한 업데이트와 덜 긴급한 업데이트를 구분해, 사용자 입력 같은 중요한 반응을 먼저 처리하도록 돕습니다.</p>
 </div>
 
@@ -186,11 +186,11 @@ const handleClick = useCallback(() => {
 
 **핵심**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p>"입력은 즉시 반응하고, 결과는 천천히 보여줘도 될 때" 사용합니다.</p>
 </div>
 
-### 3) 코드 예시 (Implementation)
+**🧪 예시 코드**
 
 ```jsx
 import { useState, useTransition } from 'react';
@@ -251,7 +251,7 @@ export default SearchList;
   <div class="wda-fcard"><div class="wda-fcard-ttl">🖥️ SSR 불일치 방지</div><div class="wda-fcard-dsc">만약 Math.random()으로 ID를 만들면, 서버에서 만든 ID와 브라우저에서 만든 ID가 달라져서 에러(Hydration Mismatch)가 발생합니다.<br>useId는 서버와 클라이언트가 똑같은 ID를 갖도록 보장합니다.</div></div>
 </div>
 
-### 3) 코드 예시 (Implementation)
+**🧪 예시 코드**
 
 ```jsx
 import { useId } from 'react';

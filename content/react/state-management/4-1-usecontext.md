@@ -24,12 +24,12 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -56,10 +56,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) Props Drilling 이해</strong> — 깊은 컴포넌트 트리로의 데이터 전달 문제를 이해하고 해결합니다<br>
-  <strong>2) Context 생성과 제공</strong> — createContext와 Provider로 전역 상태를 설정하는 법을 배웁니다<br>
-  <strong>3) useContext 활용</strong> — Hook을 사용하여 컴포넌트 어디서든 전역 상태에 접근합니다<br>
-  <strong>4) 적절한 사용 판단</strong> — Props와 Context 중 상황에 맞는 상태 관리 방법을 선택합니다
+  • <strong>Props Drilling 이해</strong> — 깊은 컴포넌트 트리로의 데이터 전달 문제를 이해하고 해결합니다<br>
+  • <strong>Context 생성과 제공</strong> — createContext와 Provider로 전역 상태를 설정하는 법을 배웁니다<br>
+  • <strong>useContext 활용</strong> — Hook을 사용하여 컴포넌트 어디서든 전역 상태에 접근합니다<br>
+  • <strong>적절한 사용 판단</strong> — Props와 Context 중 상황에 맞는 상태 관리 방법을 선택합니다
 </div>
 
 ---
@@ -73,7 +73,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 - **구조**: `App (user)` 👉 `Header` 👉 `Navigation` 👉 `UserMenu (user 필요!)`
 
-### 2) 코드 예시 (The Drilling)
+**🧪 예시 코드 (The Drilling)**
 
 데이터를 전달하기 위해, 중간에 있는 컴포넌트들이 계속해서 props를 내려줘야 합니다.
 
@@ -117,9 +117,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl">📡 Context (방송)</div><div class="wda-fcard-dsc"><strong>방식</strong>: 방송 송출 (Broadcast)<br><strong>구조</strong>: App (Provider) 📡 〰️〰️ 👉 UserMenu (직접 수신)<br><strong>장점</strong>: 중간 컴포넌트를 건너뛰고, 필요한 곳에서만 직접 데이터를 받아 쓸 수 있습니다.</div></div>
 </div>
 
-**💡 핵심 요약**
+**🆚 비교 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <p><strong>"Props는 택배 배송, Context는 와이파이!"</strong></p>
   <p>택배는 손에서 손으로 거쳐가야 하지만, 와이파이는 비밀번호(Provider)만 알면 집안 어디서든 바로 쓸 수 있는 것과 같습니다.</p>
 </div>
@@ -133,7 +133,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 **"방송 채널을 개설합니다."**
 데이터를 공유하기 위한 공간(Context)을 만듭니다. 보통 관리하기 편하도록 별도의 파일로 분리해서 만듭니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 `createContext` 함수를 사용하여 Context 객체를 생성합니다.
 
@@ -169,7 +169,7 @@ export const ThemeContext = createContext('light');
 만들어둔 Context의 Provider 컴포넌트로 데이터를 공유하고 싶은 영역을 감싸줍니다.  
 이 Provider 내부에 있는 모든 컴포넌트(자식, 손자, 증손자...)는 데이터를 직접 받아볼 수 있게 됩니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 `value`라는 props를 통해 공유할 데이터를 내려줍니다.
 
@@ -211,7 +211,7 @@ export default App;
 **"필요한 곳에서 전파를 수신합니다."**
 Provider 안에 있는 컴포넌트라면 어디서든 `useContext` 훅을 사용하여 공유된 데이터(Context Value)에 직접 접근할 수 있습니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 중간 부모들을 거치지 않고, `ThemeContext`에서 바로 `theme` 값을 가져옵니다.
 
@@ -258,7 +258,7 @@ export default ThemedButton;
 **"데이터와 리모컨을 같이 포장해서 보냅니다."**
 하위 컴포넌트가 테마를 조회(Read)할 수 있도록 `theme` 값을 보내고, 테마를 변경(Update)할 수 있도록 `toggleTheme` 함수도 함께 포장해서(object) 보냅니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 **파일 1: ThemeContext.js (뼈대 만들기)**
 나중에 자동 완성을 돕고, Provider 실수를 방지하기 위해 기본값 모양을 미리 잡아줍니다.
@@ -319,7 +319,7 @@ export default App;
 **"꺼내서 쓰기만 하면 됩니다."**
 Provider가 내려준 선물 상자(`value={{ theme, toggleTheme }}`)를 `useContext`로 받아서, 구조 분해 할당으로 필요한 것만 쏙 뽑아 사용합니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 ```jsx
 // components/ThemeToggle.jsx
@@ -363,7 +363,7 @@ export default ThemeToggle;
 **"로그인 정보를 전역에서 관리합니다."**
 로그인한 사용자 정보(user)와 로그인(login), 로그아웃(logout) 기능을 Context에 담아, 앱의 어느 곳에서든 인증 상태를 확인하고 제어할 수 있게 만듭니다.
 
-### 2) 구현 코드 (Implementation)
+**📝 구현 코드**
 
 Provider가 없을 때 에러를 띄워주는 안전장치를 포함하여 작성했습니다.
 
@@ -500,9 +500,9 @@ function Header() {
 export default Header;
 ```
 
-**💡 핵심 요약**
+**💡 보충 설명**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-cs">
   <p><strong>간결함</strong>: Header 컴포넌트는 부모로부터 어떤 props도 받지 않았습니다. 오직 useAuth() 하나로 필요한 모든 것을 해결했습니다.</p>
   <p><strong>반응성</strong>: AuthContext 내부의 user 상태가 바뀌면(로그인/로그아웃), 이를 사용하는 Header도 자동으로 리렌더링되어 UI가 즉시 바뀝니다.</p>
 </div>
@@ -670,7 +670,7 @@ Context는 '전역적'인 데이터를 위한 것입니다.
 
 ---
 
-<h2>13. 🔑 핵심 정리 (Summary)</h2>
+<h2>13. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>

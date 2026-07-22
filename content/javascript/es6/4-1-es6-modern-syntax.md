@@ -54,11 +54,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  🔢 <strong>ECMAScript 버전 이해</strong> — ES5 → ES6 → ES2020+ 발전 과정을 이해합니다.<br>
-  ✨ <strong>템플릿 리터럴 심화</strong> — 태그드 템플릿과 고급 활용법을 익힙니다.<br>
-  🔁 <strong>이터러블과 for...of</strong> — 이터러블 프로토콜과 순회 방법을 배웁니다.<br>
-  🧩 <strong>??, ?. 연산자</strong> — nullish 병합과 옵셔널 체이닝을 활용합니다.<br>
-  🚀 <strong>ES2020+ 최신 기능</strong> — BigInt, 논리 할당 연산자 등 최신 기능을 알아봅니다.
+  • <strong>ECMAScript 버전 이해</strong> — ES5 → ES6 → ES2020+ 발전 과정을 이해합니다.<br>
+  • <strong>템플릿 리터럴 심화</strong> — 태그드 템플릿과 고급 활용법을 익힙니다.<br>
+  • <strong>이터러블과 for...of</strong> — 이터러블 프로토콜과 순회 방법을 배웁니다.<br>
+  • <strong>??, ?. 연산자</strong> — nullish 병합과 옵셔널 체이닝을 활용합니다.<br>
+  • <strong>ES2020+ 최신 기능</strong> — BigInt, 논리 할당 연산자 등 최신 기능을 알아봅니다.
 </div>
 
 ---
@@ -731,7 +731,7 @@ console.log(Object.prototype.toString.call(myObj)); // "[object MyObject]"
 
 **개념 정리**
 
-<div class="wda-callout wda-cy">
+<div class="wda-callout wda-ci">
   <ul>
     <li>Symbol은 ES6에서 추가된 자바스크립트의 <strong>원시 타입(Primitive Type)</strong>입니다. 객체가 아니라 숫자나 문자처럼 가장 기초적인 데이터 단위라는 뜻입니다.</li>
   </ul>
@@ -839,7 +839,7 @@ const num2 = count ?? 10; // 0
 
 `&&` (AND) 와 `||` (OR) 연산자의 단축 평가 기능을 사용하여, 길게 작성된 조건부(`if`) 코드를 짧고 간결하게 줄여보는 연습입니다.
 
-### 2) Mission 1. if문 줄이기 (&& 사용)
+**🎯 Mission 1. if문 줄이기 (&& 사용)**
 
 조건이 **참(True)**일 때만 특정 함수를 실행하는 코드를 변경해 봅니다.
 
@@ -854,7 +854,7 @@ if (isReady) {
 isReady && startGame();
 ```
 
-### 3) Mission 2. 기본값 설정하기 (|| 사용)
+**🎯 Mission 2. 기본값 설정하기 (|| 사용)**
 
 값이 없을 때(Falsy) **기본값(Default)**을 넣어주는 코드를 변경해 봅니다.
 
@@ -1141,7 +1141,7 @@ console.log(img); // "default.png"
 
 옵셔널 체이닝(`?.`)과 널리시 병합 연산자(`??`)를 조합하여, 구조가 불확실한 복잡한 데이터를 에러 없이 안전하게 다루는 연습입니다.
 
-### 2) Mission
+**🎯 Mission**
 
 다음 `product` 객체에서 **제조사 이름**을 안전하게 꺼내고, 만약 정보가 없다면 **"Unknown"**을 출력하세요.
 
@@ -1152,7 +1152,7 @@ const product = {
 };
 ```
 
-### 3) 정답 코드
+**📝 정답 코드**
 
 `details`가 `null`이어도 에러가 나지 않도록 처리하는 것이 핵심입니다.
 
@@ -1246,7 +1246,7 @@ console.log(d); // 0
 
 ---
 
-## 🚀 핵심 요약
+## ✅ 핵심 요약
 
 <table class="wda-summary-table">
   <tr>

@@ -96,10 +96,10 @@ tags:
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  📦 <strong>변수 개념</strong> — 변수가 필요한 이유를 설명할 수 있게 된다.<br>
-  🔑 <strong>선언문</strong> — var, let, const의 차이를 구분하고 사용한다.<br>
-  ⬆️ <strong>호이스팅</strong> — 호이스팅과 TDZ 동작 원리를 이해한다.<br>
-  🔍 <strong>스코프</strong> — 전역/지역, 블록/함수 스코프를 구분한다.
+  • <strong>변수 개념</strong> — 변수가 필요한 이유를 설명할 수 있게 된다.<br>
+  • <strong>선언문</strong> — var, let, const의 차이를 구분하고 사용한다.<br>
+  • <strong>호이스팅</strong> — 호이스팅과 TDZ 동작 원리를 이해한다.<br>
+  • <strong>스코프</strong> — 전역/지역, 블록/함수 스코프를 구분한다.
 </div>
 
 ---

@@ -23,13 +23,13 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
+.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
 .wda-step:last-child{border-bottom:none}
 .wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
@@ -56,9 +56,9 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  <strong>1) state 개념 이해</strong> — state가 무엇이고 props와 어떻게 다른지 이해합니다.<br>
-  <strong>2) useState Hook 사용</strong> — useState로 상태를 선언하고 변경하는 방법을 배웁니다.<br>
-  <strong>3) 이벤트와 state 연결</strong> — 버튼 클릭으로 state를 변경하고 화면을 업데이트합니다.
+  • <strong>state 개념 이해</strong> — state가 무엇이고 props와 어떻게 다른지 이해합니다.<br>
+  • <strong>useState Hook 사용</strong> — useState로 상태를 선언하고 변경하는 방법을 배웁니다.<br>
+  • <strong>이벤트와 state 연결</strong> — 버튼 클릭으로 state를 변경하고 화면을 업데이트합니다.
 </div>
 
 ---
@@ -177,8 +177,8 @@ State는 컴포넌트 내부에서 생성하고 관리하는 데이터입니다.
 
 **💡 보충 설명**
 
-<div class="wda-callout wda-cy">
-  <strong>핵심 요약</strong>
+<div class="wda-callout wda-ci">
+  <strong>🧭 선택 가이드</strong>
   <p><strong>"화면에 표시되는 데이터가 시간에 따라 변하고, 그 값을 해당 컴포넌트가 직접 관리해야 한다면 State로 관리합니다."</strong></p>
   <ul>
     <li><strong>Props:</strong> 부모가 줌, 읽기 전용 (Read-Only)</li>
@@ -349,7 +349,7 @@ state를 선언했으니, 이제 **버튼을 눌렀을 때** 값이 바뀌도록
   </div>
 </div>
 
-### 2) 예제 코드
+**📝 예제 코드**
 
 작성해야 할 코드의 구조입니다.
 
@@ -475,7 +475,7 @@ function App() {
 
 하나의 컴포넌트 안에서 필요한 만큼 `useState`를 여러 번 호출하여 사용할 수 있습니다.
 
-### 1) 코드 예시
+**🧪 예시 코드**
 
 아래 `UserForm` 코드를 바탕으로 작성했습니다. 각 입력칸(`input`)이 서로 다른 State를 독립적으로 관리합니다.
 
@@ -557,7 +557,7 @@ State와 Input을 연결하려면 **`value`**와 **`onChange`**를 반드시 세
 />
 ```
 
-<h3>3) 🚨 주의 : "입력이 안 돼요!"</h3>
+### 3) 🚨 주의 : "입력이 안 돼요!"
 
 가장 많이 하는 실수 중 하나입니다.
 
@@ -760,7 +760,7 @@ setCount(prev => prev + 1); // 방금 만든 2를 받아서 3으로 만듦
 
 ---
 
-<h2>15. 🔑 핵심 정리</h2>
+<h2>15. ✅ 핵심 요약</h2>
 
 <table class="wda-summary-table">
   <tr>
