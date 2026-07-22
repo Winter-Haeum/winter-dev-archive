@@ -37,6 +37,12 @@ tags:
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
 .wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
 .wda-fnode-ico{font-size:1.1rem;margin-bottom:4px}
@@ -423,20 +429,37 @@ React는 사용자 인터페이스(UI)를 만들기 위한 라이브러리입니
 
 누가 누구를 호출하느냐, 즉 **"제어권(Control)"**이 누구에게 있느냐의 차이입니다.
 
-| **구분** | **Framework (예: Vue, Angular)** | **Library (예: React)** |
-| --- | --- | --- |
-| **비유** | **"기성복 정장"** (틀이 정해짐) | **"옷감과 실"** (내가 직접 만듦) |
-| **제어 흐름** | **프레임워크가 나를 부름 (IoC: 제어 역전)**<br>정해진 규칙과 틀 안에서만 코드를 작성해야 합니다. | **내가 라이브러리를 부름 (개발자 주도)**<br>내가 원하는 곳에, 원하는 방식(라우터 등)으로 자유롭게 조립합니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">Framework (예: Vue, Angular)</div>
+    <strong>비유</strong>: <strong>"기성복 정장"</strong> (틀이 정해짐)<br><br>
+    <strong>제어 흐름</strong>: <strong>프레임워크가 나를 부름 (IoC: 제어 역전)</strong><br>정해진 규칙과 틀 안에서만 코드를 작성해야 합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">Library (예: React)</div>
+    <strong>비유</strong>: <strong>"옷감과 실"</strong> (내가 직접 만듦)<br><br>
+    <strong>제어 흐름</strong>: <strong>내가 라이브러리를 부름 (개발자 주도)</strong><br>내가 원하는 곳에, 원하는 방식(라우터 등)으로 자유롭게 조립합니다.
+  </div>
+</div>
 
 **🆚 SPA vs MPA (구조적 차이)**
 
 웹사이트가 **"파일(HTML)을 어떻게 다루느냐"**의 차이입니다.
 
-| **구분** | **MPA (Multi Page App)** | **SPA (Single Page App)** |
-| --- | --- | --- |
-| **구조** | 페이지별로 **여러 개의 HTML 파일**이 존재합니다. | **단 하나(Single)의 HTML 파일**만 존재합니다. |
-| **동작** | 페이지 이동 시마다 서버에서 **새로운 HTML을 받아옵니다.** | 처음에 한 번만 받고, 이후엔 **JavaScript가 내용만 교체**합니다. |
-| **사용자 경험** | 이동할 때마다 화면이 **깜빡거립니다.** (새로고침) | 화면 **깜빡임 없이** 앱처럼 부드럽게 전환됩니다. |
+<div class="wda-compare">
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-ttl">MPA (Multi Page App)</div>
+    <strong>구조</strong>: 페이지별로 <strong>여러 개의 HTML 파일</strong>이 존재합니다.<br><br>
+    <strong>동작</strong>: 페이지 이동 시마다 서버에서 <strong>새로운 HTML을 받아옵니다.</strong><br><br>
+    <strong>사용자 경험</strong>: 이동할 때마다 화면이 <strong>깜빡거립니다.</strong> (새로고침)
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">SPA (Single Page App)</div>
+    <strong>구조</strong>: <strong>단 하나(Single)의 HTML 파일</strong>만 존재합니다.<br><br>
+    <strong>동작</strong>: 처음에 한 번만 받고, 이후엔 <strong>JavaScript가 내용만 교체</strong>합니다.<br><br>
+    <strong>사용자 경험</strong>: 화면 <strong>깜빡임 없이</strong> 앱처럼 부드럽게 전환됩니다.
+  </div>
+</div>
 
 **💡 보충 설명**
 
@@ -544,8 +567,18 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 **React 16.8**을 기점으로 코드를 짜는 방식이 완전히 바뀌었습니다.
 
-- **이전 (Class):** `class App extends Component { ... }` — 코드가 길고 복잡했으며, `this` 키워드 때문에 헷갈리는 일이 많았습니다.
-- **이후 (Function + Hooks):** `function App() { ... }` — `useState`, `useEffect` 같은 **Hooks**가 등장하면서, 함수형으로 훨씬 **짧고 직관적인 코드** 작성이 가능해졌습니다.
+<div class="wda-compare">
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-ttl">이전 (Class)</div>
+    <code>class App extends Component { ... }</code><br><br>
+    코드가 길고 복잡했으며, <code>this</code> 키워드 때문에 헷갈리는 일이 많았습니다.
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">이후 (Function + Hooks)</div>
+    <code>function App() { ... }</code><br><br>
+    <code>useState</code>, <code>useEffect</code> 같은 <strong>Hooks</strong>가 등장하면서, 함수형으로 훨씬 <strong>짧고 직관적인 코드</strong> 작성이 가능해졌습니다.
+  </div>
+</div>
 
 ### 💡 학습 방향
 
@@ -592,20 +625,21 @@ npm 다운로드 수와 채용 비율은 시점에 따라 계속 변합니다. �
 
 리액트 코드를 브라우저가 이해하도록 변환해 주는 "번들러(Bundler)와 빌드 도구"의 세대교체입니다.
 
-**🆚 Webpack (과거의 왕)**
-
-기존에 가장 많이 쓰이던 방식입니다. (CRA가 이 방식을 씁니다.)
-
-- **방식:** **"전체 요리 후 서빙"** — 개발 서버를 켤 때, 모든 자바스크립트 파일을 하나로 뭉치는(Bundling) 작업을 **미리 다 끝내야** 화면이 뜹니다.
-- **단점:** 프로젝트가 커질수록 **서버 켜지는 시간이 엄청나게 느려집니다.** (몇 분씩 걸리기도 함)
-
-**🆚 Vite (현대적 대안)**
-
-프랑스어로 '빠르다'는 뜻을 가진, 차세대 빌드 도구입니다.
-
-- **방식:** **"주문 즉시 요리" (Native ESM)** — 미리 뭉치지 않고, 브라우저가 "이 파일 줘!"라고 요청할 때 **그 파일만 딱 변환해서 줍니다.**
-- **장점:** Native ESM 기반 개발 서버와 빠른 HMR을 제공하여, 많은 현대 프론트엔드 프로젝트에서 사용됩니다.<br>
-  다만 실제 실행 속도는 프로젝트 규모와 환경에 따라 달라질 수 있으므로 '항상 0.x초'처럼 단정하지는 않는 것이 좋습니다.
+<div class="wda-compare">
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-ttl">🆚 Webpack (과거의 왕)</div>
+    기존에 가장 많이 쓰이던 방식입니다. (CRA가 이 방식을 씁니다.)<br><br>
+    <strong>방식:</strong> <strong>"전체 요리 후 서빙"</strong> — 개발 서버를 켤 때, 모든 자바스크립트 파일을 하나로 뭉치는(Bundling) 작업을 <strong>미리 다 끝내야</strong> 화면이 뜹니다.<br><br>
+    <strong>단점:</strong> 프로젝트가 커질수록 <strong>서버 켜지는 시간이 엄청나게 느려집니다.</strong> (몇 분씩 걸리기도 함)
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">🆚 Vite (현대적 대안)</div>
+    프랑스어로 '빠르다'는 뜻을 가진, 차세대 빌드 도구입니다.<br><br>
+    <strong>방식:</strong> <strong>"주문 즉시 요리" (Native ESM)</strong> — 미리 뭉치지 않고, 브라우저가 "이 파일 줘!"라고 요청할 때 <strong>그 파일만 딱 변환해서 줍니다.</strong><br><br>
+    <strong>장점:</strong> Native ESM 기반 개발 서버와 빠른 HMR을 제공하여, 많은 현대 프론트엔드 프로젝트에서 사용됩니다.<br>
+    다만 실제 실행 속도는 프로젝트 규모와 환경에 따라 달라질 수 있으므로 '항상 0.x초'처럼 단정하지는 않는 것이 좋습니다.
+  </div>
+</div>
 
 **🆚 비교 요약표**
 

@@ -35,6 +35,10 @@ tags:
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
@@ -483,9 +487,16 @@ export default VideoPlayer;
 
 이 장은 **"값이 바뀔 때 화면이 깜빡여야(다시 그려져야) 하는가?"** 를 기준으로 `useState`와 `useRef`를 구분하는 가장 중요한 개념을 설명합니다.
 
-**🆚 useState : 렌더링 O (화면 갱신)**
-
-값이 변하면 리액트에게 "화면 다시 그려!"라고 알립니다.
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🆚 useState : 렌더링 O (화면 갱신)</div>
+    값이 변하면 리액트에게 "화면 다시 그려!"라고 알립니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🆚 useRef : 렌더링 X (조용한 변경)</div>
+    값이 변해도 리액트는 모른 척 넘어갑니다. 화면은 그대로 유지됩니다.
+  </div>
+</div>
 
 ```jsx
 import { useState } from 'react';
@@ -502,10 +513,6 @@ function Counter() {
   return <p>{count}</p>;
 }
 ```
-
-**🆚 useRef : 렌더링 X (조용한 변경)**
-
-값이 변해도 리액트는 모른 척 넘어갑니다. 화면은 그대로 유지됩니다.
 
 ```jsx
 import { useRef } from 'react';

@@ -37,6 +37,13 @@ tags:
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
+.wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
+.wda-caution{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
@@ -67,23 +74,24 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. SPA란 무엇인가?</h2>
 
-**🆚 기존 MPA 방식 (Multi Page Application)**
-
-옛날 웹사이트 방식입니다.
-
-- **작동 방식**: 페이지를 이동할 때마다 서버에서 새로운 HTML을 통째로 받아옵니다.
-- **단점**:
-  - 화면이 하얗게 깜빡거립니다(새로고침).
-  - 매번 모든 데이터를 다시 받으므로 네트워크 낭비가 심합니다.
-
-**🆚 React SPA 방식 (Single Page Application)**
-
-요즘 웹사이트 방식입니다.
-
-- **작동 방식**: 처음에 접속할 때 딱 한 번만 HTML(껍데기)을 받고, 이후엔 필요한 데이터(JSON)만 주고받습니다.
-- **장점**:
-  - 화면 전체를 다시 그리지 않고 부분만 갱신합니다.
-  - ✨ 앱처럼 부드러운 사용자 경험을 제공합니다.
+<div class="wda-compare">
+  <div class="wda-compare-card wda-legacy">
+    <div class="wda-compare-ttl">🆚 기존 MPA 방식 (Multi Page Application)</div>
+    옛날 웹사이트 방식입니다.<br><br>
+    <strong>작동 방식</strong>: 페이지를 이동할 때마다 서버에서 새로운 HTML을 통째로 받아옵니다.<br><br>
+    <strong>단점</strong>:<br>
+    • 화면이 하얗게 깜빡거립니다(새로고침).<br>
+    • 매번 모든 데이터를 다시 받으므로 네트워크 낭비가 심합니다.
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">🆚 React SPA 방식 (Single Page Application)</div>
+    요즘 웹사이트 방식입니다.<br><br>
+    <strong>작동 방식</strong>: 처음에 접속할 때 딱 한 번만 HTML(껍데기)을 받고, 이후엔 필요한 데이터(JSON)만 주고받습니다.<br><br>
+    <strong>장점</strong>:<br>
+    • 화면 전체를 다시 그리지 않고 부분만 갱신합니다.<br>
+    • ✨ 앱처럼 부드러운 사용자 경험을 제공합니다.
+  </div>
+</div>
 
 **💡 핵심 도구 : React Router**
 
@@ -187,13 +195,22 @@ export default App;
 
 <h2>4. 페이지 이동 (Link vs a)</h2>
 
-**❌ &lt;a href="..."&gt; (쓰지 마세요)**
-
-일반적인 HTML 방식입니다. 리액트 앱 내부 이동 시에는 절대 사용하면 안 됩니다.
-
-- **치명적 단점**: 브라우저가 새로고침(Refresh) 됩니다. 즉, 앱이 꺼졌다가 다시 켜지는 것과 같습니다.
-- **데이터 증발**: 메모리에 있던 React 상태(State)가 모두 초기화되어 사라집니다.
-- **용도**: 우리 앱이 아닌 외부 사이트 (예: 구글, 네이버)로 이동할 때만 사용하세요.
+<div class="wda-compare">
+  <div class="wda-compare-card wda-caution">
+    <div class="wda-compare-ttl">❌ &lt;a href="..."&gt; (쓰지 마세요)</div>
+    일반적인 HTML 방식입니다. 리액트 앱 내부 이동 시에는 절대 사용하면 안 됩니다.<br><br>
+    <strong>치명적 단점</strong>: 브라우저가 새로고침(Refresh) 됩니다. 즉, 앱이 꺼졌다가 다시 켜지는 것과 같습니다.<br><br>
+    <strong>데이터 증발</strong>: 메모리에 있던 React 상태(State)가 모두 초기화되어 사라집니다.<br><br>
+    <strong>용도</strong>: 우리 앱이 아닌 외부 사이트 (예: 구글, 네이버)로 이동할 때만 사용하세요.
+  </div>
+  <div class="wda-compare-card wda-modern">
+    <div class="wda-compare-ttl">✅ &lt;Link to="..."&gt; (이걸 쓰세요)</div>
+    리액트 라우터가 제공하는 전용 컴포넌트입니다.<br><br>
+    <strong>작동 원리</strong>: 브라우저의 History API를 사용하여 주소만 살짝 바꿉니다.<br><br>
+    <strong>장점</strong>: 새로고침 없이 필요한 부분만 부드럽게 렌더링됩니다. (깜빡임 없음!)<br><br>
+    <strong>용도</strong>: 앱 내부에서 페이지를 이동할 때는 무조건 이것을 사용해야 합니다.
+  </div>
+</div>
 
 **✅ 권장 방식**
 
@@ -201,14 +218,6 @@ export default App;
   <p>React 앱 내부의 라우트 이동에는 보통 Link를 사용합니다.<br>
   외부 사이트 이동, 파일 다운로드, 새 탭 열기처럼 브라우저 기본 동작이 필요한 경우에는 a 태그를 사용합니다.</p>
 </div>
-
-**✅ &lt;Link to="..."&gt; (이걸 쓰세요)**
-
-리액트 라우터가 제공하는 전용 컴포넌트입니다.
-
-- **작동 원리**: 브라우저의 History API를 사용하여 주소만 살짝 바꿉니다.
-- **장점**: 새로고침 없이 필요한 부분만 부드럽게 렌더링됩니다. (깜빡임 없음!)
-- **용도**: 앱 내부에서 페이지를 이동할 때는 무조건 이것을 사용해야 합니다.
 
 **📝 사용법 (Code)**
 
@@ -468,9 +477,9 @@ export default ProductDetail;
 
 **⚙️ 이동 기록 제어 (History Stack)**
 
-<div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ttl">PUSH (기본값)</div><div class="wda-fcard-dsc">새로운 페이지를 스택에 쌓습니다. 뒤로가기가 가능합니다.<br><code>navigate('/home')</code></div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ttl">REPLACE</div><div class="wda-fcard-dsc">현재 페이지를 덮어씁니다. 뒤로가기가 불가능합니다.<br><code>navigate('/home', { replace: true })</code></div></div>
+<div class="wda-compare">
+  <div class="wda-compare-card"><div class="wda-compare-ttl">PUSH (기본값)</div>새로운 페이지를 스택에 쌓습니다. 뒤로가기가 가능합니다.<br><code>navigate('/home')</code></div>
+  <div class="wda-compare-card"><div class="wda-compare-ttl">REPLACE</div>현재 페이지를 덮어씁니다. 뒤로가기가 불가능합니다.<br><code>navigate('/home', { replace: true })</code></div>
 </div>
 
 **🧪 리다이렉트 (Redirect)**

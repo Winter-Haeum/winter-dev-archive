@@ -36,6 +36,17 @@ tags:
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ico{font-size:1.1rem;margin-bottom:4px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column}.wda-farrow{transform:rotate(90deg)}}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
@@ -72,6 +83,16 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 최상위 컴포넌트(App)에 있는 데이터를 저 깊숙한 곳에 있는 하위 컴포넌트(UserMenu)가 필요로 하는 상황입니다.
 
 - **구조**: `App (user)` 👉 `Header` 👉 `Navigation` 👉 `UserMenu (user 필요!)`
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">App</div><div class="wda-fnode-dsc">(user)</div></div>
+  <div class="wda-farrow">👉</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">Header</div></div>
+  <div class="wda-farrow">👉</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">Navigation</div></div>
+  <div class="wda-farrow">👉</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">UserMenu</div><div class="wda-fnode-dsc">(user 필요!)</div></div>
+</div>
 
 **🧪 예시 코드 (The Drilling)**
 
@@ -112,9 +133,15 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **🆚 비교 (Props vs Context)**
 
-<div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ttl">📦 Props (일대일 전달)</div><div class="wda-fcard-dsc"><strong>방식</strong>: 이어달리기 (Relay)<br><strong>구조</strong>: App 👉 Header 👉 Nav 👉 UserMenu<br><strong>단점</strong>: 데이터를 쓰지도 않는 중간 단계(Header, Nav)를 반드시 거쳐야 하므로 비효율적이고 수정이 어렵습니다.</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ttl">📡 Context (방송)</div><div class="wda-fcard-dsc"><strong>방식</strong>: 방송 송출 (Broadcast)<br><strong>구조</strong>: App (Provider) 📡 〰️〰️ 👉 UserMenu (직접 수신)<br><strong>장점</strong>: 중간 컴포넌트를 건너뛰고, 필요한 곳에서만 직접 데이터를 받아 쓸 수 있습니다.</div></div>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">📦 Props (일대일 전달)</div>
+    <strong>방식</strong>: 이어달리기 (Relay)<br><strong>구조</strong>: App 👉 Header 👉 Nav 👉 UserMenu<br><strong>단점</strong>: 데이터를 쓰지도 않는 중간 단계(Header, Nav)를 반드시 거쳐야 하므로 비효율적이고 수정이 어렵습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">📡 Context (방송)</div>
+    <strong>방식</strong>: 방송 송출 (Broadcast)<br><strong>구조</strong>: App (Provider) 📡 〰️〰️ 👉 UserMenu (직접 수신)<br><strong>장점</strong>: 중간 컴포넌트를 건너뛰고, 필요한 곳에서만 직접 데이터를 받아 쓸 수 있습니다.
+  </div>
 </div>
 
 **🆚 비교 정리**

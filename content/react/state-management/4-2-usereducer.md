@@ -37,6 +37,10 @@ tags:
 .wda-sbody{flex:1;min-width:0}
 .wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
 .wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
@@ -109,26 +113,23 @@ const toggle = (id) => {
 
 <h2>2. useReducer의 핵심 3요소 (The Pattern)</h2>
 
-**📦 State (현재 상태)**
-
-**"창고에 있는 재료"**
-현재 컴포넌트가 가지고 있는 데이터 값입니다.
-
-- 예시: `{ count: 0 }`
-
-**⚡️ Action (주문서 - 무엇을 할지)**
-
-**"사장님(컴포넌트)의 요구사항"**
-상태를 '어떻게' 바꿀지가 아니라, 단순히 "이거 해줘!" 라는 의도만 적힌 주문서 객체입니다.
-
-- 예시: `{ type: 'UP' }` (숫자 올려줘!), `{ type: 'RESET' }` (초기화해줘!)
-
-**ƒ Reducer (변환기 - 어떻게 바꿀지)**
-
-**"똑똑한 알바생 (요리사)"**
-현재 상태(재료)와 주문서(Action)를 받아서, 정해진 매뉴얼대로 새로운 상태를 만들어주는 함수입니다. 로직은 오직 여기에만 들어있습니다.
-
-- 공식: `(state, action) => new State`
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">📦</div>
+    <div class="wda-fcard-ttl">State (현재 상태)</div>
+    <div class="wda-fcard-dsc"><strong>"창고에 있는 재료"</strong><br>현재 컴포넌트가 가지고 있는 데이터 값입니다.<br><br>예시: <code>{ count: 0 }</code></div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">⚡️</div>
+    <div class="wda-fcard-ttl">Action (주문서 - 무엇을 할지)</div>
+    <div class="wda-fcard-dsc"><strong>"사장님(컴포넌트)의 요구사항"</strong><br>상태를 '어떻게' 바꿀지가 아니라, 단순히 "이거 해줘!" 라는 의도만 적힌 주문서 객체입니다.<br><br>예시: <code>{ type: 'UP' }</code> (숫자 올려줘!), <code>{ type: 'RESET' }</code> (초기화해줘!)</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">ƒ</div>
+    <div class="wda-fcard-ttl">Reducer (변환기 - 어떻게 바꿀지)</div>
+    <div class="wda-fcard-dsc"><strong>"똑똑한 알바생 (요리사)"</strong><br>현재 상태(재료)와 주문서(Action)를 받아서, 정해진 매뉴얼대로 새로운 상태를 만들어주는 함수입니다. 로직은 오직 여기에만 들어있습니다.<br><br>공식: <code>(state, action) => new State</code></div>
+  </div>
+</div>
 
 **🔄 데이터 흐름 (Workflow)**
 
@@ -840,11 +841,20 @@ function formReducer(state, action) {
 
 **🆚 추천 가이드 (Recommendation)**
 
-| 구분 | 🔵 useState를 쓰세요 | 🟣 useReducer를 쓰세요 |
-| --- | --- | --- |
-| 데이터 형태 | 폼 입력 필드 하나하나 (단순 input), 카운터 같은 단순 숫자 | 여러 하위 값이 얽혀 있는 복잡한 객체 (예: 폼 데이터 전체) |
-| 로직 복잡도 | 단순한 토글 (Open/Close) | 이전 상태에 의존적인 복잡한 로직 (예: 배열 수정, 삭제, 추가) |
-| 코드 구조 | 컴포넌트 내부에서 간단히 처리할 때 | 상태 로직을 컴포넌트에서 싹둑 잘라내어 분리하고 싶을 때 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🔵 useState를 쓰세요</div>
+    <strong>데이터 형태</strong>: 폼 입력 필드 하나하나 (단순 input), 카운터 같은 단순 숫자<br><br>
+    <strong>로직 복잡도</strong>: 단순한 토글 (Open/Close)<br><br>
+    <strong>코드 구조</strong>: 컴포넌트 내부에서 간단히 처리할 때
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">🟣 useReducer를 쓰세요</div>
+    <strong>데이터 형태</strong>: 여러 하위 값이 얽혀 있는 복잡한 객체 (예: 폼 데이터 전체)<br><br>
+    <strong>로직 복잡도</strong>: 이전 상태에 의존적인 복잡한 로직 (예: 배열 수정, 삭제, 추가)<br><br>
+    <strong>코드 구조</strong>: 상태 로직을 컴포넌트에서 싹둑 잘라내어 분리하고 싶을 때
+  </div>
+</div>
 
 **💡 한 줄 요약 (Golden Rule)**
 
