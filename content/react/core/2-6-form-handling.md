@@ -68,7 +68,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **React state가 입력값의 "유일한 진실 공급원"**
 
-### 1) 제어 컴포넌트의 특징
+**📌 제어 컴포넌트의 특징**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -89,7 +89,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 2) 장점
+**💡 장점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro">
@@ -205,7 +205,7 @@ export default App;
 
 <h2>4. textarea 다루기</h2>
 
-### 1) 여러 줄 텍스트 입력
+**🧪 여러 줄 텍스트 입력**
 
 ```jsx
 import { useState } from "react";
@@ -229,7 +229,7 @@ function TextareaInput() {
 export default TextareaInput;
 ```
 
-### 2) 방식 비교
+**🆚 방식 비교**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -257,7 +257,7 @@ export default TextareaInput;
 
 <h2>5. select 드롭다운 다루기</h2>
 
-### 1) 선택 옵션 목록
+**🧪 선택 옵션 목록**
 
 ```jsx
 import { useState } from "react";
@@ -281,7 +281,7 @@ function SelectInput() {
 export default SelectInput;
 ```
 
-### 2) HTML과 차이
+**🆚 HTML과 차이**
 
 HTML은 `selected` 속성을 `option` 태그에 붙여서 기본값을 설정하지만, **React는 `select` 태그의 `value` 속성으로 선택 상태를 관리**합니다.
 
@@ -300,7 +300,7 @@ HTML은 `selected` 속성을 `option` 태그에 붙여서 기본값을 설정하
 
 선택/체크 입력 요소
 
-### 1) Checkbox (checked 사용)
+**🧪 Checkbox (checked 사용)**
 
 ```jsx
 const [isAgree, setIsAgree] = useState(false);
@@ -314,7 +314,7 @@ const [isAgree, setIsAgree] = useState(false);
 <label htmlFor="agree">약관 동의</label>
 ```
 
-### 2) Radio (같은 name으로 그룹)
+**🧪 Radio (같은 name으로 그룹)**
 
 ```jsx
 const [gender, setGender] = useState("");
@@ -355,7 +355,7 @@ const [gender, setGender] = useState("");
 
 <h2>7. 여러 입력 필드 관리하기</h2>
 
-### 1) 객체 state로 한 번에 관리
+**📝 객체 state로 한 번에 관리**
 
 ```jsx
 import { useState } from "react";
@@ -459,7 +459,7 @@ export default LoginForm;
 
 <h2>9. 간단한 유효성 검사</h2>
 
-### 1) 제출 전 입력값 확인하기
+**⚙️ 제출 전 입력값 확인하기**
 
 ```javascript
 const handleSubmit = (e) => {

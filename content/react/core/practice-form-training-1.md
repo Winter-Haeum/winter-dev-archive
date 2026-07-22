@@ -53,7 +53,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. &gt;_ 실습 준비: 폼 트레이닝 센터</h2>
 
-### 1) 1단계: 프로젝트 생성
+**✅ 1단계: 프로젝트 생성**
 
 터미널에서 새 프로젝트를 만듭니다.
 
@@ -65,7 +65,7 @@ cd ~/Workspace
 npm create vite@latest
 ```
 
-### 2) 2단계: 옵션 선택
+**✅ 2단계: 옵션 선택**
 
 명령어 입력 후 나타나는 옵션을 아래와 같이 선택합니다.
 
@@ -81,7 +81,7 @@ npm install
 npm run dev
 ```
 
-<h3>3) 3단계: 컴포넌트 파일 생성</h3>
+**✅ 3단계: 컴포넌트 파일 생성**
 
 `src/components` 폴더 안에 아래 4개의 실습 컴포넌트 파일을 만드세요.
 
@@ -90,7 +90,7 @@ npm run dev
 - `PasswordGuard.jsx`
 - `LoginSubmit.jsx`
 
-### 4) 4단계: App.jsx 연결
+**✅ 4단계: App.jsx 연결**
 
 `App.jsx`를 수정해서 4개 컴포넌트를 모두 화면에 띄우세요.
 

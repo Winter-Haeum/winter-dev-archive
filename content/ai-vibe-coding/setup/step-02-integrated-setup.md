@@ -75,7 +75,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 📖 개념 설명
 
-### 1. 통합 세팅 프롬프트 개요
+**📌 통합 세팅 프롬프트 개요**
 
 이 단계에서는 하나의 강력한 프롬프트로 다음 모든 작업을 자동 완료합니다.
 
@@ -89,7 +89,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-### 2. 사전 준비 확인사항
+**📝 사전 준비 확인사항**
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">사전 조건</span>
@@ -98,11 +98,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-### 3. Claude 실행 및 통합 프롬프트 사용
+**✅ Claude 실행 및 통합 프롬프트 사용**
 
 VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한이 최적화된 Claude를 실행합니다.
 
-#### ① VSCode 환경 준비
+**✅ VSCode 환경 준비**
 
 <div style="position:relative;padding-right:62px;">
 
@@ -128,7 +128,7 @@ VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한�
 
 ---
 
-#### ② Claude 실행
+**✅ Claude 실행**
 
 my_ai_web 디렉토리의 PowerShell 터미널에서 다음 명령어를 실행합니다.
 

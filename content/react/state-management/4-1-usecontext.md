@@ -66,7 +66,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. Props Drilling 문제</h2>
 
-### 1) 문제 상황 (Scenario)
+**📌 문제 상황 (Scenario)**
 
 **"지하 3층에 있는 자식에게 도시락을 전해줘야 합니다."**
 최상위 컴포넌트(App)에 있는 데이터를 저 깊숙한 곳에 있는 하위 컴포넌트(UserMenu)가 필요로 하는 상황입니다.
@@ -91,7 +91,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 </App>
 ```
 
-### 3) 문제점 (Problems)
+**⚠️ 문제점 (Problems)**
 
 **"배달부 역할만 하는 컴포넌트가 너무 많아집니다."**
 
@@ -105,12 +105,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>2. Context란?</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"컴포넌트 트리 전체에 데이터를 '방송'하는 방법"**
 마치 라디오 방송국처럼, 가장 높은 곳(App)에서 데이터를 쏘면 필요한 컴포넌트(UserMenu, Sidebar)가 어디에 있든 직접 신호를 잡아서(수신) 사용할 수 있는 기술입니다.
 
-### 2) 비교 (Props vs Context)
+**🆚 비교 (Props vs Context)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">📦 Props (일대일 전달)</div><div class="wda-fcard-dsc"><strong>방식</strong>: 이어달리기 (Relay)<br><strong>구조</strong>: App 👉 Header 👉 Nav 👉 UserMenu<br><strong>단점</strong>: 데이터를 쓰지도 않는 중간 단계(Header, Nav)를 반드시 거쳐야 하므로 비효율적이고 수정이 어렵습니다.</div></div>
@@ -128,7 +128,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>3. Context 생성하기 (Step 1)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"방송 채널을 개설합니다."**
 데이터를 공유하기 위한 공간(Context)을 만듭니다. 보통 관리하기 편하도록 별도의 파일로 분리해서 만듭니다.
@@ -146,7 +146,7 @@ import { createContext } from 'react';
 export const ThemeContext = createContext('light');
 ```
 
-### 3) 💡 구현 포인트
+**💡 구현 포인트**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">createContext(기본값)</div><div class="wda-fcard-dsc">괄호 안에 넣는 값은 Provider로 감싸지 않았을 때 컴포넌트가 사용하게 될 비상용 기본값(Fallback)입니다. 실수로 Provider를 안 썼을 때 에러를 방지하는 역할을 합니다.</div></div>
@@ -163,7 +163,7 @@ export const ThemeContext = createContext('light');
 
 <h2>4. Provider 설정하기 (Step 2)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"방송 송출을 시작합니다."**
 만들어둔 Context의 Provider 컴포넌트로 데이터를 공유하고 싶은 영역을 감싸줍니다.  
@@ -195,7 +195,7 @@ function App() {
 export default App;
 ```
 
-### 3) 💡 구현 포인트
+**💡 구현 포인트**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">value 속성 필수</div><div class="wda-fcard-dsc">Provider에는 반드시 value라는 이름의 prop을 전달해야 합니다. 이 값이 바로 방송되는 실제 데이터입니다.</div></div>
@@ -206,7 +206,7 @@ export default App;
 
 <h2>5. useContext로 사용하기 (Step 3)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"필요한 곳에서 전파를 수신합니다."**
 Provider 안에 있는 컴포넌트라면 어디서든 `useContext` 훅을 사용하여 공유된 데이터(Context Value)에 직접 접근할 수 있습니다.
@@ -235,7 +235,7 @@ function ThemedButton() {
 export default ThemedButton;
 ```
 
-### 3) 💡 핵심 효과
+**💡 핵심 효과**
 
 <div class="wda-callout wda-ci">
   <p><strong>"중간 컴포넌트 거치지 않고 직접 접근!"</strong></p>
@@ -253,7 +253,7 @@ export default ThemedButton;
 
 <h2>6. 테마 전환 예제 (전체 코드)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"데이터와 리모컨을 같이 포장해서 보냅니다."**
 하위 컴포넌트가 테마를 조회(Read)할 수 있도록 `theme` 값을 보내고, 테마를 변경(Update)할 수 있도록 `toggleTheme` 함수도 함께 포장해서(object) 보냅니다.
@@ -303,7 +303,7 @@ function App() {
 export default App;
 ```
 
-### 3) 💡 핵심 포인트
+**💡 핵심 포인트**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">객체로 묶어서 전달</div><div class="wda-fcard-dsc"><code>value={{ theme, toggleTheme }}</code>처럼 이중 중괄호를 사용하는 이유는, JSX 문법(<code>{}</code>) 안에 자바스크립트 객체(<code>{...}</code>)를 넣었기 때문입니다.</div></div>
@@ -314,7 +314,7 @@ export default App;
 
 <h2>7. 테마 전환 예제 (사용)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"꺼내서 쓰기만 하면 됩니다."**
 Provider가 내려준 선물 상자(`value={{ theme, toggleTheme }}`)를 `useContext`로 받아서, 구조 분해 할당으로 필요한 것만 쏙 뽑아 사용합니다.
@@ -346,7 +346,7 @@ function ThemeToggle() {
 export default ThemeToggle;
 ```
 
-### 3) 💡 핵심 포인트
+**💡 핵심 포인트**
 
 <div class="wda-callout wda-cs">
   <p><strong>어디서든 읽기 + 쓰기 가능</strong></p>
@@ -358,7 +358,7 @@ export default ThemeToggle;
 
 <h2>8. 인증 상태 예제 (Auth Context)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"로그인 정보를 전역에서 관리합니다."**
 로그인한 사용자 정보(user)와 로그인(login), 로그아웃(logout) 기능을 Context에 담아, 앱의 어느 곳에서든 인증 상태를 확인하고 제어할 수 있게 만듭니다.
@@ -401,7 +401,7 @@ export function useAuth() {
 }
 ```
 
-### 3) 구현 포인트 (Key Points)
+**💡 구현 포인트 (Key Points)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">children 활용</div><div class="wda-fcard-dsc">AuthProvider 컴포넌트는 내부에 들어올 모든 하위 컴포넌트를 children으로 받아서 그대로 렌더링해 줍니다. 이렇게 하면 App.js에서 코드가 깔끔해집니다.</div></div>
@@ -443,7 +443,7 @@ export default LoginPage;
 
 <h2>9. 인증 상태 사용 (구현)</h2>
 
-### 1) App.jsx : 유효 범위 설정 (Provider)
+**📝 App.jsx : 유효 범위 설정 (Provider)**
 
 **"우리 앱 전체를 '인증 구역'으로 만듭니다."**
 우리가 만든 AuthProvider 컴포넌트로 앱의 주요 부분(Header, Main 등)을 감싸줍니다.  
@@ -468,7 +468,7 @@ function App() {
 export default App;
 ```
 
-### 2) Header.jsx : 상태 사용 (Consumer)
+**📝 Header.jsx : 상태 사용 (Consumer)**
 
 **"로그인 여부에 따라 화면을 다르게 보여줍니다."**
 `useAuth()` 훅을 사용하여 `user` 정보와 `logout` 함수를 꺼내 씁니다.
@@ -511,7 +511,7 @@ export default Header;
 
 <h2>10. 다중 Context 사용</h2>
 
-### 1) Provider 중첩 (Nesting)
+**📌 Provider 중첩 (Nesting)**
 
 **"러시아 인형(마트료시카)처럼 감싸줍니다."**
 여러 개의 Context를 사용하려면, 최상위 컴포넌트(App)에서 Provider들을 겹겹이 중첩하여 감싸주면 됩니다.
@@ -542,7 +542,7 @@ function App() {
 export default App;
 ```
 
-### 2) 🧩 여러 Context 동시 사용 (Consuming)
+**🧩 여러 Context 동시 사용 (Consuming)**
 
 **"필요한 것만 쏙쏙 뽑아 씁니다."**
 하위 컴포넌트에서는 필요한 Hook을 각각 호출하여, 여러 Context의 데이터를 한 번에 가져와서 사용할 수 있습니다.
@@ -588,7 +588,7 @@ export default Dashboard;
 
 <h2>11. Context 사용 시 주의사항</h2>
 
-### 1) 남용 금지
+**⚠️ 남용 금지**
 
 **"단순한 경우는 Props가 낫습니다."**
 
@@ -602,7 +602,7 @@ function Parent({ data }) {
 // 3단계 이상 + 여러 곳에서 필요
 ```
 
-### 2) 리렌더링 주의
+**⚠️ 리렌더링 주의**
 
 **"객체 생성에 주의하세요."**
 
@@ -629,7 +629,7 @@ const value = useMemo(() => ({ a, b }), [a, b]);
   <p>값이 커지거나 하위 소비 컴포넌트가 많아지면 useMemo로 value 객체를 안정화하는 것을 고려할 수 있습니다.</p>
 </div>
 
-### 3) Props vs Context
+**🆚 Props vs Context**
 
 **"단순한 배달은 Props가 낫습니다."**
 Context는 '전역적'인 데이터를 위한 것입니다.  
@@ -644,7 +644,7 @@ Context는 '전역적'인 데이터를 위한 것입니다.
 
 <h2>12. ⁉️ FAQ</h2>
 
-### 1) Q1. 컴포넌트 이름은?
+**📌 Q1. 컴포넌트 이름은?**
 
 **"Context API를 사용할 때, 하위 컴포넌트들에게 값을 제공하기 위해 사용하는 컴포넌트는?"**
 
@@ -656,7 +656,7 @@ Context는 '전역적'인 데이터를 위한 것입니다.
   <p><code>createContext</code>로 만든 Context 객체에는 <strong>Provider</strong>라는 컴포넌트가 들어있습니다. 이 컴포넌트로 감싸고 <code>value</code> props를 넣어줘야 비로소 내부의 컴포넌트들이 데이터를 구독할 수 있게 됩니다.</p>
 </div>
 
-### 2) Q2. Context 사용의 단점은?
+**📌 Q2. Context 사용의 단점은?**
 
 **"Props Drilling 문제를 해결하기 위해 Context를 사용할 때의 단점은 무엇인가요?"**
 

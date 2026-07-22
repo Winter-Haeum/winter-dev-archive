@@ -72,7 +72,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <h2>1. 에러(Error) 핵심 요약</h2>
 </div>
 
-### 1) 인식의 전환 (Mindset Shift)
+**📌 인식의 전환 (Mindset Shift)**
 
 | **구분** | **과거의 인식 ( 😱 )** | **올바른 인식 ( 🆘 )** |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **의미** | 실패, 잘못, 공포의 대상 | **구조 요청 (Signal)**이자 대화 시도 |
 | **해석** | 프로그램이 멈춘 부정적 상황 | 감당할 수 없는 상황을 알리는 **정상적인 신호** |
 
-### 2) 에러의 중요성 (Why Error Matters)
+**📌 에러의 중요성 (Why Error Matters)**
 
 왜 에러가 발생하는 것이 침묵하는 것보다 나은지 설명하는 비유입니다.
 
@@ -113,7 +113,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 **에러 정보를 담는 객체**입니다.
 
-### 1) 주요 프로퍼티 (Key Properties)
+**📌 주요 프로퍼티 (Key Properties)**
 
 에러 객체를 열어보면 들어있는 3가지 핵심 정보입니다.
 
@@ -132,7 +132,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 2) Stack (탐정의 단서)
+**📌 Stack (탐정의 단서)**
 
 **"범인(버그)을 잡는 가장 중요한 지도입니다."**
 
@@ -189,7 +189,7 @@ try {
   <h2>3. 내장 에러 타입 (Built-in Error Types)</h2>
 </div>
 
-### 1) 주요 에러 클래스 요약
+**🧠 주요 에러 클래스 요약**
 
 | **에러 이름 (Name)** | **설명 (Description)** | **발생 예시 (Code Example)** |
 | --- | --- | --- |
@@ -407,21 +407,21 @@ try {
 
 **의도적으로 에러를 발생시키는 "비상 정지 버튼"입니다.**
 
-### 1) throw 문이란? (Concept)
+**📌 throw 문이란? (Concept)**
 
 **"이상한 상태로 계속 가느니, 빨리 멈추고 보고하는 게 낫습니다."**
 
 - **역할** : 프로그램 실행을 즉시 중단하고, 에러를 `catch` 블록으로 던져버립니다.
 - **비유** : 공장의 기계에 문제가 생겼을 때 누르는 🔴 **비상 정지 버튼**과 같습니다.
 
-### 2) 방어적 코딩 (Defensive Coding)
+**📌 방어적 코딩 (Defensive Coding)**
 
 **"이 데이터는 내가 처리할 수 없어!"**
 
 - 억지로 코드를 실행하다가 데이터베이스(DB)를 오염시키거나 더 큰 문제를 만들기 전에, **"처리 불가"**를 선언하는 것입니다.
 - 문제가 있는 데이터가 들어오면 즉시 `throw`를 던져서 상위(catch) 단계에 알리는 것이 안전합니다.
 
-### 3) 🏆 Best Practice
+**🏆 Best Practice**
 
 **"무엇을 던져야 할까요?"**
 
@@ -487,7 +487,7 @@ try {
 
 **"상황에 맞는 에러 타입을 직접 만들어 관리합니다."**
 
-### 1) 왜 만드나요? (Why)
+**📌 왜 만드나요? (Why)**
 
 기본 `Error` 객체만 사용하면 모든 에러가 똑같이 생겨서 구분이 어렵습니다.
 
@@ -508,7 +508,7 @@ try {
   </div>
 </div>
 
-### 2) 구현 방법 (Implementation)
+**📝 구현 방법 (Implementation)**
 
 우리가 배운 **상속(`extends`)** 기능을 사용해서 `Error` 클래스를 확장합니다.
 
@@ -532,7 +532,7 @@ class NetworkError extends Error {
 }
 ```
 
-### 3) 타입별 처리 (Type Check)
+**📝 타입별 처리 (Type Check)**
 
 `instanceof` 연산자를 사용하면 에러의 종류(클래스)를 감별해낼 수 있습니다.
 
@@ -579,7 +579,7 @@ try {
 
 **"왜 try-catch가 비동기 에러를 못 잡을까요?"**
 
-### 1) 현상 : 이미 버스는 떠났습니다 (Timing Issue)
+**📌 현상 : 이미 버스는 떠났습니다 (Timing Issue)**
 
 일반적인 `try-catch` 문법은 코드를 감싸고 있다가 에러가 나면 잡습니다.
 
@@ -616,7 +616,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-### 2) 원인 : 다른 차원의 실행 (Context)
+**📌 원인 : 다른 차원의 실행 (Context)**
 
 **메인 도로 vs 옆길(국도)**
 
@@ -630,7 +630,7 @@ setTimeout(() => {
   <code>setTimeout</code>의 콜백이나 <code>Promise</code>의 <code>then</code>/<code>catch</code> 콜백처럼 나중에 실행되는 코드는, 바깥쪽 <code>try-catch</code>가 이미 끝난 뒤 실행될 수 있습니다. 그래서 비동기 결과는 <code>.catch()</code> 또는 <code>async/await</code> + <code>try-catch</code>로 처리해야 합니다.
 </div>
 
-### 3) 해결책 : Async/Await
+**💡 해결책 : Async/Await**
 
 **"옆길로 간 차를 다시 메인 도로로 데려옵니다."**
 
@@ -717,7 +717,7 @@ try {
 
 **.catch()를 어디에 붙이느냐에 따라 에러의 운명이 달라집니다.**
 
-### 1) 에러 전파 (Error Propagation)
+**⚙️ 에러 전파 (Error Propagation)**
 
 **"모든 에러를 마지막에 한 번에 잡습니다." (가장 흔한 패턴)**
 
@@ -734,7 +734,7 @@ fetchUser(1) // 1. 유저 조회 시작
   });
 ```
 
-### 2) 에러 복구 (Error Recovery)
+**⚙️ 에러 복구 (Error Recovery)**
 
 **"넘어진 김에 쉬었다 갑니다. (수습하고 계속 진행)"**
 
@@ -752,7 +752,7 @@ fetchUser(1)
   .then(posts => console.log(posts));
 ```
 
-### 3) 주의사항 (Caution)
+**⚠️ 주의사항 (Caution)**
 
 <div class="wda-callout wda-cw">
   <strong>catch가 없으면? (처리되지 않은 Promise rejection)</strong><br>
@@ -776,7 +776,7 @@ fetchUser(1)
 
 **"try-catch가 다시 쓸모있어짐!"**
 
-### 1) 장점 (Advantages)
+**📌 장점 (Advantages)**
 
 `await` 키워드 덕분에 비동기 코드가 동기 코드처럼 위에서 아래로 흐르게 됩니다.
 
@@ -785,7 +785,7 @@ fetchUser(1)
 | **자연스러운 흐름**(Natural Flow) | • 콜백이나 `.then()` 체이닝 방식보다 **훨씬 읽기 쉽습니다.**<br>• 코드가 위에서 아래로 순차적으로 실행되는 것처럼 보입니다. |
 | **정밀한 제어**(Precise Control) | • 에러 처리를 **전체 한 번에 묶을 수도 있고**,<br>• 중요한 부분만 **특정 `await`를 따로 감싸서** 처리할 수도 있습니다. |
 
-### 2) 패턴 선택 (Pattern Selection)
+**💡 패턴 선택 (Pattern Selection)**
 
 상황에 따라 두 가지 전략을 사용합니다.
 
@@ -854,7 +854,7 @@ async function loadParallelData() {
 
 **"모든 안전장치를 뚫고 나온 에러를 마지막으로 잡아냅니다."**
 
-### 1) 주요 핸들러 비교
+**🆚 주요 핸들러 비교**
 
 자바스크립트 실행 환경(브라우저) 차원에서 제공하는 두 가지 안전망입니다.
 
@@ -873,7 +873,7 @@ async function loadParallelData() {
   </div>
 </div>
 
-### 2) 활용 (Usage)
+**💡 활용 (Usage)**
 
 이곳에서 잡힌 에러는 이미 프로그램 흐름이 깨진 상태이므로, 복구보다는 **"기록"**에 중점을 둡니다.
 
@@ -931,7 +931,7 @@ window.onunhandledrejection = function(event) {
   <h2>11. 에러 처리 Best Practices</h2>
 </div>
 
-### 1) DO vs DON'T (핵심 요약)
+**🆚 DO vs DON'T (핵심 요약)**
 
 좋은 습관과 절대 하지 말아야 할 나쁜 습관을 비교했습니다.
 
@@ -958,7 +958,7 @@ window.onunhandledrejection = function(event) {
   </div>
 </div>
 
-### 2) 코드 비교 (Code Comparison)
+**🆚 코드 비교 (Code Comparison)**
 
 **[좋은 예 : 구체적이고 명확함]**
 

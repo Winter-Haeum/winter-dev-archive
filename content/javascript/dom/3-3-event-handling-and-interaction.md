@@ -82,7 +82,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. 이벤트(Event)란?
 
-### 1) 브라우저가 전달하는 사건
+**📌 브라우저가 전달하는 사건**
 
 이벤트는 사용자 행동이나 브라우저 상태 변화 중, **브라우저가 감지하여 JS에 전달해주는 사건**입니다.
 
@@ -94,7 +94,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **시스템/브라우저 이벤트** | 페이지 로드 완료 (Load) | 웹페이지의 모든 요소가 불러와졌을 때 발생합니다. |
 |  | 이미지 로드 실패 (Error) | 이미지를 불러오지 못했을 때 발생하는 오류 사건입니다. |
 
-### 2) 이벤트 기반 프로그래밍
+**⚙️ 이벤트 기반 프로그래밍**
 
 **핵심 원리**
 
@@ -111,7 +111,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <img src="/images/content/javascript/3-3/javascript-3-3-event-driven-programming.png" alt="이벤트 기반 프로그래밍 다이어그램" style="display:block;width:100%;max-width:430px;height:auto;border-radius:8px;margin:.6rem auto 1rem;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:430px;">[그림] 이벤트 기반 프로그래밍 흐름 (이벤트 발생 → 상태 검사 → 동작 수행/대기)</div>
 
-### 3) 용어 정리
+**📌 용어 정리**
 
 - **이벤트** : 브라우저에서 발생한 사건
 - **리스너** : 특정 이벤트를 기다리는 장치 (귀)
@@ -133,7 +133,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 2. 이벤트 종류 (1) - 마우스 이벤트
 
-### 1) 클릭 관련
+**📌 클릭 관련**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>click</code></div><div class="wda-fcard-dsc">클릭 (누르고 떼기)</div></div>
@@ -142,7 +142,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseup</code></div><div class="wda-fcard-dsc">마우스 버튼 뗌</div></div>
 </div>
 
-### 2) 이동 관련
+**📌 이동 관련**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mousemove</code></div><div class="wda-fcard-dsc">마우스 이동</div></div>
@@ -152,7 +152,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>mouseout</code></div><div class="wda-fcard-dsc">요소 밖으로 (버블링 O)</div></div>
 </div>
 
-### 3) 실행 순서 및 코드
+**🧪 실행 순서 및 코드**
 
 클릭 시 이벤트 순서는 `mousedown` → `mouseup` → `click` 입니다.
 
@@ -257,7 +257,7 @@ btn.addEventListener('mouseout', function() {
 
 ## 3. 이벤트 종류 (2) - 키보드 이벤트
 
-### 1) 키보드 이벤트 종류
+**📌 키보드 이벤트 종류**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>keydown</code></div><div class="wda-fcard-dsc">키를 누를 때</div></div>
@@ -267,7 +267,7 @@ btn.addEventListener('mouseout', function() {
 
 `keypress`는 deprecated된 이벤트이므로 새 코드에서는 사용하지 않습니다. 일반적으로 `keydown` 또는 `keyup`을 사용합니다.
 
-### 2) 이벤트 객체 속성 및 코드
+**🧪 이벤트 객체 속성 및 코드**
 
 ```jsx
 input.addEventListener('keydown', function(e) {
@@ -282,7 +282,7 @@ input.addEventListener('keydown', function(e) {
 });
 ```
 
-### 3) ⌨️ key vs code 차이 비교표
+**⌨️ key vs code 차이 비교표**
 
 | **입력 상황** | **e.key (입력된 문자)** | **e.code (물리적 위치)** | **비고** |
 | --- | --- | --- | --- |
@@ -304,12 +304,12 @@ input.addEventListener('keydown', function(e) {
 
 ## ❓ 매개변수 e, 언제 쓰나요?
 
-### 1) 이벤트 객체는 항상 전달됩니다
+**📌 이벤트 객체는 항상 전달됩니다**
 
 이벤트가 발생하면 브라우저는 이벤트 정보를 담은 객체를 만들고, 이벤트 핸들러의 **첫 번째 인자로 전달**합니다.  
 필요하면 매개변수 `e`로 받아 사용할 수 있고, 필요 없으면 생략해도 됩니다.
 
-### 2) 언제 받아야 하나요?
+**💡 언제 받아야 하나요?**
 
 | **분류** | **상황 (언제?)** | **구체적 예시** |
 | --- | --- | --- |
@@ -397,7 +397,7 @@ input.addEventListener('keydown', function(e) { // 키를 눌렀을 때 실행�
 
 ## 4. 이벤트 종류 (3) - 폼 이벤트
 
-### 1) 폼 관련 이벤트
+**📌 폼 관련 이벤트**
 
 | **이벤트** | **설명** |
 | --- | --- |
@@ -409,7 +409,7 @@ input.addEventListener('keydown', function(e) { // 키를 눌렀을 때 실행�
 | `blur` | 포커스 잃음 |
 | `select` | 텍스트 선택 |
 
-### 2) input vs change
+**🆚 input vs change**
 
 ```jsx
 const input = document.querySelector('input'); // 화면에서 입력창 요소를 찾아서 변수에 담습니다.
@@ -425,7 +425,7 @@ input.addEventListener('change', function(e) {
 });
 ```
 
-### 3) 사용 시나리오
+**💡 사용 시나리오**
 
 | **이벤트** | **활용 시점** | **구체적 예시** |
 | --- | --- | --- |
@@ -500,7 +500,7 @@ msgInput.addEventListener('input', function(e) { // 사용자가 글자를 입�
 
 ## 5. 이벤트 종류 (4) - 문서/창 이벤트
 
-### 1) 페이지 로드 관련
+**📌 페이지 로드 관련**
 
 | **이벤트** | **대상** | **설명** |
 | --- | --- | --- |
@@ -509,14 +509,14 @@ msgInput.addEventListener('input', function(e) { // 사용자가 글자를 입�
 | `beforeunload` | `window` | 페이지를 떠나기 전 |
 | `unload` | `window` | 페이지 언로드 (완전히 떠남) |
 
-### 2) 뷰포트 관련
+**📌 뷰포트 관련**
 
 | **이벤트** | **설명** |
 | --- | --- |
 | **`resize`** | **브라우저 창 크기 변경** |
 | **`scroll`** | **스크롤 발생** |
 
-### 3) 주요 코드 비교 및 실행
+**🧪 주요 코드 비교 및 실행**
 
 ```jsx
 // [DOMContentLoaded] DOM 트리만 완성된 시점 (이미지 로드 전)
@@ -616,7 +616,7 @@ window.addEventListener('resize', function() {
 
 ## 🚫 기본 동작 방지 - `preventDefault()`
 
-### 1) 기본 동작이란?
+**📌 기본 동작이란?**
 
 브라우저의 특정 요소들은 자바스크립트 조작 없이도 고유하게 수행하는 동작이 있습니다.
 
@@ -627,9 +627,9 @@ window.addEventListener('resize', function() {
   <div class="wda-fcard"><div class="wda-fcard-ttl">우클릭</div><div class="wda-fcard-dsc">브라우저 컨텍스트 메뉴 출력</div></div>
 </div>
 
-### 2) 주요 활용 코드
+**🧪 주요 활용 코드**
 
-**① 링크 이동 방지**
+**🧪 링크 이동 방지**
 
 ```jsx
 const link = document.querySelector('a'); // 링크 요소를 선택합니다.
@@ -640,7 +640,7 @@ link.addEventListener('click', function(e) {
 });
 ```
 
-**② 폼 제출 방지 (가장 많이 사용)**
+**🧪 폼 제출 방지 (가장 많이 사용)**
 
 ```jsx
 const form = document.querySelector('form'); // 폼 요소를 선택합니다.
@@ -660,7 +660,7 @@ form.addEventListener('submit', function(e) {
 });
 ```
 
-### 3) ⚠️ 주의사항
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -736,7 +736,7 @@ document.addEventListener('contextmenu', function(e) {
 
 ## 6. 이벤트 핸들러 등록 방법
 
-### 1) 이벤트 핸들러 등록 방식 비교
+**🆚 이벤트 핸들러 등록 방식 비교**
 
 | **방식** | **설명** | **특징** |
 | --- | --- | --- |
@@ -744,7 +744,7 @@ document.addEventListener('contextmenu', function(e) {
 | **프로퍼티 방식 (Property)** | DOM 요소의 프로퍼티에 함수를 할당 | 하나의 이벤트에 <strong>단 하나의 핸들러</strong>만 등록 가능 |
 | **addEventListener 방식** | 메서드를 사용하여 이벤트와 함수를 연결 | <strong>가장 권장되는 방식</strong>. 여러 개의 핸들러 등록 가능 |
 
-### 2) 방법별 코드 및 상세 설명
+**🧪 방법별 코드 및 상세 설명**
 
 **🔹 방법 1: HTML 속성 (비권장)**
 
@@ -792,7 +792,7 @@ btn.addEventListener('click', function() {
 // 결과: 둘 다 실행됨!
 ```
 
-### 3) ✅ addEventListener 장점
+**✅ addEventListener 장점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro">
@@ -841,7 +841,7 @@ element.addEventListener(type, handler, options);
 - **handler** : 이벤트 발생 시 실행할 함수
 - **options** : 추가 설정 (선택 사항)
 
-### 2) 핸들러 등록 방식 비교
+**🆚 핸들러 등록 방식 비교**
 
 ```jsx
 const btn = document.getElementById('btn'); // 아이디가 btn인 요소를 선택합니다.
@@ -858,7 +858,7 @@ function handleClick(e) {
 btn.addEventListener('click', handleClick); // 정의된 함수의 이름을 전달하여 연결합니다.
 ```
 
-### 3) removeEventListener
+**📝 removeEventListener**
 
 **🔹 이벤트 제거 방법**
 
@@ -906,7 +906,7 @@ btn.removeEventListener('click', function(e) {
 
 ## 8. 옵션 (1) - once &amp; capture
 
-### 1) once: true
+**📝 once: true**
 
 > "딱 한 번만 실행하고 싶을 때"
 
@@ -924,7 +924,7 @@ btn.addEventListener('click', function() {
 }, { once: true }); // 실행 후 리스너가 자동으로 제거됩니다.
 ```
 
-### 2) capture: true
+**📝 capture: true**
 
 > "이벤트가 내려올 때 잡고 싶을 때"
 
@@ -939,7 +939,7 @@ elem.addEventListener('click', handler, {
 });
 ```
 
-### 3) 🔍 핵심 개념: 캡처링이란?
+**🔍 핵심 개념: 캡처링이란?**
 
 이벤트는 발생 시 특정 방향으로 흐릅니다.
 
@@ -964,12 +964,12 @@ elem.addEventListener('click', handler, {
 
 ## 9. 옵션 (2) - passive (성능 최적화)
 
-### 1) "나 막지 않을게(Active)!"
+**📌 "나 막지 않을게(Active)!"**
 
 - **핵심 개념** — 이 핸들러 안에서 `preventDefault()`를 **절대 호출하지 않겠다**고 브라우저에 미리 약속(Promise)하는 옵션입니다.
 - **효과** — 브라우저는 자바스크립트 실행을 기다리지 않고 즉시 스크롤을 계산하므로 화면 버벅임 없이 부드러운 동작이 가능합니다.
 
-### 2) 언제 써야 하나요?
+**💡 언제 써야 하나요?**
 
 > 스크롤 및 터치 이벤트에 필수!
 
@@ -985,7 +985,7 @@ document.addEventListener('touchstart', handler, {
 });
 ```
 
-### 4) ⚠️ 만약 약속을 어기면?
+**⚠️ 만약 약속을 어기면?**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1077,7 +1077,7 @@ onceBtn.addEventListener(
 
 ## 10. 자주 하는 2가지 실수 (Common Pitfalls)
 
-### 1) 함수를 즉시 실행해버림
+**⚠️ 함수를 즉시 실행해버림**
 
 이벤트 리스너의 핸들러 자리에 함수 이름 뒤에 괄호 `()`를 붙여서 전달하는 경우입니다. 사용자가 클릭하기도 전에 **페이지가 로드되는 시점에 함수가 즉시 실행**되어 버립니다.
 
@@ -1086,7 +1086,7 @@ onceBtn.addEventListener(
 | ❌ **잘못된 코드** | `btn.addEventListener('click', handleClick());` | 클릭 전 즉시 실행됨 |
 | ✅ **올바른 코드** | `btn.addEventListener('click', handleClick);` | 클릭 시에만 실행됨 |
 
-### 2) 요소를 못 찾음 (null 에러)
+**⚠️ 요소를 못 찾음 (null 에러)**
 
 HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자바스크립트가 실행되어 요소를 찾지 못하는 경우입니다.  
 `Cannot read property ... of null` 에러가 발생하며 이벤트 리스너가 등록되지 않습니다.
@@ -1118,7 +1118,7 @@ HTML 요소가 브라우저에 의해 다 그려지기(해석되기) 전에 자�
 
 ## 11. 이벤트 객체 (Event Object)
 
-### 1) 이벤트 객체란?
+**📌 이벤트 객체란?**
 
 이벤트가 발생하면 브라우저는 해당 이벤트에 대한 상세 정보를 담은 **객체**를 생성합니다.  
 이벤트 핸들러의 첫 번째 매개변수로 이 객체가 전달됩니다. (관례적으로 `e` 또는 `event` 명명)
@@ -1136,7 +1136,7 @@ btn.addEventListener('click', function(e) {
 });
 ```
 
-### 2) 공통 프로퍼티 (Property)
+**📝 공통 프로퍼티 (Property)**
 
 | **프로퍼티** | **설명** |
 | --- | --- |
@@ -1147,7 +1147,7 @@ btn.addEventListener('click', function(e) {
 | **`bubbles`** | 버블링 여부 |
 | **`cancelable`** | `preventDefault()`로 취소 가능 여부 |
 
-### 3) 공통 메서드 (Method)
+**📝 공통 메서드 (Method)**
 
 | **메서드** | **설명** |
 | --- | --- |
@@ -1168,7 +1168,7 @@ btn.addEventListener('click', function(e) {
 
 ## 12. 마우스 이벤트 객체: 좌표 프로퍼티 완벽 정리
 
-### 1) 좌표 관련 프로퍼티 비교
+**🆚 좌표 관련 프로퍼티 비교**
 
 마우스 이벤트가 발생했을 때, 클릭한 지점의 위치를 알 수 있는 다양한 좌표값들입니다.
 
@@ -1181,7 +1181,7 @@ btn.addEventListener('click', function(e) {
 
 > 💡 Tip: 페이지에 스크롤이 없다면 client 값과 page 값은 동일합니다.
 
-### 2) 좌표 차이 시각화 이해
+**📌 좌표 차이 시각화 이해**
 
 이벤트 발생 시 각 기준점이 어떻게 다른지 이해하는 것이 중요합니다.
 
@@ -1192,7 +1192,7 @@ btn.addEventListener('click', function(e) {
 <img src="/images/content/javascript/3-3/javascript-3-3-coordinate-system-diagram.png" alt="좌표 시스템 UI 다이어그램" style="display:block;width:100%;max-width:400px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:400px;">[그림] 마우스 이벤트 좌표 기준점 비교 (Monitor/Viewport/Target)</div>
 
-### 3) 🧮 pageY 계산 공식 (스크롤 발생 시)
+**🧮 pageY 계산 공식 (스크롤 발생 시)**
 
 문서 전체에서의 위치를 구하고 싶을 때 브라우저가 내부적으로 계산하는 방식입니다.
 
@@ -1221,7 +1221,7 @@ target.addEventListener('click', function(e) {
 
 ## 13. target vs currentTarget 차이점 정리
 
-### 1) 핵심 개념 정의
+**📌 핵심 개념 정의**
 
 이벤트가 발생했을 때, 두 속성은 서로 다른 요소를 가리킬 수 있습니다.
 
@@ -1262,7 +1262,7 @@ parent.addEventListener('click', function(e) {
 // currentTarget: parent (핸들러가 등록된 것)
 ```
 
-### 3) 시각화 및 동작 이해
+**⚙️ 시각화 및 동작 이해**
 
 사용자가 `button`(child)을 클릭하면 이벤트가 발생합니다.  
 이 이벤트는 부모인 `div`(parent)로 전달(버블링)됩니다.  
@@ -1328,7 +1328,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 ```
 
-### 3) 실습 결과 요약
+**✅ 실습 결과 요약**
 
 | **클릭 위치** | **e.target 결과** | **e.currentTarget 결과** | **이유** |
 | --- | --- | --- | --- |
@@ -1351,7 +1351,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 이벤트가 발생했을 때 브라우저가 이벤트를 타겟 요소까지 전달하고, 다시 상위로 올리는 전체 과정을 의미합니다.
 
-### 1) 이벤트 전파의 3단계
+**⚙️ 이벤트 전파의 3단계**
 
 이벤트는 항상 다음의 세 단계를 거쳐 흐릅니다.
 
@@ -1367,7 +1367,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 </div>
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;">[그림] 이벤트 전파 3단계 (캡처링 → 타겟 → 버블링)</div>
 
-### 2) 전파 시각화 및 흐름
+**⚙️ 전파 시각화 및 흐름**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -1401,7 +1401,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 <img src="/images/content/javascript/3-3/javascript-3-3-web-event-propagation-diagram.png" alt="웹 이벤트 전파 다이어그램" style="display:block;width:100%;max-width:360px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:360px;">[그림] window~button DOM 트리에서의 캡처링(하강)·버블링(상승) 경로</div>
 
-### 3) 주요 개념 정리
+**📌 주요 개념 정리**
 
 - **`window`란?** 브라우저 창 전체를 담당하는 최상위 객체(전역 객체)입니다. `DOM(document)`보다 더 상위에 존재합니다.
 - **이벤트 전파 방지 (`e.stopPropagation()`)** — 버블링이나 캡처링이 더 이상 진행되지 않도록 막고 싶을 때 사용하는 중요한 메서드입니다.
@@ -1420,7 +1420,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 
 이벤트가 발생한 요소에서 시작하여 부모 요소를 거쳐 최상위(`window`)까지 **이벤트가 거꾸로 올라가는 현상**을 의미합니다.
 
-### 1) 버블링 예제
+**🧪 버블링 예제**
 
 계층 구조와 실행 순서를 정리합니다.
 
@@ -1443,7 +1443,7 @@ outer.addEventListener('click', function(e) {         // outer에 클릭 이벤�
 // 3. "grandparent 클릭!"
 ```
 
-### 2) 전파 중단: `stopPropagation()`
+**📝 전파 중단: `stopPropagation()`**
 
 이벤트가 부모 요소로 더 이상 퍼지지 않게 막고 싶을 때 사용합니다.
 
@@ -1460,7 +1460,7 @@ document.getElementById('child')
 // 결과: "child 클릭!" 만 출력되고 상위 요소로 전파되지 않음
 ```
 
-### 3) ⚠️ 주의사항 및 팁
+**⚠️ 주의사항 및 팁**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1541,7 +1541,7 @@ boxes.forEach(box => {
 </script>
 ```
 
-### 3) 📝 요약 메모
+**📝 요약 메모**
 
 Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올라가려 합니다.  
 `box2` 핸들러에서 `e.stopPropagation()`이 호출되면서 전파가 중단되어, 콘솔에는 **"box3 클릭!"**, **"box2 클릭!"**까지만 출력됩니다.
@@ -1556,7 +1556,7 @@ Box 3을 클릭하면 이벤트가 **Box 3 → Box 2 → Box 1** 순서로 올�
 
 ## 16. 이벤트 위임 (Event Delegation)
 
-### 1) 이벤트 위임이란?
+**📌 이벤트 위임이란?**
 
 **🔹 HTML 구조**
 
@@ -1615,7 +1615,7 @@ document.getElementById('menu')
 
 부모 요소에 이벤트를 걸어두고 자식 요소를 구분하려면 `e.target`을 사용합니다.
 
-### 2) 이벤트 위임의 장점
+**📌 이벤트 위임의 장점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro">
@@ -1635,7 +1635,7 @@ document.getElementById('menu')
   </div>
 </div>
 
-### 3) 동적 요소 추가 예시
+**🧪 동적 요소 추가 예시**
 
 위임 방식을 사용하면 나중에 추가된 요소에도 이벤트가 자동으로 적용됩니다.
 
@@ -1702,7 +1702,7 @@ list.addEventListener('click', function(e) {
 </script>
 ```
 
-### 3) 💡 보충 설명
+**💡 보충 설명**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -1716,7 +1716,7 @@ list.addEventListener('click', function(e) {
 
 ## 🌈 이벤트 위임 실전 예제 (Todo List)
 
-### 1) 할 일 목록 (Todo List) 삭제 구현
+**🧪 할 일 목록 (Todo List) 삭제 구현**
 
 개별 삭제 버튼마다 이벤트를 걸지 않고, `ul` 부모 요소에서 클릭을 감지하여 삭제 기능을 처리하는 코드입니다.
 
@@ -1749,7 +1749,7 @@ todoList.addEventListener('click', function(e) {
 });
 ```
 
-### 2) 핵심 메서드: `closest()`
+**📝 핵심 메서드: `closest()`**
 
 이벤트 위임 패턴에서 매우 중요하게 사용되는 메서드입니다.
 
@@ -1767,7 +1767,7 @@ const card = e.target.closest('.card'); // 가장 가까운 .card 찾기
 `e.target.closest('선택자')`는 클릭된 요소 자신 또는 가장 가까운 부모 중 조건에 맞는 요소를 찾을 때 사용합니다.  
 버튼 안에 span 같은 자식 요소가 있을 수 있으므로, 실무에서는 `closest`를 사용하면 더 안전합니다.
 
-### 3) 더 정교한 위임 패턴 (Advanced)
+**⚙️ 더 정교한 위임 패턴 (Advanced)**
 
 하나의 리스트 안에 **삭제, 수정, 체크박스** 등 여러 기능이 있을 때, 이를 하나의 핸들러(`addEventListener`)로 깔끔하게 분기 처리하는 방법입니다.
 
@@ -1793,7 +1793,7 @@ todoList.addEventListener('click', function(e) {
 
 ## 🌈 실전 예제: 버튼 클릭 카운터
 
-### 1) HTML 구조 (공통)
+**🧪 HTML 구조 (공통)**
 
 카운터 앱의 기본 뼈대입니다. 부모인 `counter-app` 안에 숫자 표시(`p`)와 버튼 3개가 들어있습니다.
 
@@ -1806,7 +1806,7 @@ todoList.addEventListener('click', function(e) {
 </div>
 ```
 
-### 2) 방식 비교
+**🆚 방식 비교**
 
 **❌ 방식 1: 개별 핸들러 방식 (비효율적)**
 
@@ -1853,7 +1853,7 @@ document.getElementById('counter-app')
   });
 ```
 
-### 3) 이벤트 위임의 장점 (정리)
+**📌 이벤트 위임의 장점 (정리)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro">
@@ -1874,7 +1874,7 @@ document.getElementById('counter-app')
 
 ## 🌈 실전 예제: 폼 유효성 검사
 
-### 1) HTML 구조 설계
+**🧪 HTML 구조 설계**
 
 HTML에서는 입력 필드와 에러 메시지를 표시할 영역을 미리 만들어둡니다.
 
@@ -1913,7 +1913,7 @@ HTML에서는 입력 필드와 에러 메시지를 표시할 영역을 미리 �
   </ul>
 </div>
 
-### 2) 유효성 검사 로직 (JavaScript)
+**🧪 유효성 검사 로직 (JavaScript)**
 
 `submit` 이벤트를 감지하여 검사를 수행합니다.
 
@@ -1959,7 +1959,7 @@ form.addEventListener('submit', function(e) {
 
 ## 🌈 실전 예제: 실시간 검색창
 
-### 1) HTML 구조
+**🧪 HTML 구조**
 
 검색어를 입력할 `input` 창과 결과를 보여줄 `ul` 목록을 준비합니다.
 
@@ -1969,7 +1969,7 @@ form.addEventListener('submit', function(e) {
 <ul id="results"></ul>
 ```
 
-### 2) JavaScript 로직
+**🧪 JavaScript 로직**
 
 **`input` 이벤트**를 사용하여 사용자가 타이핑할 때마다 즉시 반응하도록 구현합니다.
 

@@ -71,7 +71,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. 요소 선택이란?
 
-### 1) DOM에서 요소 찾기
+**📌 DOM에서 요소 찾기**
 
 웹페이지를 변경하려면 먼저 변경할 요소를 선택해야 합니다.
 
@@ -94,7 +94,7 @@ const btn = document.querySelector('.btn');
 const para = document.querySelector('p');
 ```
 
-### 2) 선택 - 조작 흐름
+**⚙️ 선택 - 조작 흐름**
 
 **핵심 포인트**
 
@@ -126,7 +126,7 @@ const para = document.querySelector('p');
   </div>
 </div>
 
-### 3) 복잡한 요소도 한 방에!
+**🧪 복잡한 요소도 한 방에!**
 
 | **CSS 선택자 예시** | **설명** |
 | --- | --- |
@@ -139,7 +139,7 @@ const para = document.querySelector('p');
 
 ## 💻 실습 : 복잡한 선택자 연습
 
-### 1) HTML 구조
+**🧪 HTML 구조**
 
 ```jsx
 <form id="login-form">
@@ -185,7 +185,7 @@ console.log(document.querySelector('button[type="submit"]'));
 
 요소 내부의 내용을 읽거나 바꾸는 두 가지 핵심 방법입니다.
 
-### 1) textContent vs innerHTML 비교
+**🆚 textContent vs innerHTML 비교**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -219,7 +219,7 @@ console.log(document.querySelector('button[type="submit"]'));
   </ul>
 </div>
 
-### 1) Dangerous Code
+**⚠️ Dangerous Code**
 
 ```jsx
 const input = "<img src='x' onerror='stealCookie()'>";
@@ -227,7 +227,7 @@ const input = "<img src='x' onerror='stealCookie()'>";
 div.innerHTML = input;
 ```
 
-### 2) 이 코드가 왜 위험한가요?
+**⚠️ 이 코드가 왜 위험한가요?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con">
@@ -247,7 +247,7 @@ div.innerHTML = input;
 하지만 img의 onerror 같은 이벤트 속성이나 다른 HTML 삽입 방식으로 악성 코드가 실행될 수 있어 위험합니다.  
 그래서 사용자 입력값은 기본적으로 textContent로 처리하는 것이 안전합니다.
 
-### 3) Safe Alternative
+**💡 Safe Alternative**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro">
@@ -275,7 +275,7 @@ div.innerHTML = input;
 
 가장 혼동하기 쉬운 개념입니다. **초기값(Blueprint)**과 **현재상태(Live)**의 차이입니다.
 
-### 1) Attribute vs Property 비교
+**🆚 Attribute vs Property 비교**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -314,12 +314,12 @@ input.value; // -> "user input"
 
 ## 6. data-* 속성과 dataset
 
-### 1) data- 속성 정의
+**📌 data- 속성 정의**
 
 `data-`로 시작하는 커스텀 속성을 사용해 HTML 요소에 보조 데이터를 저장할 수 있습니다.  
 단, HTML에 그대로 노출되는 값이므로 비밀번호나 토큰 같은 민감한 정보는 저장하면 안 됩니다.
 
-### 2) HTML 코드
+**🧪 HTML 코드**
 
 ```jsx
 <div id="user"
@@ -334,7 +334,7 @@ input.value; // -> "user input"
 </button>
 ```
 
-### 3) JavaScript (dataset)
+**🧪 JavaScript (dataset)**
 
 ```jsx
 const user = document.getElementById('user');
@@ -355,7 +355,7 @@ delete user.dataset.isActive;
 
 dataset으로 읽은 값은 항상 문자열입니다. 예를 들어 `data-user-id="123"`은 숫자 123이 아니라 문자열 `"123"`으로 읽힙니다.
 
-### 4) 활용 사례
+**💡 활용 사례**
 
 상품 ID, 상태값, 설정값 등을 저장할 때 표준으로 사용됩니다.
 
@@ -363,7 +363,7 @@ dataset으로 읽은 값은 항상 문자열입니다. 예를 들어 `data-user-
 
 ## 7. 클래스(Class) 조작 - className과 classList
 
-### 1) className vs classList 비교
+**🆚 className vs classList 비교**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -379,7 +379,7 @@ dataset으로 읽은 값은 항상 문자열입니다. 예를 들어 `data-user-
   </div>
 </div>
 
-### 2) className (문자열 전체)
+**🧪 className (문자열 전체)**
 
 ```jsx
 <div id="box" class="card active">박스</div>
@@ -401,7 +401,7 @@ box.className += ' another';
   </ul>
 </div>
 
-### 3) classList (권장)
+**🧪 classList (권장)**
 
 ```jsx
 const box = document.getElementById('box');
@@ -429,7 +429,7 @@ if (box.classList.contains('card')) { ... }
 
 ## 8. 스타일(Style) 조작
 
-### 1) element.style (인라인)
+**🧪 element.style (인라인)**
 
 ```jsx
 const box = document.getElementById('box');
@@ -452,7 +452,7 @@ console.log(box.style.color);
   </ul>
 </div>
 
-### 2) getComputedStyle (최종값)
+**🧪 getComputedStyle (최종값)**
 
 ```jsx
 const box = document.getElementById('box');
@@ -478,7 +478,7 @@ console.log(computed.display);  // "block"
 
 다음 요구사항에 맞춰 요소를 조작하는 코드를 작성해보세요.
 
-### 1) HTML 구조
+**🧪 HTML 구조**
 
 ```jsx
 <div id="alert" class="box hidden">
@@ -549,7 +549,7 @@ box.textContent = '오류 발생!';
 
 `createElement`로 만든 요소는 공중에 떠 있는 풍선과 같습니다.
 
-### 1) Memory vs DOM 비교
+**🆚 Memory vs DOM 비교**
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -564,7 +564,7 @@ box.textContent = '오류 발생!';
   </div>
 </div>
 
-### 2) 계층 구조 조립
+**⚙️ 계층 구조 조립**
 
 ```jsx
 // 1. 메모리상에 <ul>과 <li> 요소를 각각 생성 (아직 화면엔 없음)
@@ -636,7 +636,7 @@ card.textContent = 'New Item';
 document.body.appendChild(card);
 ```
 
-### 3) 미리보기 (HTML 구조)
+**🧪 미리보기 (HTML 구조)**
 
 코드가 실행되면 최종적으로 다음과 같은 구조가 화면에 추가됩니다.
 
@@ -652,7 +652,7 @@ document.body.appendChild(card);
 
 기존 `appendChild()`는 노드 1개만 가능하고, 항상 맨 뒤에만 추가되는 단점이 있었습니다.
 
-### 1) 자식으로 추가 (Parent Methods)
+**📝 자식으로 추가 (Parent Methods)**
 
 부모 요소의 안쪽 앞/뒤에 요소를 넣을 때 사용합니다.
 
@@ -661,7 +661,7 @@ document.body.appendChild(card);
 | `append()` | **맨 뒤**에 추가 | 여러 요소나 문자열을 한 번에 넣을 수 있음 |
 | `prepend()` | **맨 앞**에 추가 | 기존 자식들보다 앞선 순서로 삽입됨 |
 
-### 2) 형제로 추가 (Sibling Methods)
+**📝 형제로 추가 (Sibling Methods)**
 
 기준 요소의 바로 앞/뒤(바깥쪽)에 요소를 넣을 때 사용합니다.
 
@@ -682,7 +682,7 @@ document.body.appendChild(card);
 
 ## 11. 요소 삭제/교체/복제
 
-### 1) 삭제와 교체
+**📝 삭제와 교체**
 
 요소를 화면에서 지우거나 새로운 요소로 바꿀 때 사용합니다.
 
@@ -692,7 +692,7 @@ document.body.appendChild(card);
 | (Remove) | `parent.removeChild(child)` | 부모가 자식을 삭제하는 구식 방식 |
 | **요소 교체** | `old.replaceWith(new)` | 기존 요소를 새로운 요소로 교체 |
 
-### 2) 요소 복제 (Clone)
+**📝 요소 복제 (Clone)**
 
 기존 요소를 똑같이 복사합니다. 기본형은 `node.cloneNode(deep)`입니다.
 
@@ -714,7 +714,7 @@ document.body.appendChild(card);
 
 ## 💻 실습 : 할 일 목록
 
-### 1) 구현 목표
+**📌 구현 목표**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -731,7 +731,7 @@ document.body.appendChild(card);
   </div>
 </div>
 
-### 2) HTML 구조
+**🧪 HTML 구조**
 
 ```jsx
 <div id="todo-app">
@@ -741,7 +741,7 @@ document.body.appendChild(card);
 </div>
 ```
 
-### 3) DOM 요소 선택 - 완성 코드
+**🧪 DOM 요소 선택 - 완성 코드**
 
 ```jsx
 // [1] 필요한 DOM 요소 선택
@@ -785,7 +785,7 @@ function addTodo() {
 }
 ```
 
-### 4) 사용된 핵심 메서드 요약
+**🧠 사용된 핵심 메서드 요약**
 
 | **메서드** | **역할** | **단계** |
 | --- | --- | --- |
@@ -794,7 +794,7 @@ function addTodo() {
 | `parent.appendChild()` | 요소를 부모의 자식으로 연결 | 화면 (DOM) |
 | `element.remove()` | 선택한 요소 삭제 | 요소 삭제 |
 
-### 5) 함수 흐름 단계별 정리
+**⚙️ 함수 흐름 단계별 정리**
 
 | **단계** | **주요 동작** | **관련 메서드 / 속성** | **상태** |
 | --- | --- | --- | --- |
@@ -829,7 +829,7 @@ function addTodo() {
 
 버튼을 누르면 `body` 태그에 `dark-mode` 클래스를 붙였다 떼었다(Toggle) 합니다.
 
-### 1) CSS (스타일 정의)
+**🧪 CSS (스타일 정의)**
 
 ```jsx
 /* 기본 상태 (라이트 모드) */
@@ -846,7 +846,7 @@ body.dark-mode {
 }
 ```
 
-### 2) JavaScript (클래스 토글)
+**🧪 JavaScript (클래스 토글)**
 
 ```jsx
 const btn = document.getElementById('toggle-btn');
@@ -877,7 +877,7 @@ btn.addEventListener('click', () => {
 
 ## ✅ 핵심 요약
 
-### 1. 요소 선택 및 상태 (Selection)
+**🆚 요소 선택 및 상태 (Selection)**
 
 | **메서드** | **선택 방식** | **반환 타입** | **상태 특성** |
 | --- | --- | --- | --- |
@@ -894,7 +894,7 @@ btn.addEventListener('click', () => {
   </ul>
 </div>
 
-### 2. 내용 및 스타일 조작 (Content & Style)
+**📝 내용 및 스타일 조작 (Content & Style)**
 
 | **구분** | **항목** | **특징** | **비고** |
 | --- | --- | --- | --- |
@@ -903,7 +903,7 @@ btn.addEventListener('click', () => {
 | **스타일** | **`element.style`** | HTML 태그 내에 직접 작성 | **인라인 스타일**만 제어 가능 |
 |  | **`getComputedStyle()`** | 브라우저가 최종 계산한 스타일 | CSS 파일에 정의된 값 조회 시 사용 |
 
-### 3. 클래스 및 속성 제어 (Class & Attributes)
+**🧠 클래스 및 속성 제어 (Class & Attributes)**
 
 | **메서드** | **역할** | **세부 기능** |
 | --- | --- | --- |
@@ -920,7 +920,7 @@ btn.addEventListener('click', () => {
   </ul>
 </div>
 
-### 4. 생성/삽입/삭제 (Manipulation)
+**📝 생성/삽입/삭제 (Manipulation)**
 
 | **단계** | **메서드** | **특징** |
 | --- | --- | --- |

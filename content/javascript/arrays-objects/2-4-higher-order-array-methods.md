@@ -71,7 +71,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <h2>1. ƒ 고차 함수란?</h2>
 </div>
 
-### 1) 정의
+**📌 정의**
 
 **고차 함수 (Higher-Order Function)**
 
@@ -93,7 +93,7 @@ const double = multiply(2);
 double(5); // 10
 ```
 
-### 2) 왜 중요한가?
+**📌 왜 중요한가?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -142,7 +142,7 @@ double(5); // 10
   <h2>2. 🔄 forEach - 순회하기</h2>
 </div>
 
-### 1) 기본 사용법
+**📝 기본 사용법**
 
 가장 기본적인 반복 작업입니다. 배열의 요소 개수만큼 함수를 실행합니다.
 
@@ -163,7 +163,7 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
-### 2) 특징과 주의점
+**⚠️ 특징과 주의점**
 
 단순 반복이 목적이라서 제약사항이 조금 있습니다.
 
@@ -261,7 +261,7 @@ foods.forEach(food => console.log(food));
   <h2>3. map - 변환하기</h2>
 </div>
 
-### 1) 기본 사용법
+**📝 기본 사용법**
 
 배열의 모든 요소를 변환하여 **새로운 배열**을 만듭니다.
 
@@ -284,7 +284,7 @@ console.log(numbers); // [1, 2, 3, 4, 5]
   ✅ 원본 배열 변경 없이 새로운 배열 반환
 </div>
 
-### 2) 실전 활용
+**🧪 실전 활용**
 
 객체 배열에서 원하는 데이터만 뽑거나, 형태를 바꿀 때 강력합니다.
 
@@ -376,7 +376,7 @@ console.log(tagged);
   <h2>4. filter - 필터링하기</h2>
 </div>
 
-### 1) 기본 사용법
+**📝 기본 사용법**
 
 조건에 맞는 요소만 걸러내어 **새로운 배열**을 만듭니다.
 
@@ -399,7 +399,7 @@ console.log(big); // [6, 7, 8, 9, 10]
   콜백이 true를 반환하는 요소만 새 배열에 포함됩니다
 </div>
 
-### 2) 실전 활용
+**🧪 실전 활용**
 
 쇼핑몰 필터 기능처럼, 데이터 목록에서 원하는 조건의 항목만 남길 때 유용합니다.
 
@@ -492,7 +492,7 @@ console.log(expensive);
   <h2>5. reduce - 축소하기</h2>
 </div>
 
-### 1) 기본 사용법
+**📝 기본 사용법**
 
 배열을 **하나의 값**으로 축소(Reduce)합니다.
 
@@ -519,7 +519,7 @@ console.log(sum2); // 15
   배열을 하나의 값으로 축소
 </div>
 
-### 2) 동작 과정
+**⚙️ 동작 과정**
 
 눈덩이를 굴리는 것처럼 값이 누적됩니다.
 
@@ -556,7 +556,7 @@ console.log(sum2); // 15
   <h2>6. reduce 다양한 활용</h2>
 </div>
 
-### 1) 집계 계산
+**🧪 집계 계산**
 
 단순 합계뿐만 아니라 최대값, 평균 등 다양한 계산이 가능합니다.
 
@@ -579,7 +579,7 @@ const avg = numbers.reduce(
 ); // 30
 ```
 
-### 2) 데이터 그룹핑
+**🧪 데이터 그룹핑**
 
 실무에서 가장 많이 쓰는 패턴입니다. 데이터를 특정 기준(팀, 날짜 등)으로 묶어줍니다.
 
@@ -603,7 +603,7 @@ const byTeam = people.reduce((acc, person) => {
 //   B: [{name:'Lee'...}, {name:'Choi'...}] }
 ```
 
-### 3) 핵심 조언
+**💡 핵심 조언**
 
 **💼 실무 팁**
 
@@ -680,7 +680,7 @@ console.log(total); // 100
   <h2>7. find / findIndex - 찾기</h2>
 </div>
 
-### 1) find - 요소 찾기
+**📝 find - 요소 찾기**
 
 조건에 맞는 **첫 번째 요소**를 찾아 반환합니다.
 
@@ -706,7 +706,7 @@ console.log(notFound); // undefined
   콜백 매개변수: <code>find((element, index, array) => return boolean)</code>
 </div>
 
-### 2) findIndex - 인덱스 찾기
+**📝 findIndex - 인덱스 찾기**
 
 요소 자체가 아니라 그 요소가 있는 **위치(Index)**를 찾습니다.
 
@@ -722,7 +722,7 @@ const notFound = numbers.findIndex(n => n > 100);
 console.log(notFound); // -1
 ```
 
-### 3) find vs filter 차이
+**🆚 find vs filter 차이**
 
 가장 많이 헷갈리는 두 메서드의 차이점입니다.
 
@@ -810,7 +810,7 @@ console.log(found);
   <h2>8. some / every - 조건 검사</h2>
 </div>
 
-### 1) some - 하나라도?
+**📝 some - 하나라도?**
 
 배열의 요소 중 **하나라도** 조건을 만족하면 `true`를 반환합니다.
 
@@ -832,7 +832,7 @@ console.log(hasBig); // false
   하나라도 조건을 만족하면 true. 찾으면 바로 멈춤 (단락 평가)
 </div>
 
-### 2) every - 모두 다?
+**📝 every - 모두 다?**
 
 배열의 **모든 요소**가 조건을 만족해야 `true`를 반환합니다.
 
@@ -854,7 +854,7 @@ console.log(allExcellent); // false (78, 88)
   모두 조건을 만족해야 true. 하나라도 실패하면 바로 멈춤
 </div>
 
-### 3) 🆚 비교 정리
+**🆚 비교 정리**
 
 <div class="wda-callout wda-ci">
   💡 some은 OR 조건, every는 AND 조건으로 생각하세요!
@@ -935,7 +935,7 @@ console.log(isSafe);
   <h2>9. sort - 정렬하기</h2>
 </div>
 
-### 1) 숫자 정렬의 함정
+**⚠️ 숫자 정렬의 함정**
 
 `sort`를 그냥 쓰면 숫자를 문자로 취급해서 정렬하는 대참사가 일어납니다.
 
@@ -961,7 +961,7 @@ console.log(numbers); // [20, 10, 3, 2, 1]
   ⚠️ sort()는 원본을 변경합니다!
 </div>
 
-### 2) 객체 배열 정렬
+**📝 객체 배열 정렬**
 
 실무에서는 객체 안의 특정 값(나이, 이름 등)을 기준으로 정렬합니다.
 
@@ -1061,7 +1061,7 @@ console.log(nums);
   <h2>10. 메서드 체이닝</h2>
 </div>
 
-### 1) 체이닝이란?
+**📌 체이닝이란?**
 
 메서드들이 꼬리에 꼬리를 물고 이어지는 패턴입니다.
 
@@ -1082,7 +1082,7 @@ const total = products
 console.log(total); // 1750000
 ```
 
-### 2) 데이터 파이프라인
+**⚙️ 데이터 파이프라인**
 
 복잡한 데이터 처리를 단계별로 명확하게 표현할 수 있습니다.
 
@@ -1124,7 +1124,7 @@ const result = users
   <h2>11. 🧊 불변성과 함수형 프로그래밍</h2>
 </div>
 
-### 1) 불변성 (Immutability)
+**📌 불변성 (Immutability)**
 
 원본 데이터를 직접 고치는 것이 아니라, 새로운 복사본을 만드는 것이 핵심입니다.
 
@@ -1148,7 +1148,7 @@ const updated = arr.map((x, i) =>
   ✅ 원본을 변경하지 않고 새로운 데이터를 생성
 </div>
 
-### 2) 순수 함수 (Pure Function)
+**📌 순수 함수 (Pure Function)**
 
 입력이 같으면 결과도 항상 같아야 하며, 외부에 영향을 주지 않아야 합니다.
 
@@ -1204,7 +1204,7 @@ function addToCart(item) {
   <h2>✅ 핵심 요약</h2>
 </div>
 
-### 1) 메서드 분류
+**🧠 메서드 분류**
 
 용도에 따라 크게 3가지 그룹으로 나뉩니다.
 
@@ -1250,7 +1250,7 @@ function addToCart(item) {
   </tr>
 </table>
 
-### 2) 반환값 비교
+**🆚 반환값 비교**
 
 메서드 체이닝을 할 때 가장 중요한 기준입니다.
 
@@ -1281,7 +1281,7 @@ function addToCart(item) {
   </tr>
 </table>
 
-### 3) 원본 변경 여부
+**🧠 원본 변경 여부**
 
 리액트(React) 등에서 불변성을 지킬 때 반드시 확인해야 합니다.
 
@@ -1308,7 +1308,7 @@ function addToCart(item) {
   </tr>
 </table>
 
-### 4) 🚀 (추가) 실전 선택 가이드 (Cheat Sheet)
+**🚀 (추가) 실전 선택 가이드 (Cheat Sheet)**
 
 코드를 짤 때 "어떤 메서드를 써야 하지?" 고민된다면 이 질문을 던져보세요.
 

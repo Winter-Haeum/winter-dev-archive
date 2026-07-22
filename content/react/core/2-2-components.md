@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 모든 코드를 `App.jsx` 하나에 다 넣으면 관리가 힘듭니다. 컴포넌트는 각각의 파일로 분리해서 정리하는 것이 좋습니다.
 
-### 1) 폴더 구조 (Folder Structure)
+**📁 폴더 구조 (Folder Structure)**
 
 보통 `src` 폴더 안에 `components` 폴더를 만들어서 컴포넌트 파일들을 모아둡니다.
 
@@ -80,7 +80,7 @@ src/
 ```
 <p style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] 컴포넌트 폴더 구조</p>
 
-### 2) 파일 작성법 (Header.jsx)
+**📝 파일 작성법 (Header.jsx)**
 
 컴포넌트 파일명은 컴포넌트 이름과 동일하게 맞추는 것이 **관례**입니다.  
 반드시 그래야만 실행되는 것은 아니지만, 유지보수와 자동완성, 파일 찾기를 쉽게 하기 위해 이름을 맞추는 것이 좋습니다.  
@@ -173,7 +173,7 @@ export default Button;
 
 파일을 분리했으면 서로 연결해야 합니다. 이때 사용하는 방식은 크게 '기본(default)'과 **'이름(named)'** 두 가지가 있습니다.
 
-### 1) default export (기본 내보내기)
+**📝 default export (기본 내보내기)**
 
 **컴포넌트**를 내보낼 때 주로 사용합니다. 파일당 **단 하나**만 내보낼 수 있습니다.
 
@@ -192,7 +192,7 @@ import Header from './components/Header';
 import MyHeader from './components/Header';
 ```
 
-### 2) named export (이름 내보내기)
+**📝 named export (이름 내보내기)**
 
 **유틸리티 함수**나 **상수**처럼 여러 개를 내보낼 때 사용합니다.
 
@@ -234,9 +234,9 @@ import { formatDate as format } from './utils';
 1. **Header 만들기:** `src/components` 폴더에 `Header.jsx`를 생성합니다.
 2. **App 정리하기:** `App.jsx`에서 `Header`와 `Button`을 모두 불러와(`import`) 화면에 배치합니다.
 
-### 2) 단계별 코드 작성
+**✅ 단계별 코드 작성**
 
-**(1) 1단계: Header.jsx 생성**
+**✅ 1단계: Header.jsx 생성**
 
 `src/components/Header.jsx` 파일을 만들고 아래 코드를 작성하세요.
 
@@ -256,7 +256,7 @@ function Header() {
 export default Header;
 ```
 
-**(2) 2단계: App.jsx에서 사용**
+**✅ 2단계: App.jsx에서 사용**
 
 `App.jsx` 파일을 열고, 위에서 만든 `Header`와 이전에 만든 `Button`을 가져와 조립하세요.
 
@@ -311,7 +311,7 @@ export default App;
 
 만든 컴포넌트는 HTML 태그처럼 꺾쇠 괄호 `< >`를 사용하여 화면에 배치합니다.
 
-### 1) 사용 규칙 (Rules)
+**📝 사용 규칙 (Rules)**
 
 컴포넌트를 태그로 쓸 때는 내용물(자식 요소)이 있느냐 없느냐에 따라 두 가지 방식이 있습니다.
 
@@ -371,14 +371,14 @@ export default App;
 
 React 컴포넌트 이름은 반드시 **대문자로 시작하는 PascalCase**로 작성해야 합니다.
 
-### 1) 대소문자의 차이
+**🆚 대소문자의 차이**
 
 리액트는 태그의 첫 글자를 보고 이것이 HTML 태그인지, 사용자 정의 컴포넌트인지 구분합니다.
 
 - **소문자 시작 (예: `div`, `header`):** 일반 HTML 태그로 인식합니다.
 - **대문자 시작 (예: `Header`, `Card`):** React 컴포넌트로 인식합니다.
 
-### 2) 코드 비교
+**🆚 코드 비교**
 
 소문자로 만들면 컴포넌트가 작동하지 않으므로 주의해야 합니다.
 
@@ -396,7 +396,7 @@ function Header() {
 }
 ```
 
-### 3) 좋은 이름 예시
+**🧪 좋은 이름 예시**
 
 의미를 명확하게 전달하는 단어들의 조합으로 짓는 것이 좋습니다.
 
@@ -424,7 +424,7 @@ function Header() {
 
 컴포넌트 안에 다른 컴포넌트를 넣어 **부모-자식 관계**를 만듭니다. 작은 부품들을 모아 더 큰 부품을 만드는 과정입니다.
 
-### 1) 부모-자식 관계 (Parent-Child)
+**📌 부모-자식 관계 (Parent-Child)**
 
 HTML에서 `<div>` 안에 `<span>`을 넣듯, 리액트에서도 컴포넌트 안에 다른 컴포넌트를 넣을 수 있습니다.
 
@@ -459,7 +459,7 @@ function App() {
 }
 ```
 
-### 3) 컴포넌트 트리 (Tree)
+**⚙️ 컴포넌트 트리 (Tree)**
 
 컴포넌트들이 연결된 구조를 족보처럼 나타낸 것을 **트리**라고 합니다. 데이터는 이 트리를 타고 위에서 아래로 흐르게 됩니다.
 
@@ -599,7 +599,7 @@ export default App;
 
 컴포넌트를 만들고 사용할 때 가장 많이 실수하는 두 가지 포인트입니다.
 
-### 1) Q1. 컴포넌트 이름 규칙
+**🧠 Q1. 컴포넌트 이름 규칙**
 
 **Q. React 컴포넌트 이름은 반드시 어떤 케이스로 시작해야 하나요?**
 
@@ -607,7 +607,7 @@ export default App;
 - **이유:** 소문자로 시작하면 리액트가 이를 일반 **HTML 태그(`div`, `span` 등)로 오해**하여 렌더링되지 않거나 오류가 발생합니다.
 - 예: `header`(X) → `Header`(O)
 
-### 2) Q2. 자식 요소가 있는 경우
+**🧠 Q2. 자식 요소가 있는 경우**
 
 **Q. HTML의 `<div class="card">...</div>`와 같이 내용물을 감싸는 가장 유사한 React 컴포넌트 사용 방식은?**
 

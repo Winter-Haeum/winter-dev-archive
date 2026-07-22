@@ -66,7 +66,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 데이터 교환을 위한 **"만국 공통어"**
 
-### 1) 정의 (Definition)
+**📌 정의 (Definition)**
 
 **JavaScript Object Notation**
 
@@ -85,7 +85,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 2) 왜 쓰나요?
+**📌 왜 쓰나요?**
 
 **서버와 클라이언트가 대화할 때 사용해요!**
 
@@ -114,7 +114,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <h2>2. JSON vs JavaScript Object 비교</h2>
 </div>
 
-### 1) JavaScript Object (자바스크립트 객체)
+**🆚 JavaScript Object (자바스크립트 객체)**
 
 자바스크립트 문법 내에서는 비교적 자유로운 형식을 가집니다.
 
@@ -130,7 +130,7 @@ const person = {
 };
 ```
 
-### 2) JSON (데이터 포맷)
+**🆚 JSON (데이터 포맷)**
 
 데이터 교환을 목적으로 하기에 **엄격한 규칙**을 따라야 합니다.
 
@@ -144,7 +144,7 @@ const person = {
 
 JSON에서는 key와 문자열 값에 반드시 쌍따옴표를 사용해야 합니다. 함수, undefined, 주석, 마지막 쉼표는 사용할 수 없습니다.
 
-### 3) 주요 차이점 요약
+**🆚 주요 차이점 요약**
 
 | **구분** | **JavaScript Object** | **JSON** |
 | --- | --- | --- |
@@ -170,7 +170,7 @@ JSON에서는 key와 문자열 값에 반드시 쌍따옴표를 사용해야 합
 
 **데이터(String)와 도구(Object)의 차이를 명확히 구분해야 합니다.**
 
-### 1) JSON 데이터 (Format)
+**🆚 JSON 데이터 (Format)**
 
 우리가 서버와 주고받는 **"데이터 그 자체"**입니다.
 
@@ -188,7 +188,7 @@ const data = '{"name":"Kim"}';
 console.log(typeof data); // "string"
 ```
 
-### 2) JSON 객체 (Global Object)
+**🆚 JSON 객체 (Global Object)**
 
 브라우저(자바스크립트 엔진)에 내장된 **"기능 도구함"**입니다.
 
@@ -217,7 +217,7 @@ console.log(typeof JSON.parse); // "function"
 
 직렬화(Stringify)와 역직렬화(Parse)의 개념과 사용법입니다.
 
-### 1) 직렬화 (Serialization) : `JSON.stringify()`
+**📝 직렬화 (Serialization) : `JSON.stringify()`**
 
 **JS 객체 ➡ JSON 문자열** (서버로 데이터를 보낼 때 사용)
 
@@ -236,7 +236,7 @@ console.log(jsonStr);
 // 출력결과: '{"name":"Kim","age":30}' (하나의 긴 문자열이 됨)
 ```
 
-### 2) 역직렬화 (Deserialization) : `JSON.parse()`
+**📝 역직렬화 (Deserialization) : `JSON.parse()`**
 
 **JSON 문자열 ➡ JS 객체** (서버에서 받은 데이터를 쓸 때 사용)
 
@@ -252,7 +252,7 @@ console.log(user.name);
 // 출력결과: "Kim" (다시 JS 객체로 돌아옴!)
 ```
 
-### 3) 데이터 변환 흐름 요약
+**⚙️ 데이터 변환 흐름 요약**
 
 데이터가 이동하는 방향에 따라 사용하는 메서드가 다릅니다.
 
@@ -300,7 +300,7 @@ console.log(user.name);
 
 가능한 것과 불가능한 것을 명확히 구분해야 데이터 손실을 막을 수 있습니다.
 
-### 1) 지원 (OK)
+**🆚 지원 (OK)**
 
 JSON 표준에서 허용하는 6가지 데이터 타입입니다.
 
@@ -331,7 +331,7 @@ JSON 표준에서 허용하는 6가지 데이터 타입입니다.
   </div>
 </div>
 
-### 2) 미지원 (무시/에러)
+**🆚 미지원 (무시/에러)**
 
 프로그래밍 로직이나 언어 특화 기능은 저장할 수 없습니다.
 
@@ -350,7 +350,7 @@ JSON 표준에서 허용하는 6가지 데이터 타입입니다.
   </div>
 </div>
 
-### 3) 💡 참고 : Date 객체 처리
+**💡 참고 : Date 객체 처리**
 
 날짜(`Date`)는 JSON으로 변환(stringify)하면 **단순 문자열**로 바뀝니다.
 
@@ -409,7 +409,7 @@ JSON.stringify({ value: 10n });      // TypeError
   <h2>6. 자주 겪는 에러와 궁금증 (FAQ &amp; Common Mistakes)</h2>
 </div>
 
-### 1) 🔴 SyntaxError (문법 오류)
+**🔴 SyntaxError (문법 오류)**
 
 `JSON.parse()`를 실행할 때 가장 많이 발생하는 에러입니다. 다음 3가지를 주의하세요.
 
@@ -428,7 +428,7 @@ JSON.stringify({ value: 10n });      // TypeError
   </div>
 </div>
 
-### 2) ✖️ 주석 (Comments)
+**✖️ 주석 (Comments)**
 
 **"JSON 파일에 주석을 달 수 없나요?"**
 
@@ -437,7 +437,7 @@ JSON.stringify({ value: 10n });      // TypeError
   <strong>예외</strong> : VS Code의 설정 파일(<code>settings.json</code>) 등에서 주석이 보이는 이유는, 해당 파일이 표준 JSON이 아닌 <strong>JSONC (JSON with Comments)</strong>라는 변형 포맷을 사용하기 때문입니다.
 </div>
 
-### 3) 📱 깊은 복사 (Deep Copy)
+**📱 깊은 복사 (Deep Copy)**
 
 자바스크립트에서 객체를 완전히 별개의 것으로 복사할 때 사용하는 간단한 트릭입니다.
 
@@ -460,7 +460,7 @@ const copy = JSON.parse(JSON.stringify(original));
 const copy = structuredClone(original);
 ```
 
-### 4) 📄 package.json
+**📄 package.json**
 
 우리가 프론트엔드 개발을 할 때 매일 보는 **`package.json`** 설정 파일도 바로 이 **JSON 파일**입니다.
 

@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. SPA란 무엇인가?</h2>
 
-### 1) 기존 MPA 방식 (Multi Page Application)
+**🆚 기존 MPA 방식 (Multi Page Application)**
 
 옛날 웹사이트 방식입니다.
 
@@ -76,7 +76,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   - 화면이 하얗게 깜빡거립니다(새로고침).
   - 매번 모든 데이터를 다시 받으므로 네트워크 낭비가 심합니다.
 
-### 2) React SPA 방식 (Single Page Application)
+**🆚 React SPA 방식 (Single Page Application)**
 
 요즘 웹사이트 방식입니다.
 
@@ -99,7 +99,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>2. 설치 및 기본 설정</h2>
 
-### 1) ① 패키지 설치 (Install)
+**📝 패키지 설치 (Install)**
 
 터미널(Terminal)을 열고 아래 명령어를 입력하여 라이브러리를 설치합니다.
 
@@ -114,7 +114,7 @@ npm install react-router-dom
   프로젝트에 설치된 react-router-dom 버전에 따라 세부 API가 달라질 수 있으므로 공식 문서 기준으로 확인하세요.</p>
 </div>
 
-### 2) ② Provider 설정 (Setup)
+**📝 Provider 설정 (Setup)**
 
 설치가 끝났으면, 리액트 앱 전체가 라우터의 기능을 사용할 수 있도록 최상위 파일(main.jsx)에서 감싸줘야 합니다.
 
@@ -146,7 +146,7 @@ createRoot(document.getElementById('root')).render(
 
 <h2>3. 라우트 정의하기 (기본 구조)</h2>
 
-### 1) 코드 작성 (App.jsx)
+**🧪 코드 작성 (App.jsx)**
 
 `<Routes>`라는 큰 울타리 안에 `<Route>` 규칙들을 하나씩 나열하는 방식입니다.
 
@@ -175,7 +175,7 @@ function App() {
 export default App;
 ```
 
-### 2) 핵심 속성
+**📌 핵심 속성**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">&lt;Routes&gt;</div><div class="wda-fcard-dsc">여러 규칙 중 현재 URL과 일치하는 단 하나만 렌더링하도록 도와주는 컨테이너입니다.</div></div>
@@ -187,7 +187,7 @@ export default App;
 
 <h2>4. 페이지 이동 (Link vs a)</h2>
 
-### 1) ❌ &lt;a href="..."&gt; (쓰지 마세요)
+**❌ &lt;a href="..."&gt; (쓰지 마세요)**
 
 일반적인 HTML 방식입니다. 리액트 앱 내부 이동 시에는 절대 사용하면 안 됩니다.
 
@@ -202,7 +202,7 @@ export default App;
   외부 사이트 이동, 파일 다운로드, 새 탭 열기처럼 브라우저 기본 동작이 필요한 경우에는 a 태그를 사용합니다.</p>
 </div>
 
-### 2) ✅ &lt;Link to="..."&gt; (이걸 쓰세요)
+**✅ &lt;Link to="..."&gt; (이걸 쓰세요)**
 
 리액트 라우터가 제공하는 전용 컴포넌트입니다.
 
@@ -228,7 +228,7 @@ import { Link } from 'react-router-dom';
 
 <h2>5. Hooks: 이동과 파라미터</h2>
 
-### 1) useNavigate (강제 이동)
+**🧪 useNavigate (강제 이동)**
 
 사용자가 Link를 클릭하지 않아도, 함수 안에서 코드로 페이지를 이동시킬 때 사용합니다.
 
@@ -256,7 +256,7 @@ function LoginButton() {
 export default LoginButton;
 ```
 
-### 2) 🆔 useParams (정보 꺼내기)
+**🆔 useParams (정보 꺼내기)**
 
 URL 주소에 포함된 변수(Parameter) 값을 가져올 때 사용합니다.
 
@@ -281,7 +281,7 @@ export default ProductDetail;
 
 <h2>6. 특수 링크 (NavLink)</h2>
 
-### 1) NavLink란?
+**📌 NavLink란?**
 
 Link와 똑같지만, "현재 내가 이 경로에 있는지"를 알고 있습니다. 주로 네비게이션 바(GNB) 메뉴를 만들 때 사용합니다.
 
@@ -314,7 +314,7 @@ import { NavLink } from 'react-router-dom';
 </NavLink>
 ```
 
-### 3) 실행 예시 (GNB 동작 화면)
+**🧪 실행 예시 (GNB 동작 화면)**
 
 위의 코드를 적용하여 현재 사용자가 '소개(/about)' 페이지에 위치해 있을 때의 UI 예시입니다.
 
@@ -337,7 +337,7 @@ import { NavLink } from 'react-router-dom';
 
 <h2>7. Hooks: 이동과 정보</h2>
 
-### 1) useNavigate (Action)
+**🧪 useNavigate (Action)**
 
 페이지를 이동시키는 함수를 반환합니다.
 
@@ -375,7 +375,7 @@ function NavigationExample() {
 export default NavigationExample;
 ```
 
-### 2) useLocation (State)
+**🧪 useLocation (State)**
 
 현재 페이지의 정보 객체를 반환합니다.
 
@@ -398,7 +398,7 @@ function LocationInfo() {
 export default LocationInfo;
 ```
 
-### 3) Location 객체 상세 (console.log 결과)
+**📌 Location 객체 상세 (console.log 결과)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">pathname</div><div class="wda-fcard-dsc">"/todo" (경로)</div></div>
@@ -421,7 +421,7 @@ export default LocationInfo;
 
 <h2>8. URL 파라미터 (useParams)</h2>
 
-### 1) 동적 라우팅이란?
+**📌 동적 라우팅이란?**
 
 - URL의 특정 부분을 변수처럼 사용하는 기능입니다.
 - 주로 ID값이나 식별자를 전달할 때 사용합니다.
@@ -466,14 +466,14 @@ export default ProductDetail;
 
 <h2>9. History API와 리다이렉트</h2>
 
-### 1) 이동 기록 제어 (History Stack)
+**⚙️ 이동 기록 제어 (History Stack)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">PUSH (기본값)</div><div class="wda-fcard-dsc">새로운 페이지를 스택에 쌓습니다. 뒤로가기가 가능합니다.<br><code>navigate('/home')</code></div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">REPLACE</div><div class="wda-fcard-dsc">현재 페이지를 덮어씁니다. 뒤로가기가 불가능합니다.<br><code>navigate('/home', { replace: true })</code></div></div>
 </div>
 
-### 2) 리다이렉트 (Redirect)
+**🧪 리다이렉트 (Redirect)**
 
 특정 조건(로그인 안 함, 권한 없음)일 때 강제로 페이지를 보냅니다.
 
@@ -508,11 +508,11 @@ export default MyPage;
 
 <h2>10. Protected Route 패턴</h2>
 
-### 1) Protected Route란?
+**📌 Protected Route란?**
 
 - 로그인한 사용자만 접근할 수 있는 페이지를 만드는 일반적인 패턴입니다.
 
-### 2) ProtectedRoute.jsx 파일
+**🧪 ProtectedRoute.jsx 파일**
 
 ```jsx
 import { Navigate, Outlet } from 'react-router-dom';
@@ -532,7 +532,7 @@ const ProtectedRoute = ({ user }) => {
 export default ProtectedRoute;
 ```
 
-### 3) App.jsx (적용)
+**🧪 App.jsx (적용)**
 
 ```jsx
 <Routes>
@@ -568,11 +568,11 @@ export default ProtectedRoute;
 
 사용자 편의를 위해 브라우저 뒤로가기 대신 버튼을 제공할 수 있습니다.
 
-### 1) 이전 페이지로 이동 (-1)
+**⚙️ 이전 페이지로 이동 (-1)**
 
 - useNavigate 훅으로 받은 navigate 함수에 -1을 전달하면 히스토리 스택의 바로 이전 페이지로 이동합니다. navigate(1)은 앞으로가기, navigate(-1)은 뒤로가기입니다.
 
-### 2) BackButton.jsx (코드 적용)
+**🧪 BackButton.jsx (코드 적용)**
 
 ```jsx
 import { useNavigate } from 'react-router-dom';
@@ -592,7 +592,7 @@ const BackButton = () => {
 export default BackButton;
 ```
 
-### 3) 활용 예시 및 알아두면 좋은 Tip
+**💡 활용 예시 및 알아두면 좋은 Tip**
 
 - **활용 예시**: 상세 페이지 하단에 '&lt;- 뒤로가기' 버튼을 배치하여, 클릭 시 이전 목록 페이지로 복귀하도록 구현할 수 있습니다.
 - **Tip**: 왜 함수 이름이 navigate인가요?

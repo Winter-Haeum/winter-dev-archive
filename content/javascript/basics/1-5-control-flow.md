@@ -1168,7 +1168,7 @@ for (let i = 1; i <= 10; i++) {
 
 제어문(조건문+반복문)의 방대한 내용을 실무 관점에서 압축했습니다. 시험 직전이나 코딩할 때 이 페이지를 참고하세요.
 
-**1. 조건문 결정 공식 (Decision Making)**
+**📌 조건문 결정 공식 (Decision Making)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -1188,7 +1188,7 @@ for (let i = 1; i <= 10; i++) {
   </div>
 </div>
 
-**2. 반복문 선택 가이드 (Looping)**
+**🆚 반복문 선택 가이드 (Looping)**
 
 | 구분 | **for...of 👍** | **for...in** | **기본 for 문** | **while** |
 | --- | --- | --- | --- | --- |
@@ -1204,7 +1204,7 @@ for (let i = 1; i <= 10; i++) {
   • <strong>while</strong> 문은 내부에 <code>count--</code> 같은 <strong>탈출 코드</strong>가 없으면 브라우저가 멈추는 <strong>무한 루프</strong>에 빠집니다.
 </div>
 
-**3. 흐름 제어 (Control Flow)**
+**⚙️ 흐름 제어 (Control Flow)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -1219,7 +1219,7 @@ for (let i = 1; i <= 10; i++) {
   </div>
 </div>
 
-**4. 실무 코드 작성 팁**
+**💡 실무 코드 작성 팁**
 
 <div class="wda-callout wda-cs">
   • <strong>명확한 조건</strong>: <code>if (items.length)</code> 대신 <code>if (items.length > 0)</code>처럼 명시적으로 작성하세요.<br>

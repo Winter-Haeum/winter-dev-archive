@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. 왜 상태 관리 라이브러리가 필요할까?</h2>
 
-### 1) Context API의 한계
+**📌 Context API의 한계**
 
 Context API 사용 시 여러 Context를 중첩하면 코드가 복잡해집니다.
 
@@ -84,7 +84,7 @@ Context API 사용 시 여러 Context를 중첩하면 코드가 복잡해집니�
 </AuthContext.Provider>
 ```
 
-### 2) 발생하는 문제들
+**⚠️ 발생하는 문제들**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Provider 지옥</div><div class="wda-fcard-dsc">여러 Context 중첩</div></div>
@@ -130,7 +130,7 @@ Context API 사용 시 여러 Context를 중첩하면 코드가 복잡해집니�
 
 <h2>3. Redux: 데이터 흐름과 원칙</h2>
 
-### 1) 3가지 원칙
+**📝 3가지 원칙**
 
 Redux는 Flux 아키텍처를 기반으로 한 상태 관리 라이브러리입니다.
 
@@ -140,7 +140,7 @@ Redux는 Flux 아키텍처를 기반으로 한 상태 관리 라이브러리입�
   <div class="wda-fcard"><div class="wda-fcard-ttl">Changes with Pure Functions</div><div class="wda-fcard-dsc">Reducer는 이전 상태와 액션을 받아 다음 상태를 반환하는 순수 함수</div></div>
 </div>
 
-### 2) 단방향 데이터 흐름 (One-way Data Flow)
+**⚙️ 단방향 데이터 흐름 (One-way Data Flow)**
 
 <div class="wda-callout wda-ci">
   <p>View → (Dispatch) → Action → (Middleware) → Reducer → (New State) → Store → (Subscribe) → View</p>
@@ -159,7 +159,7 @@ Redux는 Flux 아키텍처를 기반으로 한 상태 관리 라이브러리입�
 
 <h2>4. Redux 생태계: 미들웨어 (Middleware)</h2>
 
-### 1) Redux Thunk
+**🧪 Redux Thunk**
 
 가장 기본적이고 직관적인 비동기 미들웨어
 
@@ -176,7 +176,7 @@ const fetchUser = () => (dispatch) => {
   <div class="wda-fcard"><div class="wda-fcard-ttl">RTK에 기본 내장 👍</div><div class="wda-fcard-dsc">별도 설치 없이 바로 사용 가능</div></div>
 </div>
 
-### 2) Redux Saga
+**🧪 Redux Saga**
 
 Generator 문법을 사용하는 강력한 도구
 
@@ -193,7 +193,7 @@ function* fetchUser() {
   <strong>적합한 상황</strong>: 복잡한 시나리오에 적합</p>
 </div>
 
-### 3) Redux Toolkit (RTK)
+**🧪 Redux Toolkit (RTK)**
 
 현대 Redux의 표준 (공식 권장)
 
@@ -220,7 +220,7 @@ npm install @reduxjs/toolkit react-redux
 
 <h2>5. Redux Toolkit (RTK) 코드 구조</h2>
 
-### 1) Slice 생성 (state + reducer)
+**🧪 Slice 생성 (state + reducer)**
 
 Slice는 상태(State)와 리듀서(Reducer)를 하나로 묶은 단위입니다.
 
@@ -249,7 +249,7 @@ export const { increment, decrement, increaseBy } = counterSlice.actions;
 export default counterSlice.reducer;
 ```
 
-### 2) Store 설정
+**🧪 Store 설정**
 
 ```jsx
 import { configureStore } from '@reduxjs/toolkit';
@@ -263,7 +263,7 @@ export const store = configureStore({
 });
 ```
 
-### 3) Legacy Redux와 차이점
+**🆚 Legacy Redux와 차이점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Action Type 상수 정의 불필요</div><div class="wda-fcard-dsc">createSlice가 자동으로 생성</div></div>
@@ -285,7 +285,7 @@ export const store = configureStore({
 
 <h2>6. React 컴포넌트에서 Redux 사용</h2>
 
-### 1) Hooks 기반 사용
+**🧪 Hooks 기반 사용**
 
 ```jsx
 import { useSelector, useDispatch } from 'react-redux';
@@ -315,11 +315,11 @@ function Counter() {
 export default Counter;
 ```
 
-### 2) useSelector 최적화
+**💡 useSelector 최적화**
 
 - useSelector는 선택한 상태가 이전과 다를 때만 컴포넌트를 리렌더링합니다. (참조 동등성 비교)
 
-### 3) useDispatch
+**💡 useDispatch**
 
 - dispatch 함수 자체는 절대 변하지 않으므로, useEffect나 useCallback 의존성 배열에 넣어도 안전합니다.
 
@@ -336,7 +336,7 @@ export default Counter;
 
 <h2>7. Zustand: 심플함의 미학</h2>
 
-### 1) 핵심 철학
+**📌 핵심 철학**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Minimalistic</div><div class="wda-fcard-dsc">정말 필요한 것만 남기자</div></div>
@@ -344,7 +344,7 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">Hook-based</div><div class="wda-fcard-dsc">React Hooks와 완벽한 조화</div></div>
 </div>
 
-### 2) 왜 인기 있는가?
+**💡 왜 인기 있는가?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Provider 불필요</div><div class="wda-fcard-dsc">앱 최상단을 감쌀 필요 없음</div></div>
@@ -352,7 +352,7 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">Non-React 지원</div><div class="wda-fcard-dsc">바닐라 JS에서도 사용 가능</div></div>
 </div>
 
-### 3) 동작 구조
+**⚙️ 동작 구조**
 
 중앙 집중형이지만 Hook처럼 사용합니다.
 
@@ -374,7 +374,7 @@ export default Counter;
 
 <h2>8. Zustand 코드 예시</h2>
 
-### 1) Store 생성 (stores/countStore.js)
+**🧪 Store 생성 (stores/countStore.js)**
 
 Redux Toolkit과 달리 Provider로 감쌀 필요가 없습니다.
 
@@ -405,7 +405,7 @@ const useCounterStore = create((set) => ({
 export default useCounterStore;
 ```
 
-### 2) 컴포넌트 사용 (Counter.jsx)
+**🧪 컴포넌트 사용 (Counter.jsx)**
 
 ```jsx
 import useCounterStore from './stores/countStore';
@@ -441,7 +441,7 @@ export default Counter;
 
 <h2>9. Atomic State Pattern (Recoil / Jotai)</h2>
 
-### 1) Atom: 상태의 최소 단위
+**📌 Atom: 상태의 최소 단위**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Bottom-up</div><div class="wda-fcard-dsc">작은 원자(Atom)들을 조립해서 큰 상태를 구성합니다.</div></div>
@@ -449,11 +449,11 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">Concurrent Mode</div><div class="wda-fcard-dsc">React의 동시성 모드와 호환성이 높습니다.</div></div>
 </div>
 
-### 2) React와 가장 닮음
+**💡 React와 가장 닮음**
 
 - `useState`와 거의 똑같은 API(`useRecoilState`, `useAtom`)를 제공하여 러닝커브가 거의 없습니다.
 
-### 3) 상향식(Bottom-up) 데이터 흐름 (동작 구조)
+**⚙️ 상향식(Bottom-up) 데이터 흐름 (동작 구조)**
 
 <div class="wda-callout wda-ci">
   <p>스토어에서 데이터를 내려받는 방식이 아니라, 하단의 작은 Atom(Atom1, Atom2)들을 상단의 컴포넌트(Comp A, Comp B, Comp C)에서 구독하여 사용하는 상향식(Bottom-up) 데이터 흐름을 가집니다.</p>
@@ -472,7 +472,7 @@ export default Counter;
 
 <h2>10. Recoil vs Jotai 코드 비교</h2>
 
-### 1) Recoil (Facebook)
+**🧪 Recoil (Facebook)**
 
 ```jsx
 import { atom, selector, useRecoilState } from 'recoil';
@@ -503,7 +503,7 @@ export default Counter;
 
 - 주의사항: 앱 최상단을 `RecoilRoot`로 감싸야 합니다.
 
-### 2) Jotai (Poimandres)
+**🧪 Jotai (Poimandres)**
 
 ```jsx
 import { atom, useAtom } from 'jotai';
@@ -528,7 +528,7 @@ export default Counter;
 
 - 특징: Provider는 선택 사항입니다 (없어도 동작합니다).
 
-### 3) 최신 트렌드 요약
+**🧠 최신 트렌드 요약**
 
 - 최근에는 더 가볍고 유연한 Jotai가 Recoil(업데이트 정체)의 대안으로 떠오르고 있습니다.
 
@@ -549,14 +549,14 @@ export default Counter;
 
 <h2>11. 더 나아가기: 서버 상태 관리</h2>
 
-### 1) 클라이언트 상태 vs 서버 상태
+**🆚 클라이언트 상태 vs 서버 상태**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">클라이언트 상태 (Client State)</div><div class="wda-fcard-dsc">UI의 상태 (모달 열림/닫힘, 테마, 입력값 등). 우리가 지금까지 배운 Redux, Zustand가 적합!</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">서버 상태 (Server State)</div><div class="wda-fcard-dsc">DB 데이터 (게시글 목록, 사용자 정보 등). TanStack Query(구 React Query), SWR 같은 전용 도구 권장!</div></div>
 </div>
 
-### 2) 왜 전용 도구를 쓸까요?
+**💡 왜 전용 도구를 쓸까요?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">캐싱 (Caching)</div><div class="wda-fcard-dsc">동일한 데이터 요청 중복 방지</div></div>
@@ -564,7 +564,7 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">로딩/에러 처리</div><div class="wda-fcard-dsc">isLoading, isError 자동 제공</div></div>
 </div>
 
-### 3) 추천 라이브러리
+**💡 추천 라이브러리**
 
 - TanStack Query(구 React Query)
 - SWR
@@ -588,7 +588,7 @@ export default Counter;
 
 <h2>12. 라이브러리 비교표</h2>
 
-### 1) 상태 관리 도구 특징 비교
+**🆚 상태 관리 도구 특징 비교**
 
 | 특징 | Redux Toolkit | Zustand | Recoil | Jotai |
 | --- | --- | --- | --- | --- |
@@ -607,7 +607,7 @@ export default Counter;
   <p>번들 크기는 버전과 빌드 환경에 따라 달라질 수 있습니다. 아래 표는 대략적인 비교 감각을 잡기 위한 참고용입니다.</p>
 </div>
 
-### 2) 선택 가이드
+**💡 선택 가이드**
 
 - 대규모 + 팀 협업 → Redux Toolkit
 - 중소규모 + 빠른 개발 → Zustand
@@ -626,7 +626,7 @@ export default Counter;
 
 <h2>13. 실제 선택 시 고려사항</h2>
 
-### 1) 프로젝트 규모에 따른 추천
+**💡 프로젝트 규모에 따른 추천**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">작은 프로젝트 (1-3명)</div><div class="wda-fcard-dsc">Context + useReducer / Zustand</div></div>
@@ -634,7 +634,7 @@ export default Counter;
   <div class="wda-fcard"><div class="wda-fcard-ttl">대규모 프로젝트 (10명+)</div><div class="wda-fcard-dsc">Redux Toolkit + RTK Query</div></div>
 </div>
 
-### 2) 추가 고려 요소
+**💡 추가 고려 요소**
 
 - **팀 경험**: Redux 경험자가 많다면 Redux를 선택하는 것이 좋습니다.
 - **기존 코드베이스**: 새로운 라이브러리로 교체할 때 발생하는 마이그레이션 비용을 고려해야 합니다.
@@ -642,7 +642,7 @@ export default Counter;
 - **성능 요구사항**: 잦은 상태 변경으로 인한 리렌더링 최적화가 얼마나 중요한지 따져봐야 합니다.
 - **채용 시장**: 현실적으로 구인/구직 시장에서 Redux 경험자를 찾기가 가장 쉽습니다.
 
-### 3) 결론
+**🧠 결론**
 
 <div class="wda-callout wda-cs">
   <p><strong>"처음엔 Context + useReducer로 시작하고, 필요할 때 라이브러리 도입"</strong></p>
@@ -661,12 +661,12 @@ export default Counter;
 
 <h2>14. ⁉️ FAQ</h2>
 
-### 1) Q1. Redux의 보일러플레이트를 대폭 줄여주고, createSlice 등을 제공하는 공식 라이브러리는?
+**📌 Q1. Redux의 보일러플레이트를 대폭 줄여주고, createSlice 등을 제공하는 공식 라이브러리는?**
 
 - **정답: Redux Toolkit (RTK)**
 - 현재 Redux 사용 시 표준으로 권장되는 도구입니다.
 
-### 2) Q2. Provider 없이도 사용 가능하고, 매우 가볍고 직관적인 API를 가진 상태 관리 라이브러리는?
+**📌 Q2. Provider 없이도 사용 가능하고, 매우 가볍고 직관적인 API를 가진 상태 관리 라이브러리는?**
 
 - **정답: Zustand**
 - 간단한 문법과 작은 번들 사이즈로 인기를 얻고 있습니다.

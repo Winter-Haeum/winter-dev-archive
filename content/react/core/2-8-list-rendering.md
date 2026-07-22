@@ -71,14 +71,14 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <p><strong>배열 데이터를 반복해서 화면에 표시</strong></p>
 </div>
 
-### 1) 데이터 (배열)
+**🧪 데이터 (배열)**
 
 ```javascript
 // 화면에 표시할 데이터가 담긴 자바스크립트 배열
 const fruits = ['사과', '바나나', '오렌지'];
 ```
 
-### 2) 화면 (리스트)
+**🧪 화면 (리스트)**
 
 ```jsx
 <ul>
@@ -131,7 +131,7 @@ function FruitList() {
   <p>이 예제에서는 과일 이름이 모두 중복되지 않기 때문에 <code>fruit</code> 자체를 key로 사용했습니다. 실제 데이터에서는 중복되지 않는 id를 key로 사용하는 것이 가장 안전합니다.</p>
 </div>
 
-### 2) 핵심 요소 (Key Concepts)
+**🧠 핵심 요소 (Key Concepts)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -185,7 +185,7 @@ function FruitList() {
 
 <h2>4. key 선택 가이드</h2>
 
-### 1) 어떤 값을 key로 사용할까? (우선순위)
+**📌 어떤 값을 key로 사용할까? (우선순위)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -241,7 +241,7 @@ function FruitList() {
   <p><strong>데이터가 담긴 객체 배열을 화면에 표시하기</strong></p>
 </div>
 
-### 1) 데이터 준비 (State)
+**🧪 데이터 준비 (State)**
 
 ```javascript
 import { useState } from 'react';
@@ -253,7 +253,7 @@ const [users, setUsers] = useState([
 ]);
 ```
 
-### 2) 렌더링 구현 (Map)
+**🧪 렌더링 구현 (Map)**
 
 ```jsx
 return (
@@ -269,7 +269,7 @@ return (
 );
 ```
 
-### 3) 결과 화면
+**✅ 결과 화면**
 
 - **김철수**: kim@test.com
 - **이영희**: lee@test.com
@@ -373,7 +373,7 @@ export default TodoList;
 
 <h2>8. 리스트 아이템 추가하기</h2>
 
-### 1) spread 연산자로 새 아이템 추가
+**🧪 spread 연산자로 새 아이템 추가**
 
 ```jsx
 import { useState } from 'react';
@@ -417,7 +417,7 @@ function TodoList() {
 export default TodoList;
 ```
 
-### 2) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -447,7 +447,7 @@ export default TodoList;
 
 <h2>9. filter()로 조건부 필터링 ⭐</h2>
 
-### 1) 특정 조건의 아이템만 표시
+**🧪 특정 조건의 아이템만 표시**
 
 ```jsx
 import { useState } from 'react';
@@ -491,7 +491,7 @@ function TodoList() {
 export default TodoList;
 ```
 
-### 2) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -518,7 +518,7 @@ export default TodoList;
 
 <h2>10. ⁉️ FAQ</h2>
 
-### 1) Q1. 배열을 렌더링할 때 React가 변경된 항목을 효율적으로 식별하기 위해 필수적인 속성은?
+**🧠 Q1. 배열을 렌더링할 때 React가 변경된 항목을 효율적으로 식별하기 위해 필수적인 속성은?**
 
 **정답: key**
 
@@ -528,7 +528,7 @@ export default TodoList;
   <p>React는 DOM을 직접 조작하지 않고, 변경 전후의 가상 DOM을 비교(Diffing)하여 바뀐 부분만 업데이트합니다.<br>이때 같은 컴포넌트나 요소가 리스트 형태로 나열되어 있으면, 순서가 바뀌거나 중간에 삽입/삭제될 때 어떤 항목이 동일한 항목인지 알아내기 어렵습니다.<br><code>key</code> 속성은 각 항목에 고유한 주민등록번호를 달아주는 것과 같아서, React가 "아, 이 항목은 아까 걔구나!"라고 정확히 식별하게 도와줍니다.</p>
 </div>
 
-### 2) Q2. 리스트 렌더링 시 최후의 수단으로만 사용해야 하는 key 값은?
+**🧠 Q2. 리스트 렌더링 시 최후의 수단으로만 사용해야 하는 key 값은?**
 
 **정답: 배열의 인덱스 (index)**
 

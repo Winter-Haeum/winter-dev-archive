@@ -63,21 +63,21 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. Custom Hook이란?</h2>
 
-### 1) 정의 (Definition)
+**📌 정의 (Definition)**
 
 <div class="wda-callout wda-ci">
   <p><strong>"이름이 use로 시작하는 자바스크립트 함수입니다."</strong></p>
   <p>단순한 함수가 아니라, <strong>내부에서 다른 Hook(useState, useEffect 등)을 호출</strong>하여 상태 관련 로직(Stateful Logic)을 재사용 가능한 형태로 추출해 낸 리액트의 고유 패턴입니다.</p>
 </div>
 
-### 2) 핵심 특징 (Key Features)
+**📌 핵심 특징 (Key Features)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">로직 재사용</div><div class="wda-fcard-dsc">UI(JSX)가 아닌, 기능과 상태 관리 로직만 쏙 뽑아서 여러 컴포넌트에서 공유합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">독립된 상태</div><div class="wda-fcard-dsc">같은 Hook을 여러 컴포넌트에서 사용해도, 각 컴포넌트의 상태(State)는 서로 간섭하지 않고 독립적으로 유지됩니다.</div></div>
 </div>
 
-### 3) 공식 (Formula)
+**📌 공식 (Formula)**
 
 <div class="wda-callout wda-ci">
   <p><strong>use로 시작하는 함수</strong> + <strong>다른 Hook 사용</strong> = <strong>Custom Hook</strong></p>
@@ -94,7 +94,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>2. 왜 Custom Hook이 필요한가?</h2>
 
-### 1) 문제 : 반복되는 코드 (Problem)
+**⚠️ 문제 : 반복되는 코드 (Problem)**
 
 **"컴포넌트마다 똑같은 코드를 계속 짜야 하나요?"**
 컴포넌트 A와 B를 보면, 변수 이름만 다를 뿐 **'상태를 만들고(useState), 입력값이 바뀌면 업데이트하는(onChange)'** 로직이 토씨 하나 안 틀리고 똑같습니다.
@@ -115,7 +115,7 @@ const handleTextChange = (e) => {
 };
 ```
 
-### 2) 해결 : Custom Hook (Solution)
+**💡 해결 : Custom Hook (Solution)**
 
 **"공통 로직을 뽑아서 나만의 훅으로 만듭니다."**
 `useInput`이라는 함수를 만들어 중복되는 로직을 한곳에 모아둡니다.
@@ -136,7 +136,7 @@ function useInput(initial = "") {
 }
 ```
 
-### 3) 결과 : 간결해진 사용 (Usage)
+**🧪 결과 : 간결해진 사용 (Usage)**
 
 **"단 한 줄로 끝납니다."**
 이제 복잡한 로직 없이, `useInput`을 호출하기만 하면 됩니다.
@@ -162,7 +162,7 @@ const email = useInput("");
 
 <h2>3. Custom Hook 기본 구조</h2>
 
-### 1) 구조 흐름 (Flow)
+**⚙️ 구조 흐름 (Flow)**
 
 <div class="wda-callout wda-ci">
   <p><strong>use로 시작</strong> 👉 <strong>내부에서 Hook 사용</strong> 👉 <strong>값/함수 반환</strong></p>
@@ -217,7 +217,7 @@ export default useXxx;
 
 <h2>4. 분석 : useToggle</h2>
 
-### 1) 언제 사용하나요? (Use Case)
+**💡 언제 사용하나요? (Use Case)**
 
 **"켰다 껐다 하는 모든 곳에!"**
 모달(Modal), 체크박스, 아코디언 메뉴, 사이드바 등 **ON/OFF(Boolean) 상태**가 필요한 모든 곳에 사용합니다.
@@ -249,7 +249,7 @@ function useToggle(initialValue = false) {
 export default useToggle;
 ```
 
-### 3) 구현 포인트 (Key Points)
+**📌 구현 포인트 (Key Points)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">useCallback 사용</div><div class="wda-fcard-dsc">useCallback을 사용하면 반환하는 함수의 참조를 안정적으로 유지할 수 있습니다.<br>이 함수가 자식 컴포넌트의 props로 전달되거나 다른 Hook의 의존성 배열에 들어갈 때 유용합니다.<br>단순 예제에서는 필수는 아니지만, 재사용 Hook에서는 안정적인 API를 제공하는 데 도움이 됩니다.</div></div>
@@ -257,7 +257,7 @@ export default useToggle;
   <div class="wda-fcard"><div class="wda-fcard-ttl">직관적인 사용</div><div class="wda-fcard-dsc">매번 <code>setIsModalOpen(true)</code>라고 길게 쓰는 것보다, <code>openModal()</code>이나 <code>toggle()</code>처럼 작성하는 것이 훨씬 직관적이고 실수를 줄여줍니다.</div></div>
 </div>
 
-### 4) 사용 예시 (Usage)
+**🧪 사용 예시 (Usage)**
 
 ```jsx
 import useToggle from './hooks/useToggle';
@@ -319,7 +319,7 @@ function useInput(initialValue = "") {
 export default useInput;
 ```
 
-### 2) 사용 예시 (Usage)
+**🧪 사용 예시 (Usage)**
 
 **"스프레드 문법(`...`)의 마법"**
 `value`와 `onChange`를 일일이 적지 않고, `{...email}` 하나로 해결하는 것이 핵심입니다.
@@ -373,7 +373,7 @@ function LoginForm() {
   <p><code>{...email}</code>처럼 전체 객체를 <code>input</code>에 넘기면 <code>reset</code>, <code>setValue</code>처럼 input이 필요로 하지 않는 값까지 전달될 수 있습니다.<br>따라서 실제 코드에서는 필요한 값만 구조분해해서 넘기거나, <code>reset</code>/<code>setValue</code>를 분리한 뒤 나머지 <code>inputProps</code>만 전달하는 방식이 더 안전합니다.</p>
 </div>
 
-### 3) 구조분해 방식 (추천)
+**🧪 구조분해 방식 (추천)**
 
 ```jsx
 const { value, onChange, reset } = useInput("");
@@ -397,7 +397,7 @@ const { value, onChange, reset } = useInput("");
   5. 전달되는 props가 명확해진다.</p>
 </div>
 
-### 4) Spread + 구조분해 혼합 방식 (고급 패턴)
+**🧪 Spread + 구조분해 혼합 방식 (고급 패턴)**
 
 ```jsx
 const { reset, setValue, ...inputProps } = useInput("");
@@ -430,7 +430,7 @@ const { reset, setValue, ...inputProps } = useInput("");
 
 <h2>6. 예제 : useWindowSize</h2>
 
-### 1) 언제 사용하나요? (Use Case)
+**💡 언제 사용하나요? (Use Case)**
 
 **"화면 크기를 실시간으로 알고 싶어요."**
 반응형 레이아웃을 구현하거나, HTML5 Canvas처럼 창 크기에 맞춰 다시 그려야 하는 요소가 있을 때 사용합니다.
@@ -480,7 +480,7 @@ function useWindowSize() {
 export default useWindowSize;
 ```
 
-### 3) 구현 포인트 (Key Points)
+**📌 구현 포인트 (Key Points)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Cleanup 필수</div><div class="wda-fcard-dsc"><code>useEffect</code>의 <code>return</code> 문에서 <code>removeEventListener</code>를 해주지 않으면, 컴포넌트가 사라져도 브라우저가 계속 이벤트를 감시하여 메모리 누수(Memory Leak)가 발생합니다.</div></div>
@@ -498,7 +498,7 @@ export default useWindowSize;
 
 <h2>7. useFetch 예제</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"로딩 중, 에러, 데이터를 한 번에 관리하고 싶어요."**
 서버에서 데이터를 가져올 때는 항상 3가지 상태(**로딩 중, 성공 시 데이터, 에러**)를 관리해야 합니다. 컴포넌트마다 이 로직을 매번 짜는 대신, `useFetch` 하나로 통합하여 관리합니다.
@@ -548,7 +548,7 @@ function useFetch(url) {
 export default useFetch;
 ```
 
-### 3) 사용 예시 (Usage)
+**🧪 사용 예시 (Usage)**
 
 **"복잡한 비동기 로직이 3줄로 끝납니다."**
 
@@ -588,7 +588,7 @@ function UserList() {
 
 <h2>8. (심화) useFetch (Async & Error)</h2>
 
-### 1) 언제 사용하나요? (Use Case)
+**💡 언제 사용하나요? (Use Case)**
 
 **"비동기 통신의 정석 패턴"**
 서버에서 데이터를 가져와야 하는데, 매번 `useEffect`와 `fetch`를 반복해서 작성하기 귀찮을 때 사용합니다. `async/await` 문법을 사용하여 가독성을 높이고 에러 처리를 강화한 버전입니다.
@@ -638,7 +638,7 @@ function useFetch(url) {
 export default useFetch;
 ```
 
-### 3) 구현 포인트 (Key Points)
+**📌 구현 포인트 (Key Points)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">비동기 처리</div><div class="wda-fcard-dsc"><code>useEffect</code> 자체는 <code>async</code> 함수가 될 수 없습니다. (리턴값으로 cleanup 함수만 받아야 하기 때문)<br>따라서 내부에 <code>const fetchData = async () =&gt; {}</code>를 정의하고 호출하는 방식을 씁니다.</div></div>
@@ -646,7 +646,7 @@ export default useFetch;
   <div class="wda-fcard"><div class="wda-fcard-ttl">try-catch-finally</div><div class="wda-fcard-dsc">에러가 발생했을 때 앱이 멈추지 않도록 <code>catch</code>로 잡고, 성공/실패 여부와 상관없이 <code>finally</code>에서 로딩바를 꺼주는(<code>setLoading(false)</code>) 것이 사용자 경험(UX)에 좋습니다.</div></div>
 </div>
 
-### 4) 보완 : 이전 요청 취소하기 (AbortController)
+**💡 보완 : 이전 요청 취소하기 (AbortController)**
 
 <div class="wda-callout wda-cw">
   <p><strong>남은 문제</strong>: 위 코드는 <code>url</code>이 빠르게 여러 번 바뀌거나 컴포넌트가 사라질 때, 이미 보낸 이전 요청을 취소하지 않습니다.<br>응답이 늦게 도착하는 이전 요청이 최신 상태를 덮어써버리는 문제가 생길 수 있습니다.<br><code>AbortController</code>를 사용하면 이런 이전 요청을 취소할 수 있습니다.</p>
@@ -688,7 +688,7 @@ useEffect(() => {
 }, [url]);
 ```
 
-### 5) 실무 팁
+**💡 실무 팁**
 
 <div class="wda-callout wda-cs">
   <p><strong>"이걸 더 편하게 해주는 라이브러리가 있나요?"</strong></p>
@@ -699,7 +699,7 @@ useEffect(() => {
 
 <h2>9. useLocalStorage 예제</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"새로고침해도 데이터가 살아있어요."**
 브라우저의 `localStorage`를 사용하여 상태를 저장합니다. 테마 설정(다크 모드), 로그인 아이디 기억하기 등 **사용자의 설정을 유지**할 때 필수적으로 사용됩니다.
@@ -743,7 +743,7 @@ function useLocalStorage(key, initialValue) {
 export default useLocalStorage;
 ```
 
-### 3) 사용 예시 (Usage)
+**🧪 사용 예시 (Usage)**
 
 **"useState처럼 쓰는데, 새로고침해도 기억합니다."**
 
@@ -761,7 +761,7 @@ function Settings() {
 }
 ```
 
-### 4) 구현 포인트
+**📌 구현 포인트**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">JSON 변환</div><div class="wda-fcard-dsc"><code>localStorage</code>는 문자열만 저장할 수 있습니다. 따라서 <code>JSON.stringify</code>로 저장하고, <code>JSON.parse</code>로 읽어와야 객체나 배열 데이터를 깨지지 않고 관리할 수 있습니다.</div></div>
@@ -779,7 +779,7 @@ function Settings() {
 
 <h2>10. Hook 규칙 (Rules of Hooks)</h2>
 
-### 1) 규칙 1 : use로 시작
+**📝 규칙 1 : use로 시작**
 
 **"이름표를 제대로 붙여주세요."**
 리액트가 "아, 이건 훅이구나!" 하고 인식할 수 있도록, 함수 이름은 반드시 **use** 로 시작해야 합니다.
@@ -798,7 +798,7 @@ function getWindowSize() { ... }
   <p>함수 이름이 <code>use</code>로 시작하지 않으면 React와 ESLint가 Hook으로 인식하기 어렵습니다.<br>그 안에서 <code>useState</code>, <code>useEffect</code> 같은 Hook을 호출하면 Rules of Hooks 위반으로 경고가 발생할 수 있습니다.<br>Custom Hook은 반드시 <code>use</code>로 시작해야 합니다.</p>
 </div>
 
-### 2) 규칙 2 : 최상위에서만 호출
+**📝 규칙 2 : 최상위에서만 호출**
 
 **"줄 서는 순서를 바꾸지 마세요."**
 반복문(`for`), 조건문(`if`), 중첩 함수 안에서 훅을 호출하면 안 됩니다.  
@@ -829,7 +829,7 @@ function Component() {
 
 <h2>11. 📈 패턴 1 : Logic vs State</h2>
 
-### 1) Logic Reuse (로직 재사용)
+**📌 Logic Reuse (로직 재사용)**
 
 **"어떻게 동작하는가(Logic)를 공유합니다."**
 Custom Hook은 반복되는 상태 관리 로직을 하나의 함수로 추출해 재사용하는 방식입니다.  
@@ -842,7 +842,7 @@ const { data: userA } = useFetch('/api/A');
 const { data: userB } = useFetch('/api/B');
 ```
 
-### 2) State Independence (상태의 독립성)
+**📌 State Independence (상태의 독립성)**
 
 **"호출할 때마다 '새로운 상태 저장소'가 생깁니다."**
 같은 훅을 여러 번 사용하더라도, 각각의 훅은 **서로 다른 메모리 공간(State)** 을 가집니다.
@@ -861,7 +861,7 @@ const { data: userB } = useFetch('/api/B');
 
 <h2>12. 📈 패턴 2 : Hook Composition</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"Hook 안에서 Hook 호출하기"**
 Custom Hook의 가장 강력한 점은 **다른 Hook들을 조합**할 수 있다는 것입니다. 마치 **레고 블록**처럼 작은 Hook(`useState`, `useFetch`)들을 모아 더 큰 기능(`useUser`)을 만듭니다.
@@ -918,7 +918,7 @@ const formatUser = (data) => ({
 <div style="text-align:center;font-size:.9rem;font-weight:700;opacity:.85;margin:.6rem auto 0;max-width:210px;white-space:nowrap;">마치 레고 블록처럼 작은 Hook들을 모아 큰 기능을 만듭니다.</div>
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.3rem auto 1.4rem;max-width:520px;">[그림] Hook Composition — 작은 Hook을 조합해 만드는 useUser</div>
 
-### 3) 상태는 공유되지 않음 (State Independence)
+**📌 상태는 공유되지 않음 (State Independence)**
 
 **"각 컴포넌트는 자신만의 상태를 가집니다."**
 같은 훅(`useToggle`)을 사용하더라도, 컴포넌트 A와 컴포넌트 B의 상태는 **완전히 별개**입니다. 한쪽을 켰다고 해서 다른 쪽이 켜지지 않습니다.
@@ -935,7 +935,7 @@ function ComponentB() {
 }
 ```
 
-### 4) Hook 안에서 Hook 호출 가능 (Nesting)
+**⚙️ Hook 안에서 Hook 호출 가능 (Nesting)**
 
 **"다른 Hook을 재료로 사용할 수 있습니다."**
 우리가 만든 Custom Hook 안에서 `useState`, `useEffect` 같은 내장 훅뿐만 아니라, **또 다른 Custom Hook**(`useFetch`)을 호출하여 로직을 구성할 수 있습니다.
@@ -972,7 +972,7 @@ function useUser(userId) {
 
 <h2>13. 🙋‍♀️ FAQ</h2>
 
-### 1) Q1. 작명 규칙 (Naming)
+**🧠 Q1. 작명 규칙 (Naming)**
 
 **"Custom Hook을 만들 때 함수 이름은 반드시 무엇으로 시작해야 하나요?"**
 
@@ -984,7 +984,7 @@ function useUser(userId) {
   <p>리액트가 해당 함수를 Hook으로 인식하고, 내부적인 규칙(최상위 호출 등)을 적용하기 위해 반드시 <strong>use</strong>라는 접두사로 시작해야 합니다. 예: <code>useUser</code>, <code>useFetch</code>, <code>useWindowSize</code></p>
 </div>
 
-### 2) Q2. 상태 공유 여부 (State Sharing)
+**🧠 Q2. 상태 공유 여부 (State Sharing)**
 
 **"두 컴포넌트가 같은 Custom Hook을 사용할 때, 상태(state)는 공유되나요?"**
 
@@ -1027,22 +1027,22 @@ function useUser(userId) {
 
 <h2>15. 💬 Did You Know? (유용한 라이브러리 & 사이트)</h2>
 
-### 1) React Hook Form (Validation Library)
+**💡 React Hook Form (Validation Library)**
 
 **"폼 관리를 위한 강력한 라이브러리"**
 `useForm` 훅 하나로 복잡한 **유효성 검사(Validation), 에러 처리, 성능 최적화**를 아주 쉽게 구현할 수 있습니다. 리렌더링을 최소화하여 성능이 매우 뛰어납니다.
 
-### 2) ahooks (Alibaba Hooks)
+**💡 ahooks (Alibaba Hooks)**
 
 **"알리바바 팀에서 만든 고품질 Hook 모음집"**
 `useRequest`(API 요청 관리), `useDebounce` 등 **60개 이상의 실무용 Hook**을 제공합니다. 대규모 프로덕션 환경에서 검증된 훅들이라 신뢰할 수 있습니다.
 
-### 3) usehooks.com (Recipe Site)
+**💡 usehooks.com (Recipe Site)**
 
 **"Custom Hook 레시피 사이트"**
 다양한 Custom Hook의 구현 코드를 모아둔 사이트입니다. `useCopyToClipboard`(클립보드 복사), `useOnClickOutside`(영역 밖 클릭 감지) 등 유용한 코드를 **복사(Copy) & 붙여넣기(Paste)** 해서 바로 사용할 수 있습니다.
 
-### 4) React Use (Collection)
+**💡 React Use (Collection)**
 
 **"가장 인기 있는 Hook 유틸리티 라이브러리"**
 `useBattery`(배터리 상태), `useGeolocation`(위치 정보) 등 **브라우저의 API**를 리액트 훅으로 편리하게 감싸서(Wrapping) 제공합니다.

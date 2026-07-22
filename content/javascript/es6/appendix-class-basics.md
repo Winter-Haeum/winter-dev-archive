@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. 생성자 함수의 진화 (Evolution)
 
-### 1) Syntactic Sugar (문법적 설탕)
+**📌 Syntactic Sugar (문법적 설탕)**
 
 **기존의 복잡한 문법을 "달콤하고(보기 좋고) 쓰기 편하게" 바꿨다는 의미입니다.**
 
@@ -90,7 +90,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 2) 코드 비교 (Legacy vs Modern)
+**🆚 코드 비교 (Legacy vs Modern)**
 
 똑같은 기능을 하는 코드가 어떻게 변했는지 비교해 봅니다.
 
@@ -128,7 +128,7 @@ class User {
 }
 ```
 
-### 3) 중요 포인트
+**🧠 중요 포인트**
 
 <div class="wda-callout wda-ci">
   Class는 기존 프로토타입 기반 객체 생성 방식을 더 읽기 쉬운 문법으로 제공하는 형태입니다.
@@ -297,7 +297,7 @@ bunny.run(5);
 
 **인스턴스(객체)가 아닌 클래스 자체에 붙어있는 메서드입니다.**
 
-### 1) 특징 (Features)
+**📌 특징 (Features)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -314,7 +314,7 @@ bunny.run(5);
   </div>
 </div>
 
-### 2) 언제 쓰나요? (Use Cases)
+**💡 언제 쓰나요? (Use Cases)**
 
 정적 메서드는 특정 인스턴스의 데이터가 아니라 **클래스 자체와 관련된 기능**을 만들 때 사용합니다.  
 정적 메서드 안에서 `this`를 쓰면 인스턴스가 아니라 **클래스 자신**을 가리킬 수 있습니다.

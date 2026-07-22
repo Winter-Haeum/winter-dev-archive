@@ -101,7 +101,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## ⚖️ 웹 vs 앱 — 핵심 차이점 3가지
 
-### 1. 설치와 접근성
+**🆚 설치와 접근성**
 
 | 구분 | 웹 | 앱 |
 |---|---|---|
@@ -109,7 +109,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **업데이트** | 배포 즉시 모든 사용자 반영 | 앱스토어 심사 + 사용자 업데이트 승인 필요 |
 | **사례** | 네이버, 유튜브 웹 버전 | 카카오톡, 배달의민족 앱 |
 
-### 2. 성능과 속도
+**🆚 성능과 속도**
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">성능 비교</span>
@@ -118,7 +118,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   🎮 <strong>사례:</strong> 웹게임은 끊길 수 있음 / 모바일 게임은 부드러운 경험 제공
 </div>
 
-### 3. 기기 기능 활용
+**🆚 기기 기능 활용**
 
 | 구분 | 웹 | 앱 |
 |---|---|---|

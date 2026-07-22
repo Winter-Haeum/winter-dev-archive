@@ -146,13 +146,13 @@ Claude Code 설치 후 `claude install`을 실행하면 npm 패키지보다 빠�
 
 ---
 
-### ① PowerShell 관리자 권한으로 실행
+**✅ PowerShell 관리자 권한으로 실행**
 
 Windows 키를 누르고 **"PowerShell"**을 검색한 후, **"관리자 권한으로 실행"**을 선택합니다.
 
 ---
 
-### ② Git 설치
+**✅ Git 설치**
 
 다음 명령어를 실행하여 Git을 설치합니다.
 
@@ -162,7 +162,7 @@ winget install Git.Git
 
 ---
 
-### ③ Node.js 설치
+**✅ Node.js 설치**
 
 다음 명령어를 실행하여 Node.js를 설치합니다.
 
@@ -225,7 +225,7 @@ npm 명령어가 인식되지 않거나 오류가 발생하는 경우 다음 단
 
 ---
 
-### ④ Claude Code 설치
+**✅ Claude Code 설치**
 
 npm을 사용하여 Claude Code를 전역으로 설치합니다.
 
@@ -295,13 +295,13 @@ claude --version
 
 ---
 
-### ① 터미널 실행
+**✅ 터미널 실행**
 
 Finder에서 **"터미널"**을 검색하여 실행합니다.
 
 ---
 
-### ② Homebrew 설치
+**✅ Homebrew 설치**
 
 Mac에서 개발 도구를 쉽게 설치하기 위해 Homebrew를 먼저 설치합니다.
 
@@ -311,7 +311,7 @@ Mac에서 개발 도구를 쉽게 설치하기 위해 Homebrew를 먼저 설치�
 
 ---
 
-### ③ Node.js 설치
+**✅ Node.js 설치**
 
 Homebrew를 사용하여 Node.js를 설치합니다.
 
@@ -339,7 +339,7 @@ npm --version
 
 ---
 
-### ④ Claude Code 설치
+**✅ Claude Code 설치**
 
 sudo 명령어를 사용하여 Claude Code를 전역으로 설치합니다.
 
@@ -362,13 +362,13 @@ sudo npm install -g @anthropic-ai/claude-code
 
 Homebrew 환경에서 `claude` 명령어가 인식되지 않는 경우
 
-### 1) 잘못된 심볼릭 링크 제거
+**✅ 잘못된 심볼릭 링크 제거**
 
 ```bash
 rm /opt/homebrew/bin/claude
 ```
 
-### 2) 올바른 심볼릭 링크 생성
+**✅ 올바른 심볼릭 링크 생성**
 
 ```bash
 ln -s $(npm root -g)/@anthropic-ai/claude-code/bin/claude /opt/homebrew/bin/claude
@@ -440,13 +440,13 @@ claude doctor
 
 ---
 
-### ① VSCode 설치
+**✅ VSCode 설치**
 
 VSCode가 설치되어 있지 않다면 **[https://code.visualstudio.com](https://code.visualstudio.com)** 에서 다운로드하세요.
 
 ---
 
-### ② 작업 폴더 생성 및 열기
+**✅ 작업 폴더 생성 및 열기**
 
 1. 바탕화면(또는 원하는 위치)에 **`my_ai_web`** 폴더를 생성합니다.
 2. VSCode를 실행합니다.
@@ -505,7 +505,7 @@ claude install
 
 ---
 
-### ③ Claude Code 실행
+**✅ Claude Code 실행**
 
 업데이트가 완료되면 Claude Code를 실행합니다.
 
@@ -740,7 +740,7 @@ echo "--------------------------------"
 
 ---
 
-### ④ 인증 과정
+**✅ 인증 과정**
 
 Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
 

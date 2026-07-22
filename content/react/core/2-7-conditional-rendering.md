@@ -65,13 +65,13 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 조건에 따라 다른 것을 렌더링
 
-### 1) 개념
+**📌 개념**
 
 - 조건이 **true**면 **A**를 렌더링
 - 조건이 **false**면 **B**를 렌더링
 - 또는 아무것도 렌더링하지 않음
 
-### 2) 사용 예시
+**🧪 사용 예시**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -88,7 +88,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 3) 핵심
+**🧠 핵심**
 
 **React는 JavaScript 표현식을 JSX 안에서 사용할 수 있어서 다양한 조건부 렌더링이 가능합니다.**
 
@@ -104,7 +104,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 if문은 JSX 중괄호 안에서 직접 사용할 수 없습니다. 대신 컴포넌트 함수 안, return 전에 조건을 검사하고 필요한 JSX를 return합니다.
 
-### 1) JSX 밖에서 조건 처리
+**📝 JSX 밖에서 조건 처리**
 
 ```jsx
 function Greeting({ isLoggedIn }) {
@@ -121,7 +121,7 @@ function Greeting({ isLoggedIn }) {
 <Greeting isLoggedIn={false} /> // "로그인해주세요." 출력
 ```
 
-### 2) Early Return (조기 리턴)
+**📝 Early Return (조기 리턴)**
 
 - 조건을 먼저 체크하고 **빨리 반환**하는 패턴.
 - 코드 가독성이 좋아집니다.
@@ -136,7 +136,7 @@ function Greeting({ isLoggedIn }) {
 
 <h2>3. ? 삼항 연산자 (? :)</h2>
 
-### 1) JSX 안에서 조건부 렌더링
+**📝 JSX 안에서 조건부 렌더링**
 
 ```jsx
 function Greeting({ isLoggedIn }) {
@@ -157,7 +157,7 @@ function Greeting({ isLoggedIn }) {
 
 - `조건` ? `참일때` : `거짓일때`
 
-### 3) 장점
+**💡 장점**
 
 - **JSX 안에서 인라인으로 사용 가능**
 
@@ -171,7 +171,7 @@ function Greeting({ isLoggedIn }) {
 
 <h2>4. && 연산자로 조건부 표시</h2>
 
-### 1) 조건이 참일 때만 렌더링
+**📝 조건이 참일 때만 렌더링**
 
 ```jsx
 function Mailbox({ unreadCount }) {
@@ -189,7 +189,7 @@ function Mailbox({ unreadCount }) {
 // unreadCount가 0이면 <p>가 렌더링되지 않음
 ```
 
-### 2) 원리
+**⚙️ 원리**
 
 - `true && X` 는 **X**를 반환
 - `false && X` 는 **false**를 반환 (렌더링 안 됨)
@@ -312,7 +312,7 @@ function DataDisplay({ isLoading, error, data }) {
 
 아래 예제의 <code>Header</code>, <code>Footer</code>, <code>AdminDashboard</code>, <code>UserDashboard</code>는 이미 만들어져 있다고 가정한 컴포넌트입니다. 실제로 실행하려면 해당 컴포넌트를 먼저 만들거나 import해야 합니다.
 
-### 1) 컴포넌트 변수 할당 방식
+**📝 컴포넌트 변수 할당 방식**
 
 ```jsx
 function Page({ isAdmin }) {
@@ -341,7 +341,7 @@ function Page({ isAdmin }) {
   <p>리액트 컴포넌트는 결국 자바스크립트 함수나 클래스이기 때문에, 변수에 할당해서 사용할 수 있습니다.<br>단, JSX에서 컴포넌트로 사용하려면 <strong>변수 이름이 반드시 대문자</strong>로 시작해야 합니다 (예: <code>content</code> (x) -&gt; <code>Content</code> (o)).</p>
 </div>
 
-### 2) 인라인 삼항 연산자 방식
+**📝 인라인 삼항 연산자 방식**
 
 변수에 담지 않고, 삼항 연산자를 JSX 안에 바로 쓸 수도 있습니다.
 
@@ -363,7 +363,7 @@ function PageInline({ isAdmin }) {
   <p><strong>조건이 맞지 않으면 숨기기</strong></p>
 </div>
 
-### 1) 컴포넌트 숨기기 패턴
+**📝 컴포넌트 숨기기 패턴**
 
 ```jsx
 function WarningBanner({ show, message }) {
@@ -398,7 +398,7 @@ function WarningBanner({ show, message }) {
 
 <h2>9. ⁉️ FAQ</h2>
 
-### 1) Q1. JSX 내부에서 if-else 구문 대신 조건부 렌더링을 위해 주로 사용하는 자바스크립트 문법은?
+**🧠 Q1. JSX 내부에서 if-else 구문 대신 조건부 렌더링을 위해 주로 사용하는 자바스크립트 문법은?**
 
 **정답**
 
@@ -411,7 +411,7 @@ function WarningBanner({ show, message }) {
   <p>JSX 내부의 중괄호 <code>{}</code> 안에는 값을 반환하는 <strong>표현식(Expression)</strong>만 들어갈 수 있습니다.<br><code>if-else</code>문은 <strong>문(Statement)</strong>이기 때문에 사용할 수 없으며, 이를 대신해 결과가 값으로 떨어지는 삼항 연산자나 논리 연산자를 사용해야 합니다.</p>
 </div>
 
-### 2) Q2. 컴포넌트가 아무것도 렌더링하지 않게 하려면 무엇을 반환해야 하나요?
+**🧠 Q2. 컴포넌트가 아무것도 렌더링하지 않게 하려면 무엇을 반환해야 하나요?**
 
 **정답**
 
@@ -427,7 +427,7 @@ function WarningBanner({ show, message }) {
 
 <h2>10. ✅ 핵심 요약</h2>
 
-### 1) Patterns
+**📌 Patterns**
 
 "언제 무엇을 쓰는가"를 기준으로 정리하면 다음과 같습니다.
 
@@ -450,7 +450,7 @@ function WarningBanner({ show, message }) {
   <p><strong>if문은 복잡한 분기에, 삼항 연산자는 둘 중 하나 선택에, &&는 단순 표시 여부에 사용합니다.</strong></p>
 </div>
 
-### 2) Early Return
+**📝 Early Return**
 
 <div class="wda-callout wda-cs">
   <p><strong>복잡한 중첩을 피하기 위해, 예외 케이스나 로딩 상태 등을 함수 상단에서 먼저 반환하여 코드를 깔끔하게 유지합니다.</strong></p>
@@ -462,7 +462,7 @@ function WarningBanner({ show, message }) {
   <p><code>if</code> 안에 <code>else</code>를 쓰고 그 안에 또 <code>if</code>를 쓰는 식의 '깊은 중첩(Nesting)'을 방지합니다. 마치 문지기처럼 로딩이나 에러 상태를 함수 입구에서 미리 처리하고 내보내는 방식이라 코드를 읽기가 훨씬 편해집니다.</p>
 </div>
 
-### 3) Caveats
+**⚠️ Caveats**
 
 <div class="wda-callout wda-cw">
   <p><strong>숫자 0은 Falsy지만 화면에 "0"으로 출력되므로, <code>count &gt; 0 &amp;&amp; ...</code> 처럼 명시적인 boolean 비교가 필요합니다.</strong></p>

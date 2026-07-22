@@ -99,7 +99,7 @@ Node.js 공식 사이트(nodejs.org)에 접속하면 당황스럽게도 두 가�
 
 Node.js를 설치하면 `npm`도 자동으로 같이 설치되므로, 두 가지 모두 확인해야 합니다.
 
-### 1) Node.js 버전 확인
+**✅ Node.js 버전 확인**
 
 터미널에 아래 명령어를 입력하여 Node.js가 정상적으로 인식되는지 확인합니다.
 
@@ -111,7 +111,7 @@ node --version
 
 - **성공 시:** `v20.10.0` 처럼 버전 번호가 나타납니다.
 
-### 2) npm 버전 확인
+**✅ npm 버전 확인**
 
 패키지 관리자도 잘 설치되었는지 확인합니다.
 
@@ -134,7 +134,7 @@ npm --version
 
 <h2>3. 환경 변수 PATH (Deep Dive)</h2>
 
-### 1) PATH의 정체: "지도(Map)"
+**📌 PATH의 정체: "지도(Map)"**
 
 `PATH`는 운영체제(윈도우/맥)가 **"실행 파일이 어디 있는지 적어둔 경로들의 목록"**입니다.
 
@@ -164,7 +164,7 @@ npm --version
   </div>
 </div>
 
-### 2) 전역 설치(Global Install)의 원리
+**⚙️ 전역 설치(Global Install)의 원리**
 
 npm 명령어를 쓸 때 자주 보이는 `-g` 옵션의 비밀도 여기에 있습니다.
 
@@ -190,7 +190,7 @@ npm install -g 패키지명
 
 <h2>4. 설치 문제 해결 (Troubleshooting)</h2>
 
-### 1) 'node'를 찾을 수 없음 (Command not found)
+**⚠️ 'node'를 찾을 수 없음 (Command not found)**
 
 터미널에 `node -v`를 쳤는데, 버전을 보여주는 대신 알 수 없는 명령어라는 에러가 뜨는 경우입니다.
 
@@ -213,7 +213,7 @@ npm install -g 패키지명
   </div>
 </div>
 
-### 2) 권한 오류 (Permission Denied) - macOS/Linux
+**⚠️ 권한 오류 (Permission Denied) - macOS/Linux**
 
 주로 맥(Mac) 사용자에게 발생하는 **"EACCES"** 관련 에러입니다.
 
@@ -272,7 +272,7 @@ npm init -y
 
 이 파일만 있으면 전 세계 어느 컴퓨터에서든 **똑같은 개발 환경**을 복구할 수 있습니다.
 
-### 1) 프로젝트 정보 (Project Info)
+**📌 프로젝트 정보 (Project Info)**
 
 프로젝트의 기본적인 신상 정보가 담겨 있습니다.
 
@@ -283,7 +283,7 @@ npm init -y
 | **description** | **설명** | 프로젝트에 대한 간단한 소개글입니다. |
 | **license** | **라이선스** | 코드 사용 권한을 명시합니다. (예: MIT, ISC) |
 
-### 2) 실행 및 관리 (Execution & Management)
+**📌 실행 및 관리 (Execution & Management)**
 
 프로젝트를 돌리기 위한 설정과 재료 목록입니다.
 
@@ -307,7 +307,7 @@ npm init -y
 
 이 파일은 Node.js에게 "이 프로젝트를 실행하려면 어디서부터 시작해야 해?"를 알려주는 **네비게이션** 역할을 합니다.
 
-### 1) 실행 및 관리 (Execution)
+**📌 실행 및 관리 (Execution)**
 
 프로젝트가 어떻게 돌아가는지 결정하는 가장 중요한 부분입니다.
 
@@ -317,7 +317,7 @@ npm init -y
 | **scripts** | **실행 단축키** | • **"긴 명령어 치기 귀찮아!"** 할 때 사용합니다.<br>• 예: `npm run start`를 입력하면 복잡한 실행 명령어를 대신 수행해 줍니다. |
 | **dependencies** | **필수 재료** | • 실행에 꼭 필요한 라이브러리(React 등) 목록입니다. |
 
-### 2) 프로젝트 정보 (Info)
+**📌 프로젝트 정보 (Info)**
 
 프로젝트의 이름표와 같습니다.
 
@@ -341,7 +341,7 @@ npm init -y
 
 자주 사용하는 긴 명령어를 짧은 단어로 줄여서 `package.json`에 등록해두는 기능입니다.
 
-### 1) Scripts 등록 (수정)
+**📝 Scripts 등록 (수정)**
 
 `package.json` 파일을 열어 `scripts` 부분을 아래와 같이 수정합니다.
 
@@ -359,7 +359,7 @@ npm init -y
 
 - **의미:** "이제부터 내가 `start`라고 외치면, 너는 `node index.js`를 실행해!"라고 약속하는 것입니다.
 
-### 2) 실행 방법 (중요 규칙)
+**📝 실행 방법 (중요 규칙)**
 
 실행할 때는 **`run`을 붙이느냐 마느냐**의 차이가 있습니다.
 
@@ -378,7 +378,7 @@ npm init -y
 
 <h2>9. 자동 재실행 도구 (Nodemon)</h2>
 
-### 1) 왜 필요한가요? (비교)
+**🆚 왜 필요한가요? (비교)**
 
 <div class="wda-compare">
   <div class="wda-compare-card wda-legacy">
@@ -393,7 +393,7 @@ npm init -y
   </div>
 </div>
 
-### 2) 설치 및 사용법
+**✅ 설치 및 사용법**
 
 이 도구는 실제 서비스 배포 시에는 필요 없고, **오직 개발할 때만 필요**하므로 `-D` 옵션을 붙여서 설치합니다.
 
@@ -402,7 +402,7 @@ npm init -y
 npm install -D nodemon
 ```
 
-### 3) 똑똑하게 적용하기 (꿀팁)
+**💡 똑똑하게 적용하기 (꿀팁)**
 
 매번 `npx nodemon index.js`라고 치는 것도 귀찮으므로, 방금 배운 `scripts`에 등록해서 사용하세요.
 
@@ -418,7 +418,7 @@ npm install -D nodemon
 
 - **실행:** 이제 터미널에 **`npm run dev`**만 치면, 코드를 고칠 때마다 서버가 알아서 갱신됩니다!
 
-### 4) npm script에 연결 (강추)
+**💡 npm script에 연결 (강추)**
 
 `package.json`의 `scripts`에서 **dev만 교체**:
 
@@ -444,7 +444,7 @@ npm run dev
 
 `npm install`을 하고 나면 아래와 같은 파일들이 생겨납니다. 각각의 역할이 무엇인지 정확히 아는 것이 중요합니다.
 
-### 1) 전체 구조 (File Tree)
+**📁 전체 구조 (File Tree)**
 
 ```text
 my-first-project/
@@ -454,7 +454,7 @@ my-first-project/
 └── 📄 index.js           # 우리가 직접 짠 코드
 ```
 
-### 2) 핵심 파일 상세 설명
+**📁 핵심 파일 상세 설명**
 
 <div class="wda-compare">
   <div class="wda-compare-card">

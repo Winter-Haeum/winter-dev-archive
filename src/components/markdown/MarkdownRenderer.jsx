@@ -104,6 +104,27 @@ const WDA_BOX_SELECTORS = ['.wda-codeblock', '.wda-callout', '.wda-fgrid', '.wda
 // box↔일반텍스트 규칙까지 확장할 필요가 없어(항상 사이에 minihead가 끼어 나오므로) 별도
 // 배열로 분리한다(2026-07 개편 — JavaScript 1-1/1-2/1-3 재검토로 전역 승격).
 const WDA_MINIHEAD_BOX_SELECTORS = [...WDA_BOX_SELECTORS, '.wda-check-note', '.wda-mistake-notes', '.wda-formula-board'];
+// 실제 `h3` 제목 바로 다음에 도입 문장 없이 곧장 오는 코드블록/박스류 전용 규칙(아래
+// `h3 + ...`)의 적용 대상. WDA_MINIHEAD_BOX_SELECTORS(미니 소제목 전용)과 달리 카드형
+// 하위 요소(`wda-fcard`/`wda-compare-card`)와 핵심 요약 노트(`wda-summary-note`)까지
+// 포함한다 — JS 1-1/1-2 기준 문서에는 실제 `h3`가 아예 없어(전부 미니 소제목 방식) 이
+// 인접 패턴 자체가 등장하지 않았고, 다른 문서(react/1-1-node-npm.md 등)에서 실제 h3를
+// 쓸 때만 발생해 지금까지 정책/코드 양쪽에 규정이 없었다(2026-07 40차 개편 — 정밀
+// 수치 분석으로 발견, 정책 문서 "간격 — 4단계 여백 위계" 참고).
+const WDA_HEADING_BOX_SELECTORS = [
+  '.wda-codeblock',
+  '.wda-callout',
+  '.wda-fgrid',
+  '.wda-fcard',
+  '.wda-steps',
+  '.wda-compare',
+  '.wda-compare-card',
+  '.wda-flow',
+  '.wda-summary-note',
+  '.wda-check-note',
+  '.wda-mistake-notes',
+  '.wda-formula-board',
+];
 // 미니 소제목과 인접한 콘텐츠 블록(이전 요소든 다음 요소든)은 미니 소제목 자신의
 // padding-top(1.2rem, 진입 시 새 시작 간격)/padding-bottom(0, 2026-07 개편으로 제거)
 // 두 값만으로 위계를 표현하고, 인접한 콘텐츠 블록 쪽 margin은 항상 제거하거나 0.5rem
@@ -240,14 +261,40 @@ const wdaMinheadGlobalStyles = {
   // 두 경우 모두 0으로 강제하고, 문장은 margin-top 0.5rem, 미니 소제목은 자신의
   // padding-top을 0.5rem으로 강제해 "숫자 h2/h3 제목 → 문장이든 미니 소제목이든
   // 항상 8px"로 통일한다. h4에는 영향을 주지 않는다.
-  'h2:has(+ p:not(.wda-minihead)), h3:has(+ p:not(.wda-minihead)), h2:has(+ p.wda-minihead.wda-minihead), h3:has(+ p.wda-minihead.wda-minihead)': {
+  // ul/ol 확장(2026-07 배포 화면 QA 개편): 위와 같은 이유로 h2/h3 바로 다음에 목록이
+  // 곧장 오는 경우도 p와 동일하게 취급한다 — 기존에는 p만 대상이라 ul/ol은 브라우저
+  // 기본 margin-top(약 1em)이 그대로 남아 간격이 불규칙했다.
+  'h2:has(+ p:not(.wda-minihead)), h3:has(+ p:not(.wda-minihead)), h2:has(+ p.wda-minihead.wda-minihead), h3:has(+ p.wda-minihead.wda-minihead), h2:has(+ ul), h3:has(+ ul), h2:has(+ ol), h3:has(+ ol)': {
     marginBottom: '0 !important',
   },
-  'h2 + p:not(.wda-minihead), h3 + p:not(.wda-minihead)': {
+  'h2 + p:not(.wda-minihead), h3 + p:not(.wda-minihead), h2 + ul, h3 + ul, h2 + ol, h3 + ol': {
     marginTop: '0.5rem !important',
   },
   'h2 + p.wda-minihead.wda-minihead, h3 + p.wda-minihead.wda-minihead': {
     paddingTop: '0.5rem !important',
+  },
+  // `h2` 바로 다음에 도입 문장/미니 소제목 없이 곧장 하위 `h3`가 오는 경우(2026-07 40차
+  // 개편 — 신설, 정밀 수치 분석으로 발견). JS 1-1/1-2 기준 문서에는 실제 `h3`가 없어
+  // 이 인접 패턴 자체가 검증된 적이 없었고, 다른 문서(react/1-1-node-npm.md,
+  // javascript/5-1-async-programming-basics.md, ai-vibe-coding/step-01-dev-environment.md
+  // 등)에서만 실제로 쓰이는데, 그동안 아무 규칙도 없어 h3 자신의 기본 margin-top
+  // (2.6rem=41.6px)이 그대로 노출되어 "섹션 전환"과 똑같이 과하게 넓어 보였다. h3 자신의
+  // 기본 margin-top(2.6rem)은 그대로 유지하고, h2 바로 다음에 h3가 곧장 오는 이 경우에만
+  // 1.1rem(17.6px)으로 좁힌다 — h2의 margin-bottom(0.6rem=9.6px)보다 커서 병합 후에도
+  // 이 값이 그대로 유지된다.
+  'h2 + h3': {
+    marginTop: '1.1rem !important',
+  },
+  // 실제 `h3` 제목 바로 다음에 도입 문장 없이 곧장 오는 코드블록/박스류(2026-07 40차
+  // 개편 — 신설, 정밀 수치 분석으로 발견). 위 h2+h3와 같은 이유로 지금까지 규정이 없어
+  // 코드블록(1.5rem=24px)/박스류(문서별 로컬 margin-top, 대략 0.8rem=12.8px대)가 그대로
+  // 노출됐다. 코드블록/박스 자신의 기본 margin-top은 그대로 유지하고, h3 바로 다음에
+  // 곧장 오는 이 경우에만 0.75rem(12px)으로 고정한다 — h3의 margin-bottom
+  // (0.35rem=5.6px)보다 커서 병합 후에도 이 값이 그대로 유지된다. 도입 문장이 하나라도
+  // h3와 박스 사이에 있으면 이 규칙 대상이 아니며, 그 경우 [19-4-B]의 "텍스트 → 박스"
+  // 규칙(0.5rem)이 대신 적용된다.
+  [WDA_HEADING_BOX_SELECTORS.map((s) => `h3 + ${s}`).join(', ')]: {
+    marginTop: '0.75rem !important',
   },
 };
 

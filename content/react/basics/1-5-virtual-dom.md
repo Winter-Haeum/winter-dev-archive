@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. 렌더링 파이프라인</h2>
 
-### 1) 브라우저가 화면을 그리는 과정
+**⚙️ 브라우저가 화면을 그리는 과정**
 
 브라우저는 우리가 짠 코드를 화면에 보여주기 위해 총 5단계를 거칩니다.
 
@@ -78,7 +78,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 4. **Paint (Heavy):** 계산된 면적에 **색깔과 그림자**를 칠해서 픽셀로 만듭니다.
 5. **Composite:** 만들어진 여러 층(Layer)을 하나로 **합칩니다.**
 
-### 2) 핵심 단계 분석 (비용 차이)
+**📌 핵심 단계 분석 (비용 차이)**
 
 위 이미지의 색깔별 박스는 각 단계가 컴퓨터에게 얼마나 부담을 주는지를 보여줍니다.
 
@@ -103,12 +103,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>2. 가상 DOM이란? (Virtual DOM)</h2>
 
-### 1) 핵심 개념
+**📌 핵심 개념**
 
 가상 DOM은 실제 DOM을 그대로 복사한 것이 아니라, 화면 구조를 JavaScript 객체 형태로 표현한 가벼운 트리입니다.  
 실제 DOM을 직접 조작하기 전에 메모리에서 먼저 변경 결과를 계산하는 데 사용됩니다.
 
-### 2) 비유 (Analogy)
+**💡 비유 (Analogy)**
 
 아주 적절한 비유로 설명해 보겠습니다.
 
@@ -123,7 +123,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 3) 실제 DOM vs 가상 DOM 비교
+**🆚 실제 DOM vs 가상 DOM 비교**
 
 왜 가상 DOM이 더 효율적인지 보여주는 비교표입니다.
 
@@ -134,7 +134,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 | **속도** | 느림(상대적) | **상대적으로 빠름**(단, UI 규모와 변경량에 따라 비용은 달라질 수 있음) |
 | **무게** | 무거움(화면 정보 포함) | **가벼움**(데이터만 존재) |
 
-### 4) 가상 DOM의 실체 (Code)
+**🧪 가상 DOM의 실체 (Code)**
 
 "가상 DOM"이라고 해서 거창한 기술이 아닙니다. 사실은 단순히 데이터를 담고 있는 자바스크립트 객체(Object)일 뿐입니다.
 
@@ -164,14 +164,14 @@ const virtualElement = {
 
 <h2>3. 가상 DOM 동작 원리 (3단계)</h2>
 
-### 1) 전체 흐름 (Flow)
+**⚙️ 전체 흐름 (Flow)**
 
 아래 다이어그램은 **데이터(State)가 'A'에서 'B'로 바뀌었을 때**의 처리 과정을 보여줍니다.
 
 <img src="/images/content/react/1-5/react-1-5-virtual-dom-update-flow.png" alt="가상 DOM 업데이트 흐름: Old VDOM(A, p) → State Change → New VDOM(B, p) → Diff & Patch → Real DOM(B, p)" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] React 가상 DOM 업데이트 흐름</div>
 
-### 2) 단계별 상세 분석
+**⚙️ 단계별 상세 분석**
 
 리액트는 무턱대고 화면을 고치지 않고, 다음 3단계를 침착하게 밟습니다.
 
@@ -214,7 +214,7 @@ const virtualElement = {
 
 <h2>4. 재조정 (Reconciliation)과 Diffing 알고리즘</h2>
 
-### 1) 비교 규칙 (Comparison Rules)
+**📝 비교 규칙 (Comparison Rules)**
 
 리액트는 굳이 모든 것을 정밀하게 비교하지 않고, **두 가지 단순한 대원칙**을 따릅니다.
 
@@ -236,7 +236,7 @@ const virtualElement = {
 <div className="old"> ➔ <div className="new">
 ```
 
-### 2) Key의 중요성 (List Keys)
+**⚠️ Key의 중요성 (List Keys)**
 
 리스트(목록)를 출력할 때 가장 중요한 규칙입니다.
 
@@ -262,11 +262,11 @@ const virtualElement = {
 
 <h2>5. 재조정 (Reconciliation) 과정</h2>
 
-### 1) 정의
+**📌 정의**
 
 가상 DOM이 찾아낸 "변경된 부분(Diff 결과)"을 실제 브라우저(DOM)에 **최종적으로 적용하는 과정**입니다.
 
-### 2) 6단계 프로세스 (Flow)
+**⚙️ 6단계 프로세스 (Flow)**
 
 아래 표를 보면, 리액트가 얼마나 치밀하게 계산한 뒤에 화면을 건드리는지 알 수 있습니다.
 
@@ -326,7 +326,7 @@ const virtualElement = {
 
 <h2>6. Batch Update와 Fiber (Deep Dive)</h2>
 
-### 1) Batch Update (속도의 비밀)
+**⚙️ Batch Update (속도의 비밀)**
 
 리액트는 성격이 급하지 않습니다. 변경 사항이 생길 때마다 즉시 화면을 고치는 게 아니라, "조금만 기다렸다가 한 번에 처리하자!"라는 전략을 씁니다.
 
@@ -347,7 +347,7 @@ function handleClick() {
 - **원리:** 리액트는 이 요청들을 큐(Queue, 대기열)에 모아둡니다. 그리고 함수 실행이 다 끝나면 **가장 마지막 결과(3)만 가지고 딱 한 번 렌더링**합니다.
 - **비유:** 식당에서 손님이 "물 주세요", "수저 주세요", "접시 주세요"라고 할 때, 종업원이 주방을 3번 왔다 갔다 하는 게 아니라 **한 번에 다 챙겨서 나오는 것**과 같습니다.
 
-### 2) React Fiber (부드러움의 비밀)
+**⚙️ React Fiber (부드러움의 비밀)**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -435,7 +435,7 @@ function handleClick() {
   </div>
 </div>
 
-### 1) 성능 최적화 (Performance)
+**📌 성능 최적화 (Performance)**
 
 컴퓨터를 혹사시키지 않고 효율적으로 일합니다.
 
@@ -443,7 +443,7 @@ function handleClick() {
 - **배치 처리 (Batching):** 변경 사항을 모았다가 **한 번에 처리해서 렌더링 횟수를 최소화**합니다.
 - **보호:** 개발자가 실수로 불필요한 DOM 조작을 남발하는 것을 막아줍니다.
 
-### 2) 선언적 프로그래밍 (Declarative)
+**📌 선언적 프로그래밍 (Declarative)**
 
 코딩 스타일이 "명령(Command)"에서 "선언(Declare)"으로 바뀝니다.
 
@@ -465,14 +465,14 @@ box.style.color = 'red';
 return <div style={{ color: 'red' }}>안녕하세요</div>;
 ```
 
-### 3) 크로스 플랫폼 (Cross Platform)
+**📌 크로스 플랫폼 (Cross Platform)**
 
 웹(Web)뿐만 아니라 앱(App)도 만들 수 있습니다.
 
 - **React Native:** React의 컴포넌트 모델과 선언적 UI 작성 방식을 활용해 **iOS/Android 앱**을 만들 수 있게 해줍니다. 다만 웹의 DOM을 그대로 사용하는 것은 아니며, 네이티브 UI 요소로 렌더링됩니다.
 - **확장성:** React 생태계에는 웹뿐 아니라 모바일, 데스크톱 등 다양한 플랫폼을 다루는 도구들이 있습니다.
 
-### 4) 디버깅 용이 (Easy Debugging)
+**📌 디버깅 용이 (Easy Debugging)**
 
 에러를 찾고 수정하기가 훨씬 쉬워집니다.
 
@@ -493,7 +493,7 @@ return <div style={{ color: 'red' }}>안녕하세요</div>;
 
 <h2>9. 가상 DOM의 한계 (Limitations)</h2>
 
-### 1) 무조건 빠른 건 아니다
+**⚠️ 무조건 빠른 건 아니다**
 
 리액트는 "가상 DOM 생성 ➔ 비교 ➔ 적용"이라는 3단계 절차를 무조건 거쳐야 합니다. 그래서 아주 단순한 작업에서는 오히려 바로 고치는 것보다 느릴 수 있습니다.
 
@@ -510,14 +510,14 @@ document.getElementById('count').textContent = count;
 setCount(count);
 ```
 
-### 2) 메모리 사용 (Memory Usage)
+**⚠️ 메모리 사용 (Memory Usage)**
 
 가상 DOM은 메모리 위에 존재하는 '객체'입니다.
 
 - **더블 버퍼링:** 가상 DOM은 UI 구조를 표현하는 객체 트리를 메모리에 유지합니다. 따라서 직접 DOM만 다루는 방식보다 추가 메모리 비용이 생길 수 있습니다.
 - **대규모 트리:** 화면에 요소가 수만 개 있다면, 그것을 그대로 메모리에 복사하는 것도 부담이 될 수 있습니다.
 
-### 3) 언제 유리한가? (성능 비교표)
+**🆚 언제 유리한가? (성능 비교표)**
 
 단순한 작업은 직접 조작이 빠르지만, **현대 웹 앱처럼 복잡하고 데이터가 자주 바뀌는 환경**에서는 리액트가 압도적으로 유리합니다.
 

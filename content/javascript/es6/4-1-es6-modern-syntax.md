@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. ECMAScript 버전 히스토리
 
-### 1) 주요 버전 연표
+**📌 주요 버전 연표**
 
 JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
@@ -108,7 +108,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
   </div>
 </div>
 
-### 2) ES6가 중요한 이유
+**📌 ES6가 중요한 이유**
 
 **🔹 ES6 = JavaScript의 혁명**
 
@@ -134,7 +134,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
 ## 📋 ES6 주요 변경점 개요
 
-### 1) 이미 배워서 익숙한 것들 (Review)
+**📌 이미 배워서 익숙한 것들 (Review)**
 
 기초 단계에서 접해보았던 기본적인 ES6+ 문법입니다.
 
@@ -157,7 +157,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
   </div>
 </div>
 
-### 2) 이번 차시에서 깊게 팔 것들 (Deep Dive)
+**📌 이번 차시에서 깊게 팔 것들 (Deep Dive)**
 
 실무에서 유용하게 쓰이는 심화 패턴과 최신 기능들입니다.
 
@@ -185,7 +185,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
 ## 📋 ES6 주요 변경점 개요 (2)
 
-### 1) 다음 차시에서 배울 것들 (Preview)
+**📌 다음 차시에서 배울 것들 (Preview)**
 
 이후 강의에서 본격적으로 다루게 될 핵심 문법과 개념들입니다.
 
@@ -229,7 +229,7 @@ JavaScript의 발전 과정을 한눈에 볼 수 있는 연표입니다.
 
 ## 2. &lt; &gt; 템플릿 리터럴 심화
 
-### 1) 기본 복습 (Review)
+**📝 기본 복습 (Review)**
 
 ES6에서 도입된 템플릿 리터럴의 기본적인 기능입니다.
 
@@ -252,7 +252,7 @@ const html = `
 `;
 ```
 
-### 2) 태그드 템플릿 (Tagged Template)
+**📝 태그드 템플릿 (Tagged Template)**
 
 템플릿 리터럴을 **함수**로 파싱하여 문자열과 변수를 분리해 처리할 수 있는 고급 기능입니다.
 
@@ -274,7 +274,7 @@ const result = highlight`이름: ${name}, 나이: ${age}`;
 // "이름: <mark>홍길동</mark>, 나이: <mark>25</mark>"
 ```
 
-### 3) 실무 활용 사례
+**🧪 실무 활용 사례**
 
 태그드 템플릿은 라이브러리 내부에서 다음과 같은 용도로 강력하게 사용됩니다.
 
@@ -297,7 +297,7 @@ const result = highlight`이름: ${name}, 나이: ${age}`;
 
 ## 3. 태그드 템플릿 활용 - HTML 이스케이프
 
-### 1) XSS 방지용 이스케이프 함수
+**🧪 XSS 방지용 이스케이프 함수**
 
 사용자가 입력한 내용에 악성 스크립트가 포함되어 있을 경우, 이를 실행되지 않는 일반 문자로 변환(치환)해주는 핵심 로직입니다.
 
@@ -332,7 +332,7 @@ function safeHTML(strings, ...values) {
 }
 ```
 
-### 2) 사용 예시 (위험 vs 안전)
+**🆚 사용 예시 (위험 vs 안전)**
 
 실제 해킹 스크립트가 들어왔을 때, 일반 방식과 태그드 템플릿 방식의 차이를 비교합니다.
 
@@ -352,7 +352,7 @@ div.innerHTML = safeHTML`<p>${userInput}</p>`;
 // -> onerror가 실행되지 않고 텍스트 그대로 보임
 ```
 
-### 3) 보안 이점
+**💡 보안 이점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -378,7 +378,7 @@ div.innerHTML = safeHTML`<p>${userInput}</p>`;
 
 ## 4. for...of와 이터러블
 
-### 1) for...of 기본 문법
+**📝 for...of 기본 문법**
 
 배열이나 문자열처럼 순서가 있는 데이터(이터러블)를 순회할 때 사용하는 가장 모던한 반복문입니다.
 
@@ -402,7 +402,7 @@ for (const char of 'Hello') {
 }
 ```
 
-### 2) 이터러블(Iterable)이란?
+**📌 이터러블(Iterable)이란?**
 
 **"순회 가능한 객체"**를 뜻합니다. 기술적으로는 `Symbol.iterator`라는 특별한 메서드를 가지고 있는 객체를 말합니다.
 
@@ -438,7 +438,7 @@ for (const [key, value] of Object.entries(obj)) {
 }
 ```
 
-### 3) 내장 이터러블 종류
+**📌 내장 이터러블 종류**
 
 자바스크립트에서 기본적으로 `for...of`를 사용할 수 있는(이터러블인) 것들입니다.
 
@@ -465,11 +465,11 @@ for (const [key, value] of Object.entries(obj)) {
 
 ## 5. 이터러블 심화 - 문자열 순회
 
-### 1) 문자열 순회 기본
+**📝 문자열 순회 기본**
 
 문자열도 **'이터러블(Iterable)'**에 속하므로, 배열처럼 `for...of` 문법을 사용하여 한 글자씩 순서대로 순회할 수 있습니다.
 
-### 2) 동작 원리 (Iterator)
+**⚙️ 동작 원리 (Iterator)**
 
 문자열 내부에는 순서대로 값을 하나씩 꺼내주는 **'똑똑한 이터레이터(Iterator)'**가 내장되어 있기 때문입니다.
 
@@ -477,7 +477,7 @@ for (const [key, value] of Object.entries(obj)) {
 - **Iterator**: "네, 여기 'H' 입니다."
 - (이렇게 내부적으로 대화하듯 글자를 하나씩 넘겨줍니다.)
 
-### 3) for loop vs for...of (이모지 처리)
+**🆚 for loop vs for...of (이모지 처리)**
 
 `for...of`의 강력한 장점은 이모지(😊) 같은 **유니코드 문자도 깨지지 않고 정확하게 한 글자로 인식**한다는 점입니다.
 
@@ -497,7 +497,7 @@ for (const char of text) {
 }
 ```
 
-### 4) 내장 이터러블 종류 (복습)
+**📌 내장 이터러블 종류 (복습)**
 
 자바스크립트에서 `for...of`를 바로 사용할 수 있는 것들입니다.
 
@@ -521,7 +521,7 @@ for (const char of text) {
 
 ## 6. Map: 더 강력한 키-값 저장소
 
-### 1) Object vs Map 비교
+**🆚 Object vs Map 비교**
 
 기존에 객체(Object)를 사용하여 데이터를 관리하던 방식과 비교했을 때, `Map`이 가진 강력한 장점들입니다.
 
@@ -540,7 +540,7 @@ for (const char of text) {
   </ul>
 </div>
 
-### 2) 사용법 예시
+**🧪 사용법 예시**
 
 `Map`을 생성하고, 데이터를 추가하고, 조회하고, 순회하는 기본적인 방법입니다.
 
@@ -562,7 +562,7 @@ for (const [key, val] of map) {
 }
 ```
 
-### 3) 핵심 활용 팁
+**💡 핵심 활용 팁**
 
 > "빈번한 데이터 변경이 필요한 캐시(Cache) 구현 등에 유리합니다."
 
@@ -579,7 +579,7 @@ for (const [key, val] of map) {
 
 ## 7. Set: 중복 없는 리스트
 
-### 1) Array vs Set 비교
+**🆚 Array vs Set 비교**
 
 데이터를 담는 리스트지만, 성격이 완전히 다른 **Array(배열)**와 **Set(셋)**의 차이점입니다.
 
@@ -589,7 +589,7 @@ for (const [key, val] of map) {
 | **인덱스 접근** | **가능 O** 🔢<br>`arr[0]`처럼 "첫 번째 거 줘!"라고 순서 번호로 꺼낼 수 있습니다. | **불가능 X** 🚫<br>순서는 존재하지만, 번호(Index)를 사용해 콕 집어 꺼낼 수 없습니다. |
 | **값 찾기 속도 (성능)** | **느림** 🐢<br>`includes()` 사용 시, 데이터가 많으면 처음부터 끝까지 다 훑어야 합니다. | **매우 빠름** ⚡<br>`has()` 사용 시, 데이터 양과 상관없이 <strong>즉시(O(1))</strong> 찾아냅니다. |
 
-### 2) ✨ 실무 패턴: 배열 중복 제거
+**✨ 실무 패턴: 배열 중복 제거**
 
 실무에서 `Set`을 가장 많이 쓰는 경우는 바로 **"배열에서 중복된 데이터를 싹 지우고 싶을 때"**입니다.
 
@@ -607,7 +607,7 @@ const unique = [...set];
 console.log(unique); // [1, 2, 3]
 ```
 
-### 3) 한 줄로 해결하기
+**🧪 한 줄로 해결하기**
 
 위의 과정을 실무 고수들은 딱 한 줄로 줄여서 사용합니다.
 
@@ -630,7 +630,7 @@ const unique = [...new Set(array)];
 
 ## 8. Symbol 기초 (1)
 
-### 1) Symbol이란?
+**📌 Symbol이란?**
 
 ES6에서 새롭게 추가된 원시 타입으로, **"절대 겹치지 않는 고유한 식별자"**를 만들 때 사용합니다.
 
@@ -647,7 +647,7 @@ const sym3 = Symbol('description');
 console.log(sym3.toString()); // "Symbol(description)"
 ```
 
-### 2) 객체 프로퍼티 키로 사용
+**📝 객체 프로퍼티 키로 사용**
 
 Symbol은 객체(Object)의 비밀스러운 키(Key)로 사용할 때 진가를 발휘합니다.
 
@@ -684,7 +684,7 @@ console.log(Object.keys(user)); // ['name']
 
 ## 9. Symbol 기초 (2)
 
-### 1) 내장 Symbol (Well-Known Symbol)
+**📌 내장 Symbol (Well-Known Symbol)**
 
 자바스크립트 엔진 내부에 이미 정의되어 있는 **"특별한 능력을 가진 심볼"**들입니다. 개발자가 이 심볼을 사용하면 자바스크립트의 **내부 동작 방식을 입맛대로 수정(커스터마이징)** 할 수 있습니다.
 
@@ -708,7 +708,7 @@ const myObj = {
 console.log(Object.prototype.toString.call(myObj)); // "[object MyObject]"
 ```
 
-### 2) Symbol의 핵심 용도
+**🧠 Symbol의 핵심 용도**
 
 왜 굳이 Symbol을 쓰는지 정리한 3가지 핵심 이유입니다.
 
@@ -727,7 +727,7 @@ console.log(Object.prototype.toString.call(myObj)); // "[object MyObject]"
   </div>
 </div>
 
-### 3) 원시 타입 (Primitive Type)
+**📌 원시 타입 (Primitive Type)**
 
 **개념 정리**
 
@@ -750,7 +750,7 @@ console.log(Object.prototype.toString.call(myObj)); // "[object MyObject]"
 
 ## 10. 단축 평가 심화
 
-### 1) &amp;&amp; (AND) 연산자 활용
+**📝 &amp;&amp; (AND) 연산자 활용**
 
 `&&`는 왼쪽이 **참(true)**이면 오른쪽 값을 반환하고, 왼쪽이 **거짓(false)**이면 왼쪽 값을 그대로 반환하는 성질이 있습니다. 이를 이용해 **if문 대신 조건부 실행**을 할 때 자주 사용합니다.
 
@@ -771,7 +771,7 @@ const a = 0 && 'test'; // 0
 const b = "" && 'test'; // ""
 ```
 
-### 2) || (OR) 연산자 활용
+**📝 || (OR) 연산자 활용**
 
 `||`는 왼쪽이 **참(true)**이면 왼쪽 값을 바로 쓰고, 왼쪽이 **거짓(false)**일 때만 오른쪽 값을 봅니다. 이 특성을 이용해 전통적으로 **기본값(Default Value)**을 설정할 때 사용했습니다.
 
@@ -790,7 +790,7 @@ const result = null || 'default';      // 'default' (null은 거짓)
 const result2 = 'first' || 'second';   // 'first'  (문자열은 참)
 ```
 
-### 3) ⚠️ || 연산자의 문제점
+**⚠️ || 연산자의 문제점**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -804,7 +804,7 @@ const result2 = 'first' || 'second';   // 'first'  (문자열은 참)
 greet(""); // "Hello, Guest!" <--- 문제 발생!
 ```
 
-### 4) ✅ 해결책: 널리시 연산자 (??)
+**✅ 해결책: 널리시 연산자 (??)**
 
 이 문제를 해결하기 위해 ES2020에서 등장했습니다. `??`는 오직 **`null`과 `undefined`** 일 때만 뒷부분을 실행합니다. 즉, `0`이나 `""`은 "값이 있다"고 판단하여 안전하게 지켜줍니다.
 
@@ -835,7 +835,7 @@ const num2 = count ?? 10; // 0
 
 ## 💻 실습 : 단축 평가
 
-### 1) 목표
+**✅ 목표**
 
 `&&` (AND) 와 `||` (OR) 연산자의 단축 평가 기능을 사용하여, 길게 작성된 조건부(`if`) 코드를 짧고 간결하게 줄여보는 연습입니다.
 
@@ -883,7 +883,7 @@ const name = inputName || "익명";
 
 ## 11. nullish 병합 연산자 (??)
 
-### 1) ?? vs || 비교
+**🆚 ?? vs || 비교**
 
 `||` (OR) 연산자와 `??` (Nullish) 연산자가 데이터를 걸러내는 기준의 차이점입니다.
 
@@ -901,7 +901,7 @@ console.log("" ?? 'default'); // ""
 console.log(null ?? 'default'); // 'default'
 ```
 
-### 2) 실전 활용 (API 응답 처리)
+**🧪 실전 활용 (API 응답 처리)**
 
 서버에서 데이터를 받아올 때, `0`이나 `빈 문자열`이 유효한 데이터일 경우 발생하는 문제를 해결하는 패턴입니다.
 
@@ -928,7 +928,7 @@ const name2 = response.name ?? 'Anonymous'; // ""
 const data = response.data ?? []; // []
 ```
 
-### 3) Best Practice
+**💡 Best Practice**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -950,7 +950,7 @@ const data = response.data ?? []; // []
 
 ## 12. 옵셔널 체이닝 (?.)
 
-### 1) 기본 사용법
+**📝 기본 사용법**
 
 객체 내부의 깊은 속성에 접근할 때, 중간에 값이 없어도 에러(TypeError)가 나지 않게 해주는 안전장치입니다.
 
@@ -973,7 +973,7 @@ const user2 = { name: '김철수' }; // address 없음
 const city3 = user2?.address?.city; // undefined (에러 발생 안 함!)
 ```
 
-### 2) 다양한 활용
+**🧪 다양한 활용**
 
 객체 속성뿐만 아니라 메서드, 배열, 함수 호출에도 사용할 수 있습니다.
 
@@ -988,7 +988,7 @@ const first = arr?.[0];
 const value = callback?.(arg1, arg2);
 ```
 
-### 3) 실무 패턴: API 응답 처리
+**🧪 실무 패턴: API 응답 처리**
 
 서버에서 받아온 데이터의 구조가 불확실할 때, 프로그램이 뻗지 않도록 방어 코드를 작성할 때 필수입니다.
 
@@ -1023,7 +1023,7 @@ const firstPost = data?.user?.posts?.[0]?.title;
 
 ## 13. 옵셔널 체이닝 상세
 
-### 1) 단락 평가 (Short-circuit)
+**⚙️ 단락 평가 (Short-circuit)**
 
 옵셔널 체이닝은 왼쪽 값이 `null`이나 `undefined`라면, 오른쪽 코드는 아예 **실행조차 하지 않고** 즉시 중단합니다.
 
@@ -1038,7 +1038,7 @@ const name = user?.getProfile?.(count++);
 console.log(count); // 0
 ```
 
-### 2) 삭제 연산과 함께 (delete)
+**📝 삭제 연산과 함께 (delete)**
 
 객체의 속성을 삭제할 때도 안전하게 사용할 수 있습니다.
 
@@ -1053,7 +1053,7 @@ const obj = {
 delete obj?.nested?.value;
 ```
 
-### 3) 주의사항 (Falsy 값 처리)
+**⚠️ 주의사항 (Falsy 값 처리)**
 
 `?.`는 오직 `null`과 `undefined`에만 반응합니다. `0`이나 `빈 문자열("")` 같은 다른 '거짓 같은 값(Falsy)'에는 작동하지 않습니다.
 
@@ -1068,7 +1068,7 @@ const result3 = "".length; // 0 (정상 접근)
 const result4 = 0?.toFixed; // function toFixed() (정상 접근)
 ```
 
-### 4) 남용 주의 (Bug Hiding)
+**⚠️ 남용 주의 (Bug Hiding)**
 
 <div class="wda-callout wda-cw">
   <ul>
@@ -1097,7 +1097,7 @@ const name = user.name;
 
 ## 14. 환상의 짝꿍: ?.와 ??
 
-### 1) 최강 조합 패턴
+**🧪 최강 조합 패턴**
 
 옵셔널 체이닝(`?.`)으로 안전하게 접근하고, 널리시 병합(`??`)으로 기본값까지 챙기는 가장 많이 쓰이는 모던 자바스크립트 패턴입니다.
 
@@ -1107,7 +1107,7 @@ const name = user.name;
 const value = obj?.prop ?? "기본값";
 ```
 
-### 2) 실전 예시 (사용자 프로필)
+**🧪 실전 예시 (사용자 프로필)**
 
 사용자 정보가 불완전해도 에러 없이 기본 이미지를 보여주는 방어 코드입니다.
 
@@ -1137,7 +1137,7 @@ console.log(img); // "default.png"
 
 ## 💻 실습 : 안전한 데이터 처리
 
-### 1) 목표
+**✅ 목표**
 
 옵셔널 체이닝(`?.`)과 널리시 병합 연산자(`??`)를 조합하여, 구조가 불확실한 복잡한 데이터를 에러 없이 안전하게 다루는 연습입니다.
 
@@ -1177,7 +1177,7 @@ console.log(manufacturer); // "Unknown"
 
 ## 15. ES2020+ 주요 기능
 
-### 1) BigInt (ES2020)
+**📝 BigInt (ES2020)**
 
 자바스크립트의 기존 숫자 타입(`Number`)이 표현할 수 있는 한계(2^53 - 1)를 넘어서는 **아주 큰 정수**를 다룰 때 사용합니다.
 
@@ -1197,7 +1197,7 @@ console.log(big + 1n); // 9007199254740993n
 console.log(big + BigInt(1)); // OK (형 변환 필요)
 ```
 
-### 2) 숫자 구분자 (Numeric Separators, ES2021)
+**📝 숫자 구분자 (Numeric Separators, ES2021)**
 
 숫자가 길어질 때 `_`(언더스코어)를 넣어 **가독성**을 높입니다. 코드가 실행될 때는 무시됩니다.
 
@@ -1210,7 +1210,7 @@ const bytes = 0xFF_FF_FF_FF;
 const binary = 0b1010_0001_1000_0101;
 ```
 
-### 3) 논리 할당 연산자 (Logical Assignment, ES2021)
+**📝 논리 할당 연산자 (Logical Assignment, ES2021)**
 
 연산과 할당을 한 번에 처리하는 단축 문법입니다. (`+=` 처럼 동작)
 

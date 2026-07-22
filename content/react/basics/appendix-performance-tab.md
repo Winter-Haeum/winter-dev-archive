@@ -55,7 +55,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 브라우저 개발자 도구를 통해 내 코드의 실제 렌더링 성능을 눈으로 확인하는 과정입니다.
 
-### 1) 단축키로 개발자 도구 · 명령어 메뉴 열기
+**✅ 단축키로 개발자 도구 · 명령어 메뉴 열기**
 
 Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로 빠르게 접근할 수 있습니다.
 
@@ -64,7 +64,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 | **DevTools 열기** | `F12` 또는 `Ctrl + Shift + I` | `Cmd + Option + I` |
 | **명령어 메뉴 열기** | `Ctrl + Shift + P` | `Cmd + Shift + P` |
 
-### 2) Performance 탭 여는 두 가지 방법
+**✅ Performance 탭 여는 두 가지 방법**
 
 <div style="position:relative;overflow:visible;">
 
@@ -75,7 +75,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 </div>
 
-### 3) 측정하기: Record → 동작 수행 → Stop
+**✅ 측정하기: Record → 동작 수행 → Stop**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -125,7 +125,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
   <p>Paint Flashing은 React의 가상 DOM 비교(Diffing) 과정을 직접 보여주는 도구도 아닙니다. 대신 React 상태 변경 이후 브라우저가 실제로 다시 칠한(Paint) 영역이 어디인지 확인하는 데 사용합니다.</p>
 </div>
 
-### 1) Rendering 탭 여는 두 가지 방법
+**✅ Rendering 탭 여는 두 가지 방법**
 
 <div style="position:relative;overflow:visible;">
 
@@ -136,7 +136,7 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 </div>
 
-### 2) Paint Flashing 켜고 확인하기
+**✅ Paint Flashing 켜고 확인하기**
 
 <div style="position:relative;overflow:visible;">
 

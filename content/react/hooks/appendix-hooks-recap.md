@@ -110,7 +110,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>3. Optimization Hooks: memo vs callback</h2>
 
-### 1) 🧠 useMemo (값 캐싱)
+**🧠 useMemo (값 캐싱)**
 
 **"계산된 결과값(Value)을 기억합니다."**
 복잡하고 무거운 계산(예: 1억 번 반복문 돌리기)을 매번 렌더링할 때마다 다시 하지 않도록, 결과만 메모장에 적어두는 것과 같습니다.
@@ -123,7 +123,7 @@ const heavyValue = useMemo(() => {
 }, [a, b]);
 ```
 
-### 2) 📦 useCallback (함수 캐싱)
+**📦 useCallback (함수 캐싱)**
 
 **"함수(Function) 그 자체를 기억합니다."**
 리액트 컴포넌트는 렌더링 될 때마다 내부의 함수를 새로 만듭니다.  
@@ -137,7 +137,7 @@ const handleClick = useCallback(() => {
 }, [a, b]);
 ```
 
-### 3) ⚠️ 주의사항 (Caution)
+**⚠️ 주의사항 (Caution)**
 
 **"모든 곳에 쓰지 마세요!"**
 
@@ -166,7 +166,7 @@ const handleClick = useCallback(() => {
 
 <h2>5. useTransition: 멈추지 않는 UI</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 <div class="wda-callout wda-ci">
   <p>useTransition은 긴급한 업데이트와 덜 긴급한 업데이트를 구분해, 사용자 입력 같은 중요한 반응을 먼저 처리하도록 돕습니다.</p>
@@ -176,7 +176,7 @@ const handleClick = useCallback(() => {
 사용자의 타이핑이나 클릭 같은 긴급한 작업(High Priority)은 즉시 처리하고,  
 데이터 필터링이나 차트 그리기 같은 무거운 작업(Low Priority)은 백그라운드에서 천천히 처리하여 화면이 버벅거리지 않게(Non-blocking) 만듭니다.
 
-### 2) 언제 사용할까요? (Use Cases)
+**💡 언제 사용할까요? (Use Cases)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">대량의 데이터 필터링/정렬</div><div class="wda-fcard-dsc">검색어 입력 시 수천 개의 리스트를 다시 계산해야 할 때.</div></div>
@@ -227,7 +227,7 @@ function SearchList({ data }) {
 export default SearchList;
 ```
 
-### 4) ⚠️ 주의사항 (Caution)
+**⚠️ 주의사항 (Caution)**
 
 <div class="wda-callout wda-cw">
   <p><strong>입력 상태는 감싸지 마세요</strong>: <code>setQuery(value)</code> 같은 입력창 상태를 <code>startTransition</code>으로 감싸면, 타자를 칠 때마다 딜레이가 생겨서 더 답답해집니다.</p>
@@ -238,13 +238,13 @@ export default SearchList;
 
 <h2>6. useId: 고유 ID 생성기</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"폼 요소와 라벨을 연결하는 주민등록번호를 발급합니다."**
 컴포넌트 내에서 유일한 ID 값을 생성해 줍니다.  
 특히 접근성(Accessibility) 속성을 연결할 때 필수적입니다.
 
-### 2) 왜 사용할까요? (Why Use It?)
+**💡 왜 사용할까요? (Why Use It?)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">🔗 접근성 연결 (A11y)</div><div class="wda-fcard-dsc">시각 장애인을 위한 스크린 리더는 label과 input이 연결되어 있어야 내용을 읽어줄 수 있습니다.<br>이때 htmlFor와 id를 서로 연결해야 하는데, useId가 이 고유한 ID를 만들어줍니다.</div></div>
@@ -282,7 +282,7 @@ function PasswordField() {
 export default PasswordField;
 ```
 
-### 4) ⚠️ 주의사항 (Caution)
+**⚠️ 주의사항 (Caution)**
 
 <div class="wda-callout wda-cw">
   <p><strong>"리스트의 key로 사용하지 마세요!"</strong></p>
@@ -293,7 +293,7 @@ export default PasswordField;
 
 <h2>7. Custom Hooks: 나만의 레고 블록 만들기</h2>
 
-### 1) 철학 (Philosophy)
+**📌 철학 (Philosophy)**
 
 **"Hook은 레고 블록입니다."**
 
@@ -302,7 +302,7 @@ export default PasswordField;
   <div class="wda-fcard"><div class="wda-fcard-ttl">나만의 블록</div><div class="wda-fcard-dsc">이 작은 브릭들을 조립해서 '자동차 바퀴', '성문' 같은 더 크고 편리한 부품(Custom Hook)을 만들 수 있습니다.<br>한 번 만들어두면 어디서든 갖다 끼우기만 하면 됩니다.</div></div>
 </div>
 
-### 2) 언제 만드나요? (Build Your Own)
+**💡 언제 만드나요? (Build Your Own)**
 
 반복되는 로직이 보일 때가 바로 Custom Hook을 만들 타이밍입니다.
 
@@ -316,7 +316,7 @@ export default PasswordField;
 
 <h2>8. Hooks 사용 원칙 & 팁 (Cheat Sheet)</h2>
 
-### 1) ⚖️ 절대 규칙 (Rules of Hooks)
+**⚖️ 절대 규칙 (Rules of Hooks)**
 
 리액트가 Hooks의 순서를 헷갈리지 않게 하기 위해 꼭 지켜야 합니다.
 
@@ -325,7 +325,7 @@ export default PasswordField;
   <div class="wda-fcard"><div class="wda-fcard-ttl">React 함수 내에서만 호출하세요</div><div class="wda-fcard-dsc">React 함수형 컴포넌트나 Custom Hook 안에서만 써야 합니다. 일반 JS 함수나 Class 컴포넌트에서는 동작하지 않습니다.</div></div>
 </div>
 
-### 2) 🔗 의존성 배열 (Dependency Array)
+**🔗 의존성 배열 (Dependency Array)**
 
 `useEffect`가 언제 실행될지를 결정하는 트리거(Trigger)입니다.
 
@@ -335,7 +335,7 @@ export default PasswordField;
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">(생략) 배열 없음</div><div class="wda-fcard-dsc">매 렌더링마다 실행됩니다. (⚠️ 무한 루프나 성능 저하 주의!)</div></div>
 </div>
 
-### 3) 🧹 뒷정리 함수 (Cleanup Function)
+**🧹 뒷정리 함수 (Cleanup Function)**
 
 컴포넌트가 사라지거나(Unmount) 업데이트되기 직전에, 지저분한 것들을 치우는 작업입니다.
 

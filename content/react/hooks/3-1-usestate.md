@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. 복습: useState 기본</h2>
 
-### 1) 기본 타입 state 복습
+**📝 기본 타입 state 복습**
 
 ```jsx
 // 숫자형 state
@@ -94,7 +94,7 @@ setIsOpen(prev => !prev); // 토글(반전)
 
 <h2>2. 불변성(Immutability)이란?</h2>
 
-### 1) React 상태 관리의 핵심 원칙
+**📌 React 상태 관리의 핵심 원칙**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con">
@@ -130,7 +130,7 @@ const newObj = { ...obj, a: 2 }; // 새로운 객체 생성 (Spread 연산자)
 
 <h2>3. {...} 객체 state 다루기</h2>
 
-### 1) 객체도 불변성을 지켜야 합니다
+**📌 객체도 불변성을 지켜야 합니다**
 
 ```jsx
 const [user, setUser] = useState({
@@ -163,7 +163,7 @@ setUser({
 
 <h2>4. 객체 state 업데이트 패턴</h2>
 
-### 1) spread 연산자로 복사 후 수정
+**📝 spread 연산자로 복사 후 수정**
 
 ```jsx
 const [form, setForm] = useState({
@@ -201,7 +201,7 @@ const updateEmail = (newEmail) => {
 
 <h2>5. 배열 state 다루기</h2>
 
-### 1) 배열도 새로 만들어야 합니다
+**⚠️ 배열도 새로 만들어야 합니다**
 
 ```javascript
 // ❌ 사용하면 안 되는 메서드
@@ -238,7 +238,7 @@ const sortedItems = [...items].sort((a, b) => a.name.localeCompare(b.name));
 const reversedItems = [...items].reverse();
 ```
 
-### 2) 자주 쓰는 패턴 모음
+**🧪 자주 쓰는 패턴 모음**
 
 ```jsx
 // 추가 (끝에)
@@ -352,7 +352,7 @@ export default MiniTodo;
 
 <h2>7. 중첩 객체의 문제점: Spread Hell</h2>
 
-### 1) 깊은 복사의 복잡성
+**⚠️ 깊은 복사의 복잡성**
 
 객체 안에 객체가 중첩된 경우, 가장 안쪽의 값을 하나 바꾸기 위해 모든 상위 객체를 일일이 복사(Spread)해야 합니다.
 
@@ -378,7 +378,7 @@ setUser({
 });
 ```
 
-### 2) 왜 문제인가?
+**⚠️ 왜 문제인가?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">가독성 저하</div><div class="wda-fcard-dsc">코드가 불필요하게 길어지고 구조를 한눈에 파악하기 어렵습니다.</div></div>
@@ -396,7 +396,7 @@ setUser({
 
 <h2>8. 해결책: Immer 라이브러리</h2>
 
-### 1) 직접 수정하는 것처럼 작성하지만, 결과는 불변성을 지킵니다
+**📌 직접 수정하는 것처럼 작성하지만, 결과는 불변성을 지킵니다**
 
 Immer(이머) 라이브러리를 사용하면 일반 자바스크립트 객체를 수정하듯이 편하게 코드를 짤 수 있습니다.
 
@@ -406,7 +406,7 @@ Immer(이머) 라이브러리를 사용하면 일반 자바스크립트 객체�
 npm install immer use-immer
 ```
 
-### 2) 사용 예시 (useImmer)
+**🧪 사용 예시 (useImmer)**
 
 ```jsx
 import { useImmer } from 'use-immer';
@@ -426,7 +426,7 @@ updateUser(draft => {
 });
 ```
 
-### 3) Immer의 장점
+**💡 Immer의 장점**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">직접 수정하는 문법 사용 가능</div><div class="wda-fcard-dsc"><code>obj.a = 1</code> 처럼 직관적으로 작성합니다.</div></div>
@@ -451,11 +451,11 @@ updateUser(draft => {
   <p><strong>여러 컴포넌트가 같은 데이터를 공유</strong></p>
 </div>
 
-### 1) 문제 상황
+**⚠️ 문제 상황**
 
 형제 컴포넌트 A와 B가 같은 데이터를 사용해야 할 때, 각자 state를 가지면 동기화가 안 됩니다.
 
-### 2) 해결책: 상태 끌어올리기
+**💡 해결책: 상태 끌어올리기**
 
 공통 부모 컴포넌트에 state를 두고, props로 내려주기.
 
@@ -502,7 +502,7 @@ function FahrenheitDisplay({ value }) {
 export default TemperatureCalculator;
 ```
 
-### 4) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">상태 공유 불가</div><div class="wda-sdsc"><code>CelsiusInput</code>과 <code>FahrenheitDisplay</code>는 형제 관계이므로 직접 데이터를 주고받을 수 없습니다.</div></div></div>
@@ -522,19 +522,19 @@ export default TemperatureCalculator;
 
 <h2>10. state 설계 원칙</h2>
 
-### 1) 관련 데이터는 그룹화
+**📝 관련 데이터는 그룹화**
 
 여러 state가 항상 함께 변하면 하나의 객체로 묶기
 
-### 2) 중복 피하기
+**📝 중복 피하기**
 
 같은 데이터를 여러 state에 두지 않기
 
-### 3) 계산 가능한 값은 state로 만들지 않기
+**📝 계산 가능한 값은 state로 만들지 않기**
 
 <code>fullName = firstName + lastName</code> 이면 <code>fullName</code>은 state 불필요
 
-### 4) 깊은 중첩 피하기
+**📝 깊은 중첩 피하기**
 
 업데이트가 복잡해지므로 평탄한 구조 권장
 
@@ -549,7 +549,7 @@ export default TemperatureCalculator;
 
 <h2>11. ⁉️ FAQ</h2>
 
-### 1) Q1. 객체나 배열 형태의 state를 업데이트할 때 가장 중요한 원칙은?
+**🧠 Q1. 객체나 배열 형태의 state를 업데이트할 때 가장 중요한 원칙은?**
 
 **정답: 불변성 (Immutability)**
 
@@ -559,7 +559,7 @@ export default TemperatureCalculator;
   <p>기존 데이터를 직접 수정하지 않고, <strong>새로운 복사본을 만들어서 교체</strong>해야 합니다.<br>React는 객체의 내부 값이 아닌 메모리 주소(참조값)의 변화를 감지하여 화면을 다시 그리기 때문입니다.</p>
 </div>
 
-### 2) Q2. 배열에 새로운 항목을 추가할 때 사용하면 안 되는 메서드는?
+**🧠 Q2. 배열에 새로운 항목을 추가할 때 사용하면 안 되는 메서드는?**
 
 **정답: push()**
 

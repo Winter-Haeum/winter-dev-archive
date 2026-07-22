@@ -66,7 +66,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <h2>1. 콜백 지옥에서 탈출!</h2>
 </div>
 
-### 1) Before (콜백 지옥) vs After (Promise)
+**🆚 Before (콜백 지옥) vs After (Promise)**
 
 두 코드의 구조 차이를 눈으로 직접 비교해 보세요.
 
@@ -95,7 +95,7 @@ login(user)
   .catch(err => handleError(err));
 ```
 
-### 2) ✅ 핵심 변화
+**✅ 핵심 변화**
 
 <div class="wda-callout wda-cs">
   중첩 없이 평탄하게! 에러 처리도 한 곳에서!
@@ -118,7 +118,7 @@ login(user)
   <h2>2. Promise란?</h2>
 </div>
 
-### 1) 미래에 완료될 작업의 결과를 나타내는 객체
+**📌 미래에 완료될 작업의 결과를 나타내는 객체**
 
 Promise는 비동기 작업이 맞이할 미래의 완료(또는 실패)와 그 결과 값을 나타냅니다.
 
@@ -144,13 +144,13 @@ const promise = new Promise((resolve, reject) => {
 });
 ```
 
-### 2) Promise = 약속
+**📌 Promise = 약속**
 
 <div class="wda-callout wda-ci">
   "지금은 결과가 없지만, 작업이 끝나면 알려줄게!"
 </div>
 
-### 3) 핵심 특징
+**📌 핵심 특징**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -164,7 +164,7 @@ const promise = new Promise((resolve, reject) => {
   </div>
 </div>
 
-### 4) ℹ️ 주의사항 : Executor의 실행 시점
+**ℹ️ 주의사항 : Executor의 실행 시점**
 
 <div class="wda-callout wda-cw">
   Executor(실행자 함수)는 new Promise 선언과 동시에 "즉시 실행"됩니다. 결과만 나중에 비동기로 알려주는 것입니다.
@@ -198,7 +198,7 @@ const myPromise = new Promise((resolve) => {
   <h2>3. 🚦 Promise 상태 3가지</h2>
 </div>
 
-### 1) 한 번 결정되면 변경 불가!
+**📌 한 번 결정되면 변경 불가!**
 
 Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니다.
 
@@ -208,14 +208,14 @@ Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니
 | **fulfilled**(이행됨) | **✅ 성공** | 작업이 성공적으로 완료됨<br>(결과값 있음) | `resolve()` |
 | **rejected**(거부됨) | **❌ 실패** | 작업 중 에러 발생<br>(에러 이유 있음) | `reject()` |
 
-### 2) 상태 변화 흐름 (Flow)
+**⚙️ 상태 변화 흐름 (Flow)**
 
 <div class="wda-callout wda-ci">
   1. pending ➔ fulfilled (성공)<br>
   2. pending ➔ rejected (실패)
 </div>
 
-### 3) 🔒 불변성 (Immutability)
+**🔒 불변성 (Immutability)**
 
 <div class="wda-callout wda-cw">
   불변성: fulfilled나 rejected가 되면 다시 바뀌지 않습니다! (성공했다가 실패로 바뀌거나, 실패했다가 성공으로 바뀔 수 없음)
@@ -242,7 +242,7 @@ Promise는 생명 주기 동안 다음 3가지 중 하나의 상태를 가집니
   <h2>4. Promise 생성</h2>
 </div>
 
-### 1) new Promise로 직접 만들기
+**📝 new Promise로 직접 만들기**
 
 직접 비동기 작업을 수행하는 Promise 객체를 생성하는 기본 문법입니다.
 
@@ -271,20 +271,20 @@ delay(2000).then(() => {
 });
 ```
 
-### 2) ⚙️ executor 함수
+**⚙️ executor 함수**
 
 <div class="wda-callout wda-ci">
   <code>new Promise(executor)</code><br>
   <code>executor = (resolve, reject) => { }</code>
 </div>
 
-### 3) ✅ resolve(value)
+**✅ resolve(value)**
 
 <div class="wda-callout wda-ci">
   JS 엔진이 주입하는 함수. 작업을 성공으로 처리하고 결과(value)를 전달
 </div>
 
-### 4) ❌ reject(reason)
+**❌ reject(reason)**
 
 <div class="wda-callout wda-ci">
   JS 엔진이 주입하는 함수. 작업을 실패로 처리하고 에러(reason)를 전달
@@ -309,7 +309,7 @@ delay(2000).then(() => {
   <h2>5. 📲 Promise 소비 - then, catch, finally</h2>
 </div>
 
-### 1) Promise 결과 받아서 처리하기
+**📝 Promise 결과 받아서 처리하기**
 
 생성된 Promise가 주는 결과를 받아내려면 소비자 메서드(`then`, `catch`, `finally`)를 사용해야 합니다.
 
@@ -333,19 +333,19 @@ promise.finally(() => {
 });
 ```
 
-### 2) ✅ then(onFulfilled)
+**✅ then(onFulfilled)**
 
 <div class="wda-callout wda-ci">
   성공 시 콜백 실행. resolve된 값을 인자로 받음
 </div>
 
-### 3) ❗ catch(onRejected)
+**❗ catch(onRejected)**
 
 <div class="wda-callout wda-ci">
   실패 시 콜백 실행. reject된 에러를 인자로 받음
 </div>
 
-### 4) 🏁 finally(onFinally)
+**🏁 finally(onFinally)**
 
 <div class="wda-callout wda-ci">
   성공/실패 무관하게 실행. 인자 없음 (ES2018 도입)
@@ -376,11 +376,11 @@ promise.finally(() => {
   <h2>6. 🪄 체이닝으로 콜백 지옥 해결</h2>
 </div>
 
-### 1) 평탄하고 읽기 쉬운 코드로!
+**📌 평탄하고 읽기 쉬운 코드로!**
 
 Promise 체이닝을 사용하면 코드가 깊어지지 않고 순차적으로 연결됩니다.
 
-### 2) ☹️ Before (콜백)
+**☹️ Before (콜백)**
 
 ```jsx
 login(user, (err, token) => {
@@ -402,7 +402,7 @@ login(user, (err, token) => {
 });
 ```
 
-### 3) 😌 After (Promise)
+**😌 After (Promise)**
 
 ```jsx
 login(user)
@@ -421,7 +421,7 @@ login(user)
 //   .catch(handleError);
 ```
 
-### 4) ✅ 핵심 변화
+**✅ 핵심 변화**
 
 <div class="wda-callout wda-cs">
   ✓ 들여쓰기 한 단계 (Depth 1)<br>
@@ -517,7 +517,7 @@ Promise.resolve(10)
   <h2>7. ❗ Promise 에러 처리</h2>
 </div>
 
-### 1) catch()로 한 곳에서 처리
+**📝 catch()로 한 곳에서 처리**
 
 `catch` 블록 하나만 있으면, 앞선 체인(`then`) 어디에서 발생한 에러든 모두 잡아낼 수 있습니다.
 
@@ -546,13 +546,13 @@ fetchUser(1)
   });
 ```
 
-### 2) ⛓️ 에러 전파
+**⛓️ 에러 전파**
 
 <div class="wda-callout wda-ci">
   체인 어디서든 에러 발생 ➔ 가장 가까운 catch로 점프. 중간 단계를 건너뛰고 즉시 에러 핸들러로 이동합니다.
 </div>
 
-### 3) 🔄 에러 복구
+**🔄 에러 복구**
 
 `catch`에서 에러를 처리하고 **값(기본값)을 리턴**하면, 멈췄던 체인을 다시 살릴 수 있습니다.
 
@@ -567,7 +567,7 @@ fetchUser(1)
 })
 ```
 
-### 4) ⚠️ 주의
+**⚠️ 주의**
 
 <div class="wda-callout wda-cw">
   catch가 없으면 rejected 상태를 처리하지 못해 Uncaught Promise Rejection 또는 Unhandled Promise Rejection이 발생할 수 있습니다. 항상 체인의 끝에는 catch를 붙이는 습관을 들이세요.
@@ -599,7 +599,7 @@ fetchUser(1)
   <h2>8. 🛠️ Promise 정적 메서드 - 기본</h2>
 </div>
 
-### 1) 자주 쓰는 유틸리티 메서드
+**📝 자주 쓰는 유틸리티 메서드**
 
 `new Promise`를 쓰지 않고도 즉시 성공하거나 실패하는 Promise를 만들 수 있습니다.
 
@@ -625,19 +625,19 @@ getData(true).then(data => console.log(data));
 getData(false).then(data => console.log(data));
 ```
 
-### 2) ✅ Promise.resolve(value)
+**✅ Promise.resolve(value)**
 
 <div class="wda-callout wda-ci">
   주어진 값으로 즉시 fulfilled. 동기 값을 Promise로 감쌀 때
 </div>
 
-### 3) ❌ Promise.reject(reason)
+**❌ Promise.reject(reason)**
 
 <div class="wda-callout wda-ci">
   주어진 이유로 즉시 rejected. 테스트나 에러 전파에 유용
 </div>
 
-### 4) 💡 활용
+**💡 활용**
 
 <div class="wda-callout wda-cs">
   캐시 히트 시 바로 반환. 함수가 항상 Promise 반환하도록
@@ -670,7 +670,7 @@ getData(false).then(data => console.log(data));
   <h2>9. ☑️ Promise.all - 모두 성공해야</h2>
 </div>
 
-### 1) 여러 Promise를 병렬로 실행
+**⚙️ 여러 Promise를 병렬로 실행**
 
 순차적으로 하나씩 기다리는 것이 아니라, 여러 작업을 동시에 시작하고 모두 끝날 때까지 기다립니다. 여기서 "동시에"는 JavaScript 코드가 실제로 여러 줄을 병렬 실행한다는 뜻이 아니라, 네트워크 요청처럼 기다리는 작업을 한꺼번에 시작해 대기 시간을 겹치게 만든다는 의미입니다.
 
@@ -698,19 +698,19 @@ Promise.all([userPromise, postsPromise, commentsPromise])
 // 병렬: max(1초, 1초, 1초) = 1초 만에 끝냄
 ```
 
-### 2) ☑️ Promise.all 특징
+**☑️ Promise.all 특징**
 
 <div class="wda-callout wda-ci">
   배열의 모든 Promise 병렬 실행. 결과도 배열로 반환 (순서 유지). (먼저 끝난 순서가 아니라, 배열에 넣은 순서대로 결과를 줍니다.)
 </div>
 
-### 3) ✅ 성공 조건
+**✅ 성공 조건**
 
 <div class="wda-callout wda-ci">
   모든 Promise가 성공해야 전체가 성공으로 처리
 </div>
 
-### 4) ⚠️ 실패 시 (Fast-Fail)
+**⚠️ 실패 시 (Fast-Fail)**
 
 <div class="wda-callout wda-cw">
   하나라도 실패하면 즉시 rejected (fast-fail). (다른 작업이 성공했더라도 무시하고 바로 에러로 넘어갑니다.)
@@ -741,7 +741,7 @@ Promise.all([userPromise, postsPromise, commentsPromise])
   <h2>10. 🏆 Promise.race - 가장 먼저 완료된 것</h2>
 </div>
 
-### 1) 가장 빠른 결과 하나만
+**📌 가장 빠른 결과 하나만**
 
 여러 개의 Promise를 경주(Race)시켜서, 가장 먼저 끝나는(성공이든 실패든) 작업의 결과만 가져옵니다.
 
@@ -766,13 +766,13 @@ fetchWithTimeout('/api/data', 3000)
   .catch(err => console.error(err.message));
 ```
 
-### 2) 🏆 Promise.race 특징
+**🏆 Promise.race 특징**
 
 <div class="wda-callout wda-ci">
   가장 먼저 settled된 Promise의 결과 사용. (성공(fulfilled)이든 실패(rejected)든, 1등으로 들어온 결과만 취합니다.)
 </div>
 
-### 3) ⏱️ 활용 사례
+**⏱️ 활용 사례**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -789,7 +789,7 @@ fetchWithTimeout('/api/data', 3000)
   </div>
 </div>
 
-### 4) ℹ️ 참고
+**ℹ️ 참고**
 
 <div class="wda-callout wda-ci">
   나머지 Promise는 계속 실행됨 (취소되지 않음). 결과를 무시할 뿐, 네트워크 요청 자체가 끊기는 것은 아닙니다.
@@ -819,7 +819,7 @@ fetchWithTimeout('/api/data', 3000)
   <h2>11. Promise.allSettled / any</h2>
 </div>
 
-### 1) 더 유연한 병렬 처리
+**📌 더 유연한 병렬 처리**
 
 `all`이나 `race`보다 더 섬세하게 여러 비동기 작업을 제어할 수 있는 최신 메서드들입니다.
 
@@ -848,19 +848,19 @@ Promise.any(promises)
 // 결과: 첫 성공: 성공1
 ```
 
-### 2) 🏁 allSettled (ES2020)
+**🏁 allSettled (ES2020)**
 
 <div class="wda-callout wda-ci">
   모든 Promise 완료 후 결과 배열 반환. <code>{ status, value/reason }</code> 형태의 객체로 상태와 결과를 알려줍니다. (중간에 에러가 터져도 멈추지 않고 끝까지 다 실행합니다.)
 </div>
 
-### 3) 🎯 any (ES2021)
+**🎯 any (ES2021)**
 
 <div class="wda-callout wda-ci">
   하나라도 성공하면 그 값 반환. race와 달리 실패한 것은 무시하고, 첫 번째 성공을 기다립니다. (모두 실패해야만 rejected 됩니다.)
 </div>
 
-### 4) 田 비교 요약
+**田 비교 요약**
 
 4가지 병렬 처리 메서드의 성공/완료 조건 차이를 비교했습니다.
 
@@ -1118,7 +1118,7 @@ Promise.resolve(10) // 시작값 10
   <h2>12. async 함수</h2>
 </div>
 
-### 1) Promise를 반환하는 함수 선언
+**📌 Promise를 반환하는 함수 선언**
 
 `async` 키워드를 붙이면 그 함수는 무조건 Promise를 반환하는 비동기 함수가 됩니다.
 
@@ -1147,13 +1147,13 @@ class UserService {
 }
 ```
 
-### 2) ƒ async 키워드
+**ƒ async 키워드**
 
 <div class="wda-callout wda-ci">
   함수를 비동기로 만드는 선언자. 이 함수는 무조건 Promise를 반환하도록 변환됩니다. (숫자나 문자를 리턴해도 Promise로 감싸집니다.)
 </div>
 
-### 3) ✅ return 값
+**✅ return 값**
 
 <div class="wda-callout wda-ci">
   return 값 ➔ resolve(값)<br>
@@ -1161,7 +1161,7 @@ class UserService {
   (new Promise를 직접 쓰지 않아도 내부적으로 변환해 줍니다.)
 </div>
 
-### 4) 다양한 형태
+**📌 다양한 형태**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -1202,7 +1202,7 @@ class UserService {
   <h2>13. ⏸️ await 키워드</h2>
 </div>
 
-### 1) Promise가 resolve될 때까지 대기
+**📌 Promise가 resolve될 때까지 대기**
 
 `await`를 사용하면 비동기 코드를 마치 동기 코드(순서대로 실행되는 코드)처럼 작성할 수 있어 가독성이 압도적으로 좋아집니다.
 
@@ -1229,19 +1229,19 @@ fetchAndDisplay(1)
   .catch(err => console.error(err));
 ```
 
-### 2) ⏸️ await 동작
+**⏸️ await 동작**
 
 <div class="wda-callout wda-ci">
   Promise를 기다리는 연산자. Promise가 처리(settled)될 때까지 함수의 실행을 <strong>"일시 정지"</strong>합니다. (성공하면 결과값을 반환하고, 실패하면 에러를 던집니다.)
 </div>
 
-### 3) ⚠️ 사용 조건
+**⚠️ 사용 조건**
 
 <div class="wda-callout wda-cw">
   async 함수 내부에서만 사용 가능! (또는 모듈 최상위 Top-level await) 일반 함수(function) 안에서는 await를 쓸 수 없습니다.
 </div>
 
-### 4) ✔️ 장점
+**✔️ 장점**
 
 <div class="wda-callout wda-cs">
   동기 코드처럼 위에서 아래로 읽힘. then 체이닝보다 훨씬 직관적. (콜백이나 .then 괄호 지옥에서 완전히 해방됩니다.)
@@ -1326,7 +1326,7 @@ async function getUser() {
   <h2>14. async/await로 리팩토링</h2>
 </div>
 
-### 1) Promise 체이닝 (기존 방식)
+**🆚 Promise 체이닝 (기존 방식)**
 
 ```jsx
 function processUser(id) {
@@ -1350,7 +1350,7 @@ function processUser(id) {
 }
 ```
 
-### 2) async/await (리팩토링 후)
+**🆚 async/await (리팩토링 후)**
 
 ```jsx
 // 함수 앞에 async 키워드 추가
@@ -1372,7 +1372,7 @@ async function processUser(id) {
 }
 ```
 
-### 3) 리팩토링 레시피
+**⚙️ 리팩토링 레시피**
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -1477,7 +1477,7 @@ fetchData(1)
   <h2>16. 병렬 실행 패턴</h2>
 </div>
 
-### 1) 순차 실행 (Sequential) - 느림
+**🆚 순차 실행 (Sequential) - 느림**
 
 ```jsx
 async function sequential() {
@@ -1491,7 +1491,7 @@ async function sequential() {
 }
 ```
 
-### 2) 병렬 실행 (Parallel) - 빠름
+**🆚 병렬 실행 (Parallel) - 빠름**
 
 ```jsx
 async function parallel() {
@@ -1507,7 +1507,7 @@ async function parallel() {
 }
 ```
 
-### 3) 실행 방식 비교 및 사용 기준
+**🆚 실행 방식 비교 및 사용 기준**
 
 | **구분** | **(1) 특징** | **(2) 예시** | **(3) 성능 차이 (예시)** |
 | --- | --- | --- | --- |
@@ -1525,7 +1525,7 @@ async function parallel() {
   <h2>17. await in loop 주의!</h2>
 </div>
 
-### 1) 잘못된 패턴 (느림)
+**🆚 잘못된 패턴 (느림)**
 
 `for`문 안에서 `await`를 쓰면, 앞의 요청이 끝날 때까지 다음 반복이 실행되지 않고 멈춥니다.
 
@@ -1544,7 +1544,7 @@ async function fetchAllUsers(ids) {
 }
 ```
 
-### 2) 올바른 패턴 (빠름)
+**🆚 올바른 패턴 (빠름)**
 
 `map`을 이용해 Promise 배열을 먼저 만들고, `Promise.all`로 한 번에 기다립니다.
 
@@ -1561,7 +1561,7 @@ async function fetchAllUsers(ids) {
 }
 ```
 
-### 3) 🆚 비교 정리
+**🆚 비교 정리**
 
 | **구분** | **설명** | **핵심 특징/예시** |
 | --- | --- | --- |
@@ -1647,7 +1647,7 @@ async function getInfo() {
 }
 ```
 
-### 5) 💡 보충 설명
+**💡 보충 설명**
 
 이 실습의 핵심은 `.then()`으로 이어지던 흐름을 **동기 코드(위에서 아래로)**처럼 바꾸는 것입니다.
 
@@ -1727,7 +1727,7 @@ async function safeGetData() {
 }
 ```
 
-### 5) 💡 보충 설명
+**💡 보충 설명**
 
 `async/await` 문법을 사용하면 비동기 에러 처리도 일반적인 동기 코드(`try-catch`)와 똑같이 할 수 있어 매우 직관적입니다.
 
@@ -1794,7 +1794,7 @@ async function loadAll() {
 }
 ```
 
-### 5) 💡 보충 설명
+**💡 보충 설명**
 
 순차 실행은 앞사람이 일을 다 마쳐야 뒷사람이 일을 시작하는 '이어달리기'라면, 병렬 실행은 두 사람이 동시에 출발하는 '100m 달리기'와 같습니다.
 
@@ -1813,7 +1813,7 @@ async function loadAll() {
   <h2>18. Promise vs Async/Await 총정리</h2>
 </div>
 
-### 1) 왜 이렇게 발전했을까? (비동기 진화의 역사)
+**📌 왜 이렇게 발전했을까? (비동기 진화의 역사)**
 
 자바스크립트의 비동기 처리는 개발자들의 **"더 읽기 좋은 코드"**를 향한 열망에 따라 발전해 왔습니다.
 
@@ -1823,13 +1823,13 @@ async function loadAll() {
 | **2. Promise** | ES6 (2015년) | `.then()`을 사용하여 콜백 깊이를 해결하고 옆으로 나열 | **"체이닝 지옥"** 😐<br>가로로는 평탄해졌지만 여전히 장황함 |
 | **3. Async/Await** | ES8 (2017년) | Promise를 기반으로 하되, 문법을 동기 코드처럼 변경 | **"완벽한 가독성"** 😍<br>위에서 아래로 자연스럽게 읽힘 |
 
-### 2) 왜 Async/Await가 나왔나요?
+**📌 왜 Async/Await가 나왔나요?**
 
 <div class="wda-callout wda-ci">
   Promise도 결국 로직이 복잡해지면 <code>.then()</code>이 꼬리를 물고 계속 연결되어 코드가 복잡해집니다. 개발자들은 <strong>"비동기를 그냥 동기 코드(위에서 아래로)처럼 짜고 싶다!"</strong>는 열망이 있었고, 그 결과 탄생했습니다.
 </div>
 
-### 3) 언제 무엇을 써야 할까요?
+**💡 언제 무엇을 써야 할까요?**
 
 | **상황** | **추천 문법** | **이유** |
 | --- | --- | --- |
@@ -1851,7 +1851,7 @@ async function loadAll() {
   <h2>✅ 핵심 요약</h2>
 </div>
 
-### 1) 주요 개념 비교
+**🆚 주요 개념 비교**
 
 <table class="wda-summary-table">
   <tr>
@@ -1876,7 +1876,7 @@ async function loadAll() {
   </tr>
 </table>
 
-### 2) 에러 처리 방식의 변화
+**🧠 에러 처리 방식의 변화**
 
 <table class="wda-summary-table">
   <tr>
@@ -1901,7 +1901,7 @@ async function loadAll() {
   </tr>
 </table>
 
-### 3) 실무 팁 (Best Practices)
+**💡 실무 팁 (Best Practices)**
 
 <div class="wda-callout wda-cs">
   · <strong>독립적 요청은 병렬로</strong> — 서로 의존성이 없는 데이터 호출은 <code>Promise.all</code>로 병렬 처리하면 시간을 줄일 수 있습니다. 다만 요청 수가 너무 많거나 서버 부하를 고려해야 하는 경우에는 제한적으로 병렬 처리해야 합니다.<br>

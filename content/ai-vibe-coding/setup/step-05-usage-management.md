@@ -75,7 +75,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 📖 개념 설명
 
-### 1. Pro Plan 사용량 제한이란?
+**📌 Pro Plan 사용량 제한이란?**
 
 Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니다.
 
@@ -99,7 +99,7 @@ Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니�
 
 ---
 
-### 2. 실시간 사용량 확인하기
+**✅ 실시간 사용량 확인하기**
 
 수업 중 현재 사용량을 `claude.ai/settings/usage`에서 실시간으로 확인할 수 있습니다.
 
@@ -138,7 +138,7 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 ## 💻 예제 코드
 
-### 3. Wallet 자동 충전 설정하기 (권장)
+**✅ Wallet 자동 충전 설정하기 (권장)**
 
 구독 한도 초과 시 자동으로 Wallet에서 충전하여 수업을 중단 없이 계속 진행할 수 있습니다.
 

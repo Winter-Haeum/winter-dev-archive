@@ -55,7 +55,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 `new Array()` 는 인자의 개수와 타입에 따라 동작이 달라집니다. 이 "불일치" 때문에 실무에서는 잘 쓰지 않습니다.
 
-### 1) 인자가 숫자 1개일 때
+**🧪 인자가 숫자 1개일 때**
 
 숫자만큼의 빈 공간(Slot)만 확보합니다.
 
@@ -69,7 +69,7 @@ console.log(arr.length); // 3
 console.log(arr[0]); // undefined
 ```
 
-### 2) 인자가 여러 개일 때
+**🧪 인자가 여러 개일 때**
 
 우리가 기대하는 일반적인 배열 생성입니다.
 
@@ -96,7 +96,7 @@ console.log(arr.length); // 3
 
 구멍이 숭숭 뚫린 배열을 **희소 배열(Sparse Array)**이라고 하며, 이때의 구멍을 **Empty(비어있음)** 라고 합니다.
 
-### 1) Empty vs Undefined
+**🆚 Empty vs Undefined**
 
 ```jsx
 const arr = [1, , 3]; // 중간을 비움
@@ -122,7 +122,7 @@ arr.forEach(v => console.log(v));
   </div>
 </div>
 
-### 2) 희소 배열이 만들어지는 경우
+**📌 희소 배열이 만들어지는 경우**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -177,7 +177,7 @@ ES6에서 도입된 `Array.of()` 는 인자의 개수나 타입에 상관없이 
 Array.of(items...);
 ```
 
-### 2) 숫자 1개여도 요소로!
+**🧪 숫자 1개여도 요소로!**
 
 ```jsx
 const arr1 = Array.of(3);
@@ -186,7 +186,7 @@ console.log(arr1);
 // [3] (길이 1)
 ```
 
-### 3) 여러 개여도 요소로!
+**🧪 여러 개여도 요소로!**
 
 ```jsx
 const arr2 = Array.of(1, 2, 3);
@@ -209,7 +209,7 @@ console.log(arr2);
 
 유사 배열 객체(array-like object)나 반복 가능한 객체(iterable)를 **진짜 배열로 바꿔줍니다.**
 
-### 1) 유사 배열을 배열로 (NodeList 등)
+**🧪 유사 배열을 배열로 (NodeList 등)**
 
 DOM 요소들을 선택했을 때 반환되는 NodeList는 배열처럼 보이지만 진짜 배열은 아닙니다.  
 `forEach`는 지원되는 환경이 많지만, `map`/`filter`/`reduce` 같은 배열 메서드는 바로 사용할 수 없습니다.
@@ -224,7 +224,7 @@ const divArray = Array.from(divs); // ✅ 진짜 배열로 변환
 divArray.map(div => console.log(div.textContent)); // "A", "B", "C"
 ```
 
-### 2) 문자열을 배열로
+**🧪 문자열을 배열로**
 
 문자열(String)도 반복 가능한 객체이므로 배열로 쪼갤 수 있습니다.
 
@@ -251,7 +251,7 @@ console.log(chars);
 Array.from(target, mapFn);
 ```
 
-### 2) 예시: 1부터 5까지 숫자 배열 만들기
+**🧪 예시: 1부터 5까지 숫자 배열 만들기**
 
 ```jsx
 // 길이가 5인 배열을 만들면서, 각 요소를 인덱스 + 1로 채우기
@@ -261,7 +261,7 @@ console.log(numbers);
 // [1, 2, 3, 4, 5]
 ```
 
-### 3) 왜 `{ length: 5 }` 가 유사 배열인가요?
+**📌 왜 `{ length: 5 }` 가 유사 배열인가요?**
 
 **💡 보충 설명**
 
@@ -271,7 +271,7 @@ console.log(numbers);
   · <strong>매핑 함수</strong> — 두 번째 함수 <code>(v, i) => i + 1</code>이 실행되면서 각 빈 칸(v는 undefined)에 인덱스(i)를 활용한 값이 채워집니다.
 </div>
 
-### 4) 배열 생성 도구 최종 비교
+**🆚 배열 생성 도구 최종 비교**
 
 | **방식** | **결과** | **특징 및 한계 (T-모드)** |
 | --- | --- | --- |
@@ -286,7 +286,7 @@ console.log(numbers);
   <h2>✅ 핵심 요약</h2>
 </div>
 
-### 1) 배열 생성 도구별 특징 비교
+**🆚 배열 생성 도구별 특징 비교**
 
 가장 효율적인 배열 생성 방식을 선택하기 위한 기준표입니다.
 
@@ -313,7 +313,7 @@ console.log(numbers);
   </tr>
 </table>
 
-### 2) 희소 배열(Sparse Array)의 위험성
+**⚠️ 희소 배열(Sparse Array)의 위험성**
 
 구멍 뚫린 배열(`empty`)은 일반적인 `undefined`와 다르게 동작하므로 주의가 필요합니다.
 
@@ -326,7 +326,7 @@ console.log(numbers);
   · <strong>결론</strong> — 초보자가 예상하기 어려운 동작을 유발하고 엔진 최적화에도 불리할 수 있으므로, 의도치 않은 희소 배열이라면 <strong><code>fill()</code>이나 <code>Array.from()</code>으로 꽉 찬 배열을 만드는 것이 좋습니다.</strong>
 </div>
 
-### 3) Array.from() 마법사의 활용 (핵심)
+**🧪 Array.from() 마법사의 활용 (핵심)**
 
 `Array.from()`은 유사 배열 변환이나 일정한 길이의 배열을 만들면서 값을 채울 때 매우 유용합니다.
 

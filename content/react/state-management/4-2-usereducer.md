@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. useState의 한계</h2>
 
-### 1) 😵‍💫 문제 상황 (Code Pattern)
+**😵‍💫 문제 상황 (Code Pattern)**
 
 **"로직이 컴포넌트 안에 갇혀서 뒤섞여 있습니다."**
 단순한 카운터가 아니라 '할 일 목록(Todo List)'처럼 데이터 구조가 객체 배열이고,  
@@ -91,7 +91,7 @@ const toggle = (id) => {
 };
 ```
 
-### 2) ⚠️ 무엇이 문제인가요? (Problems)
+**⚠️ 무엇이 문제인가요? (Problems)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">테스트가 어렵습니다 (Testability) ❌</div><div class="wda-fcard-dsc">상태 변경 로직(함수)이 컴포넌트 안에 묶여 있어서, UI 없이 로직만 따로 테스트하기가 힘듭니다.</div></div>
@@ -99,7 +99,7 @@ const toggle = (id) => {
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">재사용이 힘듭니다 (Reusability) ❌</div><div class="wda-fcard-dsc">이 로직을 다른 컴포넌트에서도 쓰고 싶은데, 컴포넌트 내부에 박혀있어서 복사-붙여넣기 말고는 방법이 없습니다.</div></div>
 </div>
 
-### 3) 💡 해결책의 방향 (State Logic Separation)
+**💡 해결책의 방향 (State Logic Separation)**
 
 **"로직만 쏙 빼서 밖으로 보내고 싶다!"**
 컴포넌트는 "보여주는 것(UI)"만 담당하고,  
@@ -109,28 +109,28 @@ const toggle = (id) => {
 
 <h2>2. useReducer의 핵심 3요소 (The Pattern)</h2>
 
-### 1) 📦 State (현재 상태)
+**📦 State (현재 상태)**
 
 **"창고에 있는 재료"**
 현재 컴포넌트가 가지고 있는 데이터 값입니다.
 
 - 예시: `{ count: 0 }`
 
-### 2) ⚡️ Action (주문서 - 무엇을 할지)
+**⚡️ Action (주문서 - 무엇을 할지)**
 
 **"사장님(컴포넌트)의 요구사항"**
 상태를 '어떻게' 바꿀지가 아니라, 단순히 "이거 해줘!" 라는 의도만 적힌 주문서 객체입니다.
 
 - 예시: `{ type: 'UP' }` (숫자 올려줘!), `{ type: 'RESET' }` (초기화해줘!)
 
-### 3) ƒ Reducer (변환기 - 어떻게 바꿀지)
+**ƒ Reducer (변환기 - 어떻게 바꿀지)**
 
 **"똑똑한 알바생 (요리사)"**
 현재 상태(재료)와 주문서(Action)를 받아서, 정해진 매뉴얼대로 새로운 상태를 만들어주는 함수입니다. 로직은 오직 여기에만 들어있습니다.
 
 - 공식: `(state, action) => new State`
 
-### 4) 🔄 데이터 흐름 (Workflow)
+**🔄 데이터 흐름 (Workflow)**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Dispatch</div><div class="wda-sdsc">컴포넌트(사장님)가 <code>dispatch(action)</code>으로 주문서를 창구에 넣습니다.</div></div></div>
@@ -149,14 +149,14 @@ const toggle = (id) => {
 
 <h2>3. 비유로 이해하기: 은행 창구</h2>
 
-### 1) 등장인물 (Roles)
+**📌 등장인물 (Roles)**
 
 | 구분 | 비유 (Role) | 특징 (Characteristics) | 역할 (Responsibilities) |
 | --- | --- | --- | --- |
 | Component | 👤 손님 | 권한 없음. 은행 금고(State)를 직접 열 수 없습니다. | 요청만 가능. 창구에 가서 "입금해 주세요"라고 적힌 **요청서(Action)**만 제출합니다. |
 | Reducer | 👩‍💼 은행원 | 유일한 권한자. 금고를 다룰 수 있는 권한을 가진 유일한 사람입니다. | 실제 처리. 손님이 낸 요청서를 확인하고, 금고(State)의 돈을 대신 갱신해 줍니다. |
 
-### 2) 왜 이렇게 번거롭게 할까요? (Why?)
+**💡 왜 이렇게 번거롭게 할까요? (Why?)**
 
 그냥 손님이 금고를 열면 빠를 텐데, 굳이 은행원을 거치는 데는 3가지 중요한 이유가 있습니다.
 
@@ -170,7 +170,7 @@ const toggle = (id) => {
 
 <h2>4. useReducer 기본 문법</h2>
 
-### 1) Reducer 함수 정의 (알바생 업무 매뉴얼)
+**📝 Reducer 함수 정의 (알바생 업무 매뉴얼)**
 
 컴포넌트 외부에 작성합니다. (굳이 내부에 있을 필요가 없습니다.) "주문서(Action)의 종류에 따라 상태를 어떻게 바꿀지" 정의해 둔 로직입니다.
 
@@ -188,7 +188,7 @@ function reducer(state, action) {
 }
 ```
 
-### 2) 컴포넌트에서 연결 (창구 개설)
+**📝 컴포넌트에서 연결 (창구 개설)**
 
 컴포넌트 내부에서 훅을 호출하여 연결합니다.
 
@@ -223,7 +223,7 @@ function Counter() {
 export default Counter;
 ```
 
-### 3) 🧩 문법 상세 분해 (Syntax Breakdown)
+**🧩 문법 상세 분해 (Syntax Breakdown)**
 
 이 4가지만 기억하시면 됩니다.
 
@@ -238,13 +238,13 @@ export default Counter;
 
 <h2>5. Action 객체 구조와 패턴</h2>
 
-### 1) Action이란? (Concept)
+**📌 Action이란? (Concept)**
 
 **"상태 업데이트를 위한 정보를 담은 객체입니다."**
 쉽게 말해 주문서입니다. 이 주문서에는 반드시 "무슨 일을 할 것인지(Type)"가 적혀있어야 하고,  
 필요하다면 "재료(Payload)"도 함께 실어 보냅니다.
 
-### 2) 작성 규칙 (Convention)
+**📝 작성 규칙 (Convention)**
 
 개발자들끼리의 약속(국룰)입니다. 지키지 않아도 에러는 안 나지만, 지키면 모두가 편합니다.
 
@@ -287,13 +287,13 @@ const updateAction = {
 
 <h2>6. Dispatch 함수 사용법</h2>
 
-### 1) 개념 (Definition)
+**📌 개념 (Definition)**
 
 **"주문서 발송 버튼입니다."**
 작성한 Action 객체를 Reducer 함수로 전달(발송)하는 함수입니다.  
 `dispatch(action)` 형태로 호출하면, 아까 정의해 둔 Reducer(알바생)가 깨어나서 일을 시작합니다.
 
-### 2) 특징 (Features)
+**⚙️ 특징 (Features)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">어디서 쓰나요?</div><div class="wda-fcard-dsc">주로 onClick 같은 이벤트 핸들러 내부에서 호출합니다.</div></div>
@@ -353,7 +353,7 @@ export default Counter;
 
 <h2>7. reducer 함수 작성법</h2>
 
-### 1) Todo Reducer 예시
+**🧪 Todo Reducer 예시**
 
 ```jsx
 function todoReducer(state, action) {
@@ -381,7 +381,7 @@ function todoReducer(state, action) {
 }
 ```
 
-### 2) 📝 작성 패턴 (Writing Patterns)
+**📝 작성 패턴 (Writing Patterns)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Switch 문 사용</div><div class="wda-fcard-dsc">action.type에 따라 로직을 분기하여 처리합니다.</div></div>
@@ -421,7 +421,7 @@ case 'DELETE':
 - `action.payload` → 삭제할 id
 - React에서는 splice 대신 filter 사용
 
-### 3) &lt;보충&gt; Counter.jsx (type + payload 구조 반영)
+**🧪 &lt;보충&gt; Counter.jsx (type + payload 구조 반영)**
 
 ```jsx
 import { useReducer } from "react"; // React의 useReducer 훅 import
@@ -480,7 +480,7 @@ function Counter() {
 export default Counter;
 ```
 
-### 4) 손필기 요약 메모
+**🧠 손필기 요약 메모**
 
 1) `{ type: type }` → `{ type }`
 
@@ -496,7 +496,7 @@ dispatch({ type, payload });
 
 3) reducer에서는 `action.type`, `action.payload`로 꺼내 쓴다.
 
-### 5) 연결 흐름
+**⚙️ 연결 흐름**
 
 ```text
 handleDispatch(INCREMENT_KEY)
@@ -507,7 +507,7 @@ reducer에서
 case "INCREMENT":
 ```
 
-### 6) payload 있는 경우
+**⚙️ payload 있는 경우**
 
 ```text
 handleDispatch(SET_COUNT_KEY, 100)
@@ -517,7 +517,7 @@ dispatch({ type: "SET_COUNT", payload: 100 })
 return { count: action.payload }
 ```
 
-### 7) 손필기 전체 의미 한 줄 요약
+**🧠 손필기 전체 의미 한 줄 요약**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -533,7 +533,7 @@ return { count: action.payload }
 
 <h2>8. 초간단 예제 (전등 스위치)</h2>
 
-### 1) Reducer 함수 (로직)
+**🧪 Reducer 함수 (로직)**
 
 ```jsx
 function switchReducer(state, action) {
@@ -550,7 +550,7 @@ function switchReducer(state, action) {
 }
 ```
 
-### 2) Component 사용
+**🧪 Component 사용**
 
 ```jsx
 import { useReducer } from 'react';
@@ -612,7 +612,7 @@ export default LightSwitch;
 
 <h2>9. 카운터 예제 (전체 코드)</h2>
 
-### 1) Logic Definition (로직 정의)
+**🧪 Logic Definition (로직 정의)**
 
 컴포넌트 밖에 있어도 상관없는 순수 함수 영역입니다.
 
@@ -636,7 +636,7 @@ function counterReducer(state, action) {
 }
 ```
 
-### 2) Component Usage (컴포넌트 사용)
+**🧪 Component Usage (컴포넌트 사용)**
 
 실제 화면을 그리고 사용자와 상호작용하는 영역입니다.
 
@@ -669,7 +669,7 @@ function Counter() {
 export default Counter;
 ```
 
-### 3) ✅ 핵심 포인트 체크
+**✅ 핵심 포인트 체크**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">1. 순수 함수 분리</div><div class="wda-fcard-dsc">counterReducer는 리액트 상태에 의존하지 않으므로 컴포넌트 밖으로 뺄 수 있습니다.</div></div>
@@ -681,7 +681,7 @@ export default Counter;
 
 <h2>10. Todo 리스트 예제 (Refactoring)</h2>
 
-### 1) reducer (로직 담당)
+**🧪 reducer (로직 담당)**
 
 모든 상태 변경 로직이 이곳에 모여 있습니다. 컴포넌트는 더 이상 "어떻게" 수정하는지 몰라도 됩니다.
 
@@ -718,7 +718,7 @@ function todoReducer(state, action) {
   <p><code>Date.now()</code>처럼 실행할 때마다 값이 달라지는 로직은 reducer 내부보다 action을 만드는 시점에서 처리하는 것이 reducer의 순수성을 유지하는 데 더 좋습니다.</p>
 </div>
 
-### 2) 컴포넌트 (UI 담당)
+**🧪 컴포넌트 (UI 담당)**
 
 컴포넌트는 이제 "무엇을 할지(Dispatch)" 만 고민하면 됩니다.
 
@@ -770,7 +770,7 @@ export default TodoList;
 
 <h2>11. 복잡한 폼 상태 관리 (Complex Form State)</h2>
 
-### 1) ƒ Reducer (로직의 중앙화)
+**ƒ Reducer (로직의 중앙화)**
 
 단순한 입력값 변경뿐만 아니라, 검증(Validation) 로직까지 Reducer가 담당합니다.
 
@@ -800,7 +800,7 @@ function formReducer(state, action) {
 }
 ```
 
-### 2) ⚛️ Component (사용)
+**⚛️ Component (사용)**
 
 입력창이 10개가 되어도 핸들러 함수를 10개 만들 필요가 없습니다. dispatch 하나면 충분합니다.
 
@@ -827,7 +827,7 @@ function formReducer(state, action) {
 
 <h2>12. useState vs useReducer 비교</h2>
 
-### 1) 특징 비교
+**🆚 특징 비교**
 
 두 훅의 특징을 한눈에 비교한 표입니다.
 
@@ -838,7 +838,7 @@ function formReducer(state, action) {
 | 테스트 용이성 | 어려움 (컴포넌트에 의존적) | 쉬움 (순수 함수라서 독립 테스트 가능) |
 | 코드량 | 적음 (간결함) | 많음 (Boilerplate 코드가 필요함) |
 
-### 2) 추천 가이드 (Recommendation)
+**🆚 추천 가이드 (Recommendation)**
 
 | 구분 | 🔵 useState를 쓰세요 | 🟣 useReducer를 쓰세요 |
 | --- | --- | --- |
@@ -856,7 +856,7 @@ function formReducer(state, action) {
 
 <h2>13. Context + useReducer 조합</h2>
 
-### 1) 전역 상태 관리 코드 (TodoContext.js)
+**🧪 전역 상태 관리 코드 (TodoContext.js)**
 
 이 코드는 props를 계속 넘겨주지 않아도(Props Drilling 해결), 어디서든 dispatch를 꺼내 쓸 수 있게 해줍니다.
 
@@ -924,7 +924,7 @@ export default TodoItem;
   <div class="wda-fcard"><div class="wda-fcard-ttl">3. useTodos Hook</div><div class="wda-fcard-dsc">컴포넌트들이 useContext(TodoContext)를 매번 치지 않고, useTodos() 한 방으로 편하게 데이터를 가져오게 합니다. 또한, Provider 없이 사용하는 실수를 막아줍니다(throw new Error).</div></div>
 </div>
 
-### 2) 📌 보충설명 — Context 상태 조회와 변경 구조 정리
+**📌 보충설명 — Context 상태 조회와 변경 구조 정리**
 
 **1️⃣ 필기 코드**
 
@@ -987,7 +987,7 @@ Context
 
 <h2>14. 주의사항</h2>
 
-### 1) 불변성 유지 (Immutability)
+**⚠️ 불변성 유지 (Immutability)**
 
 리액트는 상태가 '교체'되었을 때만 변경을 감지합니다. 원본을 직접 수정하면 화면이 갱신되지 않습니다.
 
@@ -1002,7 +1002,7 @@ case 'ADD':
   return [...state, newItem]; // 기존 내용을 복사하고 새 항목 추가
 ```
 
-### 2) Action 타입 상수화 (Constants)
+**⚠️ Action 타입 상수화 (Constants)**
 
 문자열을 직접 쓰다 보면 오타가 나기 쉽습니다. 상수로 만들어두면 자동완성도 되고 안전합니다.
 
@@ -1018,7 +1018,7 @@ const ACTIONS = {
 dispatch({ type: ACTIONS.ADD });
 ```
 
-### 3) ƒ Reducer는 순수 함수 (Pure Function)
+**ƒ Reducer는 순수 함수 (Pure Function)**
 
 Reducer는 입력이 같으면 결과도 무조건 같아야 하는 '순수 함수'여야 합니다. 예측 가능해야 하기 때문입니다.
 
@@ -1032,7 +1032,7 @@ Reducer는 입력이 같으면 결과도 무조건 같아야 하는 '순수 함�
 
 <h2>15. ⁉️ FAQ</h2>
 
-### 1) Q1.
+**📌 Q1.**
 
 **"useReducer에서 상태 변경 로직을 담고 있는, (state, action) => newState 형태의 순수 함수를 무엇이라 하나요?"**
 
@@ -1040,7 +1040,7 @@ Reducer는 입력이 같으면 결과도 무조건 같아야 하는 '순수 함�
 
 - 설명: "이전 상태"와 "액션"을 받아서 "새로운 상태"를 반환하는 함수입니다.
 
-### 2) Q2.
+**📌 Q2.**
 
 **"컴포넌트에서 리듀서에게 상태 변경을 요청(action 전달)하기 위해 사용하는 함수는?"**
 

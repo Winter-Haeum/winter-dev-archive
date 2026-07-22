@@ -72,11 +72,11 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 1. 렉시컬(Lexical)이란?
 
-### 1) 기본 정의
+**📌 기본 정의**
 
 **"Lexical" = 어휘적 / 사전적** — 코드가 **작성된 그 형태 그대로**를 의미합니다.
 
-### 2) 시점의 차이
+**🆚 시점의 차이**
 
 코드가 만들어지는 순간과 돌아가는 순간을 구분해야 합니다.
 
@@ -93,7 +93,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-### 3) 렉시컬 스코프 정의
+**📌 렉시컬 스코프 정의**
 
 렉시컬 스코프란, 코드를 실행하기도 전에, **이미 작성된 구조만 보고 스코프가 결정된다**는 뜻입니다.
 
@@ -112,7 +112,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 2. 렉시컬 vs 동적 스코프
 
-### 1) 개념 비교
+**🆚 개념 비교**
 
 자바스크립트가 채택한 **렉시컬 스코프**와 다른 언어들의 **동적 스코프**를 "고향"과 "현재 위치"로 비유하여 비교하면 이해하기 쉽습니다.
 
@@ -144,7 +144,7 @@ function bar() {
 bar();
 ```
 
-### 3) 결과 분석
+**📌 결과 분석**
 
 자바스크립트는 렉시컬 스코프를 따르므로, `foo`를 어디서 호출하든 상관없이 **처음 만들어진 곳(Global)**의 변수를 기억합니다.
 
@@ -189,7 +189,7 @@ function outer() {
 outer();
 ```
 
-### 2) inner 함수의 스코프 결정
+**⚙️ inner 함수의 스코프 결정**
 
 코드를 실행하기 전, 작성된 구조만 보고 스코프 족보가 정해지는 과정입니다.
 
@@ -197,7 +197,7 @@ outer();
 2. **outer** 함수 내부에 작성되어 있습니다.
 3. 따라서 **inner** 의 상위 스코프는 **outer** 입니다.
 
-### 3) 실행 결과
+**🧪 실행 결과**
 
 **'outer'** — 만약 inner 안에 x가 없다면, 태어난 곳(outer)의 x를 봅니다.  
 전역(global)까지 나가지 않습니다.
@@ -284,7 +284,7 @@ check(); // 결과는?
 
 ## 4. 스코프 체인 (Scope Chain)
 
-### 1) 변수 탐색 과정 (Scope Chaining)
+**⚙️ 변수 탐색 과정 (Scope Chaining)**
 
 변수를 사용할 때, 현재 스코프에 없으면 상위 스코프로 올라가며 찾는 과정입니다.
 
@@ -315,7 +315,7 @@ function outer() {
 outer();
 ```
 
-### 2) 스코프 체인 시각화 (Bubble Up)
+**📌 스코프 체인 시각화 (Bubble Up)**
 
 물방울이 아래에서 위로 올라가듯(Bubble Up), 변수 찾기는 **안쪽에서 바깥쪽으로**만 진행됩니다.
 
@@ -326,7 +326,7 @@ outer();
 <img src="/images/content/javascript/4-3/javascript-4-3-scope-diagram.png" alt="스코프 체인 시각화 다이어그램" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:480px;">[그림] 스코프 체인 구조 (전역 → outer 함수 → inner 함수 중첩 범위)</div>
 
-### 3) 단방향 탐색
+**📌 단방향 탐색**
 
 식별자를 찾을 때까지 상위 스코프로 올라갑니다. **(하위 스코프로 내려가서 찾을 수는 없습니다!)**
 
@@ -344,12 +344,12 @@ outer();
 
 ## 5. 실행 컨텍스트(Execution Context)란?
 
-### 1) 기본 정의
+**📌 기본 정의**
 
 **코드가 실행되는 환경(Environment)** — 자바스크립트 엔진이 코드를 실행하기 위해 내부적으로 관리하는 실행 정보 묶음입니다.  
 일반 객체처럼 개발자가 직접 꺼내서 조작하는 대상은 아닙니다.
 
-### 2) 무엇을 기록하나요?
+**📌 무엇을 기록하나요?**
 
 실행 컨텍스트 내부에는 코드 실행에 필요한 핵심 정보들이 저장됩니다.
 
@@ -364,7 +364,7 @@ outer();
   </div>
 </div>
 
-### 3) 동작 원리
+**⚙️ 동작 원리**
 
 코드는 혼자 실행되지 않습니다. 항상 **컨텍스트라는 무대 위**에서 동작합니다.
 
@@ -383,7 +383,7 @@ outer();
 
 ## 6. 실행 컨텍스트 기초
 
-### 1) 콜 스택 (Call Stack)
+**📌 콜 스택 (Call Stack)**
 
 함수가 호출되면 스택(Stack)이라는 통에 차곡차곡 쌓이고, 실행이 끝나면 위에서부터 하나씩 제거됩니다.
 
@@ -407,7 +407,7 @@ function third() {
 first(); // 가장 먼저 first 함수를 호출
 ```
 
-### 2) 스택 동작 시각화
+**⚙️ 스택 동작 시각화**
 
 자바스크립트 엔진은 **LIFO (Last In, First Out)**, 즉 **"나중에 들어온 녀석이 먼저 나가는"** 구조로 동작합니다.
 
@@ -433,7 +433,7 @@ first(); // 가장 먼저 first 함수를 호출
 
 ## 7. 클로저란 무엇인가?
 
-### 1) 클로저의 탄생 (코드 예시)
+**🧪 클로저의 탄생 (코드 예시)**
 
 함수가 종료되어 사라졌음에도 불구하고, 그 함수 안에 있던 변수를 계속 기억하고 있는 현상을 보여주는 코드입니다.
 
@@ -457,14 +457,14 @@ console.log(counter()); // 3
 // count 변수가 살아있다! (마치 전역 변수처럼 계속 유지됨)
 ```
 
-### 2) 클로저의 정의
+**📌 클로저의 정의**
 
 **"함수와 그 함수가 선언된 렉시컬 환경(Lexical Environment)의 조합"** (MDN 정의)
 
 - **현상인가요, 함수인가요?** 엄밀히 말하면 스코프가 연결되는 **메커니즘(결합)** 자체를 의미합니다.  
   실무에서는 보통 "생명 주기가 끝난 외부함수의 변수를 참조하는 **내부함수 자체**"를 클로저라고 부릅니다.
 
-### 3) 📌 기억 포인트
+**📌 기억 포인트**
 
 클로저가 되기 위한 조건입니다.
 
@@ -496,7 +496,7 @@ console.log(counter()); // 3
 
 ## 8. 클로저 동작 원리
 
-### 1) 왜 count가 살아있을까?
+**📌 왜 count가 살아있을까?**
 
 함수가 종료되었는데도 변수가 사라지지 않는 이유를 코드로 확인해 봅니다.
 
@@ -515,7 +515,7 @@ const counter = createCounter();
 // 이때, createCounter는 종료되었지만 내부에 있던 count는 살아남음
 ```
 
-### 2) 단계별 실행 과정
+**⚙️ 단계별 실행 과정**
 
 자바스크립트 엔진 내부에서 일어나는 일을 순서대로 정리했습니다.
 
@@ -538,7 +538,7 @@ const counter = createCounter();
   </div>
 </div>
 
-### 3) 렉시컬 환경 유지
+**📌 렉시컬 환경 유지**
 
 <img src="/images/content/javascript/4-3/javascript-4-3-function-lifetime-diagram.png" alt="함수와 렉시컬 환경 생명 연결 다이어그램" style="display:block;width:100%;max-width:340px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:340px;">[그림] 내부 함수의 참조로 살아있는 렉시컬 환경 (count: 0)</div>
@@ -636,11 +636,11 @@ console.log(counter()); // 2 (1 -> 2 : 아까 그 값을 기억함!)
 
 ## 10. 잠시, 가비지 컬렉터(GC)란?
 
-### 1) 메모리 청소부 (Garbage Collector)
+**📌 메모리 청소부 (Garbage Collector)**
 
 프로그램이 더 이상 사용하지 않는 메모리를 자동으로 찾아서 해제하는 시스템입니다.
 
-### 2) 삭제 규칙 (Mark-and-Sweep)
+**📌 삭제 규칙 (Mark-and-Sweep)**
 
 어떤 데이터를 살리고 어떤 데이터를 지울지 결정하는 규칙입니다.
 
@@ -648,16 +648,16 @@ console.log(counter()); // 2 (1 -> 2 : 아까 그 값을 기억함!)
 - "루트(Root)에서 연결되어 있는가?"
 - 연결 끊긴 데이터 = **쓰레기(Garbage)** → 삭제
 
-### 3) 데이터 생존 여부 시각화
+**⚙️ 데이터 생존 여부 시각화**
 
 <img src="/images/content/javascript/4-3/javascript-4-3-surviving-vs-deleted-data.png" alt="가비지 컬렉터의 데이터 생존 여부 시각화" style="display:block;width:100%;max-width:480px;height:auto;border-radius:8px;margin:.6rem auto 1rem;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:480px;">[그림] Root 연결 여부에 따른 데이터 생존/삭제 비교 (도달 가능성)</div>
 
-### 4) 클로저의 역할
+**📌 클로저의 역할**
 
 외부 함수는 끝났지만, **내부 함수가 변수를 잡고 있어서** GC가 지우지 못하게 막는 것!
 
-### 5) 클로저 활용 - 정보 은닉
+**🧪 클로저 활용 - 정보 은닉**
 
 **🔹 Private 변수 패턴**
 
@@ -703,7 +703,7 @@ account.balance = 999999;     // 객체에 새 balance 속성이 추가될 뿐, 
 console.log(account.getBalance()); // 여전히 1300 (안전함!)
 ```
 
-### 6) 📝 요약 메모
+**📝 요약 메모**
 
 - **보호** — `balance`는 클로저 안에 숨겨져 있어서 외부에서 **직접 접근/수정 불가**합니다.
 - **캡슐화** — `deposit`, `withdraw`, `getBalance`만이 balance에 접근 가능합니다.
@@ -783,7 +783,7 @@ console.log(mySafe.getSecret()); // "Gold"
 
 ## 11. IIFE vs 클로저 (정보 은닉 비교)
 
-### 1) 즉시 실행 함수 (IIFE)
+**📌 즉시 실행 함수 (IIFE)**
 
 정의되자마자 즉시 실행되며, **단 하나만 존재하는** 저장소를 만들 때 사용합니다.
 
@@ -801,7 +801,7 @@ Singleton.inc(); // 2
 
 - **단 하나만 존재 (Singleton)** — 한 번 실행되고 끝. 전역에서 공유되는 유일한 저장소를 만들 때 사용
 
-### 2) 클로저 (함수 팩토리)
+**📌 클로저 (함수 팩토리)**
 
 함수를 호출할 때마다 새로운 환경을 만들어, **여러 개의 독립적인** 저장소를 만들 때 사용합니다.
 
@@ -821,7 +821,7 @@ const B = createCounter(); // B만을 위한 count 생성 (별개)
 
 - **여러 개 생성 가능 (Instance)** — 호출할 때마다 새로운 환경 생성. 독립적인 저장소가 필요할 때 사용
 
-### 3) 🆚 비교 정리
+**🆚 비교 정리**
 
 두 방식의 차이를 기억하는 것이 중요합니다.
 
@@ -843,7 +843,7 @@ const B = createCounter(); // B만을 위한 count 생성 (별개)
 
 ## 12. 클로저 활용 - 함수 팩토리
 
-### 1) 곱셈기 생성기 (Multiplier)
+**🧪 곱셈기 생성기 (Multiplier)**
 
 특정 숫자를 곱하는 기능을 가진 함수를 **공장처럼 찍어내는** 예제입니다.
 
@@ -868,7 +868,7 @@ console.log(times10(5)); // 50 (5 * 10)
 
 - **핵심**: 각 함수가 **다른 multiplier 값을 "기억"** 하고 있습니다. (서로 간섭하지 않음)
 
-### 2) 인사 생성기 (Greeter)
+**🧪 인사 생성기 (Greeter)**
 
 인사말(Hello, Hi 등)을 미리 설정해두고 이름만 바꿔서 인사하는 함수를 만듭니다.
 
@@ -908,7 +908,7 @@ console.log(sayAnnyeong('Park'));   // '안녕, Park!'
 
 ## 13. 클로저 활용 - 커링 기초
 
-### 1) 커링(Currying)이란?
+**📌 커링(Currying)이란?**
 
 여러 인자를 받는 함수를 **인자 하나씩 받는 함수 체인**으로 변환하는 기법입니다.
 
@@ -931,7 +931,7 @@ function curriedAdd(a) {
 curriedAdd(1)(2)(3); // 6
 ```
 
-### 2) 부분 적용 (Partial Application)
+**🧪 부분 적용 (Partial Application)**
 
 인자를 미리 **고정(Fix)**해서 재사용성을 높이는 방식입니다.
 
@@ -944,7 +944,7 @@ const result = add1and2(3);     // c=3 입력 (드디어 완성!)
 console.log(result); // 6
 ```
 
-### 3) 실전 예시: API 요청 함수
+**🧪 실전 예시: API 요청 함수**
 
 변하지 않는 공통 주소(BaseURL)를 고정해두고 사용하면 매우 효율적입니다.
 
@@ -978,7 +978,7 @@ api('/posts'); // https://api.example.com/posts 로 fetch 요청을 생성함
 
 ## 14. 클로저와 메모리
 
-### 1) 메모리 누수 가능성
+**⚠️ 메모리 누수 가능성**
 
 클로저가 필요 이상으로 큰 데이터를 계속 붙잡고 있으면 메모리가 낭비되는 현상입니다.
 
@@ -1004,7 +1004,7 @@ const closure = heavyClosure();
   </ul>
 </div>
 
-### 2) 해결 방법 (Best Practice)
+**💡 해결 방법 (Best Practice)**
 
 메모리를 효율적으로 관리하기 위한 두 가지 방법입니다.
 
@@ -1031,7 +1031,7 @@ let closure = heavyClosure();
 closure = null; // 참조 해제 -> GC 대상
 ```
 
-### 3) 📌 기억 포인트
+**📌 기억 포인트**
 
 안전한 클로저 사용을 위한 수칙입니다.
 
@@ -1052,7 +1052,7 @@ closure = null; // 참조 해제 -> GC 대상
 
 ## 15. 반복문에서의 클로저 문제
 
-### 1) 클래식 문제: var 사용
+**⚠️ 클래식 문제: var 사용**
 
 `var`와 비동기 함수(`setTimeout`)를 함께 썼을 때 발생하는 가장 유명한 실수입니다.
 
@@ -1076,7 +1076,7 @@ for (var i = 0; i < 3; i++) {
   </ul>
 </div>
 
-### 2) 왜 이런 일이? (원인 분석)
+**⚙️ 왜 이런 일이? (원인 분석)**
 
 자바스크립트의 실행 타이밍과 스코프 특성이 결합되어 발생한 현상입니다.
 
@@ -1095,7 +1095,7 @@ for (var i = 0; i < 3; i++) {
   </div>
 </div>
 
-### 3) 만약 setTimeout이 없다면?
+**🆚 만약 setTimeout이 없다면?**
 
 비동기가 아닐 때는 어떻게 동작하는지 비교해 봅니다.
 
@@ -1125,7 +1125,7 @@ for (var i = 0; i < 3; i++) {
 
 ## 16. 반복문 클로저 해결 방법
 
-### 1) 방법 1: let 사용 (Best)
+**📝 방법 1: let 사용 (Best)**
 
 가장 권장되는 모던 자바스크립트 방식입니다.
 
@@ -1142,7 +1142,7 @@ for (let i = 0; i < 3; i++) {
 
 - **let의 마법 (Per-Iteration Scope)** — 반복문이 돌 때마다 **새로운 스코프 방**을 만들고, 그 안에 **새로운 `i`**를 입주시킵니다. `{ let i=0 }` → `{ let i=1 }` → `{ let i=2 }`
 
-### 2) 방법 2: IIFE 사용 (Legacy)
+**📝 방법 2: IIFE 사용 (Legacy)**
 
 `let`이 없던 옛날(ES6 이전)에 사용하던 방식입니다.
 
@@ -1162,7 +1162,7 @@ for (var i = 0; i < 3; i++) {
 - **원리** — IIFE가 현재 `i` 값을 **복사하여 `j`에 저장**해두기 때문에, 나중에 `i`가 변해도 `j`는 변하지 않습니다.
 - **참고** : ES6 이전의 해결책입니다.
 
-### 3) 권장 사항
+**💡 권장 사항**
 
 <div class="wda-callout wda-cs">
   <ul>
@@ -1185,7 +1185,7 @@ for (var i = 0; i < 3; i++) {
 
 ## ✅ 핵심 요약
 
-### 1) 렉시컬 스코프 (Lexical Scope)
+**🧠 렉시컬 스코프 (Lexical Scope)**
 
 코드를 작성한 위치가 곧 운명(스코프)을 결정한다는 핵심 원칙입니다.
 
@@ -1195,7 +1195,7 @@ for (var i = 0; i < 3; i++) {
 | **정적 스코프** | 코드가 작성되는 순간 스코프가 확정됨.<br>(실행 중에 바뀌지 않음) | 건물을 지을 때 설계도대로 방이 나뉨.<br>사람이 들어간다고 방 구조가 바뀌지 않음 |
 | **스코프 체인** | **내 주머니 → 부모 주머니 → 전역 주머니**<br>순서로 변수를 탐색함. (안에서 밖으로만 가능) | 틴팅된 유리창과 같음.<br>안에서는 밖이 보이지만, 밖에서는 안이 안 보임 |
 
-### 2) 클로저 (Closure)의 마법
+**🧠 클로저 (Closure)의 마법**
 
 함수가 종료되어도 변수가 살아남는 메커니즘을 정리했습니다.
 
@@ -1214,7 +1214,7 @@ for (var i = 0; i < 3; i++) {
   </div>
 </div>
 
-### 3) 실전 활용 & 주의사항 (Do's & Don'ts)
+**🧠 실전 활용 & 주의사항 (Do's & Don'ts)**
 
 클로저를 언제 써야 하고, 언제 조심해야 하는지 비교했습니다.
 
@@ -1247,7 +1247,7 @@ for (var i = 0; i < 3; i++) {
   </div>
 </div>
 
-### 4) 헷갈리는 개념 비교
+**🆚 헷갈리는 개념 비교**
 
 스코프와 실행 컨텍스트의 차이를 명확히 구분했습니다.
 

@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <h2>1. 시나리오: 개발팀의 비극</h2>
 </div>
 
-### 1) 현실 상황 (Before)
+**🆚 현실 상황 (Before)**
 
 "모든 짐을 봇짐 하나에 넣고 여행을 간다면?"이라는 비유처럼,
 
@@ -95,7 +95,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
   3. <strong>협업 충돌</strong> : 철수와 영희가 같은 <code>main.js</code> 파일을 동시에 고치다가 코드가 꼬여서 싸움이 납니다.
 </div>
 
-### 2) 짐 나누기 (After)
+**🆚 짐 나누기 (After)**
 
 여행 가방을 쌀 때 파우치별로 나누는 것처럼 코드를 정리합니다.
 
@@ -104,7 +104,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
   - 📄 `옷.js` (속옷, 티셔츠 기능)
   - 📄 `비상약.js` (밴드, 해열제 기능)
 
-### 3) 해결책 (모듈)
+**📌 해결책 (모듈)**
 
 필요한 기능끼리 별도의 파일로 나눕니다. 그리고 **"세면도구에서 칫솔 꺼내줘!"(import)**라고 말하듯 필요한 것만 가져와서 사용합니다.
 
@@ -123,7 +123,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
   <h2>2. 모듈의 핵심: 각자의 방(Scope)</h2>
 </div>
 
-### 1) "변수가 섞이지 않아요!"
+**📌 "변수가 섞이지 않아요!"**
 
 모듈 시스템의 가장 큰 특징은 파일마다 **독립적인 공간(Scope)**을 가진다는 점입니다.
 
@@ -152,7 +152,7 @@ console.log(user); // '김철수' (위에서 선언한 '홍길동'은 덮어써�
   <h2>3. Step 1. 문법 익히기 (설정)</h2>
 </div>
 
-### 1) 브라우저에게 알려주기
+**📝 브라우저에게 알려주기**
 
 HTML 파일에서 스크립트를 불러올 때,
 
@@ -169,7 +169,7 @@ HTML 파일에서 스크립트를 불러올 때,
 </html>
 ```
 
-### 2) 핵심 규칙 3가지
+**📝 핵심 규칙 3가지**
 
 모듈 시스템이 정상적으로 동작하려면 다음 3가지를 꼭 지켜야 합니다.
 
@@ -188,7 +188,7 @@ HTML 파일에서 스크립트를 불러올 때,
   </div>
 </div>
 
-### 3) 가장 많이 하는 실수
+**⚠️ 가장 많이 하는 실수**
 
 <div class="wda-callout wda-cw">
   <strong>증상</strong> — 콘솔창에 <code>Uncaught SyntaxError: Cannot use import statement outside a module</code> 에러가 뜸.<br><br>
@@ -201,7 +201,7 @@ HTML 파일에서 스크립트를 불러올 때,
   <h2>4. Step 2. 공구함 (Named Export) - 내보내기</h2>
 </div>
 
-### 1) 개념: "이 아이템들을 공개 공구함에 넣을게!"
+**📌 개념: "이 아이템들을 공개 공구함에 넣을게!"**
 
 자신이 가진 변수나 함수 앞에 `export`를 붙여서,
 
@@ -234,7 +234,7 @@ export { saw, drill };
   - 예: `export function 함수명() { ... }`
 - **다중 내보내기 :** 파일 하나에서 여러 개를 내보낼 수 있습니다. (망치, 톱, 드릴 등등 무제한)
 
-### 4) 💡 주의할 점
+**💡 주의할 점**
 
 <div class="wda-callout wda-cw">
   <strong>이름 일치</strong> : 'Named(이름이 있는)' Export이기 때문에, 내보낸 이름 그대로 가져와야 합니다.<br>
@@ -247,7 +247,7 @@ export { saw, drill };
   <h2>5. Step 2. 공구함 (Named Export) - 가져오기</h2>
 </div>
 
-### 1) 개념: "이름표 보고 필요한 것만 꺼내기"
+**📌 개념: "이름표 보고 필요한 것만 꺼내기"**
 
 공구함(`tools.js`)에 들어있는 수많은 도구 중에서, 내가 지금 **필요한 것만 콕 집어서** 가져오는 과정입니다.
 
@@ -301,7 +301,7 @@ console.log(myHammer); // 이제부터는 myHammer라고 부르면 됨
   <h2>6. Step 2. 공구함 - 별명 붙이기 (as)</h2>
 </div>
 
-### 1) 개념: "이름이 겹치거나 너무 길다면?"
+**📌 개념: "이름이 겹치거나 너무 길다면?"**
 
 외부에서 가져온 공구의 이름이 내 공구함에 이미 있는 것과 겹치거나,
 
@@ -332,7 +332,7 @@ fixTool(); // '윙~' (driver 함수 실행)
   <strong>제약</strong> : 별명을 짓고 나면 <strong>원래 이름</strong>은 해당 파일에서 더 이상 사용할 수 없습니다. (개명 신청과 비슷합니다.)
 </div>
 
-### 4) 💡 보충 설명
+**💡 보충 설명**
 
 이 기능은 다음과 같은 상황에서 필수적으로 사용됩니다.
 
@@ -381,7 +381,7 @@ import _______ from './math.js';
   <h2>7. Step 3. 주인공 (Default Export) - 내보내기</h2>
 </div>
 
-### 1) 개념: "파일당 딱 하나, 특별한 주인공!"
+**📌 개념: "파일당 딱 하나, 특별한 주인공!"**
 
 여러 개를 담는 공구함과 달리, 이 파일에서 **가장 중요한 단 하나의 기능(주인공)**을 지정하여 내보내는 방식입니다.
 
@@ -415,7 +415,7 @@ export default User;
   <h2>8. Step 3. 주인공 (Default Export) - 가져오기</h2>
 </div>
 
-### 1) 개념: "주인공은 이름표(중괄호)가 필요 없어!"
+**📌 개념: "주인공은 이름표(중괄호)가 필요 없어!"**
 
 파일에서 유일한 주인공을 모셔오는 것이기 때문에,
 
@@ -445,7 +445,7 @@ const u = new MySuperUser('Dami');
   2. <strong>작명 자유</strong> : 내보낸 쪽에서 이름을 <code>User</code>라고 했어도, 받는 쪽에서 <code>SuperHero</code>라고 지어서 써도 상관없습니다. (어차피 그 파일의 대표는 하나니까요!)
 </div>
 
-### 4) 한눈에 보는 비교 (Named vs Default)
+**🆚 한눈에 보는 비교 (Named vs Default)**
 
 | **구분** | **공구함 (Named Import)** | **주인공 (Default Import)** |
 | --- | --- | --- |
@@ -498,7 +498,7 @@ import ______ from './User.js';
   <h2>🌈 중간 정리: Named vs Default</h2>
 </div>
 
-### 1) 한눈에 보는 비교
+**🆚 한눈에 보는 비교**
 
 | **구분** | **Named Export (공구함) 🛠️** | **Default Export (주인공) ⭐️** |
 | --- | --- | --- |
@@ -507,7 +507,7 @@ import ______ from './User.js';
 | **가져올 때** | `import { a }` | `import a` |
 | **핵심 규칙** | **반드시 중괄호 `{ }` 사용** | **중괄호 없음** |
 
-### 2) 💡 초보자를 위한 팁
+**💡 초보자를 위한 팁**
 
 <div class="wda-callout wda-cs">
   "헷갈리면 일단 Named({})만 쓰세요. 실수가 가장 적습니다!"<br><br>
@@ -521,7 +521,7 @@ import ______ from './User.js';
   <h2>9. 동적 import (심화)</h2>
 </div>
 
-### 1) 개념: "필요할 때만 모듈 로드하기"
+**📌 개념: "필요할 때만 모듈 로드하기"**
 
 파일의 맨 위에서 무조건 가져오는(`static import`) 방식과 달리,
 
@@ -551,7 +551,7 @@ async function loadAdminModule(user) {
 }
 ```
 
-### 3) 특징
+**📌 특징**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -568,7 +568,7 @@ async function loadAdminModule(user) {
   </div>
 </div>
 
-### 4) 활용 사례
+**💡 활용 사례**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -585,7 +585,7 @@ async function loadAdminModule(user) {
   </div>
 </div>
 
-### 5) 💡 보충 설명
+**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
   일반적인 <code>import ... from ...</code>은 문서의 <strong>맨 꼭대기(최상단)</strong>에만 적어야 해서 조건문(<code>if</code>) 안에 넣을 수 없습니다.<br>
@@ -601,7 +601,7 @@ async function loadAdminModule(user) {
   <h2>10. 모듈 경로 규칙</h2>
 </div>
 
-### 1) 상대 경로 (Relative Path)
+**📝 상대 경로 (Relative Path)**
 
 현재 내가 작업 중인 파일을 기준으로 다른 파일을 찾는 방법입니다. 점(`.`)의 개수가 핵심입니다.
 
@@ -616,7 +616,7 @@ import { a } from './utils.js';
 import { b } from '../api.js';
 ```
 
-### 2) 절대/패키지 경로 (Package Path)
+**📝 절대/패키지 경로 (Package Path)**
 
 `npm`으로 설치한 라이브러리(node_modules)를 가져올 때는
 
@@ -630,7 +630,7 @@ import React from 'react';
 import lodash from 'lodash';
 ```
 
-### 3) 확장자 규칙 (.js)
+**📝 확장자 규칙 (.js)**
 
 어떤 환경에서 개발하느냐에 따라 `.js`를 붙이는 규칙이 다릅니다.
 
@@ -660,7 +660,7 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
   <h2>11. CommonJS vs ES Modules</h2>
 </div>
 
-### 1) 개념 비교: 과거와 현재
+**🆚 개념 비교: 과거와 현재**
 
 자바스크립트 모듈 시스템은 크게
 
@@ -682,7 +682,7 @@ import App from './App';    // ✅ .js 생략 가능 (도구가 처리해줌)
   단순히 "기다리지 않고 다음 일을 처리한다"는 의미의 비동기와는 구분해서 이해해야 합니다.
 </div>
 
-### 2) 코드 비교
+**🆚 코드 비교**
 
 코드를 보면 모양이 확연히 다릅니다.
 
@@ -706,7 +706,7 @@ export const add = ...;
 import { add } from './math.js';
 ```
 
-### 3) 💡 결론 (핵심)
+**💡 결론 (핵심)**
 
 <div class="wda-callout wda-cs">
   "여러분은 ES Modules (import/export)만 확실히 알면 됩니다!"<br><br>
@@ -721,12 +721,12 @@ import { add } from './math.js';
   <h2>12. 실무 패턴: Mixed Export (같이 쓰기)</h2>
 </div>
 
-### 1) 개념: "메인 요리와 반찬을 한 번에!"
+**📌 개념: "메인 요리와 반찬을 한 번에!"**
 
 하나의 파일에서 **주인공(Default)**과 **공구함(Named)** 방식을 동시에 사용하는 패턴입니다.
 보통 파일의 핵심 기능은 `Default`로, 부가적인 유틸리티나 설정값은 `Named`로 내보냅니다.
 
-### 2) 내보내기 (Export) 예시
+**🧪 내보내기 (Export) 예시**
 
 리액트 라이브러리가 대표적인 예시입니다.
 
@@ -744,7 +744,7 @@ export const useState = ...;
 export const useEffect = ...;
 ```
 
-### 3) 가져오기 (Import) 방법
+**📝 가져오기 (Import) 방법**
 
 가장 중요한 문법입니다. **콤마(`,`)**를 사용하여 두 가지를 한 줄에 가져옵니다.
 
@@ -771,7 +771,7 @@ import React, { useState, useEffect } from 'react';
   <h2>13. 심화: Tree Shaking (트리 쉐이킹)</h2>
 </div>
 
-### 1) 개념: "죽은 낙엽 털어내기"
+**📌 개념: "죽은 낙엽 털어내기"**
 
 나무를 흔들어서 죽은 낙엽을 떨어뜨리듯,
 
@@ -779,7 +779,7 @@ import React, { useState, useEffect } from 'react';
 
 - **목적:** 파일 용량을 줄여서 웹사이트 로딩 속도를 빠르게 만듭니다.
 
-### 2) 번들러(Webpack/Vite)의 마음
+**⚙️ 번들러(Webpack/Vite)의 마음**
 
 번들러는 코드를 포장할 때 다음과 같이 생각하며 불필요한 부품을 뺍니다.
 
@@ -788,7 +788,7 @@ import React, { useState, useEffect } from 'react';
   그럼 안 쓰는 <strong>saw(톱)</strong>는 최종 파일에서 빼버려야지! 용량을 줄여야 하니까."
 </div>
 
-### 3) 왜 Named Export가 유리할까?
+**🆚 왜 Named Export가 유리할까?**
 
 트리 쉐이킹이 잘 작동하려면 **"무엇을 쓰고 무엇을 안 쓰는지"**가 명확해야 합니다.
 
@@ -863,7 +863,7 @@ import React, { useState, useEffect } from 'react';
   <h2>✅ 핵심 요약</h2>
 </div>
 
-### 1) 모듈 시스템 총정리
+**🧠 모듈 시스템 총정리**
 
 <table class="wda-summary-table">
   <tr>
@@ -909,7 +909,7 @@ import React, { useState, useEffect } from 'react';
   </tr>
 </table>
 
-### 2) Named vs Default 비교
+**🆚 Named vs Default 비교**
 
 <table class="wda-summary-table">
   <tr>

@@ -66,7 +66,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. React 생명주기 한눈에 보기</h2>
 
-### 1) Mounting (탄생) 🌱
+**⚙️ Mounting (탄생) 🌱**
 
 **"컴포넌트가 처음 화면에 나타나는 단계입니다."**
 
@@ -86,7 +86,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </ul>
 </div>
 
-### 2) Updating (변화) 🔄
+**⚙️ Updating (변화) 🔄**
 
 **"데이터(Props, State)가 바뀌어 갱신되는 단계입니다."**
 
@@ -106,7 +106,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <img src="/images/content/react/appendix-lifecycle/react-appendix-lifecycle-updating-flow.png" alt="Updating 흐름: Props/State 변경 → DOM 업데이트(Re-render) → Cleanup 실행(이전) → Effect 실행(새것)" style="display:block;width:100%;max-width:260px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:260px;white-space:nowrap;">[그림] Updating(변화) 단계의 실행 순서</div>
 
-### 3) Unmounting (죽음) 💀
+**⚙️ Unmounting (죽음) 💀**
 
 **"컴포넌트가 화면에서 사라지는 단계입니다."**
 
@@ -126,7 +126,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>2. Mounting : 탄생의 순간</h2>
 
-### 1) 실행 단계 (Process)
+**⚙️ 실행 단계 (Process)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">1. 함수 본문 실행 (Rendering)</div><div class="wda-fcard-dsc">컴포넌트 내부의 자바스크립트 로직이 위에서부터 아래로 실행됩니다. 최종적으로 JSX를 반환(Return)합니다.</div></div>
@@ -169,7 +169,7 @@ export default UserProfile;
 
 <h2>3. Updating : 변화와 갱신</h2>
 
-### 1) 실행 과정 (Process)
+**⚙️ 실행 과정 (Process)**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">변경 감지</div><div class="wda-sdsc"><code>props</code>나 <code>state</code>가 변경되면 업데이트 과정이 시작됩니다.</div></div></div>
@@ -212,12 +212,12 @@ useEffect(() => {
 
 <h2>4. Unmounting : 마지막 정리</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"Good Bye, Component! 👋"**
 컴포넌트가 더 이상 화면에 필요 없게 되어 사라지는 순간입니다. 이때 우리가 `useEffect`의 `return` 문에 작성해둔 **Cleanup 함수가 마지막으로 실행**됩니다.
 
-### 2) 반드시 정리해야 할 것들 (Checklist)
+**⚠️ 반드시 정리해야 할 것들 (Checklist)**
 
 그냥 두면 계속 살아남아 문제를 일으키는 녀석들입니다.
 
@@ -228,7 +228,7 @@ useEffect(() => {
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">📚 라이브러리</div><div class="wda-fcard-dsc">외부 라이브러리 인스턴스 (지도, 차트 등)</div></div>
 </div>
 
-### 3) 정리하지 않으면? (Consequences)
+**⚠️ 정리하지 않으면? (Consequences)**
 
 <div class="wda-callout wda-cw">
   <p><strong>"메모리 누수(Memory Leak) 발생! 🚨"</strong></p>
@@ -239,7 +239,7 @@ useEffect(() => {
 
 <h2>5. Class vs Hooks 비교</h2>
 
-### 1) 코드 대응표 (Mapping)
+**🆚 코드 대응표 (Mapping)**
 
 과거 클래스 컴포넌트의 생명주기 메서드 3개가 `useEffect` 하나로 통합되었습니다.
 
@@ -253,7 +253,7 @@ useEffect(() => {
 | **업데이트** | `componentDidUpdate` | `useEffect(..., [deps])` | **deps(의존성 배열)**에 있는 값이 변할 때마다 실행됩니다. |
 | **언마운트** | `componentWillUnmount` | `return () => { ... }` | `useEffect` 안에서 함수를 **반환(Return)**하면, 그 함수가 뒷정리(Cleanup) 역할을 합니다. |
 
-### 2) 핵심 철학의 변화 (Paradigm Shift)
+**🆚 핵심 철학의 변화 (Paradigm Shift)**
 
 이 부분이 가장 중요합니다! 단순히 문법만 바뀐 게 아니라 **생각하는 방식**이 바뀌었습니다.
 
@@ -271,12 +271,12 @@ useEffect(() => {
 
 <h2>6. 주의사항 : Strict Mode</h2>
 
-### 1) 문제 상황 (Issue)
+**⚠️ 문제 상황 (Issue)**
 
 **"콘솔이 두 번 찍혀요! 😭"**
 `useEffect` 안에 `console.log`를 한 번만 썼는데, 브라우저 콘솔을 보면 **똑같은 로그가 두 번 연속**으로 찍혀있는 현상을 발견하게 됩니다.
 
-### 2) 원인 (Cause)
+**⚠️ 원인 (Cause)**
 
 **"React가 고의로 두 번 실행시킨 것입니다."**
 개발 환경(Development Mode)에서 리액트는 컴포넌트의 **순수성(Purity)** 을 보장하고, **메모리 누수** 같은 잠재적인 버그를 미리 찾기 위해 일부러 Effect를 **두 번** 실행합니다.
@@ -292,13 +292,13 @@ useEffect(() => {
   <p>다만 이 과정에서 이벤트 리스너가 중복 등록되거나 타이머가 계속 남는다면, Strict Mode가 문제가 아니라 cleanup 코드가 빠진 것이므로 cleanup을 추가해야 합니다.</p>
 </div>
 
-### 3) 해결책 (Solution)
+**💡 해결책 (Solution)**
 
 **"정상적인 동작이니 안심하세요."**
 이 현상은 **오직 개발 모드(Dev)에서만** 발생하며, 실제 사용자에게 배포하는 **프로덕션(Production) 빌드에서는 한 번만 실행**됩니다.  
 코드를 고치려고 애쓰지 않으셔도 됩니다.
 
-### 4) 왜 이렇게 하나요? (Purpose)
+**💡 왜 이렇게 하나요? (Purpose)**
 
 **"Cleanup 테스트를 위해서입니다."**
 
@@ -310,7 +310,7 @@ useEffect(() => {
 
 <h2>7. ✅ 핵심 요약</h2>
 
-### 1) Lifecycle Phases (생명주기 3단계)
+**🧠 Lifecycle Phases (생명주기 3단계)**
 
 컴포넌트의 인생은 크게 3단계로 나뉩니다.
 
@@ -320,7 +320,7 @@ useEffect(() => {
   <div class="wda-fcard"><div class="wda-fcard-ttl">🗑️ Unmount (죽음)</div><div class="wda-fcard-dsc">컴포넌트가 화면에서 사라지기 직전 단계입니다. 메모리 누수를 막기 위한 정리(Cleanup) 작업을 수행합니다.</div></div>
 </div>
 
-### 2) useEffect Mapping (코드 구현)
+**🧠 useEffect Mapping (코드 구현)**
 
 Hooks는 이 모든 과정을 **`useEffect`라는 하나의 API**로 통합하여 관리합니다.
 

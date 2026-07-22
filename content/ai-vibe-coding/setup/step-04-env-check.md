@@ -75,7 +75,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 📖 개념 설명
 
-### 1. 프로젝트 디렉토리 구조 확인
+**📁 프로젝트 디렉토리 구조 확인**
 
 VSCode를 실행하여 setup 단계에서 생성된 프로젝트 구조를 눈으로 확인합니다.
 
@@ -161,13 +161,13 @@ my_ai_web/
 
 ## 💻 예제 코드
 
-### 2. Claude 환경 및 문서 시스템 확인
+**📝 Claude 환경 및 문서 시스템 확인**
 
-#### ① PowerShell 터미널 열기
+**✅ PowerShell 터미널 열기**
 
 VSCode에서 **Terminal → New Terminal** 을 선택하여 PowerShell 터미널을 엽니다.
 
-#### ② lecture1 디렉토리로 이동
+**✅ lecture1 디렉토리로 이동**
 
 프로젝트 작업을 위해 lecture1 디렉토리로 이동합니다.
 
@@ -175,7 +175,7 @@ VSCode에서 **Terminal → New Terminal** 을 선택하여 PowerShell 터미널
 cd lecture1
 ```
 
-#### ③ Claude MCP 모드로 실행
+**✅ Claude MCP 모드로 실행**
 
 MCP 설정을 인식하는 모드로 Claude Code를 실행합니다.
 
@@ -185,7 +185,7 @@ claude --dangerously-skip-permissions
 
 ---
 
-### 3. 상태 점검 프롬프트
+**🧪 상태 점검 프롬프트**
 
 Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 상태를 확인합니다.
 
@@ -262,7 +262,7 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 
 ## ✅ 핵심 요약
 
-### 4. 예상 결과
+**💡 예상 결과**
 
 모든 환경이 정상적으로 설정되었다면 다음과 같은 결과를 확인할 수 있습니다.
 

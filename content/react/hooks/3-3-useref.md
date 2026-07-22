@@ -65,7 +65,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. useRef란?</h2>
 
-### 1) 정의 (Definition)
+**📌 정의 (Definition)**
 
 <div class="wda-callout wda-ci">
   <p><strong>"렌더링을 유발하지 않고 값을 저장할 수 있는 변경 가능한 저장소입니다."</strong></p>
@@ -96,7 +96,7 @@ function MyComponent() {
 }
 ```
 
-### 3) 핵심 구성 요소
+**📌 핵심 구성 요소**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">ref 객체</div><div class="wda-fcard-dsc"><code>useRef</code>를 호출하면 반환되는 값은 항상 <code>{ current: 값 }</code> 형태의 객체입니다.</div></div>
@@ -118,7 +118,7 @@ function MyComponent() {
 
 <h2>2. useRef 문법과 사용법 (Syntax & Usage)</h2>
 
-### 1) 3단계 핵심 동작
+**⚙️ 3단계 핵심 동작**
 
 `useRef`를 사용하는 과정은 크게 **선언(만들기) → 접근(읽기) → 수정(쓰기)** 의 3단계로 나뉩니다.
 
@@ -168,7 +168,7 @@ function Component() {
 
 React 컴포넌트 안에서 데이터를 저장하는 방식은 크게 3가지가 있는데, 각각의 특징과 한계가 있습니다.
 
-### 1) 일반 변수 (`let` / `const`) : 기억상실증 🤯
+**🆚 일반 변수 (`let` / `const`) : 기억상실증 🤯**
 
 ```jsx
 let count = 0; 
@@ -177,7 +177,7 @@ let count = 0;
 
 **문제점**: 컴포넌트(함수)가 다시 실행(리렌더링)될 때마다 변수가 다시 선언되므로, 저장했던 값이 날아가고 초기화됩니다. 값을 유지할 수 없습니다.
 
-### 2) 상태 (`useState`) : 과한 반응 📢
+**🆚 상태 (`useState`) : 과한 반응 📢**
 
 ```jsx
 const [count, set] = useState(0);
@@ -187,7 +187,7 @@ const [count, set] = useState(0);
 
 **문제점**: 값은 잘 기억하지만, 값이 바뀔 때마다 무조건 화면을 다시 그립니다(리렌더링). 화면에 보여줄 필요가 없는 데이터(예: 타이머 ID) 때문에 렌더링이 일어나는 것은 비효율적입니다.
 
-### 3) 해결책 (`useRef`) : 조용한 천재 🤫
+**🆚 해결책 (`useRef`) : 조용한 천재 🤫**
 
 ```jsx
 const count = useRef(0);
@@ -243,7 +243,7 @@ function TextInput() {
 export default TextInput;
 ```
 
-### 2) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">ref={inputRef}</div><div class="wda-fcard-dsc">이 속성을 적는 순간, 리액트는 화면에 <code>&lt;input&gt;</code> 태그를 그릴 때 해당 태그(DOM 요소)를 <code>inputRef.current</code>에 쏙 넣어줍니다.</div></div>
@@ -302,7 +302,7 @@ function SearchForm() {
 export default SearchForm;
 ```
 
-### 2) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">useEffect와 조합</div><div class="wda-fcard-dsc">앞선 예제(버튼 클릭)와 달리, 이번에는 화면이 나타나자마자(Mount) 자동으로 포커스를 주기 위해 <code>useEffect</code>를 사용했습니다.</div></div>
@@ -353,7 +353,7 @@ function MessageList({ messages }) {
 export default MessageList;
 ```
 
-### 2) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">빈 div를 타겟으로 사용</div><div class="wda-fcard-dsc">스크롤 바의 높이를 수학적으로 계산(<code>scrollTop = scrollHeight</code>)하는 복잡한 방식 대신, "목록의 맨 끝에 보이지 않는 점(div)을 찍고, 거기로 가라"고 명령하는 아주 영리한 패턴입니다.</div></div>
@@ -483,7 +483,7 @@ export default VideoPlayer;
 
 이 장은 **"값이 바뀔 때 화면이 깜빡여야(다시 그려져야) 하는가?"** 를 기준으로 `useState`와 `useRef`를 구분하는 가장 중요한 개념을 설명합니다.
 
-### 1) useState : 렌더링 O (화면 갱신)
+**🆚 useState : 렌더링 O (화면 갱신)**
 
 값이 변하면 리액트에게 "화면 다시 그려!"라고 알립니다.
 
@@ -503,7 +503,7 @@ function Counter() {
 }
 ```
 
-### 2) useRef : 렌더링 X (조용한 변경)
+**🆚 useRef : 렌더링 X (조용한 변경)**
 
 값이 변해도 리액트는 모른 척 넘어갑니다. 화면은 그대로 유지됩니다.
 
@@ -523,7 +523,7 @@ function Counter() {
 }
 ```
 
-### 3) 🧭 선택 가이드
+**💡 🧭 선택 가이드**
 
 <div class="wda-callout wda-ci">
   <p><strong>화면에 표시할 값</strong> 👉 <code>useState</code> (예: 카운터 숫자, 입력창 내용, 게시글 목록)<br>
@@ -534,7 +534,7 @@ function Counter() {
 
 <h2>9. 이전 값 기억하기</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"렌더링 후 저장 = 다음 번엔 과거의 값"**
 `useEffect`가 **화면이 다 그려진 뒤에 실행된다**는 점을 이용한 고급 패턴입니다. 현재의 값을 `ref`에 저장해두면, 다음 렌더링 때 그 값은 **'직전 값(Previous Value)'** 이 됩니다.
@@ -566,7 +566,7 @@ function Counter() {
 }
 ```
 
-### 3) 핵심 동작 순서 (Flow)
+**⚙️ 핵심 동작 순서 (Flow)**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">렌더링 (Render)</div><div class="wda-sdsc">화면에 <code>현재: 1</code>, <code>이전: 0</code>을 그립니다. (아직 Effect 실행 전)</div></div></div>
@@ -586,7 +586,7 @@ function Counter() {
 
 <h2>10. 변수 관리 (Stopwatch)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"렌더링에 영향을 주지 않는 변수 저장소"**
 컴포넌트 내에서 **값이 바뀌어도 화면을 다시 그릴(Re-render) 필요가 없는 데이터**를 관리할 때 `useRef`를 사용합니다. 가장 대표적인 예시가 바로 `setInterval`의 **타이머 ID**입니다.
@@ -635,7 +635,7 @@ function Stopwatch() {
 export default Stopwatch;
 ```
 
-### 3) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">intervalRef (저장소)</div><div class="wda-fcard-dsc"><code>setInterval</code>이 반환하는 고유 ID(숫자)를 <code>intervalRef.current</code>에 보관합니다.</div></div>
@@ -656,14 +656,14 @@ export default Stopwatch;
 
 <h2>11. 잠깐! 왜 여기서 setInterval을 쓰나요?</h2>
 
-### 1) 타이머 함수 선택 가이드
+**🆚 타이머 함수 선택 가이드**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">🥁 setInterval (메트로놈)</div><div class="wda-fcard-dsc"><strong>동작</strong>: "1초마다 계속 울려라" (설정한 간격으로 무한 반복)<br><strong>목적</strong>: 반복 실행 (Loop)<br><strong>예시</strong>: 스톱워치, 시계, 카운트다운</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">⏳ setTimeout (모래시계)</div><div class="wda-fcard-dsc"><strong>동작</strong>: "1초 뒤에 한 번만 울려라" (설정한 시간 뒤에 1회 실행)<br><strong>목적</strong>: 지연 실행 (Delay)<br><strong>예시</strong>: 알림 창 닫기, 검색어 입력 대기(디바운싱)</div></div>
 </div>
 
-### 2) Q. setTimeout을 계속 부르면 똑같지 않나요? ("이어달리기")
+**🆚 Q. setTimeout을 계속 부르면 똑같지 않나요? ("이어달리기")**
 
 **답변**: 네, `useEffect`나 재귀 호출을 이용하면 비슷하게 동작합니다. 하지만 용도에 따라 선택이 달라집니다.
 
@@ -711,7 +711,7 @@ function useIsMounted() {
 }
 ```
 
-### 2) 활용 사례 (Use Case)
+**💡 활용 사례 (Use Case)**
 
 **"비동기 작업 후, 컴포넌트 생사 확인"**
 API 요청을 보냈는데 응답이 오기 전에 사용자가 **페이지를 이동(언마운트)** 해버린 경우를 방지합니다.
@@ -773,7 +773,7 @@ function useClickOutside(callback) {
 }
 ```
 
-### 2) 활용 사례 (Use Case)
+**💡 활용 사례 (Use Case)**
 
 **"모달 창 닫기 구현의 국룰 패턴"**
 
@@ -837,7 +837,7 @@ function CanvasDraw() {
 }
 ```
 
-### 2) DOM 직접 제어의 정석
+**📌 DOM 직접 제어의 정석**
 
 **"리액트의 통제권 밖과 소통하는 연결 고리"**
 리액트 렌더링 사이클 외부에서 동작하는 시스템을 연동할 때 `ref`는 필수적인 다리 역할을 합니다.
@@ -863,7 +863,7 @@ function CanvasDraw() {
 
 <h2>15. 초급 패턴 : 토글 포커스 (Toggle Focus)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"조건부 렌더링 요소 포커스"**
 버튼을 누르면 숨겨져 있던 입력창(`input`)이 나타나면서, 동시에 **자동으로 커서가 깜빡이게(Focus)** 만드는 UI 패턴입니다.
@@ -906,7 +906,7 @@ function ToggleFocus() {
 }
 ```
 
-### 3) 핵심 테크닉 : `setTimeout(..., 0)`
+**💡 핵심 테크닉 : `setTimeout(..., 0)`**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">문제점</div><div class="wda-fcard-dsc"><code>setIsEnabled(true)</code>를 호출했다고 해서 바로 화면에 <code>&lt;input&gt;</code> 태그가 생기는 것이 아닙니다. 리액트가 화면을 그리는 데는 아주 짧지만 시간이 걸립니다.</div></div>
@@ -964,7 +964,7 @@ function ToggleFocusEffect() {
 export default ToggleFocusEffect;
 ```
 
-### 3) 동작 원리
+**⚙️ 동작 원리**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">State 변경</div><div class="wda-sdsc">버튼을 누르면 <code>setIsOpen(true)</code>가 실행되어 리액트가 화면을 다시 그립니다.</div></div></div>
@@ -987,7 +987,7 @@ export default ToggleFocusEffect;
 
 <h2>17. (심화) 자식 컴포넌트 DOM 제어 (forwardRef)</h2>
 
-### 1) 개념 (Concept)
+**📌 개념 (Concept)**
 
 **"부모가 자식의 내장 기관(DOM)을 직접 제어하고 싶을 때"**
 리액트에서 `ref`는 일반적인 `props`처럼 자식에게 그냥 전달되지 않습니다. 자식 컴포넌트가 자신의 내부 DOM 요소(예: `<input>`)를 부모에게 공개하려면, **React 18 이하(기존 방식)** 에서는 반드시 **`forwardRef`** 라는 특수한 함수로 자신을 감싸야 합니다.
@@ -1024,7 +1024,7 @@ function Parent() {
 export default Parent;
 ```
 
-### 3) 핵심 규칙
+**📝 핵심 규칙**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">전달 불가</div><div class="wda-fcard-dsc">일반적인 함수형 컴포넌트는 <code>ref</code>라는 속성을 받지 못하고 무시합니다.</div></div>
@@ -1053,7 +1053,7 @@ export default Parent;
 
 <h2>18. (심화) 동적 Refs 관리 (List)</h2>
 
-### 1) 문제점과 해결책
+**⚠️ 문제점과 해결책**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">문제점</div><div class="wda-fcard-dsc"><code>const ref = useRef(null)</code> 방식은 <strong>단 하나의 DOM 요소</strong>만 담을 수 있습니다. 따라서 반복문(<code>map</code>)으로 생성되는 <strong>여러 개의 목록 아이템(li)</strong>을 각각 제어하기엔 부족합니다.</div></div>
@@ -1111,7 +1111,7 @@ function ItemList({ items }) {
 export default ItemList;
 ```
 
-### 3) 두 가지 방법 비교 분석
+**🆚 두 가지 방법 비교 분석**
 
 상황에 맞춰 더 적절한 방법을 선택하세요.
 
@@ -1123,7 +1123,7 @@ export default ItemList;
 | **추천 상황** | 목록의 **추가/삭제/순서 변경**이 잦을 때 | 목록이 고정되어 있고 **단순할 때** |
 | **접근 방법** | `itemsRef.current.get(3)` (ID가 3인 요소) | `simpleRefs.current[2]` (3번째 요소) |
 
-### 4) 핵심 원리 : Callback Ref
+**⚙️ 핵심 원리 : Callback Ref**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">동작 원리</div><div class="wda-fcard-dsc"><code>ref={(node) => ...}</code> 처럼 함수를 전달하면, 리액트는 해당 태그가 화면에 그려질 때 그 DOM 노드를 함수의 인자(<code>node</code>)로 넣어줍니다.</div></div>
@@ -1147,7 +1147,7 @@ export default ItemList;
   </ul>
 </div>
 
-### 5) 핵심 차이 : Key(ID)로 찾느냐 vs 순서(Index)로 찾느냐
+**🆚 핵심 차이 : Key(ID)로 찾느냐 vs 순서(Index)로 찾느냐**
 
 **Map 방식 (객체 성격)** — "이름표(ID)를 붙여서 관리"
 
@@ -1183,7 +1183,7 @@ export default ItemList;
 ]
 ```
 
-### 6) 왜 Map(객체) 방식을 더 권장하나요?
+**💡 왜 Map(객체) 방식을 더 권장하나요?**
 
 **"삭제(Delete)" 상황 때문입니다.**
 
@@ -1206,7 +1206,7 @@ export default ItemList;
 
 <h2>19. useRef vs useState 정리</h2>
 
-### 1) 핵심 비교표
+**🆚 핵심 비교표**
 
 두 훅의 가장 큰 차이는 "값이 변했을 때 리액트가 화면을 다시 그리느냐(Rendering)"에 있습니다.
 
@@ -1244,7 +1244,7 @@ const timerIdRef = useRef(null);
 
 <h2>20. 주의사항 : ref 사용 시 금기사항</h2>
 
-### 1) 화면 갱신이 안 됩니다
+**⚠️ 화면 갱신이 안 됩니다**
 
 **"ref는 알람을 울리지 않습니다."**
 `ref.current`의 값을 아무리 바꿔도 리액트는 그 사실을 모릅니다. 따라서 화면에 숫자가 바로 바뀌길 기대하면 안 됩니다.
@@ -1269,7 +1269,7 @@ function Bad() {
 }
 ```
 
-### 2) 렌더링 도중에 값을 바꾸면 안 됩니다
+**⚠️ 렌더링 도중에 값을 바꾸면 안 됩니다**
 
 **"계산 중에 장부를 조작하지 마세요."**
 리액트가 컴포넌트 함수를 실행해서 화면을 그리고 있는 도중(Render Phase)에 `ref` 값을 수정하면 치명적인 버그가 발생할 수 있습니다.

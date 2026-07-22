@@ -67,7 +67,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <h2>1. Side Effect란?</h2>
 
-### 1) 순수 함수 (Pure Function)
+**📌 순수 함수 (Pure Function)**
 
 입력값(매개변수)이 같으면 **항상 똑같은 결과값**을 반환하며, 함수 외부의 상태를 변경하지 않는 함수입니다.
 
@@ -81,7 +81,7 @@ function add(a, b) {
 // add(1, 2)는 언제나 3을 반환함 (예측 가능)
 ```
 
-### 2) Side Effect (부수 효과)
+**📌 Side Effect (부수 효과)**
 
 함수가 실행되면서 **함수 외부의 상태를 변경**하거나, 외부와 상호작용하여 **결과를 예측할 수 없는** 경우입니다.
 
@@ -109,7 +109,7 @@ addCount(1);
 
 <h2>2. useEffect 기본 문법</h2>
 
-### 1) 기본 구조
+**📝 기본 구조**
 
 ```jsx
 import { useEffect } from 'react';
@@ -124,14 +124,14 @@ function MyComponent() {
 }
 ```
 
-### 2) 핵심 구성 요소
+**📌 핵심 구성 요소**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">첫 번째 인자 (콜백 함수)</div><div class="wda-fcard-dsc">실행할 구체적인 코드를 작성합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">두 번째 인자 (의존성 배열)</div><div class="wda-fcard-dsc">이 배열 안의 값이 변할 때만 효과를 재실행합니다. (언제 실행할지 결정)</div></div>
 </div>
 
-### 3) 실행 시점
+**⚙️ 실행 시점**
 
 **렌더링 완료 후**: `useEffect`는 렌더링 결과가 화면에 반영된 뒤 실행됩니다. 따라서 API 요청, 타이머, 이벤트 리스너 등록처럼 렌더링 자체와 분리해야 하는 작업을 처리할 때 사용합니다.
 
@@ -155,14 +155,14 @@ function MyComponent() {
 
 React 컴포넌트의 주 업무는 "화면을 그리는 것(UI 렌더링)"입니다. 데이터 요청이나 타이머 같은 무거운 작업(Side Effect)이 렌더링 과정을 방해하지 않도록 하기 위해 `useEffect`가 필요합니다.
 
-### 1) 화면이 멈추는 것을 방지 (Non-blocking)
+**💡 화면이 멈추는 것을 방지 (Non-blocking)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">직접 작성 시 (Bad)</div><div class="wda-fcard-dsc">데이터 요청 같은 Side Effect를 렌더링 과정에 직접 섞으면, 렌더링이 반복될 때 요청도 반복되거나 상태 업데이트와 맞물려 무한 루프가 생길 수 있습니다.</div></div>
   <div class="wda-fcard wda-fcard-pro"><div class="wda-fcard-ttl">useEffect 사용 시 (Good)</div><div class="wda-fcard-dsc"><code>useEffect</code>는 이런 작업을 렌더링 이후의 정해진 시점에 실행하도록 분리해 줍니다.<br>일단 화면(UI)을 먼저 보여주고, 데이터 요청은 그 이후에 처리합니다.</div></div>
 </div>
 
-### 2) 실행 시점 제어 (Control Timing)
+**💡 실행 시점 제어 (Control Timing)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">직접 작성 시 (Bad)</div><div class="wda-fcard-dsc">컴포넌트가 리렌더링 될 때마다 API를 계속 호출합니다.<br>서버에 과부하가 걸리고 비용이 발생합니다.</div></div>
@@ -201,7 +201,7 @@ React 컴포넌트의 주 업무는 "화면을 그리는 것(UI 렌더링)"입�
 
 <h2>5. 의존성 배열 1: 빈 배열 []</h2>
 
-### 1) 동작 원리: "딱 한 번만 실행"
+**⚙️ 동작 원리: "딱 한 번만 실행"**
 
 `useEffect`의 두 번째 인자로 빈 배열(`[]`)을 전달하면, 이 코드는 컴포넌트가 **처음 화면에 나타날 때(마운트) 단 한 번만 실행**되고, 그 이후에는 절대 다시 실행되지 않습니다.
 
@@ -216,7 +216,7 @@ useEffect(() => {
 }, []); // <-- 의존성 배열이 비어있음
 ```
 
-### 3) 실행 흐름
+**⚙️ 실행 흐름**
 
 <div class="wda-steps">
   <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">컴포넌트 렌더링</div><div class="wda-sdsc">화면이 그려짐</div></div></div>
@@ -227,7 +227,7 @@ useEffect(() => {
 <img src="/images/content/react/3-2/react-3-2-mount-once-flow.png" alt="빈 의존성 배열 실행 흐름: 컴포넌트 렌더링 → Effect 실행! → 이후 재렌더링 시 무시됨" style="display:block;width:100%;max-width:200px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:200px;white-space:nowrap;">[그림] 빈 배열 의존성 — 마운트 시 1회만 실행</div>
 
-### 4) 언제 쓰나요? (Best Practice)
+**💡 언제 쓰나요? (Best Practice)**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">API 데이터 초기 로딩</div><div class="wda-fcard-dsc">페이지 들어오자마자 서버에서 데이터 가져올 때</div></div>
@@ -246,7 +246,7 @@ useEffect(() => {
 
 <h2>6. 의존성 배열 2: 값이 있을 때 [deps]</h2>
 
-### 1) 동작 원리: "값이 변하면 실행"
+**⚙️ 동작 원리: "값이 변하면 실행"**
 
 `useEffect`의 의존성 배열에 변수(예: `count`)를 넣으면, **"처음 렌더링 될 때"** 그리고 **"그 변수의 값이 바뀔 때마다"** 이펙트가 실행됩니다.
 
@@ -262,7 +262,7 @@ useEffect(() => {
 }, [count]); // <-- count를 지켜봄 (주시 대상)
 ```
 
-### 3) 실행 흐름 비교
+**🆚 실행 흐름 비교**
 
 | 렌더링 회차 | `count` 값 | 동작 여부 | 비고 |
 | --- | --- | --- | --- |
@@ -273,7 +273,7 @@ useEffect(() => {
 <img src="/images/content/react/3-2/react-3-2-dependency-render-sequence.png" alt="렌더링 회차별 count 값과 Effect 실행 여부: Render 1(count 0, Effect 실행 초기) → Render 2(count 0, 건너뜀 값 동일) → Render 3(count 1, Effect 실행 변경됨)" style="display:block;width:100%;max-width:380px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
 <div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:380px;white-space:nowrap;">[그림] 의존성 값 변경에 따른 렌더링 회차별 실행 여부</div>
 
-### 4) 비교 원리 (Object.is)
+**🆚 비교 원리 (Object.is)**
 
 React는 렌더링 전/후의 의존성 값을 **`Object.is()`** 메서드를 사용하여 얕은 비교(Shallow Compare)를 수행합니다. 이 결과가 `false`(다르다)일 때만 Effect를 다시 실행하여 효율성을 높입니다.
 
@@ -288,11 +288,11 @@ React는 렌더링 전/후의 의존성 값을 **`Object.is()`** 메서드를 �
 
 <h2>7. 의존성 배열 3: 생략 시 (주의!)</h2>
 
-### 1) 동작 원리: "매 렌더링마다 실행"
+**⚙️ 동작 원리: "매 렌더링마다 실행"**
 
 `useEffect`의 두 번째 인자인 배열을 아예 생략하면, 이 코드는 **컴포넌트가 렌더링 될 때마다 무조건 실행**됩니다. 즉, 화면을 고칠 때마다 매번 작동합니다.
 
-### 2) 위험한 이유: 무한 루프 (Infinite Loop)
+**⚠️ 위험한 이유: 무한 루프 (Infinite Loop)**
 
 가장 치명적인 문제는 **무한 루프**에 빠질 수 있다는 점입니다.
 
@@ -310,7 +310,7 @@ useEffect(() => {
 }); // <-- 의존성 배열 없음
 ```
 
-### 3) 권장 사항
+**💡 권장 사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>의존성 배열을 생략하면 매 렌더링마다 Effect가 실행됩니다.</strong><br>React를 사용하는 주된 이유 중 하나는 '필요한 부분만 업데이트하는 최적화'인데, 의존성 배열을 생략하면 그 장점이 사라집니다.</p>
@@ -332,7 +332,7 @@ useEffect(() => {
 
 다음 두 가지 `useEffect` 코드가 **언제 실행되는지** 예측해 보세요.
 
-### 2) Quiz Code
+**🧪 Quiz Code**
 
 **케이스 1**
 
@@ -368,7 +368,7 @@ useEffect(() => {
 
 <h2>9. 마운트 시 실행 (빈 배열)</h2>
 
-### 1) 개념
+**📌 개념**
 
 **빈 배열 `[]` = 처음 나타날 때 1번만 실행**
 컴포넌트가 화면에 처음 나타나는 시점(Mount)에 딱 한 번만 코드를 실행하고 싶다면, 의존성 배열을 비워두면 됩니다.
@@ -407,7 +407,7 @@ export default UserProfile;
 
 <h2>10. 특정 값 변경 시 실행</h2>
 
-### 1) 개념
+**📌 개념**
 
 **`[dep]` = 의존성 값이 변할 때마다 실행**
 `useEffect`의 두 번째 인자인 배열에 변수(예: `query`)를 넣으면, 컴포넌트가 **처음 나타날 때**와 그 **변수의 값이 바뀔 때마다** 코드가 다시 실행됩니다.
@@ -439,7 +439,7 @@ function SearchResults({ query }) {
 export default SearchResults;
 ```
 
-### 3) 핵심 동작 원리
+**⚙️ 핵심 동작 원리**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">감시 대상 지정</div><div class="wda-fcard-dsc"><code>[query]</code>라고 적으면 React에게 "query 값이 바뀌는지 잘 지켜봐줘"라고 요청하는 것입니다.</div></div>
@@ -457,7 +457,7 @@ export default SearchResults;
 
 <h2>11. Cleanup 함수 (뒷정리)</h2>
 
-### 1) 개념
+**📌 개념**
 
 **`return 함수` = 정리 작업 (타이머 해제, 이벤트 제거 등)**
 `useEffect` 안에서 어떤 함수를 **`return` (반환)** 하면, 그 함수는 컴포넌트가 **화면에서 사라질 때(Unmount)** 실행됩니다.
@@ -492,7 +492,7 @@ function Timer() {
 export default Timer;
 ```
 
-### 3) 왜 필요한가요?
+**💡 왜 필요한가요?**
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">메모리 누수 방지</div><div class="wda-fcard-dsc">컴포넌트는 사라졌는데 타이머가 계속 돌아가면 메모리를 잡아먹고 에러를 발생시킵니다.</div></div>
@@ -542,7 +542,7 @@ function PostDetail({ postId }) {
 export default PostDetail;
 ```
 
-### 2) 핵심 포인트
+**📌 핵심 포인트**
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">로딩 상태 관리 (loading)</div><div class="wda-fcard-dsc">데이터를 불러오는 동안 화면이 텅 비어있지 않도록, <code>loading</code> state를 두어 사용자에게 진행 상황을 알려줍니다.</div></div>
@@ -603,7 +603,7 @@ function WindowSize() {
 export default WindowSize;
 ```
 
-### 2) 핵심 포인트 : 짝꿍(Pair) 맞추기
+**📌 핵심 포인트 : 짝꿍(Pair) 맞추기**
 
 <div class="wda-callout wda-cw">
   <p><strong>등록(add)했으면 반드시 제거(remove)해야 합니다.</strong></p>
@@ -657,7 +657,7 @@ function Countdown({ seconds }) {
 export default Countdown;
 ```
 
-### 2) 핵심 동작 원리 (체인 반응)
+**⚙️ 핵심 동작 원리 (체인 반응)**
 
 이 코드는 `setInterval` 대신 **`setTimeout`과 `useEffect`의 의존성 배열**을 이용해 반복 효과를 냅니다.
 
@@ -686,7 +686,7 @@ export default Countdown;
 
 <h2>15. useEffect 주의사항</h2>
 
-### 1) 무한 루프 주의 (Infinite Loop)
+**⚠️ 무한 루프 주의 (Infinite Loop)**
 
 의존성 배열에 있는 값을 Effect 내부에서 변경하면 **"변경 → 실행 → 변경 → 실행"**의 굴레에 빠지게 됩니다.
 
@@ -701,7 +701,7 @@ useEffect(() => {
   <p>여기서 문제는 <code>setCount</code> 자체가 아니라, <code>[count]</code>를 의존성으로 둔 Effect 안에서 다시 <code>count</code>를 변경한다는 점입니다.<br><code>count</code>가 바뀌면 Effect가 다시 실행되고, Effect가 다시 <code>count</code>를 바꾸기 때문에 무한 반복이 됩니다.</p>
 </div>
 
-### 2) 의존성 누락 주의 (Missing Dependency)
+**⚠️ 의존성 누락 주의 (Missing Dependency)**
 
 Effect 내부에서 사용하는 변수(예: `name`)를 의존성 배열에 넣지 않으면, 나중에 그 값이 변해도 Effect가 실행되지 않아 **과거의 값(오래된 데이터)을 참조**하는 버그가 생깁니다.
 
@@ -717,7 +717,7 @@ useEffect(() => {
 }, [name]); // name이 변할 때마다 실행됨
 ```
 
-### 3) 해결책 : ESLint 규칙 활용
+**💡 해결책 : ESLint 규칙 활용**
 
 개발자가 실수로 의존성을 빠뜨리는 것을 막기 위해 **Linter(코드 검사 도구)** 의 도움을 받는 것이 가장 확실합니다.
 
@@ -737,7 +737,7 @@ useEffect(() => {
 
 <h2>16. ⁉️ FAQ</h2>
 
-### 1) Q1. useEffect의 의존성 배열(dependency array)을 빈 배열(`[]`)로 설정하면 언제 실행되나요?
+**🧠 Q1. useEffect의 의존성 배열(dependency array)을 빈 배열(`[]`)로 설정하면 언제 실행되나요?**
 
 **정답: 컴포넌트가 처음 화면에 나타날 때(마운트) 딱 한 번만 실행됩니다.**
 
@@ -747,7 +747,7 @@ useEffect(() => {
   <p>React에게 "이 코드는 어떤 값에도 의존하지 않으니, 처음 렌더링 직후에만 실행하고 그 뒤로는 신경 쓰지 마"라고 알려주는 것입니다.<br>주로 API 호출이나 초기 설정에 사용됩니다.</p>
 </div>
 
-### 2) Q2. 컴포넌트가 언마운트되거나 업데이트되기 직전에 리소스를 정리(clean-up)하려면 어떻게 해야 하나요?
+**🧠 Q2. 컴포넌트가 언마운트되거나 업데이트되기 직전에 리소스를 정리(clean-up)하려면 어떻게 해야 하나요?**
 
 **정답: useEffect 함수 내부에서 정리 작업을 수행하는 함수를 return (반환)하면 됩니다.**
 

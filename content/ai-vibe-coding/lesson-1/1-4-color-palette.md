@@ -175,7 +175,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 💻 실습 진행
 
-### ① 원하는 웹사이트 캡쳐하기
+**✅ 원하는 웹사이트 캡쳐하기**
 
 마음에 드는 웹사이트의 디자인을 스크린샷으로 캡쳐하여 VSCode에 저장합니다.
 
@@ -197,7 +197,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">파일명 입력</div><div class="wda-sdsc">파일명 입력 (예: <code>website-capture.png</code>) — 이미지가 프로젝트 폴더에 자동 저장됩니다.</div></div></div>
 </div>
 
-### ② Claude CLI로 컬러 분석하기
+**✅ Claude CLI로 컬러 분석하기**
 
 저장된 이미지를 Claude CLI (루트 디렉토리 터미널)에 드래그하여 체계적인 컬러 분석을 요청합니다.
 
@@ -244,7 +244,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 실제 웹 개발에 바로 사용할 수 있도록 정확한 Hex 코드로 제공해줘.
 ```
 
-### ③ 디자인 시스템 문서 만들기
+**✅ 디자인 시스템 문서 만들기**
 
 분석 결과를 바탕으로 포트폴리오 프로젝트에 적용할 수 있는 체계적인 디자인 시스템 문서를 생성합니다.
 
