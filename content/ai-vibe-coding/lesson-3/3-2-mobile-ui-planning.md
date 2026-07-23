@@ -60,6 +60,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -227,10 +238,36 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## ✅ 완료 체크리스트
 
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">체크하기 전에</span>
-  아래 항목을 하나씩 확인하며 빠진 내용은 지금 바로 채워보세요. 완벽하지 않아도 괜찮습니다!
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>기획서에는 <strong>앱 이름과 한 줄 소개</strong>를 한 문장으로 설명할 수 있어야 한다.</li>
+    <li><strong>색상 테마와 분위기(디자인 방향성)</strong>를 명확히 정한다.</li>
+    <li>핵심 화면은 <strong>최소 4개(로그인·피드·글쓰기·프로필)</strong>를 기획한다.</li>
+    <li>기능은 <strong>핵심 기능 TOP 3</strong>에 집중한다.</li>
+    <li>완성한 기획서는 <strong>메모장(.txt) 또는 노션</strong>에 저장해 다음 수업(3-3 SNS DB 분석)에서 바로 활용한다.</li>
+  </ul>
 </div>
+
+**🚫 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 처음부터 기능을 많이 넣을수록 좋은 기획이다?</div>
+    <div class="wda-mistake-right">정답: 기능이 많아지면 개발이 어려워진다. <strong>핵심 기능 3가지</strong>에 집중하고, 나머지는 "추가 기능 아이디어"에 메모만 해둔다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 정확한 컬러 코드를 알아야 기획서를 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: 정확한 컬러코드가 없어도 <strong>"따뜻한 오렌지"</strong> 같은 감각적 키워드로 충분하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 완벽하게 기획해야만 다음 단계로 넘어갈 수 있다?</div>
+    <div class="wda-mistake-right">정답: 완벽하지 않아도 괜찮다. <strong>나중에 수정·보완 가능</strong>하니 지금 떠오르는 아이디어부터 적으면 된다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
 
 <div class="wda-steps">
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">앱 이름과 한 줄 소개 작성 완료</div><div class="wda-sdsc">어떤 앱인지 한 문장으로 설명할 수 있나요?</div></div></div>
@@ -243,6 +280,16 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">📁 기획서 저장 방법</span>
   작성한 기획서는 <strong>메모장(.txt) 또는 노션</strong>에 저장해두세요. 이 기획서는 다음 수업인 <strong>3-3 SNS DB 분석</strong>에서 실제 구현할 때 바로 활용됩니다!
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card"><div class="wda-flip-front">개인 기획서에 꼭 포함해야 할 4가지는?</div><div class="wda-flip-back">서비스 기본 정보, 디자인 방향성, 핵심 화면 목록, 핵심 기능 TOP 3다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">기획서 작성 시 기능은 몇 개에 집중해야 하나?</div><div class="wda-flip-back">핵심 기능 3가지에 집중하고, 나머지는 추가 아이디어로만 메모해둔다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">핵심 화면은 최소 몇 개가 필요한가?</div><div class="wda-flip-back">로그인·피드·글쓰기·프로필 화면, 최소 4개다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">색상은 꼭 정확한 코드로 정해야 하나?</div><div class="wda-flip-back">아니다. "따뜻한 오렌지"처럼 감각적 키워드로도 충분하다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">완성한 기획서는 다음 수업에서 어떻게 쓰이나?</div><div class="wda-flip-back">3-3 SNS DB 분석에서 실제 DB 설계와 연결되어 구현에 바로 활용된다.</div></div>
 </div>
 
 <div class="wda-done">

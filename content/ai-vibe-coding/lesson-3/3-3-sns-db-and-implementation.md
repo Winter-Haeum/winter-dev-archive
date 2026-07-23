@@ -62,6 +62,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -318,6 +329,56 @@ SNS 핵심 기능:
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">UI 컴포넌트 구현</div><div class="wda-sdsc">로그인 · 회원가입 · 피드 · 게시물 상세 · 댓글 · 프로필 화면 개발</div></div></div>
 <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">Supabase Auth + CRUD 기능 완성</div><div class="wda-sdsc">회원가입·로그인 · 게시물 작성/삭제 · 댓글 기능 · 프로필 조회 연동</div></div></div>
 <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 자동 배포</div><div class="wda-sdsc">GitHub Actions 워크플로우 설정 → 커밋 푸시 → 배포 완료 URL 안내</div></div></div>
+</div>
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>SNS DB는 최소 <strong>users · posts · comments</strong> 3개 테이블로 구성된다.</li>
+    <li><strong>posts.user_id</strong>는 users 테이블의 id를 참조해 작성자를 식별한다.</li>
+    <li><strong>comments</strong>는 post_id(게시물)와 user_id(작성자) 둘 다로 연결된다.</li>
+    <li>테이블 관계는 모두 <strong>1:N</strong>이다 — 한 사용자가 여러 게시물·댓글을 만들 수 있다.</li>
+    <li>완성한 DB 구조서는 <strong>AI 구현 프롬프트에 그대로 붙여넣어</strong> 활용한다.</li>
+  </ul>
+</div>
+
+**🚫 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: comments 테이블에는 게시물 정보만 연결하면 된다?</div>
+    <div class="wda-mistake-right">정답: comments는 <strong>post_id와 user_id 둘 다</strong> 필요하다 — 어떤 게시물에 누가 남긴 댓글인지 모두 알아야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: DB 구조서 없이 "SNS 만들어줘"라고만 요청해도 된다?</div>
+    <div class="wda-mistake-right">정답: 미리 작성한 <strong>DB 구조서를 프롬프트에 붙여넣어야</strong> AI가 정확한 테이블·관계로 구현한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: id 값은 직접 정해서 입력해야 한다?</div>
+    <div class="wda-mistake-right">정답: id는 <strong>자동으로 생성되는 고유 번호</strong>이므로 직접 입력하지 않는다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-steps">
+<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">users · posts · comments 구조서 작성 완료</div><div class="wda-sdsc">각 테이블의 컬럼과 역할을 설명할 수 있나요?</div></div></div>
+<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">테이블 간 1:N 연결 관계 이해</div><div class="wda-sdsc">user_id · post_id가 어느 테이블을 참조하는지 설명할 수 있나요?</div></div></div>
+<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">Supabase MCP로 테이블 생성 확인</div><div class="wda-sdsc">Supabase 대시보드에서 users · posts · comments 테이블이 보이나요?</div></div></div>
+<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 배포 URL 접속 확인</div><div class="wda-sdsc">회원가입 · 게시물 작성 · 댓글까지 실제로 동작하나요?</div></div></div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card"><div class="wda-flip-front">SNS DB에 필요한 3개 테이블은?</div><div class="wda-flip-back">users, posts, comments다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">posts 테이블의 user_id는 무엇을 하나?</div><div class="wda-flip-back">users 테이블의 id를 참조해 게시물 작성자를 식별한다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">comments 테이블이 참조하는 두 테이블은?</div><div class="wda-flip-back">posts(post_id)와 users(user_id) 두 테이블을 모두 참조한다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">역방향 학습법이란?</div><div class="wda-flip-back">완성된 UI 화면을 먼저 보고, 필요한 DB 구조를 거꾸로 추론해내는 학습 방법이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">작성한 DB 구조서는 언제 쓰이나?</div><div class="wda-flip-back">AI에게 구현을 요청하는 프롬프트에 그대로 붙여넣어 활용한다.</div></div>
 </div>
 
 <div class="wda-done">

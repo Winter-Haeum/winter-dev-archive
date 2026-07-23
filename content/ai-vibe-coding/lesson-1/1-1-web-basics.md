@@ -68,6 +68,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -635,14 +651,80 @@ button:hover {
 
 ## ✅ 핵심 요약
 
-| 개념 | 요약 |
-|------|------|
-| **웹** | HTML + CSS + JS로 구성된 문서·서비스 시스템 |
-| **인터넷 통신** | 요청 → DNS 조회 → 응답 → 렌더링 4단계 |
-| **웹사이트 유형** | 랜딩·홈페이지·쇼핑몰·블로그·SaaS·웹앱 6가지 |
-| **UI** | 사용자가 보고 만지는 인터페이스 요소 |
-| **UX** | 서비스를 이용하며 느끼는 전체 경험 |
-| **16가지 UI 요소** | 버튼·입력창·내비게이션·드롭다운·체크박스·라디오·슬라이더·모달·카드·드래그앤드롭·스크롤·애니메이션·메뉴·사이드바·호버·스와이프 |
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>웹은 <strong>HTML(구조) + CSS(디자인) + JS(동작)</strong>로 구성된다.</li>
+    <li>인터넷 통신은 <strong>요청 → DNS 조회 → 응답 → 렌더링</strong> 4단계로 진행된다.</li>
+    <li>현대적 웹사이트는 <strong>랜딩페이지·홈페이지·쇼핑몰·블로그&위키·SaaS·웹앱</strong> 6가지로 분류된다.</li>
+    <li>UI는 <strong>보이는 요소</strong>, UX는 <strong>느끼는 전체 경험</strong>이다.</li>
+    <li>16가지 현대적 UI 요소(버튼·입력창·내비게이션 등)를 직접 조작하며 익혔다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: UI가 예쁘면 UX도 자동으로 좋아진다?</div>
+    <div class="wda-mistake-right">정답: UI가 좋아도 사용 흐름이 복잡하거나 원하는 기능을 찾기 어려우면 <strong>UX는 낮을 수 있다</strong>. 두 가지는 항상 함께 고려해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: style="color:red"처럼 HTML에 직접 스타일을 넣어도 된다?</div>
+    <div class="wda-mistake-right">정답: 이런 방식은 유지보수가 어려워 <strong>스타일은 별도 CSS 파일로 분리</strong>하는 것이 웹 표준 방식이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 최신 CSS/JS 기능은 모든 브라우저에서 동일하게 동작한다?</div>
+    <div class="wda-mistake-right">정답: 브라우저마다 지원 여부가 달라, 특정 브라우저 전용 최신 기능은 <strong>사용 전 호환성을 확인</strong>해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 웹 구성</div>
+    <div class="wda-formula-block-body"><code>HTML + CSS + JS</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 통신 흐름</div>
+    <div class="wda-formula-block-body"><code>요청 → DNS → 응답 → 렌더링</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · UI/UX</div>
+    <div class="wda-formula-block-body"><code>UI = 보임 · UX = 느낌</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">웹의 3대 구성요소는?</div>
+    <div class="wda-flip-back">HTML(구조) + CSS(디자인) + JS(동작)로 구성된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">인터넷 통신 4단계는?</div>
+    <div class="wda-flip-back">요청 → DNS 조회 → 서버 응답 → 브라우저 렌더링 순서로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">UI와 UX의 차이는?</div>
+    <div class="wda-flip-back">UI는 눈에 보이는 인터페이스 요소, UX는 서비스를 이용하며 느끼는 전체 경험이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">현대적 웹사이트의 6가지 유형은?</div>
+    <div class="wda-flip-back">랜딩페이지·홈페이지·쇼핑몰·블로그&위키·SaaS·웹앱이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">HTML과 CSS를 분리해야 하는 이유는?</div>
+    <div class="wda-flip-back">유지보수가 쉬워지고, 웹 표준 방식이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">브라우저 렌더링 과정은?</div>
+    <div class="wda-flip-back">HTML을 파싱해 DOM 트리를 만들고, CSS를 적용해 레이아웃을 계산한 뒤 화면에 그린다.</div>
+  </div>
+</div>
 
 ---
 

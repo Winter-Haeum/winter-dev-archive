@@ -50,6 +50,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -562,29 +578,87 @@ export default App;
 
 <h2>✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Cleanup</strong></td>
-    <td>create vite 명령어로 생성한 직후에는 불필요한 예제 파일들을 제거하여 프로젝트를 깔끔한 상태로 유지해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>DevTools</strong></td>
-    <td>리액트 개발의 필수 도구입니다. Components 탭에서 계층 구조를 확인하고, Profiler 탭에서 렌더링 성능을 측정할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>StrictMode</strong></td>
-    <td>개발 모드에서 콘솔이 두 번 찍히는 것은 지극히 정상입니다. 잠재적인 버그를 잡기 위한 리액트의 안전장치라는 점을 기억하세요.</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>StrictMode의 두 번 렌더링은 임의로 제거하지 말고 그대로 두는 것이 안전합니다. 성능 최적화는 추측이 아니라 Profiler로 먼저 측정한 뒤 진행합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>새 프로젝트는 Cleanup → DevTools 설치 → Prettier/ESLint 설정 순서로 세팅하면 실수를 줄일 수 있습니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><code>npm create vite</code>로 생성한 직후에는 boilerplate 예제 파일(App.css, react.svg 등)을 정리해 깨끗한 상태로 시작한다.</li>
+    <li>React DevTools의 <strong>Components 탭</strong>은 컴포넌트 트리와 Props/State를 확인·수정할 수 있다.</li>
+    <li><strong>Profiler 탭</strong>은 녹화(Record) → 동작 수행 → 정지(Stop) 순서로 렌더링 성능을 측정한다.</li>
+    <li>Flamegraph 색상은 <strong>회색</strong>(렌더 안 됨, 최적화 성공)이 가장 좋고, <strong>노란색</strong>(느림)일수록 주의가 필요하다.</li>
+    <li>StrictMode는 개발 모드에서만 일부 렌더링/Effect를 의도적으로 한 번 더 실행해 부작용(Side Effect)을 찾아준다. 배포 환경에서는 자동으로 꺼진다.</li>
+    <li>Prettier(스타일 정리)와 ESLint(문법·논리 검사)는 역할이 다르므로 <strong>둘 다 사용</strong>해야 한다.</li>
+    <li>vite.config.js에서 <strong>포트 변경, 자동 열기, 경로 별칭(alias)</strong>을 설정할 수 있다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: console.log가 두 번 찍히는 건 코드에 버그가 있다는 뜻이다?</div>
+    <div class="wda-mistake-right">정답: <strong>StrictMode</strong>가 개발 모드에서 의도적으로 한 번 더 실행해 부작용을 찾아내는 정상 동작이며, 배포 환경에서는 한 번만 실행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 콘솔이 두 번 찍히는 게 거슬리면 StrictMode 태그를 지우는 게 좋다?</div>
+    <div class="wda-mistake-right">정답: 안전을 위해 <strong>제거하지 않는 것이 권장</strong>되며, 잠재적 버그를 미리 발견하는 안전장치로 그대로 두어야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 성능이 느린 것 같으면 감으로 코드를 최적화하면 된다?</div>
+    <div class="wda-mistake-right">정답: 반드시 <strong>Profiler로 먼저 측정</strong>하고, 실제로 느린 곳만 고치는 것이 정석이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 컴포넌트 이름은 소문자로 시작해도 상관없다?</div>
+    <div class="wda-mistake-right">정답: 소문자로 시작하면 React가 일반 HTML 태그로 오인하므로 반드시 <strong>대문자로 시작</strong>해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 새 프로젝트 순서</div>
+    <div class="wda-formula-block-body"><code>Cleanup → DevTools → Prettier/ESLint</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Profiler 3단계</div>
+    <div class="wda-formula-block-body"><code>Record → Action → Stop</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · StrictMode</div>
+    <div class="wda-formula-block-body"><code>개발 전용 이중 실행(정상)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · Flamegraph</div>
+    <div class="wda-formula-block-body"><code>회색(최선) &gt; 청록(빠름) &gt; 노랑(느림)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npm create vite 직후 가장 먼저 해야 할 작업은?</div>
+    <div class="wda-flip-back">App.css, react.svg 등 불필요한 예제 파일을 지우는 Boilerplate 정리다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React DevTools에서 렌더링 성능을 측정하는 탭은?</div>
+    <div class="wda-flip-back">Profiler 탭이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">StrictMode는 왜 콘솔을 두 번 찍히게 하는가?</div>
+    <div class="wda-flip-back">개발 모드에서 일부 렌더링/Effect를 의도적으로 한 번 더 실행해 부작용을 찾기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Prettier와 ESLint의 역할 차이는?</div>
+    <div class="wda-flip-back">Prettier는 코드 스타일(화장), ESLint는 문법·논리 오류 검사(건강검진)를 담당한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSX 컴포넌트 이름 규칙은?</div>
+    <div class="wda-flip-back">반드시 대문자로 시작해야 HTML 태그와 구분된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">vite.config.js에서 할 수 있는 대표 설정 두 가지는?</div>
+    <div class="wda-flip-back">포트 변경/자동 열기(server)와 경로 별칭(alias) 설정이다.</div>
+  </div>
+</div>

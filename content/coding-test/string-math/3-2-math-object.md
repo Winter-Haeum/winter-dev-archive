@@ -62,6 +62,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -753,4 +769,91 @@ const sum = String(n)
 <div class="wda-callout wda-ci">
   <strong>문자열 방식의 장점</strong> — 코드가 간결하며 split, reduce 등 다양한 배열 메서드를 함께 활용할 수 있어 응용력이 높습니다.<br>
   <strong>로그 방식의 장점</strong> — 메모리 사용량이 적고 대량의 숫자 데이터를 처리할 때 성능상 유리합니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Math는 <strong>정적(Static) 객체</strong>라 인스턴스 없이 <code>Math.xxx()</code> 형태로 바로 사용한다.</li>
+    <li><code>round</code>/<code>ceil</code>/<code>floor</code>/<code>trunc</code>는 각각 반올림/올림/내림/버림이며, <strong>음수에서는 결과가 달라진다</strong>.</li>
+    <li><code>Math.max</code>/<code>min</code>은 배열을 직접 못 받으므로 <strong>스프레드 연산자(...arr)</strong>로 풀어서 넣는다.</li>
+    <li><code>Math.random()</code>은 0 이상 1 미만이며, 정수 범위를 얻으려면 <strong>Math.floor와 함께</strong> 쓴다.</li>
+    <li>소수 판별은 N까지 다 나누지 않고 <strong>제곱근(√N)까지만</strong> 확인해도 충분하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: floor와 trunc는 항상 같은 결과를 준다?</div>
+    <div class="wda-mistake-right">정답: 양수에서는 같지만 음수에서는 다르다. <code>Math.floor(-3.7)</code>은 -4, <code>Math.trunc(-3.7)</code>은 -3이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Math.max(arr)처럼 배열을 그대로 넣어도 된다?</div>
+    <div class="wda-mistake-right">정답: <strong>NaN</strong>이 나온다. 반드시 <code>Math.max(...arr)</code>처럼 스프레드로 풀어 넣어야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: toFixed(2)의 결과는 숫자다?</div>
+    <div class="wda-mistake-right">정답: <strong>문자열</strong>을 반환하므로, 계산이 더 필요하면 <code>Number()</code>나 <code>+</code>로 다시 숫자로 바꿔야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 7 / 3처럼 나누면 몫이 바로 나온다?</div>
+    <div class="wda-mistake-right">정답: JS는 모든 숫자가 실수라 <code>2.333...</code>이 나오므로, 몫만 필요하면 <code>Math.floor(7 / 3)</code>을 써야 한다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · N~M 정수 랜덤</div>
+    <div class="wda-formula-block-body"><code>Math.floor(Math.random()*(max-min+1))+min</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 2D→1D 인덱스</div>
+    <div class="wda-formula-block-body"><code>row * width + col</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 1D→2D 좌표 복구</div>
+    <div class="wda-formula-block-body"><code>Math.floor(idx/width), idx%width</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 4 · 소수 판별</div>
+    <div class="wda-formula-block-body"><code>i&lt;=Math.sqrt(n)까지만 나눠보기</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Math 객체는 왜 new Math()로 만들지 않나?</div>
+    <div class="wda-flip-back">Math는 정적(static) 객체라 인스턴스를 만들 필요 없이 이름에 바로 마침표를 찍어 기능을 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">floor와 trunc가 음수에서 다른 이유는?</div>
+    <div class="wda-flip-back">floor는 항상 더 작은 정수 방향(아래)으로 내림하고, trunc는 부호와 상관없이 소수점만 잘라내기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Math.max에 배열을 넣으려면?</div>
+    <div class="wda-flip-back">스프레드 연산자로 풀어서 Math.max(...arr)처럼 써야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">정수 범위 랜덤값 공식은?</div>
+    <div class="wda-flip-back">Math.floor(Math.random() * (max - min + 1)) + min 이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">2D 좌표를 1D 인덱스로 바꾸는 공식은?</div>
+    <div class="wda-flip-back">row * width + col 이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">소수 판별을 N까지 안 하고 √N까지만 해도 되는 이유는?</div>
+    <div class="wda-flip-back">약수는 항상 짝을 이루기 때문에 제곱근까지만 확인해도 충분하다.</div>
+  </div>
 </div>

@@ -71,6 +71,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1038,6 +1049,53 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 
 ## ✅ 핵심 요약
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Windows는 <strong>winget</strong>, Mac은 <strong>Homebrew</strong>로 Git·Node.js를 설치한다 (Mac은 Git이 기본 내장).</li>
+    <li>Node.js를 설치하면 <strong>npm이 자동으로 함께 설치</strong>된다.</li>
+    <li>Claude Code는 <code>npm install -g</code>로 먼저 설치하고, <code>claude install</code>로 <strong>네이티브 버전</strong>으로 업그레이드한다.</li>
+    <li>설치 확인은 <code>git --version</code> · <code>node --version</code> · <code>npm --version</code> · <code>claude --version</code> 네 가지로 한다.</li>
+    <li>Prettier는 <strong>스타일(포맷)</strong>을, ESLint는 <strong>품질(문법 오류)</strong>을 담당하며 함께 사용한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Git·Node.js 설치 후 같은 터미널에서 바로 명령어를 입력한다.</div>
+    <div class="wda-mistake-right">방지: 설치 후 <strong>반드시 터미널을 닫고 새로 열어야</strong> 명령어가 인식된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 일반 권한 PowerShell에서 실행 정책을 변경하려 한다.</div>
+    <div class="wda-mistake-right">방지: <code>Set-ExecutionPolicy</code> 변경은 <strong>관리자 권한 PowerShell에서만</strong> 가능하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: PATH 설정 스크립트 실행 후에도 "Claude를 찾을 수 없습니다."가 계속 뜬다고 재설치부터 한다.</div>
+    <div class="wda-mistake-right">방지: 먼저 <strong>VSCode를 완전히 닫고 재시작</strong>하면 대부분 해결된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Mac에서 <code>sudo npm install</code> 중 비밀번호를 입력해도 화면에 아무것도 안 보여서 오류로 착각한다.</div>
+    <div class="wda-mistake-right">방지: 정상 동작이다. <strong>입력이 화면에 표시되지 않을 뿐</strong>이므로 입력 후 Enter를 누르면 된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Mac에서 <code>claude</code> 명령어가 안 되면 처음부터 다시 설치한다.</div>
+    <div class="wda-mistake-right">방지: Homebrew 환경에서는 대부분 <strong>심볼릭 링크가 깨진 것</strong>이므로 링크 재생성 단계만 다시 진행하면 된다.</div>
+  </div>
+</div>
+
+**🏁 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li><code>git --version</code> · <code>node --version</code> · <code>npm --version</code> · <code>claude --version</code> 네 명령어 모두 <strong>정상적으로 버전이 출력</strong>된다.</li>
+    <li>VSCode 터미널에서 <code>claude</code> 실행 후 <strong>구독 로그인 인증까지 완료</strong>된다.</li>
+    <li>ESLint · Prettier 확장이 설치되고, 저장 시 <strong>자동 포맷(formatOnSave)</strong>이 적용된다.</li>
+  </ul>
+</div>
+
 ### 전체 설치 흐름 비교
 
 | 단계 | Windows | Mac |
@@ -1049,11 +1107,40 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 | 설치 확인 | `claude --version` | `claude --version` / `claude doctor` |
 | 네이티브 업그레이드 | `claude install` | `claude install` |
 
-### 문제 발생 시 체크리스트
+### 완성 확인 체크리스트
 
 - [ ] 터미널을 닫고 새로 열었는가?
 - [ ] VSCode를 완전히 닫고 재시작했는가?
 - [ ] PATH 설정 스크립트를 실행했는가?
 - [ ] Windows: 실행 정책(ExecutionPolicy)을 변경했는가?
 - [ ] Mac: 심볼릭 링크가 올바르게 연결되어 있는가?
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">winget이란?</div>
+    <div class="wda-flip-back">Windows 10/11에 기본 내장된 패키지 관리자로, 명령어 한 줄로 프로그램을 설치할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Mac에서 Node.js를 설치하는 명령어는?</div>
+    <div class="wda-flip-back"><code>brew install node</code>이다. Git은 macOS에 기본 포함되어 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">claude install은 무엇을 하나?</div>
+    <div class="wda-flip-back">npm 패키지 버전보다 빠르고 안정적인 네이티브 실행 파일로 업그레이드한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">ESLint와 Prettier의 역할 차이는?</div>
+    <div class="wda-flip-back">Prettier는 스타일(포맷)을, ESLint는 코드 품질(문법 오류)을 담당한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">formatOnSave를 켜면 무엇이 좋은가?</div>
+    <div class="wda-flip-back">파일 저장 시 자동으로 포맷이 정리되어 커밋 전에 따로 정리할 필요가 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Windows에서 npm 명령어가 인식되지 않을 때 가장 먼저 볼 것은?</div>
+    <div class="wda-flip-back">관리자 권한 PowerShell에서 실행 정책(ExecutionPolicy)을 RemoteSigned로 변경했는지 확인한다.</div>
+  </div>
+</div>
 

@@ -48,6 +48,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -599,23 +615,84 @@ export default CardLayout;
 
 <h2>11. ✅ 핵심 요약</h2>
 
-이번 챕터에서 반드시 기억해야 할 3가지 핵심 내용입니다.
+이번 챕터에서 반드시 기억해야 할 내용을 4단계 복습 카드로 정리합니다.
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Props의 특징</strong></td>
-    <td>• <strong>단방향 데이터 흐름:</strong> 데이터는 항상 부모에서 자식으로 흐릅니다. (물은 위에서 아래로 흐른다!)<br>• <strong>수정 불가 (Read-Only):</strong> 자식 컴포넌트는 받은 데이터를 읽기만 할 수 있고, 절대 수정할 수 없습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>사용 꿀팁</strong></td>
-    <td>• <strong>구조 분해 할당:</strong> <code>props.name</code> 처럼 길게 쓰지 말고, <code>{ name }</code> 처럼 받아서 간결하게 사용하세요.<br>• <strong>Default Props:</strong> 데이터가 없을 때를 대비해 기본값(<code>=</code>)을 설정하면 에러 없이 안전한 컴포넌트를 만들 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Children</strong></td>
-    <td>• <strong>태그 사이의 내용:</strong> 속성(Attribute)이 아니라 태그와 태그 사이에 넣은 내용은 <code>children</code>으로 전달됩니다.<br>• <strong>레이아웃:</strong> 화면의 껍데기(레이아웃)를 만들고 내용은 나중에 채워 넣을 때 필수적으로 사용됩니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Props는 부모가 자식에게 전달하는 데이터이며, 항상 <strong>부모 → 자식</strong> 방향으로만 흐릅니다. (단방향 데이터 흐름)</li>
+    <li>자식 컴포넌트는 받은 props를 <strong>읽기만</strong> 할 수 있고, 절대 수정할 수 없습니다 (Read-Only).</li>
+    <li>문자열은 큰따옴표(<code>""</code>), 숫자·변수·불리언 등 그 외 값은 중괄호(<code>{ }</code>)로 전달합니다.</li>
+    <li><strong>구조 분해 할당</strong> <code>{ name }</code>으로 받으면 매번 <code>props.</code>을 붙이지 않아도 됩니다.</li>
+    <li>기본값은 매개변수 자리에서 <strong>등호(<code>=</code>)</strong>로 설정하며, 값이 없을 때 자동 적용됩니다.</li>
+    <li><strong>children</strong>은 태그와 태그 사이에 넣은 내용을 전달받는 특별한 props입니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 자식 컴포넌트에서 props.name = "개명"처럼 값을 바꿔도 된다?</div>
+    <div class="wda-mistake-right">정답: props는 <strong>읽기 전용</strong>이며, 값이 바뀌어야 한다면 Props가 아니라 다음 챕터에서 배울 <strong>State</strong>를 사용해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 숫자를 전달할 때도 studentId="20"처럼 따옴표를 써도 된다?</div>
+    <div class="wda-mistake-right">정답: 따옴표로 감싸면 숫자가 아닌 문자열 "20"이 전달되므로, 숫자는 반드시 <strong>중괄호 {20}</strong>으로 전달해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: children은 아무 이름으로나 구조 분해해서 받아도 된다?</div>
+    <div class="wda-mistake-right">정답: 태그 사이의 내용은 항상 <strong>children</strong>이라는 이름으로 전달되므로, <code>{ myContent }</code>처럼 다른 이름으로 받으면 <code>undefined</code>가 됩니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 이 챕터에서 쓴 기본값 문법은 리액트만의 특별한 기능이다?</div>
+    <div class="wda-mistake-right">정답: 리액트의 옛 <code>defaultProps</code> 방식이 아니라, 자바스크립트 <strong>구조 분해 할당의 기본값(<code>=</code>) 문법</strong>을 그대로 활용한 것입니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 데이터 흐름</div>
+    <div class="wda-formula-block-body"><code>부모 → 자식 (단방향)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 전달 규칙</div>
+    <div class="wda-formula-block-body"><code>문자열="", 나머지={ }</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 받기</div>
+    <div class="wda-formula-block-body"><code>{ name } 구조 분해</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · children</div>
+    <div class="wda-formula-block-body"><code>태그 사이 내용 = children</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">props는 자식 컴포넌트에서 수정할 수 있나?</div>
+    <div class="wda-flip-back">없습니다. 읽기 전용이며, 값이 바뀌어야 한다면 State를 사용해야 합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">children은 꼭 이름이 children이어야 하나?</div>
+    <div class="wda-flip-back">그렇습니다. 태그 사이의 내용은 기본적으로 children이라는 이름의 props로 전달됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">숫자 props를 전달할 때 올바른 문법은?</div>
+    <div class="wda-flip-back">중괄호 {20}으로 감싸야 합니다. 따옴표로 감싸면 문자열이 됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">props.name처럼 매번 점을 찍지 않고 쓰는 방법은?</div>
+    <div class="wda-flip-back">구조 분해 할당으로 { name }처럼 받으면 됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">props 기본값은 어떻게 설정하나?</div>
+    <div class="wda-flip-back">매개변수 자리에서 등호(=)로 지정합니다. 예: { role = "학생" }</div>
+  </div>
+</div>

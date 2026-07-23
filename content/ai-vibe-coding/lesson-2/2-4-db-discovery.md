@@ -62,6 +62,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -300,6 +316,81 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">다음 단계 예고</span>5단계에서는 3단계 UI 기획서 + 4단계 DB 구조서를 하나로 합쳐서 Claude Code AI에게 프로젝트 생성을 요청합니다.<br>Supabase MCP를 사용한 실제 데이터베이스 생성과 연결, 그리고 GitHub Pages 배포까지!
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>테이블은 <strong>행(Row)</strong>=데이터, <strong>열(Column)</strong>=정보의 종류로 구성된 표다.</li>
+    <li>회원가입 화면에서 <strong>users</strong> 테이블(id, name, email, phone, created_at)을 발견한다.</li>
+    <li>게시물 목록 화면에서 <strong>posts</strong> 테이블(id, title, content, author_id, created_at)을 발견한다.</li>
+    <li>댓글 화면에서 <strong>comments</strong> 테이블(id, content, author_id, post_id, created_at)을 발견한다.</li>
+    <li>테이블은 <strong>id 번호</strong>로 서로 연결된다 — posts의 author_id, comments의 author_id·post_id.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: author_id는 그냥 임의의 숫자를 넣으면 된다?</div>
+    <div class="wda-mistake-right">정답: author_id는 <strong>users 테이블의 id 값을 그대로 참조</strong>해서 "어떤 사용자가 작성했는지"를 연결하는 값이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 댓글은 작성자 정보만 있으면 충분하다?</div>
+    <div class="wda-mistake-right">정답: 댓글은 author_id(작성자 연결)뿐 아니라 <strong>post_id(게시물 연결)</strong>도 함께 저장해야 어떤 게시물의 댓글인지 알 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: created_at 같은 필드는 화면에 안 보이니 필요 없다?</div>
+    <div class="wda-mistake-right">정답: 화면에 직접 보이지 않아도 <strong>가입일·작성일처럼 나중에 필요한 정보</strong>는 테이블에 미리 포함해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · users</div>
+    <div class="wda-formula-block-body"><code>id, name, email, phone, created_at</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · posts</div>
+    <div class="wda-formula-block-body"><code>id, title, content, author_id, created_at</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · comments</div>
+    <div class="wda-formula-block-body"><code>id, content, author_id, post_id, created_at</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">users 테이블은 어떤 화면에서 발견하나?</div>
+    <div class="wda-flip-back">회원가입 화면에서 입력받는 정보를 보고 발견한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">posts 테이블의 author_id는 무엇을 연결하나?</div>
+    <div class="wda-flip-back">users 테이블의 id와 연결해 작성자를 나타낸다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">comments 테이블에 post_id가 필요한 이유는?</div>
+    <div class="wda-flip-back">어떤 게시물에 달린 댓글인지 연결하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">테이블들은 무엇으로 서로 연결되나?</div>
+    <div class="wda-flip-back">id 번호(author_id, post_id 같은 참조 값)로 연결된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">테이블이란 무엇인가?</div>
+    <div class="wda-flip-back">행(Row)=데이터, 열(Column)=정보의 종류로 이루어진 표다.</div>
+  </div>
 </div>
 
 <div class="wda-done">

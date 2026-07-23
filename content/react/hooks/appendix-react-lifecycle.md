@@ -51,6 +51,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -310,53 +326,85 @@ useEffect(() => {
 
 <h2>7. ✅ 핵심 요약</h2>
 
-**🧠 Lifecycle Phases (생명주기 3단계)**
+**📌 먼저 외울 것**
 
-컴포넌트의 인생은 크게 3단계로 나뉩니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ttl">🌱 Mount (탄생)</div><div class="wda-fcard-dsc">컴포넌트가 처음 화면에 그려지는 단계입니다. 주로 API 호출 등 초기화 로직을 실행합니다.</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ttl">🔄 Update (변화)</div><div class="wda-fcard-dsc"><code>Props</code>나 <code>State</code>의 변화에 따라 화면을 갱신하는 단계입니다. 데이터가 바뀔 때마다 실행해야 할 로직을 처리합니다.</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ttl">🗑️ Unmount (죽음)</div><div class="wda-fcard-dsc">컴포넌트가 화면에서 사라지기 직전 단계입니다. 메모리 누수를 막기 위한 정리(Cleanup) 작업을 수행합니다.</div></div>
+<div class="wda-check-note">
+  <ul>
+    <li>컴포넌트 생명주기는 <strong>Mount(탄생) → Update(변화) → Unmount(죽음)</strong> 3단계로 나뉜다.</li>
+    <li>Mount는 <code>useEffect(..., [])</code>로 처음 <strong>1회만</strong> 실행된다.</li>
+    <li>Update는 <code>useEffect(..., [dep])</code>로 <strong>dep 값이 바뀔 때마다</strong> 실행된다.</li>
+    <li>Unmount는 useEffect 안에서 <code>return () =&gt; { ... }</code>로 반환한 <strong>Cleanup 함수</strong>가 처리한다.</li>
+    <li>실행 순서는 <strong>Render(화면 그리기) → Effect(부수 효과) → Cleanup(뒷정리)</strong>이며, Update 시엔 <strong>'이전 Cleanup → 새 Effect'</strong> 순서로 실행된다.</li>
+  </ul>
 </div>
 
-**🧠 useEffect Mapping (코드 구현)**
+**🧠 헷갈리기 쉬운 것**
 
-Hooks는 이 모든 과정을 **`useEffect`라는 하나의 API**로 통합하여 관리합니다.
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Render(렌더)는 화면에 바로 그려지는 단계다?</div>
+    <div class="wda-mistake-right">정답: Render는 무엇을 보여줄지 <strong>계산</strong>하는 단계이고, 실제 DOM 반영은 <strong>Commit</strong> 단계에서 일어나며 Effect는 그 이후에 실행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useEffect는 클래스의 생명주기 메서드와 1:1로 완전히 같다?</div>
+    <div class="wda-mistake-right">정답: 비슷한 상황을 처리할 수 있지만 완전히 같지 않으며, Hooks는 <strong>'언제(When)'</strong>가 아니라 <strong>'어떤 값이 바뀌었을 때(What)'</strong>를 기준으로 생각한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 개발 모드에서 useEffect가 두 번 실행되는 건 버그다?</div>
+    <div class="wda-mistake-right">정답: Strict Mode가 Cleanup이 제대로 작성됐는지 검증하려고 <strong>의도적으로 Mount→Unmount→Mount</strong>를 시뮬레이션하는 것이며, 프로덕션 빌드에서는 한 번만 실행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 컴포넌트가 사라지기 직전에 타이머를 정리하려면 별도의 훅이 필요하다?</div>
+    <div class="wda-mistake-right">정답: useEffect 내부에서 함수를 <strong>return</strong>하면 그 함수가 Cleanup 역할을 하며, 언마운트 시 자동으로 호출된다.</div>
+  </div>
+</div>
 
-| 상황 | 코드 패턴 | 설명 |
-| --- | --- | --- |
-| **Mount Only** | `useEffect(..., [])` | 의존성 배열을 비워두면 **마운트 시 딱 1번만** 실행됩니다. |
-| **Update** | `useEffect(..., [dep])` | `dep` 안에 있는 **값이 변할 때마다** 실행됩니다. |
-| **Unmount** | `return () => { ... }` | Effect 내부에서 **함수를 반환**하면, 그 함수가 Cleanup(뒷정리) 역할을 합니다. |
+**🎯 최종 암기 공식**
 
----
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 전체 흐름</div>
+    <div class="wda-formula-block-body"><code>Render → Effect → Cleanup</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Update 순서</div>
+    <div class="wda-formula-block-body"><code>이전 Cleanup → 새 Effect</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 코드 매핑</div>
+    <div class="wda-formula-block-body"><code>[] = Mount 1회</code><br><code>[dep] = Update</code><br><code>return = Unmount</code></div>
+  </div>
+</div>
 
-<h2>8. ⁉️ 마무리 퀴즈</h2>
+**🎴 클릭 복습 카드**
 
-**❓ 질문**
-
-**"Q. 컴포넌트가 화면에서 사라지기 직전에 타이머를 해제하려면 useEffect 안에서 무엇을 해야 할까요?"**
-
-**📝 정답**
-
-**정답: Cleanup 함수를 반환(Return)해야 합니다.**
-
-```jsx
-useEffect(() => {
-  const timer = setInterval(() => {
-    // 반복해서 실행할 작업
-  }, 1000);
-
-  // 👇 바로 이 부분! (Cleanup Function)
-  return () => {
-    clearInterval(timer);
-  };
-}, []);
-```
-
-**💡 해설**
-
-<div class="wda-callout wda-ci">
-  <p><code>useEffect</code>의 <strong>첫 번째 인자로 전달된 함수 내부에서</strong> 또 다른 함수를 <strong>return</strong>하면, 리액트는 그 반환된 함수를 <strong>'뒷정리 함수(Cleanup Function)'</strong>로 간주합니다.<br>이 함수는 컴포넌트가 <strong>언마운트(Unmount)</strong>되거나, 다음 이펙트가 실행되기 직전에 호출되어 타이머 해제나 이벤트 리스너 제거 같은 청소 작업을 수행합니다.</p>
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컴포넌트 생명주기 3단계는?</div>
+    <div class="wda-flip-back">Mount(탄생) → Update(변화) → Unmount(죽음) 순서로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컴포넌트가 화면에서 사라지기 직전에 타이머를 해제하려면?</div>
+    <div class="wda-flip-back">useEffect 안에서 Cleanup 함수를 반환(return)해야 한다. 이 함수가 언마운트 시 자동으로 호출된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Render와 Commit의 차이는?</div>
+    <div class="wda-flip-back">Render는 화면에 무엇을 보여줄지 계산하는 단계이고, Commit은 그 결과를 실제 DOM에 반영하는 단계다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Update 시 Effect 실행 순서는?</div>
+    <div class="wda-flip-back">새 화면 반영 → 이전 Effect의 Cleanup 실행 → 새 Effect 실행 순서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Class와 Hooks의 사고방식 차이는?</div>
+    <div class="wda-flip-back">Class는 '시점(When)'을 기준으로 코드를 나누고, Hooks는 '무엇(What)'을 관찰할지를 기준으로 코드를 뭉친다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Strict Mode에서 useEffect가 두 번 실행되는 이유는?</div>
+    <div class="wda-flip-back">Cleanup이 제대로 작성됐는지 검증하기 위해 React가 의도적으로 Mount→Unmount→Mount를 시뮬레이션하는 개발 전용 기능이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useEffect의 의존성 배열 []와 [dep]의 차이는?</div>
+    <div class="wda-flip-back">[]는 마운트 시 1회만 실행되고, [dep]는 dep 값이 변경될 때마다 실행된다.</div>
+  </div>
 </div>

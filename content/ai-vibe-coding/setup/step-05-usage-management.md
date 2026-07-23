@@ -61,6 +61,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -165,15 +176,43 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 ## ✅ 핵심 요약
 
-<div class="wda-memo">
-  <span class="wda-memo-label">📋 Pro Plan 사용량 요약</span>
-  <div class="wda-memo-body">
-    ⏱️ <strong>5시간당 제한</strong> — 약 10~40개 프롬프트<br>
-    📅 <strong>주간 제한</strong> — 40~80시간 Sonnet 4 사용<br>
-    🔗 <strong>사용량 공유</strong> — 웹 Claude와 동일 풀 공유<br>
-    📊 <strong>사용량 확인</strong> — <code>claude.ai/settings/usage</code><br>
-    💳 <strong>초과 대응</strong> — Wallet 자동 충전 설정
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Pro Plan은 <strong>5시간당 제한</strong>(약 10~40개 프롬프트)과 <strong>주간 제한</strong>(40~80시간 Sonnet 4 사용)이 있다.</li>
+    <li>웹 <code>claude.ai</code>와 Claude Code CLI는 <strong>동일한 월간 사용량 풀</strong>을 나눠 쓴다.</li>
+    <li>사용량은 <code>claude.ai/settings/usage</code>에서 <strong>현재 사용량 · 초기화 시간 · 주간 사용량</strong>을 실시간 확인할 수 있다.</li>
+    <li>5시간 제한은 <strong>롤링 방식(rolling window)</strong>으로, 처음 사용한 시점부터 5시간이 지나면 해제된다.</li>
+    <li><strong>Wallet 자동 충전</strong>을 켜두면 Pro Plan 한도를 넘어도 수업 중단 없이 계속 사용할 수 있다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 웹 Claude와 Claude Code는 사용량이 따로 관리된다?</div>
+    <div class="wda-mistake-right">정답: <strong>같은 풀을 공유</strong>하므로 웹에서 과도하게 사용하면 Claude Code에서 쓸 수 있는 양이 줄어든다.</div>
   </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Wallet 자동 충전은 무조건 켜두는 게 이득이다?</div>
+    <div class="wda-mistake-right">정답: 한도 초과 시 <strong>추가 비용이 발생</strong>하므로 월 예산을 고려해서 설정해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 사용량이 80%면 아직 여유가 있다?</div>
+    <div class="wda-mistake-right">정답: 80% 이상이면 <strong>수업 중 중단될 수 있으므로</strong> 초기화 시간을 확인하거나 Wallet을 미리 준비해야 한다.</div>
+  </div>
+</div>
+
+**🏁 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li><code>claude.ai/settings/usage</code>에서 현재 사용량과 초기화 시간을 확인했다.</li>
+    <li>Wallet 자동 충전 활성화 여부를 결정하고 필요하면 설정을 마쳤다.</li>
+    <li>아래 수업 전 체크리스트 3항목을 모두 확인했다.</li>
+  </ul>
 </div>
 
 ### 수업 전 체크리스트
@@ -186,6 +225,27 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
   <div class="wda-done-ico">🚀</div>
   <div class="wda-done-ttl">사용량 관리 준비 완료!</div>
   <div>이제 수업 중 어떤 상황에서도 중단 없이 Claude Code를 활용할 수 있습니다.<br>준비된 개발 환경으로 React 개발의 세계를 탐험해보세요!</div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Wallet이란?</div>
+    <div class="wda-flip-back">Claude 계정에 충전해두는 선불 크레딧으로, 구독 한도를 넘어도 계속 사용할 수 있게 해준다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">5시간 제한은 어떻게 초기화되나?</div>
+    <div class="wda-flip-back">고정된 시각이 아니라 처음 사용한 시점부터 5시간이 지나면 롤링 방식으로 해제된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">사용량이 공유된다는 것은 무슨 뜻인가?</div>
+    <div class="wda-flip-back">claude.ai 웹과 Claude Code CLI가 동일한 월간 사용량 풀을 나눠 쓴다는 뜻이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">수업 전에 확인해야 할 것은?</div>
+    <div class="wda-flip-back">claude.ai/settings/usage에서 사용량과 초기화 시간을 확인하고, 필요하면 Wallet을 미리 준비한다.</div>
+  </div>
 </div>
 
 ---

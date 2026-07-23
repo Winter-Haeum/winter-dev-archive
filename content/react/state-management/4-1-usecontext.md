@@ -62,6 +62,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -669,55 +685,87 @@ Context는 '전역적'인 데이터를 위한 것입니다.
 
 ---
 
-<h2>12. ⁉️ FAQ</h2>
+<h2>12. ✅ 핵심 요약</h2>
 
-**📌 Q1. 컴포넌트 이름은?**
+**📌 먼저 외울 것**
 
-**"Context API를 사용할 때, 하위 컴포넌트들에게 값을 제공하기 위해 사용하는 컴포넌트는?"**
-
-**✅ 정답: Provider (또는 Context.Provider)**
-
-**💡 해설**
-
-<div class="wda-callout wda-ci">
-  <p><code>createContext</code>로 만든 Context 객체에는 <strong>Provider</strong>라는 컴포넌트가 들어있습니다. 이 컴포넌트로 감싸고 <code>value</code> props를 넣어줘야 비로소 내부의 컴포넌트들이 데이터를 구독할 수 있게 됩니다.</p>
+<div class="wda-check-note">
+  <ul>
+    <li>Props Drilling은 중간 컴포넌트들이 쓰지도 않는 데이터를 <strong>계속 전달만 하기 위해</strong> props로 받아야 하는 비효율 상황이다.</li>
+    <li>Context 워크플로우는 <strong>createContext(개설) → Provider(송출) → useContext(수신)</strong> 3단계로 동작한다.</li>
+    <li>Provider에는 반드시 <strong>value</strong> props를 전달해야 하며, 감싸진 모든 하위 컴포넌트가 데이터에 접근할 수 있다.</li>
+    <li><strong>Custom Hook 패턴</strong>(useAuth, useTheme 등)으로 감싸면 코드가 간결해지고, Provider 누락 시 에러를 던져 안전장치 역할도 한다.</li>
+    <li>단순 전달(1~3단계)은 <strong>Props</strong>, 전역 공유(4단계 이상)는 <strong>Context</strong>를 사용한다.</li>
+  </ul>
 </div>
 
-**📌 Q2. Context 사용의 단점은?**
+**🧠 헷갈리기 쉬운 것**
 
-**"Props Drilling 문제를 해결하기 위해 Context를 사용할 때의 단점은 무엇인가요?"**
-
-**✅ 정답: 컴포넌트의 재사용성이 떨어집니다.**
-
-**💡 해설**
-
-<div class="wda-callout wda-ci">
-  <p>컴포넌트가 특정 Context에 의존하게 되면, 그 Context가 없는 곳에서는 해당 컴포넌트를 독립적으로 사용하기 어려워집니다. 또한, 값 관리를 잘못하면 불필요한 리렌더링(성능 이슈)이 발생할 수도 있습니다.</p>
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Context API에서 하위 컴포넌트에 값을 제공하는 컴포넌트 이름이 헷갈린다?</div>
+    <div class="wda-mistake-right">정답: <strong>Provider(또는 Context.Provider)</strong>다. 이 컴포넌트로 감싸고 value props를 넣어야 내부 컴포넌트가 데이터를 구독할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Context를 쓰면 단점 없이 무조건 좋다?</div>
+    <div class="wda-mistake-right">정답: 컴포넌트가 특정 Context에 의존하게 되어 <strong>재사용성이 떨어지고</strong>, 값 관리를 잘못하면 <strong>불필요한 리렌더링</strong>이 발생할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Provider의 value에 객체를 넣을 때 특별히 신경 쓸 게 없다?</div>
+    <div class="wda-mistake-right">정답: 렌더링마다 새 객체가 만들어지면 불필요한 리렌더링이 발생할 수 있어, <strong>useMemo로 value를 안정화</strong>하는 것이 좋다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: createContext의 기본값만 있으면 Provider 없이도 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: 간단한 값은 기본값으로 충분하지만, 필수 전역 상태는 <strong>createContext(null) + 커스텀 훅에서 에러 던지기</strong>로 안전장치를 만드는 것이 더 안전하다.</div>
+  </div>
 </div>
 
----
+**🎯 최종 암기 공식**
 
-<h2>13. ✅ 핵심 요약</h2>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · Context 3단계</div>
+    <div class="wda-formula-block-body"><code>createContext → Provider(value) → useContext</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 선택 기준</div>
+    <div class="wda-formula-block-body"><code>1~3단계 Props / 4단계+ Context</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 리렌더링 최적화</div>
+    <div class="wda-formula-block-body"><code>객체 value → useMemo 고정</code></div>
+  </div>
+</div>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td>⬇️ Props Drilling 해결</td>
-    <td><strong>문제</strong>: 깊은 컴포넌트 트리에서 중간 단계들이 불필요하게 props를 계속 전달해야 하는 비효율적인 상황. <strong>해결</strong>: Context API를 사용하면 중간 과정을 건너뛰고 필요한 곳에 데이터를 직송할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td>🔄 Context 워크플로우 (3단계)</td>
-    <td>1. <code>createContext</code>: 방송국(Context) 개설 / 2. <code>Provider</code>: 데이터(Value) 송출 및 제공 / 3. <code>useContext</code>: 필요한 곳에서 데이터 수신 및 사용</td>
-  </tr>
-  <tr>
-    <td>🛠️ Custom Hook 패턴</td>
-    <td><code>useAuth</code>, <code>useTheme</code> 처럼 Context 로직을 나만의 훅으로 감싸서 만듭니다. 장점: 컴포넌트 코드가 깔끔해지고, 에러 처리 로직을 한곳에서 관리할 수 있어 안전합니다.</td>
-  </tr>
-  <tr>
-    <td>⚠️ 주의사항 (Caution)</td>
-    <td><strong>Props 우선</strong>: 단순한 데이터 전달(2~3단계)에는 여전히 Props가 가장 좋습니다. <strong>최적화 필수</strong>: 객체를 전달할 때는 불필요한 리렌더링을 막기 위해 useMemo 사용이 권장됩니다.</td>
-  </tr>
-</table>
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Props Drilling이란?</div>
+    <div class="wda-flip-back">최상위 데이터를 필요 없는 중간 컴포넌트들이 계속 전달만 하기 위해 받아야 하는 문제다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Context API에서 하위 컴포넌트에 값을 제공하는 컴포넌트는?</div>
+    <div class="wda-flip-back">Provider(또는 Context.Provider)이며, value props를 통해 데이터를 방송한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Context 사용의 대표적인 단점은?</div>
+    <div class="wda-flip-back">컴포넌트가 특정 Context에 의존하게 되어 재사용성이 떨어지고, 잘못 관리하면 불필요한 리렌더링이 발생할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Context 워크플로우 3단계는?</div>
+    <div class="wda-flip-back">createContext(개설) → Provider(value 송출) → useContext(수신) 순서로 동작한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Props와 Context 중 언제 무엇을 쓰나?</div>
+    <div class="wda-flip-back">1~3단계의 단순 전달은 Props, 4단계 이상의 전역 공유가 필요하면 Context를 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Provider의 value에 객체를 매번 새로 만들면 어떤 문제가 생기나?</div>
+    <div class="wda-flip-back">불필요한 리렌더링이 발생할 수 있어 useMemo로 값을 고정하는 것이 좋다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Custom Hook 패턴(useAuth)의 장점은?</div>
+    <div class="wda-flip-back">useContext를 직접 쓰지 않고 한 줄로 접근할 수 있고, Provider 누락 시 에러로 알려줘 안전하다.</div>
+  </div>
+</div>

@@ -48,6 +48,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -427,57 +443,90 @@ function WarningBanner({ show, message }) {
 
 <h2>10. ✅ 핵심 요약</h2>
 
-**📌 Patterns**
+**📌 먼저 외울 것**
 
-"언제 무엇을 쓰는가"를 기준으로 정리하면 다음과 같습니다.
+<div class="wda-check-note">
+  <ul>
+    <li>조건부 렌더링은 새로운 문법이 아니라 자바스크립트의 <strong>if, 삼항 연산자(? :), && 연산자</strong>를 JSX 안에서 그대로 활용하는 것이다.</li>
+    <li><strong>if문</strong>은 로직이 길거나 조건에 따라 완전히 다른 컴포넌트를 반환해야 할 때, JSX 밖(return 이전)에서 사용한다.</li>
+    <li><strong>삼항 연산자(? :)</strong>는 "로그인 vs 비로그인"처럼 A 아니면 B 중 하나를 반드시 선택해 JSX 안에서 인라인으로 보여줄 때 사용한다.</li>
+    <li><strong>&& 연산자</strong>는 "읽지 않은 메시지 뱃지"처럼 조건이 맞을 때만 보여주고, 아니면 아예 숨길 때 가장 깔끔하다.</li>
+    <li>컴포넌트가 아무것도 렌더링하지 않아야 할 때는 <strong>return null</strong>을 사용한다.</li>
+    <li><strong>Early Return</strong> 패턴으로 로딩·에러·데이터 없음 상태를 함수 상단에서 먼저 반환하면 깊은 중첩(Nesting) 없이 코드를 깔끔하게 유지할 수 있다.</li>
+  </ul>
+</div>
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">if문</div>
-    <div class="wda-fcard-dsc">로직이 길거나 조건에 따라 완전히 다른 컴포넌트를 반환해야 할 때 주로 사용합니다.</div>
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: {count && &lt;p&gt;...&lt;/p&gt;}처럼 써도 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: 리액트는 false·null·undefined는 그리지 않지만 숫자 <strong>0은 유효한 텍스트로 인식</strong>해 화면에 그대로 표시한다. <code>count &gt; 0 &amp;&amp; ...</code>처럼 명시적인 boolean 비교가 필요하다.</div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">삼항 연산자</div>
-    <div class="wda-fcard-dsc">"로그인 vs 비로그인"처럼 A 아니면 B 중 하나를 반드시 선택해야 할 때 유용합니다.</div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: || 연산자와 ?? 연산자는 같은 방식으로 동작한다?</div>
+    <div class="wda-mistake-right">정답: <code>||</code>는 <strong>모든 falsy 값</strong>(''·0·false·null·undefined)을 기본값으로 대체하지만, <code>??</code>는 <strong>null/undefined만</strong> 체크한다.</div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">&& 연산자</div>
-    <div class="wda-fcard-dsc">"읽지 않은 메시지 뱃지"처럼 조건이 맞을 때만 보여주고, 아니면 숨길 때 가장 깔끔합니다.</div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: JSX 중괄호 {} 안에 if-else문을 그대로 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: {} 안에는 값을 반환하는 <strong>표현식(Expression)</strong>만 들어갈 수 있다. if-else는 문(Statement)이라 사용할 수 없어 삼항 연산자나 논리 연산자로 대체한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: return null과 CSS display: none은 같은 결과다?</div>
+    <div class="wda-mistake-right">정답: <code>return null</code>은 해당 컴포넌트의 <strong>DOM 자체를 생성하지 않고</strong>, <code>display: none</code>은 DOM은 유지한 채 화면에서만 숨긴다.</div>
   </div>
 </div>
 
-<div class="wda-callout wda-ci">
-  <p><strong>if문은 복잡한 분기에, 삼항 연산자는 둘 중 하나 선택에, &&는 단순 표시 여부에 사용합니다.</strong></p>
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 선택 기준</div>
+    <div class="wda-formula-block-body"><code>if = 복잡한 분기</code><br><code>? : = 둘 중 하나</code><br><code>&& = 있으면 표시</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · falsy 주의</div>
+    <div class="wda-formula-block-body"><code>count && X → "0" 위험</code><br><code>count &gt; 0 && X → 안전</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 아무것도 안 그리기</div>
+    <div class="wda-formula-block-body"><code>return null</code></div>
+  </div>
 </div>
 
-**📝 Early Return**
+**🎴 클릭 복습 카드**
 
-<div class="wda-callout wda-cs">
-  <p><strong>복잡한 중첩을 피하기 위해, 예외 케이스나 로딩 상태 등을 함수 상단에서 먼저 반환하여 코드를 깔끔하게 유지합니다.</strong></p>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <p><code>if</code> 안에 <code>else</code>를 쓰고 그 안에 또 <code>if</code>를 쓰는 식의 '깊은 중첩(Nesting)'을 방지합니다. 마치 문지기처럼 로딩이나 에러 상태를 함수 입구에서 미리 처리하고 내보내는 방식이라 코드를 읽기가 훨씬 편해집니다.</p>
-</div>
-
-**⚠️ Caveats**
-
-<div class="wda-callout wda-cw">
-  <p><strong>숫자 0은 Falsy지만 화면에 "0"으로 출력되므로, <code>count &gt; 0 &amp;&amp; ...</code> 처럼 명시적인 boolean 비교가 필요합니다.</strong></p>
-</div>
-
-```jsx
-{/* 문제 예시: count가 0이면 화면에 "0"이 그대로 표시됨 */}
-{count && <p>{count}개 있습니다.</p>}
-
-{/* 안전한 방식: boolean 비교로 명시 */}
-{count > 0 && <p>{count}개 있습니다.</p>}
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-cw">
-  <p>리액트는 <code>false</code>, <code>null</code>, <code>undefined</code>는 화면에 아무것도 그리지 않지만, 숫자 <code>0</code>은 유효한 텍스트로 인식해 화면에 그대로 보여줍니다. 따라서 숫자를 조건으로 쓸 때는 반드시 <code>0보다 큰가?</code>와 같이 참/거짓이 명확한 비교식을 써야 합니다.</p>
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">if문은 언제 쓰나?</div>
+    <div class="wda-flip-back">로직이 길거나 조건에 따라 완전히 다른 컴포넌트를 반환해야 할 때, JSX 밖(return 이전)에서 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">삼항 연산자는 언제 쓰나?</div>
+    <div class="wda-flip-back">A 아니면 B 중 하나를 반드시 선택해 JSX 안에서 인라인으로 보여줄 때 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">&& 연산자는 언제 쓰나?</div>
+    <div class="wda-flip-back">조건이 맞을 때만 보여주고, 아니면 아무것도 렌더링하지 않을 때 가장 깔끔하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">count && &lt;p&gt;...&lt;/p&gt;의 함정은?</div>
+    <div class="wda-flip-back">count가 0이면 falsy이지만 화면에 "0"이 그대로 출력된다. count &gt; 0 && ...처럼 명시적 비교가 필요하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">||와 ??의 차이는?</div>
+    <div class="wda-flip-back">||는 모든 falsy 값을 대체하지만, ??는 null/undefined만 체크한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSX {} 안에 if-else를 못 쓰는 이유는?</div>
+    <div class="wda-flip-back">{} 안에는 값을 반환하는 표현식만 들어갈 수 있는데, if-else는 문(Statement)이라 사용할 수 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">아무것도 렌더링하지 않으려면?</div>
+    <div class="wda-flip-back">return null을 사용한다. display: none과 달리 DOM 자체를 만들지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Early Return 패턴이란?</div>
+    <div class="wda-flip-back">로딩·에러·데이터 없음 같은 예외 상태를 함수 상단에서 먼저 반환해, 깊은 중첩 없이 코드를 깔끔하게 유지하는 패턴이다.</div>
+  </div>
 </div>

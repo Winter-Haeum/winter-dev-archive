@@ -50,6 +50,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -444,23 +460,84 @@ function App() {
 
 <h2>11. ✅ 핵심 요약</h2>
 
-이번 챕터에서 배운 이벤트 처리의 3가지 핵심 원칙입니다.
+이번 챕터에서 배운 이벤트 처리의 핵심 원칙을 4단계 복습 카드로 정리합니다.
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Event Basics (기본 문법)</strong></td>
-    <td>• HTML과 달리 <strong>CamelCase</strong> 표기법을 사용합니다 (예: <code>onclick</code> ➡ <code>onClick</code>).<br>• 핸들러에는 함수 호출(<code>func()</code>)이 아닌 함수 참조(<code>func</code>)를 전달해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Prevention (기본 동작 방지)</strong></td>
-    <td>• SPA(Single Page Application) 환경에서 폼(Form) 제출 시 페이지가 새로고침되는 것을 막아야 합니다.<br>• 반드시 <code>e.preventDefault()</code>를 호출하여 브라우저의 기본 동작을 차단하세요.</td>
-  </tr>
-  <tr>
-    <td><strong>Arguments (인자 전달)</strong></td>
-    <td>• 이벤트 핸들러에 <code>id</code> 같은 매개변수를 넘겨줘야 할 때가 있습니다.<br>• 이때는 <strong><code>() =&gt; func(id)</code> 형태의 화살표 함수</strong>로 감싸서 전달해야 실행 시점이 꼬이지 않습니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>React 이벤트는 HTML과 달리 <strong>camelCase</strong>로 작성합니다 (예: <code>onclick</code> → <code>onClick</code>).</li>
+    <li>핸들러에는 함수 호출(<code>func()</code>)이 아닌 <strong>함수 참조</strong>(<code>func</code>)를 전달해야 합니다.</li>
+    <li>인자를 전달해야 할 때는 <strong>화살표 함수로 감싸서</strong> 전달합니다: <code>onClick={() =&gt; handleDelete(1)}</code></li>
+    <li>폼 제출 시 새로고침을 막으려면 <strong><code>e.preventDefault()</code></strong>를 호출합니다.</li>
+    <li>자식에서 부모로 이벤트가 전파되지 않게 막으려면 <strong><code>e.stopPropagation()</code></strong>을 사용합니다.</li>
+    <li><code>e.target</code>은 실제 클릭된 요소, <code>e.currentTarget</code>은 핸들러가 부착된 요소를 가리킵니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: onClick={handleDelete(1)}처럼 인자를 바로 넣어도 클릭할 때 실행된다?</div>
+    <div class="wda-mistake-right">정답: 괄호를 붙이면 렌더링 중 <strong>즉시 실행</strong>되고 반환값(대개 undefined)이 onClick에 들어갑니다. 인자를 넘기려면 <code>() =&gt; handleDelete(1)</code>처럼 화살표 함수로 감싸야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: onSubmit에서 e.preventDefault()는 있어도 그만, 없어도 그만이다?</div>
+    <div class="wda-mistake-right">정답: 안 쓰면 브라우저가 폼 데이터를 URL로 만들어 <strong>페이지를 새로고침</strong>해버려 SPA의 state가 모두 초기화됩니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: HTML 습관대로 onclick처럼 소문자로 써도 동작한다?</div>
+    <div class="wda-mistake-right">정답: React는 <strong>camelCase만 인식</strong>하며, <code>onclick</code>으로 쓰면 이벤트가 아예 연결되지 않습니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: e.target과 e.currentTarget은 항상 같은 요소를 가리킨다?</div>
+    <div class="wda-mistake-right">정답: <code>e.target</code>은 실제로 클릭된 요소(자식일 수도 있음), <code>e.currentTarget</code>은 <strong>핸들러가 부착된 요소</strong>로 서로 다를 수 있습니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 표기법</div>
+    <div class="wda-formula-block-body"><code>onclick → onClick</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 함수 전달</div>
+    <div class="wda-formula-block-body"><code>참조 O, 호출() X</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 인자 전달</div>
+    <div class="wda-formula-block-body"><code>() =&gt; func(id)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 기본 동작 방지</div>
+    <div class="wda-formula-block-body"><code>e.preventDefault()</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">HTML의 onclick과 달리 React에서 클릭 이벤트를 처리하는 속성 이름은?</div>
+    <div class="wda-flip-back">onClick (카멜케이스)입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">폼 제출 시 새로고침을 막기 위해 호출해야 하는 메서드는?</div>
+    <div class="wda-flip-back">e.preventDefault()입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 핸들러에 인자를 전달해야 할 때 사용하는 패턴은?</div>
+    <div class="wda-flip-back">화살표 함수로 감싸는 패턴입니다. onClick={() => handleDelete(1)}</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">자식 요소의 클릭이 부모로 전파되지 않게 막는 메서드는?</div>
+    <div class="wda-flip-back">e.stopPropagation()입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">e.target과 e.currentTarget의 차이는?</div>
+    <div class="wda-flip-back">e.target은 실제 클릭된 요소, e.currentTarget은 핸들러가 부착된 요소입니다.</div>
+  </div>
+</div>

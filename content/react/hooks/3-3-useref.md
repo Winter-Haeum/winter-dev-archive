@@ -54,6 +54,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1327,32 +1343,82 @@ function Good() {
 
 <h2>21. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>DOM 요소 접근</strong></td>
-    <td>"리액트 밖으로 나가는 비상구". <code>ref={myRef}</code> 속성을 사용하여 실제 DOM 요소와 연결합니다. 리액트의 데이터 흐름만으로는 처리하기 힘든 직접적인 제어가 필요할 때 사용합니다. 활용: 포커스(Focus) 관리, 미디어 재생/정지, 스크롤 위치 조작, Canvas 그리기</td>
-  </tr>
-  <tr>
-    <td><strong>값 유지 (Persistence)</strong></td>
-    <td>"렌더링에 영향받지 않는 금고". 컴포넌트가 다시 렌더링되어도 값이 초기화되지 않고 유지됩니다. 하지만 값이 바뀐다고 해서 화면을 다시 그리지는 않습니다. 활용: <code>setTimeout</code>/<code>setInterval</code>의 타이머 ID 저장, <code>useEffect</code>에서 이전 값(Previous Value) 추적</td>
-  </tr>
-  <tr>
-    <td><strong>vs useState (비교)</strong></td>
-    <td>"화면 갱신 여부가 기준". 두 훅을 구분하는 가장 확실한 기준은 '값이 변했을 때 화면이 깜빡여야 하는가?'입니다. useState: 화면에 보여지는 데이터 (변경 시 렌더링 O) / useRef: 내부 로직용 데이터 (변경 시 렌더링 X)</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항 (Caveats)</strong></td>
-    <td>"지켜야 할 규칙". <code>ref.current</code>의 값을 바꾸는 것은 리액트의 감시 밖에서 일어나는 일입니다. 즉시 반영 안 됨: 값을 바꿔도 화면은 그대로입니다. 변경 위치 주의: 렌더링 로직(함수 본문) 내부에서 값을 바꾸면 안 되며, 반드시 이벤트 핸들러나 useEffect 안에서만 변경하세요.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
-**💡 보충 설명 (Final Tip)**
+<div class="wda-check-note">
+  <ul>
+    <li>useRef는 <strong>렌더링을 유발하지 않고</strong> 값을 저장하는 상자이며, 값은 <code>.current</code>로 읽고 쓴다.</li>
+    <li><code>ref={myRef}</code>로 DOM 요소에 연결하면 focus, scrollIntoView 등 <strong>브라우저 API를 직접 호출</strong>할 수 있다.</li>
+    <li>컴포넌트가 리렌더링돼도 <code>ref.current</code> 값은 <strong>사라지지 않고 유지</strong>된다 (타이머 ID, 이전 값 저장에 적합).</li>
+    <li>화면에 보여줄 값은 <strong>useState</strong>, 내부에서만 쓸 값(타이머 ID, 스크롤 위치 등)은 <strong>useRef</strong>.</li>
+    <li>ref.current는 렌더링 로직(함수 본문)이 아니라 <strong>이벤트 핸들러나 useEffect 안</strong>에서만 변경해야 한다.</li>
+    <li>동적 리스트의 여러 DOM을 다룰 때는 <strong>Map 기반 콜백 ref</strong>가 배열보다 안전하다.</li>
+  </ul>
+</div>
 
-<div class="wda-callout wda-ci">
-  <p><strong>"필요할 때만 꺼내 쓰세요."</strong></p>
-  <p><code>useRef</code>는 매우 강력하지만, 리액트의 '선언적 프로그래밍' 철학과는 조금 거리가 있는 '명령형' 도구입니다. 가능하면 <code>props</code>와 <code>state</code>로 해결하려고 시도해 보고, <strong>'도저히 이걸로는 안 되겠다(DOM을 직접 건드려야겠다)'</strong> 싶을 때 <code>useRef</code>를 사용하는 것이 가장 좋은 패턴입니다.</p>
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ref.current를 바꾸면 화면도 바로 갱신된다?</div>
+    <div class="wda-mistake-right">정답: ref.current를 바꿔도 리액트는 <strong>리렌더링을 트리거하지 않는다</strong>. 값은 바뀌지만 화면은 그대로다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: let 변수로도 타이머 ID를 안전하게 기억할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 함수형 컴포넌트는 렌더링마다 새로 실행되므로 let 변수는 <strong>초기화</strong>된다. useRef만 리렌더링과 무관하게 값을 유지한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 목록의 여러 DOM을 다룰 땐 배열(Array)이 항상 더 안전하다?</div>
+    <div class="wda-mistake-right">정답: 배열은 삭제 시 인덱스가 밀려 ref가 꼬일 수 있다. 추가·삭제가 잦은 동적 리스트는 <strong>Map(ID 기반)</strong>이 더 안전하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: forwardRef는 React 19에서도 반드시 필요하다?</div>
+    <div class="wda-mistake-right">정답: React 19부터는 ref를 일반 prop처럼 받을 수 있어 forwardRef가 <strong>필수가 아니며</strong>, 향후 점진적으로 제거될 예정이다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 선택 기준</div>
+    <div class="wda-formula-block-body"><code>화면 갱신 필요 → useState / 불필요 → useRef</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 접근 방식</div>
+    <div class="wda-formula-block-body"><code>.current로 읽고 쓴다</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 변경 위치</div>
+    <div class="wda-formula-block-body"><code>이벤트 핸들러 · useEffect 안에서만</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useRef가 반환하는 값의 형태는?</div>
+    <div class="wda-flip-back">항상 { current: 값 } 형태의 객체다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useRef 값을 바꿔도 화면이 갱신되지 않는 이유는?</div>
+    <div class="wda-flip-back">값이 바뀌어도 리액트에게 "다시 그려라"는 렌더링 신호를 보내지 않기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useState와 useRef를 구분하는 결정 기준 한 문장은?</div>
+    <div class="wda-flip-back">"이 값이 바뀌었을 때 화면이 깜빡여야 하는가?" — YES면 useState, NO면 useRef.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">동적으로 추가·삭제되는 리스트의 여러 DOM을 관리할 때 권장되는 저장소는?</div>
+    <div class="wda-flip-back">Map. ID를 키로 저장하면 순서가 바뀌어도 안전하게 접근할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">forwardRef는 왜 필요했나?</div>
+    <div class="wda-flip-back">일반 함수형 컴포넌트는 ref를 받지 못하기 때문에, 자식이 자신의 DOM을 부모에게 노출하려면 forwardRef로 감싸야 했다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">ref.current는 어디서 변경해야 안전한가?</div>
+    <div class="wda-flip-back">렌더링 도중(함수 본문)이 아니라 이벤트 핸들러나 useEffect 안에서 변경해야 한다.</div>
+  </div>
 </div>

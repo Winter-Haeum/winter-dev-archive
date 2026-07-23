@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1000,56 +1016,78 @@ function useUser(userId) {
 
 <h2>14. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Custom Hook</strong></td>
-    <td>반복되는 로직을 함수(<code>use...</code>)로 추출하여 코드 재사용성을 높이고, 복잡한 비즈니스 로직을 UI와 분리합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Hook 규칙 (Rules)</strong></td>
-    <td>작명: 반드시 <strong>'use'</strong> 접두사를 사용해야 리액트가 인식합니다. 위치: 반복문이나 조건문 안이 아닌, 반드시 <strong>컴포넌트 최상위(Top Level)</strong>에서만 호출해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>상태 독립성 (Independence)</strong></td>
-    <td>같은 Custom Hook을 여러 컴포넌트에서 사용해도, <strong>상태(State)는 서로 공유되지 않고 독립적</strong>으로 생성 및 관리됩니다. (로직만 공유됨)</td>
-  </tr>
-  <tr>
-    <td><strong>활용 패턴 (Patterns)</strong></td>
-    <td>기초: <code>useToggle</code>(ON/OFF), <code>useInput</code>(입력 관리), <code>useWindowSize</code>(화면 크기). 심화: <code>useFetch</code>(비동기 통신), <code>useLocalStorage</code>(데이터 저장) 등 다양하게 확장 가능합니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
----
+<div class="wda-check-note">
+  <ul>
+    <li>Custom Hook은 이름이 반드시 <strong>use로 시작</strong>하는, 내부에서 다른 Hook을 호출하는 함수다.</li>
+    <li>Custom Hook은 <strong>로직(기능)만 공유</strong>하고, 상태(state)는 컴포넌트마다 <strong>독립적으로 생성</strong>된다.</li>
+    <li>Hook은 반복문·조건문·중첩 함수 안이 아니라 항상 <strong>컴포넌트 최상위</strong>에서만 호출해야 한다.</li>
+    <li><code>useToggle</code>은 배열로, <code>useInput</code>은 객체로 반환하는 것이 일반적이며, 이유는 이름 변경 vs 필요한 것만 선택하는 사용 편의성 차이다.</li>
+    <li>Custom Hook 안에서 다른 Custom Hook을 조합(Hook Composition)해 더 큰 기능을 만들 수 있다.</li>
+    <li>실무에서는 <strong>React Hook Form, TanStack Query</strong> 같은 검증된 라이브러리를 먼저 검토하는 것이 좋다.</li>
+  </ul>
+</div>
 
-<h2>15. 💬 Did You Know? (유용한 라이브러리 & 사이트)</h2>
+**🧠 헷갈리기 쉬운 것**
 
-**💡 React Hook Form (Validation Library)**
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 같은 Custom Hook을 여러 컴포넌트에서 쓰면 상태도 공유된다?</div>
+    <div class="wda-mistake-right">정답: 로직(틀)만 공유되고, 상태(찍혀 나온 결과물)는 호출할 때마다 <strong>독립적으로 생성</strong>된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 함수 이름이 use로 시작하지 않아도 내부에서 useState를 쓰면 Hook으로 동작한다?</div>
+    <div class="wda-mistake-right">정답: React와 ESLint가 Hook으로 인식하려면 반드시 <strong>use로 시작</strong>해야 하며, 아니면 Rules of Hooks 위반 경고가 발생할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 조건문 안에서 Hook을 호출해도 조건만 잘 맞으면 문제없다?</div>
+    <div class="wda-mistake-right">정답: React는 Hook이 <strong>호출되는 순서</strong>로 상태를 관리하므로, 조건문 안에서 호출하면 순서가 뒤섞여 에러가 발생할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 여러 컴포넌트가 상태를 진짜로 공유하려면 Custom Hook만으로 충분하다?</div>
+    <div class="wda-mistake-right">정답: 로그인 정보나 테마처럼 진짜 상태를 공유하려면 <strong>Context API</strong>나 Redux·Zustand 같은 전역 상태 도구가 필요하다.</div>
+  </div>
+</div>
 
-**"폼 관리를 위한 강력한 라이브러리"**
-`useForm` 훅 하나로 복잡한 **유효성 검사(Validation), 에러 처리, 성능 최적화**를 아주 쉽게 구현할 수 있습니다. 리렌더링을 최소화하여 성능이 매우 뛰어납니다.
+**🎯 최종 암기 공식**
 
-**💡 ahooks (Alibaba Hooks)**
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 작명 규칙</div>
+    <div class="wda-formula-block-body"><code>함수명은 반드시 use로 시작</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 호출 위치</div>
+    <div class="wda-formula-block-body"><code>컴포넌트 최상위에서만</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 공유 범위</div>
+    <div class="wda-formula-block-body"><code>로직 공유 O / 상태 공유 X</code></div>
+  </div>
+</div>
 
-**"알리바바 팀에서 만든 고품질 Hook 모음집"**
-`useRequest`(API 요청 관리), `useDebounce` 등 **60개 이상의 실무용 Hook**을 제공합니다. 대규모 프로덕션 환경에서 검증된 훅들이라 신뢰할 수 있습니다.
+**🎴 클릭 복습 카드**
 
-**💡 usehooks.com (Recipe Site)**
-
-**"Custom Hook 레시피 사이트"**
-다양한 Custom Hook의 구현 코드를 모아둔 사이트입니다. `useCopyToClipboard`(클립보드 복사), `useOnClickOutside`(영역 밖 클릭 감지) 등 유용한 코드를 **복사(Copy) & 붙여넣기(Paste)** 해서 바로 사용할 수 있습니다.
-
-**💡 React Use (Collection)**
-
-**"가장 인기 있는 Hook 유틸리티 라이브러리"**
-`useBattery`(배터리 상태), `useGeolocation`(위치 정보) 등 **브라우저의 API**를 리액트 훅으로 편리하게 감싸서(Wrapping) 제공합니다.
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <p><strong>"바퀴를 다시 발명하지 마세요 (Don't Reinvent the Wheel)"</strong></p>
-  <p>공부할 때는 직접 만들어보는 것이 좋지만, 실무에서는 위와 같이 검증된 라이브러리를 사용하는 것이 <strong>개발 속도와 안정성</strong> 면에서 훨씬 유리할 때가 많습니다.<br>특히 <strong>Form 처리</strong>나 <strong>복잡한 비동기 로직</strong>은 라이브러리 도입을 적극 고려해 보세요!</p>
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Custom Hook을 만들 때 함수 이름은 반드시 무엇으로 시작해야 하나요?</div>
+    <div class="wda-flip-back">use. 예: useUser, useFetch, useWindowSize</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">두 컴포넌트가 같은 Custom Hook을 사용할 때 상태는 공유되나요?</div>
+    <div class="wda-flip-back">아니요. 로직만 재사용되고, 각 컴포넌트마다 독립적인 상태 저장소가 생성됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Hook을 반복문이나 조건문 안에서 호출하면 안 되는 이유는?</div>
+    <div class="wda-flip-back">React가 Hook 호출 순서로 상태를 관리하기 때문에, 순서가 뒤섞이면 에러가 발생합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">폼 유효성 검사를 쉽게 만들어주는 대표적인 라이브러리는?</div>
+    <div class="wda-flip-back">React Hook Form. useForm 훅 하나로 검증·에러 처리·성능 최적화를 구현할 수 있습니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">다양한 Custom Hook 구현 코드를 복사해서 바로 쓸 수 있는 레시피 사이트는?</div>
+    <div class="wda-flip-back">usehooks.com. useCopyToClipboard, useOnClickOutside 등을 복사해서 바로 사용할 수 있습니다.</div>
+  </div>
 </div>

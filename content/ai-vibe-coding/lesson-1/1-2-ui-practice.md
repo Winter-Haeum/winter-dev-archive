@@ -47,6 +47,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -479,16 +495,76 @@ Swipe 섹션을 추가해줘:
 
 ## ✅ 핵심 요약
 
-<div class="wda-memo">
-  <span class="wda-memo-label">📌 현대적 UI 개발 능력</span>
-  <div class="wda-memo-body">16개 핵심 UI 요소를 실제로 구현하면서 현대적 웹 인터페이스 개발 역량을 확보했습니다.</div>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>16개 UI 요소는 <strong>기본 입력 요소(6) · 인터랙션 요소(5) · 레이아웃 요소(3) · 터치 효과(2)</strong>로 분류된다.</li>
+    <li>각 요소는 <strong>MUI 컴포넌트</strong>(Button, TextField, Select, Checkbox, RadioGroup, Slider, Dialog, Card, Menu, Drawer, AppBar 등)로 구현한다.</li>
+    <li>프롬프트를 <strong>Claude CLI</strong>에 붙여넣어 섹션 단위로 하나씩 추가해가는 방식으로 개발한다.</li>
+    <li>터미널을 <strong>3분할</strong>(개발 서버 · lecture1 로키 · 루트 Claude)해 효율적인 실습 환경을 구성한다.</li>
+  </ul>
 </div>
 
----
+**🧠 헷갈리기 쉬운 것**
 
-### MUI 라이브러리 마스터
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 네비게이션은 모바일 대응 없이 만들어도 된다?</div>
+    <div class="wda-mistake-right">정답: 네비게이션은 사용자가 사이트를 탐색하는 핵심 요소이므로 <strong>모바일 반응형 햄버거 메뉴</strong>까지 꼭 확인해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 체크박스와 라디오 버튼은 같은 용도로 써도 된다?</div>
+    <div class="wda-mistake-right">정답: 체크박스는 <strong>다중 선택</strong>, 라디오 버튼은 <strong>단일 선택 전용</strong>이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 카드(Card)는 텍스트만 담으면 충분하다?</div>
+    <div class="wda-mistake-right">정답: <strong>CardMedia · CardContent · CardActions</strong>와 Grid 배치, 호버 시 elevation 효과까지 갖춰야 실무급 카드가 된다.</div>
+  </div>
+</div>
 
-<div class="wda-memo">
-  <span class="wda-memo-label">📌 MUI 라이브러리 마스터</span>
-  <div class="wda-memo-body">Material-UI의 주요 컴포넌트들을 활용하여 실무급 UI를 제작할 수 있는 능력을 습득했습니다.</div>
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 요소 분류</div>
+    <div class="wda-formula-block-body"><code>기본입력6 + 인터랙션5 + 레이아웃3 + 터치2 = 16</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 개발 방식</div>
+    <div class="wda-formula-block-body"><code>프롬프트 → Claude CLI → 섹션 추가</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 실습 환경</div>
+    <div class="wda-formula-block-body"><code>터미널 3분할(서버/로키/루트)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">16개 UI 요소는 몇 가지 카테고리로 나뉘나?</div>
+    <div class="wda-flip-back">기본 입력 요소(6) · 인터랙션 요소(5) · 레이아웃 요소(3) · 터치 효과(2)로 나뉜다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Button 구현 시 확인할 조합은?</div>
+    <div class="wda-flip-back">variant(contained/outlined/text) × color(primary/secondary/error) 조합이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Navigation에서 꼭 확인해야 할 것은?</div>
+    <div class="wda-flip-back">모바일 반응형 햄버거 메뉴 동작이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Checkbox와 Radio의 차이는?</div>
+    <div class="wda-flip-back">Checkbox는 다중 선택, Radio는 단일 선택만 가능하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Card를 실무급으로 만들려면?</div>
+    <div class="wda-flip-back">CardMedia + CardContent + CardActions, Grid 배치, 호버 elevation 효과를 함께 적용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">터미널 3분할의 용도는?</div>
+    <div class="wda-flip-back">개발 서버 / lecture1 Claude(로키) / 루트 Claude로 각각 나누어 사용한다.</div>
+  </div>
 </div>

@@ -63,6 +63,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .image-text-row{grid-template-columns:1fr}
 .image-text-row img{max-width:100%;margin:16px auto}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <blockquote style="margin:.3rem 0 .8rem;">사용자 행동에 반응하는 동적인 웹페이지!</blockquote>
@@ -2026,33 +2042,86 @@ function displayResults(items) {
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>이벤트 개념</strong></td>
-    <td>• 이벤트는 브라우저가 감지해 JS로 전달하는 사건이며, 리스너가 등록된 것만 처리됩니다.<br>• 마우스/키보드/폼/문서·창 이벤트로 크게 구분됩니다.</td>
-  </tr>
-  <tr>
-    <td><strong>등록 방식</strong></td>
-    <td>• 인라인, 프로퍼티, addEventListener 3가지 중 <strong>addEventListener</strong>가 가장 권장됩니다.<br>• once, capture, passive 옵션으로 세밀한 제어가 가능합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>이벤트 객체</strong></td>
-    <td>• <code>target</code>은 실제 발생 요소, <code>currentTarget</code>은 핸들러가 등록된 요소입니다.<br>• <code>preventDefault()</code>로 기본 동작을, <code>stopPropagation()</code>으로 전파를 제어합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>전파와 위임</strong></td>
-    <td>• 이벤트는 캡처링 → 타겟 → 버블링 순으로 전파됩니다.<br>• 이벤트 위임은 부모에 하나의 리스너만 등록해 메모리를 절약하고 동적 요소에도 자동 적용됩니다.</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>• 익명 함수는 <code>removeEventListener</code>로 제거할 수 없으므로 기명 함수를 사용해야 합니다.<br>• <code>stopPropagation()</code>은 이벤트 위임을 방해할 수 있어 꼭 필요할 때만 사용합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>• "선택 없이 조작 없다"처럼, <strong>"등록 없이 반응 없다"</strong> — 리스너를 등록해야 이벤트가 의미를 가집니다.<br>• 자식이 많은 목록에는 개별 등록 대신 <strong>이벤트 위임</strong>을 먼저 고려하세요.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>이벤트는 브라우저가 감지해 JS로 전달하는 사건이며, <strong>리스너가 등록된 이벤트만</strong> 핸들러가 실행된다.</li>
+    <li>이벤트 핸들러 등록은 인라인·프로퍼티·addEventListener 3가지 중 <strong>addEventListener</strong>가 여러 핸들러 등록과 옵션(once, capture, passive) 지원으로 가장 권장된다.</li>
+    <li>이벤트 객체에서 <strong>target</strong>은 실제 이벤트가 발생한 요소, <strong>currentTarget</strong>은 이벤트 리스너가 등록된 요소를 가리킨다.</li>
+    <li><strong>preventDefault()</strong>는 브라우저의 기본 동작(링크 이동, 폼 제출 등)을 막고, <strong>stopPropagation()</strong>은 이벤트의 전파(버블링/캡처링)를 중단시킨다.</li>
+    <li>이벤트는 <strong>캡처링(하강) → 타겟 → 버블링(상승)</strong> 3단계로 전파되며, addEventListener는 기본적으로 버블링 단계에서 실행된다.</li>
+    <li><strong>이벤트 위임</strong>은 자식 각각에 리스너를 달지 않고 부모 하나에만 등록해 메모리를 절약하고, 나중에 추가되는 요소에도 자동 적용된다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: removeEventListener는 addEventListener에 넘긴 함수와 겉모습만 같으면 제거된다?</div>
+    <div class="wda-mistake-right">정답: <strong>익명 함수는 제거할 수 없다</strong> — 등록할 때와 <strong>동일한 함수 참조(기명 함수)</strong>를 전달해야 제거된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: addEventListener 두 번째 인자에 handleClick()처럼 괄호를 붙여도 나중에 클릭 시 실행된다?</div>
+    <div class="wda-mistake-right">정답: 괄호를 붙이면 <strong>즉시 실행</strong>되어 그 반환값이 전달되므로, 콜백으로 넘길 때는 <strong>괄호 없이 함수 이름만</strong> 전달해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: mouseover/mouseout과 mouseenter/mouseleave는 동작이 같다?</div>
+    <div class="wda-mistake-right">정답: <strong>mouseenter/leave</strong>는 버블링되지 않고 해당 요소 경계만 따지지만, <strong>mouseover/out</strong>은 버블링되어 자식 요소 사이 이동도 감지한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: input 이벤트와 change 이벤트는 같은 시점에 발생한다?</div>
+    <div class="wda-mistake-right">정답: <strong>input</strong>은 타이핑할 때마다 실시간으로, <strong>change</strong>는 포커스를 잃거나 값이 확정될 때만 발생한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: stopPropagation()은 언제든 자유롭게 사용해도 무방하다?</div>
+    <div class="wda-mistake-right">정답: 이벤트 위임이나 분석 도구의 동작을 방해할 수 있어 <strong>꼭 필요할 때만</strong> 사용해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 전파 순서</div>
+    <div class="wda-formula-block-body"><code>캡처링(하강) → 타겟 → 버블링(상승)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · target vs currentTarget</div>
+    <div class="wda-formula-block-body"><code>target = 실제 클릭</code><br><code>currentTarget = 리스너 등록 위치</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 이벤트 제거</div>
+    <div class="wda-formula-block-body"><code>removeEventListener = 동일한 기명 함수 필요</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 핸들러 등록 방식 중 가장 권장되는 것은?</div>
+    <div class="wda-flip-back">addEventListener — 여러 핸들러 등록과 once/capture/passive 옵션을 지원한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">target과 currentTarget의 차이는?</div>
+    <div class="wda-flip-back">target은 실제로 이벤트가 발생한 요소, currentTarget은 리스너가 등록된 요소다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">preventDefault()와 stopPropagation()의 차이는?</div>
+    <div class="wda-flip-back">preventDefault는 기본 동작을 막고, stopPropagation은 이벤트 전파를 중단시킨다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 전파의 3단계는?</div>
+    <div class="wda-flip-back">캡처링(하강) → 타겟 → 버블링(상승) 순으로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 위임을 쓰는 이유는?</div>
+    <div class="wda-flip-back">부모에 리스너 하나만 등록해 메모리를 절약하고, 동적으로 추가되는 요소에도 자동 적용되기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">removeEventListener가 실패하는 대표적인 이유는?</div>
+    <div class="wda-flip-back">등록할 때 익명 함수를 사용해 동일한 함수 참조를 전달하지 못했기 때문이다.</div>
+  </div>
+</div>

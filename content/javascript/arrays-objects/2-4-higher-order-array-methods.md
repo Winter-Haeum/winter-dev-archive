@@ -54,6 +54,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:640px){
 .wda-deco{width:34px !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1201,7 +1217,7 @@ function addToCart(item) {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📂 배열 고차 함수 요약표</h2>
 </div>
 
 **🧠 메서드 분류**
@@ -1357,4 +1373,113 @@ function addToCart(item) {
   · <code>forEach</code> 뒤에 점(<code>.</code>)을 찍고 다른 메서드를 붙이면 에러가 납니다. (반환값이 <code>undefined</code>니까요!)<br>
   · 반면 <code>map</code>, <code>filter</code> 뒤에는 계속 점을 찍어 연결(Chaining)할 수 있습니다. (새로운 배열이 나오니까요!)<br><br>
   그리고 <strong><code>sort</code>는 원본을 망가뜨리는 악동</strong>이라는 점을 절대 잊지 마세요.
+</div>
+
+---
+
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>✅ 핵심 요약</h2>
+</div>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>forEach</strong>는 순회만 하고 <strong>undefined</strong>를 반환해 체이닝이 불가능하다.</li>
+    <li><strong>map / filter</strong>는 <strong>새 배열</strong>을 반환해 원본을 바꾸지 않고 체이닝할 수 있다.</li>
+    <li><strong>reduce</strong>는 배열을 하나의 값으로 축소하며, <strong>초기값을 꼭 넣어야</strong> 빈 배열에서도 안전하다.</li>
+    <li><strong>find</strong>는 조건에 맞는 첫 요소(없으면 undefined), <strong>findIndex</strong>는 인덱스(없으면 -1)를 반환한다.</li>
+    <li><strong>some</strong>은 하나라도 만족(OR), <strong>every</strong>는 모두 만족(AND)해야 true다.</li>
+    <li><strong>sort</strong>는 원본을 직접 바꾸는(파괴적) 유일한 멤버이므로 <code>[...arr].sort()</code>로 복사 후 정렬한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: forEach도 map처럼 결과를 반환한다?</div>
+    <div class="wda-mistake-right">정답: forEach는 항상 <strong>undefined</strong>를 반환하므로 뒤에 다른 배열 메서드를 체이닝할 수 없다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: find와 filter는 둘 다 배열을 반환한다?</div>
+    <div class="wda-mistake-right">정답: find는 조건에 맞는 <strong>요소 1개(또는 undefined)</strong>를, filter는 조건에 맞는 <strong>모든 요소를 새 배열</strong>로 반환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: reduce의 초기값은 생략해도 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: 생략하면 첫 요소가 초기값이 되는데, 배열이 <strong>비어 있으면 에러</strong>가 난다. 항상 초기값을 명시하는 것이 안전하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: sort()도 map/filter처럼 원본을 건드리지 않는다?</div>
+    <div class="wda-mistake-right">정답: sort()는 <strong>원본 배열을 직접 변경</strong>한다(파괴적). 불변성을 지키려면 <code>[...arr].sort()</code>로 복사 후 정렬한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: some과 every는 배열을 항상 끝까지 검사한다?</div>
+    <div class="wda-mistake-right">정답: 둘 다 <strong>단락 평가(short-circuit)</strong>로 결과가 정해지는 순간 즉시 멈춘다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 반환값 구분</div>
+    <div class="wda-formula-block-body">
+      <code>forEach = X, map/filter = 새 배열</code><br>
+      <code>reduce = 값 하나, find = 요소/undefined</code><br>
+      <code>some/every = Boolean</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 원본 변경 여부</div>
+    <div class="wda-formula-block-body">
+      <code>map/filter/reduce/find/some/every = 불변</code><br>
+      <code>sort = 파괴적(원본 변경)</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 숫자 정렬</div>
+    <div class="wda-formula-block-body"><code>arr.sort((a, b) =&gt; a - b)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 체이닝 규칙</div>
+    <div class="wda-formula-block-body"><code>배열을 반환하는 메서드끼리만 연결 가능</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">forEach 뒤에 .map()을 이어붙이면?</div>
+    <div class="wda-flip-back">에러가 난다. forEach는 undefined를 반환해 체이닝할 수 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">map과 filter의 공통점은?</div>
+    <div class="wda-flip-back">둘 다 원본을 바꾸지 않고 새로운 배열을 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">reduce의 콜백 매개변수 순서는?</div>
+    <div class="wda-flip-back">(누산기 acc, 현재값 cur, 인덱스, 배열) 순이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">find가 filter보다 유리한 경우는?</div>
+    <div class="wda-flip-back">결과가 하나뿐일 때. find는 찾는 즉시 멈춰 성능이 좋다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">some과 every의 차이는?</div>
+    <div class="wda-flip-back">some은 하나라도 만족하면 true(OR), every는 모두 만족해야 true(AND)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">sort()로 숫자를 정렬할 때 주의점은?</div>
+    <div class="wda-flip-back">기본은 문자열 비교이므로 (a, b) => a - b 비교 함수가 필요하고, 원본을 직접 변경한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열 상태를 정렬할 때 권장하는 안전한 패턴은?</div>
+    <div class="wda-flip-back">[...arr].sort(...)처럼 복사본을 만든 뒤 정렬한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">순수 함수란?</div>
+    <div class="wda-flip-back">같은 입력에는 항상 같은 출력을 내고, 외부 상태를 변경하지 않는 함수다.</div>
+  </div>
 </div>

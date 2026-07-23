@@ -63,6 +63,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -532,20 +543,54 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 ## ✅ 핵심 요약
 
-### 완료 후 확인사항
+**📌 먼저 외울 것**
 
-통합 세팅이 성공적으로 완료되면 다음 사항들을 확인할 수 있습니다.
+<div class="wda-check-note">
+  <ul>
+    <li>통합 세팅 프롬프트 <strong>하나</strong>로 권한 최적화 · React 환경(Vite+MUI) · 문서 시스템 · CLAUDE.md · 테마 적용까지 <strong>자동 완료</strong>된다.</li>
+    <li>전체 과정은 약 <strong>5~10분</strong> 소요되며, 모든 과정이 자동으로 진행되므로 <strong>중간에 중단하면 안 된다</strong>.</li>
+    <li>완성된 프로젝트는 <code>_template_settings</code>로 이름이 바뀌어 이후 새 프로젝트를 빠르게 세팅하는 <strong>템플릿</strong>이 된다.</li>
+    <li>핵심 패키지는 <code>react-router-dom</code>, <code>@mui/material</code>, <code>@emotion/*</code>, <code>@mui/icons-material</code>, <code>@fontsource/roboto</code>다.</li>
+    <li>모든 단계가 끝나면 <strong>"개발준비완료"</strong> 메시지가 출력되어야 성공이다.</li>
+  </ul>
+</div>
 
-<div class="wda-memo">
-  <span class="wda-memo-label">✅ 완료 후 확인사항</span><div class="wda-memo-body">
-📁 <strong>디렉토리 구조</strong> — <code>lecture1/my-react-app</code> 프로젝트 생성<br>
-📦 <strong>패키지 설치</strong> — MUI, React Router 등 모든 필수 패키지 설치<br>
-📄 <strong>문서 시스템</strong> — <code>docs</code> 폴더에 3개 문서 파일 다운로드<br>
-📝 <strong>CLAUDE.md</strong> — 로키 역할 설정 + <code>@</code> 연결자 작동<br>
-🖥️ <strong>개발 서버</strong> — 테스트 후 자동 종료 완료
-</div></div>
+**🧠 실수 방지 체크**
 
----
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오류: 권한 오류가 발생했다.</div>
+    <div class="wda-mistake-right">방지: <strong>관리자 권한으로 터미널을 재실행</strong>한 뒤 다시 시도한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오류: 개발 서버 포트가 충돌한다.</div>
+    <div class="wda-mistake-right">방지: Claude가 자동으로 <code>vite.config.js</code>에서 <strong>다른 포트</strong>를 설정하도록 둔다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오류: 문서 다운로드가 실패한다.</div>
+    <div class="wda-mistake-right">방지: <strong>인터넷 연결 상태</strong>를 먼저 확인한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오류: 패키지 설치가 실패한다.</div>
+    <div class="wda-mistake-right">방지: <code>npm cache clean --force</code> 후 재설치한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 개발 서버 테스트 후 프로세스를 아무거나 종료한다.</div>
+    <div class="wda-mistake-right">방지: <strong>개발 서버 PID만 정확히 종료</strong>하고, Claude Code 프로세스는 절대 건드리지 않는다.</div>
+  </div>
+</div>
+
+**🏁 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li><code>.claude/settings.local.json</code> 권한 설정 파일이 생성된다.</li>
+    <li><code>lecture1/_template_settings</code>에 Vite + MUI 프로젝트가 완성된다.</li>
+    <li><code>docs</code> 폴더에 3개 문서가 다운로드되고 <code>@</code> 연결자로 정상 로드된다.</li>
+    <li>루트 + lecture1 <strong>이중 구조</strong>의 CLAUDE.md가 완성된다.</li>
+    <li><code>theme.js</code> + <code>ThemeProvider</code> + <code>CssBaseline</code>이 적용된다.</li>
+  </ul>
+</div>
 
 ### 이 단계에서 완성되는 수업
 
@@ -572,6 +617,35 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
   <div class="wda-done-ico">🎉</div>
   <div class="wda-done-ttl">통합 세팅 완료!</div>
   <div>이 단계를 완료하면 수업 1-1, 1-2, 1-3이 동시에 완성됩니다.<br>이후 <code>_template_settings</code>를 복사해서 새 프로젝트를 빠르게 세팅할 수 있습니다.</div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">--dangerously-skip-permissions 옵션은?</div>
+    <div class="wda-flip-back">각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있게 하는 옵션이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">통합 세팅 6단계는 무엇을 만드나?</div>
+    <div class="wda-flip-back">권한 설정 → React 환경 → 문서 다운로드 → CLAUDE.md → 테마 적용 → 템플릿화 순서로 자동 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">_template_settings는 왜 만드나?</div>
+    <div class="wda-flip-back">완성된 프로젝트를 템플릿으로 남겨, 이후 새 프로젝트를 복사만으로 빠르게 세팅하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">react-router-dom의 역할은?</div>
+    <div class="wda-flip-back">페이지 간 라우팅(경로 이동)을 처리한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">@emotion/react가 필요한 이유는?</div>
+    <div class="wda-flip-back">MUI의 스타일 엔진으로, MUI 컴포넌트 사용에 필수인 의존성이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">개발 서버 테스트 후 반드시 지켜야 할 규칙은?</div>
+    <div class="wda-flip-back">개발 서버 프로세스만 정확히 종료하고, Claude Code 프로세스는 절대 건드리지 않는다.</div>
+  </div>
 </div>
 
 ---

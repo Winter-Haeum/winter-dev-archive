@@ -53,6 +53,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -307,18 +323,67 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ---
 
-## 📝 체크포인트
+## ✅ 핵심 요약
 
 다음 항목들이 모두 완료되었는지 확인하세요.
 
-- [ ] 마음에 드는 웹사이트 선택 및 캡쳐 완료
-- [ ] VSCode에 이미지 파일 저장 완료
-- [ ] Claude CLI (루트)에 이미지 드래그 성공
-- [ ] 컬러 분석 프롬프트 실행 완료
-- [ ] 체계적인 컬러 팔레트 추출 완료
-- [ ] 디자인 시스템 문서 생성 완료
-- [ ] "컬러 팔레트 디자인 시스템.md" 파일 저장 확인
-- [ ] CSS 변수 형태의 컬러 코드 확보
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>캡쳐 → <strong>Claude CLI 터미널에 이미지 드래그</strong> → 컬러 분석 프롬프트 실행 순서로 진행한다</li>
+    <li>컬러팔레트는 <strong>Primary·Secondary·Accent·Neutral</strong> 4가지 역할로 구성된다</li>
+    <li>추출한 색상은 <strong>Hex 코드 + CSS 변수(:root)</strong>로 정리해야 바로 개발에 쓸 수 있다</li>
+    <li>디자인 시스템 문서는 반드시 파일(.md)로 저장해야 다음 단계(포트폴리오 적용)에 재사용할 수 있다</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 캡쳐한 화면을 파일로 저장하지 않고 바로 분석을 요청하면?</div>
+    <div class="wda-mistake-right">방지: VSCode에 Ctrl+V로 먼저 이미지 파일을 저장한 뒤, 그 파일을 Claude CLI 터미널에 드래그해야 인식된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 컬러 분석 프롬프트만 실행하고 끝내면?</div>
+    <div class="wda-mistake-right">방지: 분석 결과를 다시 "디자인 시스템 문서화 프롬프트"에 투입해 실제 .md 파일로 저장해야 한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · 캡쳐 & 저장</div>
+    <div class="wda-formula-block-body">웹사이트 선택 및 캡쳐 완료<br>VSCode 이미지 파일 저장 완료</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 분석 실행</div>
+    <div class="wda-formula-block-body">Claude CLI에 이미지 드래그 성공<br>컬러 분석 프롬프트 실행 완료<br>체계적인 컬러 팔레트 추출 완료</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 문서화</div>
+    <div class="wda-formula-block-body">디자인 시스템 문서 생성 완료<br>"컬러 팔레트 디자인 시스템.md" 저장 확인<br>CSS 변수 형태의 컬러 코드 확보</div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컬러팔레트를 구성하는 4가지 역할은?</div>
+    <div class="wda-flip-back">Primary, Secondary, Accent, Neutral</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Windows에서 영역을 선택해 캡쳐하는 단축키는?</div>
+    <div class="wda-flip-back">Windows + Shift + S</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">디자인토큰이란?</div>
+    <div class="wda-flip-back">색상·크기·간격 등 디자인 결정사항을 CSS 변수/JSON/SCSS로 코드화한 최소 단위</div>
+  </div>
+</div>
 
 <div class="wda-done" style="margin-top:2.2rem;">
   <div class="wda-done-ico">🎨</div>

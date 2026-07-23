@@ -55,6 +55,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -877,64 +893,86 @@ btn.addEventListener('click', () => {
 
 ## ✅ 핵심 요약
 
-**🆚 요소 선택 및 상태 (Selection)**
+**📌 먼저 외울 것**
 
-| **메서드** | **선택 방식** | **반환 타입** | **상태 특성** |
-| --- | --- | --- | --- |
-| **`getElementById`** | ID 값 (단일) | Element | 단일 요소 반환 / 컬렉션 아님 |
-| **`querySelector`** | CSS 선택자 (단일) | Element | - |
-| **`querySelectorAll`** | CSS 선택자 (복수) | NodeList | **Static** (정적, 선택 시점 고정) |
-
-**핵심 포인트**
-
-<div class="wda-callout wda-cs">
+<div class="wda-check-note">
   <ul>
-    <li><strong>Live</strong> : DOM의 변화가 즉시 컬렉션에 반영됩니다. (예: <code>getElementsByClassName</code>, <code>getElementsByTagName</code> 등으로 가져온 HTMLCollection)</li>
-    <li><strong>Static</strong> : 요소를 가져온 시점의 상태를 유지하며, 이후 DOM이 변해도 업데이트되지 않습니다. (예: <code>querySelectorAll</code>)</li>
+    <li>대부분의 요소 선택에는 <strong>querySelector / querySelectorAll</strong>이 편리한 기본 선택지이며, <strong>getElementById</strong>는 특수한 성능 최적화 상황에서만 고려한다.</li>
+    <li><strong>textContent</strong>는 태그를 문자열로 취급해 가장 안전하고, <strong>innerHTML</strong>은 HTML을 파싱해 실제 DOM으로 만들지만 <strong>XSS 공격에 취약</strong>하다.</li>
+    <li>HTML Attribute는 <strong>초기값(설계도)</strong>이라 getAttribute()로 읽고, DOM Property는 <strong>현재 상태(실시간)</strong>라 element.value처럼 점 표기법으로 접근한다.</li>
+    <li><code>data-*</code> 속성은 <strong>dataset</strong>으로 접근하며, HTML은 케밥 케이스(data-user-id), JS는 카멜 케이스(dataset.userId)로 변환된다. dataset 값은 항상 문자열이다.</li>
+    <li>클래스 조작은 문자열 전체를 다루는 <strong>className</strong>보다, add/remove/toggle/contains를 제공하는 <strong>classList</strong>가 권장된다.</li>
+    <li>요소는 <strong>createElement()로 메모리에 생성</strong>한 뒤, <strong>appendChild()/append()로 DOM에 삽입</strong>해야 비로소 화면에 나타난다.</li>
   </ul>
 </div>
 
-**📝 내용 및 스타일 조작 (Content & Style)**
+**🧠 헷갈리기 쉬운 것**
 
-| **구분** | **항목** | **특징** | **비고** |
-| --- | --- | --- | --- |
-| **내용** | **`textContent`** | 오직 텍스트만 취급 | **가장 안전 (보안 권장)** |
-|  | **`innerHTML`** | HTML 태그를 해석하여 삽입 | **⚠️ XSS 공격 위험** |
-| **스타일** | **`element.style`** | HTML 태그 내에 직접 작성 | **인라인 스타일**만 제어 가능 |
-|  | **`getComputedStyle()`** | 브라우저가 최종 계산한 스타일 | CSS 파일에 정의된 값 조회 시 사용 |
-
-**🧠 클래스 및 속성 제어 (Class & Attributes)**
-
-| **메서드** | **역할** | **세부 기능** |
-| --- | --- | --- |
-| **`classList`** | 클래스 정밀 제어 | `add`, `remove`, `toggle`, `contains` |
-| **`setAttribute`** | 속성 쓰기 | `element.setAttribute('속성명', '값')` |
-| **`dataset`** | 사용자 정의 속성 접근 | `data-*` 속성을 객체 형태로 관리 |
-
-**핵심 포인트**
-
-<div class="wda-callout wda-cs">
-  <ul>
-    <li><strong>HTML (케밥 케이스)</strong> : <code>data-user-id</code>와 같이 하이픈(-)으로 연결합니다.</li>
-    <li><strong>JS (카멜 케이스)</strong> : <code>dataset.userId</code>와 같이 대문자로 연결하여 접근합니다.</li>
-  </ul>
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: innerHTML에 사용자 입력을 넣어도 script 태그만 조심하면 안전하다?</div>
+    <div class="wda-mistake-right">정답: <code>&lt;script&gt;</code>는 막혀도 <code>&lt;img onerror&gt;</code> 같은 다른 방식으로 악성 코드가 실행될 수 있어, 사용자 입력값은 기본적으로 <strong>textContent</strong>로 처리해야 안전하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: className으로 클래스를 추가하면 기존 클래스가 유지된다?</div>
+    <div class="wda-mistake-right">정답: <strong>className</strong>은 문자열 전체를 통째로 다뤄 값을 대입하면 <strong>기존 클래스가 사라진다</strong> — 개별 제어에는 classList를 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: createElement로 만든 요소는 만드는 즉시 화면에 보인다?</div>
+    <div class="wda-mistake-right">정답: createElement 직후는 <strong>메모리에만 존재</strong>하는 상태이며, appendChild 등으로 DOM에 연결해야 화면에 나타난다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: appendChild()가 요소를 삽입하는 가장 유연한 최신 방법이다?</div>
+    <div class="wda-mistake-right">정답: appendChild()는 <strong>노드 1개만, 맨 뒤에만</strong> 추가할 수 있고, append()/prepend()/before()/after() 같은 모던 메서드가 여러 요소·문자열을 자유로운 위치에 삽입할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: element.style도 CSS 파일에 정의된 스타일을 읽을 수 있다?</div>
+    <div class="wda-mistake-right">정답: <strong>element.style</strong>은 인라인 스타일만 읽고 쓸 수 있고, CSS 파일에 정의된 최종 스타일을 읽으려면 <strong>getComputedStyle()</strong>을 써야 한다.</div>
+  </div>
 </div>
 
-**📝 생성/삽입/삭제 (Manipulation)**
+**🎯 최종 암기 공식**
 
-| **단계** | **메서드** | **특징** |
-| --- | --- | --- |
-| **생성** | **`createElement()`** | 새로운 노드를 메모리에 생성 |
-| **삽입** | **`append()`** | 부모의 **맨 뒤**에 추가 (여러 개/문자열 가능) |
-|  | **`prepend()`** | 부모의 **맨 앞**에 추가 (모던 메서드) |
-|  | **`appendChild()`** | 부모의 **맨 뒤**에 추가 (노드 1개만 가능) |
-| **삭제** | **`remove()`** | 대상 요소 자체를 즉시 제거 |
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 선택 우선순위</div>
+    <div class="wda-formula-block-body"><code>querySelector(All) 우선</code><br><code>getElementById는 특수 상황</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 안전한 내용 변경</div>
+    <div class="wda-formula-block-body"><code>사용자 입력 → textContent</code><br><code>(innerHTML 금지)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 생성-삽입 흐름</div>
+    <div class="wda-formula-block-body"><code>createElement(메모리)</code><br><code>→ append/appendChild(DOM)</code></div>
+  </div>
+</div>
 
-**최종 정리**
+**🎴 클릭 복습 카드**
 
-<div class="wda-callout wda-cs">
-  <ul>
-    <li><strong>"사용자 입력값은 무조건 textContent로 처리할 것"</strong></li>
-    <li>스크립트가 실행될 위험이 있는 <code>innerHTML</code> 대신 텍스트 자체로 인식하는 방식을 택하는 것이 프론트엔드 보안의 기본입니다.</li>
-  </ul>
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">textContent와 innerHTML의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">textContent는 텍스트만 다뤄 안전하고, innerHTML은 HTML을 파싱해 XSS 위험이 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Attribute와 Property의 차이는?</div>
+    <div class="wda-flip-back">Attribute는 HTML에 적힌 초기값(getAttribute), Property는 현재 실시간 값(element.value)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">data-user-id는 JS에서 어떻게 접근하나?</div>
+    <div class="wda-flip-back">dataset.userId처럼 케밥 케이스가 카멜 케이스로 변환되어 접근된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">className 대신 classList를 쓰는 이유는?</div>
+    <div class="wda-flip-back">add/remove/toggle/contains로 개별 클래스를 안전하게 제어할 수 있어 기존 클래스가 사라지지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">createElement 직후 요소는 어디에 있나?</div>
+    <div class="wda-flip-back">아직 메모리에만 있고, appendChild 등으로 DOM에 연결해야 화면에 나타난다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">appendChild()의 한계를 보완하는 모던 메서드는?</div>
+    <div class="wda-flip-back">append(), prepend(), before(), after()가 여러 요소·문자열을 자유로운 위치에 삽입할 수 있다.</div>
+  </div>
 </div>

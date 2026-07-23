@@ -52,6 +52,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -358,4 +374,95 @@ useEffect(() => {
 
 <div class="wda-callout wda-cs">
   <p><code>eslint-plugin-react-hooks</code> 플러그인을 사용하세요!<br>의존성 배열에 넣어야 할 변수를 빠뜨리면 에디터에서 자동으로 빨간 줄을 그어 알려줍니다.<br>실수를 방지하는 최고의 방법입니다.</p>
+</div>
+
+---
+
+<h2>9. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Hook은 <strong>5가지 카테고리</strong>로 나뉜다: State(useState·useReducer), Effect(useEffect·useLayoutEffect), Context&amp;Ref(useContext·useRef), Optimization(useMemo·useCallback), Modern(useTransition·useDeferredValue·useId·useSyncExternalStore).</li>
+    <li><strong>useMemo</strong>는 계산된 값(Value)을, <strong>useCallback</strong>은 함수(Function) 자체를 기억한다.</li>
+    <li><strong>useEffect</strong>는 화면이 그려진 후 비동기로, <strong>useLayoutEffect</strong>는 화면이 그려지기 전에 동기로 실행된다.</li>
+    <li>Hooks는 반드시 <strong>최상위(Top Level)</strong>에서, 반복문·조건문 없이 <strong>React 함수 내부</strong>에서만 호출해야 한다.</li>
+    <li><strong>Custom Hook</strong>은 기본 Hook들을 조합해 반복되는 로직을 재사용 가능한 블록으로 만든 것이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useMemo와 useCallback은 같은 것을 기억한다?</div>
+    <div class="wda-mistake-right">정답: useMemo는 <strong>계산 결과값(Value)</strong>을, useCallback은 <strong>함수(Function) 자체</strong>를 기억한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useDeferredValue는 setTimeout 기반 debounce와 똑같다?</div>
+    <div class="wda-mistake-right">정답: useDeferredValue는 값의 업데이트 <strong>우선순위를 낮춰</strong> 반응성을 유지하는 것이지, 정해진 시간만큼 지연시키는 debounce와는 원리가 다르다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useTransition에서는 입력창 상태(setQuery)도 startTransition으로 감싸야 한다?</div>
+    <div class="wda-mistake-right">정답: 입력 상태를 감싸면 타이핑이 끊기므로, <strong>결과 상태(setList)</strong>처럼 최종 업데이트만 감싸야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useId는 리스트를 map()으로 그릴 때 key로 써도 된다?</div>
+    <div class="wda-mistake-right">정답: useId는 <strong>DOM 요소의 접근성 ID</strong>용이지 데이터 ID가 아니며, key는 반드시 <strong>데이터 자체의 고유 ID</strong>에서 가져와야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 최적화 Hook(useMemo·useCallback)은 무조건 많이 쓸수록 좋다?</div>
+    <div class="wda-mistake-right">정답: 메모리 저장과 값 비교에 <strong>연산 비용</strong>이 들기 때문에, 실제 성능 문제가 느껴질 때만 도입하는 것이 정석이다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 최적화 구분</div>
+    <div class="wda-formula-block-body"><code>useMemo = 값 캐싱</code><br><code>useCallback = 함수 캐싱</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Effect 타이밍</div>
+    <div class="wda-formula-block-body"><code>useEffect = 그려진 후(비동기)</code><br><code>useLayoutEffect = 그려지기 전(동기)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · Hooks 규칙</div>
+    <div class="wda-formula-block-body"><code>최상위 호출 + React 함수 내부에서만</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">5가지 Hook 카테고리는?</div>
+    <div class="wda-flip-back">State(useState·useReducer), Effect(useEffect·useLayoutEffect), Context&Ref, Optimization(useMemo·useCallback), Modern(useTransition 등)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useMemo와 useCallback의 차이는?</div>
+    <div class="wda-flip-back">useMemo는 계산된 값(Value)을, useCallback은 함수(Function) 자체를 기억한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useEffect와 useLayoutEffect의 실행 시점 차이는?</div>
+    <div class="wda-flip-back">useEffect는 화면이 그려진 후 비동기로 실행되고, useLayoutEffect는 화면이 그려지기 전에 동기로 실행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useDeferredValue와 debounce는 같은가?</div>
+    <div class="wda-flip-back">다르다. useDeferredValue는 업데이트 우선순위를 낮추는 것이고, debounce는 setTimeout으로 정해진 시간만큼 지연시키는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useTransition에서 절대 startTransition으로 감싸면 안 되는 것은?</div>
+    <div class="wda-flip-back">입력창처럼 즉시 반응해야 하는 긴급 상태(예: setQuery)는 감싸면 안 된다. 결과 상태만 감싸야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useId를 리스트 key로 써도 될까?</div>
+    <div class="wda-flip-back">안 된다. useId는 DOM 접근성 연결용 ID이고, key는 반드시 데이터 자체의 고유 ID를 사용해야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Hooks의 최상위 규칙이란?</div>
+    <div class="wda-flip-back">반복문·조건문·중첩 함수 안에서 호출하지 않고, React 함수형 컴포넌트나 Custom Hook의 최상위에서만 호출해야 한다.</div>
+  </div>
 </div>

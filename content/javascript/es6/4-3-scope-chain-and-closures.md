@@ -53,6 +53,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
@@ -1185,96 +1201,85 @@ for (var i = 0; i < 3; i++) {
 
 ## ✅ 핵심 요약
 
-**🧠 렉시컬 스코프 (Lexical Scope)**
+**📌 먼저 외울 것**
 
-코드를 작성한 위치가 곧 운명(스코프)을 결정한다는 핵심 원칙입니다.
+<div class="wda-check-note">
+  <ul>
+    <li><strong>렉시컬 스코프</strong> — 함수를 어디서 호출했는지는 중요하지 않고, <strong>어디에 작성(선언)했느냐</strong>가 스코프를 결정합니다. 코드가 작성되는 순간 정적으로 확정되며 실행 중에 바뀌지 않습니다.</li>
+    <li><strong>스코프 체인</strong>은 내 주머니 → 부모 주머니 → 전역 주머니 순서로 변수를 탐색하며, <strong>안에서 밖으로만</strong> 진행됩니다 (하위 스코프로 내려가서 찾을 수는 없습니다).</li>
+    <li><strong>클로저</strong>는 외부 함수가 종료되었는데도 내부 함수가 외부 변수를 참조하고 있을 때 발생하며, 참조(Reference)가 남아있으면 가비지 컬렉터(GC)가 청소하지 않습니다.</li>
+    <li>클로저의 핵심 기능은 상태(데이터)를 안전하게 <strong>기억</strong>하고 <strong>유지</strong>하는 것이며, 정보 은닉(캡슐화)과 함수 팩토리(커링, 부분 적용) 패턴에 활용됩니다.</li>
+    <li><strong>스코프</strong>는 코드 작성(선언) 시 정적으로 결정되지만, <strong>실행 컨텍스트</strong>는 코드 실행(호출) 시 동적으로 결정됩니다.</li>
+  </ul>
+</div>
 
-| **핵심 원칙** | **설명** | **비유** |
-| --- | --- | --- |
-| **선언 위치 기준** | 함수를 어디서 호출했는지는 중요하지 않음.<br>**어디에 작성(선언)했느냐**가 유일한 기준. | 미국에서 태어난 아이가 한국에 놀러 와도 국적은 안 바뀜 |
-| **정적 스코프** | 코드가 작성되는 순간 스코프가 확정됨.<br>(실행 중에 바뀌지 않음) | 건물을 지을 때 설계도대로 방이 나뉨.<br>사람이 들어간다고 방 구조가 바뀌지 않음 |
-| **스코프 체인** | **내 주머니 → 부모 주머니 → 전역 주머니**<br>순서로 변수를 탐색함. (안에서 밖으로만 가능) | 틴팅된 유리창과 같음.<br>안에서는 밖이 보이지만, 밖에서는 안이 안 보임 |
+**🧠 헷갈리기 쉬운 것**
 
-**🧠 클로저 (Closure)의 마법**
-
-함수가 종료되어도 변수가 살아남는 메커니즘을 정리했습니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">탄생 조건</div>
-    <div class="wda-fcard-dsc"><strong>외부 함수</strong>가 종료되었는데, <strong>내부 함수</strong>가 외부 변수를 <strong>참조</strong>하고 있을 때 발생</div>
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 클로저는 항상 좋기만 하다?</div>
+    <div class="wda-mistake-right">정답: 큰 데이터를 계속 참조하면 <strong>메모리 누수</strong>가 발생할 수 있습니다. 필요한 값만 캡처하거나, 다 쓴 클로저는 <code>null</code>로 참조를 해제해야 합니다.</div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">생존 이유</div>
-    <div class="wda-fcard-dsc"><strong>참조(Reference)</strong>가 남아있으면 <strong>가비지 컬렉터(GC)</strong>가 청소하지 않음</div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: var와 반복문+비동기(setTimeout)를 함께 써도 괜찮다?</div>
+    <div class="wda-mistake-right">정답: <code>var</code>는 함수 스코프라 반복문이 끝난 뒤의 값(예: 3)을 모든 콜백이 공유하는 버그가 생깁니다. <strong><code>let</code></strong>을 쓰면 매 반복마다 새 스코프가 생겨 해결됩니다.</div>
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">핵심 기능</div>
-    <div class="wda-fcard-dsc">상태(데이터)를 안전하게 <strong>기억</strong>하고 <strong>유지</strong>함</div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 스코프와 실행 컨텍스트는 같은 개념이다?</div>
+    <div class="wda-mistake-right">정답: 스코프는 "어디까지 쓸 수 있는지"를 코드 작성 시 <strong>정적</strong>으로 결정하고, 실행 컨텍스트는 "어떤 환경에서 돌아가는지"를 코드 실행 시 <strong>동적</strong>으로 결정합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: IIFE와 클로저(함수 팩토리)는 같은 용도로 쓰인다?</div>
+    <div class="wda-mistake-right">정답: IIFE는 <strong>단 하나만 존재하는 공유 저장소</strong>(싱글턴)를 만들 때, 클로저 팩토리는 <strong>호출마다 독립적인 저장소</strong>를 여러 개 만들 때 사용합니다.</div>
   </div>
 </div>
 
-**🧠 실전 활용 & 주의사항 (Do's & Don'ts)**
+**🎯 최종 암기 공식**
 
-클로저를 언제 써야 하고, 언제 조심해야 하는지 비교했습니다.
-
-<div class="wda-group2">
-  <div class="wda-group wda-group-good">
-    <div class="wda-group-ttl">✅ 활용 (Good)</div>
-    <div class="wda-fgrid">
-      <div class="wda-fcard">
-        <div class="wda-fcard-ttl">정보 은닉 (Encapsulation)</div>
-        <div class="wda-fcard-dsc">변수를 함수 안에 숨겨서 외부 직접 접근을 차단하는 효과</div>
-      </div>
-      <div class="wda-fcard">
-        <div class="wda-fcard-ttl">함수 팩토리 (Factory)</div>
-        <div class="wda-fcard-dsc">설정값이 적용된 함수를 공장처럼 찍어냄(커링, 부분 적용 등)</div>
-      </div>
-    </div>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 스코프 결정</div>
+    <div class="wda-formula-block-body"><code>호출 위치 X → 선언 위치 O</code></div>
   </div>
-  <div class="wda-group wda-group-bad">
-    <div class="wda-group-ttl">⚠️ 주의 (Bad)</div>
-    <div class="wda-fgrid">
-      <div class="wda-fcard">
-        <div class="wda-fcard-ttl">메모리 누수 (Memory Leak)</div>
-        <div class="wda-fcard-dsc">불필요하게 큰 데이터를 계속 잡고 있으면 안 됨 → 다 썼으면 <code>null</code>로 해제</div>
-      </div>
-      <div class="wda-fcard">
-        <div class="wda-fcard-ttl">반복문 실수 (Loop)</div>
-        <div class="wda-fcard-dsc"><code>var</code>와 비동기를 함께 쓸 때 주의 → <strong><code>let</code>을 사용</strong>하면 해결!</div>
-      </div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 클로저 생존</div>
+    <div class="wda-formula-block-body"><code>참조 있음 → GC 안 지움</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 반복문 해결</div>
+    <div class="wda-formula-block-body"><code>var(공유 i) → let(개별 i)</code></div>
   </div>
 </div>
 
-**🆚 헷갈리는 개념 비교**
+**🎴 클릭 복습 카드**
 
-스코프와 실행 컨텍스트의 차이를 명확히 구분했습니다.
-
-<table class="wda-summary-table">
-  <tr>
-    <th>비교 항목</th>
-    <th>🌐 스코프 (Scope)</th>
-    <th>🎬 실행 컨텍스트 (Execution Context)</th>
-  </tr>
-  <tr>
-    <td><strong>핵심 질문</strong></td>
-    <td>"이 변수, 어디까지 쓸 수 있어?"</td>
-    <td>"지금 코드가 어떤 환경에서 돌아가?"</td>
-  </tr>
-  <tr>
-    <td><strong>성격</strong></td>
-    <td>정적 (Static)</td>
-    <td>동적 (Dynamic)</td>
-  </tr>
-  <tr>
-    <td><strong>결정 시점</strong></td>
-    <td>코드 작성(선언) 할 때</td>
-    <td>코드 실행(호출) 할 때</td>
-  </tr>
-  <tr>
-    <td><strong>비유</strong></td>
-    <td>땅따먹기 구역 (변수의 영토)</td>
-    <td>연극 무대 (코드가 실행되는 환경)</td>
-  </tr>
-</table>
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">렉시컬 스코프란?</div>
+    <div class="wda-flip-back">함수가 호출된 위치가 아니라 선언된 위치에 따라 상위 스코프가 결정되는 정적 스코프 방식이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스코프 체인은 어떤 방향으로 탐색하나?</div>
+    <div class="wda-flip-back">내 스코프 → 부모 스코프 → 전역 스코프 순서로만 탐색하며, 하위 스코프로는 내려갈 수 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클로저가 만들어지는 조건은?</div>
+    <div class="wda-flip-back">외부 함수가 종료된 뒤에도 내부 함수가 외부 변수를 계속 참조하고 있을 때 만들어진다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클로저로 데이터를 어떻게 보호하나?</div>
+    <div class="wda-flip-back">변수를 함수 안에 가두고, 정해진 메서드를 통해서만 접근하게 해 정보 은닉(캡슐화)을 구현한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">반복문에서 var 대신 let을 쓰면 왜 해결되나?</div>
+    <div class="wda-flip-back">let은 블록 스코프라 반복마다 새로운 스코프(새 변수)를 만들어 각 콜백이 서로 다른 값을 기억하게 되기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클로저의 메모리 누수를 막는 방법은?</div>
+    <div class="wda-flip-back">필요한 값만 클로저에 캡처하거나, 사용이 끝난 클로저를 null로 참조 해제해 GC 대상이 되게 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스코프와 실행 컨텍스트의 차이는?</div>
+    <div class="wda-flip-back">스코프는 코드 작성 시 정적으로 결정되는 변수의 유효 범위이고, 실행 컨텍스트는 코드 실행 시 동적으로 만들어지는 실행 환경이다.</div>
+  </div>
+</div>

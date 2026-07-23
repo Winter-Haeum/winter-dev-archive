@@ -52,6 +52,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -659,55 +675,91 @@ export default Counter;
 
 ---
 
-<h2>14. ⁉️ FAQ</h2>
+<h2>14. ✅ 핵심 요약</h2>
 
-**📌 Q1. Redux의 보일러플레이트를 대폭 줄여주고, createSlice 등을 제공하는 공식 라이브러리는?**
+**📌 먼저 외울 것**
 
-- **정답: Redux Toolkit (RTK)**
-- 현재 Redux 사용 시 표준으로 권장되는 도구입니다.
-
-**📌 Q2. Provider 없이도 사용 가능하고, 매우 가볍고 직관적인 API를 가진 상태 관리 라이브러리는?**
-
-- **정답: Zustand**
-- 간단한 문법과 작은 번들 사이즈로 인기를 얻고 있습니다.
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <p><strong>보일러플레이트(Boilerplate)란?</strong>: 최소한의 기능(상태 관리 등)을 수행하기 위해 반복적으로 작성해야만 하는 상용구 코드를 말합니다.<br>
-  Redux는 과거 이 보일러플레이트가 너무 많아 악명이 높았지만, Redux Toolkit(RTK)의 등장으로 createSlice 하나만 사용해도 대부분의 설정이 끝나게 되어 개발 생산성이 크게 높아졌습니다.</p>
-  <p><strong>Zustand의 직관성</strong>: React 개발자에게 익숙한 Custom Hook(use...) 형태를 띠고 있어서, 전역 상태를 마치 로컬 상태(useState) 다루듯이 편하게 쓸 수 있는 것이 가장 큰 장점입니다.</p>
+<div class="wda-check-note">
+  <ul>
+    <li>Context API는 <strong>Provider 지옥</strong>과 <strong>잦은 리렌더링</strong> 문제가 있어, 상태가 복잡해지면 전역 상태 관리 라이브러리 도입을 고려한다.</li>
+    <li>Redux는 <strong>단방향 데이터 흐름</strong>(Action → Reducer → Store → View)과 예측 가능성이 강점이며, <strong>Redux Toolkit(RTK)</strong>이 현재 표준이다.</li>
+    <li><strong>Zustand</strong>는 Provider 없이 Hook 형태로 쓰는, 보일러플레이트가 거의 없는 가벼운 라이브러리다.</li>
+    <li><strong>Recoil/Jotai</strong>는 Atom 단위로 상태를 쪼개 관리하는 상향식(Bottom-up) 패턴이다.</li>
+    <li><strong>클라이언트 상태</strong>(UI)와 <strong>서버 상태</strong>(API 데이터)는 분리해서 관리하며, 서버 상태는 TanStack Query 같은 전용 도구를 쓴다.</li>
+  </ul>
 </div>
 
----
+**🧠 헷갈리기 쉬운 것**
 
-<h2>15. ✅ 핵심 요약</h2>
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Redux의 보일러플레이트를 줄여주는 공식 도구 이름이 헷갈린다?</div>
+    <div class="wda-mistake-right">정답: <strong>Redux Toolkit(RTK)</strong>이다. createSlice 등을 제공하며 현재 Redux 사용의 표준으로 권장된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Provider 없이 쓸 수 있고 가벼운 상태 관리 라이브러리가 뭔지 헷갈린다?</div>
+    <div class="wda-mistake-right">정답: <strong>Zustand</strong>다. 간단한 문법과 작은 번들 크기로 인기를 얻고 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Recoil과 Jotai는 사실상 같은 방식이다?</div>
+    <div class="wda-mistake-right">정답: Recoil은 Atom마다 <strong>고유 key</strong>와 selector가 필요하지만, Jotai는 key 없이 <strong>atom() 콜백만으로</strong> 더 간단하게 처리한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 서버에서 가져온 데이터도 Redux·Zustand 같은 클라이언트 상태 도구로 관리하는 게 정석이다?</div>
+    <div class="wda-mistake-right">정답: 서버 상태는 캐싱·자동 갱신·로딩/에러 처리가 필요해 <strong>TanStack Query 같은 전용 도구</strong>로 분리하는 것이 최신 트렌드다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 상태 관리 라이브러리는 프로젝트 시작부터 무조건 도입해야 한다?</div>
+    <div class="wda-mistake-right">정답: 처음엔 <strong>Context + useReducer</strong>로 시작하고, 필요해질 때 점진적으로 라이브러리를 도입하는 것이 좋다 (오버엔지니어링 주의).</div>
+  </div>
+</div>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td>전역 상태 관리 필요성</td>
-    <td>Context API의 한계 극복 (렌더링 최적화). 복잡한 상태 로직의 체계적 관리.</td>
-  </tr>
-  <tr>
-    <td>주요 라이브러리</td>
-    <td><strong>Redux</strong>: 예측 가능성, 강력한 생태계. <strong>Zustand</strong>: 간결함, 낮은 러닝커브. <strong>Recoil/Jotai</strong>: Atomic 패턴, React 친화적.</td>
-  </tr>
-  <tr>
-    <td>프로젝트에 맞는 선택</td>
-    <td>팀의 규모, 경험, 프로젝트의 복잡도를 고려하여 선택하세요. 대규모 협업엔 Redux, 개인/소규모엔 Zustand가 유리합니다.</td>
-  </tr>
-  <tr>
-    <td>핵심 메시지</td>
-    <td>도구보다 문제 해결이 중요합니다. 과도한 도입은 오버엔지니어링이 될 수 있으니 필요할 때 점진적으로 도입하세요.</td>
-  </tr>
-</table>
+**🎯 최종 암기 공식**
 
-**💡 보충 설명**
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · Redux 흐름</div>
+    <div class="wda-formula-block-body"><code>View → dispatch → Action → Reducer → Store → View</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 상태 분리</div>
+    <div class="wda-formula-block-body"><code>클라이언트 상태 = Zustand/Redux</code><br><code>서버 상태 = TanStack Query</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 도입 순서</div>
+    <div class="wda-formula-block-body"><code>Context+useReducer 먼저 → 필요시 라이브러리</code></div>
+  </div>
+</div>
 
-<div class="wda-callout wda-ci">
-  <p><strong>상태 관리의 본질</strong>: 결국 어떤 라이브러리를 쓰느냐보다 "우리 프로젝트에 정말 이 전역 상태 관리가 필요한가?"를 먼저 고민하는 것이 중요합니다. 무조건 유행하는 도구를 고집하기보다는 현재 마주한 렌더링 이슈나 Props Drilling(상태 내리꽂기) 문제를 가장 효율적으로 해결할 수 있는 도구를 점진적으로 적용해 나가는 것이 좋습니다.</p>
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Redux의 보일러플레이트를 줄여주는 공식 도구는?</div>
+    <div class="wda-flip-back">Redux Toolkit(RTK)이며 createSlice 등을 제공하는 현재 표준 도구다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Provider 없이 쓸 수 있는 가볍고 직관적인 상태 관리 라이브러리는?</div>
+    <div class="wda-flip-back">Zustand다. 보일러플레이트가 거의 없고 번들 크기도 작다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Redux의 단방향 데이터 흐름은?</div>
+    <div class="wda-flip-back">View → dispatch → Action → Reducer → Store → View 순서로 흐른다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Recoil과 Jotai의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">Recoil은 Atom마다 고유 key와 selector가 필요하지만, Jotai는 key 없이 atom() 콜백만으로 더 간단하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클라이언트 상태와 서버 상태를 나누는 이유는?</div>
+    <div class="wda-flip-back">서버 상태는 캐싱·자동 갱신·로딩/에러 처리가 필요해 TanStack Query 같은 전용 도구로 분리하는 것이 효율적이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">상태 관리 라이브러리는 언제 도입하는 게 좋을까?</div>
+    <div class="wda-flip-back">처음엔 Context + useReducer로 시작하고, 상태가 복잡해질 때 점진적으로 라이브러리를 도입한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Zustand가 인기 있는 핵심 이유는?</div>
+    <div class="wda-flip-back">Provider가 필요 없고 보일러플레이트가 거의 없어 번들 크기가 작고 러닝커브가 낮다.</div>
+  </div>
 </div>

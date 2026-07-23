@@ -70,6 +70,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -865,21 +881,88 @@ Vite로 React 프로젝트를 만들 때 가장 먼저 입력해야 하는 명�
 
 <h2>✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>1. React</strong></td>
-    <td>• Facebook(메타)이 만든 <strong>UI 라이브러리</strong>입니다.<br>• 복잡한 화면을 한 번에 그리는 것이 아니라, <strong>컴포넌트 기반</strong>으로 쪼개서 구성하는 것이 핵심입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>2. JSX</strong></td>
-    <td>• <strong>JavaScript 안에서 HTML 문법</strong>을 그대로 사용할 수 있게 해주는 도구입니다.<br>• <code>createElement</code> 같은 복잡한 코드 없이, 우리에게 익숙한 태그(<code>&lt;div&gt;</code>)로 <strong>직관적인 UI 코드</strong>를 짤 수 있게 해줍니다.</td>
-  </tr>
-  <tr>
-    <td><strong>3. 컴포넌트</strong></td>
-    <td>• 화면을 구성하는 <strong>재사용 가능한 UI 조각</strong>입니다.<br>• <strong>레고 블록</strong>처럼 작은 단위(버튼, 입력창 등)를 먼저 만들고, 이를 조립해서 거대한 성(웹사이트)을 완성합니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>React는 Facebook(메타)이 만든 <strong>UI 라이브러리</strong>이며, 화면을 컴포넌트 단위로 쪼개 조립하는 것이 핵심이다.</li>
+    <li>명령형은 <strong>"어떻게(How)"</strong>를 지시하고, 선언적(React)은 <strong>"무엇(What)"</strong>을 결과로 선언한다.</li>
+    <li>컴포넌트는 <strong>props(입력)</strong>를 받아 <strong>JSX(UI)</strong>를 반환하는 자바스크립트 함수다.</li>
+    <li>JSX는 브라우저가 직접 읽지 못하며, <strong>Babel</strong> 같은 빌드 도구가 <code>React.createElement</code> 호출 형태의 JS로 변환한다.</li>
+    <li>React는 <strong>라이브러리</strong>(개발자가 호출), Framework(Vue·Angular)는 제어권이 반대(IoC)다.</li>
+    <li>SPA는 HTML 파일 하나로 화면을 부분 교체하고, MPA는 페이지 이동마다 새 HTML을 받는다.</li>
+    <li>React 16.8(2019)부터 <strong>Hooks</strong>가 도입되어 함수형 컴포넌트가 표준이 되었다.</li>
+    <li>Vite는 Webpack과 달리 미리 번들링하지 않고 요청 시점에 필요한 파일만 변환해 개발 서버가 빠르다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: React = SPA 전용 도구다?</div>
+    <div class="wda-mistake-right">정답: React는 UI를 만드는 라이브러리이고, SPA는 React를 활용해 만들 수 있는 <strong>대표적인 구조 중 하나</strong>일 뿐이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: JSX는 React만의 전용 문법이라 다른 프레임워크에서는 못 쓴다?</div>
+    <div class="wda-mistake-right">정답: JSX는 React에서 널리 쓰이는 JS 확장 문법이며, <strong>Preact·Solid</strong> 등 다른 도구에서도 지원한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: CSR/SSR과 SPA/MPA는 같은 개념이다?</div>
+    <div class="wda-mistake-right">정답: CSR/SSR은 <strong>"누가 그리느냐"</strong>(렌더링 방식), SPA/MPA는 <strong>"페이지 구조가 어떻게 되어있느냐"</strong>(파일 구조)로 서로 다른 개념이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: class 대신 className, for 대신 htmlFor를 쓰는 건 그냥 스타일 취향이다?</div>
+    <div class="wda-mistake-right">정답: class와 for가 자바스크립트 <strong>예약어와 겹쳐서</strong> 문법 충돌을 피하려고 이름을 바꾼 것이다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 컴포넌트</div>
+    <div class="wda-formula-block-body"><code>props → JSX 반환 함수</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · JSX</div>
+    <div class="wda-formula-block-body"><code>Babel 변환 → React.createElement</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · SPA</div>
+    <div class="wda-formula-block-body"><code>1 HTML + JS 부분 교체</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 학습 기준</div>
+    <div class="wda-formula-block-body"><code>React 18(Hooks)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Vite로 React 프로젝트를 만들 때 가장 먼저 입력하는 명령어는?</div>
+    <div class="wda-flip-back">npm create vite@latest다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React 앱이 그려지는 위치는?</div>
+    <div class="wda-flip-back">index.html의 &lt;div id="root"&gt;&lt;/div&gt;다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">명령형과 선언적의 차이를 한 줄로?</div>
+    <div class="wda-flip-back">명령형은 "어떻게"를 지시, 선언적은 "무엇"이 되어야 하는지만 선언한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React가 Library인 이유는?</div>
+    <div class="wda-flip-back">개발자가 원하는 방식으로 자유롭게 호출해서 쓰기 때문이다(제어권이 개발자에게 있음).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React 16.8이 중요한 이유는?</div>
+    <div class="wda-flip-back">Hooks가 도입되어 함수형 컴포넌트가 리액트의 표준이 된 시점이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Webpack과 Vite의 결정적 차이는?</div>
+    <div class="wda-flip-back">Webpack은 미리 다 번들링한 뒤 서빙하고, Vite는 요청이 올 때 그 파일만 변환해서 제공한다.</div>
+  </div>
+</div>

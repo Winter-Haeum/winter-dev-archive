@@ -47,6 +47,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1208,84 +1224,90 @@ console.log(config.isProduction); // true
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <thead>
-    <tr>
-      <th>개념</th>
-      <th>핵심 내용</th>
-      <th>형태 / 예시</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>함수의 역할</td>
-      <td>재사용 가능한 코드 블록. 재사용성·유지보수·가독성·추상화</td>
-      <td><code>function greet(name) { ... }</code></td>
-    </tr>
-    <tr>
-      <td>IPO 모델</td>
-      <td>Input(매개변수) → Process(본문) → Output(반환값)</td>
-      <td>데이터 공장 흐름</td>
-    </tr>
-    <tr>
-      <td>함수 선언문</td>
-      <td>전체 호이스팅 — 정의 전에도 호출 가능</td>
-      <td><code>function add(a, b) { return a + b; }</code></td>
-    </tr>
-    <tr>
-      <td>함수 표현식</td>
-      <td>변수 호이스팅 — 정의 후에만 호출 가능</td>
-      <td><code>const add = function(a, b) { ... };</code></td>
-    </tr>
-    <tr>
-      <td>호출 vs 참조</td>
-      <td><code>fn()</code> 실행 / <code>fn</code> 함수 자체 전달</td>
-      <td>콜백에서는 참조로 넘김</td>
-    </tr>
-    <tr>
-      <td>return 생략</td>
-      <td>반환값 없으면 자동으로 <code>undefined</code></td>
-      <td><code>const r = doSomething(); // undefined</code></td>
-    </tr>
-    <tr>
-      <td>조기 반환</td>
-      <td>Guard Clause — 예외 조건을 먼저 처리해 중첩 제거</td>
-      <td><code>if (!user) return "없음";</code></td>
-    </tr>
-    <tr>
-      <td>매개변수 vs 인자</td>
-      <td>Parameter: 정의 시 이름 / Argument: 호출 시 값</td>
-      <td>부족 시 <code>undefined</code>, 초과 시 무시</td>
-    </tr>
-    <tr>
-      <td>기본값 매개변수</td>
-      <td>인자 없을 때 사용할 기본값 설정</td>
-      <td><code>function greet(name = "손님") { ... }</code></td>
-    </tr>
-    <tr>
-      <td>나머지 매개변수</td>
-      <td>가변 인자를 배열로 수집. 무조건 마지막에</td>
-      <td><code>function sum(...nums) { ... }</code></td>
-    </tr>
-    <tr>
-      <td>함수 스코프</td>
-      <td>전역 변수는 어디서든, 지역 변수는 함수 안에서만</td>
-      <td>매개변수도 지역 변수</td>
-    </tr>
-    <tr>
-      <td>일급 객체</td>
-      <td>변수 할당 / 인자 전달 / 반환값 사용 가능</td>
-      <td>함수를 값처럼 다룰 수 있음</td>
-    </tr>
-    <tr>
-      <td>콜백 함수</td>
-      <td>인자로 전달되어 나중에 실행되는 함수</td>
-      <td><code>arr.forEach(fn)</code>, <code>setTimeout(fn, ms)</code></td>
-    </tr>
-    <tr>
-      <td>IIFE</td>
-      <td>즉시 실행 함수 — 정의와 동시에 실행</td>
-      <td><code>(function() { ... })()</code></td>
-    </tr>
-  </tbody>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>함수는 재사용 가능한 코드 블록으로 <strong>재사용성·유지보수성·가독성·추상화</strong> 4가지 장점을 제공하며, <strong>Input(매개변수) → Process(본문) → Output(반환값)</strong> IPO 모델로 동작한다.</li>
+    <li><strong>함수 선언문</strong>은 전체(이름+내용)가 호이스팅되어 정의 전에도 호출할 수 있지만, <strong>함수 표현식</strong>은 변수 규칙을 따라 TDZ 때문에 정의 후에만 호출할 수 있다.</li>
+    <li><code>함수명()</code>은 <strong>호출</strong>(즉시 실행), <code>함수명</code>은 <strong>참조</strong>(함수 자체를 가리킴)이며, 콜백을 넘길 때는 괄호 없이 참조로 전달한다.</li>
+    <li>return을 생략하면 자동으로 <strong>undefined</strong>가 반환되며, 예외 상황을 먼저 처리하고 종료하는 <strong>조기 반환(Guard Clause)</strong>은 중첩을 줄여 가독성을 높인다.</li>
+    <li><strong>매개변수(Parameter)</strong>는 정의 시 이름, <strong>인자(Argument)</strong>는 호출 시 값이며, 인자가 부족하면 undefined, 넘치면 무시된다.</li>
+    <li>함수는 <strong>일급 객체</strong>라서 변수에 할당하고, 다른 함수의 인자로 전달하고(콜백), 다른 함수의 반환값으로 사용할 수 있다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 함수 선언문과 함수 표현식은 둘 다 정의 전에 호출할 수 있다?</div>
+    <div class="wda-mistake-right">정답: <strong>함수 선언문</strong>만 전체 호이스팅되어 정의 전 호출이 가능하고, <strong>함수 표현식</strong>은 TDZ 때문에 정의 후에만 호출할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setTimeout(sayHi(), 1000)은 1초 후에 sayHi가 실행된다?</div>
+    <div class="wda-mistake-right">정답: 괄호를 붙이면 <strong>즉시 실행</strong>되어 그 결과가 전달되므로, 나중에 실행하려면 <strong>괄호 없이 sayHi</strong>만 전달해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: arguments 객체는 배열이라서 map, filter 같은 배열 메서드를 바로 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: arguments는 <strong>유사 배열</strong>일 뿐 진짜 배열이 아니므로 배열 메서드를 쓸 수 없고, 진짜 배열이 필요하면 <strong>나머지 매개변수(...rest)</strong>를 사용해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 기본값 매개변수는 함수가 정의될 때 한 번만 평가된다?</div>
+    <div class="wda-mistake-right">정답: 기본값은 <strong>함수가 호출될 때마다(Run-time)</strong> 새로 평가되므로, <code>date = new Date()</code>처럼 매번 다른 값이 나올 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 함수 인자의 개수가 정의한 매개변수 개수와 다르면 에러가 난다?</div>
+    <div class="wda-mistake-right">정답: 자바스크립트는 인자 개수를 엄격히 체크하지 않아 <strong>부족하면 undefined, 넘치면 무시</strong>될 뿐 에러가 발생하지 않는다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 호이스팅</div>
+    <div class="wda-formula-block-body"><code>함수 선언문 = 전체 호이스팅</code><br><code>함수 표현식 = TDZ</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 호출 vs 참조</div>
+    <div class="wda-formula-block-body"><code>fn() = 호출</code><br><code>fn = 참조(콜백용)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · IPO 모델</div>
+    <div class="wda-formula-block-body"><code>Input(매개변수) → Process(본문) → Output(반환값)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">함수의 4대 장점은?</div>
+    <div class="wda-flip-back">재사용성, 유지보수성, 가독성, 추상화다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">함수 선언문과 함수 표현식의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">선언문은 전체 호이스팅되어 정의 전에도 호출 가능하지만, 표현식은 TDZ 때문에 정의 후에만 호출 가능하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">fn()과 fn의 차이는?</div>
+    <div class="wda-flip-back">fn()은 즉시 실행(호출), fn은 함수 자체를 가리키는 참조다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">return을 생략하면 무엇이 반환되나?</div>
+    <div class="wda-flip-back">자동으로 undefined가 반환된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">매개변수와 인자의 차이는?</div>
+    <div class="wda-flip-back">매개변수는 정의할 때 쓰는 이름, 인자는 호출할 때 실제로 넣는 값이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">함수가 일급 객체라는 것은 무슨 뜻인가?</div>
+    <div class="wda-flip-back">변수에 할당하고, 다른 함수의 인자로 전달하고, 다른 함수의 반환값으로 쓸 수 있다는 뜻이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">IIFE란 무엇인가?</div>
+    <div class="wda-flip-back">정의함과 동시에 즉시 실행되는 함수 패턴이다.</div>
+  </div>
+</div>

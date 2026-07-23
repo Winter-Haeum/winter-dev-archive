@@ -78,6 +78,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 지금까지 학습한 모든 내용과 step5에서 추출한 컬러 팔레트를 활용하여 완성도 높은 포트폴리오 사이트를 제작하는 최종 프로젝트입니다.
@@ -268,6 +284,86 @@ my-portfolio/
     □ 반응형 중앙정렬 동작 확인<br>
     □ 블랙&화이트 무채색 디자인 적용<br>
     □ GitHub Pages 배포 완료
+  </div>
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>포트폴리오는 <strong>Home · About Me · Projects</strong> 3페이지 구조로 설계한다.</li>
+    <li>Home 페이지는 <strong>Hero · About Me · Skill Tree · Projects · Contact</strong> 5개 섹션으로 구성한다.</li>
+    <li>step5에서 추출한 <strong>컬러 팔레트 디자인 시스템.md</strong>의 CSS 변수를 theme.js나 CSS 파일에 적용한다.</li>
+    <li>모든 섹션은 <strong>반응형 중앙정렬</strong>을 기본으로 적용한다.</li>
+    <li>완성 후에는 <strong>npm run build</strong> → <strong>GitHub Actions 워크플로우</strong>로 GitHub Pages에 자동 배포한다.</li>
+    <li>my-portfolio는 <strong>별도의 새 repo</strong>를 생성해서 그 repo에 배포한다.</li>
+  </ul>
+</div>
+
+**✅ 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 컬러 팔레트 디자인 시스템.md을 무시하고 기본 MUI 색상만 사용한다?</div>
+    <div class="wda-mistake-right">방지: step5에서 추출한 CSS 변수를 반드시 읽어서 theme.js나 CSS 파일에 적용해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 각 섹션을 빈 박스로만 만들어서 역할이 안 보인다?</div>
+    <div class="wda-mistake-right">방지: "여기는 OO 섹션입니다..." 같은 설명 텍스트를 넣어 섹션 역할이 명확히 드러나게 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: my-portfolio를 기존 프로젝트 repo 안에 같이 배포한다?</div>
+    <div class="wda-mistake-right">방지: my-portfolio는 별도의 새 repo를 생성해서 그 repo에 배포해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 데스크톱 화면만 확인하고 반응형 중앙정렬 테스트를 건너뛴다?</div>
+    <div class="wda-mistake-right">방지: 브라우저 창 크기를 조절하며 중앙정렬이 유지되는지 반드시 확인한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 1 · 구조</div>
+    <div class="wda-formula-block-body"><code>3페이지 네비게이션 + Home 5섹션</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 2 · 디자인</div>
+    <div class="wda-formula-block-body"><code>컬러 팔레트 + 반응형 중앙정렬</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 3 · 배포</div>
+    <div class="wda-formula-block-body"><code>GitHub Pages 자동 배포 완료</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">포트폴리오는 몇 페이지 구조인가?</div>
+    <div class="wda-flip-back">Home · About Me · Projects 3페이지 구조다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Home 페이지는 몇 개 섹션으로 나뉘나?</div>
+    <div class="wda-flip-back">Hero · About Me · Skill Tree · Projects · Contact 5개 섹션이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컬러는 어디서 가져와 적용하나?</div>
+    <div class="wda-flip-back">step5에서 추출한 컬러 팔레트 디자인 시스템.md의 CSS 변수를 theme.js나 CSS에 적용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배포는 어떤 방식으로 하나?</div>
+    <div class="wda-flip-back">npm run build 후 GitHub Actions 워크플로우로 GitHub Pages에 자동 배포한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">my-portfolio는 어디에 배포하나?</div>
+    <div class="wda-flip-back">별도의 새 repo를 생성해서 그 repo에 배포한다.</div>
   </div>
 </div>
 

@@ -50,6 +50,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -542,31 +558,92 @@ setCount(count);
 
 <h2>✅ 핵심 요약</h2>
 
-지금까지 배운 React의 이론적 배경을 관통하는 핵심 키워드입니다.
+**📌 먼저 외울 것**
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>DOM 문제</strong></td>
-    <td>직접 DOM을 조작하는 것은 비용(연산)이 매우 크며, 빈번하게 발생할 경우 심각한 성능 저하를 유발합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>가상 DOM</strong></td>
-    <td>메모리상에 존재하는 가상의 트리에서 미리 변경 사항을 계산한 뒤, 꼭 필요한 최소한의 부분만 실제 DOM에 반영합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Diffing</strong></td>
-    <td>이전 가상 DOM과 새로운 가상 DOM을 비교하여, 구체적으로 무엇이 바뀌었는지 찾아내는 비교 알고리즘입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>가상 DOM이 무조건 빠른 것은 아닙니다. 아주 단순한 업데이트에서는 직접 DOM 조작이 더 빠를 수 있고, 메모리를 더 많이 사용할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>데이터(State)가 바뀌면 화면이 바뀐다 — 변경 계산은 가상 DOM에서, 실제 반영(Commit)은 Batch Update로 최소한만.</td>
-  </tr>
-</table>
+<div class="wda-check-note">
+  <ul>
+    <li>브라우저 렌더링은 <strong>Parse → Style → Layout(무거움) → Paint(무거움) → Composite</strong> 5단계를 거친다.</li>
+    <li><strong>Reflow</strong>(Layout 재발생)가 <strong>Repaint</strong>(Paint만 재발생)보다 훨씬 비용이 크다.</li>
+    <li>가상 DOM은 실제 DOM이 아니라 화면 구조를 표현한 <strong>JavaScript 객체</strong>(가벼운 트리)다.</li>
+    <li>가상 DOM 업데이트는 <strong>"새 VDOM 생성 → Diffing(비교) → Commit(실제 DOM에 최소 반영)"</strong> 3단계로 진행된다.</li>
+    <li>React는 다른 타입 요소는 통째로 교체하고, 같은 타입이면 속성만 비교하는 단순한 규칙으로 <strong>O(n)</strong> 비교를 달성한다.</li>
+    <li>리스트 렌더링에는 고유한 <strong>key</strong>가 반드시 필요하다.</li>
+    <li><strong>Batch Update</strong>는 여러 상태 변경을 모아 실제 DOM 반영 횟수를 최소화한다.</li>
+    <li>React <strong>Fiber</strong>는 렌더링 작업을 잘게 쪼개 사용자 입력에 우선순위를 양보하는 렌더링 엔진이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 가상 DOM은 항상 직접 DOM 조작보다 빠르다?</div>
+    <div class="wda-mistake-right">정답: 아주 단순한 업데이트(숫자 하나 바꾸기)에서는 가상 DOM 생성·비교 과정의 오버헤드 때문에 <strong>직접 조작이 더 빠를 수 있다</strong>. 복잡하고 빈번한 UI 변경에서 가상 DOM이 유리하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Reflow와 Repaint는 같은 비용을 가진다?</div>
+    <div class="wda-mistake-right">정답: Reflow는 Layout이 다시 발생해 <strong>가장 느리고</strong>, Repaint는 Layout을 건너뛰고 Paint만 다시 해 상대적으로 덜 느리다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 태그 타입이 같으면 무조건 다시 그린다?</div>
+    <div class="wda-mistake-right">정답: 같은 타입이면 React는 <strong>속성만 비교</strong>해 변경된 속성만 살짝 수정한다. 타입이 다를 때만 전체를 교체한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setCount를 여러 번 연속 호출하면 그만큼 여러 번 렌더링된다?</div>
+    <div class="wda-mistake-right">정답: 같은 이벤트 함수 안에서는 <strong>Batch Update</strong>로 모아서 마지막 상태로 딱 한 번만 렌더링한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 렌더링 5단계</div>
+    <div class="wda-formula-block-body"><code>Parse → Style → Layout → Paint → Composite</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 업데이트 흐름</div>
+    <div class="wda-formula-block-body"><code>New VDOM → Diff → Commit</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · Diffing 규칙</div>
+    <div class="wda-formula-block-body"><code>다른 타입=교체, 같은 타입=속성만 비교</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 속도 비결</div>
+    <div class="wda-formula-block-body"><code>Batch Update + Fiber</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">렌더링 파이프라인에서 가장 비용이 큰 단계는?</div>
+    <div class="wda-flip-back">Layout(레이아웃)이다. 위치와 크기를 다시 계산해야 하기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">가상 DOM의 실체는 무엇인가?</div>
+    <div class="wda-flip-back">화면 구조를 표현한 가벼운 JavaScript 객체다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React Diffing의 두 가지 대원칙은?</div>
+    <div class="wda-flip-back">다른 타입 요소는 전체 교체, 같은 타입 요소는 속성만 비교한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">리스트에 key가 필요한 이유는?</div>
+    <div class="wda-flip-back">순서가 바뀌거나 항목이 추가/삭제돼도 각 항목을 정확히 추적하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Batch Update의 핵심 효과는?</div>
+    <div class="wda-flip-back">여러 상태 변경을 모아서 실제 DOM 반영을 최소 횟수로 줄인다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React Fiber가 해결한 문제는?</div>
+    <div class="wda-flip-back">무거운 렌더링 작업 중에도 작업을 잘게 쪼개 사용자 입력에 먼저 반응할 수 있게 했다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">가상 DOM이 항상 유리한 것은 아닌 이유는?</div>
+    <div class="wda-flip-back">아주 단순한 업데이트에서는 비교 과정의 오버헤드 때문에 직접 DOM 조작보다 느릴 수 있다.</div>
+  </div>
+</div>

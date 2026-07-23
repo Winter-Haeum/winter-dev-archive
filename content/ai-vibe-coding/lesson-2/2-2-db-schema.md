@@ -67,6 +67,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -217,6 +233,81 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 <div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">커뮤니티 사이트</div><div class="wda-fcard-dsc">회원가입/로그인 · 게시물 작성/조회 · 댓글 시스템 · 실시간 업데이트</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">📖</div><div class="wda-fcard-ttl">포트폴리오 방명록</div><div class="wda-fcard-dsc">방문자 방명록 · 실시간 표시 · 작성 시간 자동 기록 · 반응형 디자인</div></div>
 <div class="wda-fcard"><div class="wda-fcard-ico">🚀</div><div class="wda-fcard-ttl">고급 기능 맛보기</div><div class="wda-fcard-dsc">별점 시스템 · 실시간 채팅 · 설문조사 사이트 · 자동 배포</div></div>
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>데이터베이스는 정보를 체계적으로 저장·관리하는 시스템이며, 우리가 <strong>표로 정리하는 방식</strong>과 같은 개념이다.</li>
+    <li>엑셀에서는 행(Row)/열(Column), 데이터베이스에서는 <strong>레코드(Record)/필드(Field)</strong>라고 부른다.</li>
+    <li>데이터 검색의 기본 원리는 <strong>키(Key)로 행을 찾고</strong>, 그 행에서 <strong>벨류(Value)를 가져오는 것</strong>이다.</li>
+    <li>우리가 보는 모든 동적 웹페이지는 <strong>클릭 → DB 검색 → 화면 렌더링</strong> 과정을 거쳐 만들어진다.</li>
+    <li>DB 지식을 가진 웹디자이너는 현실적인 화면 설계와 개발팀과의 소통에서 강점을 가진다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 엑셀과 데이터베이스는 용어만 다를 뿐 완전히 같은 것이다?</div>
+    <div class="wda-mistake-right">정답: 개념은 비슷하지만 엑셀의 행/열은 데이터베이스에서 <strong>레코드/필드</strong>로 불리며, 웹사이트는 실시간으로 DB에서 데이터를 가져와 화면을 만든다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 키(Key)와 벨류(Value)는 아무 관계 없는 별도의 데이터다?</div>
+    <div class="wda-mistake-right">정답: 키는 정보의 이름·분류(name, phone 등)이고, 벨류는 그 키에 해당하는 실제 값이며, <strong>키로 행을 찾아 벨류를 가져오는 것</strong>이 검색의 기본 원리다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 웹디자이너는 DB 지식이 없어도 디자인 업무에 지장이 없다?</div>
+    <div class="wda-mistake-right">정답: DB 지식은 데이터가 없는 필드를 디자인에 넣는 실수를 방지하고, <strong>개발자와 더 정확하게 소통</strong>할 수 있게 해준다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 저장 단위</div>
+    <div class="wda-formula-block-body"><code>엑셀 행/열 = DB 레코드/필드</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 검색 원리</div>
+    <div class="wda-formula-block-body"><code>키(Key)로 찾고 → 벨류(Value) 가져오기</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 동적 웹</div>
+    <div class="wda-formula-block-body"><code>클릭 → DB 검색 → 화면 렌더링</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">데이터베이스란 무엇인가?</div>
+    <div class="wda-flip-back">정보를 체계적으로 저장·관리하는 시스템으로, 표로 정리하는 방식과 같은 개념이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">엑셀의 행/열은 DB에서 뭐라고 부르나?</div>
+    <div class="wda-flip-back">레코드(Record)/필드(Field)라고 부른다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">데이터 검색의 기본 원리는?</div>
+    <div class="wda-flip-back">키(Key)로 원하는 행을 찾고, 그 행의 벨류(Value)를 가져오는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">마이페이지를 클릭하면 무슨 일이 일어나나?</div>
+    <div class="wda-flip-back">로그인 정보로 회원 테이블 등을 조회해 내 정보를 화면에 렌더링한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">DB 지식이 있는 디자이너의 강점은?</div>
+    <div class="wda-flip-back">데이터가 없는 필드를 디자인에 넣는 실수를 막고, 개발팀과 현실적으로 소통할 수 있다.</div>
+  </div>
 </div>
 
 <div class="wda-done">

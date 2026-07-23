@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1848,7 +1864,7 @@ async function loadAll() {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📊 Promise & Async/Await 총정리</h2>
 </div>
 
 **🆚 주요 개념 비교**
@@ -1914,4 +1930,105 @@ async function loadAll() {
   이미지에 언급된 <code>Promise.race</code>는 실무에서 <strong>'타임아웃'</strong> 기능을 구현할 때 주로 사용합니다.<br>
   예를 들어, "API 요청"과 "3초 타이머"를 경주(Race)시켜서, 3초가 먼저 지나면 시간 초과 에러를 반환할 수 있습니다.<br>
   다만 <code>Promise.race</code> 자체가 API 요청을 자동으로 취소하는 것은 아니며, 실제 요청 취소가 필요하다면 <code>AbortController</code> 같은 별도의 취소 로직이 필요합니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Promise는 <strong>pending → fulfilled/rejected</strong> 3가지 상태를 가지며, 한 번 settled되면 다시 바뀌지 않는다.</li>
+    <li><strong>then</strong>은 성공, <strong>catch</strong>는 실패, <strong>finally</strong>는 성공/실패 상관없이 항상 실행된다.</li>
+    <li>then에서 <strong>return한 값(또는 Promise)</strong>이 자동으로 다음 then의 입력으로 전달된다.</li>
+    <li><strong>async 함수</strong>는 항상 Promise를 반환하며, 함수 안의 <code>return</code>은 resolve로, <code>throw</code>는 reject로 자동 변환된다.</li>
+    <li><strong>await</strong>는 async 함수 내부(또는 top-level await)에서만 사용 가능하며, Promise가 settled될 때까지 실행을 일시정지한다.</li>
+    <li><strong>Promise.all</strong>은 모두 성공해야 하고 하나라도 실패하면 즉시 reject(fast-fail)되며, <strong>Promise.race</strong>는 가장 먼저 끝난 하나의 결과만 사용한다.</li>
+    <li><strong>Promise.allSettled</strong>는 성공/실패 상관없이 모든 결과를 보고하고, <strong>Promise.any</strong>는 하나라도 성공하면 그 값을 반환한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: new Promise의 executor 함수는 .then을 호출할 때 실행된다?</div>
+    <div class="wda-mistake-right">정답: executor는 <strong>new Promise 선언과 동시에 즉시 실행</strong>되고, 결과만 나중에 비동기로 전달된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: for문 안에서 여러 요청을 순차적으로 await해도 병렬 실행과 성능이 같다?</div>
+    <div class="wda-mistake-right">정답: for 안의 await는 매번 실행을 멈추므로 느리다. 의존성이 없다면 <strong>map + Promise.all</strong>로 동시에 시작해야 빠르다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: forEach 안에서 async/await를 쓰면 순서대로 기다려준다?</div>
+    <div class="wda-mistake-right">정답: forEach는 콜백이 반환한 Promise를 <strong>기다려주지 않고</strong> 바로 다음으로 넘어간다. map+Promise.all 또는 for...of를 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: async 함수의 catch에서 에러를 잡으면 바깥 호출자도 자동으로 에러를 알게 된다?</div>
+    <div class="wda-mistake-right">정답: catch에서 처리만 하면 에러가 '해결'된 것으로 간주된다. 바깥에도 알려야 한다면 catch 안에서 <strong>throw error로 재전파</strong>해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Promise.all이 하나 실패하면 다른 요청들도 즉시 취소된다?</div>
+    <div class="wda-mistake-right">정답: 실패 시 전체가 즉시 reject 되지만, <strong>다른 요청 자체가 취소되는 것은 아니며</strong> 결과만 무시된다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 상태 변화</div>
+    <div class="wda-formula-block-body"><code>pending → fulfilled/rejected (불변)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · async 반환</div>
+    <div class="wda-formula-block-body"><code>return → resolve, throw → reject</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 병렬 처리</div>
+    <div class="wda-formula-block-body"><code>map + Promise.all (의존성 없을 때)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · all vs race</div>
+    <div class="wda-formula-block-body"><code>all = 모두 성공, race = 가장 빠른 1개</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Promise의 3가지 상태는?</div>
+    <div class="wda-flip-back">pending(대기), fulfilled(이행), rejected(거부). 한 번 settled되면 다시 바뀌지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">then에서 일반 값을 리턴할 때와 Promise를 리턴할 때의 차이는?</div>
+    <div class="wda-flip-back">일반 값은 즉시 다음 then으로 전달되고, Promise는 완료될 때까지 기다렸다가 알맹이 값만 전달된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">async 함수가 return한 값과 throw한 에러는 각각 어떻게 처리되나?</div>
+    <div class="wda-flip-back">return 값은 자동으로 resolve되고, throw한 에러는 자동으로 reject된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">await는 어디서만 사용할 수 있나?</div>
+    <div class="wda-flip-back">async 함수 내부(또는 모듈 최상위 top-level await)에서만 사용할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Promise.all과 Promise.race의 차이는?</div>
+    <div class="wda-flip-back">all은 모두 성공해야 하고 하나라도 실패하면 즉시 실패 처리되며, race는 성공/실패 상관없이 가장 먼저 끝난 결과만 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Promise.allSettled와 Promise.any의 차이는?</div>
+    <div class="wda-flip-back">allSettled는 성공/실패 상관없이 모든 결과를 보고하고, any는 하나라도 성공하면 그 값을 반환한다(모두 실패해야 reject).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">for문 안에서 await를 쓰면 왜 느린가?</div>
+    <div class="wda-flip-back">반복마다 실행을 일시정지하고 순차적으로 기다리기 때문이다. 의존성이 없다면 map+Promise.all로 동시에 시작해야 빠르다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">async/await에서 에러를 상위 호출자에게도 알리려면?</div>
+    <div class="wda-flip-back">catch 블록 안에서 throw error로 에러를 재전파해야 호출자의 .catch도 실행된다.</div>
+  </div>
 </div>

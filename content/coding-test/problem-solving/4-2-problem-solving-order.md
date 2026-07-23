@@ -57,6 +57,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 1. 문제 풀이 5단계 전체 흐름
@@ -392,4 +408,87 @@ console.log(solution([-1, 2])); // 음수 처리
 <div class="wda-callout wda-ci">
   • <strong>계획의 힘</strong> — 초보자일수록 '코드 작성' 시간을 늘리려 하지만, 실제로는 '계획 수립'에 시간을 충분히 쏟아야 논리 오류로 인해 전체 코드를 갈아엎는 사태를 방지할 수 있습니다.<br>
   • <strong>검증 시간 확보</strong> — 마지막 10분은 단순히 오답을 찾는 시간이 아니라, 앞서 배운 '엣지 케이스'들을 하나씩 대입해보며 정답에 대한 확신을 갖는 시간입니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>문제 풀이는 <strong>문제 읽기 → 예시 분석 → 계획 수립 → 코드 작성 → 검증</strong> 5단계로 진행한다.</li>
+    <li>바로 코드부터 짜지 말고, <strong>1~3단계를 충분히 거친 후</strong>에 코드를 작성한다.</li>
+    <li>계획 수립 단계에서 <strong>의사코드(Pseudo-code)</strong>를 먼저 적으면 구현 속도가 훨씬 빨라진다.</li>
+    <li>60분 기준 권장 시간 배분은 <strong>읽기 5 · 분석 5 · 계획 10 · 코드 30 · 검증 10분</strong>이다.</li>
+    <li>제출 전 디버깅용 <code>console.log</code>는 반드시 지우거나 주석 처리한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 문제는 한 번만 읽어도 충분하다?</div>
+    <div class="wda-mistake-right">정답: 최소 <strong>3번</strong>(전체 파악 → 조건 확인 → 함정 찾기)은 읽어야 제대로 이해된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 계획 없이 바로 코드를 짜는 게 더 빠르다?</div>
+    <div class="wda-mistake-right">정답: "for문 써볼까... 안되네... reduce 써볼까"처럼 <strong>시행착오만 반복</strong>해 오히려 더 오래 걸린다. 의사코드로 단계를 먼저 정하면 구현 속도가 압도적으로 빨라진다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 처음부터 완벽하게 전체 코드를 한 번에 완성해야 한다?</div>
+    <div class="wda-mistake-right">정답: 의사코드를 <strong>한 줄씩 변환</strong>하며 <code>console.log</code>로 중간 결과를 확인하는 작은 단위 작성이 더 빠르고 안전하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 주어진 예시 케이스만 통과하면 제출해도 된다?</div>
+    <div class="wda-mistake-right">정답: 빈 입력, 단일 요소, 음수 같은 <strong>엣지 케이스</strong>까지 직접 만들어 검증해야 한다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 5단계 순서</div>
+    <div class="wda-formula-block-body"><code>읽기 → 분석 → 계획 → 구현 → 검증</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 60분 시간 배분</div>
+    <div class="wda-formula-block-body"><code>5 · 5 · 10 · 30 · 10분</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 조건 필터링 누적</div>
+    <div class="wda-formula-block-body"><code>if (num % 2 === 0) sum += num;</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제 풀이 5단계는?</div>
+    <div class="wda-flip-back">문제 읽기 → 예시 분석 → 계획 수립 → 코드 작성 → 검증 순서로 진행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제를 왜 3번 읽어야 하나?</div>
+    <div class="wda-flip-back">전체 파악 → 조건 확인 → 함정 찾기를 각각 따로 확인하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Dry Run이란?</div>
+    <div class="wda-flip-back">입출력 예시를 손으로 직접 따라가며 변수의 변화 과정을 하나씩 기록해보는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">의사코드(Pseudo-code)란?</div>
+    <div class="wda-flip-back">프로그래밍 언어가 아닌 일상 언어로 적는 논리 흐름이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">검증 단계에서 꼭 확인할 엣지 케이스는?</div>
+    <div class="wda-flip-back">빈 입력, 단일 요소, 음수, 큰 숫자/긴 배열 처리다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">60분 중 계획 수립에 권장되는 시간은?</div>
+    <div class="wda-flip-back">10분이다. 계획에 시간을 투자하면 코드 작성이 훨씬 빨라진다.</div>
+  </div>
 </div>

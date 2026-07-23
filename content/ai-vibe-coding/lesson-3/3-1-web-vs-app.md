@@ -60,6 +60,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -216,24 +232,67 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 
 ## ✅ 핵심 요약
 
-| 비교 항목 | 웹(Web) | 앱(App) |
-|---|---|---|
-| **접근** | URL 입력 · 즉시 사용 | 앱스토어 다운로드 · 설치 필요 |
-| **속도** | 매번 서버에서 다운로드 | 기기에 저장되어 빠름 |
-| **플랫폼** | 모든 기기 동일 동작 | OS별 최적화 |
-| **기기 기능** | 브라우저 제한 있음 | 카메라·GPS·알림 완전 활용 |
-| **개발 비용** | 저렴 · 빠른 출시 | 플랫폼별 개발로 높음 |
-| **업데이트** | 배포 즉시 반영 | 사용자 승인 필요 |
-| **SEO** | 가능 | 불가 |
-| **오프라인** | 기본 불가 (PWA로 일부 가능) | 기본 기능 오프라인 사용 가능 |
+**📌 먼저 외울 것**
 
-<div class="wda-memo">
-  <span class="wda-memo-label">✏️ 선택 기준 요약</span>
-  <div class="wda-memo-body">
-    <strong>웹 선택:</strong> 정보 제공 · SEO 중요 · 예산 제한 · 빠른 배포 · 모든 기기 지원 필요<br>
-    <strong>앱 선택:</strong> 자주 쓰는 서비스 · 카메라·GPS 필수 · 고보안 · 최고 UX 목표<br>
-    <strong>PWA 선택:</strong> 웹의 편의성 + 앱의 UX를 동시에 원할 때
+<div class="wda-check-note">
+  <ul>
+    <li>웹은 <strong>URL 입력 즉시 사용</strong>, 앱은 <strong>앱스토어 설치</strong>가 필요하다.</li>
+    <li>앱은 <strong>기기에 저장된 파일</strong>로 실행되어 빠르고, 웹은 <strong>매번 서버에서 다운로드</strong>한다.</li>
+    <li>앱은 <strong>카메라·GPS·푸시 알림</strong> 등 기기 기능을 완전히 활용하지만, 웹은 브라우저 API로 제한적이다.</li>
+    <li>웹은 <strong>SEO(검색 노출)</strong>가 가능하지만, 앱은 불가능하다.</li>
+    <li>웹은 <strong>배포 즉시 모든 사용자에게 반영</strong>되지만, 앱은 <strong>사용자 업데이트 승인</strong>이 필요하다.</li>
+    <li>PWA는 <strong>웹 기술로 앱처럼 동작</strong>하는 절충안으로, 설치 없이 홈 화면 추가와 오프라인 사용이 가능하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 앱이 무조건 웹보다 더 좋은 선택이다?</div>
+    <div class="wda-mistake-right">정답: 정보 제공·SEO·빠른 배포가 중요하면 <strong>웹</strong>이, 기기 기능·보안·최고 UX가 중요하면 <strong>앱</strong>이 유리하다. 목적에 따라 선택이 달라진다.</div>
   </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: PWA는 그냥 웹사이트일 뿐이다?</div>
+    <div class="wda-mistake-right">정답: PWA는 <strong>웹 기술로 만들지만 앱처럼 설치·오프라인 동작·푸시 알림</strong>까지 지원하는 절충 기술이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 하이브리드 앱은 네이티브 앱과 성능이 동일하다?</div>
+    <div class="wda-mistake-right">정답: 하이브리드 앱(React Native·Flutter)은 개발 비용은 절약되지만 <strong>성능은 네이티브 대비 낮다</strong>.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 웹은 검색 노출도 안 되고 앱보다 항상 불리하다?</div>
+    <div class="wda-mistake-right">정답: 웹은 <strong>SEO가 가능</strong>해 마케팅·브랜딩에 강점이 있다. 앱은 SEO가 불가능하다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 접근 방식</div>
+    <div class="wda-formula-block-body"><code>웹 = URL 즉시</code><br><code>앱 = 설치 필요</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 선택 기준</div>
+    <div class="wda-formula-block-body"><code>정보·SEO·저예산 → 웹</code><br><code>기기기능·보안·UX → 앱</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · PWA</div>
+    <div class="wda-formula-block-body"><code>PWA = 웹 편의성 + 앱 UX</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card"><div class="wda-flip-front">웹과 앱의 가장 큰 차이는?</div><div class="wda-flip-back">웹은 URL로 즉시 사용하고, 앱은 앱스토어에서 설치해야 사용할 수 있다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">왜 앱이 웹보다 빠르게 느껴지나?</div><div class="wda-flip-back">앱은 파일이 기기에 저장되어 있어 필요한 데이터만 불러오지만, 웹은 매번 서버에서 다운로드하기 때문이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">SEO가 가능한 쪽은?</div><div class="wda-flip-back">웹만 검색엔진 노출(SEO)이 가능하고, 앱은 불가능하다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">PWA란?</div><div class="wda-flip-back">웹 기술로 만들지만 설치·오프라인 동작·푸시 알림까지 지원하는, 웹과 앱의 장점을 합친 기술이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">네이티브 앱과 하이브리드 앱의 차이는?</div><div class="wda-flip-back">네이티브는 플랫폼별로 따로 개발해 성능이 최고지만, 하이브리드는 한 번 개발로 멀티 플랫폼을 지원하는 대신 성능이 다소 낮다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">웹을 선택해야 하는 대표 상황은?</div><div class="wda-flip-back">정보 제공이 목적이거나, 예산·시간이 제한적이거나, SEO가 중요할 때다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">앱을 선택해야 하는 대표 상황은?</div><div class="wda-flip-back">카메라·GPS 등 기기 기능이 필수이거나, 보안이 중요하거나, 자주 쓰는 서비스일 때다.</div></div>
 </div>
 
 ---

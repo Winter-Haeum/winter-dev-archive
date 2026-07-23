@@ -58,6 +58,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -423,25 +439,85 @@ function solution(numbers) {
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분 (Category)</th>
-    <th>핵심 내용 (Core)</th>
-    <th>상세 설명 및 전략 (Details)</th>
-  </tr>
-  <tr>
-    <td>{} 코딩테스트란</td>
-    <td>문제를 코드로 해결</td>
-    <td>• 정의: 주어진 문제를 프로그래밍 언어로 해결하는 시험<br>• 목적: IT 기업 채용의 필수 관문이자, 지원자의 논리적 사고력을 검증하는 수단</td>
-  </tr>
-  <tr>
-    <td>:= 문제 유형</td>
-    <td>3대 유형 정복</td>
-    <td>• 구현: 문제의 조건을 그대로 코드로 옮기는 능력 (가장 기본)<br>• 자료구조: 데이터를 효율적으로 관리하기 위한 적절한 도구(스택, 큐 등) 선택<br>• 알고리즘: 복잡한 문제를 풀기 위한 기법(정렬, 탐색 등) 적용</td>
-  </tr>
-  <tr>
-    <td>🎓 준비 방법</td>
-    <td>기본기 & 꾸준함</td>
-    <td>• 기본기 먼저: 문법과 자주 쓰는 메서드부터 완벽히 숙지<br>• Level 0부터: 어려운 문제 말고, 쉬운 문제부터 시작해서 자신감 얻기<br>• 매일 꾸준히: 하루 10문제보다 매일 1문제가 훨씬 효과적</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>코딩테스트는 <strong>주어진 문제를 코드로 해결</strong>하는 시험이며, IT 기업 채용의 필수 관문이다.</li>
+    <li>채점은 <strong>정확성 + 효율성 + 메모리</strong> 3가지 기준을 모두 통과해야 한다.</li>
+    <li>문제 유형은 크게 <strong>구현 / 자료구조 / 알고리즘</strong> 3가지로 나뉜다.</li>
+    <li>준비는 <strong>기본기 → 문제 풀이 연습 → 실전 대비</strong> 순서로 진행한다.</li>
+    <li>Level 0부터 시작해 <strong>매일 꾸준히</strong> 푸는 것이 몰아서 푸는 것보다 효과적이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 코딩테스트는 수학을 잘해야 유리하다?</div>
+    <div class="wda-mistake-right">정답: 고등수학은 필요 없으며, <strong>사칙연산과 논리적 사고</strong>만 있으면 충분하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 알고리즘을 다 알아야 시작할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 입문 단계(Lv.1~2)는 <strong>기본 문법과 구현 능력</strong>만으로도 충분하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 답만 맞으면 무조건 통과다?</div>
+    <div class="wda-mistake-right">정답: 정확성뿐 아니라 <strong>효율성(시간 초과 여부)과 메모리 사용량</strong>까지 모두 만족해야 통과된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 어려운 문제부터 도전해야 실력이 빨리 는다?</div>
+    <div class="wda-mistake-right">정답: <strong>구현 → 자료구조 → 알고리즘</strong> 순으로, 쉬운 유형부터 기본기를 다지는 것이 먼저다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 채점 통과 조건</div>
+    <div class="wda-formula-block-body"><code>정확성 + 효율성 + 메모리</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 문제 처리 흐름</div>
+    <div class="wda-formula-block-body"><code>입력 → 알고리즘 → 출력</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 준비 순서</div>
+    <div class="wda-formula-block-body"><code>기본기 → 문제풀이 → 실전대비</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">코딩테스트란 무엇인가?</div>
+    <div class="wda-flip-back">주어진 문제를 코드로 해결하고 자동 채점 시스템으로 평가하는 시험이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">채점 기준 3가지는?</div>
+    <div class="wda-flip-back">정확성, 효율성, 메모리 사용량이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제 유형 3가지는?</div>
+    <div class="wda-flip-back">구현, 자료구조, 알고리즘이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">solution 함수 이름을 바꾸면 어떻게 되나?</div>
+    <div class="wda-flip-back">채점 시스템이 해당 함수를 호출하지 못해 채점이 되지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">시간 초과(Time Out)란?</div>
+    <div class="wda-flip-back">답은 맞아도 제한 시간 내에 실행되지 못해 오답 처리되는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">입문자는 어디서 시작해야 하나?</div>
+    <div class="wda-flip-back">프로그래머스 Level 0부터 쉬운 문제로 시작한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">효과적인 학습 습관은?</div>
+    <div class="wda-flip-back">몰아서 풀기보다 매일 1~2문제씩 꾸준히 푸는 것이다.</div>
+  </div>
+</div>

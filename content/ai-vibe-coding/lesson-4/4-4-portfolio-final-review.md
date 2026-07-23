@@ -57,6 +57,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -552,6 +568,65 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ```
 
 ---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>포트폴리오 완성도는 <strong>구조 &amp; 네비게이션 / 디자인 일관성 / 콘텐츠 품질 / 성능 &amp; 반응형</strong> 4개 영역으로 점검한다</li>
+    <li>Copy &amp; Paste 방식 UI 라이브러리(Aceternity UI, Magic UI, shadcn/ui 등)는 npm 설치 없이 <strong>필요한 컴포넌트만 선택적으로</strong> 적용할 수 있다</li>
+    <li>인터렉티브 효과는 <strong>Intersection Observer, CSS transform/transition, requestAnimationFrame</strong>을 기반으로 구현한다</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 커스텀 커서·호버 효과를 데스크톱 마우스 이벤트로만 구현하면?</div>
+    <div class="wda-mistake-right">방지: 모바일에서는 touch 이벤트로 대체하거나 해당 효과를 비활성화 처리해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 소개된 모든 애니메이션 효과를 한 포트폴리오에 다 적용하려 하면?</div>
+    <div class="wda-mistake-right">방지: will-change, transform3d, throttle/debounce 등 성능 최적화를 함께 고려해 필요한 효과만 선택한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · 기본 점검</div>
+    <div class="wda-formula-block-body">구조·네비게이션 점검<br>디자인 일관성 점검<br>콘텐츠 품질 점검<br>성능·반응형 점검</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 인터렉션 강화</div>
+    <div class="wda-formula-block-body">스크롤 반응형 네비게이션<br>호버 인터렉션<br>프로그래스 애니메이션</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 몰입감 강화</div>
+    <div class="wda-formula-block-body">스크롤 트리거 애니메이션<br>커스텀 커서<br>타이핑 효과<br>다크모드 토글</div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Copy & Paste 방식 UI 라이브러리의 장점은?</div>
+    <div class="wda-flip-back">npm 설치 없이 원하는 컴포넌트만 복사해서 사용, 번들 크기 부담이 없다</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스크롤에 반응해 요소가 나타나는 효과를 구현할 때 쓰는 API는?</div>
+    <div class="wda-flip-back">Intersection Observer API</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">포트폴리오 완성도를 점검하는 4개 영역은?</div>
+    <div class="wda-flip-back">구조 &amp; 네비게이션, 디자인 일관성, 콘텐츠 품질, 성능 &amp; 반응형</div>
+  </div>
+</div>
 
 <div class="wda-done">
   <div class="wda-done-ico">🏆</div>

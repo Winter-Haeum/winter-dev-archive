@@ -50,6 +50,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -535,30 +551,92 @@ const handleSubmit = (e) => {
 
 <h2>11. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Controlled</strong></td>
-    <td><strong>React State</strong>가 입력값의 기준(Single Source of Truth)이 되며, 입력 요소는 <strong>value와 onChange</strong>를 함께 사용해 state와 연결합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Object State</strong></td>
-    <td>여러 개의 Input 필드는 <strong>하나의 객체 State</strong>로 관리하며, <strong>[e.target.name]</strong> 계산된 속성명 문법을 활용해 업데이트합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Validation</strong></td>
-    <td>폼 제출 전 <strong>유효성 검사</strong>는 필수입니다. 빈 값 체크나 형식 검사를 통과하지 못하면 <strong>return</strong> 하여 제출을 막아야 합니다.</td>
-  </tr>
-</table>
+이번 챕터에서 배운 폼 처리의 핵심 원칙을 4단계 복습 카드로 정리합니다.
 
-**💡 보충 설명**
+**📌 먼저 외울 것**
 
-<div class="wda-callout wda-ci">
+<div class="wda-check-note">
   <ul>
-    <li><strong>Single Source of Truth (진실의 유일한 원천):</strong> 화면에 보이는 값과 실제 데이터가 오직 하나의 공간(<code>state</code>)에서만 관리되어, 데이터의 불일치를 막는 중요한 개념입니다.</li>
-    <li><strong>계산된 속성명 (Computed Property Name):</strong> 객체의 키(Key) 자리에 대괄호 <code>[]</code>를 쓰면, 그 안에 있는 변수의 값을 키 이름으로 사용할 수 있게 해주는 문법입니다.</li>
+    <li>React state가 입력값의 <strong>유일한 진실 공급원</strong>(Single Source of Truth)이 되는 방식을 <strong>제어 컴포넌트(Controlled Component)</strong>라고 합니다.</li>
+    <li>input·textarea는 <strong>value + onChange</strong>, checkbox·radio는 <strong>checked + onChange</strong>, select는 <strong>select 태그 자체의 value</strong>로 제어합니다.</li>
+    <li>여러 입력 필드는 <strong>하나의 객체 state</strong>로 묶어 관리하며, <code>[e.target.name]</code> 계산된 속성명으로 갱신합니다.</li>
+    <li>객체 state를 갱신할 때는 <code>{'{ ...prev, [name]: value }'}</code>처럼 기존 값을 복사한 뒤 바뀐 값만 덮어씁니다.</li>
+    <li>폼 제출 시 <strong><code>e.preventDefault()</code></strong>로 새로고침을 막고, 유효성 검사를 통과하지 못하면 <strong>return</strong>으로 제출을 막습니다.</li>
+    <li>클라이언트 유효성 검사는 빠른 피드백을 위한 1차 검사이며, 최종 검증은 <strong>서버에서도 다시</strong> 해야 합니다.</li>
   </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: input에 value만 넣어주면 값을 제어하는 데 충분하다?</div>
+    <div class="wda-mistake-right">정답: <code>onChange</code> 없이 <code>value</code>만 있으면 리액트가 읽기 전용으로 취급해 입력이 전혀 되지 않습니다. <strong>value와 onChange는 항상 세트</strong>로 씁니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: checkbox도 input처럼 value 속성으로 선택 상태를 표시한다?</div>
+    <div class="wda-mistake-right">정답: checkbox와 radio는 <code>value</code>가 아니라 <strong>checked 속성</strong>과 <code>e.target.checked</code>로 선택 상태를 제어해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: select의 기본값은 option 태그의 selected 속성으로 지정한다?</div>
+    <div class="wda-mistake-right">정답: React에서는 option의 <code>selected</code>가 아니라 <strong>select 태그 자체의 value</strong>로 선택 상태를 관리합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setForm(prev => ({...prev, [name]: value}))에서 ...prev는 생략해도 된다?</div>
+    <div class="wda-mistake-right">정답: <code>...prev</code>를 빼먹으면 이번에 바뀐 필드만 남고 <strong>나머지 입력값이 모두 사라집니다</strong>.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 클라이언트 쪽 유효성 검사만 통과하면 데이터는 안전하다?</div>
+    <div class="wda-mistake-right">정답: 클라이언트 검사는 빠른 피드백을 위한 <strong>1차 검사</strong>일 뿐이며, 보안과 최종 데이터 검증은 반드시 <strong>서버에서도</strong> 다시 확인해야 합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 핵심 원칙</div>
+    <div class="wda-formula-block-body"><code>state = 입력값의 유일한 진실</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 텍스트류</div>
+    <div class="wda-formula-block-body"><code>value + onChange</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 체크류</div>
+    <div class="wda-formula-block-body"><code>checked + onChange</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 여러 입력</div>
+    <div class="wda-formula-block-body"><code>{'{ ...prev, [name]: value }'}</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React state를 입력값의 유일한 진실 공급원으로 사용하는 패턴을 무엇이라 하나?</div>
+    <div class="wda-flip-back">제어 컴포넌트 (Controlled Component)입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">여러 개의 input 필드를 하나의 state로 관리할 때 사용하는 ES6 문법은?</div>
+    <div class="wda-flip-back">계산된 속성 이름(Computed property name)입니다. [e.target.name]: e.target.value</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">checkbox의 선택 상태를 제어하는 속성은?</div>
+    <div class="wda-flip-back">checked입니다. (value가 아닙니다)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">select의 기본값은 어디서 관리하나?</div>
+    <div class="wda-flip-back">option의 selected가 아니라 select 태그 자체의 value로 관리합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">폼 제출 시 새로고침을 막으려면?</div>
+    <div class="wda-flip-back">onSubmit 핸들러에서 e.preventDefault()를 호출합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클라이언트 유효성 검사만으로 충분한가?</div>
+    <div class="wda-flip-back">아닙니다. 1차 검사일 뿐이며 서버에서도 반드시 재검증해야 합니다.</div>
+  </div>
 </div>

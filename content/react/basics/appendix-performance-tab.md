@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. 실습: Performance 탭으로 렌더링 성능 측정하기</h2>
@@ -167,31 +183,74 @@ Performance 탭과 잠시 뒤에 나올 Rendering 탭 모두 아래 단축키로
 
 <h2>✅ 핵심 요약</h2>
 
-Performance 탭과 Paint Flashing, 두 가지 도구로 React 렌더링 성능을 직접 확인하는 방법을 정리합니다.
+**📌 먼저 외울 것**
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Performance 탭 여는 법</strong></td>
-    <td>• 방법 A: `Cmd/Ctrl + Shift + P` → `Performance` 입력 (추천)<br>• 방법 B: 개발자 도구 상단 탭에서 직접 클릭</td>
-  </tr>
-  <tr>
-    <td><strong>그래프 색상 의미</strong></td>
-    <td>• 노란색 계열: JS 실행 시간<br>• 보라색 계열: Rendering/Layout<br>• 초록색 계열: Paint/Composite<br>• 버전에 따라 세부 색상·라벨은 다를 수 있음</td>
-  </tr>
-  <tr>
-    <td><strong>Paint Flashing 사용법</strong></td>
-    <td>• Rendering 탭 열기(`Cmd/Ctrl + Shift + P` → `Rendering`, 또는 점 3개 메뉴)<br>• Paint flashing 체크 후 버튼 클릭해서 반짝이는 영역 확인</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>• Layout/Paint 막대가 길면 최적화가 필요하다는 신호<br>• 화면 전체가 녹색으로 번쩍이면 넓은 영역이 다시 Paint되고 있다는 신호입니다.<br>React 전체 리렌더와 동일한 의미는 아니므로, Paint 영역과 React DevTools Profiler 결과를 함께 확인하는 것이 좋습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>• 막대그래프는 짧을수록, Paint Flashing은 반짝이는 영역이 좁을수록 브라우저 작업이 적다는 뜻이다.</td>
-  </tr>
-</table>
+<div class="wda-check-note">
+  <ul>
+    <li>Performance 탭은 <code>Cmd/Ctrl + Shift + P</code> → <code>Performance</code> 입력으로 빠르게 열 수 있다.</li>
+    <li>측정은 <strong>Record(녹화) → 동작 수행 → Stop(중지)</strong> 순서로 진행한다.</li>
+    <li>Main 섹션 막대 색상은 보통 <strong>노란색</strong>(JS 실행), <strong>보라색</strong>(Rendering/Layout), <strong>초록색</strong>(Paint/Composite)을 의미하며 브라우저 버전에 따라 달라질 수 있다.</li>
+    <li>Layout·Paint 막대가 <strong>적고 짧을수록</strong> 성능이 좋다.</li>
+    <li>Paint Flashing은 React 리렌더링이 아니라 브라우저가 실제로 다시 <strong>Paint한 영역</strong>을 녹색으로 보여주는 기능이다.</li>
+    <li>Rendering 탭은 <code>Cmd/Ctrl + Shift + P</code> → <code>Rendering</code> 입력, 또는 점 3개(⋮) 메뉴로 연다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Paint Flashing의 녹색 반짝임은 React 컴포넌트가 리렌더링된 것을 보여준다?</div>
+    <div class="wda-mistake-right">정답: React 리렌더링이 아니라 브라우저가 실제로 <strong>다시 Paint한 영역</strong>을 보여주는 것이며, 둘은 다른 개념이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 화면 전체가 녹색으로 반짝이면 무조건 React 전체가 리렌더된 것이다?</div>
+    <div class="wda-mistake-right">정답: 넓은 영역이 Paint된 것은 맞지만, <strong>React 전체 리렌더와 동일한 의미는 아니므로</strong> Profiler 결과와 함께 확인해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Performance 탭의 막대 색상은 모든 브라우저 버전에서 항상 똑같다?</div>
+    <div class="wda-mistake-right">정답: Chrome DevTools 버전에 따라 세부 색상과 라벨이 달라질 수 있으므로 <strong>라벨도 함께 확인</strong>해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 측정 순서</div>
+    <div class="wda-formula-block-body"><code>Record → Action → Stop</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 막대 의미</div>
+    <div class="wda-formula-block-body"><code>노랑=JS, 보라=Layout, 초록=Paint</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · Paint Flashing</div>
+    <div class="wda-formula-block-body"><code>브라우저 Paint 영역(React 리렌더 아님)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Performance 탭을 가장 빠르게 여는 방법은?</div>
+    <div class="wda-flip-back">Cmd/Ctrl+Shift+P로 명령어 메뉴를 열고 "Performance"를 입력한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">측정 3단계는?</div>
+    <div class="wda-flip-back">Record(녹화 시작) → 동작 수행 → Stop(녹화 종료)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Layout/Paint 막대가 길면 무엇을 의미하나?</div>
+    <div class="wda-flip-back">브라우저가 화면을 그리는 데 시간이 오래 걸린다는 뜻이며 최적화가 필요하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Paint Flashing이 실제로 보여주는 것은?</div>
+    <div class="wda-flip-back">React의 리렌더링이 아니라 브라우저가 다시 Paint한 영역이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Rendering 탭을 여는 방법은?</div>
+    <div class="wda-flip-back">명령어 메뉴에서 "Rendering" 입력, 또는 점 3개(⋮) 메뉴에서 선택한다.</div>
+  </div>
+</div>

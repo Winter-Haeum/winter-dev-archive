@@ -66,6 +66,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -270,6 +286,85 @@ GitHub Actions 워크플로우를 사용해서 자동 배포되도록 설정하�
   <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">UI 스타일 결정</div><div class="wda-sdsc">앞서 논의한 컨셉과 느낌 정리</div></div></div>
   <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">방명록 정보 구성 결정</div><div class="wda-sdsc">논의한 정보 구성 결과 정리</div></div></div>
   <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">빈칸 모두 채우기</div><div class="wda-sdsc">템플릿의 _____ 부분을 모두 채운 후 메모장에 저장</div></div></div>
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Contact 섹션은 <strong>Home 탭 안의 섹션</strong>이며, 새로운 탭으로 만들면 안 된다.</li>
+    <li>기본 연락처 정보는 <strong>이메일 · 전화번호(선택) · SNS 링크 · 지역 정보(선택)</strong>로 구성한다.</li>
+    <li>방명록은 <strong>작성자 이름 · 메시지 내용 · 소속/직업(선택) · 이메일(비공개, 선택)</strong>을 입력받는다.</li>
+    <li>방명록 데이터는 <strong>이메일 비공개 저장, 스팸 방지 IP 로깅, 악성 콘텐츠 필터링</strong> 같은 보안을 고려한다.</li>
+    <li>성능을 위해 <strong>최신 20개만 표시</strong>하고 페이지네이션과 인덱스 조회를 적용한다.</li>
+  </ul>
+</div>
+
+**✅ 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Contact 섹션을 새로운 탭이나 페이지로 따로 만든다?</div>
+    <div class="wda-mistake-right">방지: Contact 섹션은 반드시 Home 탭 안의 섹션으로 개발해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 이메일 주소를 방명록에 그대로 공개로 저장한다?</div>
+    <div class="wda-mistake-right">방지: 이메일은 비공개로 저장하도록 설계해 개인정보를 보호한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 방명록 데이터가 많아지면 전부 한 번에 불러온다?</div>
+    <div class="wda-mistake-right">방지: 최신 20개만 표시하고 페이지네이션을 적용해 빠른 로딩을 유지한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 컨셉 논의 없이 바로 AI에게 프롬프트만 보낸다?</div>
+    <div class="wda-mistake-right">방지: 전체 느낌·표시 방법·색상·배치 등 UI 컨셉 템플릿을 먼저 채운 뒤 프롬프트와 함께 전달한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 1 · 연락처</div>
+    <div class="wda-formula-block-body"><code>이메일 + SNS + 위치 정보 UI 완성</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 2 · 방명록</div>
+    <div class="wda-formula-block-body"><code>작성 폼 + 목록 표시 + Supabase 연동</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 3 · 배포</div>
+    <div class="wda-formula-block-body"><code>GitHub Pages 자동 배포 URL 확인</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Contact 섹션은 어디에 개발해야 하나?</div>
+    <div class="wda-flip-back">Home 탭 안의 Contact 섹션으로 개발해야 하며 새 탭을 만들면 안 된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">방명록의 필수 기본 정보는?</div>
+    <div class="wda-flip-back">방명록 ID, 작성자 이름, 내용/메시지, 작성 날짜다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">방명록 이메일은 어떻게 저장하나?</div>
+    <div class="wda-flip-back">비공개로 저장한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">방명록 성능 최적화 방법은?</div>
+    <div class="wda-flip-back">페이지네이션 적용, 최신 20개만 표시, 인덱스를 통한 빠른 조회다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">AI에게 요청 전에 먼저 할 일은?</div>
+    <div class="wda-flip-back">Contact 섹션 UI 컨셉과 방명록 정보 구성을 논의해 템플릿을 채운다.</div>
+  </div>
 </div>
 
 <div class="wda-done" style="text-align:left;">
