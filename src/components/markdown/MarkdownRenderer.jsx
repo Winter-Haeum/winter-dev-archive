@@ -125,6 +125,22 @@ const WDA_HEADING_BOX_SELECTORS = [
   '.wda-mistake-notes',
   '.wda-formula-board',
 ];
+// callout/카드/단계형 등 "박스류" 내부에서는 이모지+볼드 단독 문단(예: 박스 안
+// 한 줄짜리 강조 라벨 `<p><strong>...</strong></p>`)을 본문 레벨 미니 소제목으로
+// 오인식하면 안 된다 — p 컴포넌트의 isLoneStrong 판별은 문단 자신의 모양만 보고
+// 조상 요소를 전혀 확인하지 않아서, 지금까지 박스 안의 강조 라벨도 페이지 레벨
+// 미니 소제목과 동일하게 padding-top(1.2rem=19.2px)을 그대로 받고 있었다(2026-07
+// 개편 — React hooks 3-3/3-2 등 재검토로 발견, 콜아웃 내부 위쪽 여백이 JS 1-1/1-2
+// 기준보다 넓어 보이는 원인). WDA_HEADING_BOX_SELECTORS(박스류 전체 목록)를 그대로
+// 재사용해 "박스 안에 있는지" 여부를 React Context로 전달하고, p 컴포넌트가 이
+// 컨텍스트를 확인해 박스 내부에서는 isLoneStrong 처리를 끈다. 이 판별은 순수
+// React 트리 기반이라, 박스 안에 몇 단계가 중첩되어 있어도(예: `.wda-callout` 안의
+// `<div>` 안의 `<p>`) 정확히 전파된다. h2/h3 뒤에 곧장 오는 실제(본문 레벨)
+// 미니 소제목이나 박스↔박스/박스↔텍스트 인접 간격 규칙(WDA_MINIHEAD_BOX_SELECTORS
+// 등, 형제 관계 기반)에는 영향을 주지 않는다 — 이번 처리는 "박스 내부 자손"
+// 관계만 다루고, "박스 다음에 오는 형제" 관계는 기존 로직 그대로 유지된다.
+const WDA_BOX_CONTEXT_CLASSES = new Set(WDA_HEADING_BOX_SELECTORS.map((s) => s.slice(1)));
+const WdaBoxContext = React.createContext(false);
 // 미니 소제목과 인접한 콘텐츠 블록(이전 요소든 다음 요소든)은 미니 소제목 자신의
 // padding-top(1.2rem, 진입 시 새 시작 간격)/padding-bottom(0, 2026-07 개편으로 제거)
 // 두 값만으로 위계를 표현하고, 인접한 콘텐츠 블록 쪽 margin은 항상 제거하거나 0.5rem
@@ -296,6 +312,40 @@ const wdaMinheadGlobalStyles = {
   [WDA_HEADING_BOX_SELECTORS.map((s) => `h3 + ${s}`).join(', ')]: {
     marginTop: '0.75rem !important',
   },
+  // 박스류(callout/카드/단계형 등) 내부 상단 여백 방어 규칙 3종(2026-07 개편 —
+  // 신설, React hooks/3-3-useref.md 재검토로 근본 원인 확정). WdaBoxContext(위 p
+  // 컴포넌트 수정)만으로는 실제 화면에서 충분히 해결되지 않았는데, 원인은 따로
+  // 있었다: 거의 모든 문서의 로컬 `<style>` 블록에 구버전 규칙
+  // `p:has(> strong:only-child){margin-top:2.2rem !important}`(특이도 0,1,2)이
+  // 여전히 남아 있고, 지금까지는 `p.wda-minihead.wda-minihead{marginTop:0
+  // !important}`(특이도 0,2,1)가 이 구버전 규칙을 항상 이겨서 억눌러 왔다. 그런데
+  // WdaBoxContext가 박스 내부 강조 라벨 문단에서 `wda-minihead` 클래스 자체를
+  // 떼어내 버리면, 그 문단은 더 이상 저 이중 클래스 규칙과 매치하지 않게 되어
+  // "억누르던 규칙"이 사라지고, 특이도는 낮지만 `!important`가 붙은 구버전 규칙이
+  // 그대로 다시 이겨버린다(`!important` 선언끼리는 특이도 비교, `!important` 대
+  // 비-`!important`는 항상 `!important`가 이김) — 결과적으로 이전보다 더 넓은
+  // margin-top:2.2rem(35.2px)이 노출되는 역효과가 났다. 아래 세 규칙은 박스 내부
+  // 요소 자체를 대상으로 명시적 `!important`를 걸어, 문서별 구버전 잔재나
+  // `wda-minihead` 클래스 부착 여부와 무관하게 항상 박스 내부 상단 여백이
+  // 0이 되도록 강제한다(특이도 0,2,1 이상 + `!important`로 구버전 규칙의 0,1,2를
+  // 항상 이긴다). React 문서 뿐 아니라 이 GlobalStyles는 전체 사이트에 적용되므로
+  // JS/ai-vibe-coding/coding-test 문서의 동일 패턴도 함께 방어된다.
+  [WDA_HEADING_BOX_SELECTORS.map((s) => `${s} > p:first-child`).join(', ')]: {
+    marginTop: '0 !important',
+    paddingTop: '0 !important',
+  },
+  [WDA_HEADING_BOX_SELECTORS.map((s) => `${s} > ul:first-child, ${s} > ol:first-child`).join(', ')]: {
+    marginTop: '0 !important',
+  },
+  // WdaBoxContext가 어떤 이유로든(예: 박스 클래스가 다른 wrapper 뒤에 한 단계 더
+  // 감싸여 있는 경우) 박스 내부 강조 라벨의 `wda-minihead` 클래스 부착을 막지
+  // 못했을 때를 대비한 방어선 — 박스 내부에 `wda-minihead`가 존재하면 그 자체의
+  // margin-top/padding-top을 무조건 0으로 고정한다. 페이지 본문 레벨(박스 밖)
+  // minihead는 이 선택자에 매치하지 않으므로 전혀 영향받지 않는다.
+  [WDA_HEADING_BOX_SELECTORS.map((s) => `${s} .${WDA_MINIHEAD_CLASS}`).join(', ')]: {
+    marginTop: '0 !important',
+    paddingTop: '0 !important',
+  },
 };
 
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
@@ -383,7 +433,12 @@ const markdownComponents = {
     const kids = React.Children.toArray(children).filter(
       (c) => typeof c !== 'string' || c.trim() !== ''
     );
+    // callout/카드 등 박스류 내부(WdaBoxContext)에서는 강조 라벨 한 줄짜리 문단이
+    // 있어도 미니 소제목으로 처리하지 않는다 — 박스 안 라벨과 본문 레벨 미니
+    // 소제목을 구분하기 위함(위 WDA_BOX_CONTEXT_CLASSES 주석 참고).
+    const insideBox = React.useContext(WdaBoxContext);
     const isLoneStrong =
+      !insideBox &&
       kids.length === 1 && React.isValidElement(kids[0]) && kids[0].type === StrongText;
     return (
       <Box
@@ -681,9 +736,18 @@ const markdownComponents = {
     if (classes.includes('wda-flip-card')) {
       return <FlipCard>{children}</FlipCard>;
     }
+    // 박스류(callout/카드/단계형 등) div면 WdaBoxContext를 켜서, 그 안의 p
+    // 컴포넌트가 강조 라벨 단독 문단을 미니 소제목으로 오인식하지 않게 한다
+    // (위 WDA_BOX_CONTEXT_CLASSES 주석 참고). 박스가 아닌 일반 div(데코 등)는
+    // 기존 그대로 패스스루한다.
+    const isBoxContainer = classes.some((c) => WDA_BOX_CONTEXT_CLASSES.has(c));
     return (
       <div className={className} {...rest}>
-        {children}
+        {isBoxContainer ? (
+          <WdaBoxContext.Provider value={true}>{children}</WdaBoxContext.Provider>
+        ) : (
+          children
+        )}
       </div>
     );
   },

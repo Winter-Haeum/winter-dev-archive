@@ -39,7 +39,7 @@ description: "웹의 기본 원리, 인터넷 통신 방식, 현대적 웹사이
 .wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
 .wda-note{border-radius:10px;padding:13px 16px;margin:.8rem 0 1.2rem;border-left:3px solid rgba(245,158,11,.7);background:rgba(245,158,11,.06)}
 .wda-note-ttl{font-size:.75rem;font-weight:700;color:#f59e0b;letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px}
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
