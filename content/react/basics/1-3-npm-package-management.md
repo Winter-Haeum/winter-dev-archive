@@ -56,6 +56,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -515,32 +531,86 @@ npm create vite@latest
 
 <h2>✅ 핵심 요약</h2>
 
-Node.js 프로젝트 관리의 심장인 파일(`package.json`)과 실행 도구(`npx`)의 차이입니다.
+**📌 먼저 외울 것**
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 정의</th>
-    <th>역할 및 특징</th>
-  </tr>
-  <tr>
-    <td><strong>1. package.json</strong></td>
-    <td>프로젝트의 신분증이자 주문서</td>
-    <td>이 파일 하나만 있으면 프로젝트를 언제든 원상 복구하고 실행할 수 있습니다. (가장 중요 ⭐)</td>
-  </tr>
-  <tr>
-    <td><strong>2. 의존성 구분</strong></td>
-    <td><code>dependencies</code>(실서비스용)</td>
-    <td>배포 후 실제 서비스가 돌아갈 때 꼭 필요한 라이브러리입니다. (예: React, Vue)</td>
-  </tr>
-  <tr>
-    <td>(위와 비교)</td>
-    <td><code>devDependencies</code>(개발 전용)</td>
-    <td>개발할 때만 쓰고, 배포할 때는 쏙 빼고 나가는 도구들입니다. (예: Nodemon, ESLint, Prettier)</td>
-  </tr>
-  <tr>
-    <td><strong>3. npx</strong></td>
-    <td>설치 없는 실행 도구(Executor)</td>
-    <td>패키지를 내 컴퓨터에 영구적으로 설치하지 않고, 필요할 때만 최신 버전을 빌려와서 실행하고 버립니다. (예: <code>create-react-app</code> 같은 1회성 도구)</td>
-  </tr>
-</table>
+<div class="wda-check-note">
+  <ul>
+    <li>버전 번호는 <strong>Major.Minor.Patch</strong> 순서이며, Major=하위 호환 깨짐, Minor=기능 추가(호환 유지), Patch=버그 수정이다.</li>
+    <li><code>^</code>(캐럿)은 Major만 고정, <code>~</code>(틸드)는 Minor까지 고정하는 버전 범위 기호다.</li>
+    <li><strong>package.json</strong>은 대략적인 버전 범위(주문서), <strong>package-lock.json</strong>은 정확히 설치된 버전(영수증)을 기록한다.</li>
+    <li>node_modules는 npm이 자동 관리하는 창고이며 <strong>Git에 올리지 않는다</strong>(.gitignore).</li>
+    <li>npx는 패키지를 <strong>설치하지 않고 실행만</strong> 하는 도구다(예: <code>npm create vite@latest</code>).</li>
+    <li>새 프로젝트는 <code>npm init -y</code> → <code>npm install</code>, 협업 프로젝트는 <code>git clone</code> → <code>npm install</code>이 기본 흐름이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: package.json만 있으면 항상 정확히 같은 버전이 설치된다?</div>
+    <div class="wda-mistake-right">정답: package.json은 범위(<code>^18.2.0</code> 등)만 담고 있어, <strong>package-lock.json</strong>이 있어야 팀원 간 최대한 동일하게 복원된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: VS Code에 ESLint 확장만 설치하면 충분하다?</div>
+    <div class="wda-mistake-right">정답: 확장 프로그램은 <strong>"안경"</strong>(시각 피드백)일 뿐이고, npm eslint 패키지가 <strong>"법전"</strong>(실제 규칙)이므로 둘 다 필요하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: npm audit에서 경고가 뜨면 무조건 fix --force를 써야 한다?</div>
+    <div class="wda-mistake-right">정답: 초보자 단계에서는 <code>--force</code>를 피하고, <strong>High 이상</strong> 심각도만 주의 깊게 확인 후 수정하는 것이 안전하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: dependencies와 devDependencies는 그냥 같은 것을 두 번 적은 것이다?</div>
+    <div class="wda-mistake-right">정답: dependencies는 실서비스에 꼭 필요한 패키지(React 등), devDependencies는 <strong>개발할 때만</strong> 쓰고 배포 시 빠지는 도구(Nodemon, ESLint 등)다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 버전 구조</div>
+    <div class="wda-formula-block-body"><code>Major.Minor.Patch</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 범위 기호</div>
+    <div class="wda-formula-block-body"><code>^ = Minor까지, ~ = Patch까지</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 정확한 복원</div>
+    <div class="wda-formula-block-body"><code>package-lock.json 커밋</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 1회성 실행</div>
+    <div class="wda-formula-block-body"><code>npx</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">시맨틱 버저닝에서 '기능 추가'를 의미하며 하위 호환을 유지하는 버전은?</div>
+    <div class="wda-flip-back">MINOR 버전이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npm install 시 정확한 버전 트리를 기록해 협업 일관성을 보장하는 파일은?</div>
+    <div class="wda-flip-back">package-lock.json이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">^1.2.3은 어디까지 업데이트를 허용하나?</div>
+    <div class="wda-flip-back">Major 버전이 바뀌지 않는 한도(예: 1.9.9)까지 허용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">node_modules를 Git에 올리면 안 되는 이유는?</div>
+    <div class="wda-flip-back">용량이 너무 크고, package.json과 package-lock.json만 있으면 npm install로 복구할 수 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npx의 핵심 장점은?</div>
+    <div class="wda-flip-back">패키지를 영구 설치하지 않고 실행할 수 있어 전역 설치 오염을 막고 항상 최신 버전을 사용할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">협업 프로젝트에서 git clone 후 가장 먼저 해야 할 명령어는?</div>
+    <div class="wda-flip-back">npm install(의존성 복구)이다.</div>
+  </div>
+</div>

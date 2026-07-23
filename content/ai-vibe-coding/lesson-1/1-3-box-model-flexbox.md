@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -64,6 +64,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -222,6 +238,80 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 - [ ] 크기 변화 데모 확인 완료
 - [ ] 네비게이션 박스 구조 분석 이해
 - [ ] AI 프롬프트로 실제 네비게이션 제작 성공
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>박스모델은 <strong>이름 선언 → 크기 설정 → 색상/테두리 설정 → 내용 추가</strong> 4단계로 진행된다.</li>
+    <li>웹의 모든 요소(글자·이미지·버튼·페이지 전체)는 <strong>박스</strong>다.</li>
+    <li>Flexbox는 <strong>정렬에 유동적</strong>(가운데·양끝·균등 정렬)이고 <strong>크기에 유동적</strong>(화면 크기에 따라 자동 조절)이다.</li>
+    <li>투명한 박스를 <strong>Flex Box</strong>, 그 안의 속성을 <strong>flex</strong>라 부른다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 일반 박스와 Flex Box는 똑같이 동작한다?</div>
+    <div class="wda-mistake-right">정답: 일반 박스는 크기·위치가 <strong>고정적</strong>이지만, Flex Box는 정렬과 크기가 <strong>유동적</strong>이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: flex는 크기 조절에만 유동적이다?</div>
+    <div class="wda-mistake-right">정답: flex는 <strong>정렬</strong>(가운데·양끝·균등)과 <strong>크기</strong>(화면 크기 대응) 두 가지 모두에 유동적이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 네비게이션은 로고와 메뉴를 각각 다른 배치 방식으로 만들어야 한다?</div>
+    <div class="wda-mistake-right">정답: 큰 Flex 박스 안에 <strong>로고 박스 + 메뉴들 박스</strong>를 넣고 양 끝 정렬만 지정하면 된다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 박스모델</div>
+    <div class="wda-formula-block-body"><code>이름 → 크기 → 색상 → 내용</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · flex 유동성</div>
+    <div class="wda-formula-block-body"><code>정렬 + 크기</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 네비게이션 구조</div>
+    <div class="wda-formula-block-body"><code>큰 박스(양끝정렬) = 로고 + 메뉴들</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">박스모델 4단계는?</div>
+    <div class="wda-flip-back">이름 선언 → 크기 설정 → 색상/테두리 설정 → 내용 추가 순서로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">웹의 모든 요소는 무엇에서 시작되나?</div>
+    <div class="wda-flip-back">투명한 박스에서 시작된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Flex의 두 가지 유동성은?</div>
+    <div class="wda-flip-back">정렬에 유동적인 것과 크기에 유동적인 것 두 가지다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">일반 박스와 Flex Box의 차이는?</div>
+    <div class="wda-flip-back">일반 박스는 크기·위치가 고정적이고, Flex Box는 정렬과 크기가 유동적이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">flexbox 네비게이션의 기본 구조는?</div>
+    <div class="wda-flip-back">양 끝 정렬된 큰 박스 안에 로고 박스와 메뉴들 박스를 넣는 구조다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">flex 속성은 무엇에 적용되나?</div>
+    <div class="wda-flip-back">투명한 Flex Box 내부 자식 요소들의 정렬과 크기를 제어한다.</div>
+  </div>
+</div>
 
 <div class="wda-done">
   <div class="wda-done-ico">🎉</div>

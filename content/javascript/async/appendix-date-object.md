@@ -22,7 +22,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -554,25 +570,99 @@ console.log(d.toLocaleDateString());
   <h2>✅ 핵심 요약</h2>
 </div>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>생성/조회</strong></td>
-    <td>• `new Date()`로 생성, `get...` 메서드로 조회<br>• <strong>월(Month)만 0부터 시작</strong> (getMonth/setMonth 모두 +1 필요)</td>
-  </tr>
-  <tr>
-    <td><strong>포맷팅</strong></td>
-    <td>• `toLocaleString()` 계열: 브라우저가 알아서 지역별 형식으로 변환<br>• 직접 조합 시 `padStart(2, '0')`로 0 채우기</td>
-  </tr>
-  <tr>
-    <td><strong>계산/타임존</strong></td>
-    <td>• 날짜끼리 빼면 밀리초(ms) 차이 반환<br>• `toISOString()`은 UTC 기준이라 KST와 9시간 차이 발생</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>• Setter는 원본을 직접 바꾸는 <strong>Mutable</strong> 객체<br>• 자동 보정으로 존재하지 않는 날짜가 다음 달로 넘어감<br>• iOS/Safari는 하이픈(-) 날짜 문자열에서 `Invalid Date` 발생 가능</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>new Date()</strong>로 현재 시간을 생성하고, <code>get...</code> 메서드(getFullYear, getMonth 등)로 값을 꺼낸다.</li>
+    <li><strong>getMonth()/setMonth()</strong>는 0부터 시작(0=1월, 11=12월)하므로, 화면에 표시할 때 반드시 <strong>+1</strong>을 해야 한다.</li>
+    <li><strong>toLocaleString()</strong> 계열은 브라우저가 지역(Locale)에 맞게 자동 포맷하고, 커스텀 포맷은 <code>padStart(2, '0')</code>로 0을 채운다.</li>
+    <li>날짜끼리 <strong>빼기(-)</strong>를 하면 두 날짜의 차이가 <strong>밀리초(ms)</strong> 단위 숫자로 반환되며, <code>1000*60*60*24</code>로 나누면 일(day) 단위가 된다.</li>
+    <li><strong>toISOString()</strong>은 UTC 기준으로 변환되므로, KST(UTC+9)와 최대 9시간 차이가 나서 날짜가 하루 당겨질 수 있다.</li>
+    <li>Date 객체는 Setter로 값을 바꾸면 원본이 직접 바뀌는 <strong>Mutable</strong> 객체이며, 존재하지 않는 날짜(예: 2월 31일)는 자동으로 다음 달로 보정된다.</li>
+    <li>상대 시간("N분 전") 계산은 <strong>작은 단위(초)부터 큰 단위(일) 순으로</strong> 조건문을 검사해야 정확하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: getMonth()가 반환하는 숫자가 실제 월과 같다?</div>
+    <div class="wda-mistake-right">정답: getMonth()는 <strong>0부터 시작</strong>해 5월이면 4가 반환되므로, 화면에 표시할 때는 <strong>+1</strong>을 해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: getDate()도 getMonth()처럼 0부터 시작한다?</div>
+    <div class="wda-mistake-right">정답: getDate()(일)는 우리가 아는 대로 <strong>1부터 시작</strong>하며, 0부터 시작하는 것은 월(Month)뿐이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 시간대 표시가 없는 날짜 문자열은 항상 UTC로 해석된다?</div>
+    <div class="wda-mistake-right">정답: 시간대 표시가 없으면 <strong>브라우저의 로컬 시간대</strong>로 해석되며, UTC로 명확히 하려면 <code>Z</code>나 <code>+09:00</code>을 붙여야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 존재하지 않는 날짜(2월 31일)로 setMonth를 호출하면 에러가 난다?</div>
+    <div class="wda-mistake-right">정답: 에러 없이 <strong>자동으로 다음 달로 넘어가는 보정</strong>이 일어나 의도치 않은 날짜가 될 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: d.setHours(0)의 반환값을 새 변수에 담으면 Date 객체가 담긴다?</div>
+    <div class="wda-mistake-right">정답: Setter는 Date 객체가 아니라 <strong>숫자(타임스탬프)</strong>를 반환하며, 원본 <code>d</code> 자체가 직접 수정(Mutable)된다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 월 보정</div>
+    <div class="wda-formula-block-body"><code>getMonth() + 1 = 실제 월</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 날짜 차이</div>
+    <div class="wda-formula-block-body"><code>(d2 - d1) / 86400000 = 일수</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 타임존</div>
+    <div class="wda-formula-block-body"><code>toISOString() = UTC (KST -9h)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 0 채우기</div>
+    <div class="wda-formula-block-body"><code>String(n).padStart(2,'0')</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">new Date(2024, 11, 25)는 몇 월 며칠을 의미하나?</div>
+    <div class="wda-flip-back">2024년 12월 25일. 월은 0부터 시작하므로 11은 12월이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">getDay()가 반환하는 0과 6은 각각 무슨 요일?</div>
+    <div class="wda-flip-back">0은 일요일, 6은 토요일.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">두 Date 객체를 뺄셈(end - start)하면 무엇이 반환되나?</div>
+    <div class="wda-flip-back">두 날짜 사이의 차이가 밀리초(ms) 단위 숫자로 반환된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">toISOString()이 UTC 기준인 이유는?</div>
+    <div class="wda-flip-back">서버는 전 세계 사용자를 다루므로 특정 국가 시간이 아닌 절대 기준 시간(UTC)으로 저장하는 것이 원칙이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">존재하지 않는 날짜로 Setter를 호출하면 어떻게 되나?</div>
+    <div class="wda-flip-back">에러 없이 자동으로 다음 달/다음 날짜로 보정(auto-correction)된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">상대 시간("N분 전") 계산에서 작은 단위부터 검사해야 하는 이유는?</div>
+    <div class="wda-flip-back">day부터 검사하면 1시간 전인 것도 0일 전으로 잘못 처리될 수 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">iOS/Safari에서 Invalid Date가 발생하지 않으려면 날짜 문자열을 어떻게 써야 하나?</div>
+    <div class="wda-flip-back">하이픈+공백('2024-01-01 10:00') 대신 슬래시('2024/01/01')나 표준 ISO 형식('2024-01-01T10:00:00')을 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">d.setHours(0)의 반환값은 무엇인가?</div>
+    <div class="wda-flip-back">Date 객체가 아니라 숫자(타임스탬프)이며, 원본 d는 직접 수정된다.</div>
+  </div>
+</div>

@@ -22,7 +22,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -47,6 +47,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1971,28 +1987,100 @@ const str = arr.join(", ");
   <h2>✅ 핵심 요약</h2>
 </div>
 
-실무 데이터 가공 3단계 루틴입니다.
+**📌 먼저 외울 것**
 
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">꺼내서</div>
-      <div class="wda-sdsc">for...of나 forEach로 배열 데이터를 순회합니다.</div>
+<div class="wda-check-note">
+  <ul>
+    <li>배열 인덱스는 <strong>항상 0부터</strong> 시작하고, 마지막 요소는 <code>arr[arr.length - 1]</code>이다.</li>
+    <li><strong>원본을 바꾸는(파괴적)</strong> 메서드: push, pop, unshift, shift, splice, sort, reverse</li>
+    <li><strong>원본을 유지하는(비파괴적)</strong> 메서드: slice, concat, indexOf, includes, join</li>
+    <li>실무 데이터 가공은 <strong>꺼내서(순회) → 합치고(가공) → 반환한다</strong>의 3단계 루틴을 따른다.</li>
+    <li>안전한 배열 복사는 <strong>스프레드(...) 또는 slice()</strong>로 한다 (<code>=</code> 대입은 참조만 복사됨).</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: const copy = original;로 복사하면 안전하다?</div>
+    <div class="wda-mistake-right">정답: 배열은 참조 타입이라 <strong>주소만 복사</strong>되어 원본과 사본이 같이 바뀐다. 안전하게 복사하려면 <code>[...original]</code>이나 <code>original.slice()</code>를 쓴다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: indexOf()가 값을 못 찾으면 0을 반환한다?</div>
+    <div class="wda-mistake-right">정답: 못 찾으면 <strong>-1</strong>을 반환한다. 0은 실제 인덱스이므로 혼동하면 안 된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: arr.sort()는 숫자를 크기순으로 정렬해준다?</div>
+    <div class="wda-mistake-right">정답: sort()는 기본적으로 <strong>문자열로 변환해 비교</strong>하므로 [10,1,2]가 [1,10,2]가 될 수 있다. 숫자는 <code>(a, b) =&gt; a - b</code> 비교 함수가 필요하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: slice()와 splice()는 이름이 비슷하니 동작도 비슷하다?</div>
+    <div class="wda-mistake-right">정답: <strong>splice는 원본을 파괴</strong>(자르기), <strong>slice는 원본을 유지</strong>(복사)한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 존재하지 않는 인덱스에 접근하면 에러가 난다?</div>
+    <div class="wda-mistake-right">정답: 에러 없이 <strong>undefined를 반환</strong>한다. 그래서 실수를 눈치채기 더 어렵다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 파괴 vs 비파괴</div>
+    <div class="wda-formula-block-body">
+      <code>push/pop/shift/unshift/splice/sort/reverse = 파괴</code><br>
+      <code>slice/concat/indexOf/includes/join = 비파괴</code>
     </div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">합치고</div>
-      <div class="wda-sdsc">변수에 값을 누적하거나 객체 데이터를 가공합니다.</div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 안전한 복사</div>
+    <div class="wda-formula-block-body"><code>const copy = [...original]</code></div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">반환한다</div>
-      <div class="wda-sdsc">최종 결과값을 반환하거나 함수 외부로 전달합니다.</div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 숫자 정렬</div>
+    <div class="wda-formula-block-body"><code>arr.sort((a, b) =&gt; a - b)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 가공 3단계</div>
+    <div class="wda-formula-block-body"><code>꺼내서 → 합치고 → 반환한다</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열에서 존재하지 않는 인덱스에 접근하면?</div>
+    <div class="wda-flip-back">에러 없이 undefined를 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">push()와 unshift()의 성능 차이는?</div>
+    <div class="wda-flip-back">push는 끝에 추가해 빠르고, unshift는 앞에 추가하며 모든 인덱스를 다시 매겨야 해서 느리다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">splice()와 slice()의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">splice는 원본을 직접 수정하고, slice는 원본을 유지한 채 복사본을 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열을 안전하게 복사하는 방법은?</div>
+    <div class="wda-flip-back">스프레드 문법 [...arr] 또는 arr.slice()를 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">sort()로 숫자를 오름차순 정렬하려면?</div>
+    <div class="wda-flip-back">arr.sort((a, b) => a - b)처럼 비교 함수를 넣어야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">indexOf()가 값을 찾지 못하면 무엇을 반환하나?</div>
+    <div class="wda-flip-back">-1을 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">2차원 배열 matrix[1][2]는 무엇을 의미하나?</div>
+    <div class="wda-flip-back">두 번째 행(인덱스 1)의 세 번째 열(인덱스 2) 값이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">구조분해 할당에서 특정 요소를 건너뛰려면?</div>
+    <div class="wda-flip-back">const [a, , c] = arr처럼 쉼표만 남겨 건너뛴다.</div>
   </div>
 </div>

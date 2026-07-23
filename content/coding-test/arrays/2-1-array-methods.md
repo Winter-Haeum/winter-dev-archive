@@ -57,6 +57,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -689,3 +705,103 @@ nums.some(n => n > 10);       // false (만족하는 게 하나도 없음)
 // flat: 중첩 배열 펼치기 (2차원 -> 1차원)
 [[1, 2], [3, 4]].flat(); // [1, 2, 3, 4]
 ```
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>push/pop은 끝에서 작업해 <strong>O(1)</strong>이고, unshift/shift는 앞의 모든 요소를 밀어야 해 <strong>O(n)</strong>이다.</li>
+    <li>slice는 <strong>원본 유지</strong>(복사본 반환), splice는 <strong>원본 변경</strong>(삭제된 요소 반환)이다.</li>
+    <li>map은 모든 요소를 변환해 <strong>개수를 유지</strong>하고, filter는 조건에 맞는 것만 남겨 <strong>개수가 줄 수 있다</strong>.</li>
+    <li>sort()는 기본적으로 <strong>문자열 기준</strong>으로 정렬되므로, 숫자 정렬은 <code>(a, b) =&gt; a - b</code> 비교 함수가 필요하다.</li>
+    <li>includes는 <strong>true/false</strong>, indexOf는 <strong>인덱스/-1</strong>, find는 <strong>요소/undefined</strong>를 반환한다.</li>
+    <li>join은 배열을 문자열로, split은 문자열을 배열로 바꾸는 짝꿍 메서드다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: slice와 splice는 둘 다 원본을 바꾼다?</div>
+    <div class="wda-mistake-right">정답: <strong>slice는 원본을 그대로 두고 복사본을 반환</strong>하지만, <strong>splice는 원본 배열을 직접 변경</strong>한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: sort()는 숫자도 알아서 크기순으로 정렬해준다?</div>
+    <div class="wda-mistake-right">정답: 기본 sort()는 <strong>문자열로 취급해 정렬</strong>하므로, 숫자 정렬은 <code>(a, b) =&gt; a - b</code> 비교 함수를 꼭 넣어야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: map과 filter는 항상 같은 개수의 결과를 반환한다?</div>
+    <div class="wda-mistake-right">정답: map은 원본과 <strong>같은 개수</strong>를 유지하지만, filter는 조건을 만족하는 요소만 남아 <strong>개수가 줄어들 수 있다</strong>.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: includes와 indexOf는 같은 값을 반환한다?</div>
+    <div class="wda-mistake-right">정답: includes는 <strong>true/false</strong>만 알려주고, indexOf는 <strong>위치(없으면 -1)</strong>를 알려준다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: unshift도 push처럼 빠르다(O(1))?</div>
+    <div class="wda-mistake-right">정답: unshift/shift는 앞에 넣고 빼려면 <strong>나머지 요소를 전부 한 칸씩 밀어야</strong>(O(n)) 하지만, push/pop은 뒤쪽만 건드려 <strong>O(1)</strong>이다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 숫자 오름차순 정렬</div>
+    <div class="wda-formula-block-body"><code>arr.sort((a, b) =&gt; a - b)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 스택/큐 구현</div>
+    <div class="wda-formula-block-body"><code>스택 = push+pop</code><br><code>큐 = push+shift</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 중복 제거</div>
+    <div class="wda-formula-block-body"><code>[...new Set(arr)]</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 4 · 원본 유지 뒤집기</div>
+    <div class="wda-formula-block-body"><code>[...arr].reverse()</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">push/pop과 shift/unshift의 시간 복잡도는?</div>
+    <div class="wda-flip-back">push/pop은 O(1), shift/unshift는 나머지 요소를 밀어야 해서 O(n)이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">slice와 splice의 차이는?</div>
+    <div class="wda-flip-back">slice는 원본을 유지하고 복사본을 반환하며, splice는 원본을 직접 변경한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">map과 filter의 차이는?</div>
+    <div class="wda-flip-back">map은 모든 요소를 변환한 새 배열, filter는 조건에 맞는 요소만 남긴 새 배열을 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">숫자를 오름차순으로 정렬하려면?</div>
+    <div class="wda-flip-back">arr.sort((a, b) => a - b)처럼 비교 함수를 넣어야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">includes, indexOf, find의 차이는?</div>
+    <div class="wda-flip-back">includes는 true/false, indexOf는 위치(없으면 -1), find는 조건에 맞는 요소 자체(없으면 undefined)를 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열 중복을 제거하는 방법은?</div>
+    <div class="wda-flip-back">[...new Set(arr)]로 중복을 없앤 뒤 다시 배열로 만든다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">join과 split은 무엇을 하나?</div>
+    <div class="wda-flip-back">join은 배열을 문자열로 합치고, split은 문자열을 배열로 쪼갠다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스택과 큐는 각각 어떤 메서드 조합인가?</div>
+    <div class="wda-flip-back">스택은 push+pop(LIFO), 큐는 push+shift(FIFO) 조합이다.</div>
+  </div>
+</div>

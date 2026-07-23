@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. 💻 실습 1 : 로그인 토글 구현</h2>
@@ -293,3 +309,71 @@ function App() {
 
 export default App;
 ```
+
+---
+
+<h2>5. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>로그인 상태처럼 <strong>둘 중 하나</strong>를 보여줄 때는 삼항 연산자(<code>? :</code>)를 사용한다.</li>
+    <li>에러 배너처럼 <strong>있을 때만</strong> 보여줄 때는 <strong>&& 연산자</strong>를 사용한다.</li>
+    <li>상태를 반전시킬 때는 <code>setState((prev) =&gt; !prev)</code> 같은 <strong>함수형 업데이트</strong>가 더 안전하다.</li>
+    <li>불리언 값을 화면에 그대로 확인용으로 찍고 싶다면 <code>.toString()</code>으로 문자열 변환이 필요하다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: setIsLoggedIn(!isLoggedIn)처럼 현재 값을 직접 참조해 반전시킨다.</div>
+    <div class="wda-mistake-right">방지: <code>setIsLoggedIn((prev) =&gt; !prev)</code>처럼 함수형 업데이트를 사용하면 항상 최신 상태를 기준으로 안전하게 뒤집힌다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: {isLoggedIn}처럼 불리언 값을 JSX에 그대로 출력한다.</div>
+    <div class="wda-mistake-right">방지: 불리언은 화면에 나타나지 않으므로, 확인용으로 찍을 때는 <code>{isLoggedIn.toString()}</code>으로 변환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: && 연산자 뒤에 오는 조건이 항상 명확한 boolean이라고 가정한다.</div>
+    <div class="wda-mistake-right">방지: 조건이 falsy이지만 값이 있는 경우(숫자 0 등) 화면에 그대로 출력될 수 있으므로, <code>!isLoggedIn</code>처럼 boolean 조건을 명확히 작성한다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>실습 1: 로그인 상태에 따라 메시지와 버튼 텍스트가 삼항 연산자로 모두 바뀐다.</li>
+    <li>실습 2: hasError가 true일 때만 경고 배너가 && 연산자로 나타나고, false면 DOM에 아예 렌더링되지 않는다.</li>
+    <li>실습 3: 로그아웃 상태일 때만 안내 문구가 && 연산자로 추가 표시되고, isLoggedIn 값이 문자열로 화면에 출력된다.</li>
+    <li>세 컴포넌트 모두 App.jsx에 import되어 화면에 정상적으로 렌더링된다.</li>
+  </ul>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">로그인 토글에서 삼항 연산자를 쓴 이유는?</div>
+    <div class="wda-flip-back">로그인/로그아웃처럼 둘 중 하나의 메시지·버튼 텍스트를 반드시 선택해야 하기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">경고 배너에서 && 연산자를 쓴 이유는?</div>
+    <div class="wda-flip-back">hasError가 true일 때만 보여주고, false면 아무것도 렌더링하지 않아도 되기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">setIsLoggedIn((prev) => !prev)를 쓰는 이유는?</div>
+    <div class="wda-flip-back">함수형 업데이트를 사용하면 React가 가장 최신 상태를 기준으로 안전하게 반전시킨다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">isLoggedIn 값을 화면에 그대로 출력하면?</div>
+    <div class="wda-flip-back">불리언은 화면에 표시되지 않으므로 .toString()으로 문자열 변환이 필요하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">AuthManager에서 && 연산자는 어디에 쓰였나?</div>
+    <div class="wda-flip-back">로그아웃 상태(!isLoggedIn)일 때만 안내 문구를 추가로 보여주는 데 사용됐다.</div>
+  </div>
+</div>

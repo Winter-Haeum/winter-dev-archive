@@ -13,7 +13,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -61,6 +61,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -177,6 +193,85 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">다음 단계 예고</span>UI 기획이 완료되면 4단계에서는 이 UI를 보면서 "어떤 데이터베이스가 필요한지" 함께 찾아내는 훈련을 합니다.<br>로그인 화면 → users 테이블 · 게시물 목록 → posts 테이블 · 댓글 → comments 테이블
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>오늘은 DB를 먼저 설계하지 않고, <strong>화면(UI)을 먼저 보고</strong> 필요한 DB 구조를 역으로 추론하는 훈련을 한다.</li>
+    <li>커뮤니티 주제·이름·색상 테마·분위기·특별 기능은 <strong>각자 원하는 대로</strong> 자유롭게 정한다.</li>
+    <li>기획서는 <strong>커뮤니티 주제 / 디자인 스타일 / 특별한 기능 / 페이지별 특징 / 참고 사이트</strong> 항목으로 구성한다.</li>
+    <li>로그인 화면 → <strong>users</strong> 테이블, 게시물 목록 → <strong>posts</strong> 테이블, 댓글 → <strong>comments</strong> 테이블로 연결된다.</li>
+    <li>작성한 기획서는 <strong>5단계</strong>에서 데이터베이스 구조서와 통합되어 최종 프로젝트 문서가 된다.</li>
+  </ul>
+</div>
+
+**✅ 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 남들과 비슷한 커뮤니티 주제·색상을 그대로 따라간다?</div>
+    <div class="wda-mistake-right">방지: 자신만의 주제·색상 테마·분위기를 직접 선택해 개성 있는 기획서를 만든다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 기능을 무작정 많이 넣고 구현 가능성은 확인하지 않는다?</div>
+    <div class="wda-mistake-right">방지: 3단계에서 강사와 함께 "이거 구현 가능한가요?"를 검토하며 현실적인 수정사항을 결정한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 기획서를 작성하다 막히면 혼자 끙끙댄다?</div>
+    <div class="wda-mistake-right">방지: 막히는 부분은 강사나 옆 사람과 상의하며 채워나간다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 작성한 기획서를 저장하지 않고 넘어간다?</div>
+    <div class="wda-mistake-right">방지: 완료된 기획서는 메모장에 저장해 5단계에서 DB 구조서와 통합할 수 있도록 보관한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 1 · 기획서</div>
+    <div class="wda-formula-block-body"><code>커뮤니티 주제 + 디자인 스타일 작성 완료</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 2 · 페이지 특징</div>
+    <div class="wda-formula-block-body"><code>로그인·목록·상세·댓글 화면 특징 정리</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">기준 3 · 검토</div>
+    <div class="wda-formula-block-body"><code>강사와 구현 가능성 함께 확인</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">오늘 학습 방식의 특별한 점은?</div>
+    <div class="wda-flip-back">DB를 먼저 설계하지 않고 UI를 먼저 보고 필요한 DB 구조를 역으로 찾아낸다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">기획서에 들어가는 항목은?</div>
+    <div class="wda-flip-back">커뮤니티 주제, 디자인 스타일, 특별한 기능, 페이지별 특징, 참고 사이트다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">로그인 화면은 어떤 테이블과 연결되나?</div>
+    <div class="wda-flip-back">users 테이블과 연결된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">게시물 목록은 어떤 테이블과 연결되나?</div>
+    <div class="wda-flip-back">posts 테이블과 연결된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">오늘 만든 기획서는 다음에 어떻게 쓰이나?</div>
+    <div class="wda-flip-back">5단계에서 데이터베이스 구조서와 통합되어 최종 프로젝트 문서가 된다.</div>
+  </div>
 </div>
 
 <div class="wda-done">

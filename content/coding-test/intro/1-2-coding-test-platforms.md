@@ -73,6 +73,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표 (Learning Objectives)
@@ -422,30 +438,86 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-    <th>상세 전략</th>
-  </tr>
-  <tr>
-    <td>플랫폼 선택</td>
-    <td>목적에 맞게</td>
-    <td>• 국내 취업: 프로그래머스 (필수) + 백준<br>• 해외 취업: LeetCode (글로벌 1위)<br>• 입문자: 프로그래머스 Lv.0</td>
-  </tr>
-  <tr>
-    <td>4단계 풀이법</td>
-    <td>순서 지키기</td>
-    <td>1. 이해: 무엇을 요구하는지 파악<br>2. 계획: 어떻게 풀지 방법 구상<br>3. 구현: 코드로 작성<br>4. 검증: 테스트 및 제출</td>
-  </tr>
-  <tr>
-    <td>의사코드</td>
-    <td>설계도 그리기</td>
-    <td>• 한글로 먼저 로직 정리하기<br>• 단계를 나누고 코드로 번역하기</td>
-  </tr>
-  <tr>
-    <td>시간 관리</td>
-    <td>전략적 접근</td>
-    <td>• 쉬운 것 먼저 풀기<br>• 막히면 다음으로 넘어가기<br>• 마지막 검토 필수</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>국내 취업은 <strong>프로그래머스(필수) + 백준</strong>, 해외 취업은 <strong>LeetCode</strong>가 핵심 플랫폼이다.</li>
+    <li>완전 입문자는 <strong>프로그래머스 Lv.0</strong>부터 시작하는 것이 정석이다.</li>
+    <li>백준은 문제 수가 <strong>20,000개 이상</strong>으로 압도적이며, <strong>solved.ac 티어</strong>로 난이도를 참고한다.</li>
+    <li>LeetCode는 <strong>영어 기반</strong>이며 FAANG 인터뷰의 표준으로 쓰인다.</li>
+    <li>문제 풀이는 <strong>이해 → 계획 → 구현 → 검증</strong>의 4단계를 따른다.</li>
+    <li>계획 단계에서는 <strong>의사코드</strong>를 한글로 먼저 작성한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 프로그래머스와 백준 중 아무거나 먼저 시작해도 상관없다?</div>
+    <div class="wda-mistake-right">정답: 완전 입문자는 UI가 쾌적하고 한국어를 지원하는 <strong>프로그래머스 Lv.0</strong>부터 시작하는 것이 정석이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 백준도 프로그래머스처럼 함수만 작성하면 된다?</div>
+    <div class="wda-mistake-right">정답: 백준은 <strong>입력과 출력을 직접 처리</strong>하는 코드까지 작성해야 해서 진입장벽이 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 해외 취업도 국내 플랫폼 연습만으로 충분하다?</div>
+    <div class="wda-mistake-right">정답: 해외 빅테크는 <strong>LeetCode 기반 인터뷰</strong>가 표준이라 Easy → Medium 순으로 별도 연습이 필요하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 시험 시간에는 문제 순서대로만 풀면 된다?</div>
+    <div class="wda-mistake-right">정답: <strong>쉬운 문제로 점수를 먼저 확보</strong>하고, 막히면 넘어갔다가 마지막에 검토하는 전략이 필요하다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 국내 취업 조합</div>
+    <div class="wda-formula-block-body"><code>프로그래머스 + 백준</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 해외 취업 루트</div>
+    <div class="wda-formula-block-body"><code>프로그래머스 → LeetCode Easy → Medium</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 4단계 풀이 순서</div>
+    <div class="wda-formula-block-body"><code>이해 → 계획 → 구현 → 검증</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">국내 취업을 준비한다면?</div>
+    <div class="wda-flip-back">프로그래머스(필수)와 백준을 함께 준비한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">해외 취업을 준비한다면?</div>
+    <div class="wda-flip-back">LeetCode 풀이가 필수이며 Blind 75 같은 리스트를 활용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">완전 입문자의 시작점은?</div>
+    <div class="wda-flip-back">프로그래머스 Lv.0부터 시작한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">백준의 난이도는 무엇으로 참고하나?</div>
+    <div class="wda-flip-back">solved.ac의 티어(브론즈~루비) 시스템을 참고한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">삼성 취준생이 꼭 써야 하는 사이트는?</div>
+    <div class="wda-flip-back">SW Expert Academy다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제 풀이 4단계는?</div>
+    <div class="wda-flip-back">이해 → 계획 → 구현 → 검증 순으로 진행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">의사코드는 왜 작성하나?</div>
+    <div class="wda-flip-back">로직을 한글로 먼저 정리하면 코드 작성 속도가 빨라진다.</div>
+  </div>
+</div>

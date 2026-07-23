@@ -24,7 +24,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -48,6 +48,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
@@ -1099,49 +1115,93 @@ console.log(...items);
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>화살표 함수</strong></td>
-    <td>• <code>(params) =&gt; expression</code> 기본 형태이며, 매개변수 1개면 괄호 생략(<code>x =&gt; ...</code>), 본문 한 줄이면 <code>return</code> 생략 가능합니다.<br>• <strong>렉시컬 this</strong> — 자신의 <code>this</code>를 만들지 않고 상위 스코프의 <code>this</code>를 그대로 사용해 <code>map</code>, <code>filter</code> 콜백에 최적화되어 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>구조분해 할당</strong></td>
-    <td>• 배열 분해 <code>[a, b] = arr</code>는 순서가 중요하고, 객체 분해 <code>{ a, b } = obj</code>는 이름이 중요합니다.<br>• 기본값(<code>a = 10</code>)과 나머지(<code>...rest</code>)를 함께 쓸 수 있으며, 함수 매개변수(<code>props</code>)를 받을 때 매우 유용합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>스프레드 연산자</strong></td>
-    <td>• 배열 복사(<code>[...arr]</code>)와 객체 복사(<code>{ ...obj }</code>)로 불변성을 유지하며, 병합(<code>[...a, ...b]</code>)과 함수 호출(<code>fn(...arr)</code>)에도 사용합니다.<br>• 모으는 역할인 Rest(<code>...rest</code>)와는 문법은 같지만 위치(받는 쪽 vs 주는 쪽)로 구분해야 합니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
-**🧠 추가 핵심 문법 (Handwritten Notes)**
-
-이미지에 손글씨로 적혀 있는 `&&`, `?.`, `??`는 모던 자바스크립트의 **안전한 코딩**을 돕는 필수 연산자들입니다.
-
-```jsx
-const user = { profile: { name: 'Kim' } };
-
-// 1. 옵셔널 체이닝 (?.): 에러 없이 안전하게 접근
-console.log(user.profile?.name); // 'Kim'
-console.log(user.info?.age);     // undefined (에러 안 남!)
-
-// 2. Nullish 병합 (??): null이나 undefined일 때만 뒤의 값 사용
-const age = user.age ?? 20; // user.age가 없으면 20
-
-// 3. 논리 연산자 (&&): 앞이 true면 뒤를 실행 (리액트 조건부 렌더링에 자주 씀)
-user.profile && console.log('프로필이 있습니다.');
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
+<div class="wda-check-note">
   <ul>
-    <li>이 세 가지(화살표 함수, 구조분해, 스프레드)는 <strong>현대 JavaScript의 3대장</strong>이라고 불릴 만큼 중요합니다.</li>
-    <li>특히 리액트(React)나 뷰(Vue) 같은 프레임워크는 이 문법들을 기초로 만들어졌기 때문에, 숨 쉬듯이 자연스럽게 쓸 수 있도록 연습해 두시는 것이 좋습니다.</li>
-    <li>마지막에 추가해 드린 <code>?.</code> (옵셔널 체이닝)도 실무에서 "undefined 에러"를 방지하는 구세주 같은 존재니 꼭 기억해 주세요!</li>
+    <li>화살표 함수는 <code>(params) =&gt; expression</code> 기본 형태이며, 매개변수 1개면 괄호 생략(<code>x =&gt; ...</code>), 본문 한 줄이면 <code>return</code> 생략이 가능합니다.</li>
+    <li><strong>렉시컬 this</strong> — 화살표 함수는 자신의 <code>this</code>를 만들지 않고 상위 스코프의 <code>this</code>를 그대로 사용해 <code>map</code>, <code>filter</code> 콜백에 최적화되어 있습니다.</li>
+    <li>배열 분해 <code>[a, b] = arr</code>는 <strong>순서</strong>가 중요하고, 객체 분해 <code>{ a, b } = obj</code>는 <strong>이름</strong>이 중요합니다. 기본값과 나머지(<code>...rest</code>)를 함께 쓸 수 있습니다.</li>
+    <li>스프레드 연산자는 배열 복사(<code>[...arr]</code>)와 객체 복사(<code>{ ...obj }</code>)로 <strong>불변성</strong>을 유지하며, 병합과 함수 호출에도 사용합니다.</li>
+    <li><code>?.</code>(옵셔널 체이닝), <code>??</code>(Nullish 병합), <code>&amp;&amp;</code>(조건부 실행)는 모던 자바스크립트의 안전한 코딩을 돕는 필수 연산자입니다.</li>
   </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 화살표 함수는 일반 함수의 짧은 버전일 뿐이다?</div>
+    <div class="wda-mistake-right">정답: 화살표 함수는 <strong>this 바인딩 방식이 다른 별개의 문법</strong>입니다. 일반 함수는 호출 방식에 따라 this가 바뀌지만(동적), 화살표 함수는 선언 위치의 this로 고정됩니다(정적/렉시컬).</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 화살표 함수로 객체를 반환할 때 {}만 쓰면 된다?</div>
+    <div class="wda-mistake-right">정답: <code>{}</code>는 함수 본문(Block)으로 해석되어 <code>undefined</code>가 반환됩니다. 소괄호로 감싸 <code>() =&gt; ({ name: 'Kim' })</code>처럼 써야 객체로 인식됩니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 배열 구조분해와 객체 구조분해는 매칭 기준이 같다?</div>
+    <div class="wda-mistake-right">정답: <strong>배열은 순서(Index)</strong>가 중요하고, <strong>객체는 이름(Key)</strong>이 중요합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Rest와 Spread는 서로 다른 문법이다?</div>
+    <div class="wda-mistake-right">정답: 둘 다 <code>...</code>으로 문법은 같으며, <strong>위치</strong>로 구분합니다. 받는 쪽(매개변수, <code>=</code> 왼쪽)이면 Rest, 펼치는 쪽(값, 함수 호출)이면 Spread입니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 객체 메서드는 화살표 함수로 정의해도 무방하다?</div>
+    <div class="wda-mistake-right">정답: 화살표 함수는 <strong>자신만의 this가 없어</strong> 객체가 아닌 바깥(전역) this를 가리키게 됩니다. 메서드는 일반 함수(단축 구문)로 정의해야 합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 화살표 함수 축약</div>
+    <div class="wda-formula-block-body"><code>매개변수 1개 → 괄호 생략</code><br><code>본문 한 줄 → return 생략</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 구조분해 매칭</div>
+    <div class="wda-formula-block-body"><code>배열 = 순서</code><br><code>객체 = 이름(Key)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · Rest vs Spread</div>
+    <div class="wda-formula-block-body"><code>받는 쪽(왼쪽) = Rest</code><br><code>주는 쪽(오른쪽) = Spread</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · this 규칙</div>
+    <div class="wda-formula-block-body"><code>콜백 = 화살표 함수</code><br><code>메서드 = 일반 함수</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화살표 함수의 this는 언제 결정되나?</div>
+    <div class="wda-flip-back">호출 시점이 아니라 정의(작성)된 위치의 상위 스코프 this로 고정된다 (렉시컬 this).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화살표 함수로 객체 리터럴을 반환하려면?</div>
+    <div class="wda-flip-back">소괄호로 감싸야 한다. 예: () => ({ name: 'Kim' })</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열 구조분해와 객체 구조분해의 차이는?</div>
+    <div class="wda-flip-back">배열은 순서(Index)가 중요하고, 객체는 이름(Key)이 중요하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스프레드 연산자를 리액트에서 즐겨 쓰는 이유는?</div>
+    <div class="wda-flip-back">원본을 바꾸지 않고 새 배열/객체를 만들어 불변성(Immutability)을 지킬 수 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Rest와 Spread는 어떻게 구분하나?</div>
+    <div class="wda-flip-back">문법은 둘 다 ...으로 같지만, 받는 쪽(매개변수/왼쪽)이면 Rest, 펼치는 쪽(값/함수 호출)이면 Spread다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">객체 메서드를 화살표 함수로 만들면 안 되는 이유는?</div>
+    <div class="wda-flip-back">화살표 함수는 자신만의 this가 없어 객체가 아닌 바깥(전역) this를 가리키게 되기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">?.와 ??를 함께 쓰는 이유는?</div>
+    <div class="wda-flip-back">?.로 안전하게 접근하고, ??로 null/undefined일 때만 기본값을 채워 넣기 위해서다.</div>
+  </div>
 </div>

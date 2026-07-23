@@ -22,7 +22,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -47,6 +47,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1273,7 +1289,7 @@ myPhone.showModel();
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📂 객체(Object) 핵심 정리표</h2>
 </div>
 
 **🆚 객체 접근 및 확인 방법 비교**
@@ -1318,3 +1334,107 @@ myPhone.showModel();
 | **메서드 정의** | **단축 문법** | `function` 키워드 생략으로 가독성 및 효율 극대화 |
 | **`this` 바인딩** | **일반 함수 사용** | 메서드를 호출한 주체(객체)를 동적으로 정확히 가리킴 |
 | **화살표 함수** | **메서드의 this가 필요한 경우 사용 주의** | 자체 `this`가 없어 호출한 객체를 this로 가리키지 못함 |
+
+---
+
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>✅ 핵심 요약</h2>
+</div>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>점 표기법(.)</strong>이 기본이고, <strong>대괄호 표기법([])</strong>은 특수문자·공백 키나 변수로 접근할 때 필수다.</li>
+    <li><strong>옵셔널 체이닝(?.)</strong>은 대상이 없으면 에러 대신 <code>undefined</code>를 반환한다.</li>
+    <li><strong>in</strong>은 상속까지 포함해 확인하고, <strong>hasOwnProperty()</strong>는 객체 자신의 프로퍼티만 확인한다.</li>
+    <li><strong>얕은 복사</strong>(<code>{ ...obj }</code>)는 1단계만 복사하고, 중첩까지 완전히 분리하려면 <strong>structuredClone()</strong>을 쓴다.</li>
+    <li><strong>this</strong>는 메서드를 <strong>호출한 객체</strong>를 가리키며, 화살표 함수는 메서드 정의에 적합하지 않다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: user.key처럼 점 표기법으로 변수를 키로 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: 점 표기법은 <strong>글자 그대로의 이름</strong>만 인식한다. 변수에 담긴 키로 접근하려면 <code>user[key]</code>를 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: const로 선언한 객체는 내부 값도 못 바꾼다?</div>
+    <div class="wda-mistake-right">정답: const는 <strong>재할당만 금지</strong>할 뿐, 객체 내부 프로퍼티는 자유롭게 추가·수정·삭제할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: { ...obj }로 복사하면 완전히 독립된 객체가 된다?</div>
+    <div class="wda-mistake-right">정답: <strong>얕은 복사</strong>라서 중첩된 객체는 원본과 참조를 공유한다. 완전히 분리하려면 <code>structuredClone()</code>이 필요하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 화살표 함수로 메서드를 만들어도 this가 잘 동작한다?</div>
+    <div class="wda-mistake-right">정답: 화살표 함수는 <strong>자신만의 this가 없어</strong> 외부 스코프의 this를 그대로 쓴다. 메서드는 일반 함수(단축 문법)로 정의해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: for...in은 객체 고유의 속성만 순회한다?</div>
+    <div class="wda-mistake-right">정답: <strong>프로토타입 체인까지</strong> 순회하므로, 고유 속성만 원하면 hasOwnProperty로 걸러야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 프로퍼티 접근</div>
+    <div class="wda-formula-block-body"><code>기본은 obj.key, 특수키·변수키는 obj[key]</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 안전한 접근</div>
+    <div class="wda-formula-block-body"><code>obj.a?.b ?? 기본값</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 복사</div>
+    <div class="wda-formula-block-body">
+      <code>얕은 복사 = { ...obj }</code><br>
+      <code>깊은 복사 = structuredClone(obj)</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · this</div>
+    <div class="wda-formula-block-body"><code>메서드는 일반 함수, this = 호출한 객체</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">특수문자가 포함된 키에 접근하려면?</div>
+    <div class="wda-flip-back">대괄호 표기법 obj["key-name"]을 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">옵셔널 체이닝(?.)의 동작은?</div>
+    <div class="wda-flip-back">앞의 값이 null/undefined면 즉시 멈추고 undefined를 반환해 에러를 막는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">in 연산자와 hasOwnProperty()의 차이는?</div>
+    <div class="wda-flip-back">in은 상속받은 프로퍼티까지 확인하고, hasOwnProperty()는 객체 자신의 프로퍼티만 확인한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Object.keys(), values(), entries()는 각각 무엇을 반환하나?</div>
+    <div class="wda-flip-back">키 배열, 값 배열, [키, 값] 쌍 배열을 각각 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">얕은 복사의 한계는?</div>
+    <div class="wda-flip-back">1단계만 복사되어 중첩된 객체는 원본과 참조를 공유한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">완전히 독립된 복사본을 만들려면?</div>
+    <div class="wda-flip-back">structuredClone()이나 JSON.parse(JSON.stringify())를 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">메서드 내부에서 this는 무엇을 가리키나?</div>
+    <div class="wda-flip-back">그 메서드를 호출한 객체를 가리킨다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화살표 함수를 메서드로 쓰면 안 되는 이유는?</div>
+    <div class="wda-flip-back">화살표 함수는 자신만의 this가 없어 외부 스코프의 this를 그대로 사용하기 때문이다.</div>
+  </div>
+</div>

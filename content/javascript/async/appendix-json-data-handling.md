@@ -22,7 +22,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -48,6 +48,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -474,25 +490,86 @@ const copy = structuredClone(original);
   <h2>✅ 핵심 요약</h2>
 </div>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>JSON 개념</strong></td>
-    <td>• 경량·독립적·가독성 좋은 텍스트 기반 데이터 교환 형식<br>• 서로 다른 언어(JS, Python, Java 등) 간 공통 소통 수단</td>
-  </tr>
-  <tr>
-    <td><strong>JS Object와 차이</strong></td>
-    <td>• Key·문자열 값 모두 <strong>쌍따옴표(") 필수</strong><br>• 함수·undefined·주석 <strong>불가능</strong></td>
-  </tr>
-  <tr>
-    <td><strong>사용 기준</strong></td>
-    <td>• <strong>JSON.stringify()</strong> : JS 객체 → JSON 문자열 (전송/저장)<br>• <strong>JSON.parse()</strong> : JSON 문자열 → JS 객체 (사용)</td>
-  </tr>
-  <tr>
-    <td><strong>주의사항</strong></td>
-    <td>• `JSON.parse(JSON.stringify(obj))`는 함수·Date·undefined가 유실될 수 있어 완벽한 깊은 복사가 아님<br>• 홑따옴표, Key 따옴표 누락, Trailing Comma는 SyntaxError의 주범</td>
-  </tr>
-</table>
+<strong>📌 먼저 외울 것</strong>
+
+<div class="wda-check-note">
+  <ul>
+    <li>JSON은 데이터 교환을 위한 경량·독립적·가독성 좋은 텍스트 기반 형식이며, 서로 다른 언어(JS, Python, Java 등) 간 공통 소통 수단이다.</li>
+    <li>JSON 데이터의 타입은 무조건 <strong>string</strong>이고, JSON 객체(<code>JSON.parse</code>·<code>JSON.stringify</code>)는 자바스크립트에 내장된 도구다.</li>
+    <li>JS Object는 Key 따옴표 생략과 홑따옴표를 허용하지만, JSON은 Key와 문자열 값 모두 <strong>쌍따옴표(")가 필수</strong>다.</li>
+    <li><strong>JSON.stringify()</strong>는 JS 객체 → JSON 문자열(직렬화), <strong>JSON.parse()</strong>는 JSON 문자열 → JS 객체(역직렬화)로 변환한다.</li>
+    <li>JSON이 지원하는 타입은 string, number, boolean, null, array, object 6가지이며, 함수·undefined·Date 객체는 지원하지 않는다.</li>
+    <li>NaN과 Infinity는 stringify 시 null로 변환되고, BigInt는 TypeError를 발생시킨다.</li>
+  </ul>
+</div>
+
+<strong>🧠 헷갈리기 쉬운 것</strong>
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: JSON에서도 홑따옴표(')를 써도 된다?</div>
+    <div class="wda-mistake-right">정답: JSON은 Key와 문자열 값 모두 <strong>쌍따옴표(")만 허용</strong>하며, 홑따옴표는 SyntaxError의 주범이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: JSON.parse(JSON.stringify(obj))는 완벽한 깊은 복사 방법이다?</div>
+    <div class="wda-mistake-right">정답: 함수·Date·undefined 등 JSON이 지원하지 않는 데이터는 <strong>유실되거나 변형</strong>되므로 완벽한 깊은 복사가 아니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 객체의 undefined 값이나 함수도 JSON 문자열에 그대로 저장된다?</div>
+    <div class="wda-mistake-right">정답: 프로퍼티 값이 undefined·함수·Symbol이면 해당 프로퍼티는 <strong>제외</strong>되고, 배열 안에서는 <strong>null로 변환</strong>된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Date 객체는 JSON.parse 하면 다시 Date 객체로 돌아온다?</div>
+    <div class="wda-mistake-right">정답: stringify 시 문자열로 바뀌고 parse 해도 <strong>문자열 그대로</strong>이므로 <code>new Date()</code>로 직접 변환해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: JSON 파일에도 주석을 달 수 있다?</div>
+    <div class="wda-mistake-right">정답: 표준 JSON은 주석을 지원하지 않으며, VS Code의 settings.json 같은 파일은 <strong>JSONC</strong>라는 별도 변형 포맷을 사용하는 것이다.</div>
+  </div>
+</div>
+
+<strong>🎯 최종 암기 공식</strong>
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 변환 방향</div>
+    <div class="wda-formula-block-body"><code>stringify: JS Object → JSON String</code><br><code>parse: JSON String → JS Object</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 따옴표 규칙</div>
+    <div class="wda-formula-block-body"><code>JSON = 쌍따옴표(")만 허용</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 미지원 데이터</div>
+    <div class="wda-formula-block-body"><code>함수·undefined → 제외</code><br><code>NaN·Infinity → null</code></div>
+  </div>
+</div>
+
+<strong>🎴 클릭 복습 카드</strong>
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSON은 무엇의 줄임말인가?</div>
+    <div class="wda-flip-back">JavaScript Object Notation — 데이터 교환을 위한 경량 텍스트 형식이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JS Object와 JSON의 가장 큰 문법 차이는?</div>
+    <div class="wda-flip-back">JSON은 Key와 문자열 값 모두 쌍따옴표(")가 필수이며, 함수·undefined·주석을 쓸 수 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSON.stringify()와 JSON.parse()의 차이는?</div>
+    <div class="wda-flip-back">stringify는 JS 객체를 JSON 문자열로(직렬화), parse는 JSON 문자열을 JS 객체로(역직렬화) 변환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSON이 지원하는 6가지 데이터 타입은?</div>
+    <div class="wda-flip-back">string, number, boolean, null, array, object다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSON.parse(JSON.stringify(obj))의 한계는?</div>
+    <div class="wda-flip-back">함수·Date·undefined가 유실되거나 변형되어 완벽한 깊은 복사가 아니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">NaN과 Infinity를 JSON으로 변환하면?</div>
+    <div class="wda-flip-back">둘 다 null로 변환된다.</div>
+  </div>
+</div>

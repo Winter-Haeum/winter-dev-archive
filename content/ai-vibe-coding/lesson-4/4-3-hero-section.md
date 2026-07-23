@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -54,6 +54,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -280,73 +296,69 @@ MUI의 useMediaQuery와 sx prop을 활용해서 구현해줘.
 
 ---
 
-## ✅ Hero 섹션 완성도 체크리스트
+## ✅ 핵심 요약
 
 Hero 섹션이 다음 요소들을 모두 포함하고 있는지 확인해보세요.
 
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">임팩트 있는 헤드라인</div>
-      <div class="wda-sdsc">임팩트 있고 기억에 남는 헤드라인이 있나요?</div>
-    </div>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Hero 섹션은 <strong>3초 안에</strong> 방문자의 관심을 끌어야 하는 첫인상 영역이다</li>
+    <li>헤드라인, 역할 소개, 시각적 요소, 행동 유도(CTA) 버튼 <strong>4가지</strong>가 핵심 구성 요소다</li>
+    <li>복잡하게 만들기보다 <strong>핵심 메시지 하나</strong>에 집중하는 것이 가장 효과적이다</li>
+    <li>CTA는 <strong>주요(Primary) + 보조(Secondary) + 소셜 링크</strong>로 구성한다</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Hero 섹션에 너무 많은 메시지와 효과를 한 번에 넣으면?</div>
+    <div class="wda-mistake-right">방지: 핵심 메시지 하나에 집중하고 시각적으로 깔끔하게 정리한다.</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">역할 소개</div>
-      <div class="wda-sdsc">명확한 역할 소개와 간단한 설명이 있나요?</div>
-    </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 애니메이션과 배경 효과를 화려하게만 넣고 로딩 속도를 신경 쓰지 않으면?</div>
+    <div class="wda-mistake-right">방지: 이미지 최적화, CSS 애니메이션 사용, 불필요한 JS 제거로 첫 화면 로딩 속도를 지켜야 한다.</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">시각적 디자인</div>
-      <div class="wda-sdsc">시각적으로 매력적인 디자인 (배경, 색상, 레이아웃)이 적용되었나요?</div>
-    </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · 메시지</div>
+    <div class="wda-formula-block-body">임팩트 있는 헤드라인<br>명확한 역할 소개</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">4</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">CTA 버튼</div>
-      <div class="wda-sdsc">효과적인 CTA 버튼 (주요, 보조)이 배치되었나요?</div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 디자인</div>
+    <div class="wda-formula-block-body">시각적으로 매력적인 디자인<br>애니메이션·상호작용 효과</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">5</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">소셜 링크</div>
-      <div class="wda-sdsc">소셜 미디어 링크 (GitHub, LinkedIn 등)가 연결되었나요?</div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 행동 유도</div>
+    <div class="wda-formula-block-body">CTA 버튼(주요·보조)<br>소셜 링크 연결</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">6</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">반응형 디자인</div>
-      <div class="wda-sdsc">모든 디바이스에서 완벽한 반응형 디자인이 적용되었나요?</div>
-    </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 4 · 성능·반응형</div>
+    <div class="wda-formula-block-body">반응형 디자인<br>빠른 로딩 속도<br>스크롤 유도 요소</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">7</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">애니메이션 효과</div>
-      <div class="wda-sdsc">적절한 애니메이션과 상호작용 효과가 추가되었나요?</div>
-    </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Hero 섹션에서 방문자의 관심을 끌어야 하는 시간은?</div>
+    <div class="wda-flip-back">3초</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">8</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">로딩 속도</div>
-      <div class="wda-sdsc">빠른 로딩 속도가 확보되었나요?</div>
-    </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Hero 섹션의 4가지 핵심 구성 요소는?</div>
+    <div class="wda-flip-back">임팩트 있는 헤드라인, 명확한 역할 소개, 시각적 요소, 행동 유도 버튼(CTA)</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">9</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">스크롤 유도</div>
-      <div class="wda-sdsc">스크롤 유도 요소가 배치되었나요?</div>
-    </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">주요 CTA와 보조 CTA의 예시는?</div>
+    <div class="wda-flip-back">주요 = 프로젝트 보기, 보조 = 연락하기 / 이력서 다운로드</div>
   </div>
 </div>
 

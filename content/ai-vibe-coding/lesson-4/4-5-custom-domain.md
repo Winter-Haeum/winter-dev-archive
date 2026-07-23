@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -63,6 +63,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -342,6 +358,71 @@ curl -I https://내도메인.co.kr
   <span class="wda-clabel">도메인 설정 팁</span>
   www 서브도메인을 사용하면 쿠키 문제를 방지하고 SEO에도 유리합니다!<br>
   저장소에 자동 생성된 CNAME 파일은 삭제하지 마세요.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>GitHub Pages Custom domain 설정 → 가비아 A레코드/CNAME 설정 → DNS 전파 대기 → HTTPS 자동 활성화, <strong>4단계</strong>로 진행한다</li>
+    <li>A 레코드는 <strong>185.199.108~111.153 네 개를 모두</strong> 등록해야 한다</li>
+    <li>가비아 CNAME 값 끝에는 반드시 <strong>점(.)</strong>을 붙여야 한다 (예: username.github.io.)</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 가비아 CNAME 값 끝에 점을 빼먹으면?</div>
+    <div class="wda-mistake-right">방지: username.github.io. 처럼 끝에 점(.)을 반드시 붙여야 정상 동작한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: DNS 설정 직후 바로 접속이 안 된다고 실패로 판단하면?</div>
+    <div class="wda-mistake-right">방지: DNS 전파에는 10분~24시간이 걸릴 수 있으니 nslookup으로 확인하며 기다린다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · GitHub 설정</div>
+    <div class="wda-formula-block-body">Settings → Pages에 Custom domain 입력 및 저장</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 가비아 DNS</div>
+    <div class="wda-formula-block-body">A 레코드 4개 + CNAME(www) 등록 완료</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 전파 확인</div>
+    <div class="wda-formula-block-body">nslookup으로 185.199.108~111.153 확인</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 4 · HTTPS</div>
+    <div class="wda-formula-block-body">Enforce HTTPS 체크 + curl로 HTTP/2 200 확인</div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">가비아 CNAME 값 끝에 반드시 붙여야 하는 문자는?</div>
+    <div class="wda-flip-back">점(.) — 예: username.github.io.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">GitHub Pages A 레코드로 등록해야 하는 IP는 몇 개?</div>
+    <div class="wda-flip-back">4개 (185.199.108~111.153)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">DNS 전파 확인에 쓰는 명령어는?</div>
+    <div class="wda-flip-back">nslookup</div>
+  </div>
 </div>
 
 ---

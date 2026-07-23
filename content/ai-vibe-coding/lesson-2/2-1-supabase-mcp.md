@@ -13,7 +13,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -64,6 +64,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -227,11 +243,79 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 ## ✅ 핵심 요약
 
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">MCP 원리</div><div class="wda-fcard-dsc">AI-Database 연동의 Model Context Protocol 개념 이해</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🔐</div><div class="wda-fcard-ttl">OAuth 인증</div><div class="wda-fcard-dsc">브라우저 인증 방식의 편의성과 보안 장점</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚡</div><div class="wda-fcard-ttl">자동화 도구</div><div class="wda-fcard-dsc">개발 환경 구축 자동화 경험</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">☁️</div><div class="wda-fcard-ttl">클라우드 DB</div><div class="wda-fcard-dsc">AI의 Supabase 데이터베이스 실시간 연동 실습</div></div>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>MCP(Model Context Protocol)</strong>는 AI와 데이터베이스를 연결하는 프로토콜이다.</li>
+    <li>설치 명령어는 <code>claude mcp add --transport http supabase https://mcp.supabase.com/mcp</code>이며, Claude를 <strong>완전히 종료한 상태</strong>의 터미널에서 실행한다.</li>
+    <li>연결은 <strong>브라우저 OAuth 인증</strong> 방식이며, 토큰이나 프로젝트 ID를 직접 입력할 필요가 없다.</li>
+    <li><code>/mcp</code> 명령어로 연결 상태를 확인하며, <strong>connected</strong> 상태가 되어야 정상이다.</li>
+    <li>데이터베이스 비밀번호는 프로젝트 생성 시 <strong>한 번만 확인 가능</strong>하므로 반드시 메모해둔다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: MCP 설치 명령어는 Claude 안에서 실행해도 된다?</div>
+    <div class="wda-mistake-right">정답: 설치 명령어는 반드시 <strong>Claude를 완전히 종료한 상태</strong>의 터미널에서 실행해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: OAuth 인증은 토큰이나 API 키를 직접 입력해야 한다?</div>
+    <div class="wda-mistake-right">정답: Supabase MCP는 <strong>브라우저 OAuth 인증</strong>만으로 연결되며, 토큰이나 프로젝트 ID를 직접 입력할 필요가 없다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: MCP 목록에 supabase가 안 보이면 인증 문제다?</div>
+    <div class="wda-mistake-right">정답: MCP 목록 자체에 없다면 설치 명령어를 Claude 실행 중에 입력했을 가능성이 크므로, <strong>Claude를 완전히 종료 후 재설치</strong>해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 데이터베이스 비밀번호는 나중에 Supabase 대시보드에서 다시 확인할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 프로젝트 생성 시 설정한 비밀번호는 <strong>이후 절대 확인할 수 없으므로</strong> 반드시 메모장에 저장해야 한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 설치</div>
+    <div class="wda-formula-block-body"><code>claude mcp add --transport http supabase ...</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 인증</div>
+    <div class="wda-formula-block-body"><code>/mcp → auth → 브라우저 로그인</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 확인</div>
+    <div class="wda-formula-block-body"><code>/mcp → supabase ✔ connected</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">MCP란 무엇인가?</div>
+    <div class="wda-flip-back">AI와 데이터베이스를 연결하는 Model Context Protocol이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">MCP 설치는 어디서 실행하나?</div>
+    <div class="wda-flip-back">Claude를 완전히 종료한 상태의 터미널에서 실행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">OAuth 인증의 장점은?</div>
+    <div class="wda-flip-back">토큰을 직접 입력하지 않고 브라우저 로그인만으로 안전하게 연결할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">연결 성공은 어떻게 확인하나?</div>
+    <div class="wda-flip-back">/mcp 명령어에서 supabase ✔ connected 상태를 확인한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">테이블 목록을 조회하는 도구는?</div>
+    <div class="wda-flip-back">mcp__supabase__list_tables다.</div>
+  </div>
 </div>
 
 <div class="wda-done">

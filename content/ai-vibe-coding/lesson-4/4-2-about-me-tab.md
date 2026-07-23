@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -62,6 +62,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 포트폴리오의 About Me 탭을 상세하게 구성하고, 홈 탭과 자동 연동되는 데이터 구조를 만듭니다.
@@ -407,6 +423,68 @@ UI/UX 개선:
 - 반응형 디자인 완성도
 - 사용자 경험의 자연스러움
 ```
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>자기소개 정보는 <strong>데이터 객체</strong>(<code>aboutMeData</code>)로 관리해야 홈 탭과 자동으로 연동된다</li>
+    <li><strong>Context API</strong>(PortfolioContext)를 쓰면 컴포넌트 트리 어디서든 같은 데이터에 접근할 수 있다</li>
+    <li>각 콘텐츠 섹션의 <strong>showInHome</strong> 속성으로 홈 탭 노출 여부를 제어한다</li>
+    <li>스킬은 <strong>level 기준 정렬</strong> 후 상위 N개만 홈 탭에 노출한다</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 조금이라도 써본 기술을 전부 스킬 목록에 나열하면?</div>
+    <div class="wda-mistake-right">방지: 면접에서 답변 가능한 수준의 자신 있는 기술만 포함해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: About Me 탭과 홈 탭의 데이터를 각각 따로 관리하면?</div>
+    <div class="wda-mistake-right">방지: PortfolioContext 하나로 통합 관리해야 한쪽을 수정할 때 다른 쪽도 자동으로 반영된다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · 콘텐츠 구성</div>
+    <div class="wda-formula-block-body">기본 정보 섹션 완성<br>콘텐츠 섹션 구성 완료<br>스킬 섹션 시각화 완료</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 홈 탭 연동</div>
+    <div class="wda-formula-block-body">홈 탭 About Me 요약 표시<br>홈 탭 주요 스킬 표시<br>실시간 연동 확인</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 반응형</div>
+    <div class="wda-formula-block-body">모바일에서 모든 기능 정상 작동 확인</div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">About Me와 홈 탭 데이터를 자동으로 연동하는 React 기능은?</div>
+    <div class="wda-flip-back">Context API (PortfolioContext)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">콘텐츠 섹션에서 홈 탭 노출 여부를 제어하는 속성 이름은?</div>
+    <div class="wda-flip-back">showInHome</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">홈 탭에는 스킬을 몇 개까지 표시하도록 설계했나요?</div>
+    <div class="wda-flip-back">숙련도 상위 4개</div>
+  </div>
+</div>
 
 ---
 

@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -61,6 +61,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -262,6 +273,49 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 
 ## ✅ 핵심 요약
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>점검은 반드시 <strong>lecture1 디렉토리에서</strong> Claude를 실행해야 로키 역할 + @docs 연결 + 루트 CLAUDE.md를 <strong>동시에 인식</strong>한다.</li>
+    <li>상태 점검은 <strong>로키 역할·문서 시스템 → GitHub 스킬·MCP → 프로젝트 구조 → React 템플릿 → 종합 결과 보고</strong> 5단계로 진행된다.</li>
+    <li><code>@docs/</code> 연결이 깨지면 디자인 규칙이나 코드 컨벤션을 Claude가 <strong>인식하지 못한다</strong>.</li>
+    <li>점검 결과는 6개 항목을 <strong>✅ / ❌ 형식</strong>으로 종합 보고한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 문서 시스템 오류는 CLAUDE.md만 손보면 된다?</div>
+    <div class="wda-mistake-right">정답: <code>docs</code> 폴더의 .md 파일 누락이나 @ 연결 오류일 수 있으며, <strong>setup 2단계 프롬프트를 재실행</strong>하면 복구된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: GitHub 스킬 파일이 없으면 처음부터 다시 설치해야 한다?</div>
+    <div class="wda-mistake-right">정답: <strong>setup 3단계 자동 설정 프롬프트만 재실행</strong>하면 된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 프로젝트 구조나 React 환경(MUI, theme.js)이 빠지면 하나씩 손으로 고쳐야 한다?</div>
+    <div class="wda-mistake-right">정답: <strong>setup 2단계 통합 세팅 프롬프트를 재실행</strong>하면 한 번에 복구된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ❌ 항목이 나오면 전체 단계를 다시 해야 한다?</div>
+    <div class="wda-mistake-right">정답: Claude가 원인과 <strong>재실행할 단계를 명시</strong>해주므로 해당 단계 프롬프트만 다시 실행하면 된다.</div>
+  </div>
+</div>
+
+**🏁 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>로키 역할 인사와 함께 <code>@docs/design-system.md</code> · <code>code-convention.md</code> · <code>new_project.md</code> 3개 문서가 정상 요약 출력된다.</li>
+    <li><code>.claude/skills/gh_cli/skill.md</code> 파일과 <code>_template_settings</code> 구조가 모두 확인된다.</li>
+    <li><code>theme.js</code> + <code>ThemeProvider</code>가 적용된 React 환경이 정상 확인된다.</li>
+    <li>종합 결과에서 <strong>"1차 수업 준비 상태: ✅ 준비완료"</strong>가 출력된다.</li>
+  </ul>
+</div>
+
 **💡 예상 결과**
 
 모든 환경이 정상적으로 설정되었다면 다음과 같은 결과를 확인할 수 있습니다.
@@ -288,6 +342,27 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
   <div class="wda-done-ico">✅</div>
   <div class="wda-done-ttl">환경 세팅 완료</div>
   <div>모든 항목이 정상 확인되었다면 1차 수업의 본격적인 React 개발을 시작할 준비가 완료되었습니다!</div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">왜 lecture1 디렉토리에서 Claude를 실행해야 하나?</div>
+    <div class="wda-flip-back">실행 위치에 따라 CLAUDE.md를 읽는 범위가 달라지므로, 로키 역할·@docs·루트 CLAUDE.md를 모두 인식하려면 lecture1에서 실행해야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">@docs/ 연결이 깨지면 어떻게 되나?</div>
+    <div class="wda-flip-back">디자인 규칙이나 코드 컨벤션을 Claude가 인식하지 못하게 된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">상태 점검 5단계는?</div>
+    <div class="wda-flip-back">로키 역할·문서 시스템 확인 → GitHub 스킬·MCP 확인 → 프로젝트 구조 확인 → React 템플릿 확인 → 종합 결과 보고 순서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">점검 결과는 어떤 형식으로 표시되나?</div>
+    <div class="wda-flip-back">항목별로 ✅ 정상 / ❌ 오류로 표시하고, 마지막에 1차 수업 준비 상태를 종합 판정한다.</div>
+  </div>
 </div>
 
 ---

@@ -51,6 +51,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -762,25 +778,106 @@ setCount(prev => prev + 1); // 방금 만든 2를 받아서 3으로 만듦
 
 <h2>15. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>State란?</strong></td>
-    <td>• <strong>정의:</strong> 컴포넌트 내부에서 생성하고 관리하는 데이터이며, 값은 반드시 setter 함수로만 변경합니다.<br>• <strong>Props와 차이:</strong> Props는 부모가 주는 읽기 전용 데이터라면, State는 내 안에서 변화하는 상태입니다.<br>• <strong>역할:</strong> State가 바뀌면 리액트는 자동으로 화면을 새로 그립니다 (리렌더링).</td>
-  </tr>
-  <tr>
-    <td><strong>사용법 (useState)</strong></td>
-    <td><code>import { useState } from 'react';</code><br><code>const [count, setCount] = useState(0);</code><br>• 배열 구조 분해 할당을 사용하여 변수와 함수를 받아옵니다.<br>• <code>set</code> + 이름(CamelCase)으로 작명하는 것이 관례입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>불변성 원칙</strong></td>
-    <td>• <strong>직접 수정 금지:</strong> <code>count = count + 1</code> (❌) ➔ const 재대입이라 에러가 나거나, 객체/배열은 조용히 변경 감지에 실패합니다.<br>• <strong>Setter 사용:</strong> <code>setCount(count + 1)</code> (⭕) ➔ 리액트에게 변경을 알리고 리렌더링을 요청합니다.<br>• <strong>함수형 업데이트:</strong> <code>setCount(prev =&gt; prev + 1)</code> ➔ 이전 값을 기반으로 안전하게 업데이트할 때 사용합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>입력 폼 핸들링</strong></td>
-    <td>입력창(<code>input</code>)을 제어할 때는 <strong>value</strong>와 <strong>onChange</strong>를 반드시 세트로 사용해야 합니다 (Controlled Component).<br><code>&lt;input value={text} onChange={(e) =&gt; setText(e.target.value)} /&gt;</code></td>
-  </tr>
-</table>
+State 챕터는 분량이 많았던 만큼, 4단계 복습 카드로 꼼꼼하게 정리합니다.
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>State는 컴포넌트 <strong>내부에서 생성하고 관리하는 데이터</strong>이며, 값은 반드시 <strong>setter 함수</strong>로만 변경합니다.</li>
+    <li>Props는 부모가 주는 <strong>읽기 전용</strong> 데이터라면, State는 컴포넌트 자신이 만들고 바꾸는 <strong>변경 가능한</strong> 데이터입니다.</li>
+    <li><code>const [count, setCount] = useState(0)</code>처럼 배열 구조 분해 할당으로 값과 setter를 받으며, 괄호 안 초기값은 <strong>맨 처음 렌더링될 때만</strong> 사용됩니다.</li>
+    <li>State가 바뀌면 컴포넌트 함수가 처음부터 다시 실행되며 화면이 자동으로 새로 그려집니다 (리렌더링).</li>
+    <li><code>onClick={handleClick}</code>처럼 <strong>함수 참조만</strong> 전달해야 하며, <code>handleClick()</code>처럼 괄호를 붙이면 렌더링 즉시 실행됩니다.</li>
+    <li>입력창을 State와 연결하려면 <strong>value와 onChange를 반드시 세트</strong>로 작성해야 합니다 (Controlled Component).</li>
+    <li>이전 값에 의존하는 업데이트는 <code>setCount(prev =&gt; prev + 1)</code> 같은 <strong>함수형 업데이트</strong>를 사용합니다.</li>
+    <li>객체·배열 state는 직접 수정하지 말고, <code>{'{ ...user, age: 21 }'}</code>처럼 <strong>복사한 새 값</strong>을 setter에 전달합니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: count는 const로 선언했으니 리렌더링 때도 같은 변수의 값만 바뀌는 것이다?</div>
+    <div class="wda-mistake-right">정답: 리렌더링은 컴포넌트 함수가 <strong>처음부터 다시 실행</strong>되는 것이라, 매번 완전히 새로운 <code>count</code> 변수가 만들어집니다. 그래서 <code>const</code>로 선언해도 문제가 없습니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: onClick={handleClick()}처럼 괄호를 붙여도 클릭할 때만 실행된다?</div>
+    <div class="wda-mistake-right">정답: 괄호를 붙이면 <strong>렌더링되는 즉시 실행</strong>되어버려 무한 루프 위험이 있습니다. 함수 이름만(<code>handleClick</code>) 전달해야 클릭 시에만 실행됩니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setCount(count + 1)을 연달아 3번 호출하면 값이 3만큼 늘어난다?</div>
+    <div class="wda-mistake-right">정답: 기본 방식은 매번 같은 시점의 <code>count</code>를 참조해 결과적으로 <strong>1만 증가</strong>합니다. 연속 증가가 필요하면 <code>setCount(prev =&gt; prev + 1)</code> 함수형 업데이트를 써야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: state 값은 count = count + 1처럼 직접 대입해서 바꿔도 된다?</div>
+    <div class="wda-mistake-right">정답: state는 <strong>setter 함수로만</strong> 바꿔야 합니다. 직접 수정하면 원시값은 const 재대입 에러가 나고, 객체·배열은 리액트가 변경을 감지하지 못한 채 조용히 넘어갑니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: input에 value만 넣어주면 화면에 잘 보이니 그걸로 충분하다?</div>
+    <div class="wda-mistake-right">정답: <code>onChange</code> 없이 <code>value</code>만 있으면 리액트가 값을 <strong>읽기 전용으로 고정</strong>해버려 타이핑이 전혀 되지 않습니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 여러 state가 필요하면 객체 하나로 묶는 것이 항상 더 낫다?</div>
+    <div class="wda-mistake-right">정답: 서로 관련 없는 데이터라면 <strong>각각 useState로 따로</strong> 관리하는 것이 갱신이 간단하고 일반적입니다. 객체로 묶으면 갱신 시 나머지 값도 함께 챙겨야(spread) 하는 번거로움이 생깁니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · State 정의</div>
+    <div class="wda-formula-block-body"><code>내부 관리 + setter로 변경</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 기본 업데이트</div>
+    <div class="wda-formula-block-body"><code>setCount(count + 1)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 이전값 의존</div>
+    <div class="wda-formula-block-body"><code>setCount(prev =&gt; prev + 1)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 폼 연결</div>
+    <div class="wda-formula-block-body"><code>value + onChange 세트</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">state를 변경할 때 반드시 사용해야 하는 것은?</div>
+    <div class="wda-flip-back">Setter 함수(예: setCount)입니다. 직접 대입하면 리액트가 변경을 감지하지 못합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이전 state 값을 기반으로 안전하게 업데이트하는 방법은?</div>
+    <div class="wda-flip-back">함수형 업데이트입니다. setCount(prev => prev + 1)처럼 setter에 함수를 전달합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Props와 State의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">Props는 부모가 주는 읽기 전용 데이터, State는 컴포넌트 자신이 만들고 바꾸는 데이터입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useState(0)에서 괄호 안 0은 언제 사용되나?</div>
+    <div class="wda-flip-back">컴포넌트가 맨 처음 렌더링될 때만 초기값으로 사용됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">onClick에 함수를 연결할 때 괄호를 붙이면 안 되는 이유는?</div>
+    <div class="wda-flip-back">괄호를 붙이면 렌더링되자마자 즉시 실행되어버리기 때문입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">input을 리액트가 통제하도록 만드는 패턴을 무엇이라 하나?</div>
+    <div class="wda-flip-back">Controlled Component이며, value와 onChange를 세트로 사용합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">객체 state의 속성을 안전하게 바꾸는 방법은?</div>
+    <div class="wda-flip-back">직접 수정하지 않고, setUser({ ...user, age: 21 })처럼 새 객체로 교체합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">state가 바뀌면 리액트는 어떤 과정을 거치나?</div>
+    <div class="wda-flip-back">컴포넌트 함수를 처음부터 다시 실행(리렌더링)하여 새 화면을 그립니다.</div>
+  </div>
+</div>

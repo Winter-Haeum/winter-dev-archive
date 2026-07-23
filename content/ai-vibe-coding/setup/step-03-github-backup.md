@@ -16,7 +16,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -73,6 +73,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -651,6 +662,50 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 
 ## ✅ 핵심 요약
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>"백업해줘"</strong> 한 마디로 Claude가 gh CLI를 이용해 GitHub에 자동 저장한다.</li>
+    <li>Git은 <strong>내 컴퓨터의 저장 버튼</strong>이고, GitHub는 그것을 <strong>클라우드에 올리는 서비스</strong>다.</li>
+    <li>인증은 <code>gh auth login --scopes ...</code> 한 번으로 <strong>OAuth 브라우저 로그인</strong>만 하면 끝난다.</li>
+    <li><code>.claude/skills/gh_cli/skill.md</code>에 명령어 가이드를 등록해두면 Claude가 GitHub 작업 시 <strong>자동으로 참조</strong>한다.</li>
+    <li>GitHub Pages 배포는 Legacy 방식 대신 <strong>GitHub Actions(workflow) 방식</strong>을 사용한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: gh 명령어는 항상 바로 인식된다?</div>
+    <div class="wda-mistake-right">정답: 미설치 시 <code>winget install GitHub.cli</code> 실행 후 <strong>터미널을 재시작</strong>해야 인식된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 인증 실패는 계정에 문제가 있다는 뜻이다?</div>
+    <div class="wda-mistake-right">정답: 대부분 <code>gh auth login</code>을 다시 실행하고 브라우저에서 <strong>"Authorize" 클릭</strong>으로 해결된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 스킬 파일은 자동으로 계속 유지된다?</div>
+    <div class="wda-mistake-right">정답: <code>.claude/skills/gh_cli/skill.md</code>가 없으면 <strong>자동 설정 프롬프트를 재실행</strong>해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: .env나 node_modules도 그냥 GitHub에 올려도 된다?</div>
+    <div class="wda-mistake-right">정답: API 키 노출·용량 문제가 있으므로 반드시 <strong>.gitignore에 등록</strong>해야 한다.</div>
+  </div>
+</div>
+
+**🏁 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li><code>gh --version</code>, <code>gh auth status</code>가 모두 정상적으로 출력된다.</li>
+    <li><code>.claude/skills/gh_cli/skill.md</code> 스킬 파일이 존재한다.</li>
+    <li>첫 백업 실습(저장소 생성 → 커밋 → 푸시)이 성공적으로 끝난다.</li>
+    <li>GitHub Pages 배포 후 <code>https://[사용자명].github.io/[저장소명]</code>로 실제 접속된다.</li>
+  </ul>
+</div>
+
 ### 핵심 기능 4가지
 
 | 명령 | 프롬프트 예시 | 설명 |
@@ -678,15 +733,32 @@ gh api repos/[사용자명]/[저장소명]/pages -X PUT -f build_type=workflow
 - [ ] `gh repo list` 정상 동작 확인
 - [ ] 첫 번째 백업 테스트 완료
 
-**학습 포인트**
+**🎴 클릭 복습 카드**
 
-<div class="wda-memo">
-  <span class="wda-memo-label">📌 핵심 개념 정리</span>
-  <div class="wda-memo-body">
-📁 <strong>Git</strong> — 코드 버전 관리 시스템의 기본 개념 이해<br>
-☁️ <strong>GitHub</strong> — 클라우드 코드 저장소의 역할 이해<br>
-📄 <strong>Skill 파일</strong> — Claude에게 명령어 가이드를 등록하는 방식 이해<br>
-🤖 <strong>자동화</strong> — 복잡한 작업을 자연어로 처리하는 경험
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">OAuth란?</div>
+    <div class="wda-flip-back">비밀번호를 직접 전달하지 않고, 신뢰하는 앱에 특정 권한만 허용하는 인증 방식이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">gh auth login에 포함되는 대표 권한은?</div>
+    <div class="wda-flip-back">repo, delete_repo, workflow, gist 등 저장소 생성·삭제·배포에 필요한 권한이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스킬 파일이란?</div>
+    <div class="wda-flip-back">Claude가 GitHub 작업을 수행할 때 참고하는 gh CLI 명령어 가이드 문서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">GitHub Pages Legacy 방식의 문제점은?</div>
+    <div class="wda-flip-back">"building" 상태에서 멈추거나 에러가 발생할 수 있고 디버깅이 어렵다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">.gitignore에 꼭 등록해야 할 것은?</div>
+    <div class="wda-flip-back">.env, node_modules/, .mcp.json처럼 비밀 정보·대용량·개인 설정 파일이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">"백업해줘"라고 말하면 Claude는 무엇을 하나?</div>
+    <div class="wda-flip-back">gh CLI 스킬 파일을 참조해 저장소 생성·커밋·푸시를 자동으로 실행한다.</div>
   </div>
 </div>
 

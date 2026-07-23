@@ -52,6 +52,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -762,28 +778,78 @@ useEffect(() => {
 
 <h2>17. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>⚡ Side Effect</strong></td>
-    <td>API 호출, 타이머 설정, DOM 조작 등 화면을 그리는 것(렌더링) 외의 작업을 의미합니다. 절대로 컴포넌트 본문(렌더링 중)에 직접 작성하면 안 되며, 반드시 <code>useEffect</code>를 사용하여 안전하게 처리해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>🏁 Dependency Array</strong></td>
-    <td>Effect의 실행 시점(Timing)을 제어하는 핵심 장치입니다. 빈 배열 <code>[]</code>은 마운트 시 1회만 실행(초기화), 값이 있는 <code>[deps]</code>는 해당 값이 변경될 때마다 실행(업데이트 감지)됩니다. 배열에 필요한 값을 빠뜨리면(누락) 최신 값을 읽지 못하는 버그의 원인이 됩니다.</td>
-  </tr>
-  <tr>
-    <td><strong>🧹 Cleanup Function</strong></td>
-    <td><code>useEffect</code> 안에서 함수를 <code>return</code> 하면 됩니다. 컴포넌트가 화면에서 사라지거나(Unmount), 다음 Effect가 실행되기 직전에 호출되어 타이머 해제(<code>clearInterval</code>), 이벤트 리스너 제거(<code>removeEventListener</code>) 등 메모리 누수를 방지하는 필수 단계입니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
-**💡 보충 설명**
+<div class="wda-check-note">
+  <ul>
+    <li>Side Effect(API 호출, 타이머, DOM 조작 등)는 렌더링 로직에 직접 쓰지 않고 반드시 <strong>useEffect</strong> 안에서 처리한다.</li>
+    <li>의존성 배열 <code>[]</code>은 <strong>마운트 시 1회만</strong>, <code>[dep]</code>은 <strong>dep이 바뀔 때마다</strong>, 생략하면 <strong>매 렌더링마다</strong> 실행된다.</li>
+    <li>useEffect 안에서 함수를 <code>return</code>하면 그 함수가 <strong>Cleanup(뒷정리)</strong> 함수가 된다.</li>
+    <li>Cleanup은 언마운트 시뿐 아니라 <strong>다음 Effect 실행 직전</strong>에도 먼저 호출된다.</li>
+    <li>데이터 페칭 시 <strong>loading·error·data</strong> 3가지 상태를 항상 함께 관리한다.</li>
+    <li>이벤트 리스너는 등록(add)했으면 반드시 <strong>제거(remove)</strong>해야 메모리 누수를 막는다.</li>
+  </ul>
+</div>
 
-<div class="wda-callout wda-ci">
-  <p><strong>useEffect 마스터를 위한 한 문장 요약</strong></p>
-  <p>"화면이 다 그려진 뒤(<strong>Side Effect</strong>), 언제 실행할지 정하고(<strong>Dependency Array</strong>), 필요 없어지면 치운다(<strong>Cleanup</strong>)." 이 3박자만 기억하세요!</p>
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 의존성 배열을 생략하면 그냥 한 번 더 실행되는 정도다?</div>
+    <div class="wda-mistake-right">정답: 생략하면 <strong>매 렌더링마다</strong> 실행되고, Effect 안에서 state를 바꾸면 <strong>무한 루프</strong>에 빠질 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Cleanup 함수는 컴포넌트가 사라질 때(Unmount)만 실행된다?</div>
+    <div class="wda-mistake-right">정답: 의존성 값이 바뀌어 <strong>새 Effect가 실행되기 직전</strong>에도 이전 Effect의 Cleanup이 먼저 실행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useEffect 안에서 async 함수를 바로 만들어 써도 된다?</div>
+    <div class="wda-mistake-right">정답: useEffect 콜백 자체는 <strong>async가 될 수 없다</strong>(Cleanup 함수만 반환해야 하므로). 내부에 async 함수를 정의하고 즉시 호출해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 의존성 배열에 변수를 빠뜨려도 항상 최신 값을 읽어온다?</div>
+    <div class="wda-mistake-right">정답: 의존성 누락 시 클로저가 과거 값을 참조하는 <strong>stale closure 버그</strong>가 생긴다. <code>react-hooks/exhaustive-deps</code>로 예방한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 의존성 배열</div>
+    <div class="wda-formula-block-body"><code>[] = 1회 / [dep] = 변경 시 / 생략 = 매번</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 실행 순서</div>
+    <div class="wda-formula-block-body"><code>Render → Effect → Cleanup</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 3박자 요약</div>
+    <div class="wda-formula-block-body"><code>Side Effect → Dependency Array → Cleanup</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useEffect의 의존성 배열을 빈 배열([])로 설정하면 언제 실행되나요?</div>
+    <div class="wda-flip-back">컴포넌트가 처음 화면에 나타날 때(마운트) 딱 한 번만 실행됩니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">언마운트되거나 업데이트되기 직전에 리소스를 정리하려면?</div>
+    <div class="wda-flip-back">useEffect 내부에서 정리 작업을 수행하는 함수를 return(반환)하면 됩니다 (Cleanup 함수).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useEffect 콜백 자체를 async 함수로 만들 수 있나요?</div>
+    <div class="wda-flip-back">없습니다. 내부에 별도의 async 함수를 정의하고 즉시 호출하는 패턴을 써야 합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">의존성 배열에 필요한 값을 빠뜨리면 어떤 문제가 생기나요?</div>
+    <div class="wda-flip-back">클로저가 오래된 값을 참조하는 stale closure 버그가 생깁니다. react-hooks/exhaustive-deps로 예방합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 리스너를 등록했다면 꼭 해야 하는 일은?</div>
+    <div class="wda-flip-back">Cleanup에서 removeEventListener로 제거해야 메모리 누수를 막을 수 있습니다.</div>
+  </div>
 </div>

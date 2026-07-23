@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -49,6 +49,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -1248,33 +1264,89 @@ console.log(d); // 0
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>ECMAScript</strong></td>
-    <td>• ES6(2015)는 자바스크립트의 역사를 바꾼 대격변이며, 이때를 기점으로 '모던 자바스크립트'가 시작되었습니다.<br>• 이후 매년 6월마다 새로운 버전(ES2016, ES2017...)이 꾸준히 발표되고 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>템플릿 리터럴</strong></td>
-    <td>• 백틱(`)과 <code>${}</code>를 사용해 <strong>변수 삽입</strong>과 <strong>멀티라인</strong> 문자열을 직관적으로 다룰 수 있습니다.<br>• <strong>태그드 템플릿</strong>은 <code>TagFn`str`</code> 형태로 사용하며, 보안(XSS 방지)이나 다국어 처리에 활용됩니다.</td>
-  </tr>
-  <tr>
-    <td><strong>이터러블</strong></td>
-    <td>• "순서대로 하나씩 꺼낼 수 있는 객체"이며, 핵심은 <code>Symbol.iterator</code>를 가지고 있다는 점입니다.<br>• <code>Array</code>, <code>String</code>, <code>Map</code>, <code>Set</code>, <code>NodeList</code> 등이 해당하며, <code>for...of</code>나 스프레드(<code>[...arr]</code>)로 다룰 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>?? vs ||</strong></td>
-    <td>• <code>||</code>(OR)는 <code>0</code>, <code>false</code>, <code>""</code>도 '없는 값'으로 쳐서 덮어씌웁니다(범위가 넓음).<br>• <code>??</code>(Nullish)는 오직 <code>null</code>, <code>undefined</code>일 때만 기본값을 씁니다(<code>0</code>은 살림). 기본값 설정에는 안전한 <strong>??</strong> 사용을 권장합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>옵셔널 체이닝</strong></td>
-    <td>• 중첩된 객체에서 깊숙한 값을 꺼낼 때 사용하는 '안전벨트'로, 앞의 값이 없으면 에러(<code>TypeError</code>) 대신 <code>undefined</code>를 반환하고 즉시 종료합니다.<br>• API 응답처럼 구조가 불확실한 데이터를 다룰 때 필수이며, <code>obj?.prop ?? "기본값"</code> 형태로 가장 많이 쓰입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>ES2020+</strong></td>
-    <td>• <strong>BigInt</strong>는 숫자 뒤에 <code>n</code>을 붙여 2^53보다 큰 거대 정수를 다룹니다.<br>• <strong>숫자 구분자</strong>는 <code>1_000_000</code>처럼 언더스코어로 가독성을 높입니다.<br>• <strong>논리 할당</strong>은 <code>??=</code>, <code>&amp;&amp;=</code> 처럼 연산과 할당을 한 번에 처리해 코드를 줄여줍니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>ES6(2015)</strong>는 자바스크립트의 역사를 바꾼 대격변이며, 이때를 기점으로 '모던 자바스크립트'가 시작되었습니다. 이후 매년 6월마다 새로운 버전(ES2016, ES2017...)이 꾸준히 발표됩니다.</li>
+    <li>템플릿 리터럴은 백틱(`)과 <code>${}</code>로 변수 삽입·멀티라인을 다루며, <strong>태그드 템플릿</strong>은 <code>TagFn`str`</code> 형태로 XSS 방지·다국어 처리·styled-components 등에 활용됩니다.</li>
+    <li>이터러블은 <strong><code>Symbol.iterator</code></strong>를 가진 "순서대로 꺼낼 수 있는 객체"이며, <code>Array</code>, <code>String</code>, <code>Map</code>, <code>Set</code>, <code>NodeList</code> 등이 해당하고 <code>for...of</code>나 스프레드로 다룹니다.</li>
+    <li>옵셔널 체이닝(<code>?.</code>)은 중첩 객체 접근 중 값이 없으면 에러 대신 <code>undefined</code>를 반환하며, <code>obj?.prop ?? "기본값"</code> 형태로 가장 많이 쓰입니다.</li>
+    <li><strong>BigInt</strong>는 숫자 뒤에 <code>n</code>을 붙여 2^53보다 큰 정수를 다루고, 숫자 구분자(<code>1_000_000</code>)와 논리 할당 연산자(<code>??=</code>, <code>&amp;&amp;=</code>, <code>||=</code>)는 코드를 더 간결하게 만듭니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ||와 ??는 같은 기준으로 기본값을 처리한다?</div>
+    <div class="wda-mistake-right">정답: <strong>||</strong>는 <code>0</code>, <code>false</code>, <code>""</code>도 '없는 값'으로 쳐서 덮어씌우지만, <strong>??</strong>는 오직 <code>null</code>, <code>undefined</code>일 때만 기본값을 씁니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 일반 객체({})도 for...of로 바로 순회할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 일반 객체는 <code>Symbol.iterator</code>가 없어 이터러블이 아니므로 <code>for...of</code>에 <strong>TypeError</strong>가 납니다. <code>Object.keys()</code>/<code>Object.entries()</code>로 배열로 바꿔야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: for...in과 for...of는 같은 것을 순회한다?</div>
+    <div class="wda-mistake-right">정답: <code>for...in</code>은 <strong>키(Key/Index)</strong>를, <code>for...of</code>는 <strong>값(Value)</strong>을 순회합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 옵셔널 체이닝(?.)은 0이나 빈 문자열에도 반응한다?</div>
+    <div class="wda-mistake-right">정답: <code>?.</code>는 오직 <code>null</code>과 <code>undefined</code>에만 반응하며, <code>0</code>이나 <code>""</code>는 유효한 값으로 취급해 정상 접근합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 기본값 처리</div>
+    <div class="wda-formula-block-body"><code>?? → null/undefined만</code><br><code>|| → 모든 falsy</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 이터러블 판별</div>
+    <div class="wda-formula-block-body"><code>Symbol.iterator 있음 → 이터러블</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 안전 접근</div>
+    <div class="wda-formula-block-body"><code>obj?.prop ?? "기본값"</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">ES6가 왜 중요한가?</div>
+    <div class="wda-flip-back">2015년에 등장한 대격변으로, 모던 자바스크립트의 시작점이자 클래스·모듈·화살표 함수 등 핵심 기능이 대거 추가된 버전이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">태그드 템플릿은 어디에 쓰이나?</div>
+    <div class="wda-flip-back">XSS 방지를 위한 HTML 이스케이프, 국제화(i18n), styled-components 같은 CSS 스타일링에 쓰인다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이터러블이란?</div>
+    <div class="wda-flip-back">Symbol.iterator 메서드를 가진 "순회 가능한 객체"로, Array, String, Map, Set, NodeList 등이 해당한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Map이 Object보다 나은 점은?</div>
+    <div class="wda-flip-back">모든 타입을 키로 쓸 수 있고 순서가 완벽히 보장되며, 데이터가 자주 추가/삭제될 때 더 빠르다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Set의 가장 흔한 활용은?</div>
+    <div class="wda-flip-back">[...new Set(array)]로 배열의 중복 값을 제거하는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">??가 ||보다 안전한 이유는?</div>
+    <div class="wda-flip-back">||는 0이나 ""도 덮어쓰지만, ??는 null/undefined일 때만 기본값을 사용해 유효한 값을 보존한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">옵셔널 체이닝(?.)의 역할은?</div>
+    <div class="wda-flip-back">중첩된 객체 접근 중 값이 없으면 에러 대신 즉시 undefined를 반환하는 안전장치다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">BigInt는 언제 쓰나?</div>
+    <div class="wda-flip-back">Number.MAX_SAFE_INTEGER(2^53-1)를 넘는 큰 정수를 다룰 때, 숫자 뒤에 n을 붙여 사용한다.</div>
+  </div>
+</div>

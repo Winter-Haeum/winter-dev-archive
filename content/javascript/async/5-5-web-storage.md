@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -37,7 +37,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
@@ -55,6 +55,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -846,21 +862,99 @@ document.cookie = "theme=dark; path=/";
   <h2>✅ 핵심 요약</h2>
 </div>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>주제</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Web Storage</strong></td>
-    <td>• <strong>localStorage</strong> : 브라우저를 꺼도 유지 (단, 절대적인 영구 저장소는 아니며 삭제·정책에 따라 사라질 수 있음)<br>• <strong>sessionStorage</strong> : 탭 수명 (탭 닫으면 삭제)<br>• 도메인당 약 <strong>5MB</strong> 용량</td>
-  </tr>
-  <tr>
-    <td><strong>JSON 변환</strong></td>
-    <td>• <strong>저장</strong> : `JSON.stringify()` (객체 → 문자열)<br>• <strong>복원</strong> : `JSON.parse()` (문자열 → 객체)<br>• 객체나 배열을 저장할 때 <strong>필수</strong></td>
-  </tr>
-  <tr>
-    <td><strong>보안 주의</strong></td>
-    <td>• <strong>민감 정보 저장 금지</strong> (비밀번호, 개인정보 등)<br>• <strong>XSS 취약점 존재</strong> (스크립트 공격 위험)<br>• 중요 정보는 <strong>HttpOnly Cookie</strong> 사용 권장</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>localStorage</strong>는 브라우저를 꺼도 유지되고, <strong>sessionStorage</strong>는 탭을 닫으면 즉시 삭제된다. (둘 다 도메인당 약 <strong>5MB</strong>)</li>
+    <li>Web Storage는 오직 <strong>문자열</strong>만 저장할 수 있으므로, 객체/배열은 <code>JSON.stringify()</code>로 저장하고 <code>JSON.parse()</code>로 복원해야 한다.</li>
+    <li>setItem/getItem은 <strong>동기적</strong>으로 동작해 큰 데이터를 다루면 화면이 멈출 수 있으므로, 대용량 데이터는 비동기인 <strong>IndexedDB</strong>를 쓴다.</li>
+    <li>localStorage는 <strong>Same-Origin</strong>(프로토콜+도메인+포트)별로 철저히 분리되며, 서브도메인도 별도 저장소를 가진다.</li>
+    <li><strong>storage 이벤트</strong>는 다른 탭에서 데이터가 바뀔 때만 발생하며, 변경한 당사자 탭에서는 발생하지 않는다.</li>
+    <li>브라우저 저장소는 F12로 누구나 볼 수 있어 비밀번호·토큰 같은 <strong>민감 정보를 저장하면 안 되며</strong>, 인증 정보는 <strong>HttpOnly Cookie</strong>를 권장한다.</li>
+    <li>쿠키는 매 요청마다 서버로 자동 전송되고 용량이 <strong>4KB</strong>로 작지만, localStorage는 서버로 전송되지 않고 <strong>5MB</strong>까지 저장 가능하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: localStorage에 객체를 그대로 setItem하면 그대로 저장된다?</div>
+    <div class="wda-mistake-right">정답: 문자열로 자동 변환되며 객체를 그대로 넣으면 <code>[object Object]</code>로 깨져 저장된다. 반드시 <strong>JSON.stringify()</strong>로 변환해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: sessionStorage도 localStorage처럼 새 탭에서 공유된다?</div>
+    <div class="wda-mistake-right">정답: sessionStorage는 <strong>탭 단위로 독립적</strong>이라 같은 사이트를 새 탭으로 열어도 데이터가 공유되지 않는다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: localStorage는 브라우저를 끄지 않는 한 절대 사라지지 않는 영구 저장소다?</div>
+    <div class="wda-mistake-right">정답: 사용자가 직접 삭제하거나 브라우저 정책(예: Safari의 7일 ITP 정책)·시크릿 모드에 따라 사라질 수 있어 <strong>절대적인 영구 저장소가 아니다</strong>.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: storage 이벤트는 데이터를 변경한 그 탭에서도 발생한다?</div>
+    <div class="wda-mistake-right">정답: 변경한 당사자 탭에서는 발생하지 않고, <strong>나를 제외한 다른 탭에서만</strong> 발생한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 로그인 토큰(Access Token)도 localStorage에 저장하는 것이 안전하다?</div>
+    <div class="wda-mistake-right">정답: localStorage는 <strong>XSS 공격에 취약</strong>해 토큰이 탈취될 수 있으므로, 인증 정보는 자바스크립트로 접근할 수 없는 <strong>HttpOnly Cookie</strong>에 저장하는 것이 안전하다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 수명</div>
+    <div class="wda-formula-block-body"><code>local=영구, session=탭 닫으면 소멸</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 객체 저장</div>
+    <div class="wda-formula-block-body"><code>stringify(저장) / parse(복원)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 용량</div>
+    <div class="wda-formula-block-body"><code>Storage ~5MB, Cookie ~4KB</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 보안</div>
+    <div class="wda-formula-block-body"><code>민감정보 X, 인증정보=HttpOnly Cookie</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">localStorage와 sessionStorage의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">localStorage는 브라우저를 꺼도 유지되고, sessionStorage는 탭을 닫으면 즉시 삭제된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">객체를 localStorage에 저장하려면 어떤 함수를 써야 하나?</div>
+    <div class="wda-flip-back">JSON.stringify()로 문자열로 변환한 뒤 저장하고, 꺼낼 때는 JSON.parse()로 복원한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">localStorage.getItem으로 없는 키를 조회하면 무엇을 반환하나?</div>
+    <div class="wda-flip-back">null. 에러가 나지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Web Storage 작업이 동기적이라는 것은 어떤 의미인가?</div>
+    <div class="wda-flip-back">저장/조회가 끝날 때까지 브라우저가 멈추므로, 대용량 데이터는 성능 문제가 생길 수 있어 비동기인 IndexedDB를 고려해야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">storage 이벤트는 언제, 어느 탭에서 발생하나?</div>
+    <div class="wda-flip-back">다른 탭에서 localStorage가 변경될 때 발생하며, 변경한 당사자 탭에서는 발생하지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">로컬 스토리지에 저장하면 안 되는 데이터는?</div>
+    <div class="wda-flip-back">비밀번호, 주민등록번호, Access Token 같은 민감 정보. F12로 누구나 볼 수 있고 XSS에 취약하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">쿠키와 localStorage의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">쿠키는 매 HTTP 요청마다 서버로 자동 전송되고 용량이 4KB로 작지만, localStorage는 서버로 전송되지 않고 약 5MB까지 저장 가능하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">인증 토큰을 안전하게 저장하려면 어떤 방식을 쓰나?</div>
+    <div class="wda-flip-back">자바스크립트로 접근할 수 없는 HttpOnly Cookie를 사용한다.</div>
+  </div>
+</div>

@@ -54,6 +54,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -555,27 +571,92 @@ HTML의 `class` 속성은 JSX에서 무엇으로 바꿔서 써야 하나요?
 
 <h2>11. ✅ 핵심 요약</h2>
 
-지금까지 배운 JSX 문법의 핵심 규칙 4가지를 요약해 드립니다. 이 규칙들만 잘 지켜도 리액트 문법 에러의 90%는 예방할 수 있습니다.
+지금까지 배운 JSX 문법의 핵심 규칙을 4단계 복습 카드로 정리해 드립니다. 이 규칙들만 잘 지켜도 리액트 문법 에러의 90%는 예방할 수 있습니다.
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>JSX 규칙</strong></td>
-    <td>• 태그는 무조건 닫아야 합니다. 예: <code>&lt;br /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;img /&gt;</code><br>• 최상위 태그는 하나여야 합니다. (<code>&lt;&gt;...&lt;/&gt;</code> Fragment 사용)<br>• <code>class</code> 대신 <code>className</code>을 사용합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>표현식 (<code>{ }</code>)</strong></td>
-    <td>HTML 사이에 자바스크립트 변수나 값을 넣을 때 사용합니다. 단, <code>if</code>문이나 <code>for</code>문 같은 '명령'은 넣을 수 없고, 삼항 연산자나 <code>map</code> 같은 '값'만 가능합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>스타일 (<code>{{ }}</code>)</strong></td>
-    <td>문자열이 아닌 <strong>객체</strong> 형태로 전달해야 합니다. 속성명은 <code>background-color</code> 대신 <code>backgroundColor</code>처럼 <strong>카멜 케이스</strong>로 작성합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>주석</strong></td>
-    <td><code>{/* 내용 */}</code> 형태로 작성해야 화면에 표시되지 않습니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>태그는 무조건 닫아야 합니다. 예: <code>&lt;br /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;img /&gt;</code></li>
+    <li>최상위 태그는 하나여야 하며, 불필요한 <code>&lt;div&gt;</code> 대신 <strong>Fragment</strong>(<code>&lt;&gt;...&lt;/&gt;</code>)를 사용합니다.</li>
+    <li><code>class</code> 대신 <strong>className</strong>을, <code>for</code> 대신 <strong>htmlFor</strong>를 사용합니다.</li>
+    <li>중괄호 <code>{ }</code> 안에는 변수·연산·삼항 연산자 같은 <strong>값(표현식)</strong>만 넣을 수 있습니다.</li>
+    <li>인라인 스타일은 문자열이 아닌 <strong>객체</strong> <code>{{ }}</code>로 작성하며, 속성명은 <code>backgroundColor</code>처럼 <strong>camelCase</strong>로 씁니다.</li>
+    <li>JSX 주석은 <code>{/* 내용 */}</code> 형태로 작성해야 화면에 표시되지 않습니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 여러 요소를 감쌀 때 그냥 &lt;div&gt;를 써도 상관없다?</div>
+    <div class="wda-mistake-right">정답: 불필요한 div가 실제 DOM에 그대로 남아 스타일이 꼬일 수 있으므로, 감싸기만 할 때는 <strong>Fragment</strong>를 사용합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: class="container"라고 써도 동작하니 문제없다?</div>
+    <div class="wda-mistake-right">정답: 자바스크립트의 <code>class</code> 예약어와 충돌해 콘솔에 경고가 뜨며, 반드시 <strong>className</strong>을 써야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: input, br 같은 태그는 HTML처럼 안 닫아도 된다?</div>
+    <div class="wda-mistake-right">정답: JSX는 HTML보다 문법이 엄격해서, 내용이 없는 태그는 반드시 <code>/</code>로 스스로 닫아야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 중괄호 { } 안에 if문을 넣어 조건 분기를 할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 중괄호에는 값으로 평가되는 <strong>표현식</strong>만 들어갈 수 있어, if문 대신 <strong>삼항 연산자</strong>를 사용해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: style="color:red"처럼 문자열로 스타일을 지정해도 된다?</div>
+    <div class="wda-mistake-right">정답: JSX의 style은 <strong>객체</strong> <code>{{ color: 'red' }}</code> 형태로 전달해야 하며, 속성명도 camelCase여야 합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 태그 닫기</div>
+    <div class="wda-formula-block-body"><code>모든 태그는 닫는다</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 속성명 변환</div>
+    <div class="wda-formula-block-body"><code>class→className, for→htmlFor</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 중괄호</div>
+    <div class="wda-formula-block-body"><code>{ } = 값만 가능</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 인라인 스타일</div>
+    <div class="wda-formula-block-body"><code>style={{ camelCase }}</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">여러 JSX 요소를 불필요한 div 없이 묶는 문법은?</div>
+    <div class="wda-flip-back">Fragment (<code>&lt;&gt; ... &lt;/&gt;</code>)입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">HTML의 class 속성은 JSX에서 무엇으로 바꿔 써야 하나?</div>
+    <div class="wda-flip-back">className으로 바꿔 써야 합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">label의 for 속성은 JSX에서 무엇으로 바뀌나?</div>
+    <div class="wda-flip-back">htmlFor로 바뀝니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSX 중괄호 안에 if문을 넣을 수 있나?</div>
+    <div class="wda-flip-back">없습니다. 값으로 평가되지 않는 문(Statement)이라 삼항 연산자를 대신 사용해야 합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">인라인 스타일은 어떤 형태로 전달해야 하나?</div>
+    <div class="wda-flip-back">객체 <code>{{ }}</code> 형태이며, 속성명은 camelCase로 작성합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSX에서 주석은 어떻게 작성하나?</div>
+    <div class="wda-flip-back"><code>{/* 내용 */}</code> 형태로 작성합니다.</div>
+  </div>
+</div>

@@ -57,6 +57,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -510,21 +526,83 @@ my-first-project/
 
 <h2>✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>단계</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>1. Node.js 설치</strong></td>
-    <td><strong>"LTS &amp; 버전 확인"</strong><br>공식 사이트(nodejs.org)에서 <strong>안정적인 LTS 버전</strong>을 설치하고, 터미널에서 <code>node -v</code>로 설치를 확인했습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>2. 프로젝트 시작</strong></td>
-    <td><strong>"npm init -y"</strong><br>프로젝트 폴더를 만들고 초기화하여, 프로젝트의 신분증인 <strong>`package.json`</strong>을 생성했습니다.</td>
-  </tr>
-  <tr>
-    <td><strong>3. 스크립트 실행</strong></td>
-    <td><strong>"npm run"</strong><br><code>node index.js</code>로 직접 실행하거나, <strong>`scripts`</strong>에 단축 명령어를 등록하여 편하게 실행하는 법을 익혔습니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>nodejs.org에서는 <strong>짝수 버전인 LTS(장기 지원)</strong>를 설치하는 것이 안전하다.</li>
+    <li>설치 확인은 터미널에서 <code>node -v</code>, <code>npm -v</code>로 버전 번호가 출력되는지 본다.</li>
+    <li>PATH는 OS가 실행 파일 위치를 적어둔 목록이며, <code>npm install -g</code>는 PATH가 가리키는 공용 폴더에 설치한다.</li>
+    <li><code>npm init -y</code>로 프로젝트를 초기화하면 <strong>package.json</strong>이 생성된다.</li>
+    <li>package.json의 <strong>scripts</strong>에 명령어를 등록하면 <code>npm run [이름]</code>으로 짧게 실행할 수 있다.</li>
+    <li>nodemon을 <code>-D</code>(devDependencies)로 설치하면 코드 수정 시 서버가 <strong>자동 재시작</strong>된다.</li>
+    <li>node_modules는 Git에 올리지 않고(.gitignore), <strong>package-lock.json은 반드시 커밋</strong>해 팀원 간 버전을 맞춘다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Windows에서 PATH 환경 변수를 항상 수동으로 설정해야 한다?</div>
+    <div class="wda-mistake-right">정답: 설치 시 <strong>"Add to PATH"</strong> 옵션이 기본으로 켜져 있어 대부분 자동으로 설정된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: npm start와 npm run dev는 똑같이 run을 생략할 수 있다?</div>
+    <div class="wda-mistake-right">정답: start·test처럼 <strong>공식 명령어만 run 생략</strong>이 가능하고, dev·build 같은 커스텀 명령어는 반드시 <code>npm run</code>을 붙여야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: node_modules를 지우면 프로젝트가 망가진다?</div>
+    <div class="wda-mistake-right">정답: package.json과 package-lock.json만 있으면 <code>npm install</code>로 <strong>다시 복구</strong>할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: package.json의 main 필드가 npm start의 실행 기준이다?</div>
+    <div class="wda-mistake-right">정답: <code>npm start</code>는 <strong>scripts.start</strong>에 적힌 명령어를 실행하며, main은 이 패키지를 다른 곳에서 불러올 때(import/require)의 기본 진입점이다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 버전 선택</div>
+    <div class="wda-formula-block-body"><code>LTS(짝수) 추천</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 설치 확인</div>
+    <div class="wda-formula-block-body"><code>node -v && npm -v</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 자동 재시작</div>
+    <div class="wda-formula-block-body"><code>nodemon → npm run dev</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">LTS와 Current 버전 중 무엇을 설치해야 하나?</div>
+    <div class="wda-flip-back">안정적인 LTS(짝수 버전)를 설치한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">node -v가 "command not found"라면?</div>
+    <div class="wda-flip-back">PATH 설정이 반영되지 않은 것이므로 터미널을 새로 열거나 컴퓨터를 재시작한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npm 설치 시 권한 오류(EACCES)가 나면?</div>
+    <div class="wda-flip-back">급할 땐 sudo를 쓰되, 근본적으로는 nvm으로 관리하는 것이 안전하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npm init 없이 package.json을 직접 만들어도 되나?</div>
+    <div class="wda-flip-back">가능하지만 JSON 문법과 필수 필드를 정확히 작성해야 하므로, 초보자는 npm init -y를 쓰는 것이 안전하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">dependencies와 devDependencies의 차이는?</div>
+    <div class="wda-flip-back">dependencies는 실행에 꼭 필요한 패키지, devDependencies는 개발 중에만 필요한 패키지(예: nodemon)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">package-lock.json을 지우면 안 되는 이유는?</div>
+    <div class="wda-flip-back">팀원 간 "내 컴퓨터에선 되는데 왜 안 돼" 문제를 막아주는 정확한 버전 기록이기 때문이다.</div>
+  </div>
+</div>

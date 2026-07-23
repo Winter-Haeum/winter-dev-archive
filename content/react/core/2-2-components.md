@@ -48,6 +48,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -619,23 +635,80 @@ export default App;
 
 <h2>10. ✅ 핵심 요약</h2>
 
-오늘 배운 **컴포넌트(Component)** 챕터의 3가지 핵심 내용입니다.
+오늘 배운 **컴포넌트(Component)** 챕터의 핵심 내용을 4단계 복습 카드로 정리합니다.
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>컴포넌트란</strong></td>
-    <td><strong>재사용 가능한 UI 조각</strong>입니다. 레고 블록처럼 조각들을 조합해서 하나의 완성된 페이지를 구성합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>함수 컴포넌트</strong></td>
-    <td>JSX를 반환하는 자바스크립트 <strong>함수</strong>입니다.<br>• 이름: 반드시 <strong>PascalCase</strong>(대문자 시작)로 짓습니다.<br>• 관리: <code>export</code>와 <code>import</code>를 사용해 파일을 나누고 연결합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>조합 (Composition)</strong></td>
-    <td>컴포넌트 안에 다른 컴포넌트를 넣어 <strong>부모-자식 관계</strong>의 트리 구조(Tree Structure)를 만듭니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>컴포넌트는 <strong>재사용 가능한 UI 조각</strong>입니다. 레고 블록처럼 조합해서 하나의 완성된 페이지를 구성합니다.</li>
+    <li>함수 컴포넌트는 JSX를 반환하는 자바스크립트 <strong>함수</strong>이며, 이름은 반드시 <strong>PascalCase</strong>(대문자 시작)로 짓습니다.</li>
+    <li><code>export default</code>와 <code>import</code>를 사용해 컴포넌트 파일을 나누고 연결합니다.</li>
+    <li>컴포넌트 안에 다른 컴포넌트를 넣어 <strong>부모-자식 관계</strong>의 트리 구조(Tree Structure)를 만듭니다.</li>
+    <li>소문자로 시작하면 HTML 태그로, 대문자로 시작하면 React 컴포넌트로 인식됩니다.</li>
+    <li>내용물(children)이 있는 컴포넌트는 <code>&lt;Card&gt;...&lt;/Card&gt;</code>처럼 열고 닫는 형태로 사용합니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: header처럼 소문자로 함수를 만들어도 컴포넌트로 인식된다?</div>
+    <div class="wda-mistake-right">정답: 소문자로 시작하면 리액트가 일반 HTML 태그(<code>header</code>)로 착각해 렌더링되지 않거나 오류가 납니다. 반드시 <strong>PascalCase</strong>(<code>Header</code>)로 지어야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 컴포넌트 파일명은 아무렇게나 지어도 상관없다?</div>
+    <div class="wda-mistake-right">정답: 파일명이 실행에 영향을 주진 않지만, 관례상 <strong>컴포넌트 이름과 동일한 PascalCase</strong>로 맞춰야 유지보수와 파일 찾기가 쉬워집니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: export default는 한 파일에서 여러 번 사용할 수 있다?</div>
+    <div class="wda-mistake-right">정답: <strong>파일당 default export는 하나</strong>만 가능합니다. 여러 개를 내보내려면 named export를 사용해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 자식 요소가 있는 컴포넌트도 &lt;Card /&gt;처럼 self-closing으로 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: 내용물(children)을 담으려면 <code>&lt;Card&gt;...&lt;/Card&gt;</code>처럼 <strong>여는 태그와 닫는 태그</strong>를 따로 작성해야 합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 이름 규칙</div>
+    <div class="wda-formula-block-body"><code>컴포넌트 = PascalCase</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 내보내기</div>
+    <div class="wda-formula-block-body"><code>export default (파일당 1개)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 조합</div>
+    <div class="wda-formula-block-body"><code>부모 안에 자식 컴포넌트</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React 컴포넌트 이름은 반드시 어떤 케이스로 시작해야 하나?</div>
+    <div class="wda-flip-back">PascalCase(대문자로 시작)입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">왜 소문자로 시작하면 안 되나?</div>
+    <div class="wda-flip-back">리액트가 일반 HTML 태그로 오해해 렌더링되지 않거나 오류가 발생하기 때문입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">자식 요소를 감싸는 컴포넌트 사용 방식은?</div>
+    <div class="wda-flip-back"><code>&lt;Card&gt;...&lt;/Card&gt;</code>처럼 열고 닫는 형태로 작성합니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컴포넌트 파일 하나에서 export default로 내보낼 수 있는 개수는?</div>
+    <div class="wda-flip-back">파일당 1개입니다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">컴포넌트들이 부모-자식으로 연결된 구조를 무엇이라 부르나?</div>
+    <div class="wda-flip-back">컴포넌트 트리(Tree Structure)라고 부릅니다.</div>
+  </div>
+</div>

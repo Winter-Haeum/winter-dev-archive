@@ -22,13 +22,13 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
@@ -53,6 +53,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -366,33 +382,89 @@ const m = new MathUtil();
 
 ## 5. ✅ 핵심 요약
 
-Class 문법 도입으로 변화된 **3가지 핵심 포인트**입니다.
+**📌 먼저 외울 것**
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-    <th>특징 및 주의사항</th>
-  </tr>
-  <tr>
-    <td><strong>Syntactic Sugar</strong>(문법적 설탕)</td>
-    <td>Class는 복잡한 프로토타입 문법을 감춘 <strong>달콤한 포장지</strong>입니다.</td>
-    <td>• 내부 동작은 생성자 함수와 비슷합니다.<br>• 하지만 사용자가 쓰기에 <strong>훨씬 더 안전하고 명확</strong>합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>상속의 편리함</strong>(Convenience)</td>
-    <td><strong>`extends`</strong> 하나면 상속 끝! <strong>`super`</strong>를 통해 부모의 기능을 쉽게 가져다 씁니다.</td>
-    <td>• 복잡한 프로토타입 체인 연결 과정이 사라졌습니다.<br>• 키워드 두 개로 직관적인 상속 구현이 가능합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>선언 전 사용 불가</strong>(TDZ)</td>
-    <td>Class 선언도 스코프의 맨 위로 인식되기는 하지만, <strong>let/const처럼 TDZ의 영향을 받아</strong> 선언 전에 사용할 수 없습니다.</td>
-    <td>• <strong>순서가 매우 중요</strong>합니다.<br>• 반드시 <strong>클래스를 먼저 선언(정의)한 뒤에 사용(`new`)</strong>해야 합니다.</td>
-  </tr>
-</table>
+<div class="wda-check-note">
+  <ul>
+    <li>Class는 복잡한 프로토타입 문법을 감춘 <strong>Syntactic Sugar(문법적 설탕)</strong>이며, 내부적으로는 여전히 prototype을 사용합니다.</li>
+    <li><code>constructor</code>는 <code>new</code>로 인스턴스를 만들 때 자동 실행되는 초기화 메서드이며, 클래스 메서드 사이에는 <strong>콤마(,)</strong>를 쓰지 않습니다.</li>
+    <li><strong>extends</strong>로 상속하고, <strong>super()</strong>로 부모의 생성자를, <strong>super.method()</strong>로 부모의 메서드를 호출합니다.</li>
+    <li><strong>static</strong> 키워드가 붙은 메서드/속성은 인스턴스가 아니라 <strong>클래스 자체</strong>에서 호출합니다 (<code>ClassName.method()</code>).</li>
+    <li>Class는 let/const처럼 <strong>TDZ</strong>의 영향을 받아 선언 전에 사용할 수 없습니다 — 반드시 먼저 선언한 뒤 사용(<code>new</code>)해야 합니다.</li>
+  </ul>
+</div>
 
-**💡 보충 설명**
+**🧠 헷갈리기 쉬운 것**
 
-<div class="wda-callout wda-ci">
-  <strong>Class는 왜 선언 전에 사용할 수 없나요?</strong> — 자바스크립트에서 <code>function</code>으로 만든 함수는 코드 밑바닥에 적어놔도 맨 위에서 실행할 수 있는 마법(호이스팅)이 부려집니다.<br>Class 선언도 스코프의 맨 위로 인식되기는 하지만, <code>let</code>/<code>const</code>처럼 <strong>TDZ(Temporal Dead Zone)</strong>의 영향을 받기 때문에 선언 전에 사용하면 에러(<code>ReferenceError</code>)가 발생합니다.<br>초보자 단계에서는 <strong>"class는 선언한 뒤에 사용해야 한다"</strong>라고 기억하면 됩니다.
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Class는 생성자 함수와 완전히 동일하게 동작한다?</div>
+    <div class="wda-mistake-right">정답: Class는 <strong>new 없이 호출할 수 없고</strong>, 내부 코드가 자동으로 strict mode이며, 선언 전 사용이 불가능하다는 점에서 생성자 함수와 다릅니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 자식 클래스의 constructor에서 this를 먼저 써도 된다?</div>
+    <div class="wda-mistake-right">정답: 자식 <code>constructor</code>에서 this를 사용하기 전에 반드시 <strong>super()를 먼저 호출</strong>해야 합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 클래스 메서드 사이에도 객체처럼 콤마(,)를 찍어야 한다?</div>
+    <div class="wda-mistake-right">정답: 클래스 안에서 메서드 사이에 콤마를 찍으면 <strong>SyntaxError</strong>가 발생합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 정적(static) 메서드는 인스턴스에서도 호출할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 정적 메서드는 <strong>클래스 이름으로만</strong> 호출 가능하며, 인스턴스(new로 만든 객체)에서는 호출할 수 없습니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 정체</div>
+    <div class="wda-formula-block-body"><code>Class = 프로토타입의 Syntactic Sugar</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 상속</div>
+    <div class="wda-formula-block-body"><code>extends + super()</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 정적 멤버</div>
+    <div class="wda-formula-block-body"><code>static → ClassName.method()</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 사용 순서</div>
+    <div class="wda-formula-block-body"><code>class는 선언 후 사용 (TDZ)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Syntactic Sugar란?</div>
+    <div class="wda-flip-back">기능은 같지만 사람이 읽고 쓰기 편하게 만든 단축 문법이다. Class는 프로토타입 기반 객체 생성을 감싼 문법적 설탕이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">constructor는 언제 실행되나?</div>
+    <div class="wda-flip-back">new로 인스턴스를 생성할 때 자동으로 한 번 실행되는 초기화 메서드다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클래스 메서드 사이에 콤마를 찍으면?</div>
+    <div class="wda-flip-back">SyntaxError가 발생한다. 객체 리터럴과 달리 클래스 메서드 사이에는 콤마를 쓰지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">extends와 super()의 역할은?</div>
+    <div class="wda-flip-back">extends는 부모의 기능을 물려받게 하고, super()는 자식 constructor에서 부모의 constructor를 실행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">super.method()는 언제 쓰나?</div>
+    <div class="wda-flip-back">부모의 기본 기능을 그대로 실행하면서 자식만의 기능을 추가로 얹을 때(오버라이딩) 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">static 메서드는 어떻게 호출하나?</div>
+    <div class="wda-flip-back">new로 만든 인스턴스가 아니라 클래스 이름으로 직접 호출한다 (예: MathUtil.add()).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">클래스를 선언 전에 사용하면?</div>
+    <div class="wda-flip-back">let/const처럼 TDZ의 영향을 받아 ReferenceError가 발생한다.</div>
+  </div>
 </div>

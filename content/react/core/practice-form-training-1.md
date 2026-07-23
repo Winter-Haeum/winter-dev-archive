@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. &gt;_ 실습 준비: 폼 트레이닝 센터</h2>
@@ -546,5 +562,78 @@ export default function LoginSubmit() {
   <div class="wda-fcard">
     <div class="wda-fcard-ttl">Logic Check 2. Button Type</div>
     <div class="wda-fcard-dsc"><code>form</code> 내부의 버튼은 기본이 <code>submit</code>입니다. 제출용이 아닌 일반 버튼(취소 등)을 만들 땐 반드시 <code>type="button"</code>을 명시하세요.</div>
+  </div>
+</div>
+
+---
+
+<h2>6. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>글자 수, 초과 여부 같은 값은 별도 state로 만들지 않고 렌더링 중 계산하는 <strong>파생 상태(Derived State)</strong>로 처리한다.</li>
+    <li><strong>select</strong>는 option에 selected를 주는 게 아니라, <strong>select 태그 자체에 value를 바인딩</strong>해 제어한다.</li>
+    <li>같은 그룹의 <strong>radio</strong>는 반드시 같은 <code>name</code>을 공유해야 하나만 선택되는 그룹으로 동작한다.</li>
+    <li>form 제출 시 새로고침을 막으려면 반드시 <strong>e.preventDefault()</strong>를 호출한다.</li>
+    <li>form 안의 button은 기본 type이 <strong>submit</strong>이므로, 제출용이 아닌 버튼은 <code>type="button"</code>을 명시한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 글자 수·초과 여부를 별도 useState로 관리한다.</div>
+    <div class="wda-mistake-right">방지: text state에서 바로 계산되는 파생 상태(count, isLimit)로 처리하면 값 동기화 문제가 생기지 않는다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: radio 버튼에 name 속성을 빠뜨린다.</div>
+    <div class="wda-mistake-right">방지: name이 없으면 그룹으로 묶이지 않아 여러 사이즈가 동시에 선택될 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: handleSubmit에서 e.preventDefault()를 생략한다.</div>
+    <div class="wda-mistake-right">방지: 생략하면 브라우저가 페이지를 새로고침해 SPA 상태가 초기화된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 비밀번호 에러 조건에 length > 0을 빼먹는다.</div>
+    <div class="wda-mistake-right">방지: length > 0 조건이 없으면 입력을 시작하기도 전(빈 문자열)부터 에러 메시지가 노출된다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>실습 1: 15자를 넘으면 테두리와 글자 색이 빨간색으로 바뀌고, 대문자 변환 결과가 실시간으로 보인다.</li>
+    <li>실습 2: select와 radio 선택값이 하단 주문 내역에 정확히 반영된다.</li>
+    <li>실습 3: 8자 미만 입력 시에만 빨간 에러 메시지가 나타나고, 8자 이상이면 사라진다.</li>
+    <li>실습 4: 제출 시 새로고침 없이 알림창이 뜨고, 빈 이메일 제출은 막힌다.</li>
+  </ul>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">count, isLimit을 왜 useState로 만들지 않았나?</div>
+    <div class="wda-flip-back">text에서 바로 계산할 수 있는 파생 상태이기 때문에, 렌더링 중 계산하는 편이 더 단순하고 안전하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">select를 제어 컴포넌트로 만드는 핵심은?</div>
+    <div class="wda-flip-back">option의 selected 속성이 아니라 select 태그 자체에 value를 바인딩하는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">radio 버튼에 name이 왜 필요한가?</div>
+    <div class="wda-flip-back">같은 name을 가진 radio끼리만 하나만 선택되는 그룹으로 묶이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">e.preventDefault()를 안 하면 어떻게 되나?</div>
+    <div class="wda-flip-back">브라우저가 폼 데이터를 쿼리스트링으로 만들어 페이지를 새로고침해버린다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">form 내부 button의 기본 type은?</div>
+    <div class="wda-flip-back">submit이다. 제출용이 아니라면 반드시 type="button"을 명시해야 한다.</div>
   </div>
 </div>

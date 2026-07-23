@@ -52,6 +52,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -573,27 +589,78 @@ export default TemperatureCalculator;
 
 <h2>12. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>Immutable Update</strong></td>
-    <td>객체나 배열을 수정할 때는 직접 변경하지 않고 <strong>Spread 연산자(...)</strong>, <strong>map</strong>, <strong>filter</strong> 등을 사용하여 새로운 복사본을 만들어야 합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>Lifting State Up</strong></td>
-    <td>형제 컴포넌트 간에 데이터를 공유해야 할 때는 <strong>공통 부모 컴포넌트</strong>로 state를 끌어올려 관리합니다.</td>
-  </tr>
-  <tr>
-    <td><strong>No Redundant State</strong></td>
-    <td>기존의 props나 state를 통해 계산해낼 수 있는 값은 별도의 state로 만들지 않고 변수(파생 상태)로 처리합니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
-**💡 보충 설명**
+<div class="wda-check-note">
+  <ul>
+    <li>객체·배열 state는 <strong>절대 직접 수정하지 않고</strong>, 항상 새 복사본을 만들어 setter에 전달한다 (불변성).</li>
+    <li>React는 값의 내용이 아니라 <strong>참조(메모리 주소)</strong>를 비교해서 리렌더링 여부를 판단한다.</li>
+    <li>배열은 <strong>push·pop·splice·sort·reverse 금지</strong>, <strong>map·filter·concat·slice·스프레드(...)</strong>로 새 배열을 만든다.</li>
+    <li>형제 컴포넌트가 같은 데이터를 공유해야 하면 <strong>공통 부모로 state를 끌어올린다</strong> (Lifting State Up).</li>
+    <li>기존 state·props로 계산 가능한 값은 별도 state로 만들지 않고 <strong>파생 변수</strong>로 처리한다.</li>
+    <li>중첩 객체를 깊이 수정할 때는 <strong>Immer(useImmer)</strong>로 spread 지옥을 피할 수 있다.</li>
+  </ul>
+</div>
 
-<div class="wda-callout wda-ci">
-  <p>React 개발의 8할은 '데이터(State) 관리'입니다.<br>"원본을 건드리지 않는다(불변성)"와 "데이터는 위에서 아래로 흐른다(단방향)"는 두 가지 대원칙만 확실히 지켜도 대부분의 버그를 예방할 수 있습니다.</p>
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: user.age = 26 후 setUser(user)처럼 객체를 직접 수정해도 된다?</div>
+    <div class="wda-mistake-right">정답: 참조값이 그대로라 React가 변경을 감지하지 못한다. <code>{ ...user, age: 26 }</code>처럼 <strong>새 객체</strong>를 만들어 전달해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: push()로 배열에 추가해도 화면이 갱신된다?</div>
+    <div class="wda-mistake-right">정답: push는 원본 배열을 직접 수정하는 메서드라 참조가 안 바뀐다. <code>[...prev, newItem]</code>이나 concat처럼 <strong>새 배열을 반환</strong>하는 방식을 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: spread는 순서 상관없이 써도 된다?</div>
+    <div class="wda-mistake-right">정답: <code>name: newName</code> 뒤에 <code>...form</code>을 쓰면 기존 데이터가 수정 내용을 덮어써 버린다. <strong>...form을 먼저</strong> 깔고 그 위에 덮어써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Immer를 쓰면 불변성 규칙이 사라진다?</div>
+    <div class="wda-mistake-right">정답: Immer는 불변성을 없애는 게 아니라, draft를 직접 수정하듯 작성해도 <strong>내부적으로 새 객체를 만들어주는 자동화 도구</strong>다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: fullName처럼 계산 가능한 값도 useState로 관리해야 안전하다?</div>
+    <div class="wda-mistake-right">정답: 계산 가능한 값을 state로 만들면 동기화 버그가 생기기 쉽다. <strong>파생 변수(const)</strong>로 렌더링 시점에 계산하는 것이 안전하다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 불변성 원칙</div>
+    <div class="wda-formula-block-body"><code>직접 수정 ❌ → 새 복사본 생성 ✅</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 배열 갱신</div>
+    <div class="wda-formula-block-body"><code>map / filter / concat / [...arr]</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · state 설계</div>
+    <div class="wda-formula-block-body"><code>계산 가능한 값은 state 금지</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">객체·배열 state를 업데이트할 때 가장 중요한 원칙은?</div>
+    <div class="wda-flip-back">불변성(Immutability). 기존 데이터를 직접 수정하지 않고 새 복사본을 만들어 교체해야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">배열에 새 항목을 추가할 때 사용하면 안 되는 메서드는?</div>
+    <div class="wda-flip-back">push(). pop, splice와 함께 원본을 직접 바꾸는 메서드라 React가 변화를 감지하지 못한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">형제 컴포넌트가 같은 데이터를 공유해야 할 때 쓰는 패턴은?</div>
+    <div class="wda-flip-back">상태 끌어올리기(Lifting State Up) — 공통 부모에 state를 두고 props로 내려준다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">중첩 객체를 깊이 수정할 때 spread 지옥을 피하는 방법은?</div>
+    <div class="wda-flip-back">Immer(useImmer) 라이브러리로 draft를 직접 수정하듯 작성하면 내부적으로 불변성을 지켜준다.</div>
+  </div>
 </div>

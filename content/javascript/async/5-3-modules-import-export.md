@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -860,7 +876,7 @@ import React, { useState, useEffect } from 'react';
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📊 모듈 시스템 총정리표</h2>
 </div>
 
 **🧠 모듈 시스템 총정리**
@@ -935,4 +951,105 @@ import React, { useState, useEffect } from 'react';
   실무에서는 <strong>Named Export</strong>로 유틸리티 함수들을 묶어서 관리하고,<br>
   <strong>Default Export</strong>로 리액트 컴포넌트 같은 메인 기능을 관리하며,<br>
   성능이 필요할 때 <strong>Dynamic Import</strong>를 섞어서 사용하는 것이 정석입니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>모듈은 <strong>파일 단위로 독립된 스코프</strong>를 가지므로, 다른 파일과 같은 변수 이름을 써도 충돌하지 않는다.</li>
+    <li>HTML에서 모듈을 쓰려면 <code>&lt;script type="module"&gt;</code>이 필수이며, 이때 <strong>엄격 모드가 자동 적용</strong>된다.</li>
+    <li><strong>Named Export</strong>는 <code>export { a, b }</code>로 여러 개를 내보내고, 가져올 때도 <strong>중괄호 { }</strong>와 <strong>똑같은 이름</strong>을 써야 한다.</li>
+    <li><strong>Default Export</strong>는 파일당 <strong>단 하나만</strong> 가능하며, 가져올 때 중괄호 없이 <strong>원하는 이름</strong>을 자유롭게 붙일 수 있다.</li>
+    <li><strong>동적 import</strong>(<code>await import()</code>)는 필요한 순간에만 모듈을 불러와 코드 스플리팅에 사용되며, 조건문이나 함수 안에서도 쓸 수 있다.</li>
+    <li>순수 브라우저 환경에서는 import 경로에 <strong>.js 확장자가 필수</strong>지만, 번들러(Vite 등) 환경에서는 생략 가능하다.</li>
+    <li><strong>CommonJS</strong>(<code>require</code>/<code>module.exports</code>)는 Node.js의 옛날 방식이고, <strong>ES Modules</strong>(<code>import</code>/<code>export</code>)가 현재의 공식 표준이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Named Export도 중괄호 없이 가져올 수 있다?</div>
+    <div class="wda-mistake-right">정답: Named Import는 반드시 <strong>중괄호 { }</strong>로 감싸고, 내보낸 이름과 <strong>똑같이</strong> 적어야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Default Export도 import { User }처럼 중괄호로 가져와야 한다?</div>
+    <div class="wda-mistake-right">정답: Default Import는 <strong>중괄호 없이</strong> 가져오며, 이름도 자유롭게 바꿀 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: HTML 파일을 더블클릭해서 열어도(file://) 모듈이 정상 동작한다?</div>
+    <div class="wda-mistake-right">정답: 보안 정책(CORS) 때문에 반드시 <strong>Live Server 같은 로컬 서버(http://)</strong>에서 열어야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 어떤 환경에서든 import 경로의 .js 확장자를 생략해도 된다?</div>
+    <div class="wda-mistake-right">정답: 순수 브라우저(<code>type="module"</code>)에서는 <strong>.js 확장자가 필수</strong>이고, 번들러 환경에서만 생략 가능하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Default Export가 항상 Named Export보다 트리 쉐이킹에 유리하다?</div>
+    <div class="wda-mistake-right">정답: Named Export가 각 항목이 독립적으로 드러나 트리 쉐이킹에 유리한 경우가 많고, 여러 기능을 객체 하나로 묶은 Default Export는 오히려 <strong>불리할 수 있다</strong>.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · Named</div>
+    <div class="wda-formula-block-body"><code>export { } → import { } (이름 고정)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · Default</div>
+    <div class="wda-formula-block-body"><code>export default → import 아무이름</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 동적 import</div>
+    <div class="wda-formula-block-body"><code>await import('경로') → 필요할 때 로드</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 확장자</div>
+    <div class="wda-formula-block-body"><code>브라우저=.js 필수, 번들러=생략 가능</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">함수를 외부에서 쓸 수 있게 하려면 앞에 무엇을 붙여야 하나?</div>
+    <div class="wda-flip-back">export. 붙이지 않으면 해당 파일 안에서만 쓰는 비공개 상태가 된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">math.js의 add 함수를 가져오는 올바른 코드는?</div>
+    <div class="wda-flip-back">import { add } from './math.js'; — Named Import는 중괄호가 필수다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">파일의 주인공(단 하나)을 내보낼 때 쓰는 키워드는?</div>
+    <div class="wda-flip-back">export default. 한 파일당 딱 한 번만 사용할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Default Export를 'Profile'이라는 이름으로 가져오려면?</div>
+    <div class="wda-flip-back">import Profile from './User.js'; — 중괄호 없이 원하는 이름을 자유롭게 붙일 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">여러 함수·변수를 공구함처럼 내보낼 때 쓰는 방식은?</div>
+    <div class="wda-flip-back">Named Export (이름으로 내보내기)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">파일당 단 하나만 내보낼 수 있는 특별한 방식은?</div>
+    <div class="wda-flip-back">Default Export (기본 내보내기)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">import { a }처럼 중괄호가 반드시 필요한 경우는?</div>
+    <div class="wda-flip-back">Named Export로 내보낸 것을 가져올 때(Named Import).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">동적 import(await import())는 왜 쓰나?</div>
+    <div class="wda-flip-back">코드 스플리팅으로 초기 로딩을 가볍게 하기 위해, 버튼 클릭 등 필요한 순간에만 모듈을 불러온다.</div>
+  </div>
 </div>

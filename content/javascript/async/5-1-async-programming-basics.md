@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -978,7 +994,7 @@ setTimeout(() => {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📊 비동기 흐름 총정리</h2>
 </div>
 
 **🧠 핵심 요소별 상세 비교표**
@@ -1033,4 +1049,100 @@ setTimeout(() => {
   특히 <strong>'4. 태스크 큐 비교'</strong>와 <strong>'5. 콜백의 한계'</strong>는 실무에서 버그를 잡거나 코드를 리팩토링할 때 가장 중요한 기준이 됩니다.<br>
   · "왜 화면이 멈추지?" 👉 <strong>동기</strong> 작업이 너무 길거나, <strong>마이크로태스크</strong> 루프에 빠진 것.<br>
   · "왜 에러가 안 잡히지?" 👉 <strong>콜백</strong> 안에서 에러 처리를 안 했거나, <strong>Promise</strong> 체인이 끊긴 것.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>동기</strong>는 앞 작업이 끝날 때까지 기다리는 순차·블로킹 방식이고, <strong>비동기</strong>는 오래 걸리는 작업을 맡겨두고 다음 코드를 먼저 실행하는 논블로킹 방식이다.</li>
+    <li>자바스크립트는 <strong>싱글 스레드</strong>지만, 브라우저의 Web API와 <strong>이벤트 루프</strong> 덕분에 비동기 처리가 가능하다.</li>
+    <li>이벤트 루프는 <strong>콜 스택이 완전히 비어야만</strong> 태스크 큐의 작업을 가져와 실행한다.</li>
+    <li>실행 우선순위는 <strong>동기 코드 → 마이크로태스크(Promise 등) → 매크로태스크(setTimeout 등)</strong> 순이다.</li>
+    <li><strong>setTimeout</strong>은 지정 시간 뒤 한 번만 실행되고, <strong>setInterval</strong>은 <code>clearInterval</code>로 멈추기 전까지 계속 반복된다.</li>
+    <li><strong>콜백 지옥</strong>은 콜백이 중첩되며 가독성이 파괴되는 현상이며, 다음 단계에서 배우는 Promise/async-await로 해결한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setTimeout(fn, 0)은 0ms 뒤 즉시 실행된다?</div>
+    <div class="wda-mistake-right">정답: <strong>콜 스택이 완전히 비워진 뒤</strong>에야 실행되며, 0ms는 "최소 0ms 후"라는 뜻일 뿐이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 코드에 먼저 등장한 setTimeout이 Promise.then보다 먼저 실행된다?</div>
+    <div class="wda-mistake-right">정답: <strong>마이크로태스크(Promise)</strong>는 항상 <strong>매크로태스크(setTimeout)</strong>보다 먼저 실행되는 VIP다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 비동기 콜백 내부 에러도 바깥의 try-catch로 잡을 수 있다?</div>
+    <div class="wda-mistake-right">정답: try 블록은 콜백 실행 전에 이미 종료되므로, 에러는 반드시 <strong>콜백 내부</strong>에서 직접 잡아야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setInterval은 알아서 멈춘다?</div>
+    <div class="wda-mistake-right">정답: <code>clearInterval</code>을 호출하지 않으면 <strong>영원히 반복</strong>되어 메모리 누수를 일으킬 수 있다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 실행 순서</div>
+    <div class="wda-formula-block-body"><code>동기 → 마이크로태스크 → 매크로태스크</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · setTimeout(fn, 0)</div>
+    <div class="wda-formula-block-body"><code>즉시 실행 X, 콜 스택 빈 후 실행</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 타이머 습관</div>
+    <div class="wda-formula-block-body"><code>켜면 반드시 clearInterval로 끈다</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 콜백 지옥 해결</div>
+    <div class="wda-formula-block-body"><code>콜백 지옥 → Promise / async-await</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">동기와 비동기의 결정적 차이는?</div>
+    <div class="wda-flip-back">동기는 앞 작업이 끝날 때까지 기다리는 블로킹 방식, 비동기는 기다리지 않고 다음 작업을 먼저 진행하는 논블로킹 방식이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">자바스크립트는 싱글 스레드인데 어떻게 비동기가 가능한가?</div>
+    <div class="wda-flip-back">JS 엔진은 혼자 일하지만, 브라우저의 Web API가 무거운 작업을 대신 처리하고 이벤트 루프가 결과를 콜 스택으로 옮겨준다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이벤트 루프의 절대 규칙은?</div>
+    <div class="wda-flip-back">콜 스택이 완전히 비어야만 태스크 큐(마이크로/매크로)에서 작업을 가져와 실행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">다음 코드의 출력 순서는? console.log('1'); setTimeout(()=>console.log('2'),0); Promise.resolve().then(()=>console.log('3')); console.log('4');</div>
+    <div class="wda-flip-back">1, 4, 3, 2 — 동기 코드(1, 4) 먼저, 그다음 마이크로태스크(3), 마지막으로 매크로태스크(2).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">setTimeout과 setInterval의 차이는?</div>
+    <div class="wda-flip-back">setTimeout은 지정 시간 뒤 한 번만 실행되고, setInterval은 clearInterval로 멈추기 전까지 계속 반복 실행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">비동기 콜백 안에서 발생한 에러를 왜 바깥 try-catch로 못 잡나?</div>
+    <div class="wda-flip-back">try 블록이 콜백을 등록만 하고 즉시 종료되어, 실제 콜백이 실행되는 미래 시점에는 이미 감시(catch)가 끝나있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">콜백 지옥이란?</div>
+    <div class="wda-flip-back">비동기 작업을 순차 처리하려고 콜백을 계속 중첩하면서 코드가 피라미드 모양으로 깊어져 가독성과 유지보수성이 떨어지는 현상이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">에러 우선 콜백(Error-First Callback)의 규칙은?</div>
+    <div class="wda-flip-back">콜백의 첫 번째 인자는 에러(없으면 null), 두 번째 인자는 결과 데이터로 받아 에러 확인을 강제한다.</div>
+  </div>
 </div>

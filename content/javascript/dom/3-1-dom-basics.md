@@ -22,7 +22,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -37,7 +37,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-legacy{border-color:rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
@@ -62,6 +62,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -977,75 +993,92 @@ const newItems = document.querySelectorAll(".item");
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <thead>
-    <tr>
-      <th>핵심 질문</th>
-      <th>정답</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DOM이란?</td>
-      <td><strong>HTML 문서를 브라우저가 메모리에서 객체 트리로 만든 것</strong></td>
-    </tr>
-    <tr>
-      <td>HTML과 DOM 차이</td>
-      <td>HTML은 <strong>텍스트</strong>, DOM은 <strong>객체</strong></td>
-    </tr>
-    <tr>
-      <td>DOM은 어디에 존재?</td>
-      <td><strong>브라우저 메모리(RAM)</strong></td>
-    </tr>
-    <tr>
-      <td>왜 DOM이 필요한가</td>
-      <td>JS는 <strong>텍스트 HTML을 조작할 수 없고 객체만 다룬다</strong></td>
-    </tr>
-    <tr>
-      <td>JS는 무엇을 조작?</td>
-      <td><strong>HTML이 아니라 DOM 객체</strong></td>
-    </tr>
-    <tr>
-      <td>DOM의 구조</td>
-      <td><strong>트리(Tree) 구조, 최소 단위는 Node</strong></td>
-    </tr>
-    <tr>
-      <td>실무 핵심 노드</td>
-      <td><strong>Element Node(1), Text Node(3)</strong></td>
-    </tr>
-    <tr>
-      <td>DOM 진입점</td>
-      <td><strong>document (9번 DOCUMENT_NODE)</strong></td>
-    </tr>
-    <tr>
-      <td>화면이 바뀌는 이유</td>
-      <td><strong>DOM이 변경되면 브라우저가 다시 렌더링</strong></td>
-    </tr>
-    <tr>
-      <td>새로고침 시 변화</td>
-      <td><strong>메모리 DOM 초기화 → 원래 HTML로 복구</strong></td>
-    </tr>
-    <tr>
-      <td>요소 탐색 원칙</td>
-      <td><strong>Element 기준 탐색 (공백 Text 노드 회피)</strong></td>
-    </tr>
-    <tr>
-      <td>요소 선택 표준</td>
-      <td><strong>querySelector / querySelectorAll</strong></td>
-    </tr>
-    <tr>
-      <td>Live vs Static</td>
-      <td><strong>Live는 자동 변경, Static은 고정 스냅샷</strong></td>
-    </tr>
-    <tr>
-      <td>실무 권장</td>
-      <td><strong>Static(NodeList) 사용 후 필요 시 재조회</strong></td>
-    </tr>
-    <tr>
-      <td>렌더링 공식</td>
-      <td><strong>DOM + CSSOM → Render Tree → Layout → Paint</strong></td>
-    </tr>
-  </tbody>
-</table>
+이 요약은 입문자를 위한 단순화된 흐름입니다. 실제 브라우저 렌더링 과정은 더 세부 단계가 있지만, 기초 단계에서는 DOM과 CSSOM이 결합되어 화면에 그려진다고 이해하면 됩니다.
 
-이 공식은 입문자를 위한 단순화된 흐름입니다. 실제 브라우저 렌더링 과정은 더 세부 단계가 있지만, 기초 단계에서는 DOM과 CSSOM이 결합되어 화면에 그려진다고 이해하면 됩니다.
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>DOM은 HTML 문서를 브라우저가 <strong>메모리(RAM)</strong>에 객체 트리로 만든 것이며, HTML은 텍스트, DOM은 조작 가능한 객체다.</li>
+    <li>HTML → DOM 변환은 <strong>바이트 → 문자 → 토큰 → 노드/트리</strong> 4단계를 거친다.</li>
+    <li>DOM의 최소 구성 단위는 <strong>노드(Node)</strong>이며, 실무에서는 주로 <strong>요소 노드(1)</strong>와 <strong>텍스트 노드(3)</strong>를 다룬다.</li>
+    <li><strong>document</strong>는 DOM의 진입점(9번 DOCUMENT_NODE)이며, 모든 DOM 조작은 document 객체에서 시작된다.</li>
+    <li>요소 선택은 구식 <code>getElementById</code> 등보다 CSS 선택자를 그대로 쓰는 <strong>querySelector / querySelectorAll</strong>이 표준으로 권장된다.</li>
+    <li>DOM이 변경되면 브라우저는 <strong>DOM + CSSOM → Render Tree → Layout → Paint</strong> 순으로 다시 렌더링한다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: children과 childNodes는 같은 것을 반환한다?</div>
+    <div class="wda-mistake-right">정답: <strong>children</strong>은 요소만, <strong>childNodes</strong>는 줄바꿈·공백 같은 텍스트 노드까지 포함해 반환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: getElementsBy...와 querySelectorAll은 둘 다 정적(Static) 컬렉션을 반환한다?</div>
+    <div class="wda-mistake-right">정답: <strong>getElementsBy...</strong>는 실시간으로 바뀌는 <strong>Live(HTMLCollection)</strong>를, <strong>querySelectorAll</strong>은 선택 시점에 고정된 <strong>Static(NodeList)</strong>을 반환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: NodeList는 항상 정적(Static)이다?</div>
+    <div class="wda-mistake-right">정답: querySelectorAll의 NodeList는 정적이지만, <strong>element.childNodes</strong>가 반환하는 NodeList는 예외적으로 <strong>Live</strong>다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Live Collection을 for문으로 순회하며 요소를 지워도 안전하다?</div>
+    <div class="wda-mistake-right">정답: 순회 중 목록의 <strong>길이가 실시간으로 줄어들어 인덱스가 꼬일 수 있다</strong> — 안전하게 순회하려면 Static 컬렉션을 쓰거나 필요 시 재조회해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: display: none과 visibility: hidden은 렌더 트리에서 똑같이 취급된다?</div>
+    <div class="wda-mistake-right">정답: <strong>display: none</strong>은 렌더 트리에서 완전히 제외되지만, <strong>visibility: hidden</strong>은 렌더 트리에 포함되고 공간도 그대로 차지한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 변환 과정</div>
+    <div class="wda-formula-block-body"><code>바이트 → 문자 → 토큰 → 노드/트리</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 렌더링 공식</div>
+    <div class="wda-formula-block-body"><code>DOM + CSSOM → Render Tree → Layout → Paint</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 컬렉션 선택</div>
+    <div class="wda-formula-block-body"><code>실무 기본 = querySelectorAll (Static)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">DOM이란 무엇인가?</div>
+    <div class="wda-flip-back">HTML 문서를 브라우저가 메모리에서 객체 트리로 만든 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">HTML → DOM 변환 4단계는?</div>
+    <div class="wda-flip-back">바이트 → 문자 → 토큰 → 노드/트리 순으로 진행된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">실무에서 가장 중요하게 다루는 두 노드는?</div>
+    <div class="wda-flip-back">요소 노드(Element, 1번)와 텍스트 노드(Text, 3번)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">DOM의 진입점은 무엇인가?</div>
+    <div class="wda-flip-back">document 객체이며, 노드 타입 9번(DOCUMENT_NODE)에 해당한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">children과 childNodes의 차이는?</div>
+    <div class="wda-flip-back">children은 요소만, childNodes는 텍스트 노드(공백 포함)까지 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Live Collection과 Static Collection의 차이는?</div>
+    <div class="wda-flip-back">Live는 DOM 변경이 실시간 반영되고(HTMLCollection), Static은 선택 시점의 스냅샷을 유지한다(NodeList).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">렌더 트리가 만들어지는 공식은?</div>
+    <div class="wda-flip-back">DOM Tree + CSSOM Tree = Render Tree, 이후 Layout → Paint 순으로 진행된다.</div>
+  </div>
+</div>

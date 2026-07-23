@@ -22,13 +22,13 @@ tags:
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cy .wda-clabel{color:#92400e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
@@ -45,6 +45,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 📎 <strong>부록(Appendix)</strong> — <code>new Array()</code>, <code>Array.of()</code>, <code>Array.from()</code>의 차이를 정리하는 보충 가이드입니다.
@@ -283,7 +299,7 @@ console.log(numbers);
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📂 배열 생성 방식 요약표</h2>
 </div>
 
 **🆚 배열 생성 도구별 특징 비교**
@@ -354,4 +370,96 @@ const numbers = Array.from({ length: 5 }, (v, i) => i + 1);
 <div class="wda-callout wda-ci">
   · <strong>유사 배열의 조건</strong> — 일반적으로는 숫자 형태의 인덱스와 <strong><code>length</code> 속성</strong>을 가진 객체를 유사 배열로 간주하지만, <code>{ length: 5 }</code>처럼 인덱스 없이 <code>length</code>만 있어도 <code>Array.from()</code>은 그 값을 보고 지정한 횟수만큼 처리할 수 있습니다.<br>
   · <strong>논리적 해석</strong> — <code>Array.from</code>은 객체 내의 <code>length</code>를 보고 필요한 방의 개수를 판단하므로, <code>{ length: 5 }</code>는 훌륭한 <strong>배열 생성용 설계도</strong> 역할을 수행합니다.
+</div>
+
+---
+
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>✅ 핵심 요약</h2>
+</div>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>new Array(n)</strong> — 숫자 1개면 <strong>길이</strong>로 인식해 빈 슬롯(희소 배열)을 만든다.</li>
+    <li><strong>Array.of(n)</strong> — 인자의 개수·타입과 상관없이 무조건 <strong>요소</strong>로 취급한다.</li>
+    <li><strong>Array.from(유사배열/iterable)</strong> — 진짜 배열로 변환하며 <strong>꽉 찬 배열(Dense)</strong>을 보장한다.</li>
+    <li><strong>Array.from(target, mapFn)</strong> — 변환과 동시에 매핑까지 <strong>한 번에</strong> 처리한다.</li>
+    <li><strong>Empty</strong>는 방 자체가 없어 순회 시 건너뛰지만, <strong>undefined</strong>는 방이 있어 순회에 포함된다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: new Array(3)은 [3]을 만든다?</div>
+    <div class="wda-mistake-right">정답: 숫자 1개를 넣으면 <strong>길이 3인 빈 배열</strong>(희소 배열)을 만든다. 요소로 넣으려면 <code>Array.of(3)</code>을 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: empty와 undefined는 완전히 같다?</div>
+    <div class="wda-mistake-right">정답: 겉보기엔 비슷하지만, <code>forEach</code> 같은 순회에서 <strong>empty는 건너뛰고 undefined는 포함</strong>된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: { length: 5 }는 배열이 아니라서 Array.from()이 처리할 수 없다?</div>
+    <div class="wda-mistake-right">정답: <strong>length 속성만 있으면 유사 배열</strong>로 인식되어 Array.from()이 그 값만큼 처리할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: NodeList 같은 유사 배열은 map, filter를 바로 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: 유사 배열은 배열 메서드가 없어 <strong>Array.from()으로 진짜 배열 변환</strong> 후에야 map/filter를 쓸 수 있다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 숫자 1개 처리</div>
+    <div class="wda-formula-block-body">
+      <code>new Array(3) = 길이 3 (희소)</code><br>
+      <code>Array.of(3) = [3]</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 유사배열 → 배열</div>
+    <div class="wda-formula-block-body"><code>Array.from(target)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 변환+매핑 동시</div>
+    <div class="wda-formula-block-body"><code>Array.from(target, (v, i) =&gt; ...)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 안전한 선택</div>
+    <div class="wda-formula-block-body"><code>희소 배열 대신 Array.from()이나 fill() 사용</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">new Array(3)의 결과는?</div>
+    <div class="wda-flip-back">[empty × 3]이라는 희소 배열이며 길이만 3으로 설정된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Array.of(3)의 결과는?</div>
+    <div class="wda-flip-back">요소가 3인 길이 1짜리 배열 [3]이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">empty와 undefined의 순회 차이는?</div>
+    <div class="wda-flip-back">empty는 forEach 등에서 건너뛰지만 undefined는 순회에 포함된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">유사 배열(array-like)의 조건은?</div>
+    <div class="wda-flip-back">length 속성과 숫자 인덱스를 가진 객체다 (배열 메서드는 없음).</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Array.from()의 두 번째 인자는 무엇을 하나?</div>
+    <div class="wda-flip-back">매핑 함수로, 변환과 동시에 각 요소를 가공한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">희소 배열을 피하려면 어떻게 하나?</div>
+    <div class="wda-flip-back">Array.from()이나 fill()로 꽉 찬 배열(Dense Array)을 만든다.</div>
+  </div>
 </div>

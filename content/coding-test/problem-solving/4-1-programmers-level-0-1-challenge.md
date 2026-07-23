@@ -57,6 +57,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 1. 프로그래머스 화면 구성
@@ -181,4 +197,84 @@ function solution(num1, num2) {
 <div class="wda-callout wda-ci">
   • <strong>학습 경로 가이드</strong> — 프로그래머스 사이트 접속 후 [코딩테스트 연습] → [난이도별 정렬]을 통해 Level 0부터 차근차근 시작하는 것을 권장합니다.<br>
   • <strong>팁</strong> — 제출 전에는 반드시 극단적인 값(최소/최대)으로 직접 테스트해보는 습관을 들이세요!
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>문제 풀이 전 반드시 <strong>문제 설명·제한 사항·입출력 예시·실행 vs 제출</strong> 4가지를 확인해야 한다.</li>
+    <li><strong>실행</strong>은 기본 테스트 케이스만 확인하며 채점에 반영되지 않고, <strong>제출</strong>은 모든 케이스를 채점해 최종 결과로 기록된다.</li>
+    <li>결과를 계산만 하고 <strong>return</strong>하지 않으면 오답 처리되며, 변수명 오타도 흔한 실수 중 하나다.</li>
+    <li>제한사항에 있는 <strong>경계값(0, 1, 빈 배열, 음수, 최솟값·최댓값)</strong>을 무시하면 런타임 에러나 오답이 발생할 수 있다.</li>
+    <li>예제만 통과했다고 정답은 아니며, 숨겨진 <strong>히든 케이스</strong>까지 통과해야 최종 정답으로 인정된다.</li>
+    <li>Level 0(입문·기초) → Level 1(도전) 순으로 난이도를 올려가며 문제 수를 채우는 것이 추천 학습 경로다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: '실행' 버튼을 눌러 통과하면 채점도 통과한 것이다?</div>
+    <div class="wda-mistake-right">정답: <strong>실행</strong>은 기본 테스트 케이스만 확인할 뿐 채점에 반영되지 않으며, 최종 채점은 <strong>제출</strong>을 눌러야 진행된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 계산 결과를 변수에 저장해두면 자동으로 정답 처리된다?</div>
+    <div class="wda-mistake-right">정답: <code>const result = n + 1;</code>처럼 계산만 하고 <strong>return</strong>하지 않으면 결과가 함수 밖으로 전달되지 않아 오답이 된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 주어진 예제만 통과하면 문제를 다 푼 것이다?</div>
+    <div class="wda-mistake-right">정답: 예제는 통과해도 <strong>히든 케이스</strong>(경계값, 극단적인 입력)에서 실패할 수 있으므로 직접 경계값 테스트를 해봐야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: n=0 같은 특수 조건은 신경 쓰지 않아도 로직이 알아서 처리해준다?</div>
+    <div class="wda-mistake-right">정답: 특수 조건을 무시하면 <strong>런타임 에러나 오답</strong>이 발생할 수 있으므로 <code>if (n === 0) return 0;</code>처럼 예외 처리를 먼저 고려해야 한다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 제출 전 체크</div>
+    <div class="wda-formula-block-body"><code>문제 설명 → 제한 사항 → 입출력 예시 → 실행(테스트) → 제출(채점)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 흔한 실수 방지</div>
+    <div class="wda-formula-block-body"><code>계산 후 반드시 return</code><br><code>변수명 정확히 확인</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 경계값 테스트</div>
+    <div class="wda-formula-block-body"><code>0, 1, 빈 배열, 음수, 최솟값·최댓값을 직접 테스트</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">프로그래머스에서 '실행'과 '제출'의 차이는?</div>
+    <div class="wda-flip-back">실행은 기본 테스트만 확인(채점 미반영), 제출은 모든 케이스를 채점해 최종 결과로 기록한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">결과를 계산만 하고 오답 처리되는 가장 흔한 이유는?</div>
+    <div class="wda-flip-back">return 문을 빼먹어서 결과가 함수 밖으로 전달되지 않기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">예제만 통과했는데 오답이 나오는 이유는?</div>
+    <div class="wda-flip-back">히든 케이스(경계값 등)에서 실패했기 때문이며, 제출 전 경계값 테스트가 필요하다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">제한사항을 확인해야 하는 이유는?</div>
+    <div class="wda-flip-back">n=0 같은 특수 조건을 놓치면 런타임 에러나 오답이 발생할 수 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">추천 학습 경로 순서는?</div>
+    <div class="wda-flip-back">Level 0(입문) → Level 0(기초) → Level 1(도전) 순으로 난이도를 올려간다.</div>
+  </div>
 </div>

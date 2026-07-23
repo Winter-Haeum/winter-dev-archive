@@ -64,6 +64,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 1. 🧩 문제 풀이 4단계 (Standard Process)
@@ -328,27 +344,87 @@ function solution(numbers) {
 
 ## ✅ 핵심 요약
 
-오늘 배운 문제 풀이의 정석과 실전 전략을 요약한 표입니다. 이 3가지만 기억해도 실전에서 크게 당황하지 않습니다.
+오늘 배운 문제 풀이의 정석과 실전 전략을 정리합니다. 이 몇 가지만 기억해도 실전에서 크게 당황하지 않습니다.
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-    <th>상세 전략</th>
-  </tr>
-  <tr>
-    <td>4단계 풀이법</td>
-    <td>정석 순서 지키기</td>
-    <td>1. 이해: 무엇을 요구하는지 파악<br>2. 계획: 어떻게 풀지 방법 구상<br>3. 구현: 생각한 방법을 코드로 작성<br>4. 검증: 테스트하고 제출하여 확인</td>
-  </tr>
-  <tr>
-    <td>의사코드 활용</td>
-    <td>한글로 먼저 적기</td>
-    <td>• 복잡한 로직을 한글로 먼저 정리하세요.<br>• 큰 문제를 작은 단계별로 나누세요.<br>• 그 다음 프로그래밍 언어로 번역하면 헷갈리지 않습니다.</td>
-  </tr>
-  <tr>
-    <td>시간 관리</td>
-    <td>전략적 접근</td>
-    <td>• 쉬운 것 먼저: 확실한 점수를 먼저 확보하세요.<br>• 막히면 패스: 10분 이상 막히면 다음 문제로 넘어가세요.<br>• 마지막 검토: 제출 전 실수는 없는지 꼭 확인하세요</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>문제 풀이는 <strong>이해 → 계획 → 구현 → 검증</strong>의 4단계로 진행한다.</li>
+    <li>문제를 읽을 때 <strong>입력 / 출력 / 조건 / 예시</strong> 4가지를 반드시 확인한다.</li>
+    <li>계획 단계에서는 <strong>의사코드(한글 논리 흐름)</strong>를 먼저 적는다.</li>
+    <li>검증은 <strong>예제 테스트 → 경계값 테스트</strong>(최솟값, 최댓값, 빈 배열) 순으로 확인한다.</li>
+    <li><strong>10분 이상</strong> 막히면 과감히 다음 문제로 넘어간다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 문제를 읽자마자 바로 코드부터 짜는 게 빠르다?</div>
+    <div class="wda-mistake-right">정답: <strong>1~2단계(이해·계획)</strong>를 충분히 거쳐야 3~4단계가 오히려 더 빨라진다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 예제 입력만 통과하면 정답이다?</div>
+    <div class="wda-mistake-right">정답: 별도의 <strong>히든 테스트 케이스</strong>가 있어 경계값까지 확인해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 막히면 계속 붙잡고 있어야 한다?</div>
+    <div class="wda-mistake-right">정답: <strong>10분 이상</strong> 고민해도 안 풀리면 다음 문제로 넘어갔다가 나중에 다시 돌아오는 것이 낫다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 어려운 문제부터 풀어야 점수가 높다?</div>
+    <div class="wda-mistake-right">정답: <strong>쉬운 문제로 점수를 먼저 확보</strong>한 뒤 남은 시간을 어려운 문제에 투자하는 것이 유리하다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 4단계 순서</div>
+    <div class="wda-formula-block-body"><code>이해 → 계획 → 구현 → 검증</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 이해 체크리스트</div>
+    <div class="wda-formula-block-body"><code>입력·출력·조건·예시</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 검증 순서</div>
+    <div class="wda-formula-block-body"><code>예제 테스트 → 경계값 테스트</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제 풀이 4단계는?</div>
+    <div class="wda-flip-back">이해 → 계획 → 구현 → 검증 순으로 진행한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문제 이해 단계에서 확인할 4가지는?</div>
+    <div class="wda-flip-back">입력, 출력, 조건, 예시를 확인한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">의사코드란?</div>
+    <div class="wda-flip-back">프로그래밍 문법 없이 한글로 논리 흐름을 적는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">검증에서 가장 먼저 확인할 것은?</div>
+    <div class="wda-flip-back">문제에 주어진 예제 입력값이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">막혔을 때 골든타임 룰은?</div>
+    <div class="wda-flip-back">10분 동안 고민해도 안 풀리면 다음 문제로 넘어간다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">시간 관리 기본 전략은?</div>
+    <div class="wda-flip-back">쉬운 문제부터 풀어 점수를 확보하고, 어려운 문제에 남은 시간을 투자한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">max 초기값을 0으로 잡으면 안 되는 이유는?</div>
+    <div class="wda-flip-back">배열이 음수만 있을 경우 0이 최댓값이 되어버려 오답이 된다.</div>
+  </div>
+</div>

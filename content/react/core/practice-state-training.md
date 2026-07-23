@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. 💻 실습 : Counter (숫자)</h2>
@@ -592,4 +608,95 @@ export default Accordion;
   <strong>토글 패턴 (<code>!state</code>)</strong>
   <p><code>setIsOpen(!isOpen)</code>은 "현재 열려있으면 닫고, 닫혀있으면 열어라"라는 뜻입니다.</p>
   <p>탭 메뉴(Tab)와 아코디언(Accordion)은 리액트 State를 활용하는 가장 대표적인 UI 예제입니다. 이 원리만 알면 드롭다운 메뉴, 모달 창 등 다양한 기능을 만들 수 있습니다.</p>
+</div>
+
+---
+
+<h2>9. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>이전 값 기반으로 갱신할 때는 <strong>setState(prev =&gt; ...)</strong> 함수형 업데이트를 사용한다 (Counter).</li>
+    <li>불리언 상태는 <strong>setState(!state)</strong>로 간단히 반전시킬 수 있다 (Toggle, Accordion).</li>
+    <li>input의 <strong>value/onChange</strong>를 state에 연결하는 것이 Controlled Component의 기본이다 (Mirror).</li>
+    <li>값 자체보다 <strong>인덱스</strong>를 state로 저장하고 <strong>나머지 연산자(%)</strong>로 순환시키면 배열 값을 순서대로 꺼낼 수 있다 (Color Box).</li>
+    <li>if-else 대신 <strong>매핑 객체</strong>({ red: 'yellow', ... })로 "다음 상태"를 정의하면 코드가 간결해진다 (Traffic Light).</li>
+    <li><strong>|| 연산자</strong>로 여러 조건 중 하나라도 참이면 되는 검증(disabled)을 만들 수 있다 (Login Check).</li>
+    <li><strong>&& 연산자</strong>로 선택된 탭이거나 열린 상태일 때만 내용을 보여준다 (Tab Menu, Accordion).</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: setCount(count + 1)처럼 현재 값을 직접 참조해 갱신한다.</div>
+    <div class="wda-mistake-right">방지: 연속 클릭 시 최신 값이 반영되지 않을 수 있으므로 <code>setCount(prev =&gt; prev + 1)</code> 형태의 함수형 업데이트를 사용한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 색상 인덱스를 (index + 1)로만 늘려 배열 범위를 벗어난다.</div>
+    <div class="wda-mistake-right">방지: <code>(prev + 1) % colors.length</code>처럼 나머지 연산자로 나눈 값을 사용해 마지막 다음엔 다시 0으로 순환시킨다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 로그인 버튼 활성화 조건에 !id && !pw처럼 AND를 사용한다.</div>
+    <div class="wda-mistake-right">방지: 아이디·비밀번호 중 하나라도 비어있으면 비활성화해야 하므로 <code>disabled={!id || !pw}</code>처럼 OR을 사용한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 탭 내용의 조건부 렌더링에서 값 자체를 조건으로 사용한다.</div>
+    <div class="wda-mistake-right">방지: <code>currentTab === 'home' && ...</code>처럼 명시적인 비교식을 써야 원하는 탭에서만 정확히 렌더링된다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Counter: +1/-1 버튼으로 숫자가 정확히 증감한다.</li>
+    <li>Toggle: 클릭할 때마다 ON/OFF 텍스트가 반전된다.</li>
+    <li>Mirror: 입력한 글자가 실시간으로 아래에 그대로 출력된다.</li>
+    <li>Color Box: 클릭할 때마다 red → blue → green → red 순으로 순환한다.</li>
+    <li>Traffic Light: red → yellow → green → red 순으로 신호가 바뀐다.</li>
+    <li>Login Check: 아이디·비밀번호가 모두 입력된 경우에만 버튼이 활성화된다.</li>
+    <li>Tab Menu: 선택한 탭 버튼 스타일이 바뀌고 그에 맞는 내용이 표시된다.</li>
+    <li>Accordion: 클릭할 때마다 내용이 펼쳐지고 접힌다.</li>
+  </ul>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Counter에서 함수형 업데이트를 쓰는 이유는?</div>
+    <div class="wda-flip-back">이전 값을 기준으로 안전하게 변경해, 연속 클릭 시에도 숫자가 정확히 반영되게 하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Toggle에서 상태를 반전시키는 방법은?</div>
+    <div class="wda-flip-back">setIsOn(!isOn)처럼 논리 부정 연산자(!)로 현재 값의 반대를 넣는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Color Box의 순환 로직 공식은?</div>
+    <div class="wda-flip-back">(index + 1) % colors.length로, 배열 끝에 도달하면 다시 0으로 돌아간다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Traffic Light가 객체 매핑을 쓴 이유는?</div>
+    <div class="wda-flip-back">if-else나 switch 없이 { red: 'yellow', ... }처럼 "다음 상태"를 미리 정의해 꺼내 쓰면 더 읽기 좋고 유지보수하기 좋다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Login Check의 disabled 조건식은?</div>
+    <div class="wda-flip-back">disabled={!id || !pw}로, 아이디나 비밀번호 중 하나라도 비어있으면 비활성화한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Tab Menu에서 내용을 조건부로 보여주는 방법은?</div>
+    <div class="wda-flip-back">currentTab === 'home' && &lt;p&gt;...&lt;/p&gt;처럼 && 연산자로 선택된 탭일 때만 렌더링한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Accordion의 열림/닫힘은 어떻게 제어하나?</div>
+    <div class="wda-flip-back">isOpen 불리언 state를 클릭 시 반전시키고, isOpen && &lt;div&gt;...&lt;/div&gt;로 내용을 조건부 렌더링한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Mirror가 Controlled Component인 이유는?</div>
+    <div class="wda-flip-back">input의 value와 onChange를 React state(text)에 연결해, state가 입력값의 기준이 되기 때문이다.</div>
+  </div>
 </div>

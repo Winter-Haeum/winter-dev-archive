@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -48,6 +48,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 @media (max-width:640px){
 .wda-deco{width:34px !important}
@@ -980,37 +996,89 @@ myApp.run();
 
 ## ✅ 핵심 요약
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td><strong>this 정체</strong></td>
-    <td>• 함수 호출 방식에 따라 결정되는 동적 바인딩<br>• 다른 언어(Java 등)와 달리 자바스크립트만 계속 바뀜</td>
-  </tr>
-  <tr>
-    <td><strong>결정 시점</strong></td>
-    <td>• 일반 함수: 호출 시점 (동적)<br>• 화살표 함수: 정의 시점 (정적, 상위 스코프의 this 사용)</td>
-  </tr>
-  <tr>
-    <td><strong>4가지 규칙</strong></td>
-    <td>• 기본(낙엽) → 암시적(가격표) → 명시적(리모컨) → new(공장)<br>• 오른쪽으로 갈수록 결속력이 강함</td>
-  </tr>
-  <tr>
-    <td><strong>우선순위</strong></td>
-    <td>• new &gt; 명시적(call/apply/bind) &gt; 암시적(obj.method()) &gt; 기본<br>• bind로 고정해도 new가 등장하면 결속이 풀림</td>
-  </tr>
-  <tr>
-    <td><strong>화살표 함수</strong></td>
-    <td>• 자신만의 this 없음(렉시컬 this)<br>• call/apply/bind 무시, new 사용 불가<br>• 콜백에서 this 손실을 해결하는 가장 깔끔한 방법</td>
-  </tr>
-  <tr>
-    <td><strong>객체 메서드 규칙</strong></td>
-    <td>• 객체 메서드는 일반 함수로 정의<br>• 콜백 함수는 화살표 함수로 정의</td>
-  </tr>
-  <tr>
-    <td><strong>최종 암기 포인트</strong></td>
-    <td>• 점(.) 앞을 확인한다<br>• new가 있는지 확인한다<br>• 화살표 함수인지 확인한다</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>this는 <strong>함수 호출 방식</strong>에 따라 결정되는 동적 바인딩입니다. 다른 언어(Java 등)와 달리 자바스크립트만 계속 바뀝니다.</li>
+    <li>일반 함수는 <strong>호출 시점</strong>(동적)에, 화살표 함수는 <strong>정의 시점</strong>(정적, 상위 스코프의 this 사용)에 this가 결정됩니다.</li>
+    <li>4가지 규칙은 <strong>기본(낙엽) → 암시적(가격표) → 명시적(리모컨) → new(공장)</strong> 순으로 결속력이 강해집니다.</li>
+    <li>우선순위는 <strong>new &gt; 명시적(call/apply/bind) &gt; 암시적(obj.method()) &gt; 기본</strong>이며, bind로 고정해도 new가 등장하면 결속이 풀립니다.</li>
+    <li>객체 메서드는 <strong>일반 함수</strong>로, 콜백 함수는 <strong>화살표 함수</strong>로 정의하는 것이 원칙입니다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 함수를 "작성"할 때 this가 이미 정해진다?</div>
+    <div class="wda-mistake-right">정답: this는 함수가 <strong>"호출"되는 순간</strong>에 결정됩니다. 단, 화살표 함수는 예외로 정의 시점에 상위 스코프 this로 고정됩니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: if, for 같은 블록 {}도 this의 방을 만든다?</div>
+    <div class="wda-mistake-right">정답: 오직 <strong>일반 함수(function)</strong>만이 this의 새로운 방을 만듭니다. if/for/객체 리터럴의 <code>{}</code>는 this 기준에서 투명한 벽입니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 객체 리터럴 {} 안에서는 this가 그 객체를 가리킨다?</div>
+    <div class="wda-mistake-right">정답: 객체 리터럴은 <strong>스코프를 만들지 않으므로</strong>, 그 안의 화살표 함수는 객체가 아니라 바깥(전역) this를 그대로 사용합니다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: bind로 this를 고정하면 new로 호출해도 그대로 유지된다?</div>
+    <div class="wda-mistake-right">정답: <strong>new가 만든 새 객체가 bind보다 우선</strong>합니다. "새 생명의 탄생"이 그 어떤 "계약"보다 강합니다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 우선순위</div>
+    <div class="wda-formula-block-body"><code>new &gt; 명시적 &gt; 암시적 &gt; 기본</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 결정 시점</div>
+    <div class="wda-formula-block-body"><code>일반 함수 = 호출 시점</code><br><code>화살표 함수 = 정의 시점</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 역할 분담</div>
+    <div class="wda-formula-block-body"><code>메서드 = 일반 함수</code><br><code>콜백 = 화살표 함수</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">function으로 만든 함수는 this의 방을 만드나?</div>
+    <div class="wda-flip-back">만든다 (YES) — 일반 함수는 호출될 때마다 새로운 this가 결정된다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">객체 리터럴 {}은 this의 방을 만드나?</div>
+    <div class="wda-flip-back">만들지 않는다 (NO) — 객체는 스코프가 아니라 가구일 뿐이라 화살표 함수는 바깥(전역) this를 그대로 쓴다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">if, for 같은 블록은 this의 방을 만드나?</div>
+    <div class="wda-flip-back">만들지 않는다 (NO) — let/const의 변수 스코프는 만들지만, this의 스코프는 만들지 못하는 투명한 칸막이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">this 바인딩 4가지 규칙과 비유는?</div>
+    <div class="wda-flip-back">기본(낙엽) → 암시적(가격표) → 명시적(리모컨) → new(공장) 순으로 결속력이 강해진다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">this 우선순위는?</div>
+    <div class="wda-flip-back">new > 명시적(call/apply/bind) > 암시적(obj.method()) > 기본 순이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화살표 함수의 this는 왜 안 바뀌나?</div>
+    <div class="wda-flip-back">자신만의 this를 만들지 않고 상위 스코프의 this를 그대로 쓰기 때문에 call/apply/bind로도 바꿀 수 없다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">콜백에서 this를 잃어버리는 문제의 가장 깔끔한 해결책은?</div>
+    <div class="wda-flip-back">화살표 함수를 쓰는 것이다 — 상위 스코프의 this를 그대로 물려받는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">this가 헷갈릴 때 확인할 순서는?</div>
+    <div class="wda-flip-back">점(.) 앞 확인 → new 여부 확인 → 화살표 함수인지 확인.</div>
+  </div>
+</div>

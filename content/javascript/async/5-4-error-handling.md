@@ -23,7 +23,7 @@ tags:
 .wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
@@ -36,7 +36,7 @@ tags:
 .wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
 .wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
@@ -56,6 +56,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -996,7 +1012,7 @@ try {
 ---
 
 <div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+  <h2>📊 에러 핸들링 5대 기둥</h2>
 </div>
 
 **에러 핸들링 마스터를 위한 5가지 핵심 기둥**입니다.
@@ -1039,4 +1055,105 @@ try {
 <div class="wda-callout wda-cs" style="position:relative;overflow:visible;">
   <strong>"완벽한 코드는 없다, 완벽한 대비만 있을 뿐"</strong><br><br>
   에러가 아예 안 나게 짜는 것은 불가능합니다. 훌륭한 개발자는 에러가 발생했을 때 <strong>"사용자가 당황하지 않게 안내하고"</strong>, <strong>"개발자가 빠르게 원인을 찾아 고칠 수 있도록"</strong> 시스템을 만들어두는 사람입니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Error 객체는 <strong>name</strong>(이름), <strong>message</strong>(내용), <strong>stack</strong>(호출 경로 추적) 3가지 핵심 정보를 담는다.</li>
+    <li>에러 3대장: <strong>TypeError</strong>(타입 불일치), <strong>ReferenceError</strong>(선언 안 된 변수), <strong>SyntaxError</strong>(문법 오류).</li>
+    <li><strong>try</strong>는 감시 구역, <strong>catch</strong>는 에러 발생 시에만 실행되는 안전망, <strong>finally</strong>는 성공/실패 상관없이 항상 실행된다.</li>
+    <li><strong>throw</strong>는 에러 객체를 실제로 던지는 명령어이며, <code>new Error()</code>만 만드는 것은 아직 폭탄을 조립만 한 상태다.</li>
+    <li>커스텀 에러 클래스는 <code>class X extends Error</code>로 만들고, <strong>instanceof</strong>로 에러 종류를 구분해 다르게 처리할 수 있다.</li>
+    <li>setTimeout 콜백 등 <strong>비동기 코드 내부 에러</strong>는 바깥 try-catch로 못 잡으며, <strong>async/await + try-catch</strong> 또는 <strong>.catch()</strong>로 처리해야 한다.</li>
+    <li><strong>window.onerror</strong>는 처리되지 않은 동기 에러, <strong>window.onunhandledrejection</strong>은 catch 없는 Promise 에러를 잡는 최후의 방어선이다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: throw '문자열'이나 throw 42처럼 아무거나 던져도 된다?</div>
+    <div class="wda-mistake-right">정답: 반드시 <code>new Error(...)</code> 형태의 Error 객체를 던져야 <strong>Stack Trace</strong>가 남아 디버깅할 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: catch에서 처리 로직을 모르면 그냥 비워둬도(빈 catch) 괜찮다?</div>
+    <div class="wda-mistake-right">정답: 빈 catch는 에러를 숨겨 버그 발견을 어렵게 만드는 <strong>최악의 습관</strong>이다. 최소한 로그를 남기거나 다시 throw해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: setTimeout 안에서 발생한 에러도 바깥의 try-catch로 잡을 수 있다?</div>
+    <div class="wda-mistake-right">정답: try 블록은 타이머 예약만 하고 이미 종료되므로 <strong>바깥 try-catch로는 못 잡는다</strong>. 콜백 내부에 직접 넣거나 async/await를 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: finally 블록 안에 return이나 throw를 자유롭게 써도 안전하다?</div>
+    <div class="wda-mistake-right">정답: finally 안에서 return/throw를 쓰면 <strong>try/catch의 결과를 덮어쓸 수 있어</strong> 주의해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 에러 메시지는 사용자와 개발자에게 똑같이 보여줘도 된다?</div>
+    <div class="wda-mistake-right">정답: 사용자에게는 <strong>친절한 안내</strong>를, 개발자에게는 <strong>상세한 스택 정보</strong>를 분리해서 제공해야 하며, 민감 정보는 노출하면 안 된다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 던지기</div>
+    <div class="wda-formula-block-body"><code>throw new Error('메시지')</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 흐름</div>
+    <div class="wda-formula-block-body"><code>try(감시) → catch(포착) → finally(항상)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 비동기 처리</div>
+    <div class="wda-formula-block-body"><code>콜백 내부 처리 or async/await+try-catch</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 최후 방어선</div>
+    <div class="wda-formula-block-body"><code>onerror(동기) / onunhandledrejection(Promise)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">null.toString()을 실행하면 어떤 에러가 발생하나?</div>
+    <div class="wda-flip-back">TypeError — null은 toString 메서드를 갖고 있지 않은 타입이기 때문.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">선언한 적 없는 변수 x를 console.log(x)로 출력하면?</div>
+    <div class="wda-flip-back">ReferenceError — 존재하지 않는 참조를 사용했기 때문.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">JSON.parse('bad')를 실행하면?</div>
+    <div class="wda-flip-back">SyntaxError — 올바른 JSON 문법이 아니기 때문.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">try{A; throw...; B}catch{C}finally{D}의 출력 순서는?</div>
+    <div class="wda-flip-back">A → C → D. throw 이후의 B는 죽은 코드(Dead Code)로 실행되지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">setTimeout 안에서 던진 에러를 바깥 try-catch가 잡을 수 있나?</div>
+    <div class="wda-flip-back">못 잡는다. try 블록이 타이머 예약만 하고 이미 종료된 상태이기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">에러 종류별로 다르게 처리하려면 어떻게 구분하나?</div>
+    <div class="wda-flip-back">instanceof 연산자로 커스텀 에러 클래스(예: ValidationError, NetworkError)를 구분한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Promise 체인에서 에러를 잡는 방법은?</div>
+    <div class="wda-flip-back">체인 끝에 .catch()를 붙이거나, async/await 사용 시 try-catch로 감싼다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">빈 catch({})는 왜 위험한가?</div>
+    <div class="wda-flip-back">에러를 숨겨서 버그가 드러나지 않게 만들어, 나중에 데이터 오염 등 더 큰 문제로 이어질 수 있다.</div>
+  </div>
 </div>

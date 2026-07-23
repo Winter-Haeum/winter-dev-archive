@@ -59,6 +59,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -706,31 +722,85 @@ export default App;
 
 <h2>13. ✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>구분</th>
-    <th>핵심 내용</th>
-  </tr>
-  <tr>
-    <td>SPA Experience</td>
-    <td>Router를 통해 새로고침 없는 부드러운 전환을 구현합니다. UX를 극대화하는 핵심 기술입니다.</td>
-  </tr>
-  <tr>
-    <td>Routes &amp; Route</td>
-    <td>URL 경로(path)와 컴포넌트(element)를 매핑합니다. 최상위엔 BrowserRouter가 필수입니다.</td>
-  </tr>
-  <tr>
-    <td>Link &amp; Hooks</td>
-    <td>이동은 Link, 로직 이동은 useNavigate, 파라미터는 useParams를 사용합니다.</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
 
-**💡 보충 설명 (Tip)**
+<div class="wda-check-note">
+  <ul>
+    <li>SPA는 <strong>최초 한 번만 HTML을 받고</strong> 이후엔 필요한 데이터만 주고받아, 새로고침 없이 부드럽게 화면이 전환된다.</li>
+    <li>React Router는 최상위를 <strong>&lt;BrowserRouter&gt;</strong>로 감싸고, 그 안의 <strong>&lt;Routes&gt;</strong>에서 <strong>&lt;Route path element&gt;</strong>로 경로와 컴포넌트를 매핑한다.</li>
+    <li>단순 이동은 <strong>&lt;Link&gt;</strong>(또는 &lt;NavLink&gt;), 로직 실행 후 이동은 <strong>useNavigate()</strong>, URL의 동적 데이터 추출은 <strong>useParams()</strong>를 사용한다.</li>
+    <li>&lt;a href&gt; 태그는 브라우저를 새로고침시켜 React 상태를 초기화하므로, <strong>앱 내부 이동에는 사용하지 않는다</strong>.</li>
+    <li>Protected Route는 <strong>&lt;Navigate&gt;</strong>와 <strong>&lt;Outlet&gt;</strong>을 조합해 로그인하지 않은 사용자를 리다이렉트하는 패턴이다.</li>
+  </ul>
+</div>
 
-<div class="wda-callout wda-ci">
-  <p><strong>SPA (Single Page Application)</strong>: React Router를 사용하는 근본적인 이유입니다.<br>
-  뼈대가 되는 하나의 HTML 페이지 위에서 자바스크립트가 필요한 컴포넌트만 동적으로 갈아 끼워, 사용자에게 마치 앱을 사용하는 듯한 빠르고 쾌적한 경험(UX)을 제공합니다.</p>
-  <p><strong>구조적 설계</strong>: &lt;BrowserRouter&gt;로 앱 전체의 라우팅 환경을 열어주고,<br>
-  그 안에서 &lt;Routes&gt;와 &lt;Route&gt;를 통해 "어떤 주소일 때 어떤 화면(컴포넌트)을 보여줄지" 짝을 지어주는(매핑) 규칙을 세우는 것이 라우팅의 기본입니다.</p>
-  <p><strong>상황에 맞는 도구 선택</strong>: 단순한 네비게이션(클릭 시 이동) ➡️ &lt;Link&gt; (또는 &lt;NavLink&gt;) / 폼 제출 후, 로그인 성공 후 등 특정 로직 실행 후 이동 ➡️ useNavigate() / URL에 포함된 동적인 데이터(id 등)를 읽어올 때 ➡️ useParams()</p>
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: &lt;a href&gt;와 &lt;Link to&gt;는 결과가 똑같다?</div>
+    <div class="wda-mistake-right">정답: &lt;a&gt;는 브라우저를 <strong>새로고침</strong>해 React 상태가 초기화되지만, &lt;Link&gt;는 History API로 주소만 바꿔 <strong>상태를 유지</strong>한 채 부드럽게 전환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: useNavigate와 &lt;Navigate /&gt;는 같은 상황에서 쓴다?</div>
+    <div class="wda-mistake-right">정답: useNavigate는 <strong>이벤트 핸들러</strong>에서 호출하는 함수형 이동이고, &lt;Navigate /&gt;는 <strong>렌더링 시점</strong>에 조건부로 리다이렉트할 때 쓰는 컴포넌트다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: navigate('/home', { replace: true })는 기본 이동(push)과 똑같이 동작한다?</div>
+    <div class="wda-mistake-right">정답: replace는 현재 방문 기록을 <strong>덮어써 뒤로가기가 불가능</strong>해지지만, 기본값(push)은 기록을 쌓아 <strong>뒤로가기가 가능</strong>하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: GitHub Pages 같은 정적 호스팅에서도 BrowserRouter가 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: 하위 경로에서 새로고침하면 404가 날 수 있어, <strong>HashRouter</strong>나 <strong>404.html fallback</strong> 설정이 필요할 수 있다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 이동 도구</div>
+    <div class="wda-formula-block-body"><code>단순이동 Link / 로직이동 useNavigate / 파라미터 useParams</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 기록 제어</div>
+    <div class="wda-formula-block-body"><code>push = 기본(뒤로가기 O)</code><br><code>replace = 덮어쓰기(뒤로가기 X)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 기본 구조</div>
+    <div class="wda-formula-block-body"><code>BrowserRouter &gt; Routes &gt; Route(path, element)</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">SPA와 MPA의 가장 큰 차이는?</div>
+    <div class="wda-flip-back">MPA는 페이지 이동마다 서버에서 새 HTML을 통째로 받지만, SPA는 최초 한 번만 받고 이후엔 필요한 데이터만 주고받는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">앱 내부 이동에 &lt;a href&gt; 대신 &lt;Link to&gt;를 쓰는 이유는?</div>
+    <div class="wda-flip-back">&lt;a&gt;는 브라우저를 새로고침해 React 상태가 초기화되지만, &lt;Link&gt;는 History API로 주소만 바꿔 상태를 유지한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">useNavigate와 &lt;Navigate /&gt;의 차이는?</div>
+    <div class="wda-flip-back">useNavigate는 이벤트 핸들러에서 호출하는 함수형 이동이고, &lt;Navigate /&gt;는 렌더링 시점에 조건부로 리다이렉트하는 컴포넌트다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">URL의 동적 값을 꺼낼 때 쓰는 훅은?</div>
+    <div class="wda-flip-back">useParams다. Route를 path="/product/:id" 처럼 정의해두면 :id 부분을 객체로 꺼낼 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">navigate에서 { replace: true }를 쓰면 어떻게 되나?</div>
+    <div class="wda-flip-back">현재 방문 기록을 덮어써 뒤로가기 시 이전 페이지로 돌아가지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Protected Route 패턴의 핵심 구성 요소는?</div>
+    <div class="wda-flip-back">&lt;Navigate&gt;로 비로그인 시 리다이렉트하고, &lt;Outlet&gt;으로 인증된 사용자에게 자식 라우트를 렌더링한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React Router의 기본 구조는?</div>
+    <div class="wda-flip-back">BrowserRouter로 앱 전체를 감싸고, 그 안에 Routes와 Route(path, element)로 경로를 매핑한다.</div>
+  </div>
 </div>

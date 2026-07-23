@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -62,6 +62,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -350,6 +361,36 @@ Projects 기능:
 
 ## 10단계 — 구현 완료 후 체크리스트
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>projects 테이블에는 <strong>title · skills · github_url · live_url · thumbnail_url</strong> 등 카드에 필요한 정보를 저장한다.</li>
+    <li>썸네일은 <strong>image.thum.io URL 패턴</strong>에 배포 주소를 붙여 자동 생성한다.</li>
+    <li>카드 그리드는 <strong>PC 3열 · 태블릿 2열 · 모바일 1열</strong>로 반응형 배치한다.</li>
+    <li>프로젝트 정보를 <strong>코드가 아닌 DB(Supabase)에 저장</strong>하면 재배포 없이 대시보드에서 추가·수정·삭제할 수 있다.</li>
+  </ul>
+</div>
+
+**🚫 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 썸네일이 안 보이면 무조건 코드 버그다?</div>
+    <div class="wda-mistake-right">정답: <strong>배포 URL 정확성 · image.thum.io 서비스 상태 · HTTPS 여부</strong>부터 확인한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Supabase 연결 오류는 항상 프론트엔드 코드 문제다?</div>
+    <div class="wda-mistake-right">정답: <strong>환경변수(VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)</strong> 설정과 <strong>RLS 읽기 허용 여부</strong>를 먼저 확인한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: GitHub Pages 배포 실패는 다시 푸시하면 저절로 해결된다?</div>
+    <div class="wda-mistake-right">정답: <strong>Actions 탭 로그</strong>에서 에러를 먼저 확인하고, npm build 에러라면 <strong>로컬에서 먼저 빌드 테스트</strong>한다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
 <div class="wda-steps">
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">Projects 탭이 포트폴리오 네비게이션에 추가되었나요?</div><div class="wda-sdsc">PC와 모바일 모두에서 메뉴가 정상 표시되는지 확인</div></div></div>
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">Supabase에 projects 테이블이 생성되었나요?</div><div class="wda-sdsc">Supabase 대시보드 → Table Editor에서 확인 · 테스트 데이터 3개 있는지 확인</div></div></div>
@@ -358,11 +399,14 @@ Projects 기능:
 <div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 배포가 완료되었나요?</div><div class="wda-sdsc">GitHub → Actions 탭에서 초록색 체크 확인 · 배포 URL 접속 테스트</div></div></div>
 </div>
 
-<div class="wda-callout wda-cw">
-  <span class="wda-clabel">자주 발생하는 문제 해결</span>
-  🖼️ <strong>썸네일이 안 보일 때</strong> — 배포 URL이 정확한지 확인 · image.thum.io 서비스 상태 확인 · HTTPS인지 확인<br>
-  🔌 <strong>Supabase 연결 오류</strong> — 환경변수(VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY) 설정 확인 · RLS 정책이 읽기 허용인지 확인<br>
-  🚫 <strong>GitHub Pages 배포 실패</strong> — Actions 탭 로그에서 에러 확인 · npm build 에러인 경우 로컬에서 먼저 빌드 테스트
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card"><div class="wda-flip-front">projects 테이블의 핵심 컬럼은?</div><div class="wda-flip-back">title, skills, github_url, live_url, thumbnail_url 등 카드 표시에 필요한 정보다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">썸네일은 어떻게 자동 생성하나?</div><div class="wda-flip-back">image.thum.io URL 패턴에 배포 주소를 붙이면 스크린샷이 자동 생성된다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">카드 그리드의 반응형 열 수는?</div><div class="wda-flip-back">PC 3열, 태블릿 2열, 모바일 1열이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">프로젝트 정보를 DB에 저장하는 이유는?</div><div class="wda-flip-back">코드 수정·재배포 없이 Supabase 대시보드에서 바로 추가·수정·삭제할 수 있기 때문이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">배포 후 문제가 생기면 가장 먼저 어디를 확인하나?</div><div class="wda-flip-back">GitHub Actions 로그와 Supabase 환경변수·RLS 설정을 먼저 확인한다.</div></div>
 </div>
 
 ---

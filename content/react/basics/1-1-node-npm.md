@@ -60,6 +60,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -440,21 +456,82 @@ npm처럼 라이브러리를 설치하고 관리해 주는 다른 도구들입�
 
 <h2>✅ 핵심 요약</h2>
 
-<table class="wda-summary-table">
-  <tr>
-    <th>핵심 키워드</th>
-    <th>정의 및 역할</th>
-  </tr>
-  <tr>
-    <td><strong>Node.js</strong></td>
-    <td><strong>"JS 실행 환경"</strong><br>브라우저 밖(내 컴퓨터, 서버)에서도 JavaScript를 실행할 수 있게 해주는 런타임 환경입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>npm</strong></td>
-    <td><strong>"패키지 관리자"</strong><br>Node.js의 짝꿍으로, 필요한 라이브러리(재료)를 설치하고 프로젝트 관리를 담당하는 도구입니다.</td>
-  </tr>
-  <tr>
-    <td><strong>프론트엔드 개발</strong></td>
-    <td><strong>"도구 실행용"</strong><br>React 같은 프론트엔드 개발 시, <strong>개발 도구 실행과 빌드</strong>를 위해 Node.js가 필요합니다. (단, 실제 앱 실행은 브라우저에서!)</td>
-  </tr>
-</table>
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>Node.js는 <strong>브라우저 밖에서도 JavaScript를 실행</strong>할 수 있게 해주는 JS 런타임이다.</li>
+    <li>npm은 Node.js 설치 시 <strong>자동으로 함께 설치</strong>되는 패키지 관리자다.</li>
+    <li>패키지(재료), 의존성(필수 준비물), 빌드(요리 완성)는 npm 생태계의 핵심 3대 용어다.</li>
+    <li>npm은 패키지 설치/삭제, 버전 관리, <strong>의존성 자동 해결</strong>, 스크립트 실행을 담당한다.</li>
+    <li>프론트엔드 개발에서 Node.js는 개발 서버 실행·JSX 변환·빌드(번들링·압축) 같은 <strong>"도구 실행용"</strong>으로 필요하며, 실제 서비스는 브라우저에서 실행된다.</li>
+    <li>React 개발 환경을 갖추려면 Node.js, npm, 코드 에디터, 터미널 <strong>4가지</strong>가 필요하다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: require와 import는 아무 파일에서나 섞어 써도 된다?</div>
+    <div class="wda-mistake-right">정답: 초보자 단계에서는 한 파일 안에서 섞어 쓰지 않고, 프로젝트 방식(<strong>CommonJS</strong> 또는 <strong>ES Modules</strong>)에 맞춰 통일해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: React는 브라우저에서 실행되니 Node.js가 필요 없다?</div>
+    <div class="wda-mistake-right">정답: React 코드 자체는 브라우저에서 실행되지만, <strong>개발 서버 실행·JSX 변환·빌드 도구</strong>는 Node.js 위에서 동작하므로 필요하다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: Node.js와 브라우저는 같은 API를 쓸 수 있다?</div>
+    <div class="wda-mistake-right">정답: Node.js는 <strong>파일 시스템(fs) 접근</strong>이 가능하지만 DOM은 없고, 브라우저는 DOM은 있지만 파일 접근이 불가능하다. 전역 객체도 각각 <strong>global / window</strong>로 다르다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: npm 대안(Yarn, pnpm)이나 Node.js 대안(Deno, Bun)도 꼭 알아야 하는 표준이다?</div>
+    <div class="wda-mistake-right">정답: Node.js와 npm이 가장 널리 쓰이는 표준이며, Deno·Bun·Yarn·pnpm은 참고할 수 있는 대안일 뿐이다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · Node.js</div>
+    <div class="wda-formula-block-body"><code>JS 런타임 = 브라우저 밖 실행</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · npm</div>
+    <div class="wda-formula-block-body"><code>패키지 관리자 = Node.js 자동 동봉</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 프론트엔드</div>
+    <div class="wda-formula-block-body"><code>개발·빌드는 Node.js, 실행은 브라우저</code></div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Node.js는 브라우저 밖에서 JS를 실행할 수 있게 해주는 런타임인가?</div>
+    <div class="wda-flip-back">맞다. Node.js 덕분에 서버나 로컬 컴퓨터에서도 JS를 실행할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">React는 프론트엔드인데 왜 Node.js가 필요한가?</div>
+    <div class="wda-flip-back">npm으로 라이브러리를 설치하고, 빌드 도구(Webpack, Vite 등)를 Node.js 위에서 실행하기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">npm의 핵심 역할은?</div>
+    <div class="wda-flip-back">패키지 설치/삭제, 버전 관리, 의존성 자동 해결, 스크립트 실행이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">패키지·의존성·빌드를 밀키트에 비유하면?</div>
+    <div class="wda-flip-back">패키지=재료, 의존성=필수 준비물, 빌드=요리 완성이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Node.js와 브라우저의 전역 객체는 각각 무엇인가?</div>
+    <div class="wda-flip-back">Node.js는 global, 브라우저는 window다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">개발 단계와 빌드 단계에서 Node.js가 하는 일은?</div>
+    <div class="wda-flip-back">개발 단계는 개발 서버 실행·JSX 변환·도구 실행, 빌드 단계는 번들링·압축·정적 파일 생성이다.</div>
+  </div>
+</div>

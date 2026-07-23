@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. 💻 실습 1 : 데이터 목록 표시 (map)</h2>
@@ -164,4 +180,66 @@ function PriceFilter() {
 <div class="wda-callout wda-ci">
   <strong>원본 데이터 보존의 중요성</strong>
   <p>필터링 기능을 만들 때 <code>setProducts</code>를 사용해 원본(<code>products</code>) 자체를 줄여버리면, 나중에 가격 조건을 낮췄을 때 사라진 데이터가 돌아오지 않습니다.<br>원본은 그대로 두고, 렌더링할 때만 <code>filter</code>를 거친 변수(<code>filteredProducts</code>)를 사용하는 것이 핵심입니다.</p>
+</div>
+
+---
+
+<h2>3. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>배열을 화면에 표시할 때는 <strong>map()</strong>으로 각 항목을 JSX로 변환한다.</li>
+    <li>map()이 반환하는 <strong>최상위 태그</strong>에는 고유한 <strong>key</strong>(가능하면 id)를 지정한다.</li>
+    <li>조건에 맞는 데이터만 보여줄 때는 <strong>filter()</strong>로 새 배열을 만들고, 원본 배열(state)은 건드리지 않는다.</li>
+    <li>필터링된 결과 같은 값은 별도 state 없이 렌더링 시점에 계산하는 <strong>파생 상태</strong>로 관리한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: key 없이 map()을 사용한다.</div>
+    <div class="wda-mistake-right">방지: 콘솔 경고가 뜨고, React가 항목 변경을 비효율적으로 처리하게 되므로 항상 고유한 key를 지정한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: setProducts(products.filter(...))처럼 원본 state 자체를 필터링해버린다.</div>
+    <div class="wda-mistake-right">방지: 조건을 다시 완화해도 사라진 데이터가 돌아오지 않는다. filteredProducts 같은 파생 변수만 걸러야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: range input의 e.target.value를 숫자로 변환하지 않고 그대로 비교한다.</div>
+    <div class="wda-mistake-right">방지: input 값은 문자열이므로, price(숫자)와 비교하려면 반드시 Number()로 변환해야 필터링이 정확하게 동작한다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>실습 1: Apple/Carrot/Banana가 각각 이름과 타입 아이콘(🍎/🥕)과 함께 리스트로 표시된다.</li>
+    <li>실습 2: 슬라이더로 최소 가격을 올리면 그보다 싼 상품이 실시간으로 목록에서 사라지고, 다시 내리면 복원된다.</li>
+  </ul>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">FruitList에서 key로 무엇을 사용했나?</div>
+    <div class="wda-flip-back">각 항목의 고유한 id(item.id)를 key로 사용했다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">PriceFilter의 filteredProducts는 어떻게 만들어지나?</div>
+    <div class="wda-flip-back">products.filter(product => product.price >= minPrice)로 렌더링 시점마다 새로 계산되는 파생 상태다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">원본 products를 직접 필터링해서 state에 넣으면?</div>
+    <div class="wda-flip-back">가격 조건을 낮춰도 이미 사라진 데이터가 돌아오지 않는 문제가 생긴다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">range input의 값은 왜 Number()로 변환하나?</div>
+    <div class="wda-flip-back">input의 값은 항상 문자열이므로, 숫자인 price와 비교하려면 변환이 필요하다.</div>
+  </div>
 </div>

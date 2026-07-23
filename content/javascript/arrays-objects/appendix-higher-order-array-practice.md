@@ -22,12 +22,12 @@ tags:
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cy .wda-clabel{color:#92400e}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
 .wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
 .wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
@@ -44,6 +44,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 📎 <strong>부록(Appendix)</strong> — map·filter·reduce·forEach·find·some/every·sort를 실무형 문제 12개로 반복 연습하는 실습 전용 부록입니다.
@@ -931,3 +947,112 @@ console.log(scores);
 ```jsx
 const sortedScores = scores.toSorted((a, b) => b - a);
 ```
+
+---
+
+<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
+  <h2>✅ 핵심 요약</h2>
+</div>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>map에서 객체를 즉시 반환하려면 화살표 함수 본문을 <strong>소괄호로 감싼다</strong>: <code>user =&gt; ({ ... })</code>.</li>
+    <li>숫자 포맷팅에는 <strong>toLocaleString()</strong>을 사용한다 (예: 천 단위 콤마).</li>
+    <li>기본값 처리는 <strong>||(모든 falsy 대체)</strong> 또는 <strong>??(null/undefined만 대체)</strong>를 사용한다.</li>
+    <li><strong>filter(Boolean)</strong>은 null, undefined, 0, "", false 같은 falsy 값을 한 번에 제거한다.</li>
+    <li><strong>reduce</strong>는 합계, 그룹핑, 룩업 테이블 만들기처럼 배열을 값/객체 하나로 축소할 때 쓴다.</li>
+    <li><strong>find</strong>는 요소 1개(또는 undefined), <strong>filter</strong>는 항상 배열(또는 빈 배열)을 반환한다.</li>
+    <li><strong>sort</strong>는 원본을 직접 바꾸므로(파괴적), 원본을 지키려면 <code>[...arr].sort()</code>를 쓴다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: user => { fullName: ... }처럼 화살표 함수에서 중괄호로 객체를 바로 반환할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 중괄호는 <strong>함수 몸통</strong>으로 해석되므로, 객체를 즉시 반환하려면 <code>user =&gt; ({ fullName: ... })</code>처럼 소괄호로 감싸야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: ||와 ??는 완전히 같은 동작을 한다?</div>
+    <div class="wda-mistake-right">정답: <code>||</code>는 <strong>모든 falsy 값(0, "", false 포함)</strong>을 대체하고, <code>??</code>는 <strong>null/undefined만</strong> 대체한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: reduce에 초기값을 생략해도 항상 안전하다?</div>
+    <div class="wda-mistake-right">정답: 생략하면 배열의 <strong>첫 요소가 초기값</strong>이 되어, 객체 배열을 숫자로 더하려 할 때 <code>[object Object]</code> 같은 엉뚱한 결과가 나올 수 있다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: find와 filter는 못 찾았을 때 같은 값을 반환한다?</div>
+    <div class="wda-mistake-right">정답: find는 <strong>undefined</strong>를, filter는 <strong>빈 배열 []</strong>을 반환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: sort()는 map/filter처럼 새 배열을 만들어 반환한다?</div>
+    <div class="wda-mistake-right">정답: sort()는 <strong>원본 배열을 직접 변경</strong>(파괴)한다.</div>
+  </div>
+</div>
+
+**🎯 최종 암기 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 객체 즉시 반환</div>
+    <div class="wda-formula-block-body"><code>arr.map(x =&gt; ({ key: x.value }))</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 기본값 처리</div>
+    <div class="wda-formula-block-body">
+      <code>a || b (falsy 전체 대체)</code><br>
+      <code>a ?? b (null/undefined만 대체)</code>
+    </div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 안전한 reduce</div>
+    <div class="wda-formula-block-body"><code>arr.reduce((acc, cur) =&gt; ..., 초기값)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · find vs filter</div>
+    <div class="wda-formula-block-body">
+      <code>find = 요소 1개 / undefined</code><br>
+      <code>filter = 배열 / 빈 배열</code>
+    </div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화살표 함수에서 객체를 바로 반환하려면?</div>
+    <div class="wda-flip-back">user => ({ key: value })처럼 소괄호로 감싼다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">숫자에 천 단위 콤마를 넣으려면?</div>
+    <div class="wda-flip-back">number.toLocaleString()을 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">||와 ??의 차이는?</div>
+    <div class="wda-flip-back">||는 모든 falsy 값을 대체하고, ??는 null/undefined만 대체한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">filter(Boolean)은 무엇을 하나?</div>
+    <div class="wda-flip-back">null, undefined, 0, "", false 같은 falsy 값을 모두 제거한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">reduce로 배열을 role별로 그룹핑하려면 초기값은?</div>
+    <div class="wda-flip-back">빈 객체 {}를 초기값으로 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">reduce로 id를 키로 하는 룩업 테이블을 만들면 좋은 점은?</div>
+    <div class="wda-flip-back">find로 매번 순회하지 않고 O(1)에 가깝게 빠르게 조회할 수 있다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">find가 실패하면 무엇을 반환하나?</div>
+    <div class="wda-flip-back">undefined를 반환하므로 사용 전 반드시 존재 여부를 확인해야 한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">sort()로 숫자를 내림차순 정렬하려면?</div>
+    <div class="wda-flip-back">arr.sort((a, b) => b - a)를 사용한다.</div>
+  </div>
+</div>

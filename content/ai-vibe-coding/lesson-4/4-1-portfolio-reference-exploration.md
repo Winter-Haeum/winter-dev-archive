@@ -14,7 +14,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -61,6 +61,17 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 @media (max-width:554px){
 .wda-char{display:none !important}
 }
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -243,11 +254,52 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 📋 분석 실행 가이드
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>레퍼런스는 <strong>"예쁘다"가 아니라 "왜 효과적인가?"</strong>를 분석한다.</li>
+    <li>분석은 <strong>첫인상 → 디자인 요소 → UX → 콘텐츠 전략 → 장단점 → 타겟</strong> 6단계로 진행한다.</li>
+    <li>최소 <strong>3~5개 사이트</strong>를 깊이 분석하고 스크린샷으로 정리해둔다.</li>
+    <li>아이디어 구체화는 <strong>목표 직무 · 경력 수준 · 나만의 강점</strong>을 담은 포지셔닝부터 시작한다.</li>
+    <li>너무 거창하거나 구현 불가능한 계획보다 <strong>현실적인 아이디어</strong>를 우선한다.</li>
+  </ul>
+</div>
+
+**🚫 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 예쁜 사이트를 그대로 따라 하면 좋은 포트폴리오가 된다?</div>
+    <div class="wda-mistake-right">정답: 디자인만 베끼지 말고 <strong>"왜 효과적인가"</strong>를 분석해 내 상황에 맞게 재해석해야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 레퍼런스는 한두 개만 봐도 충분하다?</div>
+    <div class="wda-mistake-right">정답: <strong>최소 3~5개 사이트</strong>를 깊이 분석해야 패턴과 차별화 지점이 보인다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 아이디어는 화려하고 거창할수록 좋다?</div>
+    <div class="wda-mistake-right">정답: 너무 거창하거나 구현 불가능한 계획은 피하고, <strong>목표·역량에 맞는 현실적인 아이디어</strong>를 도출해야 한다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
 <div class="wda-steps">
 <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">최소 3~5개 사이트 깊이 있게 분석하기</div><div class="wda-sdsc">큐레이션된 레퍼런스 중 자신의 목표 직무에 맞는 사이트를 선택하여 위 분석 프롬프트로 꼼꼼히 분석합니다</div></div></div>
 <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">스크린샷 찍어 정리하기</div><div class="wda-sdsc">인상적인 디자인 요소, 레이아웃, 색상 등을 스크린샷으로 캡처해두고 나중에 참고할 수 있도록 정리합니다</div></div></div>
 <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">"왜 효과적인가?"에 집중하기</div><div class="wda-sdsc">단순히 "예쁘다"보다는 "왜 효과적인가?"에 집중합니다. 사용자 경험, 브랜딩, 기술적 완성도를 종합적으로 봅니다</div></div></div>
 <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">현실적인 아이디어 도출하기</div><div class="wda-sdsc">자신의 목표와 역량에 맞는 현실적인 아이디어를 도출합니다. 너무 거창하거나 구현 불가능한 계획은 피합니다</div></div></div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card"><div class="wda-flip-front">레퍼런스 분석에서 가장 중요한 질문은?</div><div class="wda-flip-back">"왜 효과적인가?"를 생각하는 것이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">체계적 분석은 몇 단계로 진행하나?</div><div class="wda-flip-back">첫인상, 디자인 요소, UX, 콘텐츠 전략, 장단점, 타겟 분석의 6단계다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">몇 개 사이트를 분석해야 하나?</div><div class="wda-flip-back">최소 3~5개 사이트를 깊이 있게 분석한다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">아이디어 구체화의 출발점은?</div><div class="wda-flip-back">목표 직무, 경력 수준, 나만의 강점을 담은 포지셔닝이다.</div></div>
+  <div class="wda-flip-card"><div class="wda-flip-front">아이디어를 고를 때 피해야 할 함정은?</div><div class="wda-flip-back">너무 거창하거나 구현 불가능한 계획이다.</div></div>
 </div>
 
 <div class="wda-done">

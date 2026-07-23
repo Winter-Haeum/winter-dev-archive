@@ -56,6 +56,22 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
@@ -848,6 +864,56 @@ String.fromCharCode(
 
 ## ✅ 핵심 요약
 
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>문자열은 <strong>불변(Immutable)</strong>이라 인덱스로 직접 수정할 수 없고, 메서드는 항상 <strong>새 문자열</strong>을 반환한다.</li>
+    <li>위치가 필요하면 <code>indexOf</code>, 있는지 여부만 필요하면 <code>includes</code>를 쓴다.</li>
+    <li>자르기는 기본적으로 <code>slice</code>를 쓴다 (음수 인덱스 지원, <code>substring</code>보다 직관적).</li>
+    <li><code>split</code> ↔ <code>join</code>은 문자열 ↔ 배열 변환 짝꿍이며 <strong>코딩 테스트 빈출 1순위</strong>다.</li>
+    <li><code>replace</code>는 첫 번째만 바꾸고, 전체를 바꾸려면 <code>replaceAll</code>을 쓴다.</li>
+  </ul>
+</div>
+
+**🧠 헷갈리기 쉬운 것**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: str[0] = 'X'로 문자열을 바로 수정할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 문자열은 <strong>불변</strong>이라 대입이 무시되며, 새 문자열을 만들어 변수에 다시 담아야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: slice와 substring은 완전히 같은 메서드다?</div>
+    <div class="wda-mistake-right">정답: 음수를 넣었을 때 slice는 <strong>뒤에서부터 계산</strong>하지만, substring은 <strong>0으로 취급</strong>해버린다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: charAt과 [ ]은 범위를 벗어나도 똑같이 동작한다?</div>
+    <div class="wda-mistake-right">정답: 범위를 벗어나면 charAt은 <strong>빈 문자열("")</strong>을, <code>[ ]</code>은 <strong>undefined</strong>를 반환한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: includes / startsWith는 대소문자를 구분하지 않는다?</div>
+    <div class="wda-mistake-right">정답: 모든 문자열 메서드는 기본적으로 <strong>대소문자를 구분</strong>한다.</div>
+  </div>
+</div>
+
+**🧩 풀이 공식**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 1 · 문자열 뒤집기</div>
+    <div class="wda-formula-block-body"><code>str.split("").reverse().join("")</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 2 · 문자 치환/제거</div>
+    <div class="wda-formula-block-body"><code>split(A).join(B)</code> = A를 B로 바꾸기</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">풀이 공식 3 · 대소문자 무시 비교</div>
+    <div class="wda-formula-block-body"><code>a.toLowerCase() === b.toLowerCase()</code></div>
+  </div>
+</div>
+
 <table class="wda-summary-table">
   <tr>
     <th>분류</th>
@@ -918,4 +984,33 @@ String.fromCharCode(
   항상 새로운 문자열을 만들어서 돌려주기 때문에, 바뀐 값을 쓰고 싶다면 반드시 const newStr = str.replace(...) 처럼 변수에 다시 담아주어야 합니다.<br>
   <strong>메서드 체이닝</strong> — str.trim().toLowerCase().split("") 처럼 여러 메서드를 마침표로 이어서 한 번에 처리할 수 있습니다.<br>
   코드가 간결해져서 실무에서 자주 쓰입니다.
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">문자열이 불변이라는 것은?</div>
+    <div class="wda-flip-back">한 번 만들면 인덱스로 직접 바꿀 수 없고, 모든 메서드는 항상 새 문자열을 반환한다는 뜻이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">indexOf와 includes의 차이는?</div>
+    <div class="wda-flip-back">indexOf는 위치(숫자 또는 -1)를 반환하고, includes는 존재 여부(true/false)만 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">slice가 substring보다 추천되는 이유는?</div>
+    <div class="wda-flip-back">음수 인덱스를 뒤에서부터 계산해줘서 더 직관적이고, 배열 메서드와 사용법이 같기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">split과 join의 관계는?</div>
+    <div class="wda-flip-back">split은 문자열을 배열로 쪼개고, join은 배열을 문자열로 합치는 짝꿍 메서드다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">replace와 replaceAll의 차이는?</div>
+    <div class="wda-flip-back">replace는 첫 번째로 일치하는 것만 바꾸고, replaceAll은 모두 바꾼다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">charAt과 [ ]의 범위 초과 시 차이는?</div>
+    <div class="wda-flip-back">charAt은 빈 문자열("")을 반환하고, [ ]은 undefined를 반환한다.</div>
+  </div>
 </div>

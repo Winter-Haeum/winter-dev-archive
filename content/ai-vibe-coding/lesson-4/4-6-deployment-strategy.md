@@ -15,7 +15,7 @@ status: "completed"
 ---
 
 <style>
-.wda-callout{border-radius:10px;padding:12px 15px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
+.wda-callout{border-radius:10px;padding:12px 14px;margin:.8rem 0 1.1rem;border-left:3px solid;font-size:.9rem;line-height:1.75}
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
@@ -52,6 +52,22 @@ p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !imp
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-deco{position:absolute;z-index:2;pointer-events:none}
 .wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 @media (max-width:640px){
 .wda-deco{max-width:55px !important}
 .wda-char{max-width:110px !important}
@@ -391,6 +407,68 @@ Supabase 절약 팁:
   대부분의 개인 포트폴리오는 무료 플랜으로도 충분합니다!<br>
   월 1000 방문자 이하라면 제한사항에 걸릴 일이 거의 없어요.<br>
   중요한 건 Supabase 비활성 방지를 위한 GitHub Actions 설정입니다.
+</div>
+
+---
+
+## ✅ 핵심 요약
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li>GitHub Pages는 비활성 제한이 없지만, <strong>Supabase 무료 플랜은 7일 비활성 시 자동 일시정지</strong>된다</li>
+    <li>Supabase 일시정지를 막으려면 <strong>GitHub Actions Scheduled Workflow</strong>로 주기적으로 ping을 보낸다 (supabase-keep-alive.yml)</li>
+    <li>GitHub Pages 대역폭은 <strong>월 100GB</strong>, Supabase DB는 <strong>500MB</strong>가 무료 플랜 기준이다</li>
+    <li>Public 저장소의 GitHub Actions는 <strong>무제한 무료</strong>로 사용할 수 있다</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Supabase 프로젝트를 만들고 그대로 방치하면?</div>
+    <div class="wda-mistake-right">방지: 7일 비활성 시 자동 정지되므로 GitHub Actions로 주 3회 이상 ping을 보내야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: SUPABASE_URL, SUPABASE_ANON_KEY를 코드에 직접 작성하면?</div>
+    <div class="wda-mistake-right">방지: GitHub Secrets에 등록해서 워크플로우에서 안전하게 참조해야 한다.</div>
+  </div>
+</div>
+
+**🎯 완성 기준**
+
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 1 · 한계 파악</div>
+    <div class="wda-formula-block-body">GitHub Pages·Supabase 무료 플랜 제한사항 숙지</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 2 · 비활성 방지</div>
+    <div class="wda-formula-block-body">supabase-keep-alive 워크플로우 등록<br>GitHub Secrets 설정 완료</div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">완성 기준 3 · 응급 대응</div>
+    <div class="wda-formula-block-body">대역폭·DB 용량 초과, 일시정지 시 대응 전략 숙지</div>
+  </div>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Supabase 무료 플랜이 자동 일시정지되는 비활성 기간은?</div>
+    <div class="wda-flip-back">7일</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Supabase 비활성을 방지하는 GitHub Actions 기능은?</div>
+    <div class="wda-flip-back">Scheduled Workflow (cron 기반 주기적 ping)</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">GitHub Pages 무료 플랜의 월 대역폭 한도는?</div>
+    <div class="wda-flip-back">100GB (soft limit)</div>
+  </div>
 </div>
 
 ---

@@ -49,6 +49,22 @@ tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
 p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
+.wda-check-note ul{list-style:none;margin:0;padding:0}
+.wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
+.wda-check-note li::before{content:"✓";position:absolute;left:0;top:0;color:#6FB6C9;font-weight:700}
+.wda-check-note strong{color:#1F1B2E;font-weight:700}
+.wda-mistake-notes{display:flex;flex-direction:column;gap:8px;margin:.8rem 0 1.6rem}
+.wda-mistake-note{border:1px solid #F6CFA8;border-radius:6px;padding:10px 14px;background:#FFF3E8}
+.wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
+.wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
+.wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
+.wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 <h2>1. 💻 실습 : 실습용 프로젝트 만들기</h2>
@@ -634,3 +650,80 @@ function App() {
 
 export default App;
 ```
+
+---
+
+<h2>7. ✅ 핵심 요약</h2>
+
+**📌 먼저 외울 것**
+
+<div class="wda-check-note">
+  <ul>
+    <li><strong>getBoundingClientRect()</strong>로 요소의 절대 위치·크기를 구하면 자식 요소 위에 있어도 흔들리지 않는 정확한 내부 좌표를 계산할 수 있다.</li>
+    <li>마우스를 따라다니는 요소에는 <strong>pointer-events: none</strong>을 줘서 부모의 <code>onMouseMove</code> 감지가 끊기지 않게 한다.</li>
+    <li>한글 입력에서는 <strong>e.nativeEvent.isComposing</strong>을 체크해 IME 조합 중 중복 전송 버그를 막는다.</li>
+    <li>스크롤 바닥 감지 공식은 <code>scrollHeight - scrollTop &lt;= clientHeight</code>이며, 오차 방지를 위해 여유값을 더한다.</li>
+    <li>자식 요소 클릭이 부모로 전파되지 않게 막으려면 <strong>e.stopPropagation()</strong>을 사용한다.</li>
+  </ul>
+</div>
+
+**🧠 실수 방지 체크**
+
+<div class="wda-mistake-notes">
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 마우스 좌표 계산에 e.offsetX/offsetY를 사용한다.</div>
+    <div class="wda-mistake-right">방지: 마우스가 자식 요소(Follower) 위로 올라가면 기준점이 바뀌어 좌표가 튄다. <code>getBoundingClientRect()</code>로 컨테이너 기준 좌표를 계산해야 안정적이다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: Follower 요소에 pointer-events 처리를 빠뜨린다.</div>
+    <div class="wda-mistake-right">방지: pointer-events: none이 없으면 마우스가 점 위에 있다고 판단되어 컨테이너의 onMouseMove가 끊기거나 깜빡인다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 한글 입력에서 isComposing 체크 없이 onKeyDown의 Enter만 검사한다.</div>
+    <div class="wda-mistake-right">방지: 조합 중(isComposing이 true)에 Enter 처리를 하면 중복 전송 버그(IME 이슈)가 발생하므로, 조합 중이면 함수를 바로 종료한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">실수: 삭제 버튼(자식)에 stopPropagation을 빠뜨린다.</div>
+    <div class="wda-mistake-right">방지: 이벤트 버블링 때문에 삭제와 동시에 부모의 선택(toggleTag) 이벤트까지 함께 실행되는 버그가 생긴다.</div>
+  </div>
+</div>
+
+**✅ 완성 기준**
+
+<div class="wda-check-note">
+  <ul>
+    <li>실습 1: 박스 안에서 마우스를 움직이면 초록 점이 정확히 따라오고, 좌표 텍스트가 박스 크기 범위 안에서 표시된다.</li>
+    <li>실습 2: 입력창 포커스 시 테두리 색이 바뀌고, Enter 키 입력 시 알림창이 뜨며 입력창이 비워진다.</li>
+    <li>실습 3: 스크롤을 끝까지 내리기 전엔 버튼이 회색으로 비활성화되고, 끝까지 내리면 보라색으로 활성화된다.</li>
+    <li>실습 4: 태그를 클릭하면 선택 색이 바뀌고, X 버튼을 클릭하면 선택 이벤트 없이 해당 태그만 삭제된다.</li>
+  </ul>
+</div>
+
+**🎴 클릭 복습 카드**
+
+<div class="wda-flip-deck">
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">마우스 좌표를 왜 getBoundingClientRect()로 구하나?</div>
+    <div class="wda-flip-back">자식 요소 위에서도 흔들리지 않는, 컨테이너 기준의 안정적인 절대 좌표를 얻을 수 있기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">Follower 점에 pointer-events: none을 준 이유는?</div>
+    <div class="wda-flip-back">점이 마우스 커서를 가려 컨테이너의 onMouseMove 이벤트가 끊기는 것을 막기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">isComposing 체크는 왜 필요한가?</div>
+    <div class="wda-flip-back">한글 등 조합형 문자 입력 중 Enter 처리가 중복 실행되는 IME 버그를 막기 위해서다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">스크롤 바닥 감지 공식은?</div>
+    <div class="wda-flip-back">scrollHeight - scrollTop <= clientHeight (+ 오차 여유값)로 판단한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">e.stopPropagation()은 언제 필요한가?</div>
+    <div class="wda-flip-back">자식 요소의 클릭 이벤트가 부모 요소로 전파(버블링)되는 것을 막아야 할 때 사용한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">e.key와 e.code의 차이는?</div>
+    <div class="wda-flip-back">e.key는 실제 입력된 문자 값(언어에 따라 달라짐), e.code는 키보드의 물리적 위치(항상 고정)다.</div>
+  </div>
+</div>
