@@ -84,32 +84,33 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>JavaScript 정의</strong> — JavaScript가 무엇이고 웹에서 어떤 역할을 하는지 이해한다.<br>
-  • <strong>Modern vs Legacy</strong> — alert, script 태그의 올바른 사용법과 변화를 이해한다.<br>
-  • <strong>실행 환경</strong> — 브라우저 Console과 Node.js 환경의 차이를 이해한다.<br>
-  • <strong>엄격 모드</strong> — use strict가 왜 필요한지 실수 예시를 통해 체감한다.
+  • <strong>실행 순서 설명</strong> — 브라우저가 HTML을 해석하다가 script를 만나면 어떤 순서로 코드를 실행하는지 설명할 수 있다.<br>
+  • <strong>실행 시점 판단</strong> — script 태그의 위치에 따라 같은 코드의 실행 결과가 왜 달라지는지 판단할 수 있다.<br>
+  • <strong>실행 환경 구분</strong> — Console과 Node.js가 각각 어떤 목적을 위한 실행 환경인지 구분할 수 있다.<br>
+  • <strong>오류 원인 파악</strong> — 초보자가 자주 만나는 JavaScript 실행 오류를 보고 원인을 찾을 수 있다.
 </div>
 
 ---
 
-## 1. JavaScript란 무엇인가?
+## 1. 브라우저가 코드를 읽는 방식
 
-JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 스크립트 언어다.
-
-**🏗️ 브라우저의 구조**
+브라우저는 HTML만 읽을 수 있는 것이 아니라, 화면을 그리는 데 필요한 세 가지 처리기를 함께 내장하고 있다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
     <div class="wda-fcard-ico">🔤</div>
-    <div class="wda-fcard-ttl">HTML 해석기(파서) 내장</div>
+    <div class="wda-fcard-ttl">HTML 해석기(파서)</div>
+    <div class="wda-fcard-dsc">문서의 구조(뼈대)를 읽어들인다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ico">🎨</div>
-    <div class="wda-fcard-ttl">CSS 해석기 내장</div>
+    <div class="wda-fcard-ttl">CSS 해석기</div>
+    <div class="wda-fcard-dsc">문서의 모양(스타일)을 계산한다.</div>
   </div>
   <div class="wda-fcard">
     <div class="wda-fcard-ico">⚡</div>
-    <div class="wda-fcard-ttl">JavaScript 엔진 내장</div>
+    <div class="wda-fcard-ttl">JavaScript 엔진</div>
+    <div class="wda-fcard-dsc">문서의 동작(행동)을 실행한다.</div>
     <ul class="wda-fcard-list">
       <li>V8</li>
       <li>SpiderMonkey</li>
@@ -117,23 +118,71 @@ JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 
   </div>
 </div>
 
-**🚫 다른 언어는?**
+**🚫 다른 언어는 왜 안 되나?**
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">브라우저에서 직접 실행되지 않음</span>
   • Python / Java / C++ 코드는 일반적인 브라우저에서 그대로 직접 실행되지 않는다.<br>
-  • 브라우저는 기본적으로 JavaScript 엔진을 내장하고 있기 때문에 JavaScript를 바로 실행할 수 있다.
-</div>
-
-<div class="wda-callout wda-ci">
-  💡 웹사이트에서 버튼 클릭 처리, 폼 검증, 동적인 화면 변경 같은 대표적인 기능은 JavaScript로 구현된다.
+  • 브라우저가 기본적으로 내장하고 있는 것은 <strong>JavaScript 엔진</strong>뿐이라, JavaScript만 바로 실행할 수 있다.
 </div>
 
 ---
 
-## 2. JavaScript의 탄생 비화
+## 2. JavaScript가 웹에서 맡는 역할
 
-지금 우리가 부르는 이름이 되기까지 많은 우여곡절이 있었다.
+세 가지 처리기 중에서도 JavaScript 엔진이 맡는 일은 "정적인 화면"을 "움직이는 화면"으로 바꾸는 것이다.
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">🖱️</div>
+    <div class="wda-fcard-ttl">클릭 처리</div>
+    <div class="wda-fcard-dsc">버튼을 눌렀을 때 반응을 만든다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">✅</div>
+    <div class="wda-fcard-ttl">입력값 검증</div>
+    <div class="wda-fcard-dsc">폼에 잘못된 값이 들어오면 미리 막는다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">🔄</div>
+    <div class="wda-fcard-ttl">화면 갱신</div>
+    <div class="wda-fcard-dsc">새로고침 없이 화면 일부를 바꾼다.</div>
+  </div>
+</div>
+
+<div class="wda-callout wda-ci">
+  💡 HTML이 뼈대, CSS가 겉모습이라면, JavaScript는 그 화면이 <strong>사용자의 행동에 반응하게 만드는 부분</strong>이다.
+</div>
+
+---
+
+## 3. 이름 뒤에 숨은 표준: ECMAScript와 JavaScript
+
+**📌 핵심 구분**
+
+ECMAScript는 "언어가 따라야 할 공식 규칙"이고, JavaScript는 "그 규칙을 실제 실행 환경에서 구현한 언어"다.
+
+**📊 ECMAScript와 JavaScript 비교**
+
+| 구분 | ECMAScript (ES) | JavaScript |
+|---|---|---|
+| 한 줄 개념 | 공식 규칙(명세)이다 | 그 규칙을 구현한 실제 언어다 |
+| 역할 | 언어의 규칙과 문법을 정의한다 | ECMAScript 표준을 실제로 구현한다 |
+| 내용 | 언어의 규칙과 문법 정의(Spec) | ECMAScript 표준을 기반으로 브라우저와 런타임에서 실제로 실행되는 언어다 |
+| 선언 규칙 | "변수는 이렇게 선언해야 한다" | 규칙에 맞게 실제로 사용한다 |
+| 함수 규칙 | "함수는 이러한 규칙을 따른다" | 함수를 실제로 실행한다 |
+| 실행 환경 | 순수 언어 규칙만 정의한다 | 브라우저 환경에서는 Web API와 함께 사용된다 |
+| Web API 예시 | 해당 없음 | (브라우저가 제공) DOM, fetch, localStorage 등 |
+
+<div class="wda-callout wda-ci">
+  • ECMAScript는 <strong>실행되는 언어가 아니라 규칙 문서</strong>다.<br>
+  • 브라우저에서 실제로 사용하는 것은 <strong>항상 JavaScript</strong>다.<br>
+  • <strong>"ECMAScript = 표준 / JavaScript = 구현"</strong>으로 구분한다.
+</div>
+
+**🕰️ 지금 이름이 되기까지**
+
+지금 부르는 이름이 되기까지는 우여곡절이 있었다.
 
 <div class="wda-steps">
   <div class="wda-step">
@@ -170,32 +219,14 @@ JavaScript는 브라우저에서 웹 페이지의 동작을 제어하는 표준 
   <div class="wda-step">
     <div class="wda-snum">4</div>
     <div class="wda-sbody">
-      <div class="wda-sttl">평화 (1997)</div>
+      <div class="wda-sttl">표준화 (1997)</div>
       <div class="wda-sdsc">
         국제 표준 기구 ECMA에 언어를 기증했다.<br>
-        공식 명칭은 <strong>ECMAScript</strong>다.
+        이때 정해진 공식 명칭이 <strong>ECMAScript</strong>다.
       </div>
     </div>
   </div>
 </div>
-
----
-
-## 3. ECMAScript vs JavaScript
-
-ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
-
-**📊 ECMAScript와 JavaScript 비교**
-
-| 구분 | ECMAScript (ES) | JavaScript |
-|---|---|---|
-| 한 줄 개념 | 레시피(명세)다 | 요리(실제 언어)다 |
-| 역할 | 언어의 규칙과 문법을 정의한다 | ECMAScript 표준을 실제로 구현한다 |
-| 내용 | 언어의 규칙과 문법 정의(Spec) | ECMAScript 표준을 기반으로 브라우저와 런타임에서 실제로 실행되는 언어다 |
-| 선언 규칙 | "변수는 이렇게 선언해야 한다" | 규칙에 맞게 실제로 사용한다 |
-| 함수 규칙 | "함수는 이러한 규칙을 따른다" | 함수를 실제로 실행한다 |
-| 실행 환경 | 순수 언어 규칙만 정의한다 | 브라우저 환경에서는 Web API와 함께 사용된다 |
-| Web API 예시 | 해당 없음 | (브라우저가 제공) DOM, fetch, localStorage 등 |
 
 **📅 주요 버전**
 
@@ -214,17 +245,9 @@ ECMAScript는 레시피(명세)이고, JavaScript는 요리(실제 언어)다.
   </div>
 </div>
 
-**📌 핵심 구분**
-
-<div class="wda-callout wda-ci">
-  • ECMAScript는 <strong>실행되는 언어가 아니라 규칙 문서</strong>다.<br>
-  • 브라우저에서 실제로 사용하는 것은 <strong>항상 JavaScript</strong>다.<br>
-  • <strong>"ECMAScript = 표준 / JavaScript = 구현"</strong>으로 구분한다.
-</div>
-
 ---
 
-## 4. JavaScript를 사용하는 방법
+## 4. script를 HTML에 연결하는 두 가지 방법
 
 JavaScript 코드를 브라우저에게 알려주는 방법은 두 가지다.
 
@@ -235,8 +258,8 @@ HTML 파일 안에 직접 작성한다.
 ```html
 <body>
 <script>
-alert("Hello!");
-// 경고창을 띄운다
+document.title = "학습 페이지 준비 완료";
+// 브라우저 탭 제목을 바꾼다
 </script>
 </body>
 ```
@@ -255,7 +278,7 @@ JS 파일을 분리해 불러온다.
 
 ---
 
-## 5. script 태그의 위치
+## 5. 실행 시점 문제: 어디에 두느냐가 중요하다
 
 • HTML 파일은 **위에서 아래로 순서대로 해석**된다.<br>
 • 따라서 script 태그의 위치에 따라 **JavaScript 실행 결과가 달라진다**.
@@ -267,14 +290,14 @@ HTML 요소가 아직 만들어지기 전에 JavaScript가 먼저 실행된다.
 ```html
 <head>
 <script>
-// 버튼이 아직 생성되지 않은 상태
-document.querySelector('button');
-// ❌ button 요소를 찾지 못해 null이 반환될 수 있다
+// #status 요소가 아직 생성되지 않은 상태
+document.querySelector('#status');
+// ❌ 요소를 찾지 못해 null이 반환될 수 있다
 </script>
 </head>
 
 <body>
-<button>클릭</button>
+<p id="status">준비 중</p>
 </body>
 ```
 
@@ -282,7 +305,7 @@ document.querySelector('button');
 
 <div class="wda-callout wda-cw">
   • HTML 파싱이 끝나기 전에 JS가 실행된다.<br>
-  • button 요소가 아직 없어서 찾지 못한다.<br>
+  • #status 요소가 아직 없어서 찾지 못한다.<br>
   • 이후 코드에서 오류가 발생할 수 있다.
 </div>
 
@@ -292,12 +315,12 @@ HTML 요소가 모두 만들어진 뒤 JavaScript가 실행된다.
 
 ```html
 <body>
-<button>클릭</button>
+<p id="status">준비 중</p>
 
 <script>
 // HTML이 모두 생성된 뒤 실행된다
-document.querySelector('button');
-// ✅ 정상적으로 button 요소를 찾을 수 있다
+document.querySelector('#status');
+// ✅ 정상적으로 #status 요소를 찾을 수 있다
 </script>
 </body>
 ```
@@ -346,7 +369,7 @@ document.querySelector('button');
 
 ---
 
-## 7. 레거시 vs 현대: 웹의 발전
+## 7. 오래된 방식과 현대 방식의 차이
 
 | 구분 | Legacy (초창기 웹) | Modern (오늘날) |
 |---|---|---|
@@ -360,38 +383,44 @@ document.querySelector('button');
 **🆚 예시 코드 비교**
 
 <div class="wda-compare">
-  <div class="wda-compare-card wda-legacy">
-    <div class="wda-compare-ttl">❌ Legacy (초창기 웹)</div>
-  </div>
-  <div class="wda-compare-card wda-modern">
-    <div class="wda-compare-ttl">✅ Modern (오늘날)</div>
-  </div>
-</div>
+
+<div class="wda-compare-card wda-legacy">
+
+<div class="wda-compare-ttl">❌ Legacy</div>
+
+HTML 태그 안에 동작(onclick)을 직접 넣는 방식이다.
 
 ```html
-<button
-style="color: red"
-onclick="alert('클릭!')"
->
-버튼
+<button onclick="alert('확인')">
+  안내 보기
 </button>
-
-<script>
-// 사용자 흐름을 강제로 막음
-alert('환영합니다!');
-</script>
 ```
+
+버튼이 많아질수록 관리가 어려워진다.
+
+</div>
+
+<div class="wda-compare-card wda-modern">
+
+<div class="wda-compare-ttl">✅ Modern</div>
+
+HTML은 구조, JavaScript는 동작을 맡는 방식이다.
 
 ```javascript
-// CSS와 JS를 별도 파일로 분리
+// <button id="msg-btn"> / <p id="msg">
+const btn = document.querySelector("#msg-btn");
+const msg = document.querySelector("#msg");
 
-const btn = document.querySelector('button');
-
-// 이벤트 리스너로 깔끔하게 처리
-btn.addEventListener('click', () => {
-showCustomModal('환영합니다!');
+btn.addEventListener("click", () => {
+  msg.textContent = "확인";
 });
 ```
+
+동작 코드를 한곳에서 관리하기 쉽다.
+
+</div>
+
+</div>
 
 **💼 실무 팁**
 
@@ -402,58 +431,98 @@ showCustomModal('환영합니다!');
 
 ---
 
-## 8. 실습: 개발자 도구 Console
+## 8. 실행 흐름을 확인하는 첫 번째 도구: Console
 
-**🖥️ Console 열기**
+화면만 보고서는 지금 코드가 어디까지 실행됐는지, 변수에 어떤 값이 들어있는지 알기 어렵다. Console은 그 실행 흐름을 직접 들여다보는 도구다.
 
-• F12 또는 우클릭 → 검사<br>
-• Console 탭 클릭
+**🔎 Console로 확인할 수 있는 것**
 
-**⌨️ 따라 해보기**
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">🔌</div>
+    <div class="wda-fcard-ttl">파일 연결 확인</div>
+    <div class="wda-fcard-dsc">script 파일이 브라우저에 제대로 불러와졌는지 확인한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">🚩</div>
+    <div class="wda-fcard-ttl">실행 지점 확인</div>
+    <div class="wda-fcard-dsc">코드가 어디까지 실행됐는지 순서를 따라간다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">🔍</div>
+    <div class="wda-fcard-ttl">변수 값 확인</div>
+    <div class="wda-fcard-dsc">변수에 예상한 값이 실제로 들어갔는지 확인한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ico">❓</div>
+    <div class="wda-fcard-ttl">요소 선택 확인</div>
+    <div class="wda-fcard-dsc">선택한 HTML 요소가 null인지 아닌지 확인한다.</div>
+  </div>
+</div>
 
-```javascript
-alert("안녕하세요!");
-10 +20;
-console.log("기록이 남습니다");
-```
-
----
-
-## 9. 개발자의 일기장: console.log
-
-**📌 개념**
+**🖥️ Console 여는 법**
 
 <div class="wda-callout wda-ci">
-  프로그램이 지금 무슨 생각을 하고 있는지 확인할 수 있다.
+  F12 또는 우클릭 → 검사 → Console 탭에서 확인할 수 있다.
 </div>
 
-**📋 기본 사용법**
-
-```javascript
-console.log("안녕하세요");
-console.log(10 +20);
-```
-
-• 괄호 안의 내용을 **Console 탭에 출력**한다.<br>
-• **사용자 화면(웹페이지)에는 보이지 않는다.**<br>
-• **오직 개발자 확인용**이다.
-
-**🤔 언제 쓰나?**
+**🆚 화면 출력 vs Console 출력**
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">오류 찾기 (디버깅)</div>
-    "여기까지 코드가 실행됐는가?", "이 변수에 어떤 값이 들어있는가?"를 확인할 때 사용한다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">데이터 확인</div>
-    서버에서 가져온 데이터가 올바른지 <strong>눈으로 직접 확인</strong>할 때 사용한다.
-  </div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">🖥️ 화면 출력</div>
+
+사용자가 웹페이지에서 직접 보는 결과다.
+
+`element.textContent = "..."`
+
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">🛠️ Console 출력</div>
+
+개발자가 실행 상태를 확인하는 결과이며, 사용자 화면에는 보이지 않는다.
+
+`console.log(...)`
+
+</div>
+
+</div>
+
+<div class="wda-callout wda-cw">
+  <strong>console.log를 실행했는데 화면에는 안 보인다?</strong> 정상이다. console.log는 <strong>Console 탭 전용 출력</strong>이며, 사용자가 보는 화면(webpage)에는 나타나지 않는다.
+</div>
+
+**🪜 실행 흐름 찍어보기**
+
+5번에서 만든 `<p id="status">` 요소를 그대로 사용해, 실행 흐름을 단계별로 Console에 남겨본다.
+
+```javascript
+console.log("1단계: JavaScript 파일 연결 확인");
+
+const statusText = document.querySelector("#status");
+console.log("2단계: 선택한 요소:", statusText);
+
+statusText.textContent = "JavaScript가 화면 문구를 바꿨습니다.";
+console.log("3단계: 화면 문구 변경 완료");
+```
+
+**🧭 초보자가 처음 확인할 것**
+
+<div class="wda-callout wda-cw">
+  • script 파일이 연결됐는가 — Console에 아무 로그도 안 찍히면 연결부터 의심한다.<br>
+  • querySelector 결과가 null인가 — 요소를 못 찾으면 이후 코드가 전부 멈춘다.<br>
+  • 클릭 등 이벤트가 실제로 실행됐는가 — 이벤트 콜백 안에 console.log를 넣어 확인한다.
 </div>
 
 ---
 
-## 10. 브라우저를 탈출한 JS: Node.js
+## 9. 브라우저 밖에서 실행되는 JavaScript: Node.js
+
+브라우저 안에서만 실행되던 JavaScript는 이제 브라우저 밖에서도 실행할 수 있다.
 
 | 구분 | 브라우저 자바스크립트 | Node.js |
 |---|---|---|
@@ -467,32 +536,32 @@ console.log(10 +20);
 
 ---
 
-## 11. 개발자가 자주 하는 실수
+## 10. 초보자가 자주 만나는 실행 실수
 
-JavaScript는 너무 자유로워서 탈이다. (경찰관이 없다)
+JavaScript는 규칙을 지키지 않아도 대부분 일단 실행은 되기 때문에, 아래 같은 실수는 눈치채지 못하고 넘어가기 쉽다.
 
 **❌ 실수 1: 변수 키워드 생략**
 
 ```javascript
 // let, const 없이 막 씀
-username ="admin";
+pageViews =1;
 
 // 나도 모르게 '전역 변수'가 되어버림
-// window.username과 같다
+// window.pageViews와 같다
 ```
 
 • 의도하지 않게 전역 변수가 된다.<br>
 • 다른 코드나 라이브러리와 충돌할 수 있다.
 
-→ 나중에 다른 클래스의 사용자 이름과 충돌해 망가질 수 있다.
+→ 다른 스크립트에 같은 이름의 변수가 있으면 값이 서로 덮어써질 수 있다.
 
 **❌ 실수 2: 읽기 전용 변수에 쓰기**
 
 ```javascript
-const PI = 3.14;
+const MAX_ATTEMPTS = 3;
 
 // const로 선언한 변수는 재할당할 수 없다
-PI = 5;
+MAX_ATTEMPTS = 5;
 // ❌ TypeError: Assignment to constant variable
 ```
 
@@ -503,10 +572,9 @@ PI = 5;
 
 ---
 
-## 12. 엄격 모드 (use strict)
+## 11. 느슨함을 막는 안전장치: use strict와 module
 
-• "이제부터 법대로 합시다."<br>
-• JavaScript 엔진에게 **엄격한 규칙 적용을 요청한다**.
+느슨하게 넘어가던 실수를 오류로 드러내도록 JavaScript 엔진에게 요청하는 실행 모드가 있다.
 
 **📌 기본 개념**
 
@@ -527,8 +595,8 @@ PI = 5;
 ```javascript
 "use strict";
 
-x =10;
-// ❌ ReferenceError: x is not defined
+isReady =true;
+// ❌ ReferenceError: isReady is not defined
 ```
 
 • let, const 없이 변수를 사용하면 에러가 발생한다.<br>
@@ -539,7 +607,7 @@ x =10;
 ```javascript
 "use strict";
 
-let public =10;
+let package ="npm";
 // ❌ SyntaxError: Unexpected strict mode reserved word
 ```
 
@@ -551,9 +619,9 @@ let public =10;
 ```javascript
 "use strict";
 
-const obj = Object.freeze({ name: "JS" });
-obj.name = "Java";
-// ❌ TypeError: Cannot assign to read only property 'name' of object
+const config = Object.freeze({ theme: "dark" });
+config.theme = "light";
+// ❌ TypeError: Cannot assign to read only property 'theme' of object
 ```
 
 **💡 설명**
@@ -565,12 +633,9 @@ obj.name = "Java";
 
 </div>
 
----
+**🔁 module을 쓰면 자동으로 적용된다**
 
-## Q. 모든 파일에 다 써야 하나?
-
-• 옛날 방식(Script)에서는 **매 파일마다 직접 작성해야 했다.**<br>
-• 하지만 **현대 방식(Module)**에서는 **자동으로 strict 모드가 적용된다.**
+옛날 방식(Script)에서는 매 파일마다 `"use strict";`를 직접 작성해야 했지만, 현대 방식(Module)에서는 자동으로 strict 모드가 적용된다.
 
 ```html
 <script type="module">
@@ -582,13 +647,9 @@ obj.name = "Java";
 • `type="module"`을 사용하면 strict 모드가 기본값이다.<br>
 • 따로 `"use strict";`를 작성하지 않아도 된다.
 
----
+<span>모듈은 거대한 코드 기능을 나눠 놓은 작은 파일 조각이다.</span>
 
-## 13. 모듈(Module)이란?
-
-<span>거대한 코드 기능을 나눠 놓은 작은 파일 조각이다.</span>
-
-**✨ 특징**
+**✨ module의 특징**
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
@@ -605,7 +666,7 @@ obj.name = "Java";
   </div>
 </div>
 
-**🔧 응용**
+**🔧 script 방식과 module 방식 비교**
 
 <div class="wda-substep-set">
 
@@ -613,7 +674,7 @@ obj.name = "Java";
 
 ```html
 <script>
-let x =10;
+let pageTitle ="Home";
 </script>
 ```
 
@@ -624,7 +685,7 @@ let x =10;
 
 ```html
 <script type="module">
-let x =10;// 이 파일 안에서만 유효
+let pageTitle ="Home";// 이 파일 안에서만 유효
 </script>
 ```
 
@@ -641,18 +702,22 @@ let x =10;// 이 파일 안에서만 유효
 
 ---
 
-## 14. 실습 과제
+## 12. 실습 과제
+
+페이지에 학습 상태 메시지를 표시하고, Console에는 현재 학습 주제와 실행 완료 메시지를 출력하는 미니 스크립트를 만들어보자.
 
 ```html
 <!DOCTYPE html>
 <html>
 <body>
-<h1>나의 첫 JS</h1>
+<p id="status">학습 준비 중...</p>
+
 <script>
     "use strict";
-console.log("Hello, World!");
-const languageName ="JavaScript";
-// const는 값 변경 불가
+const studyTopic ="JavaScript 실행 환경";
+document.querySelector('#status').textContent ="학습 준비 완료";
+console.log("현재 학습 주제:", studyTopic);
+console.log("실행 완료");
 </script>
 </body>
 </html>
@@ -686,7 +751,7 @@ const languageName ="JavaScript";
     <li>브라우저는 HTML 파서 + CSS 파서 + <strong>JavaScript 엔진</strong>(예: V8, SpiderMonkey)으로 구성된다.</li>
     <li>내부 스크립트는 HTML 안에 직접 작성하고, 외부 스크립트는 JS 파일을 분리해 불러온다.</li>
     <li>HTML은 <strong>위 → 아래 순서로 해석</strong>되며, script 위치에 따라 실행 시점이 달라진다.</li>
-    <li>console.log는 디버깅·값 확인용 개발자 도구이며, 사용자 화면에는 보이지 않는다.</li>
+    <li>console.log는 <strong>실행 흐름과 변수 값을 확인하는 도구</strong>이며, 화면에 값을 보여주는 textContent와 달리 사용자 화면에는 보이지 않는다.</li>
     <li>Node.js는 브라우저 밖에서 JS를 실행하며, 파일 접근·서버·DB 연결이 가능하다.</li>
   </ul>
 </div>
@@ -717,6 +782,10 @@ const languageName ="JavaScript";
   <div class="wda-mistake-note">
     <div class="wda-mistake-wrong">오해: use strict와 module은 서로 관련이 없다?</div>
     <div class="wda-mistake-right">정답: use strict는 JS를 <strong>엄격 모드</strong>로 실행해 실수를 즉시 에러로 만들고, module은 <strong>독립된 파일 단위</strong>로 전역 오염을 방지하며 strict가 자동 적용된다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: console.log로 출력한 내용은 사용자도 화면에서 볼 수 있다?</div>
+    <div class="wda-mistake-right">정답: console.log는 <strong>Console 탭 전용 출력</strong>이다. 사용자 화면에 값을 보여주려면 <strong>textContent</strong> 같은 화면 출력 방법을 따로 사용해야 한다.</div>
   </div>
 </div>
 
@@ -762,7 +831,11 @@ const languageName ="JavaScript";
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">console.log는 왜 쓰나?</div>
-    <div class="wda-flip-back">디버깅과 값 확인용 개발자 도구이며, 사용자 화면에는 보이지 않는다.</div>
+    <div class="wda-flip-back">실행 흐름과 변수 값을 확인하는 도구다. Console 탭에만 출력되며, 사용자 화면(textContent 등)과는 다르다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화면 출력과 Console 출력의 차이는?</div>
+    <div class="wda-flip-back">화면 출력(textContent)은 사용자가 웹페이지에서 직접 보고, Console 출력(console.log)은 개발자만 Console 탭에서 확인한다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">use strict는 무엇을 하나?</div>
