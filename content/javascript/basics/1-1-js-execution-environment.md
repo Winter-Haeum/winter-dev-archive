@@ -47,8 +47,6 @@ tags:
 .wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
 .wda-hint{border-color:rgba(59,130,246,.25);background:rgba(59,130,246,.035)}
 .wda-caution{border-color:rgba(245,158,11,.28);background:rgba(245,158,11,.035)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
@@ -150,9 +148,7 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
   </div>
 </div>
 
-<div class="wda-callout wda-ci">
-  💡 HTML이 뼈대, CSS가 겉모습이라면, JavaScript는 그 화면이 <strong>사용자의 행동에 반응하게 만드는 부분</strong>이다.
-</div>
+HTML이 뼈대, CSS가 겉모습이라면, JavaScript는 그 화면이 **사용자의 행동에 반응하게 만드는 부분**이다.
 
 ---
 
@@ -173,6 +169,8 @@ ECMAScript는 "언어가 따라야 할 공식 규칙"이고, JavaScript는 "그 
 | 함수 규칙 | "함수는 이러한 규칙을 따른다" | 함수를 실제로 실행한다 |
 | 실행 환경 | 순수 언어 규칙만 정의한다 | 브라우저 환경에서는 Web API와 함께 사용된다 |
 | Web API 예시 | 해당 없음 | (브라우저가 제공) DOM, fetch, localStorage 등 |
+
+**📝 핵심 정리**
 
 <div class="wda-callout wda-ci">
   • ECMAScript는 <strong>실행되는 언어가 아니라 규칙 문서</strong>다.<br>
@@ -492,8 +490,10 @@ btn.addEventListener("click", () => {
 
 </div>
 
+**⚠️ 자주 하는 오해**
+
 <div class="wda-callout wda-cw">
-  <strong>console.log를 실행했는데 화면에는 안 보인다?</strong> 정상이다. console.log는 <strong>Console 탭 전용 출력</strong>이며, 사용자가 보는 화면(webpage)에는 나타나지 않는다.
+  console.log를 실행했는데 화면에는 안 보인다? 정상이다. console.log는 <strong>Console 탭 전용 출력</strong>이며, 사용자가 보는 화면(webpage)에는 나타나지 않는다.
 </div>
 
 **🪜 실행 흐름 찍어보기**
