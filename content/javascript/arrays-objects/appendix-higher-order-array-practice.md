@@ -1,7 +1,7 @@
 ---
-title: "부록: 고차 함수로 배열 다루기 - 실습 12문"
+title: "부록: 고차 배열 메서드 실습"
 status: "completed"
-description: "map·filter·reduce·forEach·find·some·every·sort를 활용한 실무형 배열 실습 12문제를 풀이와 함께 정리한다."
+description: "map·filter·find·some·every·reduce를 실제 데이터에 적용해보는 실습 전용 부록이다."
 category: "JavaScript"
 section: "Arrays & Objects"
 tags:
@@ -15,35 +15,33 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
+.wda-cb{background:rgba(59,130,246,.06);border-color:#3b82f6}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
+.wda-cb .wda-clabel{color:#3b82f6}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-1~1-5·2-1~2-3 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -62,909 +60,542 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
-📎 <strong>부록(Appendix)</strong> — map·filter·reduce·forEach·find·some/every·sort를 실무형 문제 12개로 반복 연습하는 실습 전용 부록입니다.
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 1 : Map (1) - 데이터 변환하기</h2>
-</div>
-
-**🎯 Mission**
-
-DB에서 가져온 `user` 정보를 프론트엔드에서 보여줄 **UI 전용 모델**로 변환하세요.
-
-- `fullName` : firstName + lastName
-- `isAdult` : age >= 18
-
-> Tip: 화살표 함수에서 객체를 바로 리턴할 땐 (`{}`) 괄호를 잊지 마세요!
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const users = [
-  { firstName: 'Gildong', lastName: 'Hong', age: 25 },
-  { firstName: 'Chulsoo', lastName: 'Kim', age: 15 },
-  { firstName: 'Younghee', lastName: 'Lee', age: 30 }
-];
-
-// 여기에 코드를 작성하세요
-const uiModels = users.map(/* ... */);
-
-console.log(uiModels);
-```
-
-**📝 정답**
-
-템플릿 리터럴로 이름을 합치고, 비교 연산자로 성인 여부를 판단합니다. 가장 중요한 건 **객체를 반환할 때 소괄호 `()`로 감싸는 것**입니다.
-
-```jsx
-const uiModels = users.map(user => ({
-  // 1. 이름 합치기 (띄어쓰기 포함)
-  fullName: `${user.firstName} ${user.lastName}`,
-  
-  // 2. 성인 여부 (true/false)
-  isAdult: user.age >= 18
-}));
-
-console.log(uiModels);
-/*
-[
-  { fullName: 'Gildong Hong', isAdult: true },
-  { fullName: 'Chulsoo Kim', isAdult: false },
-  { fullName: 'Younghee Lee', isAdult: true }
-]
-*/
-```
-
-**💡 보충 설명**
+**📎 부록(Appendix)**
 
 <div class="wda-callout wda-ci">
-  이 실습에는 자바스크립트 초보자가 가장 많이 틀리는 <strong>함정</strong>이 숨어있습니다.
+  • 이 부록은 2-2(배열)에서 배운 map/filter/find/some/every/reduce를 실제 데이터에 적용해보는 실습 전용 자료다.<br>
+  • 메서드 정의를 다시 설명하지 않고, 상황에 맞는 메서드를 고르고 사용하는 연습에 집중한다.
 </div>
+
+---
+
+## 1. 이 부록에서 연습할 것
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">함정</div>
-    <div class="wda-fcard-dsc"><code>user =&gt; { fullName: ... }</code>처럼 쓰면 중괄호가 객체가 아니라 함수 본문으로 해석됩니다. 그래서 명시적으로 <code>return</code>을 쓰지 않으면 <code>undefined</code>가 반환되거나, 작성 방식에 따라 문법 오류가 날 수 있습니다.</div>
+    <div class="wda-fcard-ttl">메서드 선택</div>
+    <div class="wda-fcard-dsc">상황에 맞는 메서드를 스스로 고르는 연습이다.</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">이유</div>
-    <div class="wda-fcard-dsc">화살표 함수에서 중괄호 <code>{}</code>는 원래 "함수의 몸통(Block)"을 의미하기 때문입니다. 컴퓨터는 "아, 여기서 함수 코드가 시작되는구나"라고 착각하고, 그 안의 <code>fullName:</code>을 라벨로 인식해버립니다.</div>
+    <div class="wda-fcard-ttl">입력 → 처리 → 출력</div>
+    <div class="wda-fcard-dsc">데이터가 어떤 모양에서 어떤 모양으로 바뀌는지 따라간다.</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">해결</div>
-    <div class="wda-fcard-dsc">"이건 함수 몸통이 아니라 <strong>객체(Object)</strong>야!"라고 알려주기 위해, 전체를 소괄호 <strong><code>({})</code></strong>로 한 번 감싸줘야 합니다.</div>
+    <div class="wda-fcard-ttl">실수 예방</div>
+    <div class="wda-fcard-dsc">콜백 return, reduce 초기값 같은 실수를 미리 연습한다.</div>
   </div>
-</div>
-
-<div class="wda-callout wda-ci">
-  실무에서 백엔드 데이터(스네이크 케이스 <code>user_name</code>)를 프론트엔드 변수(카멜 케이스 <code>userName</code>)로 바꿀 때, 이 패턴을 숨 쉬듯이 사용하게 될 것입니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 2 : Map (2) - 데이터 포맷팅</h2>
-</div>
+## 2. 실습 데이터 살펴보기
 
-**🎯 Mission**
+모든 문제는 아래 강의 수강 기록 하나를 재사용한다.
 
-가격(price) 데이터를 ₩ 통화 기호와 천 단위 콤마( , )가 포함된 문자열로 변환하세요.
-
-- `price` ➔ `formattedPrice`
-
-> Tip: map은 원본 배열의 개수와 동일한 새 배열을 만듭니다.
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const products = [
-  { name: 'Mouse', price: 35000 },
-  { name: 'Keyboard', price: 150000 },
-  { name: 'Monitor', price: 450000 }
+```javascript
+const lessonRecords = [
+  { title: "변수와 스코프", level: "입문", minutes: 40, score: 92, completed: true },
+  { title: "배열 다루기", level: "입문", minutes: 55, score: 78, completed: true },
+  { title: "클로저 이해하기", level: "심화", minutes: 60, score: 65, completed: false },
+  { title: "비동기 프로그래밍", level: "심화", minutes: 70, score: 88, completed: true },
+  { title: "타입스크립트 기초", level: "입문", minutes: 45, score: 0, completed: false },
 ];
-
-// toLocaleString() 메서드 활용
-const prices = products.map(/* ... */);
-
-console.log(prices);
 ```
 
-**📝 정답**
+| 필드 | 의미 |
+|---|---|
+| `title` | 강의 제목 |
+| `level` | 난이도("입문"/"심화") |
+| `minutes` | 학습 시간(분) |
+| `score` | 퀴즈 점수(0이면 아직 응시하지 않음) |
+| `completed` | 완료 여부 |
 
-숫자에 쉼표를 찍을 때 복잡한 정규식 대신 `toLocaleString()`을 사용하면 아주 쉽습니다.
+---
 
-```jsx
-const prices = products.map(product => ({
-  name: product.name, // 이름은 그대로 유지
-  // toLocaleString(): 숫자를 지역 형식에 맞는 문자열로 바꿔줌. 여기서는 천 단위 콤마를 만들기 위해 사용하고, ₩ 기호는 직접 붙임
-  formattedPrice: `₩${product.price.toLocaleString('ko-KR')}`
-}));
+## 3. 문제를 풀기 전 생각 순서
 
-console.log(prices);
-/*
-[
-  { name: 'Mouse', formattedPrice: '₩35,000' },
-  { name: 'Keyboard', formattedPrice: '₩150,000' },
-  { name: 'Monitor', formattedPrice: '₩450,000' }
-]
-*/
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  이 실습에서 배운 <strong><code>toLocaleString()</code></strong> 메서드는 실무 꿀팁 중 하나입니다. 숫자를 지역 형식에 맞는 문자열로 바꿔주는 메서드로, 여기서는 천 단위 콤마를 만들기 위해 사용했고 <code>₩</code> 기호는 템플릿 리터럴로 직접 붙였습니다.<br>
-  초보자 시절에는 "1000 단위마다 콤마 찍기"를 구현하려고 for문을 돌리거나 복잡한 수학 계산을 하곤 합니다. 하지만 자바스크립트는 이 기능을 기본적으로 제공합니다.<br>
-  · <code>(35000).toLocaleString()</code> 👉 <code>"35,000"</code> (자동으로 콤마 생성)<br><br>
-  <code>map</code>과 <code>toLocaleString</code>의 조합은 <strong>"이커머스(쇼핑몰) 개발자"</strong>의 기본 소양과도 같습니다. 서버에서 받은 원시 데이터(Raw Data)를 사용자가 보기 편한 포맷으로 예쁘게 포장해서 내보내는 것, 이것이 프론트엔드 개발의 핵심 역할입니다.
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">입력 확인</div><div class="wda-fnode-dsc">어떤 배열, 어떤 필드를 다루는가.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">결과 모양 정하기</div><div class="wda-fnode-dsc">배열인가, 값 하나인가, 참/거짓인가.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">메서드 선택</div><div class="wda-fnode-dsc">결과 모양에 맞는 메서드를 고른다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">콜백 작성</div><div class="wda-fnode-dsc">조건식 또는 변환식을 채운다.</div></div>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 3 : Map (3) - Null 안전 처리</h2>
+### 문제 1. 제목만 모으기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+map으로 배열의 각 항목에서 필요한 값 하나만 뽑아 새 배열을 만드는 연습이다.
 </div>
 
-**🎯 Mission**
+**📋 요구사항**
 
-서버 데이터 중 일부가 빠져있을 수 있습니다( `null` or `undefined` ). `address` 가 없으면 "주소 없음"으로 표시되도록 처리하세요.
+- 입력: `lessonRecords`
+- 결과: 강의 제목만 담은 배열 `lessonTitles`
+- 사용 메서드: `map`
 
-> Tip: item.address || '주소 없음' 패턴은 실무에서 매우 자주 쓰입니다.
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const orders = [
-  { id: 1, address: 'Seoul Gangnam' },
-  { id: 2, address: null }, // 주소 누락
-  { id: 3, address: 'Busan Haeundae' }
-];
-
-// OR 연산자 (||) 활용
-const shippingLabels = orders.map(/* ... */);
-
-console.log(shippingLabels);
+```javascript
+const lessonTitles = lessonRecords.map(/* ... */);
 ```
 
-**📝 정답**
+**✅ 확인할 결과**
 
-논리 연산자 `||` (OR)를 사용하여 **'데이터가 없으면(False) 이걸 써라'**는 기본값 설정을 할 수 있습니다.
-
-```jsx
-const shippingLabels = orders.map(order => ({
-  id: order.id,
-  // order.address가 있으면 그걸 쓰고, 없으면(null/false) 뒤에 있는 '주소 없음'을 씀
-  label: order.address || '주소 없음'
-}));
-
-console.log(shippingLabels);
-/*
-[
-  { id: 1, label: 'Seoul Gangnam' },
-  { id: 2, label: '주소 없음' }, // Fallback 적용
-  { id: 3, label: 'Busan Haeundae' }
-]
-*/
+```javascript
+console.log(lessonTitles);
+// ["변수와 스코프", "배열 다루기", "클로저 이해하기", "비동기 프로그래밍", "타입스크립트 기초"]
 ```
 
-**💡 보충 설명**
+**🧠 풀이 방향**
 
-<div class="wda-callout wda-ci">
-  이 패턴을 <strong>'단락 평가(Short-circuit evaluation)'</strong> 또는 <strong>'기본값 할당(Default Value)'</strong>이라고 부릅니다.<br>
-  프론트엔드 개발을 하다 보면 서버에서 <code>null</code>이나 <code>undefined</code>가 넘어와서 화면이 하얗게 깨지는(White Screen) 경우가 종종 발생합니다.<br>
-  이때 <code>||</code> 연산자는 훌륭한 <strong>'안전장치(Safety Guard)'</strong> 역할을 합니다.<br><br>
-  · <code>A || B</code>: "A가 진짜면 A를 쓰고, A가 가짜(null, undefined, 0, "")면 B를 써라!"<br>
-  · 마치 "현금이 없으면(False), 신용카드를 써라(Fallback)"와 같은 논리입니다.<br>
-  실무에서 가장 빈번하게 쓰이는 방어 코드이니 꼭 익혀두세요!
+<div class="wda-callout wda-cb">
+각 항목(lesson)에서 title 값 하나만 꺼내 돌려주면 된다.
 </div>
 
-주소가 `null` 또는 `undefined`일 때만 기본값을 넣고 싶다면 `??` 연산자를 사용할 수 있습니다.
+**📝 정답 예시**
 
-```jsx
-label: order.address ?? '주소 없음'
+```javascript
+const lessonTitles = lessonRecords.map((lesson) => lesson.title);
 ```
-
-<div class="wda-callout wda-ci">
-  <code>||</code>는 <code>null</code>, <code>undefined</code>뿐 아니라 <code>""</code>, <code>0</code>, <code>false</code>도 기본값으로 대체합니다. 이 실습에서는 주소가 비어 있으면 '주소 없음'으로 표시하는 목적이므로 <code>||</code>도 사용할 수 있지만, <code>null</code>/<code>undefined</code>만 구분하고 싶다면 <code>??</code>가 더 정확합니다.
-</div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 4 : Filter (1) - 복잡한 조건</h2>
+### 문제 2. 표시용 문장 만들기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+map으로 여러 필드를 조합해 화면에 보여줄 문자열을 만드는 연습이다.
 </div>
 
-**🎯 Mission**
+**📋 요구사항**
 
-"재고가 있고( `stock > 0` )" 그리고 "가격이 100만원 이상( `price >= 1000000` )"인 프리미엄 상품만 골라내세요.
+- 결과: `"제목 (레벨) - 완료/미완료"` 형태의 문자열 배열 `displayList`
+- 사용 메서드: `map`
+- 주의할 점: 콜백을 중괄호 블록으로 쓸 경우 `return`을 꼭 써야 한다
 
-> Tip: 두 조건이 모두 참이어야 할 땐 && (AND) 연산자를 사용합니다.
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const items = [
-  { name: 'Laptop', price: 1500000, stock: 5 },
-  { name: 'Mouse', price: 35000, stock: 10 },
-  { name: 'Luxury Bag', price: 3000000, stock: 0 }, // 품절
-  { name: 'Desktop', price: 2000000, stock: 3 }
-];
-
-// AND 연산자 (&&) 활용
-const premiumInStock = items.filter(/* ... */);
-
-console.log(premiumInStock);
+```javascript
+const displayList = lessonRecords.map((lesson) => {
+  // 여기에 코드를 작성하세요
+});
 ```
 
-**📝 정답**
+**✅ 확인할 결과**
 
-논리 연산자 `&&`를 사용하면 여러 개의 필터링 조건을 한 번에 연결할 수 있습니다.
-
-```jsx
-// item 하나씩 검사
-// 1. 재고가 0보다 커야 함 (True) AND(&&)
-// 2. 가격이 100만원 이상이어야 함 (True)
-// 둘 다 만족해야 최종 합격!
-const premiumInStock = items.filter(item => item.stock > 0 && item.price >= 1000000);
-
-console.log(premiumInStock);
-/*
-[
-  { name: 'Laptop', price: 1500000, stock: 5 },
-  { name: 'Desktop', price: 2000000, stock: 3 }
-]
-// Luxury Bag은 비싸지만 재고가 없어서 제외됨
-// Mouse는 재고는 있지만 싸서 제외됨
-*/
+```javascript
+console.log(displayList);
+// [
+//   "변수와 스코프 (입문) - 완료",
+//   "배열 다루기 (입문) - 완료",
+//   "클로저 이해하기 (심화) - 미완료",
+//   "비동기 프로그래밍 (심화) - 완료",
+//   "타입스크립트 기초 (입문) - 미완료"
+// ]
 ```
 
-**💡 보충 설명**
+**📝 정답 예시**
 
-<div class="wda-callout wda-ci">
-  <code>filter</code> 메서드 안에서 <strong>논리 연산자</strong>를 잘 다루는 것이 데이터 처리의 핵심입니다.
-</div>
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">AND 연산자 (&&)</div>
-    <div class="wda-fcard-dsc">"이것도 맞고, 그리고 저것도 맞아야 해!" (깐깐한 필터)<br>예: 성인 && 여자 (성인 여자만 통과)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">OR 연산자 (||)</div>
-    <div class="wda-fcard-dsc">"이게 맞거나, 아니면 저거라도 맞으면 돼!" (너그러운 필터)<br>예: VIP회원 || 쿠폰보유자 (둘 중 하나만 해당돼도 할인 대상)</div>
-  </div>
-</div>
-
-<div class="wda-callout wda-ci">
-  실무에서는 보통 3~4개 이상의 조건이 주렁주렁 달리는 경우가 많습니다. 이때 괄호 <code>()</code>를 적절히 써서 우선순위를 정해주는 습관을 들이면 더욱 정확한 필터링을 할 수 있습니다.
-</div>
+```javascript
+const displayList = lessonRecords.map((lesson) => {
+  const status = lesson.completed ? "완료" : "미완료";
+  return `${lesson.title} (${lesson.level}) - ${status}`;
+});
+```
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 5 : Filter (2) - 유효 데이터만 남기기</h2>
+### 문제 3. 완료된 강의만 고르기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+filter로 조건에 맞는 항목만 남기는 연습이다.
 </div>
 
-**🎯 Mission**
+**📋 요구사항**
 
-배열에 `null` , `undefined` , 빈 문자열 `""` 같은 허수 데이터가 섞여 있습니다. 실제 존재하는 값(Truthy)만 남기세요.
+- 결과: `completed`가 true인 강의만 담은 배열 `completedLessons`
+- 사용 메서드: `filter`
+- 주의할 점: 원본 `lessonRecords`는 바뀌지 않는다
 
-> Tip: filter(Boolean)은 filter(item => Boolean(item))과 같습니다.
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const rawInput = [
-  'Apple',
-  null,
-  'Banana',
-  undefined,
-  '',
-  'Cherry'
-];
-
-// Boolean 생성자 활용 (꿀팁!)
-const validFruits = rawInput.filter(/* ... */);
-
-console.log(validFruits);
+```javascript
+const completedLessons = lessonRecords.filter(/* ... */);
 ```
 
-**📝 정답**
+**✅ 확인할 결과**
 
-`Boolean` 함수 그 자체를 콜백으로 넘겨주면, 거짓 같은 값(Falsy)들은 알아서 다 걸러집니다.
+```javascript
+console.log(completedLessons.length);
+// 3
 
-```jsx
-// Boolean 함수를 필터 조건으로 바로 전달
-// (item) => Boolean(item) 과 100% 동일한 효과
-const validFruits = rawInput.filter(Boolean);
-
-console.log(validFruits);
-/*
-[
-  'Apple',
-  'Banana',
-  'Cherry'
-]
-*/
+console.log(lessonRecords.length);
+// 5 — 원본은 그대로다
 ```
 
-**💡 보충 설명**
+**📝 정답 예시**
 
-<div class="wda-callout wda-ci">
-  이 코드는 자바스크립트 고수들이 즐겨 쓰는 <strong>'데이터 청소기'</strong> 패턴입니다. 자바스크립트에는 <strong>Falsy Value (거짓으로 취급되는 값)</strong> 라는 개념이 있습니다.
+```javascript
+const completedLessons = lessonRecords.filter((lesson) => lesson.completed);
+```
+
+---
+
+### 문제 4. 조건 여러 개 적용하기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+filter 콜백 안에서 조건을 &&로 조합하는 연습이다.
 </div>
 
-<div class="wda-callout wda-ci">
-  · <code>null</code><br>
-  · <code>undefined</code><br>
-  · <code>0</code><br>
-  · <code>""</code> (빈 문자열)<br>
-  · <code>false</code>
+**📋 요구사항**
+
+- 결과: 입문 레벨이면서 점수가 80점 이상인 강의 `highScoreLessons`
+- 사용 메서드: `filter`
+
+```javascript
+const highScoreLessons = lessonRecords.filter(/* ... */);
+```
+
+**✅ 확인할 결과**
+
+```javascript
+console.log(highScoreLessons.map((lesson) => lesson.title));
+// ["변수와 스코프"]
+```
+
+**🧠 풀이 방향**
+
+<div class="wda-callout wda-cb">
+두 조건을 &&로 연결한 하나의 boolean 식을 콜백이 반환하면 된다.
 </div>
 
-<div class="wda-callout wda-ci">
-  <code>Boolean</code> 함수는 이 값들을 만나면 가차 없이 <code>false</code>를 반환합니다. 그래서 <code>filter(Boolean)</code> 한 줄이면, 의미 없는 쓰레기 데이터들을 싹 걷어내고 알맹이만 남길 수 있습니다. API 통신 후 데이터를 정리할 때 정말 유용하니 꼭 기억해두세요!
+**📝 정답 예시**
+
+```javascript
+const highScoreLessons = lessonRecords.filter(
+  (lesson) => lesson.level === "입문" && lesson.score >= 80
+);
+```
+
+---
+
+### 문제 5. 아직 안 끝낸 강의 찾기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+find로 조건에 맞는 첫 번째 항목 하나만 찾는 연습이다.
 </div>
+
+**📋 요구사항**
+
+- 결과: 아직 완료하지 않은 첫 번째 강의 `targetLesson`
+- 사용 메서드: `find`
+
+```javascript
+const targetLesson = lessonRecords.find(/* ... */);
+```
+
+**✅ 확인할 결과**
+
+```javascript
+console.log(targetLesson.title);
+// "클로저 이해하기"
+```
+
+**📝 정답 예시**
+
+```javascript
+const targetLesson = lessonRecords.find((lesson) => !lesson.completed);
+```
+
+---
+
+### 문제 6. 전체 상태 검사하기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+some과 every로 배열 전체에 대한 참/거짓을 판단하는 연습이다.
+</div>
+
+**📋 요구사항**
+
+- 결과 1: 미완료 강의가 하나라도 있는지 `hasUnfinishedLesson`
+- 결과 2: 모든 강의가 점수를 받았는지(0점 초과) `allLessonsReviewed`
+- 사용 메서드: `some`, `every`
+
+```javascript
+const hasUnfinishedLesson = lessonRecords.some(/* ... */);
+const allLessonsReviewed = lessonRecords.every(/* ... */);
+```
+
+**✅ 확인할 결과**
+
+```javascript
+console.log(hasUnfinishedLesson);
+// true
+
+console.log(allLessonsReviewed);
+// false
+```
+
+**📝 정답 예시**
+
+```javascript
+const hasUnfinishedLesson = lessonRecords.some((lesson) => !lesson.completed);
+const allLessonsReviewed = lessonRecords.every((lesson) => lesson.score > 0);
+```
+
+---
+
+### 문제 7. 총 학습 시간 구하기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+reduce로 배열의 숫자 값을 하나로 합산하는 연습이다.
+</div>
+
+**📋 요구사항**
+
+- 결과: 전체 학습 시간 합계 `totalStudyMinutes`
+- 사용 메서드: `reduce`
+- 주의할 점: 초기값 `0`을 반드시 지정한다
+
+```javascript
+const totalStudyMinutes = lessonRecords.reduce(/* ... */, 0);
+```
+
+**✅ 확인할 결과**
+
+```javascript
+console.log(totalStudyMinutes);
+// 270
+```
 
 **⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  <code>filter(Boolean)</code>은 <code>null</code>, <code>undefined</code>, <code>""</code>, <code>0</code>, <code>false</code> 같은 Falsy 값을 모두 제거합니다. 따라서 <code>0</code>이나 <code>false</code>도 의미 있는 데이터인 경우에는 사용하면 안 됩니다. 그럴 때는 <code>item != null</code>처럼 조건을 명확히 작성하는 것이 안전합니다.
+reduce의 두 번째 인자(초기값)를 빠뜨리면, 배열이 비어 있을 때 에러가 날 수 있다.
 </div>
 
-```jsx
-const cleaned = rawInput.filter(item => item != null);
+**📝 정답 예시**
+
+```javascript
+const totalStudyMinutes = lessonRecords.reduce(
+  (sum, lesson) => sum + lesson.minutes,
+  0
+);
 ```
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 6 : Reduce (1) - 합계 구하기 (쇼핑몰)</h2>
+### 문제 8. 레벨별 개수 세기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+reduce로 배열을 누적 객체 하나로 모으는 연습이다.
 </div>
 
-**🎯 Mission**
+**📋 요구사항**
 
-장바구니에 담긴 상품들의 **총 결제 금액**을 계산하세요. ( `price` * `qty` 의 총합)
+- 결과: `{ 입문: 3, 심화: 2 }` 형태의 객체 `levelCounts`
+- 사용 메서드: `reduce`
 
-> Tip: acc는 누적값, cur는 현재 상품 객체입니다.
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const cart = [
-  { name: 'Apple', price: 1000, qty: 3 },
-  { name: 'Banana', price: 2000, qty: 1 },
-  { name: 'Melon', price: 5000, qty: 2 }
-];
-
-// 초기값 0 필수!
-const totalPrice = cart.reduce(/* ... */, 0);
-
-console.log(totalPrice);
+```javascript
+const levelCounts = lessonRecords.reduce(/* ... */, {});
 ```
 
-**📝 정답**
+**✅ 확인할 결과**
 
-`cur`가 단순 숫자가 아니라 **객체**이므로, `cur.price`와 `cur.qty`에 접근해서 계산해야 합니다.
-
-```jsx
-const cart = [
-  { name: 'Apple', price: 1000, qty: 3 },
-  { name: 'Banana', price: 2000, qty: 1 },
-  { name: 'Melon', price: 5000, qty: 2 }
-];
-
-// acc: 저금통(누적 금액), cur: 현재 집어든 상품
-const totalPrice = cart.reduce((acc, cur) => {
-  // 현재 상품의 금액(가격 * 수량)을 계산해서 저금통에 더함
-  return acc + (cur.price * cur.qty);
-}, 0); // 0원부터 시작 (초기값)
-
-console.log(totalPrice);
-/*
-15000
-// 과정:
-// 1. Apple: 0 + 3000 = 3000
-// 2. Banana: 3000 + 2000 = 5000
-// 3. Melon: 5000 + 10000 = 15000
-*/
+```javascript
+console.log(levelCounts);
+// { 입문: 3, 심화: 2 }
 ```
 
-**💡 보충 설명**
+**🧠 풀이 방향**
 
-<div class="wda-callout wda-ci">
-  이 실습에서 가장 중요한 포인트는 <strong>"초기값 <code>0</code>"</strong>입니다.<br><br>
-  만약 <code>0</code>을 넣지 않으면 어떻게 될까요? <code>reduce</code>는 자동으로 <strong>첫 번째 요소(객체)</strong>인 <code>{ name: 'Apple'... }</code>을 초기값(<code>acc</code>)으로 사용해버립니다.<br>
-  그러면 계산식이 <code>[object Object] + 2000</code> 처럼 되어버려 엉뚱한 문자열 결과가 나옵니다.<br><br>
-  그래서 객체 배열을 다룰 때는 <strong>"내가 지금 숫자를 더하려고 하는 거야!"</strong>라고 명확히 알려주기 위해 반드시 <code>0</code>을 초기값으로 넣어줘야 합니다.<br>
-  이 규칙만 지키면 장바구니 계산 기능은 마스터하신 겁니다!
+<div class="wda-callout wda-cb">
+누적값(counts)을 객체로 두고, 매 항목마다 해당 level의 개수를 1씩 늘린 뒤 counts를 그대로 반환한다.
 </div>
 
----
+**📝 정답 예시**
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 7 : Reduce (2) - 그룹핑 (Grouping)</h2>
-</div>
-
-**🎯 Mission**
-
-사람들을 `role` (직업) 별로 그룹핑하여 **객체**로 만드세요. (실무 면접 단골 문제입니다!)
-
-> Tip: acc[cur.role] 배열이 없으면 [] 로 초기화 후 push!
-
-**📝 예제 코드**
-
-빈칸을 채워 완성해 보세요.
-
-```jsx
-const team = [
-  { name: 'Bob', role: 'Developer' },
-  { name: 'Alice', role: 'Designer' },
-  { name: 'Charlie', role: 'Developer' }
-];
-
-// 초기값은 빈 객체 {}
-const grouped = team.reduce(/* ... */, {});
-
-console.log(grouped);
-```
-
-**📝 정답**
-
-배열 안의 객체들을 특정 키(Key) 값에 따라 분류해서 넣는 로직입니다.
-
-```jsx
-const grouped = team.reduce((acc, cur) => {
-  // 1. 현재 사람의 직업(role)을 확인 (예: 'Developer')
-  const key = cur.role;
-
-  // 2. 해당 직업의 방(배열)이 없으면 새로 만듦
-  if (!acc[key]) {
-    acc[key] = [];
-  }
-
-  // 3. 그 직업 방에 현재 사람을 집어넣음
-  acc[key].push(cur);
-
-  // 4. 정리된 명부(acc)를 다음 턴으로 넘김
-  return acc;
-}, {}); // 초기값은 빈 객체 {}
-
-console.log(grouped);
-/*
-{
-  Developer: [
-    { name: 'Bob', role: 'Developer' },
-    { name: 'Charlie', role: 'Developer' }
-  ],
-  Designer: [
-    { name: 'Alice', role: 'Designer' }
-  ]
-}
-*/
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  이 패턴은 <strong><code>reduce</code>의 꽃</strong>이라고 불릴 만큼 중요하고 강력한 기술입니다. 마치 <strong>"우편물 분류 작업"</strong>과 같습니다.
-</div>
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">1. 초기값 {}</div>
-    <div class="wda-fcard-dsc">텅 빈 우편물 분류함(선반)을 준비합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">2. cur.role</div>
-    <div class="wda-fcard-dsc">편지를 하나 집어서 "어느 부서(Developer/Designer)로 갈 거지?" 확인합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">3. if (!acc[key])</div>
-    <div class="wda-fcard-dsc">"어? 'Developer' 칸이 아직 없네?" 👉 그럼 새로 칸을 만듭니다([]).</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">4. push</div>
-    <div class="wda-fcard-dsc">그 칸에 편지를 쏙 넣습니다.</div>
-  </div>
-</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 8 : Reduce (3) - Lookup Table 만들기</h2>
-</div>
-
-**🎯 Mission**
-
-배열을 `id`를 키(Key)로 하는 **객체(Lookup Table)**로 변환하세요. 이렇게 하면 특정 ID의 데이터를 찾을 때 `O(1)` 속도로 매우 빠르게 접근할 수 있습니다.
-
-**📝 예제 코드**
-
-빈칸(`/* ... */`)을 채워 배열을 객체로 만드는 문제입니다.
-
-```jsx
-const users = [
-  { id: 101, name: 'John' },
-  { id: 102, name: 'Sarah' },
-  { id: 103, name: 'Mike' }
-];
-
-// 초기값 {} (빈 객체)에서 시작
-const userMap = users.reduce((acc, cur) => {
-  // Tip: `acc[cur.id] = cur`
-  // 여기에 들어갈 코드를 작성해보세요! (정답은 보충 설명에)
-  
-  /* ... */
-  
-  return acc; // 누적된 객체 반환
-}, {});
-
-console.log(userMap);
-```
-
-**✅ 결과 예시**
-
-배열이 아닌 **객체(Object)** 형태여야 합니다.
-
-```jsx
-{
-  101: { id: 101, name: 'John' },
-  102: { id: 102, name: 'Sarah' },
-  103: { id: 103, name: 'Mike' }
-}
-```
-
-**정답 코드**
-
-```jsx
-const userMap = users.reduce((acc, cur) => {
-  acc[cur.id] = cur; // 1. 현재 객체(cur)를 ID를 키로 하여 저장
-  return acc;        // 2. 업데이트된 주머니(acc)를 다음 턴으로 넘김
+```javascript
+const levelCounts = lessonRecords.reduce((counts, lesson) => {
+  counts[lesson.level] = (counts[lesson.level] || 0) + 1;
+  return counts;
 }, {});
 ```
 
-이렇게 만들어두면 나중에 `userMap[102]`라고만 입력해도 Sarah의 정보를 즉시 가져올 수 있습니다.
+---
 
-**💡 보충 설명**
+## 12. 메서드 선택 기준 정리
 
-<div class="wda-callout wda-ci">
-  이 패턴은 실무에서 <strong>데이터 조회 성능을 최적화</strong>할 때 정말 자주 쓰이는 <strong>'룩업 테이블(Lookup Table)'</strong> 기법입니다.
-</div>
-
-**왜 쓰나요?**
+| 상황 | 메서드 |
+|---|---|
+| 각 값을 변환한 새 배열이 필요할 때 | `map` |
+| 조건에 맞는 값만 걸러낼 때 | `filter` |
+| 조건에 맞는 값 하나만 찾을 때 | `find` |
+| 하나라도 조건을 만족하는지 확인할 때 | `some` |
+| 모두 조건을 만족하는지 확인할 때 | `every` |
+| 배열을 하나의 값(합계, 객체 등)으로 모을 때 | `reduce` |
 
 <div class="wda-compare">
   <div class="wda-compare-card">
-    <div class="wda-compare-ttl">배열 (<code>find</code>)</div>
-    "ID가 103인 사람 나와!"라고 하면 앞에서부터 하나씩 다 뒤져야 합니다. (데이터가 많아지면 느려짐, O(N))
+    <div class="wda-compare-ttl">map</div>
+    각 값을 변환한 <strong>같은 길이</strong>의 새 배열을 만든다.
   </div>
   <div class="wda-compare-card">
-    <div class="wda-compare-ttl">객체 (<code>key</code>)</div>
-    "103번 나와!" 하면 한 번에 딱 집어냅니다. 객체의 key 접근은 일반적으로 매우 빠르며, 평균적으로 O(1)에 가깝게 다룰 수 있습니다. 초보자 단계에서는 배열을 매번 find로 찾는 것보다 빠른 조회용 구조라고 이해하면 됩니다.
+    <div class="wda-compare-ttl">filter</div>
+    조건에 맞는 값만 남긴 <strong>더 짧거나 같은 길이</strong>의 배열을 만든다.
+  </div>
+</div>
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">find</div>
+    조건에 맞는 값 <strong>하나</strong>를 반환한다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">filter</div>
+    조건에 맞는 값을 <strong>배열</strong>로 반환한다.
+  </div>
+</div>
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">some</div>
+    <strong>하나라도</strong> 만족하면 true.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">every</div>
+    <strong>전부</strong> 만족해야 true.
   </div>
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 9 : forEach - 단순 반복 (Logging)</h2>
-</div>
+## 13. 초보자가 자주 하는 실수
 
-**🎯 Mission**
+<div class="wda-fgrid">
 
-반환값이 필요 없습니다. 단순히 각 사용자에게 이메일을 발송하는 흉내를 내보세요.
+<div class="wda-fcard">
 
-**📝 예제 코드**
+<div class="wda-fcard-ttl">🔹 실수 1 · map 콜백에서 return 누락</div>
 
-`forEach`를 사용하여 배열의 요소를 하나씩 꺼내 작업을 수행하는 문제입니다.
-
-```jsx
-const members = ['John', 'Sarah', 'Mike'];
-
-// members 배열의 요소를 하나씩 member 변수에 담아 반복 실행
-members.forEach(member => {
-  // 여기에 작성 (이메일 발송 로직 구현)
-  // 출력: "Sending email to John..."
-  
-  // 힌트: console.log를 사용하세요.
+```javascript
+const titles = lessonRecords.map((lesson) => {
+  lesson.title;
 });
+
+console.log(titles);
+// [undefined, undefined, undefined, undefined, undefined]
 ```
 
-**✅ 결과 예시**
-
-단순히 콘솔에 로그가 찍히면 성공입니다.
-
-```jsx
-Sending email to John...
-Sending email to Sarah...
-Sending email to Mike...
-```
-
-**📝 정답 코드**
-
-```jsx
-const members = ['John', 'Sarah', 'Mike'];
-
-members.forEach(member => {
-  // 템플릿 리터럴(백틱 ``)을 사용해 변수와 문자열 조합
-  console.log(`Sending email to ${member}...`);
-});
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  이 실습의 핵심은 <strong>"반환값(Return)이 필요 없는 경우"</strong>를 구분하는 것입니다.
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 중괄호 블록 안에서는 return을 써야 값이 반환된다.<br>
+  <strong>기억할 점:</strong> 한 줄로 값만 반환할 때만 중괄호를 생략한다.
 </div>
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">map</div>
-    <div class="wda-fcard-dsc">"재료를 손질해서 새 그릇에 담아줘." (새 배열 반환 O)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">forEach</div>
-    <div class="wda-fcard-dsc">"그냥 이 전단지 좀 돌리고 와." (반환 X, 행동만 함)</div>
-  </div>
 </div>
 
-<div class="wda-callout wda-ci">
-  이미지 속에 있는 <strong>Side Effect(부수 효과)</strong>라는 용어는 어렵게 생각하지 마세요.<br>
-  데이터를 변환해서 새로운 값을 만드는 게 아니라, "화면에 출력하거나(log), 이메일을 보내거나, DB에 저장하는 등 외부 세상에 영향을 주는 행위"를 뜻합니다.<br>
-  단순 반복 작업에는 <code>map</code>보다 <code>forEach</code>가 의미상 더 적합합니다.
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 2 · reduce 초기값 누락</div>
+
+```javascript
+const total = [].reduce((sum, lesson) => sum + lesson.minutes);
+// ❌ TypeError (일부러 에러 확인용)
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 초기값이 없으면 빈 배열에는 누적을 시작할 값이 없어 에러가 난다.<br>
+  <strong>기억할 점:</strong> reduce는 항상 초기값을 명시한다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 3 · filter가 원본을 바꾼다는 착각</div>
+
+```javascript
+const completedLessons = lessonRecords.filter((lesson) => lesson.completed);
+
+console.log(lessonRecords.length);
+// 5
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> map/filter/find 등은 새 결과를 반환할 뿐 원본을 바꾸지 않는다.<br>
+  <strong>기억할 점:</strong> 원본 변경 여부는 메서드마다 항상 확인한다.
+</div>
+
+</div>
+
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 10 : Find - 특정 데이터 찾기</h2>
+## 14. 추가 실습 문제
+
+### 문제 9. 키워드가 포함된 완료 강의 찾기
+
+**🎯 목표**
+
+<div class="wda-callout wda-cs">
+filter와 map을 이어 써서(chaining) 조건에 맞는 값을 걸러낸 뒤 원하는 형태로 바꾸는 연습이다.
 </div>
 
-**🎯 Mission**
+**📋 요구사항**
 
-ID가 `3` 인 유저를 찾으세요. ( `users` 배열 가정) 없으면 `undefined` 가 나옵니다.
+- 결과: 제목에 "배열"이 포함되고 완료된 강의의 제목만 담은 배열 `keywordLessons`
+- 사용 메서드: `filter` → `map`
 
-**📝 예제 코드**
-
-`find` 메서드를 사용하여 조건에 맞는 첫 번째 요소를 찾아내는 문제입니다.
-
-```jsx
-const userList = [
-  { id: 1, name: 'A' },
-  { id: 2, name: 'B' },
-  { id: 3, name: 'C' }
-];
-
-// find 사용
-// 괄호 안에 들어갈 콜백 함수를 작성해 보세요.
-const target = userList.find(/* ... */);
-
-console.log(target);
+```javascript
+const keywordLessons = lessonRecords
+  .filter(/* ... */)
+  .map(/* ... */);
 ```
 
-**✅ 결과 예시**
+**✅ 확인할 결과**
 
-배열이 아닌, 찾은 **객체 그 자체**가 반환되어야 합니다.
-
-```jsx
-{ id: 3, name: 'C' }
+```javascript
+console.log(keywordLessons);
+// ["배열 다루기"]
 ```
 
-**📝 정답 코드**
+**📝 정답 예시**
 
-```jsx
-const userList = [
-  { id: 1, name: 'A' },
-  { id: 2, name: 'B' },
-  { id: 3, name: 'C' }
-];
-
-// userList의 각 요소를 user라고 부르며 순회
-const target = userList.find(user => user.id === 3);
-
-console.log(target);
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <code>find</code>는 배열에서 <strong>"가장 먼저 발견된 딱 하나"</strong>만 반환하고 즉시 종료합니다.
-</div>
-
-**`filter` vs `find` 차이점 (면접 단골 질문)**
-
-| **비교 항목** | **filter (필터)** | **find (파인드)** |
-| --- | --- | --- |
-| **🔍 탐색 범위** | 조건에 맞는 **모든 요소** 끝까지 탐색 | 조건에 맞는 **첫 번째 요소** 찾으면 즉시 종료 |
-| **📦 반환 타입** | **배열 (Array)** | **값 그 자체 (Element)** |
-| **❌ 없을 때** | **빈 배열 (`[]`)** | **`undefined`** |
-| **💡 비유** | "빨간 공 **다** 가져와" (바구니에 담아옴) | "빨간 공 **하나만** 찾아와" (공만 손에 듦) |
-
-<div class="wda-callout wda-ci">
-  면접이나 실무에서 이 둘을 구분하는 핵심은 <strong>"껍데기(배열)가 있느냐 없느냐"</strong>입니다.<br><br>
-  · <strong>filter</strong> — 결과가 1개라도 무조건 <strong>배열(<code>[{...}]</code>)</strong>로 감싸져서 나옵니다.<br>
-  그래서 값을 쓰려면 <code>result[0]</code>처럼 껍질을 까야 합니다.<br>
-  · <strong>find</strong> — 껍데기 없이 <strong>알맹이(<code>{...}</code>)</strong>가 바로 나옵니다.<br>
-  유일한 값(ID 등)을 찾을 때 훨씬 코드가 깔끔해집니다.<br><br>
-  단, <code>find</code>는 실패 시 <code>undefined</code>를 반환하므로, 그 값을 바로 사용하려고 하면(예: <code>found.name</code>) 에러가 터질 수 있습니다.<br>
-  항상 <code>if (found)</code>로 확인하는 습관이 필요합니다!
-</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 11 : Some / Every - 검증하기</h2>
-</div>
-
-**🎯 Mission**
-
-1. `some` : 하나라도 `admin` 권한이 있는가?
-2. `every` : 모두가 `active` 상태인가?
-
-**📝 예제 코드**
-
-`some`과 `every`를 사용하여 배열 내 데이터의 조건을 검증하는 문제입니다.
-
-```jsx
-const staff = [
-  { role: 'admin', active: true },
-  { role: 'user', active: true },
-  { role: 'user', active: false }
-];
-
-const hasAdmin = staff.some(/* ... */);
-const allActive = staff.every(/* ... */);
-```
-
-**✅ 결과 예시**
-
-반환값은 `true` 또는 `false`여야 합니다.
-
-```jsx
-hasAdmin: true // admin이 한 명 있으니까
-allActive: false // 마지막 사람이 false니까
-```
-
-**📝 정답 코드**
-
-```jsx
-const staff = [
-  { role: 'admin', active: true },
-  { role: 'user', active: true },
-  { role: 'user', active: false }
-];
-
-// some: 조건을 만족하는 요소가 '하나라도' 있으면 OK (OR 연산 비슷)
-const hasAdmin = staff.some(member => member.role === 'admin');
-
-// every: '모든' 요소가 조건을 만족해야 OK (AND 연산 비슷)
-const allActive = staff.every(member => member.active === true);
-
-console.log('hasAdmin:', hasAdmin);
-console.log('allActive:', allActive);
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  이 두 메서드는 데이터를 변형하는 게 아니라, <strong>"질문에 대한 답(Yes/No)"</strong>을 얻을 때 사용합니다.
-</div>
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">some (하나라도?)</div>
-    <div class="wda-fcard-dsc">"여기 관리자(admin) 있어?" ➔ "네, 한 명 있어요!" ➔ true</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">every (모두 다?)</div>
-    <div class="wda-fcard-dsc">"여기 있는 사람 다 활성(active) 상태야?" ➔ "아니요, 한 명 꺼져있는데요." ➔ false</div>
-  </div>
-</div>
-
-<div class="wda-callout wda-ci">
-  <code>filter</code>로 배열을 만든 뒤 length를 확인하는 것보다, <code>some</code>/<code>every</code>를 쓰는 것이 의도가 더 명확하고 불필요한 배열 생성을 피할 수 있습니다. 조건을 만족하거나 실패하는 순간 순회를 멈출 수 있다는 장점도 있습니다.
-</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>💻 실습 12 : Sort - 정렬하기</h2>
-</div>
-
-**🎯 Mission**
-
-점수(score)가 높은 순서대로(내림차순) 정렬하세요.
-
-**📝 예제 코드**
-
-`sort` 메서드를 사용하여 배열의 순서를 재배치하는 문제입니다.
-
-```jsx
-const scores = [85, 100, 70, 95];
-
-// scores.sort(...)
-```
-
-**✅ 결과 예시**
-
-숫자가 큰 것부터 작은 순서로 나열되어야 합니다.
-
-```jsx
-[100, 95, 85, 70]
-```
-
-**📝 정답 코드**
-
-```jsx
-const scores = [85, 100, 70, 95];
-
-// 내림차순(Descending) : 큰 수가 앞으로 (b - a)
-// 오름차순(Ascending) 이라면 (a - b)를 사용합니다.
-scores.sort((a, b) => b - a);
-
-console.log(scores);
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <code>sort</code>는 초보자들이 가장 많이 실수하는 메서드 중 하나입니다. 두 가지 이유가 있습니다.
-</div>
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">1. 원본 파괴 (Mutation)</div>
-    <div class="wda-fcard-dsc">이미지 속 Tip에도 나와있듯이, sort는 원본 배열(scores) 자체를 바꿔버립니다. 원본을 남겨야 한다면 [...scores].sort() 처럼 복사본을 만들어 사용해야 합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">2. 문자열 기준 정렬</div>
-    <div class="wda-fcard-dsc">숫자라도 그냥 sort()만 쓰면 값을 문자열로 바꾼 뒤 문자열 순서로 비교합니다. 그래서 100이 2보다 앞에 오는 것처럼 예상과 다른 결과가 나올 수 있습니다. 그래서 반드시 비교 함수 (a, b) => a - b 를 넣어주어야 정확하게 숫자로 정렬됩니다.</div>
-  </div>
-</div>
-
-<div class="wda-callout wda-ci">
-  · <code>a - b</code>: 오름차순 (1, 2, 3...)<br>
-  · <code>b - a</code>: 내림차순 (3, 2, 1...)
-</div>
-
-<div class="wda-callout wda-ci">
-  최신 JavaScript에서는 원본을 바꾸지 않는 <code>toSorted()</code>도 사용할 수 있습니다. 다만 지원 환경을 확인해야 하므로, 초보자 단계에서는 <code>[...scores].sort(...)</code> 패턴을 먼저 익히면 됩니다.
-</div>
-
-```jsx
-const sortedScores = scores.toSorted((a, b) => b - a);
+```javascript
+const keywordLessons = lessonRecords
+  .filter((lesson) => lesson.completed && lesson.title.includes("배열"))
+  .map((lesson) => lesson.title);
 ```
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
-</div>
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>map에서 객체를 즉시 반환하려면 화살표 함수 본문을 <strong>소괄호로 감싼다</strong>: <code>user =&gt; ({ ... })</code>.</li>
-    <li>숫자 포맷팅에는 <strong>toLocaleString()</strong>을 사용한다 (예: 천 단위 콤마).</li>
-    <li>기본값 처리는 <strong>||(모든 falsy 대체)</strong> 또는 <strong>??(null/undefined만 대체)</strong>를 사용한다.</li>
-    <li><strong>filter(Boolean)</strong>은 null, undefined, 0, "", false 같은 falsy 값을 한 번에 제거한다.</li>
-    <li><strong>reduce</strong>는 합계, 그룹핑, 룩업 테이블 만들기처럼 배열을 값/객체 하나로 축소할 때 쓴다.</li>
-    <li><strong>find</strong>는 요소 1개(또는 undefined), <strong>filter</strong>는 항상 배열(또는 빈 배열)을 반환한다.</li>
-    <li><strong>sort</strong>는 원본을 직접 바꾸므로(파괴적), 원본을 지키려면 <code>[...arr].sort()</code>를 쓴다.</li>
+    <li><strong>map</strong>은 값을 변환한 새 배열, <strong>filter</strong>는 조건에 맞는 값만 남긴 새 배열을 만든다.</li>
+    <li><strong>find</strong>는 조건에 맞는 <strong>첫 번째 값 하나</strong>만 반환한다.</li>
+    <li><strong>some</strong>은 하나라도, <strong>every</strong>는 모두 조건을 만족해야 true다.</li>
+    <li><strong>reduce</strong>는 배열을 합계나 객체 같은 <strong>하나의 값</strong>으로 누적한다.</li>
+    <li>map/filter/find/some/every/reduce는 모두 <strong>원본 배열을 바꾸지 않고</strong> 새 결과를 반환한다.</li>
+    <li>콜백 함수에서 <strong>중괄호 블록</strong>을 쓰면 <strong>return</strong>을 반드시 써야 값이 나온다.</li>
   </ul>
 </div>
 
@@ -972,24 +603,20 @@ const sortedScores = scores.toSorted((a, b) => b - a);
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: user => { fullName: ... }처럼 화살표 함수에서 중괄호로 객체를 바로 반환할 수 있다?</div>
-    <div class="wda-mistake-right">정답: 중괄호는 <strong>함수 몸통</strong>으로 해석되므로, 객체를 즉시 반환하려면 <code>user =&gt; ({ fullName: ... })</code>처럼 소괄호로 감싸야 한다.</div>
+    <div class="wda-mistake-wrong">오해: map 콜백에서 중괄호를 쓰면 자동으로 값이 반환된다?</div>
+    <div class="wda-mistake-right">정답: 중괄호 블록에서는 <strong>return</strong>을 직접 써야 값이 반환된다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: ||와 ??는 완전히 같은 동작을 한다?</div>
-    <div class="wda-mistake-right">정답: <code>||</code>는 <strong>모든 falsy 값(0, "", false 포함)</strong>을 대체하고, <code>??</code>는 <strong>null/undefined만</strong> 대체한다.</div>
+    <div class="wda-mistake-wrong">오해: reduce는 초기값 없이도 항상 안전하게 동작한다?</div>
+    <div class="wda-mistake-right">정답: 빈 배열에 <strong>초기값을 안 주면 에러</strong>가 날 수 있다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: reduce에 초기값을 생략해도 항상 안전하다?</div>
-    <div class="wda-mistake-right">정답: 생략하면 배열의 <strong>첫 요소가 초기값</strong>이 되어, 객체 배열을 숫자로 더하려 할 때 <code>[object Object]</code> 같은 엉뚱한 결과가 나올 수 있다.</div>
+    <div class="wda-mistake-wrong">오해: filter/map은 원본 배열을 바꾼다?</div>
+    <div class="wda-mistake-right">정답: 원본은 그대로 두고 <strong>새 배열을 반환</strong>한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: find와 filter는 못 찾았을 때 같은 값을 반환한다?</div>
-    <div class="wda-mistake-right">정답: find는 <strong>undefined</strong>를, filter는 <strong>빈 배열 []</strong>을 반환한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: sort()는 map/filter처럼 새 배열을 만들어 반환한다?</div>
-    <div class="wda-mistake-right">정답: sort()는 <strong>원본 배열을 직접 변경</strong>(파괴)한다.</div>
+    <div class="wda-mistake-wrong">오해: find는 조건에 맞는 모든 값을 반환한다?</div>
+    <div class="wda-mistake-right">정답: find는 조건에 맞는 <strong>첫 번째 값 하나</strong>만 반환한다(여러 개가 필요하면 filter).</div>
   </div>
 </div>
 
@@ -997,26 +624,22 @@ const sortedScores = scores.toSorted((a, b) => b - a);
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 객체 즉시 반환</div>
-    <div class="wda-formula-block-body"><code>arr.map(x =&gt; ({ key: x.value }))</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 기본값 처리</div>
+    <div class="wda-formula-block-ttl">공식 1 · 변환/거르기</div>
     <div class="wda-formula-block-body">
-      <code>a || b (falsy 전체 대체)</code><br>
-      <code>a ?? b (null/undefined만 대체)</code>
+      <code>map = 변환</code><br>
+      <code>filter = 거르기</code>
     </div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 안전한 reduce</div>
-    <div class="wda-formula-block-body"><code>arr.reduce((acc, cur) =&gt; ..., 초기값)</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 검사</div>
+    <div class="wda-formula-block-body">
+      <code>find = 하나 찾기</code><br>
+      <code>some/every = 하나라도/전부</code>
+    </div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 4 · find vs filter</div>
-    <div class="wda-formula-block-body">
-      <code>find = 요소 1개 / undefined</code><br>
-      <code>filter = 배열 / 빈 배열</code>
-    </div>
+    <div class="wda-formula-block-ttl">공식 3 · 누적</div>
+    <div class="wda-formula-block-body"><code>reduce = 배열 → 하나의 값</code></div>
   </div>
 </div>
 
@@ -1024,35 +647,31 @@ const sortedScores = scores.toSorted((a, b) => b - a);
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">화살표 함수에서 객체를 바로 반환하려면?</div>
-    <div class="wda-flip-back">user => ({ key: value })처럼 소괄호로 감싼다.</div>
+    <div class="wda-flip-front">map과 filter의 차이는?</div>
+    <div class="wda-flip-back">map은 값을 변환하고, filter는 조건에 맞는 값만 남긴다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">숫자에 천 단위 콤마를 넣으려면?</div>
-    <div class="wda-flip-back">number.toLocaleString()을 사용한다.</div>
+    <div class="wda-flip-front">find와 filter의 차이는?</div>
+    <div class="wda-flip-back">find는 첫 번째 값 하나, filter는 조건에 맞는 모든 값의 배열을 반환한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">||와 ??의 차이는?</div>
-    <div class="wda-flip-back">||는 모든 falsy 값을 대체하고, ??는 null/undefined만 대체한다.</div>
+    <div class="wda-flip-front">some과 every의 차이는?</div>
+    <div class="wda-flip-back">some은 하나라도, every는 전부 만족해야 true다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">filter(Boolean)은 무엇을 하나?</div>
-    <div class="wda-flip-back">null, undefined, 0, "", false 같은 falsy 값을 모두 제거한다.</div>
+    <div class="wda-flip-front">reduce는 무엇을 만드나?</div>
+    <div class="wda-flip-back">배열을 합계나 객체 같은 하나의 값으로 누적한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">reduce로 배열을 role별로 그룹핑하려면 초기값은?</div>
-    <div class="wda-flip-back">빈 객체 {}를 초기값으로 사용한다.</div>
+    <div class="wda-flip-front">map 콜백에서 중괄호를 쓰면 주의할 점은?</div>
+    <div class="wda-flip-back">return을 직접 써야 값이 반환된다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">reduce로 id를 키로 하는 룩업 테이블을 만들면 좋은 점은?</div>
-    <div class="wda-flip-back">find로 매번 순회하지 않고 O(1)에 가깝게 빠르게 조회할 수 있다.</div>
+    <div class="wda-flip-front">reduce에 초기값을 안 주면?</div>
+    <div class="wda-flip-back">빈 배열일 때 에러가 날 수 있다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">find가 실패하면 무엇을 반환하나?</div>
-    <div class="wda-flip-back">undefined를 반환하므로 사용 전 반드시 존재 여부를 확인해야 한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">sort()로 숫자를 내림차순 정렬하려면?</div>
-    <div class="wda-flip-back">arr.sort((a, b) => b - a)를 사용한다.</div>
+    <div class="wda-flip-front">map/filter/find는 원본을 바꾸나?</div>
+    <div class="wda-flip-back">바꾸지 않는다 — 새 결과를 반환한다.</div>
   </div>
 </div>
