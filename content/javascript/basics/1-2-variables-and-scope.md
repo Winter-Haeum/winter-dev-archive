@@ -194,6 +194,7 @@ console.log(todayTopic, completedStep, MAX_REVIEW_COUNT);
 const reviewSteps = ["개념 복습"];
 reviewSteps = ["처음부터 다시"];
 // ❌ TypeError (변수 자체를 바꾸려는 시도)
+// 일부러 에러 확인용
 ```
 
 </div>
@@ -339,6 +340,7 @@ function startReview() {
 startReview();
 console.log(reviewCount);
 // ❌ ReferenceError (함수 밖 접근 불가)
+// 일부러 에러 확인용
 ```
 
 </div>
@@ -394,6 +396,7 @@ function checkPanelModern() {
 
   console.log(temporaryNotice);
   // ❌ ReferenceError (블록 밖 접근 불가)
+  // 일부러 에러 확인용
 }
 
 checkPanelModern();

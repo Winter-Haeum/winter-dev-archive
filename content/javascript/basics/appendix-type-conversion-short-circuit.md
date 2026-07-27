@@ -245,8 +245,8 @@ console.log(fallbackName);
 <div class="wda-compare-ttl">❌ ?. 없이 접근</div>
 
 ```javascript
-let userProfile = null;
-console.log(userProfile.name);
+let notificationSettings = null;
+console.log(notificationSettings.email);
 // ❌ TypeError (일부러 에러 확인용)
 ```
 
@@ -257,8 +257,8 @@ console.log(userProfile.name);
 <div class="wda-compare-ttl">✅ ?. 로 접근</div>
 
 ```javascript
-let userProfile = null;
-console.log(userProfile?.name);
+let notificationSettings = null;
+console.log(notificationSettings?.email);
 // undefined
 ```
 

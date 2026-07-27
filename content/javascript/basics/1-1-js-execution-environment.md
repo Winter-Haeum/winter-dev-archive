@@ -562,7 +562,7 @@ const MAX_ATTEMPTS = 3;
 
 // const로 선언한 변수는 재할당할 수 없다
 MAX_ATTEMPTS = 5;
-// ❌ TypeError: Assignment to constant variable
+// ❌ TypeError: Assignment to constant variable — 일부러 에러 확인용
 ```
 
 • const로 선언한 변수는 값을 변경할 수 없다.<br>
@@ -596,7 +596,7 @@ MAX_ATTEMPTS = 5;
 "use strict";
 
 isReady =true;
-// ❌ ReferenceError: isReady is not defined
+// ❌ ReferenceError: isReady is not defined — 일부러 에러 확인용
 ```
 
 • let, const 없이 변수를 사용하면 에러가 발생한다.<br>
@@ -608,7 +608,7 @@ isReady =true;
 "use strict";
 
 let package ="npm";
-// ❌ SyntaxError: Unexpected strict mode reserved word
+// ❌ SyntaxError: Unexpected strict mode reserved word — 일부러 에러 확인용
 ```
 
 • JavaScript에서 예약된 단어는 변수명으로 사용할 수 없다.<br>
@@ -621,7 +621,7 @@ let package ="npm";
 
 const config = Object.freeze({ theme: "dark" });
 config.theme = "light";
-// ❌ TypeError: Cannot assign to read only property 'theme' of object
+// ❌ TypeError: Cannot assign to read only property 'theme' of object — 일부러 에러 확인용
 ```
 
 **💡 설명**
