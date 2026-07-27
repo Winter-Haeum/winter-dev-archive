@@ -1,7 +1,7 @@
 ---
 title: "부록: 타입 변환과 단축 평가"
 status: "completed"
-description: "암묵적·명시적 타입 변환, Truthy/Falsy, 단축 평가와 옵셔널 체이닝(?.)·null 병합(??) 연산자를 정리하는 1장 보충 부록이다."
+description: "암묵적·명시적 타입 변환, truthy/falsy, 단축 평가와 옵셔널 체이닝(?.)·null 병합(??) 연산자를 더 깊이 정리하는 1장 보충 부록이다."
 category: "JavaScript"
 section: "Basics"
 tags:
@@ -24,12 +24,16 @@ tags:
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
-/* 핵심 요약 전용 복습 UI — JavaScript 1-2 기준과 동일. 색은 background/border/accent에만
+/* 핵심 요약 전용 복습 UI — JavaScript 1-1~1-5 기준과 동일. 색은 background/border/accent에만
    쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
@@ -47,558 +51,388 @@ tags:
 .wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
 .wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
 </style>
 
 <div class="wda-callout wda-ci">
-  📎 <strong>부록(Appendix)</strong> — 이 문서는 정규 진도 번호(1-1~1-5)가 아니라, <strong>"1장 JavaScript 기본 문법"</strong>을 다시 복습할 수 있도록 보충하는 부록 문서입니다.
+  📎 <strong>부록(Appendix)</strong> — 이 문서는 정규 진도 번호(1-1~1-5)가 아니라, <strong>이 부록은 기본 챕터에서 배운 것을 더 자세히 정리</strong>하는 보충 문서다. 1-3(데이터 타입)과 1-4(연산자)에서 다룬 타입 변환·단축 평가를 다시 반복하지 않고, 함수별 차이와 판단 기준처럼 더 깊은 지점만 정리한다.
 </div>
 
-## 🎯 학습 목적
+## 🎯 학습 목표
 
 <div class="wda-goal">
-  • 타입 변환이 왜 필요한지 이해한다.<br>
-  • 암묵적 타입 변환과 명시적 타입 변환의 차이를 이해한다.<br>
-  • 문자열, 숫자, 불리언 타입 변환 방식을 정리한다.<br>
-  • Truthy / Falsy 개념을 이해한다.<br>
-  • 논리 연산자를 사용한 단축 평가를 이해한다.<br>
-  • 옵셔널 체이닝 연산자 <code>?.</code>를 이해한다.<br>
-  • null 병합 연산자 <code>??</code>를 이해한다.<br>
-  • <code>||</code>와 <code>??</code>의 차이를 구분한다.
+  • <strong>자동 변환 이해</strong> — 문자열/숫자 연산에서 JavaScript가 값을 자동으로 바꾸는 상황을 판단할 수 있다.<br>
+  • <strong>명시적 변환 활용</strong> — String()/Number()/parseInt()/parseFloat()/Boolean()으로 원하는 타입을 직접 만들 수 있다.<br>
+  • <strong>truthy/falsy 판단</strong> — falsy 값 목록을 기준으로 조건문에서 값이 어떻게 평가되는지 설명할 수 있다.<br>
+  • <strong>안전한 기본값 처리</strong> — 단축 평가, optional chaining, null 병합으로 값이 없는 상황을 안전하게 처리할 수 있다.
 </div>
 
 ---
 
-## 📖 개념 설명
+## 1. 이 부록에서 다루는 것
 
-**📌 타입 변환이란?**
+사용자가 입력한 값은 대부분 문자열이고, 저장된 설정값은 아예 없을(`null`/`undefined`) 수도 있다. 이 부록은 이런 상황에서 타입을 맞추거나 값이 없는 곳을 안전하게 읽는 방법을 정리한다.
 
-타입 변환은 **값의 타입이 바뀌는 것**입니다.
+---
 
-여기서 중요한 포인트가 하나 있습니다. 원시값 자체가 직접 바뀌는 게 아니라, **기존 값을 바탕으로 새로운 타입의 값이 새로 만들어지는 것**입니다. 원본은 그대로 두고 "번역본"을 하나 더 만드는 것과 비슷하다고 생각하면 쉽습니다.
+## 2. 타입 변환이 필요한 순간
 
-```jsx
-var x = 10;
-var str = x.toString();
+```javascript
+let inputAge = "25";
+
+console.log(inputAge + 1);
+// "251" — 문자열과 숫자가 만나 이어붙었다
 ```
 
-- `str`은 `"10"`이라는 **문자열**이 됩니다.
-- 하지만 `x` 자체는 여전히 **number** 타입 그대로 유지됩니다.
-- 즉, `x.toString()`은 `x`를 바꾼 게 아니라, `x`의 값을 바탕으로 새로운 문자열 값을 만들어서 돌려준 것입니다.
+숫자로 계산하고 싶다면 타입을 먼저 맞춰야 한다.
 
-**📌 개념**
+---
 
-<div class="wda-callout wda-ci">
-  타입 변환에는 두 가지 방식이 있습니다.<br>
-  • <strong>암묵적 타입 변환</strong> — 개발자가 시키지 않아도 자바스크립트가 알아서 바꿔주는 것<br>
-  • <strong>명시적 타입 변환</strong> — 개발자가 <code>String()</code>, <code>Number()</code>, <code>Boolean()</code> 같은 함수로 직접 바꾸는 것
+## 3. JavaScript가 자동으로 바꾸는 경우: 암묵적 변환
+
+```javascript
+let notificationCount = 3;
+
+console.log(notificationCount + "개");
+// "3개" — + 연산자가 문자열 문맥이라 자동으로 문자열로 바뀐다
+```
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">암묵적 변환</div>
+    개발자가 시키지 않아도 JavaScript가 문맥에 맞게 자동으로 타입을 바꾼다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">명시적 변환</div>
+    개발자가 <code>String()</code>, <code>Number()</code> 같은 함수로 직접 타입을 바꾼다.
+  </div>
 </div>
-
-**📝 암묵적 타입 변환**
-
-암묵적 타입 변환은 개발자가 직접 변환 명령을 하지 않아도, 자바스크립트 엔진이 **문맥(context)에 맞게** 타입을 자동으로 변환해주는 것을 말합니다.  
-문자열 연결 연산자, 산술 연산자, 비교 연산자, 조건식이라는 4가지 문맥에서 각각 다르게 동작합니다.
-
-#### 2-1. 문자열 타입으로 변환
-
-`+` 연산자는 피연산자 중 한쪽이라도 문자열이면 **문자열 연결 연산자**로 동작할 수 있습니다.
-
-```jsx
-1 + '2'; // "12"
-```
-
-`+` 뒤에 빈 문자열(`''`)을 붙이는 것도 자바스크립트에서 아주 흔하게 쓰이는 문자열 변환 트릭입니다.
-
-```jsx
-var x = 10;
-var str = x + '';
-console.log(typeof str, str); // string "10"
-```
-
-템플릿 리터럴 안에 표현식을 넣으면, 그 결과도 자동으로 문자열로 변환됩니다.
-
-```jsx
-`1 + 1 = ${1 + 1}`; // "1 + 1 = 2"
-```
-
-숫자, 불리언, `null`, `undefined`, 객체가 문자열로 암묵적 변환되는 예시는 다음과 같습니다.
-
-```jsx
-// 숫자 타입
-0 + '';         // "0"
--0 + '';        // "0"
-1 + '';         // "1"
--1 + '';        // "-1"
-NaN + '';       // "NaN"
-Infinity + '';  // "Infinity"
--Infinity + ''; // "-Infinity"
-
-// 불리언 타입
-true + '';  // "true"
-false + ''; // "false"
-
-// null / undefined
-null + '';      // "null"
-undefined + ''; // "undefined"
-
-// 객체
-({}) + '';          // "[object Object]"
-[10, 20] + '';      // "10,20"
-(function(){}) + ''; // "function(){}"
-Array + '';         // "function Array() { [native code] }"
-```
 
 **⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  Symbol 타입은 문자열로 암묵적 변환하려고 하면 <strong>TypeError</strong>가 발생합니다.<br>
-  Symbol은 의도적으로 문자열 변환을 막아두었기 때문에, 문자열로 쓰고 싶다면 <code>String(symbol)</code>처럼 명시적으로 변환해야 합니다.
+  암묵적 변환은 코드를 짧게 만들지만, 어떤 타입으로 바뀔지 눈에 바로 보이지 않아 결과를 예측하기 어렵게 만들 수 있다.
 </div>
 
-#### 2-2. 숫자 타입으로 변환
+---
 
-`-`, `*`, `/` 연산자는 **숫자 계산 문맥**이기 때문에, 피연산자가 문자열이어도 숫자로 변환해서 계산을 시도합니다.
+## 4. 개발자가 직접 바꾸는 경우: 명시적 변환
 
-```jsx
-1 - '1';   // 0
-1 * '10';  // 10
-1 / 'one'; // NaN
+명시적 변환은 원하는 타입을 함수 이름으로 직접 지정하므로 결과를 예측하기 쉽다. 대표적으로 `String()`, `Number()`, `Boolean()`을 사용한다.
+
+---
+
+## 5. 문자열로 바꾸기: String()
+
+```javascript
+let notificationCount = 3;
+
+console.log(String(notificationCount));
+// "3"
 ```
 
-숫자로 바꿀 수 없는 문자열(`'one'`)은 계산이 불가능하므로 **NaN**이 됩니다.
+---
 
-비교 연산자도 마찬가지로 숫자 문맥에서 비교가 이루어집니다.
+## 6. 숫자로 바꾸기: Number() / parseInt() / parseFloat()
 
-```jsx
-'1' > 0; // true
+| 함수 | 특징 | 예시 | 결과 |
+|---|---|---|---|
+| `Number()` | 문자열 전체가 숫자여야 변환된다 | `Number("25")` | `25` |
+| `Number()` | 숫자가 아닌 문자가 섞이면 `NaN` | `Number("25세")` | `NaN` |
+| `parseInt()` | 앞부분만 정수로 읽고 나머지는 무시한다 | `parseInt("25세")` | `25` |
+| `parseFloat()` | 앞부분을 소수까지 포함해 읽는다 | `parseFloat("3.5cm")` | `3.5` |
+
+```javascript
+let inputAge = "25";
+
+console.log(Number(inputAge));
+// 25
 ```
 
-단항 `+` 연산자를 값 앞에 붙이면 숫자로 변환을 시도합니다.
+---
 
-```jsx
-+'';       // 0
-+'0';      // 0
-+'1';      // 1
-+'string'; // NaN
-+true;     // 1
-+false;    // 0
-+null;     // 0
-+undefined; // NaN
-+{};       // NaN
-+[];       // 0
-+[10, 20]; // NaN
+## 7. 참/거짓으로 바꾸기: Boolean()
+
+```javascript
+let profileName = "";
+
+console.log(Boolean(profileName));
+// false — 빈 문자열은 falsy다
 ```
 
-#### 2-3. 불리언 타입으로 변환
+---
 
-`if`문 같은 **조건식**에서는 조건식의 결과가 boolean 타입이 아니어도, 자바스크립트 엔진이 값을 true 또는 false로 평가합니다.  
-이때 기준이 되는 것이 **Truthy(참으로 취급되는 값)**와 **Falsy(거짓으로 취급되는 값)**입니다.
+## 8. 조건문에서 값이 참/거짓처럼 쓰이는 방식
+
+```javascript
+let profileName = "";
+
+if (!profileName) {
+  console.log("이름을 입력해주세요.");
+}
+// 이름을 입력해주세요.
+```
+
+---
+
+## 9. falsy 값 목록
+
+| 값 | 설명 |
+|---|---|
+| `false` | boolean 거짓 |
+| `0`, `-0` | 숫자 0 |
+| `""` | 빈 문자열 |
+| `null` | 값이 없음을 명시 |
+| `undefined` | 값이 정의되지 않음 |
+| `NaN` | 숫자가 아님 |
 
 **📌 개념**
 
 <div class="wda-callout wda-ci">
-  <strong>Falsy 값 (반드시 암기!)</strong><br>
-  • <code>false</code><br>
-  • <code>undefined</code><br>
-  • <code>null</code><br>
-  • <code>0</code>, <code>-0</code><br>
-  • <code>NaN</code><br>
-  • 빈 문자열 <code>''</code><br><br>
-  이 7가지를 제외한 <strong>그 외 대부분의 값은 Truthy</strong>로 평가됩니다. (빈 객체 <code>{}</code>, 빈 배열 <code>[]</code>도 Truthy입니다!)
+  이 7가지를 제외한 나머지 값은 모두 truthy로 평가된다 — 빈 배열 <code>[]</code>과 빈 객체 <code>{}</code>도 truthy다.<br>
+  <code>0</code>과 <code>-0</code>은 값을 비교하면 서로 같지만, falsy 목록에서는 별개의 값으로 구분해 표기한다.
 </div>
 
-```jsx
-if ('') console.log('실행 안 됨');   // 빈 문자열은 Falsy → 실행되지 않음
-if ('str') console.log('실행 됨');   // 비어있지 않은 문자열은 Truthy → 실행됨
-if (0) console.log('실행 안 됨');    // 0은 Falsy → 실행되지 않음
-if (null) console.log('실행 안 됨'); // null은 Falsy → 실행되지 않음
-```
+---
 
-Truthy/Falsy를 직접 판별하는 함수를 만들어보면 다음과 같습니다.
+## 10. 값이 정해지면 멈추는 계산: 단축 평가
 
-```jsx
-// 전달받은 인수가 Falsy 값이면 true, Truthy 값이면 false를 반환한다
-function isFalsy(v) {
-  return !v;
+`&&`/`||`는 왼쪽 값만으로 결과가 이미 정해지면, 오른쪽은 아예 평가하지 않는다. 오른쪽에 함수 호출이 있어도 그 함수는 실행되지 않는다.
+
+```javascript
+function logCall() {
+  console.log("호출됨");
+  return true;
 }
 
-// 전달받은 인수가 Truthy 값이면 true, Falsy 값이면 false를 반환한다
-function isTruthy(v) {
-  return !!v;
-}
-
-isFalsy('');    // true
-isTruthy('str'); // true
+false && logCall();
+// 아무것도 출력되지 않는다 — logCall이 아예 호출되지 않았다
 ```
 
-**📝 명시적 타입 변환**
+---
 
-명시적 타입 변환은 개발자가 **의도적으로** 타입을 바꾸는 것입니다. `String()`, `Number()`, `Boolean()`을 중심으로 정리합니다.
+## 11. &&로 조건부 실행하기
 
-#### 3-1. 문자열 타입으로 변환
+```javascript
+let notificationCount = 3;
 
-```jsx
-// 1. String 생성자 함수를 new 없이 호출
-String(1);    // "1"
-String(true); // "true"
-
-// 2. Object.prototype.toString 메서드 사용
-(1).toString();    // "1"
-(true).toString();  // "true"
-
-// 3. 문자열 연결 연산자를 이용하는 방법 (암묵적 변환을 이용)
-1 + '';    // "1"
-true + ''; // "true"
+notificationCount > 0 && console.log("새 알림이 있습니다.");
+// 새 알림이 있습니다.
 ```
 
-#### 3-2. 숫자 타입으로 변환
+---
 
-```jsx
-// 1. Number 생성자 함수를 new 없이 호출
-Number('0');  // 0
-Number(true); // 1
+## 12. ||로 기본값 넣기
 
-// 2. parseInt, parseFloat 함수 사용 (문자열만 변환 가능)
-parseInt('0');      // 0
-parseFloat('10.53'); // 10.53
+```javascript
+let profileName = "";
+let fallbackName = profileName || "손님";
 
-// 3. 단항 산술 연산자를 이용하는 방법
-+'0'; // 0
-
-// 4. 산술 연산자를 이용하는 방법
-'0' * 1; // 0
+console.log(fallbackName);
+// "손님"
 ```
 
-**⚠️ 주의사항**
+---
 
-<div class="wda-callout wda-cw">
-  <code>parseInt</code>, <code>parseFloat</code>는 <strong>문자열만</strong> 숫자로 변환할 수 있습니다. 숫자나 다른 타입에는 사용할 이유가 없습니다.
+## 13. 안전하게 깊은 값을 읽기: optional chaining
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">❌ ?. 없이 접근</div>
+
+```javascript
+let userProfile = null;
+console.log(userProfile.name);
+// ❌ TypeError (일부러 에러 확인용)
+```
+
 </div>
 
-#### 3-3. 불리언 타입으로 변환
+<div class="wda-compare-card">
 
-```jsx
-// 1. Boolean 생성자 함수를 new 없이 호출
-Boolean('x');      // true
-Boolean('');       // false
-Boolean('false');  // true
-Boolean(0);        // false
-Boolean(1);        // true
-Boolean(null);     // false
-Boolean(undefined); // false
-Boolean({});       // true
-Boolean([]);       // true
+<div class="wda-compare-ttl">✅ ?. 로 접근</div>
 
-// 2. ! 부정 논리 연산자를 두 번 사용하는 방법
-!!'x'; // true
-!!'';  // false
+```javascript
+let userProfile = null;
+console.log(userProfile?.name);
+// undefined
+```
+
+</div>
+
+</div>
+
+`?.`는 중첩된 속성에도 이어서 쓸 수 있어, 중간 단계가 없어도 에러 없이 통과한다.
+
+```javascript
+let userSettings = { profile: null };
+
+console.log(userSettings.profile?.theme);
+// undefined — profile이 null이어도 에러 없이 통과한다
 ```
 
 **💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <code>Boolean('false')</code>가 <code>true</code>가 되는 게 처음에는 이상하게 느껴질 수 있습니다.<br>
-  하지만 `'false'`는 <strong>"false"라는 글자가 들어있는 문자열</strong>일 뿐, 빈 문자열이 아닙니다.<br>
-  Falsy 값 목록에는 "빈 문자열(<code>''</code>)"만 있고 "false라는 글자가 들어있는 문자열"은 없기 때문에, 내용과 상관없이 <strong>비어있지 않은 문자열은 전부 Truthy</strong>입니다.<br>
-  같은 이유로 <code>Boolean({})</code>, <code>Boolean([])</code>도 내용이 비어있어 보이지만 "객체"라는 존재 자체가 있으므로 Truthy가 됩니다.
-</div>
-
-**📌 단축 평가**
-
-단축 평가는 논리 연산자(`&&`, `||`)가 **결과를 이미 확신할 수 있는 순간, 나머지 평가를 멈추는 방식**입니다.
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  겨울 이불 속에서 이미 답을 찾았으면 굳이 이불 밖으로 나가서 더 찾아보지 않는 것과 같습니다.<br>
-  논리 연산자는 <strong>항상 true/false만 반환하는 게 아니라, 판단에 사용된 값(피연산자) 자체를 그대로 반환</strong>할 수 있습니다.
-</div>
-
-```jsx
-'Cat' && 'Dog'; // "Dog"
-'Cat' || 'Dog'; // "Cat"
-```
-
-- `'Cat' && 'Dog'`는 앞의 `'Cat'`이 이미 Truthy이므로, `&&`는 뒤의 값까지 마저 확인한 뒤 **마지막 값인 `'Dog'`**를 반환합니다.
-- `'Cat' || 'Dog'`는 앞의 `'Cat'`이 이미 Truthy이므로, 그 순간 결과가 확정되어 뒤는 보지도 않고 **`'Cat'`**을 그대로 반환합니다.
-
-**📝 논리 연산자를 사용한 단축 평가**
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  • <code>&&</code> — 앞 값이 <strong>Truthy</strong>이면 뒤 값을 반환하고, 앞 값이 <strong>Falsy</strong>이면 앞 값을 반환합니다.<br>
-  • <code>||</code> — 앞 값이 <strong>Truthy</strong>이면 앞 값을 반환하고, 앞 값이 <strong>Falsy</strong>이면 뒤 값을 반환합니다.
-</div>
-
-```jsx
-// || (OR)
-'Cat' || 'Dog';  // "Cat"
-false || 'Dog';  // "Dog"
-'Cat' || false;  // "Cat"
-
-// && (AND)
-'Cat' && 'Dog';  // "Dog"
-false && 'Dog';  // false
-'Cat' && false;  // false
-```
-
-#### 5-1. if문 대체
-
-간단한 조건 처리라면 단축 평가로도 `if`문을 대신할 수 있습니다.
-
-```jsx
-var done = true;
-
-// 조건문 대체 (단축 평가)
-done && console.log('완료'); // "완료"
-done || console.log('미완료'); // 아무것도 출력 안 됨 (done이 Truthy이므로)
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  단축 평가로 조건 처리를 아주 짧게 줄일 수 있지만, 코드가 익숙하지 않은 초보자에게는 오히려 <strong>일반 <code>if</code>문이 더 읽기 쉬울 수 있습니다.</strong><br>
-  팀 컨벤션이나 코드의 복잡도에 따라 편한 방식을 선택하면 됩니다.
-</div>
-
-#### 5-2. 기본값 설정
-
-함수 매개변수의 기본값을 처리할 때도 단축 평가가 자주 쓰입니다.
-
-```jsx
-function getStringLength(str) {
-  str = str || '';
-  return str.length;
-}
-
-getStringLength();     // 0
-getStringLength('hi'); // 2
-```
-
-ES6에서는 아래처럼 **기본 매개변수(Default Parameter)** 문법으로 같은 동작을 더 간결하게 표현할 수 있습니다.
-
-```jsx
-function getStringLength(str = '') {
-  return str.length;
-}
-
-getStringLength();     // 0
-getStringLength('hi'); // 2
-```
-
-**📝 옵셔널 체이닝 연산자 ?.**
-
-옵셔널 체이닝 연산자 `?.`는 객체가 `null` 또는 `undefined`일 수도 있는 상황에서, **에러 없이 안전하게** 프로퍼티에 접근할 수 있게 해주는 문법입니다.
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  문을 두드려보고, 안에 아무도 없으면 화내지 않고 그냥 조용히 돌아오는 것과 같습니다.<br>
-  <code>elem</code>이 있으면 <code>value</code>를 꺼내오고, <code>elem</code>이 없으면 에러 대신 그냥 <code>undefined</code>를 돌려줍니다.
-</div>
-
-```jsx
-var elem = null;
-
-// elem.value -> elem이 null이면 TypeError: Cannot read properties of null
-// elem?.value -> elem이 null 또는 undefined이면 에러 대신 undefined 반환
-elem?.value; // undefined
-```
-
-기존에는 `&&` 연산자로 방어 코드를 짰습니다. 하지만 `&&`는 **Falsy 값**까지도 걸러버린다는 차이가 있습니다.
-
-```jsx
-var str = '';
-
-// && 방식: str이 빈 문자열(Falsy)이라서 length까지 가지 못하고 ''를 반환
-str && str.length; // ''
-
-// ?. 방식: str이 null/undefined가 아니라면 그대로 length에 접근 -> 0
-str?.length; // 0
-```
-
-`''`는 `null`도 `undefined`도 아니지만 **Falsy 값**이기 때문에, `&&`를 쓰면 `str.length`까지 도달하지 못하고 `''`가 그대로 반환됩니다.  
-반면 `?.`는 오직 `null`/`undefined`인지만 확인하므로, 빈 문자열이어도 정상적으로 `str.length`인 `0`을 반환합니다.
-
-**📝 null 병합 연산자 ??**
-
-null 병합 연산자 `??`는 왼쪽 값이 **`null` 또는 `undefined`일 때만** 오른쪽의 기본값을 반환하는 연산자입니다.
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  "진짜 비어있을 때만" 켜지는 자동 조명이라고 생각하면 됩니다. 0이나 빈 문자열처럼 "값은 있지만 약한 값"이 들어와도 조명은 켜지지 않고, 오직 <code>null</code>·<code>undefined</code>일 때만 기본값이 켜집니다.
-</div>
-
-```jsx
-var foo = null ?? 'default string';
-console.log(foo); // "default string"
-```
-
-`||`와 `??`는 얼핏 비슷해 보이지만, **어떤 값을 "비어있다"고 판단하는 기준**이 다릅니다.
-
-```jsx
-// || : 빈 문자열도 Falsy이므로 기본값으로 대체됨
-'' || 'default string'; // "default string"
-
-// ?? : 빈 문자열은 null도 undefined도 아니므로 그대로 유지됨
-'' ?? 'default string'; // ""
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <code>0</code>이나 <code>''</code>처럼 "값은 있지만 Falsy인 값"도 **유효한 값으로 인정**해야 하는 상황이라면 `||`보다 `??`가 훨씬 더 적합합니다.<br>
-  예를 들어 사용자가 수량을 `0`으로 입력했는데 `||`를 쓰면 기본값으로 덮어써버리는 버그가 생길 수 있지만, `??`를 쓰면 `0`이라는 값을 그대로 존중해줍니다.
+  <code>?.</code>는 없는 값을 안전하게 읽기 위한 도구다. 값이 있으면 원래대로 읽고, 없으면 에러 대신 <code>undefined</code>를 돌려준다.
 </div>
 
 ---
 
-## ⚙️ 동작 원리
+## 14. null과 undefined만 따로 처리하기: null 병합
 
-자바스크립트는 연산자나 조건식의 **문맥(context)**에 따라 값을 자동으로 변환할 수 있습니다.
+```javascript
+let savedTheme = null;
+let selectedTheme = savedTheme ?? "light";
 
-- 문자열 연결 문맥에서는 **문자열 변환**이 일어납니다.
-- 산술 계산 문맥에서는 **숫자 변환**이 일어납니다.
-- 조건식 문맥에서는 **불리언 변환**이 일어납니다.
-
-논리 연산자와 두 신규 연산자(`?.`, `??`)는 각각 다음과 같은 흐름으로 동작합니다.
-
-- 논리 연산자는 **왼쪽에서 오른쪽으로** 평가합니다.
-- `&&`는 **Falsy**를 만나면 그 자리에서 멈추고 그 값을 반환합니다.
-- `||`는 **Truthy**를 만나면 그 자리에서 멈추고 그 값을 반환합니다.
-- `?.`는 `null` 또는 `undefined`를 만나면 에러 대신 `undefined`를 반환합니다.
-- `??`는 `null` 또는 `undefined`일 때만 기본값을 사용합니다.
-
----
-
-## 💻 예제 코드
-
-앞에서 다룬 예제들을 주제별로 다시 모아 정리했습니다. 콘솔에 직접 입력해보면서 복습해보세요.
-
-**타입 변환의 기본 원리**
-
-```jsx
-var x = 10;
-var str = x.toString();
-console.log(typeof x, x);     // number 10 (원본은 그대로!)
-console.log(typeof str, str); // string "10"
-```
-
-**암묵적 변환 — 문자열 문맥**
-
-```jsx
-var str = x + '';
-'10' + 2;                    // "102"
-1 + '2';                     // "12"
-`1 + 1 = ${1 + 1}`;           // "1 + 1 = 2"
-```
-
-**암묵적 변환 — 숫자 문맥**
-
-```jsx
-5 * '10';   // 50
-1 - '1';    // 0
-1 * '10';   // 10
-1 / 'one';  // NaN
-'1' > 0;    // true
-+'';        // 0
-+'0';       // 0
-+'1';       // 1
-+'string';  // NaN
-```
-
-**암묵적 변환 — 불리언 문맥 (Truthy / Falsy)**
-
-```jsx
-if ('') console.log('실행 안 됨');
-if ('str') console.log('실행 됨');
-if (0) console.log('실행 안 됨');
-if (null) console.log('실행 안 됨');
-
-!0; // true (0은 Falsy이므로 부정하면 true)
-
-function isFalsy(v) { return !v; }
-function isTruthy(v) { return !!v; }
-```
-
-**명시적 변환**
-
-```jsx
-// 문자열로
-String(1);
-(1).toString();
-1 + '';
-
-// 숫자로
-Number('0');
-parseInt('0');
-parseFloat('10.53');
-+'0';
-'0' * 1;
-
-// 불리언으로
-Boolean('false'); // true
-Boolean({});       // true
-Boolean([]);       // true
-!!'x';
-```
-
-**단축 평가**
-
-```jsx
-'Cat' && 'Dog'; // "Dog"
-'Cat' || 'Dog'; // "Cat"
-
-var done = true;
-done && '완료';   // "완료"
-done || '미완료'; // true (done 자체 반환)
-```
-
-**옵셔널 체이닝 / null 병합**
-
-```jsx
-var elem = null;
-elem && elem.value; // null
-elem?.value;         // undefined
-
-var str = '';
-str && str.length; // ""
-str?.length;         // 0
-
-null ?? 'default string';      // "default string"
-'' || 'default string';        // "default string"
-'' ?? 'default string';        // ""
+console.log(selectedTheme);
+// "light"
 ```
 
 ---
 
-## ⚠️ 주의사항
+## 15. ||와 ?? 비교
 
-<div class="wda-callout wda-cw">
-  • 암묵적 타입 변환은 코드를 짧게 만들 수 있지만, 초보자에게는 결과를 예측하기 어렵게 만들 수 있습니다.<br>
-  • <code>==</code>는 암묵적 타입 변환을 일으킬 수 있으므로, 실무에서는 <code>===</code> 사용을 권장합니다.<br>
-  • 문자열 <code>"false"</code>는 <code>false</code>가 아니라 <strong>Truthy</strong> 값입니다.<br>
-  • 빈 문자열 <code>''</code>, <code>0</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>은 <strong>Falsy</strong> 값입니다.<br>
-  • 객체 <code>{}</code>와 배열 <code>[]</code>은 <strong>Truthy</strong> 값입니다.<br>
-  • <code>||</code>는 Falsy 값을 모두 기본값으로 바꿔버릴 수 있습니다.<br>
-  • 0이나 빈 문자열도 유효한 값이라면 <code>||</code>보다 <code>??</code>를 사용하는 것이 적절합니다.<br>
-  • <code>?.</code>는 <code>null</code> 또는 <code>undefined</code>에만 안전하게 동작합니다.<br>
-  • 단축 평가는 편리하지만, 조건이 복잡하면 <code>if</code>문으로 쓰는 것이 더 읽기 좋습니다.
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">notificationCount || 5</div>
+    <code>0</code>도 falsy라서 기본값으로 바뀐다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">notificationCount ?? 5</div>
+    <code>null</code>/<code>undefined</code>일 때만 기본값을 쓴다.
+  </div>
+</div>
+
+```javascript
+let notificationCount = 0;
+
+console.log(notificationCount || 5);
+// 5 — 0이 falsy라서 기본값으로 바뀐다
+
+console.log(notificationCount ?? 5);
+// 0 — null/undefined가 아니므로 그대로 유지된다
+```
+
+**✅ 선택 기준**
+
+<div class="wda-callout wda-cs">
+  <code>0</code>이나 <code>""</code>처럼 값은 있지만 falsy인 값을 그대로 지켜야 한다면 <code>||</code>보다 <code>??</code>가 적합하다.
 </div>
 
 ---
 
-## 🔗 참고 자료
+## 16. 초보자가 자주 만나는 변환/단축평가 실수
 
-- 모던 자바스크립트 Deep Dive 9장 타입 변환과 단축 평가
-- JavaScript MDN: Type conversion
-- JavaScript MDN: Optional chaining
-- JavaScript MDN: Nullish coalescing operator
+<div class="wda-fgrid">
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 1 · Number()로 섞인 값 변환</div>
+
+```javascript
+let inputAge = "25세";
+console.log(Number(inputAge));
+// NaN
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> Number()는 문자열 전체가 숫자여야 변환되고, 글자가 섞이면 NaN이 된다.<br>
+  <strong>기억할 점:</strong> 앞부분만 필요하면 parseInt()를 쓴다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 2 · 문자열 "false"를 falsy로 착각</div>
+
+```javascript
+console.log(Boolean("false"));
+// true
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 내용과 상관없이 비어있지만 않으면 문자열은 truthy다.<br>
+  <strong>기억할 점:</strong> falsy인 문자열은 빈 문자열(<code>""</code>) 하나뿐이다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 3 · ||로 0을 지키려다 실패</div>
+
+```javascript
+let displayCount = 0;
+console.log(displayCount || 10);
+// 10
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 0은 falsy라서 ||를 만나면 기본값으로 바뀐다.<br>
+  <strong>기억할 점:</strong> 값을 지키려면 ??를 쓴다.
+</div>
+
+</div>
+
+</div>
+
+---
+
+## 17. 실습 과제
+
+**🎯 목표**
+
+사용자 설정값을 안전하게 처리해 화면에 표시할 값을 만든다.
+
+**📋 요구사항**
+
+• `inputAge`를 `Number()`로 변환해 나이를 확인한다.<br>
+• `profileName`이 비어있으면 `fallbackName`을 사용한다(`||`).<br>
+• `userSettings.profile?.theme`로 테마 값을 안전하게 읽는다.<br>
+• `notificationCount`가 0이어도 그대로 표시한다(`??`).
+
+```javascript
+// 구성 예시: 나이 변환 / 기본 이름 처리 / 안전한 테마 읽기 / 0 유지
+```
+
+**💡 힌트 1 — 나이 변환**
+
+```javascript
+let inputAge = "25";
+let age = Number(inputAge);
+
+console.log(age);
+// 25
+```
+
+**💡 힌트 2 — 기본 이름 처리**
+
+```javascript
+let profileName = "";
+let fallbackName = profileName || "손님";
+
+console.log(fallbackName);
+// "손님"
+```
+
+**💡 힌트 3 — 안전한 테마 읽기**
+
+```javascript
+let userSettings = { profile: null };
+let selectedTheme = userSettings.profile?.theme ?? "light";
+
+console.log(selectedTheme);
+// "light"
+```
+
+**📌 정리 메모**
+
+• 입력값은 문자열일 수 있으므로 계산 전에 Number()로 맞춘다.<br>
+• 값이 없을 수도 있는 곳은 `?.`로 안전하게 접근한다.<br>
+• 0이나 ""를 지켜야 하면 `||` 대신 `??`를 쓴다.
 
 ---
 
@@ -608,11 +442,11 @@ null ?? 'default string';      // "default string"
 
 <div class="wda-check-note">
   <ul>
-    <li>타입 변환은 <strong>값의 타입이 바뀌는 것</strong>이다 — 암묵적 타입 변환은 자바스크립트가 자동으로, 명시적 타입 변환은 개발자가 직접 타입을 바꾸는 것이다.</li>
-    <li>문자열 연결에서는 <strong>문자열 변환</strong>, 산술 연산에서는 <strong>숫자 변환</strong>, 조건식에서는 <strong>불리언 변환</strong>이 문맥에 따라 일어난다.</li>
-    <li>Falsy 값은 <strong>false, undefined, null, 0, -0, NaN, ''</strong> 7가지이고, 그 외 대부분의 값은 Truthy이다.</li>
-    <li>&&와 ||는 <strong>단축 평가</strong>를 수행하며, boolean이 아닌 <strong>피연산자 값 자체</strong>를 반환할 수 있다.</li>
-    <li>?.는 null 또는 undefined일 때 에러 대신 undefined를 반환하고, ??는 null 또는 undefined일 때만 기본값을 사용한다.</li>
+    <li>문자열 연결(<code>+</code>)에서는 문자열로, 산술 연산에서는 숫자로, 조건식에서는 boolean으로 <strong>문맥에 따라 자동 변환</strong>된다.</li>
+    <li><code>Number()</code>/<code>parseInt()</code>/<code>parseFloat()</code>는 서로 다르게 동작한다 — <code>parseInt</code>/<code>parseFloat</code>는 <strong>앞부분만</strong> 읽고, <code>Number()</code>는 <strong>전체가 숫자</strong>여야 변환된다.</li>
+    <li>falsy 값은 <strong>false, 0, -0, "", null, undefined, NaN</strong> 7가지이며, 나머지는 모두 truthy다(빈 배열/빈 객체 포함).</li>
+    <li><code>&&</code>/<code>||</code>는 결과가 정해지면 나머지는 <strong>평가조차 하지 않는다</strong> — 오른쪽에 함수 호출이 있어도 실행되지 않을 수 있다.</li>
+    <li><code>?.</code>는 null/undefined에서도 에러 없이 통과하며 <strong>중첩된 속성에도 이어서</strong> 쓸 수 있고, <code>??</code>는 null/undefined일 때만 기본값을 사용한다.</li>
   </ul>
 </div>
 
@@ -620,12 +454,20 @@ null ?? 'default string';      // "default string"
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: ||와 ??는 기본값 처리 기준이 같다?</div>
-    <div class="wda-mistake-right">정답: <strong>||와 ??는 기본값 처리 기준이 다르다</strong> — ||는 모든 Falsy 값을 기본값으로 바꾸지만, ??는 null 또는 undefined일 때만 기본값을 사용한다.</div>
+    <div class="wda-mistake-wrong">오해: Number()와 parseInt()는 같은 방식으로 변환한다?</div>
+    <div class="wda-mistake-right">정답: Number()는 <strong>전체가 숫자</strong>여야 하고, parseInt()는 <strong>앞부분만</strong> 읽는다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 논리 연산자는 항상 true/false만 반환한다?</div>
-    <div class="wda-mistake-right">정답: <strong>논리 연산자는 boolean이 아닌 피연산자 값 자체</strong>를 반환할 수 있다.</div>
+    <div class="wda-mistake-wrong">오해: "false" 문자열은 falsy다?</div>
+    <div class="wda-mistake-right">정답: 내용과 상관없이 비어있지 않은 문자열은 <strong>truthy</strong>다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: 0을 지키려면 ||를 쓰면 된다?</div>
+    <div class="wda-mistake-right">정답: 0은 falsy라 ||에서 걸러진다 — <strong>??</strong>를 써야 한다.</div>
+  </div>
+  <div class="wda-mistake-note">
+    <div class="wda-mistake-wrong">오해: &&/||의 뒤쪽 값은 항상 평가된다?</div>
+    <div class="wda-mistake-right">정답: 결과가 이미 정해지면 뒤쪽은 <strong>함수 호출이라도 실행되지 않는다</strong>.</div>
   </div>
 </div>
 
@@ -633,25 +475,24 @@ null ?? 'default string';      // "default string"
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 변환 문맥</div>
+    <div class="wda-formula-block-ttl">공식 1 · 변환 함수</div>
     <div class="wda-formula-block-body">
-      <code>문자열 연결 → 문자열 변환</code><br>
-      <code>산술 연산 → 숫자 변환</code><br>
-      <code>조건식 → 불리언 변환</code>
+      <code>Number() = 전체 숫자</code><br>
+      <code>parseInt() = 앞부분 정수</code><br>
+      <code>parseFloat() = 앞부분 소수</code>
     </div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · Truthy / Falsy</div>
+    <div class="wda-formula-block-ttl">공식 2 · falsy 7가지</div>
     <div class="wda-formula-block-body">
-      <code>Falsy = false, undefined, null, 0, -0, NaN, ''</code><br>
-      <code>그 외 전부 Truthy</code>
+      <code>false / 0 / -0 / "" / null / undefined / NaN</code>
     </div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · ?. / ??</div>
+    <div class="wda-formula-block-ttl">공식 3 · 안전 접근</div>
     <div class="wda-formula-block-body">
-      <code>?. → null/undefined면 undefined 반환</code><br>
-      <code>?? → null/undefined일 때만 기본값 사용</code>
+      <code>?. → 에러 방어(중첩 가능)</code><br>
+      <code>?? → 0·"" 지키는 기본값</code>
     </div>
   </div>
 </div>
@@ -660,23 +501,31 @@ null ?? 'default string';      // "default string"
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">타입 변환의 두 종류는?</div>
-    <div class="wda-flip-back">암묵적 타입 변환(자바스크립트가 자동으로)과 명시적 타입 변환(개발자가 직접)이다.</div>
+    <div class="wda-flip-front">Number()와 parseInt()의 차이는?</div>
+    <div class="wda-flip-back">Number()는 전체가 숫자여야 변환되고, parseInt()는 앞부분만 정수로 읽는다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Falsy 값 7가지는?</div>
-    <div class="wda-flip-back">false, undefined, null, 0, -0, NaN, '' — 그 외 대부분은 Truthy다.</div>
+    <div class="wda-flip-front">falsy 값 7가지는?</div>
+    <div class="wda-flip-back">false, 0, -0, "", null, undefined, NaN이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">&&/||의 단축 평가가 반환하는 것은?</div>
-    <div class="wda-flip-back">true/false가 아니라 판단에 사용된 피연산자 값 자체를 반환한다.</div>
+    <div class="wda-flip-front">"false" 문자열은 truthy? falsy?</div>
+    <div class="wda-flip-back">truthy다. falsy인 문자열은 빈 문자열("")뿐이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">?.는 언제 undefined를 반환하나?</div>
-    <div class="wda-flip-back">접근 대상이 null 또는 undefined일 때 에러 대신 undefined를 반환한다.</div>
+    <div class="wda-flip-front">&&/||가 뒤쪽 값을 평가하지 않을 때는?</div>
+    <div class="wda-flip-back">앞에서 이미 결과가 정해지면 뒤쪽은 함수 호출이라도 실행하지 않는다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">?.는 중첩된 속성에도 쓸 수 있나?</div>
+    <div class="wda-flip-back">쓸 수 있다 — a?.b?.c처럼 이어서 사용할 수 있다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">??가 ||와 다른 점은?</div>
-    <div class="wda-flip-back">??는 null/undefined일 때만 기본값을 사용해 0이나 빈 문자열 같은 값을 그대로 보존한다.</div>
+    <div class="wda-flip-back">??는 null/undefined일 때만 기본값을 쓰고, ||는 모든 falsy에 기본값을 쓴다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">0을 유효한 값으로 지키려면?</div>
+    <div class="wda-flip-back">||가 아니라 ??를 사용한다.</div>
   </div>
 </div>
