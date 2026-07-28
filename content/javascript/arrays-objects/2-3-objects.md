@@ -289,15 +289,12 @@ console.log(userProfile.address?.city);
 ## 10. 객체 안 배열과 배열 안 객체
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">객체 안 배열</div>
-    한 사용자가 여러 값을 목록으로 가질 때.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">배열 안 객체</div>
-    여러 사용자를 목록으로 관리할 때.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">객체 안 배열</div>
+
+한 사용자가 여러 값을 목록으로 가질 때.
 
 ```javascript
 const userProfile = {
@@ -309,6 +306,14 @@ console.log(userProfile.badges[0]);
 // "신규가입"
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">배열 안 객체</div>
+
+여러 사용자를 목록으로 관리할 때.
+
 ```javascript
 const profileList = [
   { name: "지수", level: "골드" },
@@ -318,6 +323,10 @@ const profileList = [
 console.log(profileList[0].name);
 // "지수"
 ```
+
+</div>
+
+</div>
 
 ---
 

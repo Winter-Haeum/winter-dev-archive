@@ -356,31 +356,20 @@ for (let key in settings) {
 ## 9. 반복을 멈추거나 건너뛰기: break / continue
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">break</div>
-    반복문을 완전히 종료하고 밖으로 나간다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">continue</div>
-    이번 회차만 건너뛰고 다음 반복을 계속한다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">break</div>
+
+반복문을 완전히 종료하고 밖으로 나간다.
 
 ```javascript
-let todayTasks = ["복습", "문제풀이", "휴식", "정리"];
-
-for (let task of todayTasks) {
-  if (task === "휴식") {
-    continue;
-  }
-  console.log(task);
-}
-// 복습
-// 문제풀이
-// 정리
-```
-
-```javascript
+let todayTasks = [
+  "복습",
+  "문제풀이",
+  "휴식",
+  "정리",
+];
 let completedTasks = [];
 
 for (let task of todayTasks) {
@@ -393,6 +382,37 @@ for (let task of todayTasks) {
 console.log(completedTasks);
 // ["복습", "문제풀이"]
 ```
+
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">continue</div>
+
+이번 회차만 건너뛰고 다음 반복을 계속한다.
+
+```javascript
+let todayTasks = [
+  "복습",
+  "문제풀이",
+  "휴식",
+  "정리",
+];
+
+for (let task of todayTasks) {
+  if (task === "휴식") {
+    continue;
+  }
+  console.log(task);
+}
+// 복습
+// 문제풀이
+// 정리
+```
+
+</div>
+
+</div>
 
 ---
 

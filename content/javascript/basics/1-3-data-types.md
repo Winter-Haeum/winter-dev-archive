@@ -187,15 +187,12 @@ console.log(productPrice);
 ## 5. 값이 없다: null과 undefined
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">📭 undefined</div>
-    변수를 선언만 하고 값을 넣지 않았을 때, 아직 값이 들어오지 않은 상태를 나타낸다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">🚫 null</div>
-    개발자가 "지금은 값이 없다"는 것을 직접 표시하려고 넣는 값이다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">📭 undefined</div>
+
+변수를 선언만 하고 값을 넣지 않았을 때, 아직 값이 들어오지 않은 상태를 나타낸다.
 
 ```javascript
 let deliveryMemo;
@@ -203,11 +200,23 @@ console.log(deliveryMemo);
 // undefined — 아직 값이 들어오지 않은 상태
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">🚫 null</div>
+
+개발자가 "지금은 값이 없다"는 것을 직접 표시하려고 넣는 값이다.
+
 ```javascript
 let selectedOption = null;
 console.log(selectedOption);
 // null — 옵션을 아직 선택하지 않았다고 직접 표시한 상태
 ```
+
+</div>
+
+</div>
 
 ---
 

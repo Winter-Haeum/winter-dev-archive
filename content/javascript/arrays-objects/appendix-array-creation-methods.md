@@ -93,15 +93,12 @@ console.log(fruits);
 `new Array()`는 인자의 개수에 따라 동작이 달라진다.
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">숫자 1개</div>
-    값이 아니라 <strong>길이</strong>로 해석된다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">숫자 여러 개</div>
-    각 값을 <strong>요소</strong>로 담는다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">숫자 1개</div>
+
+값이 아니라 <strong>길이</strong>로 해석된다.
 
 ```javascript
 const sparseList = new Array(3);
@@ -113,12 +110,24 @@ console.log(sparseList.length);
 // 3
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">숫자 여러 개</div>
+
+각 값을 <strong>요소</strong>로 담는다.
+
 ```javascript
 const filledList = new Array(1, 2, 3);
 
 console.log(filledList);
 // [1, 2, 3]
 ```
+
+</div>
+
+</div>
 
 **⚠️ 주의사항**
 

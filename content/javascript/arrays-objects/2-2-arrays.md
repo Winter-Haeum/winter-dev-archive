@@ -177,15 +177,12 @@ console.log(taskList[10]);
 ## 5. 배열 끝에서 추가/삭제하기: push / pop
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">push()</div>
-    배열 끝에 값을 추가한다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">pop()</div>
-    배열 끝의 값을 꺼내며 제거한다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">push()</div>
+
+배열 끝에 값을 추가한다.
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
@@ -196,8 +193,20 @@ console.log(taskList);
 // ["보고서 작성", "회의 준비", "이메일 회신"]
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">pop()</div>
+
+배열 끝의 값을 꺼내며 제거한다.
+
 ```javascript
-const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
+const taskList = [
+  "보고서 작성",
+  "회의 준비",
+  "이메일 회신",
+];
 
 const removedTask = taskList.pop();
 
@@ -208,20 +217,21 @@ console.log(taskList);
 // ["보고서 작성", "회의 준비"]
 ```
 
+</div>
+
+</div>
+
 ---
 
 ## 6. 배열 앞에서 추가/삭제하기: unshift / shift
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">unshift()</div>
-    배열 맨 앞에 값을 추가한다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">shift()</div>
-    배열 맨 앞의 값을 꺼내며 제거한다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">unshift()</div>
+
+배열 맨 앞에 값을 추가한다.
 
 ```javascript
 const taskList = ["회의 준비", "이메일 회신"];
@@ -232,14 +242,30 @@ console.log(taskList);
 // ["긴급 보고서 작성", "회의 준비", "이메일 회신"]
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">shift()</div>
+
+배열 맨 앞의 값을 꺼내며 제거한다.
+
 ```javascript
-const taskList = ["긴급 보고서 작성", "회의 준비", "이메일 회신"];
+const taskList = [
+  "긴급 보고서 작성",
+  "회의 준비",
+  "이메일 회신",
+];
 
 const removedTask = taskList.shift();
 
 console.log(removedTask);
 // "긴급 보고서 작성"
 ```
+
+</div>
+
+</div>
 
 **💡 보충 설명**
 
@@ -403,6 +429,8 @@ console.log(taskList.some((task) => task.includes("긴급")));
 ```
 
 ```javascript
+const taskList = ["보고서 작성", "회의 준비", "긴급 문의 응답"];
+
 console.log(taskList.every((task) => task.includes("긴급")));
 // false
 ```

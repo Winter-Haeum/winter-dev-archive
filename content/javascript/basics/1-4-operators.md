@@ -156,15 +156,12 @@ console.log(orderAmount + shippingFee);
 ## 4. 값을 1씩 바꾸기: 증감 연산자
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">후위 — stockCount--</div>
-    현재 값을 먼저 반환하고, 그 다음에 값을 바꾼다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">전위 — --stockCount</div>
-    값을 먼저 바꾸고, 바뀐 값을 반환한다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">후위 — stockCount--</div>
+
+현재 값을 먼저 반환하고, 그 다음에 값을 바꾼다.
 
 ```javascript
 let stockCount = 5;
@@ -176,12 +173,24 @@ console.log(stockCount);
 // 4 — 반환 후에 값이 줄었다
 ```
 
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">전위 — --stockCount</div>
+
+값을 먼저 바꾸고, 바뀐 값을 반환한다.
+
 ```javascript
 let stockCount = 5;
 
 console.log(--stockCount);
 // 4 — 먼저 값을 줄인 뒤 그 값을 반환한다
 ```
+
+</div>
+
+</div>
 
 ---
 
@@ -230,15 +239,12 @@ console.log(stockCount > 0);
 ## 7. ==보다 ===를 우선 쓰는 이유
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">== (동등 비교)</div>
-    타입이 달라도 값을 맞춰서 비교한다.
-  </div>
-  <div class="wda-compare-card wda-modern">
-    <div class="wda-compare-ttl">=== (일치 비교)</div>
-    값과 타입이 모두 같아야 참이다.
-  </div>
-</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">== (동등 비교)</div>
+
+타입이 달라도 값을 맞춰서 비교한다.
 
 ```javascript
 const stockCount = 0;
@@ -247,12 +253,24 @@ console.log(stockCount == "0");
 // true — 타입이 달라도 값을 맞춰서 비교한다
 ```
 
+</div>
+
+<div class="wda-compare-card wda-modern">
+
+<div class="wda-compare-ttl">=== (일치 비교)</div>
+
+값과 타입이 모두 같아야 참이다.
+
 ```javascript
 const stockCount = 0;
 
 console.log(stockCount === "0");
 // false — 타입까지 같아야 참이다
 ```
+
+</div>
+
+</div>
 
 **📌 핵심 차이**
 
