@@ -1,7 +1,7 @@
 ---
 title: "부록: JSON 데이터 다루기"
 status: "completed"
-description: "JSON의 개념과 JavaScript Object와의 차이, JSON.stringify·JSON.parse 사용법, 지원 데이터 타입, 자주 겪는 에러까지 JSON 처리를 정리한다."
+description: "JavaScript 객체와 JSON 문자열의 차이, JSON.stringify/JSON.parse 기본 사용법, parse 실패 대비를 강의 설정 데이터 시나리오로 정리한다."
 category: "JavaScript"
 section: "Async"
 tags:
@@ -14,40 +14,32 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-1~1-5·2-1~2-3·4-1~4-4·DOM 3-3·async 5-1~5-5·Date 부록 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -68,508 +60,590 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;">
-  • <strong>JSON 개념</strong> — 서버·클라이언트가 데이터를 주고받는 "만국 공통어" 형식을 이해합니다.<br>
-  • <strong>JS Object와의 차이</strong> — JavaScript 객체와 JSON의 문법 차이를 정확히 구분합니다.<br>
-  • <strong>직렬화/역직렬화</strong> — `JSON.stringify()`, `JSON.parse()` 사용법을 익힙니다.
+<div class="wda-goal">
+  • <strong>객체와 JSON 구분</strong> — JavaScript 객체와 JSON 문자열의 문법 차이를 설명할 수 있다.<br>
+  • <strong>변환 기본</strong> — JSON.stringify와 JSON.parse로 객체와 문자열을 오가며 다룰 수 있다.<br>
+  • <strong>지원 범위 이해</strong> — JSON으로 표현되는 값과 사라지거나 바뀌는 값을 구분할 수 있다.<br>
+  • <strong>실패 대비</strong> — parse가 실패할 수 있음을 알고 안전하게 처리할 수 있다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. JSON이란?</h2>
-</div>
+## 1. JSON이 필요한 순간
 
-데이터 교환을 위한 **"만국 공통어"**
-
-**📌 정의 (Definition)**
-
-**JavaScript Object Notation**
+강의 설정(`lessonSettings`)은 JavaScript 안에서는 객체다. 이 설정을 저장하거나 서버로 보내려면 객체 그대로는 안 되고, 문자열 형태가 필요하다. JSON은 이 객체를 문자열로 바꾸고, 다시 객체로 되돌리는 표준 형식이다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">경량 (Lightweight)</div>
-    <div class="wda-fcard-dsc">데이터를 저장하고 전달하기 위한 가벼운 텍스트 형식입니다.</div>
+    <div class="wda-fcard-ttl">서버로 보낼 때</div>
+    <div class="wda-fcard-dsc">강의 설정을 문자열로 바꿔 전송한다</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">독립적 (Independent)</div>
-    <div class="wda-fcard-dsc">JavaScript에서 파생됐지만, 대부분의 프로그래밍 언어가 지원합니다.</div>
+    <div class="wda-fcard-ttl">파일이나 저장소에 남길 때</div>
+    <div class="wda-fcard-dsc">텍스트 형태로 저장했다가 다시 불러온다</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">가독성</div>
-    <div class="wda-fcard-dsc">사람과 기계 모두 읽고 쓰기 쉬운 텍스트 기반입니다.</div>
+    <div class="wda-fcard-ttl">다른 언어와 주고받을 때</div>
+    <div class="wda-fcard-dsc">언어에 상관없이 같은 형식으로 데이터를 전달한다</div>
   </div>
 </div>
 
-**📌 왜 쓰나요?**
-
-**서버와 클라이언트가 대화할 때 사용해요!**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">통신 매개체</div>
-    <div class="wda-fcard-dsc">클라이언트(Client)와 서버(Server) 사이에서 데이터를 주고받는 역할을 합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">언어 초월</div>
-    <div class="wda-fcard-dsc">서로 다른 언어(JS, Python, Java 등)를 써도 JSON으로 소통하면 다 알아들을 수 있습니다.</div>
-  </div>
-</div>
-
-**💡 보충 설명**
+**📌 개념**
 
 <div class="wda-callout wda-ci">
-  <strong>만국 공통어란?</strong> — 한국인과 미국인이 대화할 때 '영어'를 공용어로 쓰듯이, 프로그래밍 세계에서는 <strong>Python 프로그램</strong>과 <strong>Java 프로그램</strong>이 대화하기 위해 <strong>JSON</strong>이라는 공용어 형식을 사용한다고 이해하면 쉽습니다.<br><br>
-  <strong>독립적이라는 의미</strong> — 이름에 'JavaScript'가 들어가서 자바스크립트에서만 쓸 수 있을 것 같지만, 실제로는 <strong>텍스트(문자열)</strong> 형태이기 때문에 C언어, 파이썬, 자바 등 거의 모든 언어에서 자유롭게 읽고 쓸 수 있습니다.<br><br>
-  <strong>왜 가벼울까?</strong> — 복잡한 코드나 불필요한 장식 없이 <code>{"이름": "값"}</code> 형태의 단순한 규칙만 따르기 때문에, 데이터를 전송할 때 인터넷 데이터 소모량이 적고 속도가 빠릅니다.
+  저장소에 값을 직접 저장하는 흐름은 <strong>5-5 Web Storage</strong> 문서에서 다뤘다. 이 문서에서는 "객체를 문자열로 바꾸고 되돌리는 방법" 자체에 집중한다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. JSON vs JavaScript Object 비교</h2>
-</div>
+## 2. JavaScript 객체와 JSON 문자열
 
-**🆚 JavaScript Object (자바스크립트 객체)**
+<div class="wda-compare">
 
-자바스크립트 문법 내에서는 비교적 자유로운 형식을 가집니다.
+<div class="wda-compare-card">
 
-```js
-const person = {
-  name: "Gemini",      // Key에 따옴표 생략 가능
-  age: 20,
-  skills: ['JS'],
-  sayHi: () => {},     // 함수 포함 가능
-  data: undefined,     // undefined 값 포함 가능
-  // 주석 사용 가능합니다.
-  // 마지막 항목 뒤에 쉼표(Trailing Comma) 있어도 됨
+<div class="wda-compare-ttl">📝 JavaScript 객체</div>
+
+```javascript
+const lessonSettings = {
+  viewMode: "compact",
+  fontSize: 16,
 };
 ```
 
-**🆚 JSON (데이터 포맷)**
+</div>
 
-데이터 교환을 목적으로 하기에 **엄격한 규칙**을 따라야 합니다.
+<div class="wda-compare-card">
 
-```json
-{
-  "name": "Jane",
-  "age": 20,
-  "skills": ["JS"]
+<div class="wda-compare-ttl">📝 JSON 문자열</div>
+
+```javascript
+const lessonJson =
+  '{"viewMode":"compact","fontSize":16}';
+```
+
+</div>
+
+</div>
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  JavaScript 객체는 코드에서 바로 다루는 값이고, JSON 문자열은 그 값을 텍스트로 표현한 것이다. JSON 문자열에서는 key와 문자열 값 모두 <strong>큰따옴표</strong>를 써야 한다.
+</div>
+
+---
+
+## 3. JSON.stringify 기본
+
+```javascript
+const lessonSettings = { viewMode: "compact", fontSize: 16 };
+
+const lessonJson = JSON.stringify(lessonSettings);
+
+console.log(lessonJson);
+// {"viewMode":"compact","fontSize":16}
+console.log(typeof lessonJson);
+// string
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>JSON.stringify</code>는 객체를 JSON 형식의 문자열로 바꾼다. 결과가 객체가 아니라 <strong>문자열</strong>이 된다는 점이 핵심이다.
+</div>
+
+---
+
+## 4. JSON.parse 기본
+
+```javascript
+const lessonJson = '{"viewMode":"compact","fontSize":16}';
+
+const parsedSettings = JSON.parse(lessonJson);
+
+console.log(parsedSettings.viewMode); // compact
+console.log(typeof parsedSettings);   // object
+```
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">📤 stringify</div>
+
+객체 → 문자열
+
+```javascript
+JSON.stringify(lessonSettings);
+```
+
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">📥 parse</div>
+
+문자열 → 객체
+
+```javascript
+JSON.parse(lessonJson);
+```
+
+</div>
+
+</div>
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">lessonSettings</div><div class="wda-fnode-dsc">객체</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">JSON.stringify</div><div class="wda-fnode-dsc">문자열로 변환</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">lessonJson</div><div class="wda-fnode-dsc">JSON 문자열</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">JSON.parse</div><div class="wda-fnode-dsc">다시 객체로</div></div>
+</div>
+
+---
+
+## 5. 배열과 중첩 객체 다루기
+
+```javascript
+const lessonList = [
+  { id: 1, title: "비동기 프로그래밍" },
+  { id: 2, title: "모듈" },
+];
+
+const lessonListJson = JSON.stringify(lessonList);
+console.log(lessonListJson);
+// [{"id":1,"title":"비동기 프로그래밍"},{"id":2,"title":"모듈"}]
+
+const parsedList = JSON.parse(lessonListJson);
+console.log(parsedList[0].title); // 비동기 프로그래밍
+```
+
+```javascript
+const lessonData = {
+  title: "모듈",
+  settings: { viewMode: "compact", fontSize: 16 },
+};
+
+const lessonDataJson = JSON.stringify(lessonData);
+const parsedData = JSON.parse(lessonDataJson);
+
+console.log(parsedData.settings.viewMode); // compact
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  배열이나 중첩된 객체도 stringify/parse가 그대로 통과시킨다. 값 안에 값이 몇 겹으로 들어있어도 구조가 그대로 유지된다.
+</div>
+
+---
+
+## 6. JSON에서 사용할 수 있는 값
+
+| 값 종류 | 예시 |
+|---|---|
+| 문자열 | `"compact"` |
+| 숫자 | `16` |
+| boolean | `true`, `false` |
+| null | `null` |
+| 배열 | `[1, 2, 3]` |
+| 객체 | `{"fontSize": 16}` |
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  JSON은 이 6가지 값만 표현할 수 있다. 객체 문법 자체는 2-3 객체 문서에서 이미 다뤘으므로, 여기서는 "이 값이 JSON으로 표현 가능한가"만 확인한다.
+</div>
+
+---
+
+## 7. JSON에서 사라지거나 바뀌는 값
+
+```javascript
+const lessonSettings = {
+  viewMode: "compact",
+  fontSize: 16,
+  showToolbar: undefined,
+  logSettings: function () {
+    console.log(lessonSettings);
+  },
+};
+
+const lessonJson = JSON.stringify(lessonSettings);
+console.log(lessonJson);
+// {"viewMode":"compact","fontSize":16}
+```
+
+| 원래 값 | stringify 후 |
+|---|---|
+| 함수 | 프로퍼티 자체가 사라짐 |
+| undefined | 프로퍼티 자체가 사라짐 |
+| Date 객체 | 문자열로 바뀜 (8번에서 다룸) |
+
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  함수와 <code>undefined</code> 값을 가진 프로퍼티는 JSON 문자열을 만들 때 통째로 사라진다. 함수는 로직이라 데이터로 표현할 수 없고, <code>undefined</code>는 "값이 없음"을 뜻해 JSON이 표현하는 방식이 없기 때문이다.
+</div>
+
+---
+
+## 8. Date 객체는 문자열로 바뀐다
+
+```javascript
+const lessonData = { createdAt: new Date(2026, 2, 10) };
+
+const lessonJson = JSON.stringify(lessonData);
+console.log(lessonJson);
+// 날짜 부분은 ISO 형식의 문자열로 바뀐다
+// (정확한 시각은 실행 환경의 시간대에 따라 달라진다)
+
+const parsedData = JSON.parse(lessonJson);
+console.log(typeof parsedData.createdAt); // string
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>JSON.stringify</code>는 Date 객체를 문자열로 바꾼다. <code>parse</code>를 해도 다시 Date 객체가 되지는 않고 문자열 그대로 남으므로, 필요하면 <code>new Date(parsedData.createdAt)</code>처럼 직접 변환해야 한다.
+</div>
+
+---
+
+## 9. JSON.parse 실패 대비
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">✅ 정상 JSON</div>
+
+```javascript
+const jsonText =
+  '{"viewMode":"compact"}';
+
+JSON.parse(jsonText);
+```
+
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">⚠️ 깨진 JSON</div>
+
+```javascript
+const brokenJsonText =
+  "{ viewMode: 'compact' }";
+
+// JSON.parse(brokenJsonText);
+// ❌ SyntaxError (일부러 에러 확인용)
+```
+
+</div>
+
+</div>
+
+| 실수 | 예시 |
+|---|---|
+| 작은따옴표 사용 | `{ 'viewMode': 'compact' }` |
+| key에 큰따옴표 누락 | `{ viewMode: "compact" }` |
+| 마지막 값 뒤 쉼표(trailing comma) | `{"viewMode":"compact",}` |
+
+```javascript
+const brokenJsonText = "{ viewMode: 'compact' }";
+
+try {
+  JSON.parse(brokenJsonText);
+} catch (error) {
+  console.log("JSON 형식이 아닙니다.");
+}
+// JSON 형식이 아닙니다.
+```
+
+```javascript
+const defaultSettings = { viewMode: "list", fontSize: 14 };
+
+function parseLessonSettings(jsonText) {
+  try {
+    return JSON.parse(jsonText);
+  } catch (error) {
+    return defaultSettings;
+  }
+}
+
+console.log(parseLessonSettings(brokenJsonText));
+// { viewMode: 'list', fontSize: 14 }
+```
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">jsonText</div><div class="wda-fnode-dsc">불러온 문자열</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">JSON.parse 시도</div><div class="wda-fnode-dsc">try 블록에서 실행</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">성공</div><div class="wda-fnode-dsc">객체 반환</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">실패</div><div class="wda-fnode-dsc">catch에서 기본값 반환</div></div>
+</div>
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">try/catch 준비</div>
+    <div class="wda-fcard-dsc">parse는 항상 try/catch로 감싼다</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">기본값 준비</div>
+    <div class="wda-fcard-dsc">실패 시 돌려줄 defaultSettings를 미리 정한다</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">순환 참조 주의</div>
+    <div class="wda-fcard-dsc">자기 자신을 참조하는 객체는 stringify가 실패한다</div>
+  </div>
+</div>
+
+```javascript
+const lessonNode = { title: "모듈" };
+lessonNode.self = lessonNode;
+
+try {
+  JSON.stringify(lessonNode);
+} catch (error) {
+  console.log("순환 참조는 문자열로 바꿀 수 없습니다.");
+}
+// 순환 참조는 문자열로 바꿀 수 없습니다.
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  객체가 자기 자신을 참조하는 <strong>순환 참조(circular reference)</strong> 구조는 stringify가 처리할 수 없어 예외를 던진다. 흔한 상황은 아니지만, 발생하면 try/catch로 감싸 안전하게 처리한다.
+</div>
+
+---
+
+## 10. 보기 좋은 JSON 출력
+
+```javascript
+const lessonSettings = { viewMode: "compact", fontSize: 16 };
+
+console.log(JSON.stringify(lessonSettings, null, 2));
+// {
+//   "viewMode": "compact",
+//   "fontSize": 16
+// }
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>JSON.stringify</code>의 세 번째 인자에 숫자를 넣으면, 그 칸 수만큼 들여쓰기하여 사람이 읽기 좋은 형태로 출력한다. 콘솔 확인이나 로그를 남길 때 유용하다.
+</div>
+
+---
+
+## 11. 초보자가 자주 만나는 JSON 실수
+
+<div class="wda-fgrid">
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 1 · 작은따옴표로 JSON 작성</div>
+
+```javascript
+const brokenJsonText = "{ 'viewMode': 'compact' }";
+// JSON.parse(brokenJsonText);
+// ❌ SyntaxError (일부러 에러 확인용)
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> JSON은 key와 문자열 값 모두 큰따옴표만 허용한다.<br>
+  <strong>기억할 점:</strong> JSON 문자열을 직접 작성할 때는 항상 큰따옴표를 쓴다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 2 · 마지막 값 뒤에 쉼표</div>
+
+```javascript
+const brokenJsonText = '{"viewMode":"compact",}';
+// JSON.parse(brokenJsonText);
+// ❌ SyntaxError (일부러 에러 확인용)
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> JSON은 마지막 항목 뒤에 쉼표(trailing comma)를 허용하지 않는다.<br>
+  <strong>기억할 점:</strong> 항목을 추가·삭제할 때 마지막 쉼표가 남지 않았는지 확인한다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 3 · parse 결과를 확인 없이 사용</div>
+
+```javascript
+function loadSettings(jsonText) {
+  return JSON.parse(jsonText);
+}
+// jsonText가 깨진 형식이면 예외가 그대로
+// 던져져 호출한 곳까지 전달된다
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> try/catch 없이 parse만 하면 잘못된 문자열 하나로 프로그램이 멈출 수 있다.<br>
+  <strong>기억할 점:</strong> parse는 항상 try/catch와 기본값 처리를 함께 준비한다.
+</div>
+
+</div>
+
+</div>
+
+---
+
+## 12. 실습 과제
+
+**🎯 목표**
+
+강의 설정을 JSON으로 저장하고 다시 불러오는 함수를 만든다.
+
+**📋 요구사항**
+
+• `stringifyLessonSettings(lessonSettings)`로 객체를 JSON 문자열로 바꾼다.<br>
+• `parseLessonSettings(jsonText)`로 문자열을 객체로 되돌리되, 실패하면 `defaultSettings`를 반환한다.<br>
+• `JSON.stringify(value, null, 2)`로 보기 좋은 형태의 출력도 만들어본다.
+
+```javascript
+// 구성 예시: stringify 함수 / try-catch와 기본값을 포함한 parse 함수 / 보기 좋은 출력
+```
+
+**💡 힌트 1 — stringifyLessonSettings**
+
+```javascript
+function stringifyLessonSettings(lessonSettings) {
+  return JSON.stringify(lessonSettings);
 }
 ```
 
-JSON에서는 key와 문자열 값에 반드시 쌍따옴표를 사용해야 합니다. 함수, undefined, 주석, 마지막 쉼표는 사용할 수 없습니다.
+**💡 힌트 2 — parseLessonSettings**
 
-**🆚 주요 차이점 요약**
+```javascript
+const defaultSettings = { viewMode: "list", fontSize: 14 };
 
-| **구분** | **JavaScript Object** | **JSON** |
-| --- | --- | --- |
-| **Key 따옴표** | 생략 가능 | **필수 (" ")** |
-| **문자열 따옴표** | 홑따옴표('), 쌍따옴표(") | **쌍따옴표(")만 허용** |
-| **포함 가능 데이터** | 함수, undefined 등 | **순수 데이터만 (문자, 숫자, 불리언 등)** |
-| **주석** | 가능 | **불가능** |
+function parseLessonSettings(jsonText) {
+  try {
+    return JSON.parse(jsonText);
+  } catch (error) {
+    return defaultSettings;
+  }
+}
+```
 
-**💡 보충 설명**
+**💡 힌트 3 — 보기 좋은 출력**
 
-<div class="wda-callout wda-ci">
-  <strong>왜 JSON은 이렇게 엄격할까요?</strong> — JSON은 특정 언어(자바스크립트)에 종속되지 않고, 파이썬이나 자바 같은 다른 언어에서도 쉽게 해석(Parsing)할 수 있어야 하기 때문입니다.<br>
-  규칙이 단순하고 엄격할수록 컴퓨터가 데이터를 분석할 때 오류가 날 확률이 줄어듭니다.<br><br>
-  <strong>실수하기 쉬운 포인트</strong> — 초보자들이 가장 많이 하는 실수는 Key 값에 따옴표를 안 붙이거나, 홑따옴표(')를 사용하는 것입니다.<br>
-  JSON 파일(.json)을 작성할 때는 무조건 쌍따옴표(")만 쓴다고 기억하면 됩니다.
-</div>
+```javascript
+const lessonSettings = { viewMode: "compact", fontSize: 16 };
+console.log(JSON.stringify(lessonSettings, null, 2));
+```
+
+**📌 정리 메모**
+
+• JSON.stringify는 객체를 문자열로, JSON.parse는 문자열을 객체로 바꾼다.<br>
+• 함수와 undefined는 사라지고, Date는 문자열로 바뀐다.<br>
+• parse는 실패할 수 있으므로 항상 try/catch와 기본값을 함께 준비한다.
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. JSON 데이터 vs JSON 객체</h2>
-</div>
+## ✅ 핵심 요약
 
-**데이터(String)와 도구(Object)의 차이를 명확히 구분해야 합니다.**
-
-**🆚 JSON 데이터 (Format)**
-
-우리가 서버와 주고받는 **"데이터 그 자체"**입니다.
-
-- **타입 (Type)** : 무조건 **`string` (문자열)** 입니다.
-- **특징** — 겉모습은 객체처럼 생겼지만, 실제로는 긴 텍스트 덩어리입니다.
-
-<div class="wda-callout wda-ci">
-  JSON은 텍스트 기반 데이터 형식입니다. JavaScript에서 서버로 전송하거나 저장소에 저장할 때는 보통 문자열 형태의 JSON으로 다룹니다. 다만 JSON 문법 자체는 객체, 배열, 문자열, 숫자, 불리언, null 같은 값을 표현할 수 있습니다.
-</div>
-
-```js
-// ' ' 안에 들어있는 문자열입니다.
-const data = '{"name":"Kim"}';
-
-console.log(typeof data); // "string"
-```
-
-**🆚 JSON 객체 (Global Object)**
-
-브라우저(자바스크립트 엔진)에 내장된 **"기능 도구함"**입니다.
-
-- **역할** — JSON 데이터를 만들거나 해석하기 위한 **메서드(`parse`, `stringify`)를 제공**합니다.
-- **특징** — 자바스크립트가 기본적으로 가지고 있는 전역 객체입니다.
-
-```js
-// 자바스크립트 내장 객체
-console.log(typeof JSON);       // "object"
-console.log(typeof JSON.parse); // "function"
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  "JSON 객체(도구)를 사용해서, JSON 데이터(문자열)를 다룹니다."<br><br>
-  <strong>JSON 데이터</strong> = 재료 (String)<br>
-  <strong>JSON 객체</strong> = 요리 도구 (Tool)
-</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. JSON 사용법 (메서드)</h2>
-</div>
-
-직렬화(Stringify)와 역직렬화(Parse)의 개념과 사용법입니다.
-
-**📝 직렬화 (Serialization) : `JSON.stringify()`**
-
-**JS 객체 ➡ JSON 문자열** (서버로 데이터를 보낼 때 사용)
-
-```js
-// 1. 자바스크립트 객체 생성 (메모리에 있는 데이터)
-const user = {
-  name: "Kim",
-  age: 30
-};
-
-// 2. 객체를 JSON 문자열로 변환 (직렬화)
-const jsonStr = JSON.stringify(user);
-
-// 3. 결과 확인
-console.log(jsonStr);
-// 출력결과: '{"name":"Kim","age":30}' (하나의 긴 문자열이 됨)
-```
-
-**📝 역직렬화 (Deserialization) : `JSON.parse()`**
-
-**JSON 문자열 ➡ JS 객체** (서버에서 받은 데이터를 쓸 때 사용)
-
-```js
-// 1. 서버에서 받았다고 가정한 JSON 문자열
-const jsonStr = '{"name":"Kim"}';
-
-// 2. 문자열을 자바스크립트 객체로 변환 (역직렬화)
-const user = JSON.parse(jsonStr);
-
-// 3. 이제 점(.)을 찍어서 데이터에 접근 가능!
-console.log(user.name);
-// 출력결과: "Kim" (다시 JS 객체로 돌아옴!)
-```
-
-**⚙️ 데이터 변환 흐름 요약**
-
-데이터가 이동하는 방향에 따라 사용하는 메서드가 다릅니다.
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">JS Object (메모리 상의 데이터)</div>
-      <div class="wda-sdsc">자바스크립트 코드에서 다루는 원본 객체입니다.</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">⬇️ stringify (포장하기)</div>
-      <div class="wda-sdsc">JSON String (전송/저장용 텍스트)으로 변환합니다.</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">⬇️ parse (포장 뜯기)</div>
-      <div class="wda-sdsc">다시 JS Object (메모리 상의 데이터)로 되돌립니다.</div>
-    </div>
-  </div>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>직렬화(Stringify)가 뭔가요?</strong> — 쉽게 말해 데이터를 <strong>'택배 포장'</strong> 하는 것입니다.<br>
-  객체(Object) 상태로는 인터넷 선을 타고 날아갈 수 없기 때문에, 전송 가능한 형태인 <strong>문자열(String)</strong>로 납작하게 펴서 포장하는 과정입니다.<br><br>
-  <strong>역직렬화(Parse)가 뭔가요?</strong> — 도착한 택배의 <strong>'포장을 뜯는'</strong> 것입니다.<br>
-  문자열 상태로는 <code>name</code>이나 <code>age</code>를 꺼내 쓸 수 없으니, 다시 우리가 프로그래밍에서 사용할 수 있는 <strong>객체(Object)</strong> 형태로 되돌리는 과정입니다.
-</div>
-
-<img src="/images/content/javascript/appendix-json/javascript-appendix-json-object-string-conversion.png" alt="JS Object(메모리 상의 데이터)가 stringify를 거쳐 JSON String(전송/저장용 텍스트)으로, JSON String이 parse를 거쳐 다시 JS Object로 되돌아가는 양방향 변환 다이어그램" style="display:block;width:100%;max-width:640px;height:auto;border-radius:8px;margin:.6rem auto 0;object-fit:contain;">
-<div style="text-align:center;font-size:.85rem;font-weight:700;opacity:.8;margin:.5rem auto 1.4rem;max-width:640px;">[그림] JS 객체와 JSON 문자열 변환</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 지원하는 데이터 타입</h2>
-</div>
-
-가능한 것과 불가능한 것을 명확히 구분해야 데이터 손실을 막을 수 있습니다.
-
-**🆚 지원 (OK)**
-
-JSON 표준에서 허용하는 6가지 데이터 타입입니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">String (문자열)</div>
-    <div class="wda-fcard-dsc"><code>"Hello"</code> (반드시 쌍따옴표)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Number (숫자)</div>
-    <div class="wda-fcard-dsc"><code>10</code>, <code>3.14</code> (정수, 실수)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Boolean (논리)</div>
-    <div class="wda-fcard-dsc"><code>true</code>, <code>false</code> (소문자)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">null</div>
-    <div class="wda-fcard-dsc"><code>null</code> (빈 값)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Array (배열)</div>
-    <div class="wda-fcard-dsc"><code>[1, 2, 3]</code></div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Object (객체)</div>
-    <div class="wda-fcard-dsc"><code>{"key": "value"}</code></div>
-  </div>
-</div>
-
-**🆚 미지원 (무시/에러)**
-
-프로그래밍 로직이나 언어 특화 기능은 저장할 수 없습니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Function (함수)</div>
-    <div class="wda-fcard-dsc">로직은 데이터가 아니므로 제외됩니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Date (날짜 객체)</div>
-    <div class="wda-fcard-dsc">날짜 전용 객체는 없습니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">undefined</div>
-    <div class="wda-fcard-dsc">값이 정의되지 않은 상태는 저장하지 않습니다.</div>
-  </div>
-</div>
-
-**💡 참고 : Date 객체 처리**
-
-날짜(`Date`)는 JSON으로 변환(stringify)하면 **단순 문자열**로 바뀝니다.
-
-<div style="position:relative;overflow:visible;">
-
-```js
-const today = { date: new Date() };
-
-const jsonStr = JSON.stringify(today);
-// 결과: '{"date":"2024-05-20T10:00:00.000Z"}' (문자열로 변함)
-
-// 주의: 다시 parse 해도 Date 객체가 아니라 "문자열"로 나옵니다!
-```
-
-</div>
-
-다시 Date 객체로 사용하려면 parse 후 `new Date(saved.date)`처럼 직접 Date 객체로 변환해야 합니다.
-
-```js
-const parsed = JSON.parse(jsonStr);
-const date = new Date(parsed.date);
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>`undefined`와 함수는 어떻게 되나요?</strong> — 객체의 프로퍼티 값이 <code>undefined</code>, 함수, <code>Symbol</code>이면 해당 프로퍼티는 JSON 문자열에서 <strong>제외</strong>됩니다.<br>
-  배열 안에 들어 있는 <code>undefined</code>, 함수, <code>Symbol</code>은 <strong>`null`</strong>로 변환됩니다.<br>
-  단, <code>undefined</code>나 함수 자체를 <code>JSON.stringify()</code>에 바로 넣으면 문자열 <code>"undefined"</code>가 아니라 실제 <code>undefined</code>가 반환됩니다.<br><br>
-  <strong>왜 다 지원 안 하나요?</strong> — JSON은 <strong>'데이터 교환'</strong>이 목적이기 때문입니다.<br>
-  파이썬에는 자바스크립트의 '함수' 개념이 다르고, 자바에는 'undefined'가 없습니다.<br>
-  서로 다른 언어끼리 오해 없이 주고받으려면 가장 <strong>기초적이고 공통적인 형태(숫자, 문자, 목록)</strong>만 남겨야 하기 때문입니다.
-</div>
-
-```js
-JSON.stringify(undefined);      // undefined
-JSON.stringify(function () {}); // undefined
-JSON.stringify(Symbol());       // undefined
-```
-
-**NaN / Infinity / BigInt 주의**
-
-<div class="wda-callout wda-cw">
-  NaN과 Infinity는 JSON으로 변환하면 <code>null</code>이 됩니다. BigInt는 <code>JSON.stringify()</code>에서 <code>TypeError</code>가 발생하므로 그대로 저장할 수 없습니다.
-</div>
-
-```js
-JSON.stringify({ value: NaN });      // {"value":null}
-JSON.stringify({ value: Infinity }); // {"value":null}
-JSON.stringify({ value: 10n });      // TypeError
-```
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 자주 겪는 에러와 궁금증 (FAQ &amp; Common Mistakes)</h2>
-</div>
-
-**🔴 SyntaxError (문법 오류)**
-
-`JSON.parse()`를 실행할 때 가장 많이 발생하는 에러입니다. 다음 3가지를 주의하세요.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">홑따옴표(') 사용</div>
-    <div class="wda-fcard-dsc">JSON은 무조건 쌍따옴표(")만 허용합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">Key에 따옴표 누락</div>
-    <div class="wda-fcard-dsc"><code>{ name: "Kim" }</code> (X) ➡ <code>{"name": "Kim"}</code> (O)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">마지막 쉼표 (Trailing Comma)</div>
-    <div class="wda-fcard-dsc">배열이나 객체의 마지막 항목 뒤에 쉼표를 남기면 에러가 납니다.</div>
-  </div>
-</div>
-
-**✖️ 주석 (Comments)**
-
-**"JSON 파일에 주석을 달 수 없나요?"**
-
-<div class="wda-callout wda-ci">
-  <strong>불가능</strong> : 네, 표준 JSON은 주석을 지원하지 않습니다.<br><br>
-  <strong>예외</strong> : VS Code의 설정 파일(<code>settings.json</code>) 등에서 주석이 보이는 이유는, 해당 파일이 표준 JSON이 아닌 <strong>JSONC (JSON with Comments)</strong>라는 변형 포맷을 사용하기 때문입니다.
-</div>
-
-**📱 깊은 복사 (Deep Copy)**
-
-자바스크립트에서 객체를 완전히 별개의 것으로 복사할 때 사용하는 간단한 트릭입니다.
-
-```js
-// 객체를 문자열로 만들었다가(stringify) 다시 객체로 만듦(parse)
-const copy = JSON.parse(JSON.stringify(original));
-```
-
-<div class="wda-callout wda-cw">
-  ⚠️ <strong>주의사항</strong> — 이 방법은 함수(Function), 날짜(Date), undefined 등 JSON이 지원하지 않는 데이터가 포함되어 있으면 유실되거나 변형됩니다. (완벽한 복사 방법은 아닙니다!)
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  최신 JavaScript에서는 깊은 복사가 필요할 때 <code>structuredClone()</code>을 사용할 수도 있습니다. 다만 함수는 복사할 수 없고, 지원 환경을 확인해야 합니다.
-</div>
-
-```js
-const copy = structuredClone(original);
-```
-
-**📄 package.json**
-
-우리가 프론트엔드 개발을 할 때 매일 보는 **`package.json`** 설정 파일도 바로 이 **JSON 파일**입니다.
-
-<div class="wda-callout wda-ci">
-  <code>package.json</code>은 표준 JSON 형식이므로 주석이나 trailing comma를 사용할 수 없습니다.
-</div>
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
-</div>
-
-<strong>📌 먼저 외울 것</strong>
+**📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>JSON은 데이터 교환을 위한 경량·독립적·가독성 좋은 텍스트 기반 형식이며, 서로 다른 언어(JS, Python, Java 등) 간 공통 소통 수단이다.</li>
-    <li>JSON 데이터의 타입은 무조건 <strong>string</strong>이고, JSON 객체(<code>JSON.parse</code>·<code>JSON.stringify</code>)는 자바스크립트에 내장된 도구다.</li>
-    <li>JS Object는 Key 따옴표 생략과 홑따옴표를 허용하지만, JSON은 Key와 문자열 값 모두 <strong>쌍따옴표(")가 필수</strong>다.</li>
-    <li><strong>JSON.stringify()</strong>는 JS 객체 → JSON 문자열(직렬화), <strong>JSON.parse()</strong>는 JSON 문자열 → JS 객체(역직렬화)로 변환한다.</li>
-    <li>JSON이 지원하는 타입은 string, number, boolean, null, array, object 6가지이며, 함수·undefined·Date 객체는 지원하지 않는다.</li>
-    <li>NaN과 Infinity는 stringify 시 null로 변환되고, BigInt는 TypeError를 발생시킨다.</li>
+    <li>JSON은 객체를 문자열로 바꾸거나(<strong>stringify</strong>) 문자열을 객체로 되돌리는(<strong>parse</strong>) 표준 형식이며, 저장·전송처럼 텍스트가 필요한 상황에 쓴다.</li>
+    <li>JSON 문자열에서는 key와 문자열 값 모두 <strong>큰따옴표</strong>가 필수이며, 작은따옴표나 trailing comma가 있으면 parse가 실패한다.</li>
+    <li>JSON.stringify는 <strong>배열과 중첩 객체</strong> 구조를 그대로 유지하며, 값 안에 값이 몇 겹으로 들어있어도 통과시킨다.</li>
+    <li>JSON이 표현할 수 있는 값은 <strong>문자열/숫자/boolean/null/배열/객체</strong> 6가지뿐이다.</li>
+    <li><strong>함수와 undefined</strong> 값을 가진 프로퍼티는 stringify 시 사라지고, <strong>Date 객체는 문자열</strong>로 바뀐다(parse해도 다시 Date로 돌아오지 않는다).</li>
+    <li>JSON.parse는 형식이 깨졌을 때 예외를 던지므로 <strong>try/catch</strong>로 감싸고, 실패 시 <strong>기본값</strong>을 대신 반환하는 방어 코드를 준비한다.</li>
   </ul>
 </div>
 
-<strong>🧠 헷갈리기 쉬운 것</strong>
+**🧠 헷갈리기 쉬운 것**
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: JSON에서도 홑따옴표(')를 써도 된다?</div>
-    <div class="wda-mistake-right">정답: JSON은 Key와 문자열 값 모두 <strong>쌍따옴표(")만 허용</strong>하며, 홑따옴표는 SyntaxError의 주범이다.</div>
+    <div class="wda-mistake-wrong">오해: JSON 문자열도 작은따옴표를 써도 된다?</div>
+    <div class="wda-mistake-right">정답: key와 문자열 값 모두 <strong>큰따옴표만 허용</strong>하며, 작은따옴표는 SyntaxError의 원인이다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: JSON.parse(JSON.stringify(obj))는 완벽한 깊은 복사 방법이다?</div>
-    <div class="wda-mistake-right">정답: 함수·Date·undefined 등 JSON이 지원하지 않는 데이터는 <strong>유실되거나 변형</strong>되므로 완벽한 깊은 복사가 아니다.</div>
+    <div class="wda-mistake-wrong">오해: 객체의 함수나 undefined 값도 JSON 문자열에 그대로 남는다?</div>
+    <div class="wda-mistake-right">정답: stringify 시 해당 프로퍼티가 <strong>통째로 사라진다</strong>.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 객체의 undefined 값이나 함수도 JSON 문자열에 그대로 저장된다?</div>
-    <div class="wda-mistake-right">정답: 프로퍼티 값이 undefined·함수·Symbol이면 해당 프로퍼티는 <strong>제외</strong>되고, 배열 안에서는 <strong>null로 변환</strong>된다.</div>
+    <div class="wda-mistake-wrong">오해: Date 객체는 parse 후에도 Date 객체로 돌아온다?</div>
+    <div class="wda-mistake-right">정답: stringify에서 <strong>문자열</strong>로 바뀌고 parse해도 문자열 그대로 남아, 직접 <code>new Date()</code>로 변환해야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: Date 객체는 JSON.parse 하면 다시 Date 객체로 돌아온다?</div>
-    <div class="wda-mistake-right">정답: stringify 시 문자열로 바뀌고 parse 해도 <strong>문자열 그대로</strong>이므로 <code>new Date()</code>로 직접 변환해야 한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: JSON 파일에도 주석을 달 수 있다?</div>
-    <div class="wda-mistake-right">정답: 표준 JSON은 주석을 지원하지 않으며, VS Code의 settings.json 같은 파일은 <strong>JSONC</strong>라는 별도 변형 포맷을 사용하는 것이다.</div>
+    <div class="wda-mistake-wrong">오해: JSON.parse는 항상 성공한다?</div>
+    <div class="wda-mistake-right">정답: 형식이 깨진 문자열이면 <strong>예외를 던지므로</strong>, try/catch로 감싸야 안전하다.</div>
   </div>
 </div>
 
-<strong>🎯 최종 암기 공식</strong>
+**🎯 최종 암기 공식**
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
     <div class="wda-formula-block-ttl">공식 1 · 변환 방향</div>
-    <div class="wda-formula-block-body"><code>stringify: JS Object → JSON String</code><br><code>parse: JSON String → JS Object</code></div>
+    <div class="wda-formula-block-body"><code>stringify(객체 → 문자열)</code><br><code>parse(문자열 → 객체)</code></div>
   </div>
   <div class="wda-formula-block">
     <div class="wda-formula-block-ttl">공식 2 · 따옴표 규칙</div>
-    <div class="wda-formula-block-body"><code>JSON = 쌍따옴표(")만 허용</code></div>
+    <div class="wda-formula-block-body"><code>JSON = 큰따옴표만 허용</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 미지원 데이터</div>
-    <div class="wda-formula-block-body"><code>함수·undefined → 제외</code><br><code>NaN·Infinity → null</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 사라지는 값</div>
+    <div class="wda-formula-block-body"><code>함수/undefined = 제외</code><br><code>Date = 문자열로</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 실패 대비</div>
+    <div class="wda-formula-block-body"><code>try { parse } catch { 기본값 }</code></div>
   </div>
 </div>
 
-<strong>🎴 클릭 복습 카드</strong>
+**🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JSON은 무엇의 줄임말인가?</div>
-    <div class="wda-flip-back">JavaScript Object Notation — 데이터 교환을 위한 경량 텍스트 형식이다.</div>
+    <div class="wda-flip-front">JSON.stringify와 JSON.parse의 관계는?</div>
+    <div class="wda-flip-back">stringify는 객체를 문자열로, parse는 문자열을 객체로 바꾸는 정반대 동작이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JS Object와 JSON의 가장 큰 문법 차이는?</div>
-    <div class="wda-flip-back">JSON은 Key와 문자열 값 모두 쌍따옴표(")가 필수이며, 함수·undefined·주석을 쓸 수 없다.</div>
+    <div class="wda-flip-front">JSON 문자열에서 key는 어떤 형식이어야 하나?</div>
+    <div class="wda-flip-back">항상 큰따옴표로 감싸야 한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JSON.stringify()와 JSON.parse()의 차이는?</div>
-    <div class="wda-flip-back">stringify는 JS 객체를 JSON 문자열로(직렬화), parse는 JSON 문자열을 JS 객체로(역직렬화) 변환한다.</div>
+    <div class="wda-flip-front">JSON이 표현할 수 있는 값 6가지는?</div>
+    <div class="wda-flip-back">문자열, 숫자, boolean, null, 배열, 객체다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JSON이 지원하는 6가지 데이터 타입은?</div>
-    <div class="wda-flip-back">string, number, boolean, null, array, object다.</div>
+    <div class="wda-flip-front">객체에 함수나 undefined 값이 있으면 stringify 후 어떻게 되나?</div>
+    <div class="wda-flip-back">해당 프로퍼티가 통째로 사라진다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JSON.parse(JSON.stringify(obj))의 한계는?</div>
-    <div class="wda-flip-back">함수·Date·undefined가 유실되거나 변형되어 완벽한 깊은 복사가 아니다.</div>
+    <div class="wda-flip-front">Date 객체는 JSON으로 바꾸면 어떻게 되나?</div>
+    <div class="wda-flip-back">문자열로 바뀌고, parse해도 다시 Date 객체로 돌아오지 않는다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">NaN과 Infinity를 JSON으로 변환하면?</div>
-    <div class="wda-flip-back">둘 다 null로 변환된다.</div>
+    <div class="wda-flip-front">JSON.parse가 실패하면 어떻게 대비하나?</div>
+    <div class="wda-flip-back">try/catch로 감싸고 실패 시 기본값을 반환한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">순환 참조(circular reference) 객체를 stringify하면?</div>
+    <div class="wda-flip-back">처리할 수 없어 예외를 던진다.</div>
   </div>
 </div>
