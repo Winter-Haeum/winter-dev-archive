@@ -1,12 +1,11 @@
 ---
 title: "1-6 React 프로젝트 제대로 이해하기"
 status: "completed"
-description: "Vite 프로젝트 생성과 Boilerplate 정리부터 React DevTools, StrictMode, Prettier·ESLint, Vite 설정까지 실전 개발 환경 구성을 정리한다."
+description: "첫 React 프로젝트를 Vite로 생성하고 개발 서버로 확인하는 흐름과 기본 폴더 구조, npm scripts를 정리한다."
 category: "React"
 section: "Basics"
 tags:
   - react
-  - devtools
   - vite
 ---
 
@@ -15,41 +14,34 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -71,524 +63,245 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>프로젝트 정리하기</strong> — Boilerplate 제거와 초기화 방법을 익힙니다.<br>
-  • <strong>개발 도구 활용</strong> — React DevTools 설치 및 사용법을 배웁니다.<br>
-  • <strong>StrictMode 이해</strong> — 개발 시 두 번 실행되는 이유와 대처법을 배웁니다.<br>
-  • <strong>실수 방지 가이드</strong> — 초보자가 자주 하는 실수를 미리 방지합니다.
+  • <strong>프로젝트 생성하기</strong> — Vite로 첫 React 프로젝트를 만듭니다.<br>
+  • <strong>개발 서버 실행하기</strong> — 패키지를 설치하고 서버를 켜서 화면을 확인합니다.<br>
+  • <strong>기본 구조 이해하기</strong> — 생성된 폴더와 파일이 어떤 역할을 하는지 파악합니다.<br>
+  • <strong>scripts 맛보기</strong> — 개발용 명령과 배포용 명령의 차이를 이해합니다.
 </div>
 
 ---
 
-<h2>1. 💻 실습 : 프로젝트 생성하기</h2>
+## 1. 첫 React 프로젝트가 필요한 순간
 
-터미널(Terminal)을 열고 직접 명령어를 입력해서 나만의 리액트 프로젝트를 만들어봅시다.
-
-**✅ 명령어 입력 (Terminal)**
-
-터미널을 열고 아래 명령어를 한 줄씩 순서대로 입력하세요.
-
-**macOS / Linux 예시:**
-
-```bash
-# 1. 작업 공간(폴더)을 만듭니다. (p 옵션은 상위 폴더가 없으면 같이 만든다는 뜻)
-mkdir -p ~/Workspace
-
-# 2. 방금 만든 폴더 안으로 들어갑니다.
-cd ~/Workspace
-
-# 3. Vite라는 도구를 사용해 최신 리액트 프로젝트를 설치합니다.
-npm create vite@latest
-```
-
-**Windows PowerShell 예시:**
-
-```bash
-# 1. 작업 공간(폴더)을 만듭니다.
-mkdir ~/Workspace
-
-# 2. 방금 만든 폴더 안으로 들어갑니다.
-cd ~/Workspace
-
-# 3. Vite라는 도구를 사용해 최신 리액트 프로젝트를 설치합니다.
-npm create vite@latest
-```
-
-`npm create vite@latest` 뒤에 프로젝트 이름과 템플릿을 함께 지정하는 한 줄 명령어도 있습니다.
-
-```bash
-npm create vite@latest react-study -- --template react
-```
-
-**💡 보충 설명**
+Node.js/npm의 역할(1-1~1-3)과 React의 기본 개념(1-4)을 살펴봤습니다. 이제 실제로 React 프로젝트를 만들고 화면을 띄워볼 차례입니다.
 
 <div class="wda-callout wda-ci">
-  <p>위 명령어는 프로젝트 이름과 React(JavaScript) 템플릿을 한 번에 지정하는 방식입니다. 수업에서는 선택 과정을 익히기 위해 <code>npm create vite@latest</code> 방식으로 진행해도 됩니다.</p>
-</div>
-
-**✅ 옵션 선택 (Interactive)**
-
-명령어를 입력하면 질문이 나옵니다. 방향키로 이동하고 엔터(Enter)를 눌러서 아래와 같이 선택해주세요.
-
-1. **Project name:** `react-study` (타이핑해서 입력하세요. 앞으로 계속 이 이름으로 실습합니다.)
-2. **Select a framework:** `React` (방향키로 React를 찾아 선택하세요.)
-3. **Select a variant:** `JavaScript` (TypeScript가 아닌 JavaScript를 선택하세요.)
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>성공 확인 메시지</strong>
-  <p>모든 선택을 마치고 화면에 <code>Done. Now run:</code> 이라는 메시지가 나왔다면 프로젝트 뼈대가 성공적으로 만들어진 것입니다.</p>
+  Node.js/npm 명령어 상세는 <strong>1-1 ~ 1-3</strong>에서, React 개념은 <strong>1-4</strong>에서 다뤘습니다. 이 문서는 실제 프로젝트 생성과 실행 흐름에 집중합니다.
 </div>
 
 ---
 
-<h2>2. 💻 실습 : 프로젝트 실행하기</h2>
+## 2. Vite로 프로젝트를 만드는 이유
 
-방금 만든 프로젝트 폴더로 들어가서 필요한 도구들을 설치하고, 실제로 화면을 띄워보는 과정입니다.
+Vite는 개발 서버 실행이 빠르고 설정이 간단해, 많은 현대 React 프로젝트에서 사용하는 도구입니다.
 
-**✅ 폴더 이동 및 설치**
+---
 
-터미널에서 아래 명령어를 순서대로 입력하세요.
+## 3. 프로젝트 생성 명령
 
 ```bash
-# 1. 방금 만든 폴더로 들어갑니다.
-cd react-study
+npm create vite@latest
+```
 
-# 2. 필요한 패키지(공구)들을 다운로드합니다.
+이 명령을 실행하면 몇 가지를 순서대로 선택하게 됩니다.
+
+---
+
+## 4. React와 JavaScript 선택하기
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">Project name</div>
+    <div class="wda-fcard-dsc">프로젝트 폴더 이름을 입력한다. 예: course-dashboard</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">Framework</div>
+    <div class="wda-fcard-dsc">React를 선택한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">Variant</div>
+    <div class="wda-fcard-dsc">JavaScript를 선택한다.</div>
+  </div>
+</div>
+
+---
+
+## 5. 프로젝트 폴더로 이동하기
+
+```bash
+cd course-dashboard
+```
+
+---
+
+## 6. package 설치하기
+
+```bash
 npm install
 ```
 
-참고: `npm install`을 입력하면 프로젝트 폴더 안에 `node_modules`라는 폴더가 새로 생깁니다. 여기에 React를 포함한 모든 라이브러리가 저장됩니다.
+<div class="wda-callout wda-ci">
+  <code>npm install</code> 명령 자체는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다뤘습니다. 여기서는 프로젝트 생성 흐름 안에서 이 명령이 언제 등장하는지에 집중합니다.
+</div>
 
-**✅ 개발 서버 실행**
+---
 
-설치가 끝났으면 이제 서버를 켜봅시다.
+## 7. 개발 서버 실행하기
 
 ```bash
-# 3. 개발 서버를 켭니다.
 npm run dev
 ```
 
-**✅ 결과 확인**
-
-명령어를 입력하면 터미널에 다음과 같은 주소가 나옵니다.
-
-`Local: http://localhost:5173/`
-
-- 키보드의 **Ctrl (Mac은 Cmd)** 키를 누른 상태에서 저 주소를 클릭하세요.
-- 브라우저가 열리고 **Vite + React** 로고가 빙글빙글 도는 화면이 보인다면 **성공**입니다!
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">npm install</div>
+    package.json에 적힌 패키지를 다운로드한다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">npm run dev</div>
+    다운로드된 패키지를 이용해 개발 서버를 실행한다.
+  </div>
+</div>
 
 ---
 
-<h2>3. 💻 실습 : Boilerplate 대청소 (Clean Up)</h2>
+## 8. localhost에서 확인하기
 
-`npm create vite` 명령어로 프로젝트를 만들면 친절하게 예제 파일들을 많이 넣어줍니다. 하지만 우리는 처음부터 직접 코드를 짜야 하므로, 이 예제 파일들을 모두 지워서 백지 상태(Clean State)로 만들어야 합니다.
-
-### 1단계: 파일 삭제 및 정리
-
-VS Code의 탐색기(왼쪽 파일 목록)에서 `src` 폴더 안의 파일들을 아래와 같이 정리해주세요. 과감하게 지우셔도 됩니다.
-
-- `src/assets/react.svg` : 삭제 (휴지통으로 보내세요)
-- `src/App.css` : 삭제
-- `src/index.css` : 파일은 지우지 말고, 파일 안의 모든 코드를 지워서 빈 파일로 만드세요.
-
-**💡 보충 설명**
+명령을 실행하면 터미널에 접속 주소가 출력됩니다. 그 주소를 브라우저에서 열면 화면을 확인할 수 있습니다.
 
 <div class="wda-callout wda-ci">
-  <p>참고: <code>index.css</code>는 나중에 전체 폰트나 배경색 같은 전역 스타일(Global Style)을 넣을 때 사용합니다.</p>
+  출력되는 주소의 포트 번호는 환경마다 다를 수 있습니다. 터미널에 나온 주소를 그대로 열면 되며, 특정 숫자를 정답처럼 외울 필요는 없습니다.
 </div>
 
-### 2단계: 코드 정리 (App.jsx)
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">npm create vite</div><div class="wda-fnode-dsc">프로젝트 생성</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">cd</div><div class="wda-fnode-dsc">프로젝트 폴더 이동</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">npm install</div><div class="wda-fnode-dsc">패키지 설치</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">npm run dev</div><div class="wda-fnode-dsc">서버 실행</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">브라우저 확인</div><div class="wda-fnode-dsc">localhost 접속</div></div>
+</div>
 
-이제 `src/App.jsx` 파일을 열어보세요. 복잡한 예제 코드들이 들어있습니다. 다 지우고 아래처럼 뼈대만 남기겠습니다.
+---
 
-```jsx
-// src/App.jsx
-// 맨 위에 있던 import './App.css' 등은 지워주세요.
+## 9. 기본 폴더 구조 맛보기
 
-function App() {
-  // 함수 안에 있던 useState나 logo 관련 코드도 모두 삭제합니다.
-
-  return (
-    <div>
-      <h1>초기화 완료</h1>
-    </div>
-  );
-}
-
-export default App;
+```text
+course-dashboard/
+├── node_modules/
+├── src/
+│   ├── App.jsx
+│   └── main.jsx
+├── index.html
+└── package.json
 ```
 
-### 3단계: 결과 확인
-
-코드를 저장(`Ctrl+S`)하고 브라우저를 확인해보세요. 빙글빙글 돌던 로고와 복잡한 화면이 사라지고, 하얀 배경에 "초기화 완료"라는 글자만 깔끔하게 보이면 성공입니다.
-
----
-
-<h2>4. React DevTools 설치 (필수!)</h2>
-
-브라우저의 기본 개발자 도구만으로는 리액트의 속사정을 알기 어렵습니다. 리액트 전용 엑스레이(X-ray) 도구를 설치해 봅시다.
-
-**💡 왜 필요한가요?**
-
-브라우저는 최종 결과물인 HTML만 보여주기 때문에 다음과 같은 한계가 있습니다.
-
-- React 컴포넌트가 어떤 구조로 겹쳐 있는지 안 보임
-- 컴포넌트가 가진 데이터(Props와 State)를 실시간으로 확인 불가
-
-**✅ 설치 방법**
-
-크롬 브라우저를 기준으로 설명합니다.
-
-1. 구글에 Chrome Web Store를 검색해서 접속합니다.
-2. 검색창에 `React Developer Tools`를 입력합니다.
-3. `Chrome에 추가` 버튼을 클릭하여 설치합니다.
-4. 설치가 완료되면 브라우저를 껐다가 다시 켭니다(재시작).
-
-바로가기 주소: [https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko)
-
-**📌 주요 기능**
-
-설치 후 개발자 도구(`F12`)를 열면 탭 2개가 새로 생긴 것을 볼 수 있습니다.
-
-- **Components 탭:** 내가 만든 컴포넌트들의 트리 구조와 데이터(Props)를 확인할 수 있습니다.
-- **Profiler 탭:** 렌더링 성능을 측정하여 느린 곳을 찾을 수 있습니다.
-
----
-
-<h2>5. Components 탭 활용법</h2>
-
-이 탭은 React 앱의 X-Ray와 같습니다. 눈에 보이지 않는 컴포넌트 계층 구조와 데이터를 훤히 들여다볼 수 있게 해줍니다.
-
-| **기능** | **설명** | **핵심 특징 & 활용** |
-| --- | --- | --- |
-| **1) 컴포넌트 트리 확인** | 전체적인 트리 구조(Tree Structure)를 시각적으로 보여줍니다. | HTML 태그가 아닌 **내가 작성한 컴포넌트 이름**(예: `Header`, `Button`)으로 표시되어 구조 파악이 훨씬 쉽습니다. |
-| **2) Props & State 검사** | 특정 컴포넌트를 클릭하면 오른쪽 패널에서 **상세 정보**를 볼 수 있습니다. | • **Props 수정:** 코드를 고치지 않고 값을 직접 바꿔서 화면 변화 테스트 가능<br>• **State 확인:** 평소엔 숨겨져 있는 내부 상태값 즉시 조회<br>• **Suspense:** 로딩 화면(Spinner)을 강제로 켜서 테스트 가능 |
-
-**💡 꿀팁: Select 모드 활용**
-
-<div class="wda-callout wda-cs">
-  <p>화면의 요소를 클릭해서 바로 해당 컴포넌트를 찾고 싶다면 왼쪽 상단의 조준경 아이콘(Select 모드)을 누르세요. 그 상태로 화면의 버튼이나 텍스트를 클릭하면, DevTools가 해당 컴포넌트를 자동으로 찾아줍니다.</p>
-</div>
-
----
-
-<h2>6. Profiler 탭 활용법</h2>
-
-Profiler는 내 앱이 왜 느린지, 왜 쓸데없이 다시 그려지는지 범인을 찾아내는 탐정 역할을 합니다.
-
-**⚙️ 사용 방법 (3단계)**
-
-매우 간단한 3단계로 성능을 측정할 수 있습니다.
-
-1. **녹화 시작 (Record):** 좌측 상단의 파란색 동그라미 버튼을 누릅니다.
-2. **앱 사용 (Action):** 버튼을 클릭하거나 타이핑을 하는 등, 성능을 측정하고 싶은 동작을 수행합니다.
-3. **녹화 중지 (Stop):** 정지 버튼을 누르면 자동으로 분석 리포트가 생성됩니다.
-
-**📌 Flamegraph (불꽃 차트) 분석**
-
-생성된 차트의 색깔을 보면 성능을 가늠하는 데 도움이 됩니다.
-
-| **색상 (Color)** | **의미 (Meaning)** | **상태** |
-| --- | --- | --- |
-| **노란색**(Yellow) | 렌더링이 오래 걸림 | 느림 (주의 필요) |
-| **청록색**(Teal) | 빠르게 렌더링됨 | 빠름 (정상) |
-| **회색**(Grey) | 렌더링 되지 않음 | 최적화 성공 (Best) |
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <p>Profiler의 색상은 렌더링 시간이 상대적으로 긴지 짧은지 파악하는 데 도움을 줍니다. 다만 색상만으로 판단하지 말고, 실제 렌더링 시간과 커밋 횟수도 함께 확인해야 합니다.</p>
-</div>
-
-**📌 재렌더링 원인 파악**
-
-React DevTools 버전과 설정에 따라 특정 컴포넌트를 선택했을 때 `Why did this render?`처럼 렌더링 이유를 확인할 수 있습니다.  
-부모가 그려져서, Props가 변경되어서 등 구체적인 이유를 알려주므로 불필요한 렌더링을 막는 단서가 됩니다.  
-표시 방식은 버전에 따라 달라질 수 있으므로, Profiler의 컴포넌트 상세 패널도 함께 확인하세요.
-
-**🔑 핵심 원칙**
-
-<div class="wda-callout wda-cw">
-  <strong>추측 금지!</strong>
-  <p>성능 최적화는 짐작으로 하는 것이 아닙니다. 반드시 Profiler로 먼저 측정하고, 느린 곳만 고치는 것이 정석입니다.</p>
-</div>
-
----
-
-<h2>7. StrictMode: "왜 콘솔이 두 번 찍히죠?"</h2>
-
-React를 처음 배우는 분들이 가장 많이 하는 질문 1위입니다. "분명 `console.log`를 한 번만 썼는데 왜 개발자 도구에는 두 번씩 나올까요?"
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">원인 (Cause)</div>
-      <div class="wda-sdsc"><code>src/main.jsx</code> 파일의 <strong>&lt;StrictMode&gt;</strong> 태그가 <code>App</code> 컴포넌트를 감싸고 있기 때문입니다.</div>
-    </div>
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">src 폴더</div>
+    <div class="wda-fcard-dsc">우리가 직접 작성하는 코드가 들어간다.</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">동작 원리</div>
-      <div class="wda-sdsc">오직 <strong>개발 모드(Development)</strong>에서만 작동합니다.<br>StrictMode는 일부 렌더링 과정이나 Effect를 의도적으로 한 번 더 실행해, 부작용이 있는 코드를 발견하도록 도와줍니다.<br>그래서 <code>console.log</code>가 <strong>두 번 찍히는 것처럼</strong> 보일 수 있습니다.</div>
-    </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">index.html</div>
+    <div class="wda-fcard-dsc">React 앱이 담기는 HTML 틀이다.</div>
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">이유 (Why)</div>
-      <div class="wda-sdsc">잠재적인 <strong>버그(Side Effect)</strong>를 찾기 위함입니다.<br>(순수한 코드는 1번 실행하든 100번 실행하든 결과가 같아야 합니다.)</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">4</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">해결책</div>
-      <div class="wda-sdsc"><strong>정상</strong>입니다. 그냥 무시하시면 됩니다.<br>• <strong>배포 환경(Production):</strong> 자동으로 꺼져서 <strong>한 번만 실행</strong>됩니다.<br>• <strong>제거 방법:</strong> 정 거슬리면 <code>main.jsx</code>에서 태그를 지우면 되지만, 안전을 위해 <strong>권장하지 않습니다.</strong></div>
-    </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">package.json</div>
+    <div class="wda-fcard-dsc">scripts와 설치된 패키지 목록이 기록된다.</div>
   </div>
 </div>
 
 ---
 
-<h2>8. 실수 방지 가이드: VS Code 필수 확장 프로그램</h2>
+## 10. main.jsx와 App.jsx
 
-사람은 누구나 실수를 합니다. 따라서 실력을 믿지 말고, 실수를 막아주는 도구(Extension)를 설치해서 개발 환경을 튼튼하게 만드는 것이 중요합니다.
-
-| **확장 프로그램** | **기능 및 사용법** | **효과 (Benefit)** |
-| --- | --- | --- |
-| **1. ES7+ React/Redux Snippets** | • **기능:** 리액트 코드 단축키 모음<br>• **사용:** `rafce` 입력 후 `Tab` 키 | • 복잡한 기본 뼈대 코드를 **1초 만에 완성**<br>• 반복 입력을 줄여 **오타 가능성을 크게 낮춤** |
-| **2. Prettier** | • **기능:** 못생긴 코드를 예쁘게 정렬(Code Formatter)<br>• **설정:** `Format On Save` 켜기 권장 | • 저장할 때마다 줄 맞춤, 띄어쓰기 **자동 정리**<br>• 가독성을 높이고 **협업 시 스타일 통일** |
-
-**💡 꿀팁: 자동 Import (Auto Import)**
-
-<div class="wda-callout wda-cs">
-  <p>초보자가 가장 많이 겪는 에러 중 하나인 "ReferenceError(정의되지 않음)"를 방지하는 기술입니다.</p>
-  <ul>
-    <li><strong>방법:</strong> 다른 컴포넌트를 가져다 쓸 때, 이름을 끝까지 치지 말고 중간에 <code>Tab</code> 키를 누르세요.</li>
-    <li><strong>예시:</strong> <code>&lt;MyComp</code>까지 입력하고 <code>Tab</code> 키를 누릅니다.</li>
-    <li><strong>결과:</strong> 파일 맨 윗줄에 <code>import MyComp from ...</code> 코드가 마법처럼 자동으로 추가됩니다.</li>
-  </ul>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">main.jsx</div>
+    React를 HTML의 root 요소에 연결하는 진입점. 거의 수정하지 않는다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">App.jsx</div>
+    실제 화면을 만드는 곳. 앞으로 계속 수정하게 된다.
+  </div>
 </div>
 
 ---
 
-<h2>9. 실습 : Prettier 설정 (.prettierrc)</h2>
-
-확장 프로그램만 설치하면 내 컴퓨터의 기본 설정으로만 동작합니다. 팀원들과 완벽하게 똑같은 코드 스타일을 공유하려면 프로젝트 안에 설정 파일을 만들어야 합니다.
-
-**✅ 파일 생성**
-
-프로젝트의 최상위 폴더(`package.json`이 있는 곳)에 `.prettierrc`라는 이름의 파일을 새로 만듭니다.
-
-**🧪 설정 코드 입력**
-
-새로 만든 파일에 아래 코드를 복사해서 붙여넣고 저장하세요.
+## 11. npm scripts 맛보기
 
 ```json
 {
-  "singleQuote": true,
-  "semi": true,
-  "tabWidth": 2,
-  "trailingComma": "all",
-  "printWidth": 80,
-  "arrowParens": "always"
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
 }
 ```
 
-**📝 옵션 상세 설명**
-
-각 옵션이 어떤 역할을 하는지 알아둡시다.
-
-- **singleQuote:** 큰따옴표(`"`) 대신 작은따옴표(`'`)를 사용합니다.
-- **semi:** 문장 끝에 세미콜론(`;`)을 자동으로 붙여줍니다.
-- **tabWidth:** 들여쓰기 간격을 2칸으로 설정합니다.
-- **trailingComma:** 객체나 배열의 마지막 항목 뒤에도 콤마를 붙입니다. (나중에 수정할 때 에러를 줄여주는 Git 친화적 옵션입니다.)
-- **printWidth:** 한 줄의 최대 길이를 80자로 제한하여 가독성을 높입니다.
-- **arrowParens:** 화살표 함수의 매개변수가 하나뿐이어도 괄호를 붙입니다. 예: `x => x` 대신 `(x) => x` 형태로 정리합니다.
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>적용이 안 된다면?</strong>
-  <p>설정 파일을 만들었는데도 적용이 안 된다면, VS Code를 껐다 켜거나 단축키 <code>Command(Ctrl) + Shift + P</code>를 누른 뒤 <code>Reload Window</code>를 입력해서 창을 새로고침 해주세요.</p>
-</div>
+<table class="wda-mtable">
+  <tr>
+    <th>명령어</th>
+    <th>역할</th>
+  </tr>
+  <tr>
+    <td><code>npm run dev</code></td>
+    <td>개발 서버를 실행한다.</td>
+  </tr>
+  <tr>
+    <td><code>npm run build</code></td>
+    <td>배포용 파일을 만든다.</td>
+  </tr>
+</table>
 
 ---
 
-<h2>10. ESLint & Code Quality (문법 검사)</h2>
-
-Prettier가 코드를 예쁘게 꾸며주는 '화장(Style)' 담당이라면, ESLint는 코드에 논리적인 오류나 버그가 없는지 확인해주는 '건강검진(Logic)' 담당입니다.
-
-**📌 자동 설정**
-
-Vite React 템플릿에는 ESLint 설정이 포함되어 있는 경우가 많습니다. 다만 템플릿 버전이나 선택한 옵션에 따라 구성이 달라질 수 있으므로, `package.json`에 `lint` 스크립트가 있는지 확인한 뒤 `npm run lint`를 실행하세요.
-
-**📝 주요 규칙 (Rules)**
-
-ESLint는 개발자가 실수하기 쉬운 부분들을 감시하고 알려줍니다.
-
-- **no-unused-vars:** 변수를 만들어 놓고 쓰지 않으면 경고(빨간 밑줄)를 띄웁니다.
-- **react/prop-types:** Props 타입 검사를 위한 ESLint 규칙입니다.  
-  다만 최신 Vite React 기본 설정에 항상 포함되는 것은 아니며, 프로젝트 ESLint 설정에 따라 사용할 수도 있고 사용하지 않을 수도 있습니다.  
-  TypeScript를 사용하는 프로젝트에서는 보통 별도로 prop-types를 쓰지 않는 경우가 많습니다.
-- **react-hooks/rules-of-hooks:** 리액트 훅(Hooks)을 사용할 때 반드시 지켜야 할 규칙을 어기면 에러를 표시합니다.
-
-**✅ 전체 검사 방법**
-
-파일 하나하나 확인할 필요 없이, 터미널에서 아래 명령어를 입력하면 프로젝트 전체의 문법 오류를 한 번에 검사할 수 있습니다.
+## 12. 빌드 명령 맛보기
 
 ```bash
-npm run lint
+npm run build
 ```
 
----
-
-<h2>11. Vite 설정 (vite.config.js)</h2>
-
-이 파일은 프로젝트의 본부와 같습니다. 개발 서버의 포트 번호를 바꾸거나, 복잡한 파일 경로를 별명으로 줄여서 부르는 등 빌드와 관련된 모든 설정을 담당합니다.
-
-**🧪 포트 변경 및 자동 실행**
-
-기본 포트(5173) 대신 내가 원하는 포트(예: 3000)를 쓰거나, 서버를 켤 때 브라우저가 자동으로 열리게 설정할 수 있습니다.
-
-```javascript
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000, // 3000번 포트로 변경
-    open: true, // 서버 시작 시 브라우저 자동 열기
-  },
-});
-```
-
-**🧪 경로 별칭 (Alias)**
-
-파일을 불러올 때 `../../../components/Button`처럼 지저분한 경로 대신, `@` 기호를 사용하여 깔끔하게 불러올 수 있습니다. 아래 코드는 `vite.config.js`의 `defineConfig({ ... })` 안에 들어가는 설정입니다.
-
-```javascript
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': '/src', // @는 src 폴더를 의미함
-      '@components': '/src/components',
-    },
-  },
-});
-```
-
-이렇게 설정하면 아래와 같이 코드가 훨씬 간결해집니다.
-
-- 변경 전: `import Button from '../../components/Button'`
-- 변경 후: `import Button from '@/components/Button'`
-
----
-
-<h2>12. JSX 문법: 자주 하는 실수 TOP 3</h2>
-
-리액트 코드를 작성할 때 초보자들이 가장 많이 겪는 에러 3가지입니다. 이 규칙들만 지켜도 빨간색 에러 화면의 90%는 예방할 수 있습니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ico">🔡</div>
-    <div class="wda-fcard-ttl">소문자 이름 시작</div>
-    <div class="wda-fcard-dsc"><strong>이유:</strong> 리액트가 <code>&lt;div&gt;</code> 같은 일반 HTML 태그로 오해합니다.<br><strong>해결:</strong> 컴포넌트 이름은 무조건 대문자로 시작해야 합니다. (예: <code>MyApp</code>)</div>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">개발 서버 (dev)</div>
+    코드를 수정하면 바로 반영해서 확인할 수 있다.
   </div>
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ico">🏷️</div>
-    <div class="wda-fcard-ttl">닫는 태그 누락</div>
-    <div class="wda-fcard-dsc"><strong>이유:</strong> JSX는 자바스크립트라서 문법 검사가 매우 엄격합니다.<br><strong>해결:</strong> 짝이 없는 태그라도 끝에 슬래시를 넣어 닫아줍니다. (예: <code>&lt;br /&gt;</code>, <code>&lt;img /&gt;</code>)</div>
-  </div>
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ico">📦</div>
-    <div class="wda-fcard-ttl">부모 태그 누락</div>
-    <div class="wda-fcard-dsc"><strong>이유:</strong> 함수는 한 번에 하나의 값(태그 덩어리)만 반환할 수 있습니다.<br><strong>해결:</strong> 의미 없는 <code>&lt;div&gt;</code> 대신 <code>&lt;&gt;...&lt;/&gt;</code> (Fragment)로 전체를 감싸줍니다.</div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">build</div>
+    실제 서버에 올릴 수 있도록 최적화된 파일을 만든다.
   </div>
 </div>
 
 ---
 
-<h2>13. 💻 실습: 나만의 프로필 페이지 만들기</h2>
+## 13. 초보자가 자주 만나는 설정 실수
 
-이론과 설정을 모두 마쳤습니다. 이제 깨끗하게 초기화된 프로젝트에서 배운 JSX 문법을 활용해 자기소개 페이지를 만들어봅시다.
-
-### 1단계: 프로젝트 준비 (초기화)
-
-기존에 있던 예제 파일들을 정리하여 깨끗한 상태로 만듭니다.
-
-- **파일 삭제:** `src/App.css` 파일과 `src/assets` 폴더 안의 내용물을 삭제합니다.
-- **코드 정리:** `App.jsx` 파일 상단에 있던 `import './App.css'` 코드를 지웁니다.
-
-### 2단계: 골격 만들기 (Snippet)
-
-확장 프로그램의 힘을 빌려 기본 코드를 작성합니다.
-
-- **파일:** `src/App.jsx`
-- **동작:** 파일 내용을 다 지운 상태에서 `rafce`라고 입력하고 `Tab` 키를 누릅니다.
-- **결과:** 기본적인 함수형 컴포넌트 뼈대가 자동으로 생성됩니다.
-
-### 3단계: 내용 채우기 (JSX 작성)
-
-아래 요구사항에 맞춰 코드를 작성해보세요.
-
-- **필수 포함 내용:** 이름(자기소개), 취미, MBTI
-- **문법 적용:**
-  - 반드시 최상위 태그(Fragment) `<>...</>`로 감싸세요.
-  - 줄 바꿈을 위해 `<br />` 또는 구분선 `<hr />` 태그를 사용해보세요. (닫는 태그 필수!)
-
-```jsx
-// src/App.jsx 예시 답안
-
-function App() {
-  console.log("렌더링 확인!"); // 콘솔창에서 2번 찍히는지 확인 (StrictMode)
-
-  return (
-    <>
-      <h2>홍길동</h2>
-      <p>취미: 코딩하기</p>
-      <p>MBTI: INFJ</p>
-      <hr />
-    </>
-  );
-}
-
-export default App;
-```
-
-### 4단계: 결과 확인 (DevTools)
-
-작성을 마쳤다면 브라우저와 개발자 도구를 확인합니다.
-
-1. **화면:** 브라우저에 이름과 취미가 잘 나오는지 확인하세요.
-2. **Components 탭:** 개발자 도구(`F12`)의 Components 탭에서 `App` 컴포넌트가 보이는지 확인하세요.
-3. **Console 탭:** "렌더링 확인!" 로그가 2번 찍혔는지 확인하세요. (2번 찍혔다면 설정이 정상입니다.)
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">cd 없이 npm install을 실행한다</div>
+    <div class="wda-fcard-dsc">프로젝트 폴더 밖에서 실행하면 엉뚱한 곳에 설치된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">npm install 없이 바로 npm run dev를 실행한다</div>
+    <div class="wda-fcard-dsc">패키지가 설치되지 않아 서버가 실행되지 않는다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">개발 서버 종료 방법을 모른다</div>
+    <div class="wda-fcard-dsc">터미널에서 Ctrl+C를 누르면 서버가 종료된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">main.jsx를 계속 수정하려 한다</div>
+    <div class="wda-fcard-dsc">화면 내용은 main.jsx가 아니라 App.jsx에서 수정한다.</div>
+  </div>
+</div>
 
 ---
 
-<h2>✅ 핵심 요약</h2>
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li><code>npm create vite</code>로 생성한 직후에는 boilerplate 예제 파일(App.css, react.svg 등)을 정리해 깨끗한 상태로 시작한다.</li>
-    <li>React DevTools의 <strong>Components 탭</strong>은 컴포넌트 트리와 Props/State를 확인·수정할 수 있다.</li>
-    <li><strong>Profiler 탭</strong>은 녹화(Record) → 동작 수행 → 정지(Stop) 순서로 렌더링 성능을 측정한다.</li>
-    <li>Flamegraph 색상은 <strong>회색</strong>(렌더 안 됨, 최적화 성공)이 가장 좋고, <strong>노란색</strong>(느림)일수록 주의가 필요하다.</li>
-    <li>StrictMode는 개발 모드에서만 일부 렌더링/Effect를 의도적으로 한 번 더 실행해 부작용(Side Effect)을 찾아준다. 배포 환경에서는 자동으로 꺼진다.</li>
-    <li>Prettier(스타일 정리)와 ESLint(문법·논리 검사)는 역할이 다르므로 <strong>둘 다 사용</strong>해야 한다.</li>
-    <li>vite.config.js에서 <strong>포트 변경, 자동 열기, 경로 별칭(alias)</strong>을 설정할 수 있다.</li>
+    <li><code>npm create vite@latest</code>로 React 프로젝트를 생성한다.</li>
+    <li>생성 후에는 <strong>cd → npm install → npm run dev</strong> 순서로 진행한다.</li>
+    <li>터미널에 출력된 주소로 브라우저에서 화면을 확인하며, <strong>포트 번호는 환경마다 다를 수 있다</strong>.</li>
+    <li><strong>main.jsx</strong>는 React를 HTML에 연결하는 진입점, <strong>App.jsx</strong>는 실제로 계속 수정하는 화면 코드다.</li>
+    <li><strong>npm run dev</strong>는 개발 서버 실행, <strong>npm run build</strong>는 배포용 파일 생성이다.</li>
   </ul>
 </div>
 
@@ -596,20 +309,20 @@ export default App;
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: console.log가 두 번 찍히는 건 코드에 버그가 있다는 뜻이다?</div>
-    <div class="wda-mistake-right">정답: <strong>StrictMode</strong>가 개발 모드에서 의도적으로 한 번 더 실행해 부작용을 찾아내는 정상 동작이며, 배포 환경에서는 한 번만 실행된다.</div>
+    <div class="wda-mistake-wrong">오해: npm install 없이 npm run dev를 실행해도 된다?</div>
+    <div class="wda-mistake-right">정답: 패키지가 없으면 서버가 실행되지 않으므로 <strong>npm install을 먼저</strong> 해야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 콘솔이 두 번 찍히는 게 거슬리면 StrictMode 태그를 지우는 게 좋다?</div>
-    <div class="wda-mistake-right">정답: 안전을 위해 <strong>제거하지 않는 것이 권장</strong>되며, 잠재적 버그를 미리 발견하는 안전장치로 그대로 두어야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 화면 내용은 main.jsx에서 수정한다?</div>
+    <div class="wda-mistake-right">정답: 화면 코드는 <strong>App.jsx</strong>에서 수정하며, main.jsx는 진입점 역할만 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 성능이 느린 것 같으면 감으로 코드를 최적화하면 된다?</div>
-    <div class="wda-mistake-right">정답: 반드시 <strong>Profiler로 먼저 측정</strong>하고, 실제로 느린 곳만 고치는 것이 정석이다.</div>
+    <div class="wda-mistake-wrong">오해: 접속 주소의 포트 번호는 항상 똑같아야 한다?</div>
+    <div class="wda-mistake-right">정답: 포트 번호는 <strong>환경마다 다를 수 있으며</strong>, 터미널에 나온 주소를 그대로 사용하면 된다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 컴포넌트 이름은 소문자로 시작해도 상관없다?</div>
-    <div class="wda-mistake-right">정답: 소문자로 시작하면 React가 일반 HTML 태그로 오인하므로 반드시 <strong>대문자로 시작</strong>해야 한다.</div>
+    <div class="wda-mistake-wrong">오해: npm run build는 개발 중에도 계속 실행해야 한다?</div>
+    <div class="wda-mistake-right">정답: 개발 중에는 <strong>npm run dev</strong>를 쓰고, build는 배포 직전에만 실행한다.</div>
   </div>
 </div>
 
@@ -617,20 +330,20 @@ export default App;
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 새 프로젝트 순서</div>
-    <div class="wda-formula-block-body"><code>Cleanup → DevTools → Prettier/ESLint</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 생성</div>
+    <div class="wda-formula-block-body"><code>npm create vite@latest</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · Profiler 3단계</div>
-    <div class="wda-formula-block-body"><code>Record → Action → Stop</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 실행 순서</div>
+    <div class="wda-formula-block-body"><code>cd → npm install → npm run dev</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · StrictMode</div>
-    <div class="wda-formula-block-body"><code>개발 전용 이중 실행(정상)</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 파일 역할</div>
+    <div class="wda-formula-block-body"><code>main.jsx = 진입점, App.jsx = 화면</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 4 · Flamegraph</div>
-    <div class="wda-formula-block-body"><code>회색(최선) &gt; 청록(빠름) &gt; 노랑(느림)</code></div>
+    <div class="wda-formula-block-ttl">공식 4 · 명령 구분</div>
+    <div class="wda-formula-block-body"><code>dev = 개발, build = 배포용</code></div>
   </div>
 </div>
 
@@ -638,27 +351,27 @@ export default App;
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">npm create vite 직후 가장 먼저 해야 할 작업은?</div>
-    <div class="wda-flip-back">App.css, react.svg 등 불필요한 예제 파일을 지우는 Boilerplate 정리다.</div>
+    <div class="wda-flip-front">React 프로젝트를 생성하는 명령은?</div>
+    <div class="wda-flip-back">npm create vite@latest다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">React DevTools에서 렌더링 성능을 측정하는 탭은?</div>
-    <div class="wda-flip-back">Profiler 탭이다.</div>
+    <div class="wda-flip-front">프로젝트 생성 후 실행 순서는?</div>
+    <div class="wda-flip-back">cd(폴더 이동) → npm install(설치) → npm run dev(서버 실행) 순서다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">StrictMode는 왜 콘솔을 두 번 찍히게 하는가?</div>
-    <div class="wda-flip-back">개발 모드에서 일부 렌더링/Effect를 의도적으로 한 번 더 실행해 부작용을 찾기 위해서다.</div>
+    <div class="wda-flip-front">main.jsx와 App.jsx의 역할 차이는?</div>
+    <div class="wda-flip-back">main.jsx는 React를 HTML에 연결하는 진입점, App.jsx는 실제 화면을 만드는 곳이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Prettier와 ESLint의 역할 차이는?</div>
-    <div class="wda-flip-back">Prettier는 코드 스타일(화장), ESLint는 문법·논리 오류 검사(건강검진)를 담당한다.</div>
+    <div class="wda-flip-front">개발 서버를 종료하는 방법은?</div>
+    <div class="wda-flip-back">터미널에서 Ctrl+C를 누른다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">JSX 컴포넌트 이름 규칙은?</div>
-    <div class="wda-flip-back">반드시 대문자로 시작해야 HTML 태그와 구분된다.</div>
+    <div class="wda-flip-front">npm run dev와 npm run build의 차이는?</div>
+    <div class="wda-flip-back">dev는 개발 중 실시간 확인용, build는 배포용 최적화 파일 생성이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">vite.config.js에서 할 수 있는 대표 설정 두 가지는?</div>
-    <div class="wda-flip-back">포트 변경/자동 열기(server)와 경로 별칭(alias) 설정이다.</div>
+    <div class="wda-flip-front">접속 주소의 포트 번호가 다르면 문제인가?</div>
+    <div class="wda-flip-back">아니다. 환경마다 다를 수 있으므로 터미널에 나온 주소를 그대로 사용하면 된다.</div>
   </div>
 </div>

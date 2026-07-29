@@ -1,7 +1,7 @@
 ---
-title: "실습: 리스트 렌더링 훈련 1~2"
+title: "실습: 리스트 렌더링 훈련"
 status: "completed"
-description: "데이터 목록 표시(map)와 가격 필터링(filter) 2가지 실습으로 배열 렌더링과 key, 파생 상태를 활용한 필터링 패턴을 훈련한다."
+description: "학습 항목 배열을 필터링해 목록으로 보여주며 map, key, filter·sort 조합, 빈 목록 처리, 컴포넌트 분리까지 다뤄보는 리스트 렌더링 실습 문서다."
 category: "React"
 section: "Core"
 tags:
@@ -15,40 +15,30 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -67,179 +57,216 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
-<h2>1. 💻 실습 1 : 데이터 목록 표시 (map)</h2>
+<div class="wda-callout wda-ci">
+  이 문서는 개념을 처음 설명하는 문서가 아니라, <strong>2-8 리스트 렌더링</strong>에서 배운 내용을 직접 코드로 적용해보는 실습 문서입니다. map·filter·sort 자체의 동작 원리는 JavaScript 고차 배열 메서드 문서에서 다뤘으므로 여기서는 반복하지 않습니다.
+</div>
 
-**🎯 Mission**
+## 🎯 실습 목표
 
-- `map()` 함수를 사용하여 배열 렌더링
-- 각 항목에 `key` 속성 부여 (`id` 사용)
-- 이름과 타입을 리스트 아이템으로 표시
+<div class="wda-goal">
+  학습 항목 배열을 필터링·정렬해 목록으로 보여주는 LearningList를 만들며 map, key, filter/sort 조합, 빈 목록 처리, 컴포넌트 분리를 다뤄봅니다.
+</div>
 
-```javascript
-{ id: 1, name: 'Apple', type: 'Fruit' }
-```
+---
 
-**✅ 결과 예시**
-
-- **Apple** 🍎 Fruit
-- **Carrot** 🥕 Vegetable
-- **Banana** 🍌 Fruit
-
-**📝 정답 코드**
+## 1단계: map으로 기본 목록 만들기
 
 ```jsx
-function FruitList() {
-  const items = [
-    { id: 1, name: 'Apple', type: 'Fruit' },
-    { id: 2, name: 'Carrot', type: 'Vegetable' },
-    { id: 3, name: 'Banana', type: 'Fruit' }
-  ];
-
+function LearningList({ items }) {
   return (
     <ul>
-      {/* 배열을 순회하며 리스트 아이템 반환 */}
       {items.map((item) => (
-        // 고유한 key 값 필수 설정
-        <li key={item.id}>
-          <span>{item.name}</span>
-          <span>{item.type === 'Fruit' ? '🍎' : '🥕'} {item.type}</span>
-        </li>
+        <li key={item.id}>{item.title}</li>
       ))}
     </ul>
   );
 }
 ```
 
-**💡 보충 설명**
+---
 
-<div class="wda-callout wda-ci">
-  <strong>JSX 내부에서의 중괄호 사용</strong>
-  <p>JSX 안에서 자바스크립트 문법(변수, 함수, 표현식 등)을 사용하려면 반드시 <code>{ }</code> 중괄호로 감싸야 합니다.<br><code>map()</code> 함수 또한 자바스크립트 코드이므로 중괄호 내부에서 실행해야 화면에 정상적으로 렌더링됩니다.</p>
+## 2단계: filter로 공개된 항목만 남기기
+
+```jsx
+const visibleItems = items.filter((item) => item.isVisible);
+```
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">id key</div>
+    항목이 추가·삭제돼도 항상 같은 항목을 가리킨다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">index key</div>
+    순서가 바뀌면 다른 항목을 가리킬 수 있어 이 실습에서는 사용하지 않는다.
+  </div>
 </div>
 
 ---
 
-<h2>2. 💻 실습 2 : 가격 필터링 (filter)</h2>
-
-**🎯 Mission**
-
-- `filter()` 함수를 사용하여 데이터 걸러내기
-- 입력된 가격보다 비싼 상품만 보여주기 (최소 가격 설정)
-- 원본 데이터(products)는 변형되지 않고 보존되어야 함
-
-**✅ 결과 예시**
-
-(최소 가격이 $40으로 설정된 경우)
-
-- **Laptop** $1000
-- **Keyboard** $50
-- **Monitor** $300
-- *(Mouse는 $20이므로 제외됨)*
-
-**📝 정답 코드**
+## 3단계: sort로 제목순 정렬하기
 
 ```jsx
-function PriceFilter() {
-  const [minPrice, setMinPrice] = useState(0);
+const sortedItems = [...visibleItems].sort((a, b) => a.title.localeCompare(b.title));
+```
 
-  const products = [
-    { name: 'Laptop', price: 1000 },
-    { name: 'Mouse', price: 20 },
-    { name: 'Keyboard', price: 50 },
-    { name: 'Monitor', price: 300 }
-  ];
+정렬 전에 배열을 복사해 원본 순서를 그대로 유지합니다.
 
-  // 조건에 맞는 상품만 골라내기 (파생 상태)
-  const filteredProducts = products.filter(product => product.price >= minPrice);
+---
 
-  return (
-    <div>
-      <label>최소 가격: ${minPrice}</label>
-      {/* 슬라이더 입력값 상태 연결 */}
-      <input
-        type="range" min="0" max="1000" step="10"
-        value={minPrice}
-        onChange={(e) => setMinPrice(Number(e.target.value))}
-      />
+## 4단계: 빈 목록 처리하기
 
-      <ul>
-        {/* 필터링된 결과만 렌더링 */}
-        {filteredProducts.map((product) => (
-          <li key={product.name}>
-            <strong>{product.name}</strong> ${product.price}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+```jsx
+if (sortedItems.length === 0) {
+  return <p>표시할 학습 항목이 없습니다.</p>;
 }
 ```
 
-**💡 보충 설명**
+---
 
-<div class="wda-callout wda-ci">
-  <strong>원본 데이터 보존의 중요성</strong>
-  <p>필터링 기능을 만들 때 <code>setProducts</code>를 사용해 원본(<code>products</code>) 자체를 줄여버리면, 나중에 가격 조건을 낮췄을 때 사라진 데이터가 돌아오지 않습니다.<br>원본은 그대로 두고, 렌더링할 때만 <code>filter</code>를 거친 변수(<code>filteredProducts</code>)를 사용하는 것이 핵심입니다.</p>
+## 5단계: 항목 컴포넌트로 분리하기
+
+```jsx
+function LearningListItem({ item }) {
+  return <li>{item.title}</li>;
+}
+```
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">배열</div><div class="wda-fnode-dsc">items</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">filter</div><div class="wda-fnode-dsc">공개 항목만</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">sort</div><div class="wda-fnode-dsc">제목순 정렬</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">map</div><div class="wda-fnode-dsc">LearningListItem 출력</div></div>
 </div>
 
 ---
 
-<h2>3. ✅ 핵심 요약</h2>
+## 완성 코드
+
+```jsx
+function LearningListItem({ item }) {
+  return <li>{item.title}</li>;
+}
+
+function LearningList({ items }) {
+  const visibleItems = items.filter((item) => item.isVisible);
+  const sortedItems = [...visibleItems].sort((a, b) => a.title.localeCompare(b.title));
+
+  if (sortedItems.length === 0) {
+    return <p>표시할 학습 항목이 없습니다.</p>;
+  }
+
+  return (
+    <ul>
+      {sortedItems.map((item) => (
+        <LearningListItem key={item.id} item={item} />
+      ))}
+    </ul>
+  );
+}
+
+export default LearningList;
+```
+
+---
+
+## 확인 포인트
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">filter</div>
+    <div class="wda-fcard-dsc">isVisible이 false인 항목은 목록에서 빠진다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">sort</div>
+    <div class="wda-fcard-dsc">항목이 제목 가나다순으로 정렬된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">빈 목록</div>
+    <div class="wda-fcard-dsc">항목이 하나도 없으면 안내 문구가 보인다.</div>
+  </div>
+</div>
+
+---
+
+## 흔한 실수
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">key 없이 렌더링한다</div>
+    <div class="wda-fcard-dsc">콘솔 경고가 뜨고 항목 추적이 부정확해질 수 있다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">index를 key로 사용한다</div>
+    <div class="wda-fcard-dsc">정렬·필터링으로 순서가 바뀌는 목록에서는 피해야 한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">원본 배열을 직접 정렬한다</div>
+    <div class="wda-fcard-dsc">sort는 원본을 바꾸므로 복사본을 만들어 정렬해야 한다.</div>
+  </div>
+</div>
+
+---
+
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
     <li>배열을 화면에 표시할 때는 <strong>map()</strong>으로 각 항목을 JSX로 변환한다.</li>
-    <li>map()이 반환하는 <strong>최상위 태그</strong>에는 고유한 <strong>key</strong>(가능하면 id)를 지정한다.</li>
-    <li>조건에 맞는 데이터만 보여줄 때는 <strong>filter()</strong>로 새 배열을 만들고, 원본 배열(state)은 건드리지 않는다.</li>
-    <li>필터링된 결과 같은 값은 별도 state 없이 렌더링 시점에 계산하는 <strong>파생 상태</strong>로 관리한다.</li>
+    <li>map으로 만든 목록의 최상위 태그에는 반드시 <strong>고유한 key</strong>(가능하면 id)를 지정한다.</li>
+    <li><strong>filter</strong>로 걸러내고 <strong>sort</strong>로 정렬한 뒤 map으로 렌더링할 수 있다.</li>
+    <li>목록이 비어 있으면 별도 메시지를 보여주고, 항목이 많아지면 <strong>컴포넌트로 분리</strong>한다.</li>
   </ul>
 </div>
 
-**🧠 실수 방지 체크**
+**🧠 헷갈리기 쉬운 것**
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: key 없이 map()을 사용한다.</div>
-    <div class="wda-mistake-right">방지: 콘솔 경고가 뜨고, React가 항목 변경을 비효율적으로 처리하게 되므로 항상 고유한 key를 지정한다.</div>
+    <div class="wda-mistake-wrong">오해: index를 key로 써도 이 실습에서는 문제없다?</div>
+    <div class="wda-mistake-right">정답: filter·sort로 순서가 바뀌므로 <strong>id를 key</strong>로 사용해야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: setProducts(products.filter(...))처럼 원본 state 자체를 필터링해버린다.</div>
-    <div class="wda-mistake-right">방지: 조건을 다시 완화해도 사라진 데이터가 돌아오지 않는다. filteredProducts 같은 파생 변수만 걸러야 한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: range input의 e.target.value를 숫자로 변환하지 않고 그대로 비교한다.</div>
-    <div class="wda-mistake-right">방지: input 값은 문자열이므로, price(숫자)와 비교하려면 반드시 Number()로 변환해야 필터링이 정확하게 동작한다.</div>
+    <div class="wda-mistake-wrong">오해: sort는 map처럼 원본을 건드리지 않는다?</div>
+    <div class="wda-mistake-right">정답: sort는 <strong>원본 배열을 직접 변경</strong>하므로 <code>[...items].sort(...)</code>로 복사 후 정렬해야 한다.</div>
   </div>
 </div>
 
-**✅ 완성 기준**
+**🎯 최종 암기 공식**
 
-<div class="wda-check-note">
-  <ul>
-    <li>실습 1: Apple/Carrot/Banana가 각각 이름과 타입 아이콘(🍎/🥕)과 함께 리스트로 표시된다.</li>
-    <li>실습 2: 슬라이더로 최소 가격을 올리면 그보다 싼 상품이 실시간으로 목록에서 사라지고, 다시 내리면 복원된다.</li>
-  </ul>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 렌더링</div>
+    <div class="wda-formula-block-body"><code>배열.map(item =&gt; JSX)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 정렬</div>
+    <div class="wda-formula-block-body"><code>[...arr].sort(...)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 흐름</div>
+    <div class="wda-formula-block-body"><code>배열 → filter → sort → map</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">FruitList에서 key로 무엇을 사용했나?</div>
+    <div class="wda-flip-front">LearningList에서 key로 무엇을 사용했나?</div>
     <div class="wda-flip-back">각 항목의 고유한 id(item.id)를 key로 사용했다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">PriceFilter의 filteredProducts는 어떻게 만들어지나?</div>
-    <div class="wda-flip-back">products.filter(product => product.price >= minPrice)로 렌더링 시점마다 새로 계산되는 파생 상태다.</div>
+    <div class="wda-flip-front">정렬 전에 배열을 복사하는 이유는?</div>
+    <div class="wda-flip-back">sort가 원본 배열을 직접 바꾸기 때문이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">원본 products를 직접 필터링해서 state에 넣으면?</div>
-    <div class="wda-flip-back">가격 조건을 낮춰도 이미 사라진 데이터가 돌아오지 않는 문제가 생긴다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">range input의 값은 왜 Number()로 변환하나?</div>
-    <div class="wda-flip-back">input의 값은 항상 문자열이므로, 숫자인 price와 비교하려면 변환이 필요하다.</div>
+    <div class="wda-flip-front">빈 목록일 때는 무엇을 반환하나?</div>
+    <div class="wda-flip-back">항목이 없다는 안내 문구를 담은 요소를 반환한다.</div>
   </div>
 </div>

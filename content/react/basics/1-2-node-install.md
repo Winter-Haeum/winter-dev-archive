@@ -1,7 +1,7 @@
 ---
 title: "1-2 Node.js 설치하기"
 status: "completed"
-description: "Node.js LTS 버전 설치와 설치 확인, PATH 환경 변수의 원리, package.json 구조와 npm scripts, nodemon 활용법까지 정리한다."
+description: "새 컴퓨터에서 React 개발을 시작하기 전에 Node.js 설치 상태를 준비하고, 터미널에서 node -v/npm -v로 확인하는 방법을 정리한다."
 category: "React"
 section: "Basics"
 tags:
@@ -15,48 +15,34 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cb{background:rgba(59,130,246,.035);border-color:rgba(59,130,246,.25)}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
-.wda-cb .wda-clabel{color:#2563eb}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-compare-ttl{font-size:.84rem;font-weight:700;margin-bottom:8px}
-.wda-legacy{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02)}
-.wda-modern{border-color:rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -78,465 +64,213 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>Node.js 설치하기</strong> — 공식 사이트에서 Node.js를 다운로드 및 설치합니다.<br>
-  • <strong>설치 확인하기</strong> — 터미널 명령어로 설치 상태를 확인합니다.<br>
-  • <strong>첫 프로젝트 생성</strong> — `npm init`으로 프로젝트를 초기화합니다.
+  • <strong>LTS 버전 고르기</strong> — 왜 LTS 버전을 설치해야 하는지 이해합니다.<br>
+  • <strong>설치 확인하기</strong> — 터미널에서 <code>node -v</code>, <code>npm -v</code>로 설치 상태를 확인합니다.<br>
+  • <strong>기본 문제 해결</strong> — 명령어가 인식되지 않을 때 기본적으로 무엇을 점검하는지 파악합니다.<br>
+  • <strong>다음 단계 준비</strong> — 이후 문서에서 무엇을 배우는지 확인합니다.
 </div>
 
 ---
 
-<h2>1. Node.js 버전 선택 (LTS vs Current)</h2>
+## 1. Node.js 설치가 필요한 순간
 
-Node.js 공식 사이트(nodejs.org)에 접속하면 당황스럽게도 두 가지 다운로드 버튼이 보입니다.
-
-이 둘의 차이를 명확히 알고 설치해야 합니다.
-
-| **구분** | **LTS (Long Term Support) - 추천 👍** | **Current (최신 버전)** |
-| --- | --- | --- |
-| **의미** | **"장기 지원 버전"**이라는 뜻으로, 기업이나 실무 환경에서 사용하는 **표준 버전**입니다. | **"최신 기능 버전"**으로, 가장 새로운 기능을 먼저 써볼 수 있는 버전입니다. |
-| **안정성/최신성** | 이미 검증이 완료되어 버그가 적고 안정적입니다. | 가장 최신의 기능이 포함되어 있습니다. |
-| **지원/불안정성** | 보안 업데이트를 오랫동안 지원해 줍니다. | 실험적인 기능이 있어 에러가 발생하거나, 업데이트가 너무 자주 일어날 수 있습니다. |
-| **버전 규칙** | 버전 숫자가 **짝수**입니다. (예: v18, v20, v22...) | 버전 숫자가 **홀수**입니다. (예: v19, v21, v23...) |
+1-1에서 Node.js와 npm이 왜 필요한지 역할을 살펴봤습니다. 이제 실제로 내 컴퓨터에 Node.js가 준비되어 있는지 확인하고, 없다면 설치할 차례입니다.
 
 <div class="wda-callout wda-ci">
-  Node.js는 보통 짝수 major 버전이 안정화 과정을 거쳐 LTS가 됩니다. 홀수 major 버전은 장기 지원 대상이 아니고 비교적 짧게 유지됩니다. 초보자와 실무 학습자는 공식 사이트에서 <strong>LTS</strong>라고 표시된 버전을 선택하면 됩니다.
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-cs">
-  "강의에서는 안정적인 LTS 버전을 설치하여 진행합니다!"<br><br>
-  개발 공부를 할 때는 '내 코드가 틀린 건지, Node.js 버그인지' 헷갈리는 상황을 피하는 게 상책입니다. 무조건 <strong>LTS(짝수 버전)</strong>를 선택하는 것이 정신 건강에 좋습니다.
+  Node.js/npm이 왜 필요한지는 <strong>1-1 Node.js와 npm 이해하기</strong>에서 다뤘습니다. 이 문서에서는 "설치 상태를 준비하고 확인하는 방법"에 집중합니다.
 </div>
 
 ---
 
-<h2>2. 설치 확인하기 (Verify Installation)</h2>
+## 2. 설치 전에 LTS 버전을 고르는 이유
 
-Node.js를 설치하면 `npm`도 자동으로 같이 설치되므로, 두 가지 모두 확인해야 합니다.
+Node.js 공식 사이트에는 보통 두 가지 버전이 안내됩니다.
 
-**✅ Node.js 버전 확인**
-
-터미널에 아래 명령어를 입력하여 Node.js가 정상적으로 인식되는지 확인합니다.
-
-```bash
-node -v
-# 또는
-node --version
-```
-
-- **성공 시:** `v20.10.0` 처럼 버전 번호가 나타납니다.
-
-**✅ npm 버전 확인**
-
-패키지 관리자도 잘 설치되었는지 확인합니다.
-
-```bash
-npm -v
-# 또는
-npm --version
-```
-
-- **성공 시:** `10.2.3` 처럼 버전 번호가 나타납니다.
-
-### ✅ 체크 포인트
-
-<div class="wda-callout wda-cb">
-  "버전 번호가 숫자로 출력되면 설치 성공입니다!"<br><br>
-  만약 "명령어를 찾을 수 없음(command not found)"이라는 메시지가 뜬다면, 설치가 제대로 안 된 것이니 재설치하거나 터미널을 껏다 켜보세요.
-</div>
-
----
-
-<h2>3. 환경 변수 PATH (Deep Dive)</h2>
-
-**📌 PATH의 정체: "지도(Map)"**
-
-`PATH`는 운영체제(윈도우/맥)가 **"실행 파일이 어디 있는지 적어둔 경로들의 목록"**입니다.
-
-우리가 터미널에 `node`라고 치면, 컴퓨터는 다음 과정을 순식간에 처리합니다.
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">검색</div>
-      <div class="wda-sdsc">PATH 목록에 등록된 폴더들을 순서대로 뒤집니다.</div>
-    </div>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">LTS (Long Term Support)</div>
+    장기 지원 버전. 검증이 끝나 안정적이며, 보안 업데이트를 오래 지원한다.
   </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">발견</div>
-      <div class="wda-sdsc"><code>node.exe</code> (또는 <code>node</code> 실행 파일)를 찾으면 즉시 실행합니다.</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">실패</div>
-      <div class="wda-sdsc">끝까지 찾아도 없으면 그제야 <strong>"Command not found"</strong> 에러를 띄웁니다.</div>
-    </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">Current</div>
+    최신 기능을 먼저 담은 버전. 실험적인 기능이 있어 예상치 못한 변화가 있을 수 있다.
   </div>
 </div>
-
-**⚙️ 전역 설치(Global Install)의 원리**
-
-npm 명령어를 쓸 때 자주 보이는 `-g` 옵션의 비밀도 여기에 있습니다.
-
-```bash
-npm install -g 패키지명
-```
-
-- **의미:** "이 패키지를 현재 폴더가 아니라, PATH에 등록된 공용 폴더(시스템 폴더)에 설치해라!"
-- **결과:** PATH에 등록된 곳에 설치했으므로, 컴퓨터 어느 폴더에서든 해당 명령어를 실행할 수 있게 됩니다.
 
 <div class="wda-callout wda-ci">
-  전역 설치의 원리를 설명하기 위한 예시입니다. 다만 최신 React 프로젝트 생성은 <code>create-react-app</code>보다 <strong>Vite</strong>를 사용하는 경우가 많습니다.
-</div>
-
-### 💡 고급 TIP: NVM의 원리
-
-<div class="wda-callout wda-cs">
-  "버전을 어떻게 맘대로 바꿀까?"<br><br>
-  많이 사용하는 버전 관리 도구인 <strong>nvm</strong>은 바로 이 <strong>PATH 경로를 동적으로 바꿔치기</strong>하는 원리를 사용합니다. PATH가 가리키는 곳을 v18 폴더에서 v20 폴더로 살짝 바꾸는 것이죠.
+  처음 설치한다면 <strong>LTS</strong> 버전을 선택합니다. 학습 중에는 안정성이 우선입니다.
 </div>
 
 ---
 
-<h2>4. 설치 문제 해결 (Troubleshooting)</h2>
+## 3. Node.js와 npm은 함께 준비된다
 
-**⚠️ 'node'를 찾을 수 없음 (Command not found)**
+Node.js 설치 파일 안에는 npm도 함께 들어 있습니다. Node.js를 설치하면 npm을 따로 설치할 필요 없이 함께 준비됩니다.
 
-터미널에 `node -v`를 쳤는데, 버전을 보여주는 대신 알 수 없는 명령어라는 에러가 뜨는 경우입니다.
+---
 
-**원인:** 환경 변수(PATH) 설정이 제대로 갱신되지 않았거나 꼬인 문제입니다.
+## 4. 터미널에서 설치 확인하기
 
-**해결 방법:**
+설치가 잘 되었는지는 터미널(명령어를 입력하는 프로그램)에서 확인합니다. 운영체제마다 이름이 다릅니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">컴퓨터 재시작</div>
-    <div class="wda-fcard-dsc">가장 확실한 방법입니다. 환경 변수를 새로 불러옵니다.</div>
+    <div class="wda-fcard-ttl">macOS</div>
+    <div class="wda-fcard-dsc">터미널(Terminal) 앱을 사용한다.</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">새 터미널 열기</div>
-    <div class="wda-fcard-dsc">기존 터미널 창을 끄고 새로 엽니다. (설치 전에 열어둔 창은 인식을 못 합니다.)</div>
+    <div class="wda-fcard-ttl">Windows</div>
+    <div class="wda-fcard-dsc">명령 프롬프트 또는 PowerShell을 사용한다.</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">재설치 시도</div>
-    <div class="wda-fcard-dsc">위 방법으로도 안 되면 Node.js를 지우고 다시 설치해 보세요.</div>
+    <div class="wda-fcard-ttl">코드 에디터 내장 터미널</div>
+    <div class="wda-fcard-dsc">VS Code 같은 에디터에서도 터미널을 바로 열 수 있다.</div>
   </div>
 </div>
 
-**⚠️ 권한 오류 (Permission Denied) - macOS/Linux**
+---
 
-주로 맥(Mac) 사용자에게 발생하는 **"EACCES"** 관련 에러입니다.
+## 5. node -v와 npm -v
 
-무언가 설치하려 할 때 "너는 관리자가 아니라서 안 돼"라며 막는 현상입니다.
-
-- **원인:** 시스템 폴더에 쓰기 권한이 없어서 발생합니다.
-- **해결 방법:**
-  - **sudo 사용:** 명령어 앞에 `sudo`를 붙여 관리자 권한으로 실행합니다. (비밀번호 입력 필요)
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">node -v</div>
 
 ```bash
-sudo npm install -g 패키지명
+node -v
 ```
 
-  - **nvm 사용 (권장 👍):** Node 버전 관리자(nvm)를 사용하면 권한 문제없이 깔끔하게 설치할 수 있습니다.
+설치된 Node.js 버전을 확인한다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">npm -v</div>
 
-<div class="wda-callout wda-cw">
-  <code>sudo</code>는 급할 때 임시로 사용할 수 있지만, 전역 npm 설치에 계속 사용하는 방식은 권장하지 않습니다. 권한 문제를 근본적으로 줄이려면 <strong>nvm</strong>으로 Node.js를 설치하고 관리하는 방식이 더 안전합니다.
+```bash
+npm -v
+```
+
+설치된 npm 버전을 확인한다.
+  </div>
 </div>
-
----
-
-<h2>5. 첫 프로젝트 만들기 (Create First Project)</h2>
-
-터미널에서 아래 3단계를 순서대로 입력해 보세요.
-
-### 1단계: 프로젝트 폴더 생성
-
-먼저 프로젝트를 담을 폴더를 만들고, 그 안으로 들어갑니다.
-
-```bash
-mkdir my-first-project  # 폴더 만들기 (Make Directory)
-cd my-first-project     # 폴더로 이동 (Change Directory)
-```
-
-### 2단계: npm 초기화
-
-이제 이 폴더를 npm이 관리하는 프로젝트로 선언합니다.
-
-```bash
-npm init -y
-```
-
-- **`y` 옵션:** "Yes"의 약자입니다.  
-  프로젝트 이름, 버전 등을 일일이 물어보지 말고 "기본값으로 빠르게 생성해!"라는 뜻입니다.
-
-### 3단계: 결과 확인
-
-명령어가 잘 실행되었다면, 폴더 안에 **`package.json`**이라는 파일이 뿅 하고 생깁니다.
-
-- **의미:** 이제 이 폴더는 Node.js 생태계의 일원이 되었습니다!  
-  여기에 React도 깔고, 라이브러리도 설치할 수 있게 된 것이죠.
-
----
-
-<h2>6. package.json 살펴보기 (Exploring package.json)</h2>
-
-이 파일만 있으면 전 세계 어느 컴퓨터에서든 **똑같은 개발 환경**을 복구할 수 있습니다.
-
-**📌 프로젝트 정보 (Project Info)**
-
-프로젝트의 기본적인 신상 정보가 담겨 있습니다.
-
-| **항목** | **설명** | **비고** |
-| --- | --- | --- |
-| **name** | **프로젝트 이름** | URL에 들어갈 수 있는 소문자 위주여야 합니다. (공백 불가) |
-| **version** | **버전** | `1.0.0` 처럼 3자리 숫자로 관리합니다. (Semantic Versioning) |
-| **description** | **설명** | 프로젝트에 대한 간단한 소개글입니다. |
-| **license** | **라이선스** | 코드 사용 권한을 명시합니다. (예: MIT, ISC) |
-
-**📌 실행 및 관리 (Execution & Management)**
-
-프로젝트를 돌리기 위한 설정과 재료 목록입니다.
-
-| **항목** | **설명** | **중요도** |
-| --- | --- | --- |
-| **scripts** | **명령어 단축키** | `npm run start` 처럼 자주 쓰는 긴 명령어를 짧게 등록해 둡니다. ⭐ |
-| **dependencies** | **필수 재료** | 프로그램 실행에 **꼭 필요한 패키지** 목록입니다. (예: React) ⭐ |
-| **devDependencies** | **개발용 재료** | **개발할 때만 필요한 패키지** 목록입니다. (예: Prettier, ESLint) |
-| **main** | **시작점** | 프로그램이 처음 시작되는 파일입니다. (보통 `index.js`) |
-
-### 💼 실무 포인트
-
-<div class="wda-callout wda-cs">
-  "이 파일이 명세서(Spec Sheet)입니다!"<br><br>
-  협업할 때 동료에게 거대한 <code>node_modules</code> 폴더를 통째로 압축해서 주는 게 아니라, 가벼운 <strong>`package.json` 파일 하나만 공유</strong>하면 됩니다. 동료는 <code>npm install</code> 명령어 한 방으로 똑같은 환경을 만들 수 있기 때문입니다.
-</div>
-
----
-
-<h2>7. 첫 파일 실행 설정 (package.json)</h2>
-
-이 파일은 Node.js에게 "이 프로젝트를 실행하려면 어디서부터 시작해야 해?"를 알려주는 **네비게이션** 역할을 합니다.
-
-**📌 실행 및 관리 (Execution)**
-
-프로젝트가 어떻게 돌아가는지 결정하는 가장 중요한 부분입니다.
-
-| **항목** | **역할** | **상세 설명** |
-| --- | --- | --- |
-| **main** | **시작점 파일** | • **"제일 먼저 실행할 파일이 뭐야?"**에 대한 대답입니다.<br>• 보통 `index.js`로 설정하며, 프로젝트의 대문 역할을 합니다. |
-| **scripts** | **실행 단축키** | • **"긴 명령어 치기 귀찮아!"** 할 때 사용합니다.<br>• 예: `npm run start`를 입력하면 복잡한 실행 명령어를 대신 수행해 줍니다. |
-| **dependencies** | **필수 재료** | • 실행에 꼭 필요한 라이브러리(React 등) 목록입니다. |
-
-**📌 프로젝트 정보 (Info)**
-
-프로젝트의 이름표와 같습니다.
-
-- **name:** 프로젝트 이름 (URL 친화적이어야 함)
-- **version:** 버전 (예: 1.0.0)
-- **description:** 프로젝트 설명
-
-**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  "main(index.js)이 없으면 실행되지 않습니다!"<br><br>
-  <code>package.json</code>의 <code>main</code> 부분에 적혀 있는 파일(<code>index.js</code>)이 실제로 존재해야 <code>npm start</code> 등의 명령어가 정상적으로 작동합니다. 즉, 이 파일은 <strong>실행의 기준점</strong>을 잡아주는 문서입니다.<br><br>
-  다만 정확히는 <code>main</code>은 이 패키지를 다른 파일에서 불러올 때(import/require) 기본 진입점 역할을 합니다.<br>
-  <code>npm start</code>는 보통 <code>scripts.start</code>에 적힌 명령어를 실행합니다.<br>
-  따라서 실제 실행 기준은 <code>main</code>보다 <code>scripts</code>를 먼저 확인하는 것이 좋습니다.
+  버전 출력은 사람마다 다를 수 있습니다. 설치 시점이나 선택한 LTS 버전에 따라 숫자가 다르게 나오는 것이 정상이므로, 특정 숫자를 정답처럼 외울 필요는 없습니다.
+</div>
+
+<table class="wda-mtable">
+  <tr>
+    <th>상태</th>
+    <th>터미널 반응</th>
+  </tr>
+  <tr>
+    <td>설치 전</td>
+    <td>명령어를 인식하지 못한다.</td>
+  </tr>
+  <tr>
+    <td>설치 후</td>
+    <td>버전 번호가 출력된다.</td>
+  </tr>
+</table>
+
+---
+
+## 6. 명령어가 인식되지 않을 때
+
+`node -v`를 입력했는데 명령어를 찾을 수 없다는 메시지가 뜨는 경우가 있습니다.
+
+<div class="wda-callout wda-cw">
+  설치 문제 해결은 기본 점검까지만 다룹니다. 아래 순서대로 확인해 보세요.
+</div>
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">1. 터미널 새로 열기</div>
+    <div class="wda-fcard-dsc">설치 전에 열어둔 터미널은 새 설정을 인식하지 못할 수 있다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">2. 컴퓨터 재시작</div>
+    <div class="wda-fcard-dsc">터미널을 새로 열어도 안 되면 컴퓨터를 재시작해 본다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">3. 재설치</div>
+    <div class="wda-fcard-dsc">위 방법으로도 안 되면 Node.js를 다시 설치해 본다.</div>
+  </div>
 </div>
 
 ---
 
-<h2>8. npm scripts 활용하기</h2>
+## 7. 설치 후 바로 하지 않아도 되는 것
 
-자주 사용하는 긴 명령어를 짧은 단어로 줄여서 `package.json`에 등록해두는 기능입니다.
+<div class="wda-callout wda-ci">
+  package.json 구조, dependencies/devDependencies, npm 명령어 상세는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다룹니다. React 프로젝트를 실제로 만드는 방법은 <strong>1-6 React 프로젝트 제대로 이해하기</strong>에서 다룹니다. 지금은 설치 상태를 확인하는 것까지만 하면 충분합니다.
+</div>
 
-**📝 Scripts 등록 (수정)**
+---
 
-`package.json` 파일을 열어 `scripts` 부분을 아래와 같이 수정합니다.
+## 8. 다음 학습 흐름
 
-```json
-{
-  "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js",
-    "hello": "echo Hello World"
-  }
-}
-```
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">설치 파일 준비</div><div class="wda-fnode-dsc">공식 사이트에서 LTS 다운로드</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">설치</div><div class="wda-fnode-dsc">안내에 따라 진행</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">터미널 재시작</div><div class="wda-fnode-dsc">새 터미널 열기</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">버전 확인</div><div class="wda-fnode-dsc">node -v, npm -v</div></div>
+</div>
 
-`start`는 핵심 실행 명령어, `dev`는 개발용 명령어, `hello`는 테스트용 단순 출력 명령어입니다.
+<table class="wda-mtable">
+  <tr>
+    <th>주제</th>
+    <th>자세히 다루는 문서</th>
+  </tr>
+  <tr>
+    <td>package.json·npm 명령어 상세</td>
+    <td>1-3 npm으로 패키지 관리하기</td>
+  </tr>
+  <tr>
+    <td>React 프로젝트 생성</td>
+    <td>1-6 React 프로젝트 제대로 이해하기</td>
+  </tr>
+</table>
 
-- **의미:** "이제부터 내가 `start`라고 외치면, 너는 `node index.js`를 실행해!"라고 약속하는 것입니다.
+---
 
-**📝 실행 방법 (중요 규칙)**
+## 9. 초보자가 자주 만나는 설치 오해
 
-실행할 때는 **`run`을 붙이느냐 마느냐**의 차이가 있습니다.
-
-<div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">공식 명령어 (start, test) → <code>npm start</code></div>
-    너무 유명하고 자주 쓰는 명령어라 <code>run</code>을 <strong>생략해도 됩니다.</strong>
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">Current(최신) 버전이 항상 더 좋다?</div>
+    <div class="wda-fcard-dsc">학습 단계에서는 안정적인 LTS 버전이 더 적합하다.</div>
   </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">커스텀 명령어 (dev, build, hello...) → <code>npm run dev</code></div>
-    우리가 임의로 만든 이름은 반드시 중간에 <strong><code>run</code>을 붙여야</strong> 알아듣습니다.
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">설치하면 열려 있던 터미널에서도 바로 인식된다?</div>
+    <div class="wda-fcard-dsc">설치 전에 열어둔 터미널은 새로 열어야 인식되는 경우가 많다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">버전 번호가 남과 다르면 잘못 설치한 것이다?</div>
+    <div class="wda-fcard-dsc">설치 시점에 따라 버전 번호가 다른 것은 정상이다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">명령어가 안 먹히면 바로 재설치부터 해야 한다?</div>
+    <div class="wda-fcard-dsc">먼저 터미널을 새로 열거나 컴퓨터를 재시작해 보는 것이 순서다.</div>
   </div>
 </div>
 
 ---
 
-<h2>9. 자동 재실행 도구 (Nodemon)</h2>
-
-**🆚 왜 필요한가요? (비교)**
-
-<div class="wda-compare">
-  <div class="wda-compare-card wda-legacy">
-    <div class="wda-compare-ttl">기존 방식</div>
-    <strong>과정:</strong> 1. 코드 수정 (Ctrl+S) → 2. 터미널 클릭 → 3. <code>Ctrl+C</code>로 서버 종료 → 4. 화살표 위(<code>↑</code>) 키 + Enter로 재실행 (무한 반복...)<br><br>
-    <strong>장점:</strong> 없음 (단순 반복 작업)
-  </div>
-  <div class="wda-compare-card wda-modern">
-    <div class="wda-compare-ttl">Nodemon 사용</div>
-    <strong>과정:</strong> 1. 코드 수정 (Ctrl+S) → 2. 자동 재시작! 🎉 (알아서 감지하고 다시 실행해 줍니다.)<br><br>
-    <strong>장점:</strong> 개발 속도가 훨씬 빨라집니다.
-  </div>
-</div>
-
-**✅ 설치 및 사용법**
-
-이 도구는 실제 서비스 배포 시에는 필요 없고, **오직 개발할 때만 필요**하므로 `-D` 옵션을 붙여서 설치합니다.
-
-```bash
-# 설치 (개발용 의존성으로 설치)
-npm install -D nodemon
-```
-
-**💡 똑똑하게 적용하기 (꿀팁)**
-
-매번 `npx nodemon index.js`라고 치는 것도 귀찮으므로, 방금 배운 `scripts`에 등록해서 사용하세요.
-
-- **package.json 수정**
-
-```json
-{
-  "scripts": {
-    "dev": "nodemon index.js"
-  }
-}
-```
-
-- **실행:** 이제 터미널에 **`npm run dev`**만 치면, 코드를 고칠 때마다 서버가 알아서 갱신됩니다!
-
-**💡 npm script에 연결 (강추)**
-
-`package.json`의 `scripts`에서 **dev만 교체**:
-
-```json
-{
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "hello": "echo Hello World"
-  }
-}
-```
-
-실행:
-
-```bash
-npm run dev
-```
-
----
-
-<h2>10. 프로젝트 구조 파헤치기 (Project Structure)</h2>
-
-`npm install`을 하고 나면 아래와 같은 파일들이 생겨납니다. 각각의 역할이 무엇인지 정확히 아는 것이 중요합니다.
-
-**📁 전체 구조 (File Tree)**
-
-```text
-my-first-project/
-├── 📁 node_modules/      # (자동 생성) 설치된 패키지들의 실제 저장소
-├── 📄 package.json       # 프로젝트 설정 파일 (명세서)
-├── 📄 package-lock.json  # (자동 생성) 정확한 버전 기록 파일
-└── 📄 index.js           # 우리가 직접 짠 코드
-```
-
-**📁 핵심 파일 상세 설명**
-
-<div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">node_modules — "거대한 창고"</div>
-    실제 라이브러리 파일들이 저장되는 곳입니다. 설치된 패키지가 많을수록 용량이 어마어마하게 커집니다.<br><br>
-    <strong>⚠️ 주의사항:</strong> <strong>Git에 올리지 마세요!</strong> ❌ 용량이 너무 크기 때문에, 보통 <code>.gitignore</code> 파일에 등록해서 공유 목록에서 뺍니다.
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-ttl">package-lock.json — "상세 영수증"</div>
-    <code>package.json</code>이 대략적인 주문서라면, 이 파일은 실제로 설치된 정확한 버전 정보를 기록한 영수증입니다.<br><br>
-    <strong>⚠️ 주의사항:</strong> <strong>지우지 마세요!</strong> 팀원들과 협업할 때 <strong>"내 컴퓨터에선 되는데 넌 왜 안 돼?"</strong> 문제를 막아주는 1등 공신입니다.
-  </div>
-</div>
-
-### 💼 실무 포인트
-
-<div class="wda-callout wda-cs">
-  "동료에게 줄 때는 node_modules만 빼고 줍니다!"<br><br>
-  동료는 <code>package.json</code>과 <code>package-lock.json</code>만 있으면, <code>npm install</code> 명령어 한 번으로 <code>node_modules</code>를 다시 복원할 수 있기 때문입니다. 복원 시간은 프로젝트 크기와 네트워크 상태에 따라 달라질 수 있습니다.
-</div>
-
----
-
-<h2>⁉️ 자주 묻는 질문 (FAQ)</h2>
-
-### Q1. 윈도우(Windows)에서 환경 변수(PATH)를 따로 설정해야 하나요?
-
-옛날 블로그 글을 보면 설정하라는 말이 많아서 헷갈리시죠?
-
-- **정답: 아니요, 설치 시 자동으로 됩니다!**
-- **설명:** 대부분의 경우 설치 과정에서 **"Add to PATH"** 옵션이 기본으로 켜져 있어 자동 설정됩니다. 그냥 '다음(Next)'만 잘 누르면 알아서 설정되니 안심하세요.  
-  다만 설치 후 `node -v`가 동작하지 않으면 터미널을 새로 열거나, "Add to PATH" 옵션이 체크되어 있었는지 확인해야 합니다.
-
-### Q2. 맥(macOS)/리눅스에서 npm 설치 시 '권한 오류'가 나면 어떡하나요?
-
-설치할 때 "Permission denied" 같은 빨간 에러가 뜨는 경우입니다.
-
-- **정답: `sudo` 사용 또는 `nvm` 사용**
-- **설명:**
-  1. **급할 때:** 명령어 앞에 `sudo`를 붙여 관리자 권한으로 실행합니다. (예: `sudo npm install ...`) 다만 전역 설치에 계속 사용하는 습관은 권장하지 않습니다.
-  2. **권장:** **nvm(Node Version Manager)**을 설치해서 Node.js를 관리하면 권한 문제없이 깔끔하게 해결됩니다.
-
-### Q3. `npm init` 없이 직접 `package.json` 파일을 만들어도 되나요?
-
-터미널이 무섭거나 귀찮아서 메모장으로 만들고 싶을 때가 있죠.
-
-- **정답: 네, 100% 동일합니다!**
-- **설명:** `npm init`의 핵심 결과물은 `package.json` 파일 생성입니다.  
-  직접 `package.json`을 만들어도 되지만, JSON 문법과 필수 필드를 정확히 작성해야 합니다.  
-  초보자 단계에서는 `npm init -y`를 사용하는 것이 안전합니다.
-
----
-
-<h2>✅ 핵심 요약</h2>
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>nodejs.org에서는 <strong>짝수 버전인 LTS(장기 지원)</strong>를 설치하는 것이 안전하다.</li>
+    <li>학습 단계에서는 <strong>LTS(장기 지원)</strong> 버전을 설치한다.</li>
+    <li>Node.js를 설치하면 <strong>npm도 함께</strong> 설치된다.</li>
     <li>설치 확인은 터미널에서 <code>node -v</code>, <code>npm -v</code>로 버전 번호가 출력되는지 본다.</li>
-    <li>PATH는 OS가 실행 파일 위치를 적어둔 목록이며, <code>npm install -g</code>는 PATH가 가리키는 공용 폴더에 설치한다.</li>
-    <li><code>npm init -y</code>로 프로젝트를 초기화하면 <strong>package.json</strong>이 생성된다.</li>
-    <li>package.json의 <strong>scripts</strong>에 명령어를 등록하면 <code>npm run [이름]</code>으로 짧게 실행할 수 있다.</li>
-    <li>nodemon을 <code>-D</code>(devDependencies)로 설치하면 코드 수정 시 서버가 <strong>자동 재시작</strong>된다.</li>
-    <li>node_modules는 Git에 올리지 않고(.gitignore), <strong>package-lock.json은 반드시 커밋</strong>해 팀원 간 버전을 맞춘다.</li>
+    <li>버전 번호는 <strong>사람마다 다를 수 있으며</strong>, 그 자체가 문제는 아니다.</li>
+    <li>명령어가 인식되지 않으면 <strong>터미널 재시작 → 컴퓨터 재시작 → 재설치</strong> 순서로 점검한다.</li>
+    <li>package.json·npm 명령어 상세는 1-3, React 프로젝트 생성은 1-6에서 다룬다.</li>
   </ul>
 </div>
 
@@ -544,20 +278,20 @@ my-first-project/
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: Windows에서 PATH 환경 변수를 항상 수동으로 설정해야 한다?</div>
-    <div class="wda-mistake-right">정답: 설치 시 <strong>"Add to PATH"</strong> 옵션이 기본으로 켜져 있어 대부분 자동으로 설정된다.</div>
+    <div class="wda-mistake-wrong">오해: Current 버전이 항상 더 좋은 선택이다?</div>
+    <div class="wda-mistake-right">정답: 학습 단계에서는 <strong>안정적인 LTS</strong> 버전이 더 적합하다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: npm start와 npm run dev는 똑같이 run을 생략할 수 있다?</div>
-    <div class="wda-mistake-right">정답: start·test처럼 <strong>공식 명령어만 run 생략</strong>이 가능하고, dev·build 같은 커스텀 명령어는 반드시 <code>npm run</code>을 붙여야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 설치 후 기존에 열어둔 터미널에서도 바로 인식된다?</div>
+    <div class="wda-mistake-right">정답: 설치 전에 열어둔 터미널은 <strong>새로 열어야</strong> 인식되는 경우가 많다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: node_modules를 지우면 프로젝트가 망가진다?</div>
-    <div class="wda-mistake-right">정답: package.json과 package-lock.json만 있으면 <code>npm install</code>로 <strong>다시 복구</strong>할 수 있다.</div>
+    <div class="wda-mistake-wrong">오해: node -v 결과가 남들과 다르면 잘못 설치한 것이다?</div>
+    <div class="wda-mistake-right">정답: 설치 시점에 따라 버전 번호는 <strong>다를 수 있으며</strong> 정상이다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: package.json의 main 필드가 npm start의 실행 기준이다?</div>
-    <div class="wda-mistake-right">정답: <code>npm start</code>는 <strong>scripts.start</strong>에 적힌 명령어를 실행하며, main은 이 패키지를 다른 곳에서 불러올 때(import/require)의 기본 진입점이다.</div>
+    <div class="wda-mistake-wrong">오해: npm은 Node.js와 별도로 설치해야 한다?</div>
+    <div class="wda-mistake-right">정답: npm은 Node.js 설치 시 <strong>자동으로 함께</strong> 설치된다.</div>
   </div>
 </div>
 
@@ -566,15 +300,19 @@ my-first-project/
 <div class="wda-formula-board">
   <div class="wda-formula-block">
     <div class="wda-formula-block-ttl">공식 1 · 버전 선택</div>
-    <div class="wda-formula-block-body"><code>LTS(짝수) 추천</code></div>
+    <div class="wda-formula-block-body"><code>학습 단계 = LTS</code></div>
   </div>
   <div class="wda-formula-block">
     <div class="wda-formula-block-ttl">공식 2 · 설치 확인</div>
-    <div class="wda-formula-block-body"><code>node -v && npm -v</code></div>
+    <div class="wda-formula-block-body"><code>node -v / npm -v</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 자동 재시작</div>
-    <div class="wda-formula-block-body"><code>nodemon → npm run dev</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 문제 해결 순서</div>
+    <div class="wda-formula-block-body"><code>터미널 재시작 → 재부팅 → 재설치</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 다음 단계</div>
+    <div class="wda-formula-block-body"><code>패키지 관리 1-3 → 프로젝트 생성 1-6</code></div>
   </div>
 </div>
 
@@ -582,27 +320,27 @@ my-first-project/
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">LTS와 Current 버전 중 무엇을 설치해야 하나?</div>
-    <div class="wda-flip-back">안정적인 LTS(짝수 버전)를 설치한다.</div>
+    <div class="wda-flip-front">학습 단계에서는 어떤 Node.js 버전을 설치해야 하나?</div>
+    <div class="wda-flip-back">안정적인 LTS(장기 지원) 버전을 설치한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">node -v가 "command not found"라면?</div>
-    <div class="wda-flip-back">PATH 설정이 반영되지 않은 것이므로 터미널을 새로 열거나 컴퓨터를 재시작한다.</div>
+    <div class="wda-flip-front">npm은 따로 설치해야 하나?</div>
+    <div class="wda-flip-back">아니다. Node.js를 설치하면 npm도 함께 설치된다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">npm 설치 시 권한 오류(EACCES)가 나면?</div>
-    <div class="wda-flip-back">급할 땐 sudo를 쓰되, 근본적으로는 nvm으로 관리하는 것이 안전하다.</div>
+    <div class="wda-flip-front">설치가 잘 되었는지 확인하는 명령어는?</div>
+    <div class="wda-flip-back">node -v와 npm -v로 버전 번호가 출력되는지 확인한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">npm init 없이 package.json을 직접 만들어도 되나?</div>
-    <div class="wda-flip-back">가능하지만 JSON 문법과 필수 필드를 정확히 작성해야 하므로, 초보자는 npm init -y를 쓰는 것이 안전하다.</div>
+    <div class="wda-flip-front">node -v가 인식되지 않으면 가장 먼저 해볼 일은?</div>
+    <div class="wda-flip-back">터미널을 새로 열어본다. 그래도 안 되면 컴퓨터를 재시작한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">dependencies와 devDependencies의 차이는?</div>
-    <div class="wda-flip-back">dependencies는 실행에 꼭 필요한 패키지, devDependencies는 개발 중에만 필요한 패키지(예: nodemon)다.</div>
+    <div class="wda-flip-front">사람마다 버전 번호가 다르게 나오는 것은 문제인가?</div>
+    <div class="wda-flip-back">아니다. 설치 시점에 따라 버전 번호가 다른 것은 정상이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">package-lock.json을 지우면 안 되는 이유는?</div>
-    <div class="wda-flip-back">팀원 간 "내 컴퓨터에선 되는데 왜 안 돼" 문제를 막아주는 정확한 버전 기록이기 때문이다.</div>
+    <div class="wda-flip-front">package.json과 npm 명령어 상세는 어디서 다루나?</div>
+    <div class="wda-flip-back">1-3 npm으로 패키지 관리하기에서 다룬다.</div>
   </div>
 </div>
