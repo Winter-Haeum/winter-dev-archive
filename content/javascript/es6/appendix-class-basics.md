@@ -1,9 +1,9 @@
 ---
 title: "부록: 클래스 다루기"
 status: "completed"
-description: "생성자 함수의 진화형인 Class 문법의 기본 구조부터 상속(extends/super), 정적 메서드까지 클래스 다루기를 정리한다."
+description: "class 선언, constructor, method, instance 등 class 기본 문법을 강의 카드 예제로 정리하고, extends/super/static을 짧게 맛보는 보충 부록이다."
 category: "JavaScript"
-section: "ES6+ 심화 문법"
+section: "ES6+"
 tags:
   - javascript
   - class
@@ -14,45 +14,34 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
-.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -71,326 +60,454 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
-## 🎯 학습 목표
+**📎 부록(Appendix)**
 
-<div class="wda-goal">
-  • <strong>Class의 정체</strong> — Class가 생성자 함수를 감싼 Syntactic Sugar(문법적 설탕)임을 이해합니다.<br>
-  • <strong>기본 문법</strong> — `class`, `constructor`, 메서드 작성 규칙을 익힙니다.<br>
-  • <strong>상속과 정적 메서드</strong> — `extends`/`super`로 기능을 물려받고, `static`으로 유틸리티 기능을 만드는 법을 배웁니다.
+<div class="wda-callout wda-ci">
+  • 이 부록은 생성자 함수 부록 다음에 읽는 보충 자료로, class의 기본 문법만 정리한다.<br>
+  • extends/super/static은 짧게만 다루고, prototype 심화나 private field, React class component는 다루지 않는다.
 </div>
 
 ---
 
-## 1. 생성자 함수의 진화 (Evolution)
+## 1. class가 필요한 순간
 
-**📌 Syntactic Sugar (문법적 설탕)**
+강의 카드를 여러 개 만들어야 한다고 해봅시다. 강의마다 제목, 강사, 학습 시간은 다르지만, 만드는 방식과 사용하는 기능(요약 보기 등)은 항상 같아야 합니다.
 
-**기존의 복잡한 문법을 "달콤하고(보기 좋고) 쓰기 편하게" 바꿨다는 의미입니다.**
+생성자 함수 부록에서는 `function`과 `this`로 이런 객체를 만드는 방법을 다뤘습니다. class는 **같은 목적을 더 읽기 쉬운 문법으로 표현**합니다.
+
+```js
+class CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes) {
+    this.courseTitle = courseTitle;
+    this.instructorName = instructorName;
+    this.totalMinutes = totalMinutes;
+  }
+
+  getSummary() {
+    return `${this.courseTitle} - ${this.instructorName} (${this.totalMinutes}분)`;
+  }
+}
+```
+
+---
+
+## 2. class는 객체를 만들기 위한 문법이다
+
+class 자체는 값이 아니라 **객체를 찍어내는 틀**입니다. class를 선언하는 것만으로는 아무 객체도 만들어지지 않고, `new`로 호출해야 비로소 객체(인스턴스)가 생깁니다.
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">class 선언</div>
+    <div class="wda-fcard-dsc">어떤 값과 기능을 가질지 정의만 해둔 상태.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">new 호출</div>
+    <div class="wda-fcard-dsc">정의를 바탕으로 실제 객체(instance)를 만드는 시점.</div>
+  </div>
+</div>
+
+<div class="wda-callout wda-ci">
+  class는 객체 생성을 더 읽기 좋게 표현하는 문법입니다. 결과적으로 만들어지는 것은 이전과 같은 객체입니다.
+</div>
+
+---
+
+## 3. 생성자 함수와 class의 관계
+
+생성자 함수와 class는 **같은 결과를 만드는 다른 문법**입니다. 아래는 같은 역할을 하는 두 코드입니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
-    <div class="wda-compare-label">구분</div>
-    <div class="wda-compare-ttl">ES6 이전 (Legacy)</div>
-    <strong>핵심 문법</strong>: <strong>생성자 함수</strong> (<code>function</code> + <code>prototype</code>)<br>
-    <strong>구현 방식</strong>: 기존 문법으로 객체 지향을 <strong>억지로 흉내</strong> 냈습니다.<br>
-    <strong>코드 특징</strong>: 구조가 복잡하고 직관적으로 이해하기 어려웠습니다.<br>
-    <strong>작동 원리</strong>: 프로토타입을 직접 조작
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-label">구분</div>
-    <div class="wda-compare-ttl">ES6 이후 (Modern)</div>
-    <strong>핵심 문법</strong>: <strong>클래스</strong> (<code>Class</code> 문법)<br>
-    <strong>구현 방식</strong>: <strong>직관적인 문법</strong>을 새롭게 제공합니다.<br>
-    <strong>코드 특징</strong>: 개발자가 보기에 훨씬 <strong>깔끔하고 명확</strong>합니다.<br>
-    <strong>작동 원리</strong>: <strong>내부적으로는 여전히 프로토타입 사용</strong>(Syntactic Sugar)
-  </div>
-</div>
-
-**🆚 코드 비교 (Legacy vs Modern)**
-
-똑같은 기능을 하는 코드가 어떻게 변했는지 비교해 봅니다.
-
-**🔹 Legacy (생성자 함수)**
-
-과거에는 함수와 프로토타입을 따로 정의해야 했습니다.
+    <div class="wda-compare-ttl">생성자 함수</div>
 
 ```js
-function User(name) {
-  // 객체의 속성(변수) 설정
-  this.name = name;
+function CourseCard(courseTitle) {
+  this.courseTitle = courseTitle;
 }
 
-// 객체의 기능(메서드)을 추가하려면 prototype을 직접 수정해야 했음
-User.prototype.sayHi = function() {
-  console.log('Hi!');
+CourseCard.prototype.getSummary = function () {
+  return this.courseTitle;
 };
 ```
-
-**🔹 Modern (Class)**
-
-하나의 블록(`{}`) 안에서 속성과 기능을 모두 정의할 수 있어 보기에 편합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">class</div>
 
 ```js
-class User {
-  // 생성자: 객체가 생성될 때 초기화하는 메서드 (약속된 이름)
-  constructor(name) {
-    this.name = name;
+class CourseCard {
+  constructor(courseTitle) {
+    this.courseTitle = courseTitle;
   }
 
-  // 메서드: function 키워드 없이 바로 작성 가능
-  sayHi() {
-    console.log('Hi!');
+  getSummary() {
+    return this.courseTitle;
   }
 }
 ```
-
-**🧠 중요 포인트**
-
-<div class="wda-callout wda-ci">
-  Class는 기존 프로토타입 기반 객체 생성 방식을 더 읽기 쉬운 문법으로 제공하는 형태입니다.
+  </div>
 </div>
 
-그래서 내부적으로는 여전히 prototype을 사용하지만, 생성자 함수와 완전히 똑같지는 않습니다.  
-예를 들어 class는 `new` 없이 호출할 수 없고, class 내부 코드는 자동으로 strict mode가 적용되며, 선언 전에 사용할 수 없습니다.
-
-**💡 보충 설명**
-
 <div class="wda-callout wda-ci">
-  <strong>Syntactic Sugar(문법적 설탕)란?</strong> — 프로그래밍 용어로, 기능은 똑같지만 <strong>사람이 읽고 쓰기 편하게 만든 단축 문법</strong>을 뜻합니다.<br>마치 쓴 약(복잡한 로직)에 설탕(쉬운 문법)을 발라 먹기 좋게 만든 것과 같다고 해서 붙여진 이름입니다.<br><br>
-  <strong>`constructor`가 뭔가요?</strong> — 클래스로 객체(붕어빵)를 처음 만들 때 딱 한 번 실행되는 <strong>초기화 함수</strong>입니다. 여기서 <code>this.name = name</code> 처럼 기본 재료를 세팅합니다.
+  두 코드 모두 <code>new CourseCard(...)</code>로 객체를 만들고 <code>getSummary()</code>를 호출할 수 있습니다. class는 <code>function</code>과 <code>prototype</code>을 따로 쓰지 않고, 한 블록 안에 constructor와 method를 모아 씁니다.
 </div>
 
 ---
 
-## 2. 기본 문법 (Basic Syntax)
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">class 선언 (이름 짓기)</div>
-    <div class="wda-fcard-dsc">클래스(설계도)의 이름을 정의합니다.<br>• <code>class</code> 키워드 사용<br>• 문법상 필수는 아니지만, 관례적으로 <strong>파스칼 표기법(PascalCase)</strong>을 사용 (첫 글자를 대문자로)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">constructor (생성자)</div>
-    <div class="wda-fcard-dsc"><code>new</code>로 인스턴스를 만들 때 <strong>자동으로 실행</strong>되는 초기화 메서드입니다.<br>• 이름은 무조건 <strong><code>constructor</code></strong>여야 함<br>• <code>new</code> 키워드 사용 시 자동 호출<br>• 상속받은 자식 클래스에서 constructor를 직접 작성했다면, <code>this</code> 사용 전 반드시 <code>super()</code> 먼저 호출</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">메서드 정의 (함수)</div>
-    <div class="wda-fcard-dsc">클래스 안에 만드는 기능(함수)입니다.<br>• <code>function</code> 키워드 생략<br>• <strong>⚠️ 중요 : 메서드 사이에 콤마(<code>,</code>) 절대 금지!</strong></div>
-  </div>
-</div>
-
-위 세 가지 요소는 따로 노는 개념이 아니라, **`class { ... }` 중괄호 안에서 위에서부터 순서대로 작성되는 하나의 흐름**이기 때문에 하나의 표로 묶었습니다.
-
-**코드와 매칭해보기**
-
-아래 코드는 실제 실행용이 아니라 구조를 보여주는 예시입니다.
+## 4. class 선언하기
 
 ```js
-class Hero {          // 1. 선언
-  constructor() {
-    // 2. 생성자
-  }
-
-  attack() {
-    // 3. 메서드
-  }
+class CourseCard {
+  // constructor와 method는 이 블록 안에 작성한다
 }
 ```
-
-**📝 예제 코드**
-
-```js
-class Hero {
-  // 1. 생성자: new Hero() 할 때 자동 실행
-  constructor(name, hp) {
-    this.name = name;  // 이름 설정
-    this.hp = hp;      // 체력 설정
-    console.log('영웅 탄생!');
-  }
-
-  // 2. 메서드: function 키워드 생략
-  attack() {
-    console.log(this.name + '의 공격!');
-  }
-
-  // 3. 메서드: 콤마(,) 없이 바로 다음 메서드 작성
-  heal(amount) {
-    this.hp += amount; // 체력 증가
-    console.log('체력 회복: ' + this.hp);
-  }
-}
-
-// 사용법은 생성자 함수와 동일
-const bat = new Hero('배트맨', 100);
-bat.attack(); // "배트맨의 공격!"
-```
-
-**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>파스칼 표기법(PascalCase)이 뭔가요?</strong> — 단어의 첫 글자를 대문자로 쓰는 방식입니다.<br>문법상 필수는 아니지만, 클래스 이름은 관례적으로 PascalCase를 사용합니다.<br>
-  • <code>hero</code> (사용 가능하지만 비권장) ➡ 일반 변수 같아 보임<br>
-  • <code>Hero</code> (권장) ➡ "아, 이건 객체를 만들기 위한 클래스구나!" 하고 바로 알아볼 수 있습니다.
-</div>
-
-<div class="wda-callout wda-cw">
-  <strong>콤마(,) 실수 주의</strong> — 기존에 쓰던 객체(<code>{ key: value, ... }</code>)는 쉼표를 꼭 찍어야 했지만, 클래스(<code>class { ... }</code>) 안에서는 쉼표를 찍으면 <strong>에러(SyntaxError)</strong>가 발생합니다.
+  class 이름은 문법상 필수는 아니지만, 관례적으로 <strong>대문자로 시작</strong>합니다(<code>CourseCard</code>). 일반 변수와 구분해 "이 이름은 new로 호출하는 class"라는 신호를 줍니다.
 </div>
 
 ---
 
-## 3. 상속(Inheritance)과 super
+## 5. constructor로 초기값 받기
 
-**`extends` 키워드로 기존 기능을 물려받아 확장할 수 있습니다.**
-
-| **구분** | **개념** | **문법 (Syntax)** | **효과 및 특징** |
-| --- | --- | --- | --- |
-| **extends**(상속) | **"자식은 부모의 모든 것을 물려받습니다."** | `class 자식 extends 부모` | • 부모의 속성/메서드 자동 사용<br>• 코드를 다시 쓸 필요 없음 (재사용성) |
-| **super()**(생성자 호출) | **"부모의 생성자를 실행합니다."** | `super()` | • **필수 조건**: 자식 `constructor`에서 `this`를 사용하기 전에 반드시 호출해야 함<br>• 자식 클래스에 `constructor`를 직접 작성하지 않으면 JavaScript가 기본 constructor를 자동으로 만들어 부모 constructor를 호출함 |
-| **super.method()**(메서드 호출) | **"부모의 기능을 빌려 씁니다."** | `super.메서드명()` | • **기능 확장**: 부모의 기본 기능을 그대로 실행하면서, 뒤에 새로운 기능을 얹을 때 사용 |
-
-**📝 예제 코드 (Legacy vs Modern)**
-
-**🧪 부모 클래스 (기본 기능)**
-
-동물이라면 누구나 가진 이름과 달리기 기능입니다.
+`constructor`는 `new`로 인스턴스를 만들 때 자동으로 실행되는 메서드입니다. 이름은 항상 `constructor`로 고정입니다.
 
 ```js
-class Animal {
-  constructor(name) {
-    this.name = name;
-    this.speed = 0;
-  }
-
-  run(speed) {
-    this.speed = speed;
-    console.log(`${this.name} 달린다!`);
+class CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes) {
+    this.courseTitle = courseTitle;
+    this.instructorName = instructorName;
+    this.totalMinutes = totalMinutes;
   }
 }
 ```
-
-**🧪 자식 클래스 (기능 확장)**
-
-`Animal`의 기능을 물려받은 `Rabbit`입니다.
-
-```js
-// extends: Animal의 모든 기능을 가져옴
-class Rabbit extends Animal {
-
-  // 메서드 오버라이딩 (덮어쓰기)
-  run(speed) {
-    super.run(speed);      // 1. 부모의 run() 먼저 실행 (기본 동작)
-    console.log('깡충깡충!'); // 2. 토끼만의 동작 추가
-  }
-
-  // 새로운 메서드 추가
-  hide() {
-    console.log(`${this.name} 숨었다!`);
-  }
-}
-```
-
-**✅ 실행 결과**
-
-```js
-const bunny = new Rabbit('토끼');
-
-bunny.run(5);
-// 출력 1: "토끼 달린다!" (부모 기능: super.run)
-// 출력 2: "깡충깡충!"   (자식 기능: 추가된 코드)
-```
-
-**💡 보충 설명**
 
 <div class="wda-callout wda-ci">
-  <strong>오버라이딩(Overriding)이란?</strong> — 부모에게 물려받은 메서드(<code>run</code>)를 자식이 <strong>자신의 입맛에 맞게 재정의(덮어쓰기)</strong> 하는 것을 말합니다.<br>위 예제에서 토끼는 그냥 달리는 게 아니라 '깡충깡충' 뛰어야 하므로 <code>run</code>을 수정했습니다.<br><br>
-  <strong>`super`가 왜 필요한가요?</strong> — 오버라이딩을 할 때, 부모가 해놓은 로직(속도 설정, 로그 출력 등)을 <strong>지우지 않고 재활용</strong>하기 위해서입니다.<br><code>super.run()</code>을 부르면 부모의 코드가 먼저 실행되고, 그 뒤에 내가 원하는 코드를 추가할 수 있어 효율적입니다.
+  constructor는 new 호출 시 실행됩니다. 매개변수로 받은 값을 <code>this.속성 = 값</code> 형태로 담아 인스턴스를 채우는 역할을 합니다.
 </div>
 
 ---
 
-## 4. 정적 메서드 (Static Method)
+## 6. new로 instance 만들기
 
-**인스턴스(객체)가 아닌 클래스 자체에 붙어있는 메서드입니다.**
-
-**📌 특징 (Features)**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl"><code>static</code> 키워드</div>
-    <div class="wda-fcard-dsc">메서드나 속성 이름 <strong>맨 앞</strong>에 붙여서 정의합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">호출 방법</div>
-    <div class="wda-fcard-dsc"><code>new</code>로 만든 객체가 아니라, <strong>클래스 이름</strong>을 직접 불러서 사용합니다.<br>(예: <code>ClassName.method()</code>)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">제약 사항</div>
-    <div class="wda-fcard-dsc"><strong>인스턴스(객체)</strong>에서는 호출할 수 없습니다.<br>(예: <code>obj.method()</code> ❌)</div>
-  </div>
-</div>
-
-**💡 언제 쓰나요? (Use Cases)**
-
-정적 메서드는 특정 인스턴스의 데이터가 아니라 **클래스 자체와 관련된 기능**을 만들 때 사용합니다.  
-정적 메서드 안에서 `this`를 쓰면 인스턴스가 아니라 **클래스 자신**을 가리킬 수 있습니다.
-
-| **사용처** | **설명 및 예시** |
-| --- | --- |
-| **유틸리티 함수** | 수학 계산, 날짜 변환 등 단순 기능 제공<br>(예: `Math.max()`, `Date.now()`) |
-| **객체 생성 불필요** | 굳이 메모리를 써가며 객체를 만들 필요가 없을 때<br>(순수 기능만 필요할 때 효율적) |
-| **팩토리 메서드** | 입력받은 데이터를 가공해서 객체를 대신 만들어주는 함수를 구현할 때 |
-
-**📝 예제 코드**
+`new CourseCard(...)`를 호출하면 constructor가 실행되면서 새 객체(instance)가 만들어집니다.
 
 ```js
-class MathUtil {
-  // 정적 속성 (데이터)
-  static PI = 3.14159;
+const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
+const secondCourse = new CourseCard('배열과 객체', '민호', 50);
 
-  // 정적 메서드 (기능)
-  static add(a, b) {
-    return a + b;
+console.log(firstCourse);
+// CourseCard { courseTitle: '변수와 자료형', instructorName: '지수', totalMinutes: 30 }
+
+console.log(firstCourse instanceof CourseCard); // true
+```
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">class 선언</div><div class="wda-fnode-dsc">CourseCard 정의</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">new 호출</div><div class="wda-fnode-dsc">new CourseCard(...)</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">constructor 실행</div><div class="wda-fnode-dsc">전달값을 this에 담음</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">instance 생성</div><div class="wda-fnode-dsc">firstCourse 완성</div></div>
+</div>
+
+```js
+// 일부러 에러 확인용: new 없이 class를 호출하면 에러가 난다
+try {
+  const brokenCourse = CourseCard('제목 없음', '담당자 없음', 0);
+} catch (error) {
+  console.log(error instanceof TypeError); // true
+}
+```
+
+---
+
+## 7. this로 instance 값 사용하기
+
+class 안에서 `this`는 **new로 만들어지는 바로 그 instance**를 가리킵니다.
+
+```js
+class CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes) {
+    this.courseTitle = courseTitle; // this = 지금 만들어지는 instance
+    this.instructorName = instructorName;
+    this.totalMinutes = totalMinutes;
   }
 }
 
-// 1. 객체 생성(new) 없이 바로 사용 가능
-console.log(MathUtil.PI);          // 3.14159
-console.log(MathUtil.add(10, 20)); // 30
+const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
+console.log(firstCourse.courseTitle); // '변수와 자료형'
+```
 
-// 2. ⚠️ 주의: 인스턴스(객체)로는 접근 불가
-const m = new MathUtil();
-// console.log(m.add(10, 20)); // Error: m.add is not a function
+<div class="wda-callout wda-ci">
+  constructor와 method 안의 <code>this</code>는 그 instance 자신을 가리킵니다. this가 호출 방식에 따라 달라지는 자세한 내용은 4-4 this 바인딩 문서에서 다룹니다. 이 부록에서는 "class 안의 this는 instance"라는 점만 기억하면 충분합니다.
+</div>
+
+---
+
+## 8. class method 만들기
+
+method는 `function` 키워드 없이 constructor 아래에 바로 작성합니다.
+
+```js
+class CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes) {
+    this.courseTitle = courseTitle;
+    this.instructorName = instructorName;
+    this.totalMinutes = totalMinutes;
+  }
+
+  getSummary() {
+    return `${this.courseTitle} - ${this.instructorName} (${this.totalMinutes}분)`;
+  }
+
+  updateDuration(nextMinutes) {
+    this.totalMinutes = nextMinutes;
+  }
+}
+
+const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
+console.log(firstCourse.getSummary());
+// 변수와 자료형 - 지수 (30분)
 ```
 
 <div class="wda-callout wda-cw">
-  <code>static PI = 3.14159</code> 같은 정적 필드 문법은 비교적 최신 문법입니다. 현대 브라우저와 최신 개발 환경에서는 사용할 수 있지만, 오래된 환경에서는 설정이 필요할 수 있습니다.
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>이미지 속 'Promise' 메모의 의미</strong> — 자바스크립트에서 비동기 처리를 할 때 쓰는 <code>Promise</code>도 정적 메서드를 많이 사용합니다.<br>
-  • <code>new Promise(...)</code> : 인스턴스 생성<br>
-  • <code>Promise.all(...)</code>, <code>Promise.resolve(...)</code> : <strong>정적 메서드</strong> (객체 생성 없이 유틸리티처럼 사용)<br><br>
-  <strong>쉬운 비유</strong><br>
-  • <strong>일반 메서드</strong> — <strong>"내 자동차"</strong>의 와이퍼 켜기 (내 차를 사야 쓸 수 있음)<br>
-  • <strong>정적 메서드</strong> — <strong>"현대자동차 서비스센터"</strong> 전화하기 (차를 안 사도 전화는 걸 수 있음, 회사 자체의 기능)
+  method와 method 사이에는 <strong>콤마(,)를 쓰지 않습니다.</strong> 객체 리터럴과 헷갈려 콤마를 찍으면 <code>SyntaxError</code>가 발생합니다.
 </div>
 
 ---
 
-## 5. ✅ 핵심 요약
+## 9. 여러 instance는 독립된 값을 가진다
+
+같은 class로 만든 instance라도 서로 다른 값을 따로 가지며, 한쪽을 바꿔도 다른 쪽에는 영향이 없습니다.
+
+```js
+const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
+const secondCourse = new CourseCard('배열과 객체', '민호', 50);
+
+firstCourse.updateDuration(45);
+
+console.log(firstCourse.totalMinutes);  // 45
+console.log(secondCourse.totalMinutes); // 50 (영향 없음)
+```
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">firstCourse</div>
+    courseTitle: '변수와 자료형', totalMinutes: 45
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">secondCourse</div>
+    courseTitle: '배열과 객체', totalMinutes: 50
+  </div>
+</div>
+
+---
+
+## 10. method와 property 구분하기
+
+`courseTitle`, `totalMinutes`처럼 instance가 가진 **값**은 property, `getSummary`, `updateDuration`처럼 instance가 가진 **동작**은 method입니다.
+
+```js
+console.log(typeof firstCourse.courseTitle);  // 'string'  (property)
+console.log(typeof firstCourse.getSummary);   // 'function' (method)
+```
+
+<table class="wda-mtable">
+  <tr>
+    <th>구분</th>
+    <th>의미</th>
+    <th>예시</th>
+  </tr>
+  <tr>
+    <td><strong>property</strong></td>
+    <td>instance가 가진 값</td>
+    <td>courseTitle, totalMinutes</td>
+  </tr>
+  <tr>
+    <td><strong>method</strong></td>
+    <td>instance가 실행할 수 있는 동작</td>
+    <td>getSummary(), updateDuration()</td>
+  </tr>
+</table>
+
+---
+
+## 11. extends와 super 짧게 보기
+
+`extends`로 기존 class를 물려받고, `super(...)`로 부모의 constructor를 실행할 수 있습니다.
+
+```js
+class FeaturedCourseCard extends CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes, badgeLabel) {
+    super(courseTitle, instructorName, totalMinutes); // 부모 constructor 실행
+    this.badgeLabel = badgeLabel;
+  }
+
+  getSummary() {
+    return `[${this.badgeLabel}] ${super.getSummary()}`;
+  }
+}
+
+const featured = new FeaturedCourseCard('비동기 프로그래밍', '유리', 60, '인기');
+console.log(featured.getSummary());
+// [인기] 비동기 프로그래밍 - 유리 (60분)
+
+console.log(featured instanceof CourseCard); // true
+```
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">extends</div><div class="wda-fnode-dsc">CourseCard를 물려받음</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">super(...)</div><div class="wda-fnode-dsc">부모 constructor 실행</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">기존 값 초기화</div><div class="wda-fnode-dsc">courseTitle 등 설정됨</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">추가 값 설정</div><div class="wda-fnode-dsc">badgeLabel 설정</div></div>
+</div>
+
+<div class="wda-callout wda-cw">
+  자식 constructor에서 <code>this</code>를 사용하기 전에 반드시 <code>super(...)</code>를 먼저 호출해야 합니다.
+</div>
+
+---
+
+## 12. static method 짧게 보기
+
+`static`이 붙은 메서드는 instance가 아니라 **class 이름으로 직접** 호출합니다.
+
+```js
+class CourseCard {
+  constructor(courseTitle, instructorName, totalMinutes) {
+    this.courseTitle = courseTitle;
+    this.instructorName = instructorName;
+    this.totalMinutes = totalMinutes;
+  }
+
+  getSummary() {
+    return `${this.courseTitle} - ${this.instructorName} (${this.totalMinutes}분)`;
+  }
+
+  static createDefault() {
+    return new CourseCard('제목 미정', '담당자 미정', 0);
+  }
+}
+
+const emptyCourse = CourseCard.createDefault();
+console.log(emptyCourse.getSummary());
+// 제목 미정 - 담당자 미정 (0분)
+```
+
+<div class="wda-callout wda-ci">
+  static method는 instance가 아니라 class 이름으로 호출합니다. <code>emptyCourse.createDefault()</code>처럼 instance에서는 호출할 수 없습니다.
+</div>
+
+---
+
+## 13. 초보자가 자주 만나는 class 실수
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">new를 빼먹기</div>
+    <div class="wda-fcard-dsc">class는 new 없이 호출하면 에러가 납니다. 생성자 함수와 달리 조용히 undefined를 반환하지 않습니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">method 사이에 콤마 찍기</div>
+    <div class="wda-fcard-dsc">객체 리터럴 습관대로 콤마를 찍으면 SyntaxError가 발생합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">super() 호출 전에 this 사용</div>
+    <div class="wda-fcard-dsc">extends한 자식 class는 super()를 먼저 호출해야 this를 쓸 수 있습니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">static method를 instance로 호출</div>
+    <div class="wda-fcard-dsc">static method는 class 이름으로만 호출할 수 있고, instance에서는 호출할 수 없습니다.</div>
+  </div>
+</div>
+
+<table class="wda-mtable">
+  <tr>
+    <th>실수</th>
+    <th>결과</th>
+  </tr>
+  <tr>
+    <td>new 없이 호출</td>
+    <td>TypeError 발생</td>
+  </tr>
+  <tr>
+    <td>method 사이 콤마</td>
+    <td>SyntaxError 발생</td>
+  </tr>
+  <tr>
+    <td>super() 호출 전 this 사용</td>
+    <td>ReferenceError 발생</td>
+  </tr>
+  <tr>
+    <td>static method를 instance로 호출</td>
+    <td>TypeError 발생(해당 메서드 없음)</td>
+  </tr>
+</table>
+
+---
+
+## 14. 실습 과제
+
+<div class="wda-callout wda-cs">
+  <strong>🎯 목표</strong><br>
+  CourseCard class를 완성하고, 여러 instance를 만들어 동작을 확인해 보세요.
+</div>
+
+**📋 요구사항**
+
+- `CourseCard` class에 `courseTitle`, `instructorName`, `totalMinutes`를 받는 constructor를 작성하세요.
+- 세 값을 한 문장으로 반환하는 `getSummary()` method를 작성하세요.
+- `totalMinutes`를 바꾸는 `updateDuration(nextMinutes)` method를 작성하세요.
+- `firstCourse`, `secondCourse` 두 instance를 만들고, 한쪽만 시간을 바꿔 서로 영향이 없는지 확인하세요.
+
+```js
+class CourseCard {
+  // TODO: constructor를 작성하세요
+
+  // TODO: getSummary()를 작성하세요
+
+  // TODO: updateDuration(nextMinutes)를 작성하세요
+}
+
+const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
+const secondCourse = new CourseCard('배열과 객체', '민호', 50);
+```
+
+**💡 힌트 1**
+
+constructor의 매개변수를 그대로 `this.속성 = 값` 형태로 담아야 나중에 method에서 꺼내 쓸 수 있습니다.
+
+**💡 힌트 2**
+
+`getSummary()`는 새 값을 받지 않고, `this`에 이미 저장된 값만 사용해서 문자열을 만듭니다.
+
+**💡 힌트 3**
+
+`updateDuration`은 매개변수로 받은 값을 `this.totalMinutes`에 다시 대입하면 됩니다. 두 instance가 독립적인지는 한쪽만 호출해서 확인하세요.
+
+**📌 정리 메모**
+
+<div class="wda-callout wda-ci">
+  class 기본 문법에 익숙해졌다면, 생성자 함수 부록과 비교하며 두 문법이 같은 결과를 만든다는 점을 다시 확인해 보세요.
+</div>
+
+---
+
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>Class는 복잡한 프로토타입 문법을 감춘 <strong>Syntactic Sugar(문법적 설탕)</strong>이며, 내부적으로는 여전히 prototype을 사용합니다.</li>
-    <li><code>constructor</code>는 <code>new</code>로 인스턴스를 만들 때 자동 실행되는 초기화 메서드이며, 클래스 메서드 사이에는 <strong>콤마(,)</strong>를 쓰지 않습니다.</li>
-    <li><strong>extends</strong>로 상속하고, <strong>super()</strong>로 부모의 생성자를, <strong>super.method()</strong>로 부모의 메서드를 호출합니다.</li>
-    <li><strong>static</strong> 키워드가 붙은 메서드/속성은 인스턴스가 아니라 <strong>클래스 자체</strong>에서 호출합니다 (<code>ClassName.method()</code>).</li>
-    <li>Class는 let/const처럼 <strong>TDZ</strong>의 영향을 받아 선언 전에 사용할 수 없습니다 — 반드시 먼저 선언한 뒤 사용(<code>new</code>)해야 합니다.</li>
+    <li><strong>class</strong>는 객체를 만들기 위한 문법이며, <strong>new</strong>로 호출해야 instance가 만들어진다.</li>
+    <li><strong>constructor</strong>는 new 호출 시 자동 실행되며, 전달값을 <code>this</code>에 담아 instance를 채운다.</li>
+    <li>class 안의 <strong>this</strong>는 지금 만들어지는 instance 자신을 가리킨다.</li>
+    <li><strong>method</strong>는 instance의 동작, <strong>property</strong>는 instance의 값이며, 같은 class로 만든 instance라도 값은 서로 독립적이다.</li>
+    <li><strong>extends</strong>로 물려받고 <strong>super(...)</strong>로 부모 constructor를 실행하며, <strong>static</strong> method는 class 이름으로 호출한다.</li>
   </ul>
 </div>
 
@@ -398,20 +515,20 @@ const m = new MathUtil();
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: Class는 생성자 함수와 완전히 동일하게 동작한다?</div>
-    <div class="wda-mistake-right">정답: Class는 <strong>new 없이 호출할 수 없고</strong>, 내부 코드가 자동으로 strict mode이며, 선언 전 사용이 불가능하다는 점에서 생성자 함수와 다릅니다.</div>
+    <div class="wda-mistake-wrong">오해: class는 new 없이도 호출할 수 있다?</div>
+    <div class="wda-mistake-right">정답: class를 new 없이 호출하면 <strong>TypeError</strong>가 발생한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 자식 클래스의 constructor에서 this를 먼저 써도 된다?</div>
-    <div class="wda-mistake-right">정답: 자식 <code>constructor</code>에서 this를 사용하기 전에 반드시 <strong>super()를 먼저 호출</strong>해야 합니다.</div>
+    <div class="wda-mistake-wrong">오해: class의 method 사이에도 객체처럼 콤마(,)를 찍어야 한다?</div>
+    <div class="wda-mistake-right">정답: method 사이에 콤마를 찍으면 <strong>SyntaxError</strong>가 발생한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 클래스 메서드 사이에도 객체처럼 콤마(,)를 찍어야 한다?</div>
-    <div class="wda-mistake-right">정답: 클래스 안에서 메서드 사이에 콤마를 찍으면 <strong>SyntaxError</strong>가 발생합니다.</div>
+    <div class="wda-mistake-wrong">오해: 같은 class로 만든 instance는 값을 공유한다?</div>
+    <div class="wda-mistake-right">정답: 각 instance는 <strong>독립된 값</strong>을 가지며, 한쪽을 바꿔도 다른 instance에는 영향이 없다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 정적(static) 메서드는 인스턴스에서도 호출할 수 있다?</div>
-    <div class="wda-mistake-right">정답: 정적 메서드는 <strong>클래스 이름으로만</strong> 호출 가능하며, 인스턴스(new로 만든 객체)에서는 호출할 수 없습니다.</div>
+    <div class="wda-mistake-wrong">오해: static method도 instance에서 호출할 수 있다?</div>
+    <div class="wda-mistake-right">정답: static method는 <strong>class 이름으로만</strong> 호출할 수 있다.</div>
   </div>
 </div>
 
@@ -419,20 +536,20 @@ const m = new MathUtil();
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 정체</div>
-    <div class="wda-formula-block-body"><code>Class = 프로토타입의 Syntactic Sugar</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 생성 흐름</div>
+    <div class="wda-formula-block-body"><code>class 선언 → new 호출 → constructor 실행 → instance</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 상속</div>
-    <div class="wda-formula-block-body"><code>extends + super()</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · this</div>
+    <div class="wda-formula-block-body"><code>class 안의 this = 지금 만들어지는 instance</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 정적 멤버</div>
+    <div class="wda-formula-block-ttl">공식 3 · 상속</div>
+    <div class="wda-formula-block-body"><code>extends + super(...)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · static</div>
     <div class="wda-formula-block-body"><code>static → ClassName.method()</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 4 · 사용 순서</div>
-    <div class="wda-formula-block-body"><code>class는 선언 후 사용 (TDZ)</code></div>
   </div>
 </div>
 
@@ -440,31 +557,31 @@ const m = new MathUtil();
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Syntactic Sugar란?</div>
-    <div class="wda-flip-back">기능은 같지만 사람이 읽고 쓰기 편하게 만든 단축 문법이다. Class는 프로토타입 기반 객체 생성을 감싼 문법적 설탕이다.</div>
+    <div class="wda-flip-front">class를 new 없이 호출하면?</div>
+    <div class="wda-flip-back">TypeError가 발생한다. class는 반드시 new로 호출해야 한다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">constructor는 언제 실행되나?</div>
-    <div class="wda-flip-back">new로 인스턴스를 생성할 때 자동으로 한 번 실행되는 초기화 메서드다.</div>
+    <div class="wda-flip-back">new로 instance를 만들 때 자동으로 한 번 실행된다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">클래스 메서드 사이에 콤마를 찍으면?</div>
-    <div class="wda-flip-back">SyntaxError가 발생한다. 객체 리터럴과 달리 클래스 메서드 사이에는 콤마를 쓰지 않는다.</div>
+    <div class="wda-flip-front">class 안의 this는 무엇을 가리키나?</div>
+    <div class="wda-flip-back">지금 만들어지는 instance 자신을 가리킨다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">extends와 super()의 역할은?</div>
-    <div class="wda-flip-back">extends는 부모의 기능을 물려받게 하고, super()는 자식 constructor에서 부모의 constructor를 실행한다.</div>
+    <div class="wda-flip-front">같은 class로 만든 두 instance의 값은?</div>
+    <div class="wda-flip-back">서로 독립적이다. 한쪽을 바꿔도 다른 instance에는 영향이 없다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">super.method()는 언제 쓰나?</div>
-    <div class="wda-flip-back">부모의 기본 기능을 그대로 실행하면서 자식만의 기능을 추가로 얹을 때(오버라이딩) 사용한다.</div>
+    <div class="wda-flip-front">method 사이에 콤마를 찍으면?</div>
+    <div class="wda-flip-back">SyntaxError가 발생한다. 객체 리터럴과 달리 콤마를 쓰지 않는다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">static 메서드는 어떻게 호출하나?</div>
-    <div class="wda-flip-back">new로 만든 인스턴스가 아니라 클래스 이름으로 직접 호출한다 (예: MathUtil.add()).</div>
+    <div class="wda-flip-front">자식 class의 constructor에서 지켜야 할 순서는?</div>
+    <div class="wda-flip-back">this를 사용하기 전에 반드시 super(...)를 먼저 호출해야 한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">클래스를 선언 전에 사용하면?</div>
-    <div class="wda-flip-back">let/const처럼 TDZ의 영향을 받아 ReferenceError가 발생한다.</div>
+    <div class="wda-flip-front">static method는 어떻게 호출하나?</div>
+    <div class="wda-flip-back">instance가 아니라 class 이름으로 직접 호출한다 (예: CourseCard.createDefault()).</div>
   </div>
 </div>

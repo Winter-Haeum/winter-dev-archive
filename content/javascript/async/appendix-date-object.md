@@ -1,7 +1,7 @@
 ---
 title: "부록: Date 객체의 모든 것"
 status: "completed"
-description: "Date 객체 생성부터 조회·포맷팅·계산, 타임존과 ISO 문자열, 실무 포맷팅 함수, 상대 시간 표시, Setter 주의사항까지 정리한다."
+description: "Date 객체 생성, 읽기, 수정, 비교, 포맷팅의 기본 흐름을 강의 시작일·마감일 관리 시나리오로 정리한다."
 category: "JavaScript"
 section: "Async"
 tags:
@@ -14,41 +14,32 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-1~1-5·2-1~2-3·4-1~4-4·DOM 3-3·async 5-1~5-5 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -69,518 +60,529 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 ## 🎯 학습 목표
 
-<div class="wda-goal" style="position:relative;overflow:visible;">
-  • <strong>생성과 조회</strong> — `new Date()`로 날짜를 만들고 `get...` 메서드로 값을 꺼내는 법을 익힙니다.<br>
-  • <strong>포맷팅과 계산</strong> — 날짜를 원하는 형태로 표시하고, 두 날짜의 차이를 계산하는 방법을 배웁니다.<br>
-  • <strong>타임존과 실무 함정</strong> — UTC/KST 차이, Setter의 자동 보정 등 실수하기 쉬운 지점을 짚습니다.
+<div class="wda-goal">
+  • <strong>Date 생성</strong> — 현재 날짜와 특정 날짜를 다양한 방식으로 만들 수 있다.<br>
+  • <strong>읽기와 수정</strong> — 연/월/일/시/분/초를 읽고, 필요한 부분만 바꿀 수 있다.<br>
+  • <strong>비교와 계산</strong> — 두 날짜를 비교하고 그 차이를 일(day) 단위로 계산할 수 있다.<br>
+  • <strong>표시하기</strong> — 날짜를 화면에 보여줄 형태로 안전하게 변환할 수 있다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>1. 날짜 생성하기 (Creation)</h2>
-</div>
+## 1. Date 객체가 필요한 순간
 
-**📝 new Date() 기본**
-
-- **정의** : `Date` 객체는 생성하는 **그 순간의 시간**을 저장합니다.
-- **활용** — 괄호 `()` 안에 아무것도 넣지 않거나, 특정 날짜 정보를 넣어서 원하는 시간을 만들 수 있습니다.
-
-```js
-// 1. 현재 시간 생성
-// 아무것도 넣지 않으면 코드가 실행되는 시점의 시간이 저장됨
-const now = new Date();
-console.log(now); // 예: Mon Jan 01 2024 ...
-
-// 2. 문자열로 생성 (직관적이지만 포맷에 주의 ⚠️)
-// 날짜 포맷(YYYY-MM-DD)을 문자열로 넣어줌
-const date1 = new Date('2024-12-25');
-const date2 = new Date('2024/12/25 10:30:00');
-
-// 3. 숫자로 생성 (년, 월, 일, 시, 분, 초)
-// ⚠️ 주의: 월(Month)은 0부터 시작합니다! (0 = 1월, ... 11 = 12월)
-const date3 = new Date(2024, 11, 25);
-// 결과: 2024년 12월 25일 (11을 넣었지만 12월이 됨)
-
-// 4. 타임스탬프로 생성
-// 밀리초 단위의 숫자를 넣어서 생성
-const date4 = new Date(1704067200000);
-```
-
-<div class="wda-callout wda-cw">
-  문자열로 Date를 만들 수 있지만, 문자열 포맷은 브라우저마다 해석 차이가 생길 수 있습니다. 가장 안전한 방식은 ISO 형식인 <code>YYYY-MM-DDTHH:mm:ss</code>를 사용하거나, 연/월/일 숫자를 직접 넣는 방식입니다.
-</div>
-
-**📌 Timestamp란?**
+강의 시작일과 수강 마감일을 관리하다 보면 "지금이 언제인지", "이 날짜가 저 날짜보다 빠른지", "마감까지 며칠 남았는지"를 계산해야 하는 순간이 온다. JavaScript는 이런 날짜·시간 정보를 `Date` 객체로 다룬다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">기준점</div>
-    <div class="wda-fcard-dsc"><strong>UTC 기준</strong> 1970년 1월 1일 00:00:00부터 흐른 시간을 의미합니다.<br>한국 시간(KST)으로 보면 1970년 1월 1일 09:00:00에 해당합니다.</div>
+    <div class="wda-fcard-ttl">날짜 비교</div>
+    <div class="wda-fcard-dsc">강의 시작일과 오늘 날짜를 비교한다</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">단위</div>
-    <div class="wda-fcard-dsc"><strong>밀리초(ms)</strong> 단위의 정수입니다. (1초 = 1000ms)</div>
+    <div class="wda-fcard-ttl">기간 계산</div>
+    <div class="wda-fcard-dsc">마감일까지 남은 일수를 계산한다</div>
   </div>
   <div class="wda-fcard">
-    <div class="wda-fcard-ttl">용도</div>
-    <div class="wda-fcard-dsc">컴퓨터가 내부적으로 시간을 계산하거나 비교할 때 사용하는 <strong>절대적인 기준값</strong>입니다.</div>
+    <div class="wda-fcard-ttl">화면 표시</div>
+    <div class="wda-fcard-dsc">날짜를 사람이 읽기 쉬운 형태로 바꾼다</div>
   </div>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바스크립트의 오래된 설계 실수 중 하나입니다.<br>
-  <code>1월</code>을 만들고 싶으면 <code>0</code>, <code>12월</code>을 만들고 싶으면 <code>11</code>을 넣어야 한다는 점을 꼭 기억해야 합니다. (일, 연도 등은 우리가 아는 숫자 그대로 사용합니다.)<br><br>
-  <strong>KST vs UTC</strong> — 위에서 언급된 기준 시간은 한국 표준시(KST) 기준이며, 전 세계 표준시(UTC)로는 1970년 1월 1일 00:00:00이 기준이 됩니다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>2. 날짜 조회하기 (Getters)</h2>
-</div>
+## 2. 현재 날짜와 특정 날짜 만들기
 
-**📝 주요 메서드 (get...)**
+<div class="wda-compare">
 
-- **기능** — `get`으로 시작하는 메서드들을 사용하여 연, 월, 일, 시, 분 등의 정보를 각각 쪼개서 가져올 수 있습니다.
-- **사용법** — 생성된 `Date` 객체 뒤에 점(.)을 찍고 메서드를 호출합니다.
+<div class="wda-compare-card">
 
-<div class="wda-callout wda-ci">
-  <code>2024-05-05T15:30:00</code>처럼 시간대 표시가 없는 문자열은 브라우저의 로컬 시간대로 해석됩니다. 전 세계 기준의 시간을 명확히 표현하려면 <code>Z</code> 또는 <code>+09:00</code> 같은 시간대 정보를 붙이는 것이 안전합니다.
-</div>
+<div class="wda-compare-ttl">📝 현재 날짜</div>
 
-```js
-// 예시 날짜: 2024년 5월 5일 (일요일) 15시 30분 (시간대 표시 없음 -> 로컬 시간대로 해석됨)
-const d = new Date('2024-05-05T15:30:00');
-
-// --- [날짜 정보] ---
-console.log(d.getFullYear()); // 2024 (연도)
-console.log(d.getMonth());    // 4  ⚠️ 주의: 5월이지만 4가 나옴 (0부터 시작)
-console.log(d.getDate());     // 5  (일 - 이건 정상적으로 1부터 시작)
-console.log(d.getDay());      // 0  (요일 - 일요일은 0, 토요일은 6)
-
-// --- [시간 정보] ---
-console.log(d.getHours());    // 15 (시)
-console.log(d.getMinutes());  // 30 (분)
-console.log(d.getSeconds());  // 0  (초)
-
-// --- [타임스탬프] ---
-console.log(d.getTime());     // 1714... (1970년부터 흐른 밀리초)
+```javascript
+const today = new Date();
 ```
 
-**⚠️ 개발자를 울리는 함정 (Zero-Index)**
+실행 시점마다 값이 달라진다.
 
-| **구분** | **동작 방식 (Return Value)** | **주의사항 (Action Item)** |
-| --- | --- | --- |
-| **월(Month)** | • `getMonth()`는 **0부터 시작**합니다.<br>• (0 = 1월, ... 11 = 12월) | • 화면에 "5월"로 표시하려면 반드시 **`+1`**을 더해줘야 합니다. |
-| **일(Date)** | • `getDate()`는 우리가 아는 대로 **1부터 시작**합니다. | • 월과 다르게 **그대로 사용**하면 됩니다. (반전 주의) |
+</div>
 
-**💡 요일(Day) 처리 꿀팁**
+<div class="wda-compare-card">
 
-| **구분** | **핵심 내용** |
-| --- | --- |
-| **숫자의 의미** | • **0**: 일요일, **1**: 월요일 ... **6**: 토요일을 의미합니다. |
-| **활용법** | • 숫자로 반환되므로, **한글 요일 배열**(`['일', '월', ...]`)을 만들어 인덱스로 매핑하여 사용하면 편리합니다. |
+<div class="wda-compare-ttl">📝 특정 날짜</div>
 
-```js
-// 요일 변환 꿀팁 코드
-const days = ['일', '월', '화', '수', '목', '금', '토'];
-
-// d.getDay()가 0이면 days[0]인 '일'이 출력됨
-console.log(`오늘은 ${days[d.getDay()]}요일 입니다.`);
+```javascript
+const lessonStartDate =
+  new Date(2026, 2, 10);
 ```
 
-**💡 보충 설명**
+항상 같은 날짜를 가리킨다.
+
+</div>
+
+</div>
+
+**📌 개념**
 
 <div class="wda-callout wda-ci">
-  <strong>왜 월(Month)만 0부터 시작하나요?</strong> — 자바(Java) 언어의 초기 설계를 따라가다가 생긴 자바스크립트의 오래된 유산입니다.<br>
-  이 불편함 때문에 실무에서는 <code>Moment.js</code>나 <code>Day.js</code> 같은 라이브러리를 써서 이 문제를 해결하기도 합니다.<br><br>
-  <strong>Getters</strong> — 객체(Object)가 가지고 있는 비공개 데이터를 꺼내오는(Get) 메서드라는 뜻입니다.
+  <code>new Date()</code>는 코드가 실행되는 시점의 날짜와 시간을 담은 객체를 만든다. 연/월/일 숫자를 순서대로 넣으면 원하는 날짜를 정확히 지정할 수 있다. 월이 0부터 시작한다는 점은 6번에서 자세히 다룬다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>3. 날짜 예쁘게 보여주기 (Formatting)</h2>
-</div>
+## 3. 문자열 날짜와 숫자 날짜
 
-**📝 Pre-built Methods (기본 제공 함수)**
+<div class="wda-compare">
 
-**특징** — 복잡한 코드 없이 브라우저가 알아서 사용자의 **지역(Locale)**에 맞는 형식으로 바꿔줍니다.
+<div class="wda-compare-card">
 
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">toLocaleDateString()</div>
-    <div class="wda-fcard-dsc"><strong>날짜</strong>만 보여줍니다. (예: 2024. 5. 5.)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">toLocaleTimeString()</div>
-    <div class="wda-fcard-dsc"><strong>시간</strong>만 보여줍니다. (예: 오후 3:30:00)</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">toLocaleString()</div>
-    <div class="wda-fcard-dsc"><strong>날짜와 시간</strong>을 모두 보여줍니다.</div>
-  </div>
-</div>
+<div class="wda-compare-ttl">📝 문자열로 생성</div>
 
-항상 한국 시간 기준으로 표시하고 싶다면 `ko-KR`과 `timeZone: 'Asia/Seoul'` 옵션을 명시할 수 있습니다.
-
-```js
-const date = new Date();
-
-console.log(date.toLocaleString('ko-KR', {
-  timeZone: 'Asia/Seoul'
-}));
+```javascript
+const lessonStartDate =
+  new Date("2026-03-10");
 ```
 
-**📝 Custom Formatting (직접 조합하기)**
-
-**필요성** — 기본 함수가 제공하지 않는 **특정 형식**(예: `2024-05-05`)이 필요할 때 직접 년/월/일을 꺼내서 조립합니다.
-
-<div class="wda-callout wda-cs">
-  <strong>실무 팁</strong> — 실무에서는 날짜 처리가 복잡해서 <code>date-fns</code>나 <code>dayjs</code> 같은 <strong>전문 라이브러리</strong>를 많이 사용합니다.
 </div>
 
-```js
-const d = new Date();
+<div class="wda-compare-card">
 
-// 1. 필요한 정보 꺼내기
-const year = d.getFullYear();
-const month = d.getMonth() + 1; // ⚠️ 중요: 월은 0부터 시작하므로 +1 필수!
-const day = d.getDate();
+<div class="wda-compare-ttl">📝 숫자로 생성</div>
 
-// 2. 포맷팅 (0 채우기)
-// padStart(2, '0') -> 2자리가 안 되면 앞에 '0'을 붙여라 (5 -> 05)
-// 숫자를 문자열(String)로 변환한 뒤에 사용해야 함
-const format = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
-console.log(format);
-// 결과: "2024-05-05" (깔끔하게 0이 붙어서 나옴)
+```javascript
+const lessonStartDate =
+  new Date(2026, 2, 10);
 ```
 
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>Locale(로캘)</strong> — 사용자의 언어, 국가, 시간대 설정을 의미합니다.<br>
-  같은 <code>toLocaleString()</code>이라도 미국 컴퓨터에서는 <code>5/5/2024</code>로 나오고, 한국 컴퓨터에서는 <code>2024. 5. 5.</code>로 알아서 다르게 표시됩니다.<br><br>
-  <strong>padStart(길이, 문자)</strong> — 문자열의 길이가 지정한 길이보다 짧으면, 앞쪽에 특정 문자를 채워주는 함수입니다.<br>
-  날짜 포맷을 맞출 때(1월 -&gt; 01월) 가장 많이 쓰이는 필수 테크닉입니다.
 </div>
 
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>4. 날짜 계산하기 (Calculation)</h2>
 </div>
 
-**⚙️ 기본 원리 (밀리초의 마법)**
-
-- **핵심** — 날짜 객체끼리 **빼기(-) 연산**을 하면, 두 날짜 사이의 차이가 **밀리초(ms)** 단위의 숫자로 반환됩니다.
-- **비교** — 크기 비교 연산자(`>`, `<`)를 사용하여 어느 날짜가 더 미래인지, 과거인지 판단할 수 있습니다.
-
-```js
-const start = new Date('2024-01-01');
-const end = new Date('2024-01-02');
-
-// 1. 차이 구하기 (ms 단위)
-// 날짜끼리 빼면 자동으로 숫자로 변환되어 계산됨
-const diff = end - start;
-console.log(diff); // 86400000 (딱 하루치 밀리초)
-
-// 2. 일(Day) 단위로 변환
-// 밀리초를 (1000 * 60 * 60 * 24)로 나누면 '일'이 됨
-const diffDay = diff / (1000 * 60 * 60 * 24);
-console.log(diffDay); // 1 (1일 차이)
-
-// 3. 시간 비교
-if (end > start) {
-  console.log('end가 더 미래입니다.');
-}
-```
-
-**📝 D-Day 계산 공식**
-
-**공식**: `(목표일 - 오늘) / 하루ms = 남은 일수`
-
-**원리**: 두 날짜의 차이(ms)를 구한 뒤, 하루에 해당하는 밀리초 값으로 나누어 며칠이 남았는지 계산합니다.
-
-**📌 자주 쓰는 단위 (ms)**
-
-날짜 계산을 위해 꼭 외워두거나 적어두면 좋은 상수값들입니다.
-
-| **단위** | **계산식** | **값 (ms)** |
-| --- | --- | --- |
-| **1초** | 1000 | **1,000** |
-| **1분** | 1000 * 60 | **60,000** |
-| **1시간** | 1000 * 60 * 60 | **3,600,000** |
-| **1일** | 1000 * 60 * 60 * 24 | **86,400,000** |
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  단순한 날짜 차이는 <code>1000 * 60 * 60 * 24</code>로 계산할 수 있습니다. 다만 해외 시간대나 썸머타임이 포함되면 하루가 항상 정확히 24시간이 아닐 수 있으므로, 실무에서는 <code>dayjs</code>/<code>date-fns</code> 같은 라이브러리를 사용하는 것이 안전합니다.
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>소수점 처리</strong> — 계산 결과가 딱 떨어지지 않고 <code>1.5일</code>(하루 반) 처럼 나올 수 있습니다. D-Day를 구할 때는 상황에 따라 <code>Math.floor()</code>(내림), <code>Math.ceil()</code>(올림), <code>Math.round()</code>(반올림)를 적절히 섞어서 정수로 만들어줘야 깔끔합니다.<br><br>
-  <strong>라이브러리 추천</strong> — 실무에서는 이 계산이 귀찮고 복잡(윤년, 썸머타임 등)하기 때문에 <code>dayjs</code> 같은 라이브러리를 쓰면 <code>day1.diff(day2, 'day')</code> 한 줄로 끝낼 수 있습니다.
+  문자열로 만들 때는 <code>"YYYY-MM-DD"</code> 형식(ISO 형식)을 쓰는 것이 가장 안전하다. 다른 형식은 실행 환경에 따라 다르게 해석될 수 있다. 숫자로 만들 때는 월이 0부터 시작한다는 점을 주의해야 한다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>5. 타임존과 ISO (Timezone)</h2>
-</div>
+## 4. 년/월/일 읽기
 
-**🆚 UTC vs KST**
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
 
-| **구분** | **설명** |
-| --- | --- |
-| **UTC (Coordinated Universal Time)** | 국제 표준시입니다. (영국 그리니치 천문대 기준) |
-| **KST (Korea Standard Time)** | 한국 표준시입니다. UTC보다 **9시간** 빠릅니다. (UTC + 9) |
-| **기본 동작** | 자바스크립트의 `new Date()`는 브라우저의 **로컬 시간대(KST)**를 따르지만, `toISOString()` 메서드는 무조건 **국제 표준시(UTC)** 기준으로 변환됩니다. |
-
-**⚠️ 서버 전송 시 주의사항 (시간이 바뀐다?)**
-
-<div class="wda-callout wda-cw">
-  <strong>현상</strong> — 한국에서 "5월 5일 0시"를 ISO 문자열로 변환하면, 9시간이 빠진 "5월 4일 15시"로 바뀝니다.<br>
-  <strong>이유</strong> — 전 세계 공통 시간(UTC)으로 맞추기 위해 자동으로 9시간을 빼버리기 때문입니다.
-</div>
-
-```js
-const d = new Date('2024-05-05T00:00:00'); // 한국 시간(KST) 00:00
-
-// 1. 그냥 출력 (브라우저 로컬)
-// 내 컴퓨터 시간대(KST)에 맞춰서 보여줌
-console.log(d.toString());
-// 결과: "Sun May 05 ... (Korean Standard Time)"
-
-// 2. 서버 전송용 (ISO - UTC)
-// 🚨 주의: 9시간이 빠져서 날짜가 하루 전으로 바뀜!
-console.log(d.toISOString());
-// 결과: "2024-05-04T15:00:00.000Z"
+console.log(lessonStartDate.getFullYear()); // 2026
+console.log(lessonStartDate.getMonth());    // 2
+console.log(lessonStartDate.getDate());     // 10
 ```
 
-**💡 KST 시간 유지하기 (Offset 보정 꿀팁)**
-
-서버에 보낼 때도 한국 시간의 숫자("05-05 00:00")를 그대로 유지하고 싶다면, 강제로 시차만큼 시간을 더해주는 편법(Offset 보정)을 사용해야 합니다.
-
-<div class="wda-callout wda-cw">
-  이 offset 보정은 <strong>'KST의 날짜/시간 숫자를 ISO 문자열처럼 보이게 만들기 위한 표시용 편법'</strong>에 가깝습니다. 실제 서버에 시간을 저장할 때는 보통 원래 시간을 UTC 기준 ISO 문자열로 저장하고, 화면에 보여줄 때 사용자의 시간대로 변환하는 방식이 더 안전합니다.
-</div>
-
-```js
-// 💡 꿀팁: KST 숫자를 유지하고 싶다면? (Offset 보정)
-
-// 1. 시차(분)를 밀리초로 변환 (한국은 -540분)
-const offset = d.getTimezoneOffset() * 60000;
-
-// 2. 현재 시간에서 시차를 뺌 (실제로는 9시간을 더하는 효과)
-const dateOffset = new Date(d.getTime() - offset);
-
-// 3. 변환
-console.log(dateOffset.toISOString());
-// 결과: "2024-05-05T00:00:00.000Z" (원하던 숫자가 나옴!)
-```
-
-**💡 보충 설명**
+**📌 개념**
 
 <div class="wda-callout wda-ci">
-  <strong>Z의 의미</strong> — <code>toISOString()</code> 결과 맨 뒤에 붙는 <code>Z</code>는 <strong>"Zulu Time"</strong>의 약자로, 이 시간이 UTC(국제 표준시) 기준임을 나타내는 표시입니다.<br><br>
-  <strong>왜 이렇게 복잡한가요?</strong> — 서버는 전 세계 사용자가 접속하기 때문에, 특정 국가 시간(KST)이 아니라 절대적인 기준 시간(UTC)으로 저장하는 것이 원칙이기 때문입니다.<br>
-  프론트엔드 개발자가 이 차이를 이해하지 못하면 "어? 왜 날짜가 하루 줄었지?" 하며 당황하게 됩니다.
+  <code>getFullYear()</code>는 연도를, <code>getDate()</code>는 일(1~31)을 그대로 반환한다. <code>getMonth()</code>는 0부터 시작하므로 3월인데 2가 나온다 — 자세한 이유는 6번에서 다룬다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>6. 실전 포맷팅 함수 (Custom Formatting)</h2>
+## 5. 시/분/초 읽기
+
+```javascript
+const lessonStartDate = new Date(2026, 2, 10, 9, 30, 0);
+
+console.log(lessonStartDate.getHours());   // 9
+console.log(lessonStartDate.getMinutes()); // 30
+console.log(lessonStartDate.getSeconds()); // 0
+```
+
+| 메서드 | 반환값 |
+|---|---|
+| `getFullYear()` | 연도 (예: 2026) |
+| `getMonth()` | 월 (0~11, 0부터 시작) |
+| `getDate()` | 일 (1~31) |
+| `getHours()` | 시 (0~23) |
+| `getMinutes()` | 분 (0~59) |
+| `getSeconds()` | 초 (0~59) |
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>new Date(연, 월, 일, 시, 분, 초)</code>처럼 시간까지 함께 지정할 수 있다. 시/분/초는 값을 그대로 반환한다.
 </div>
 
-**📝 표준 포맷 (YYYY-MM-DD HH:mm:ss)**
+---
 
-- **용도** : 데이터베이스 저장용이나 로그 기록, 관리자 페이지 등에서 가장 많이 쓰이는 표준 형식입니다.
-- **핵심** : `padStart(2, '0')`를 사용하여 한 자리 숫자(예: 5월)를 두 자리(05월)로 맞춰 줄을 세웁니다.
+## 6. 월이 0부터 시작하는 이유를 주의하기
 
-```js
-// YYYY-MM-DD HH:mm:ss 형식으로 변환
-function formatDate(date) {
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
+
+console.log(lessonStartDate.getMonth());     // 2 (3월인데 2)
+console.log(lessonStartDate.getMonth() + 1); // 3 (화면에 보여줄 때)
+```
+
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  <code>getMonth()</code>와 <code>new Date()</code>의 월 인자는 <strong>0부터 시작</strong>한다(0=1월, 11=12월). 일(day)은 그대로 1부터 시작하므로 헷갈리지 않도록 주의한다. 화면에 월을 표시할 때는 항상 <strong>+1</strong>을 해준다.
+</div>
+
+---
+
+## 7. 날짜 수정하기
+
+```javascript
+const lessonEndDate = new Date(2026, 2, 10);
+
+lessonEndDate.setDate(lessonEndDate.getDate() + 14);
+
+console.log(lessonEndDate.getDate()); // 24
+```
+
+| 메서드 | 역할 |
+|---|---|
+| `setFullYear(년)` | 연도를 바꾼다 |
+| `setMonth(월)` | 월을 바꾼다 (0부터 시작) |
+| `setDate(일)` | 일을 바꾼다 |
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>setDate</code>, <code>setMonth</code>, <code>setFullYear</code> 같은 메서드로 날짜의 일부를 바꿀 수 있다. 그 달의 마지막 날짜보다 큰 값을 넣으면 다음 달로 자동 보정된다(예: 2월 30일 → 3월 근처로 넘어감).
+</div>
+
+---
+
+## 8. 날짜 비교하기
+
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
+const today = new Date();
+
+console.log(today > lessonStartDate);
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  Date 객체는 <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> 연산자로 바로 비교할 수 있다. 내부적으로 타임스탬프(숫자)로 변환되어 비교되기 때문이다. 위 예제의 결과는 실행하는 시점에 따라 달라진다.
+</div>
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">lessonStartDate</div><div class="wda-fnode-dsc">강의 시작일</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">addDays(+14)</div><div class="wda-fnode-dsc">마감일 계산</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">reviewDeadline</div><div class="wda-fnode-dsc">계산된 마감일</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">today와 비교</div><div class="wda-fnode-dsc">isExpired 판단</div></div>
+</div>
+
+---
+
+## 9. 시간 차이 계산하기
+
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
+const lessonEndDate = new Date(2026, 2, 24);
+
+const diff = lessonEndDate - lessonStartDate;
+console.log(diff); // 1209600000
+
+const remainingDays = diff / (1000 * 60 * 60 * 24);
+console.log(remainingDays); // 14
+```
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  두 Date 객체를 빼면 밀리초(ms) 단위의 차이가 숫자로 나온다. 하루는 <code>1000 * 60 * 60 * 24</code>밀리초이므로, 이 값으로 나누면 일(day) 단위로 바꿀 수 있다.
+</div>
+
+---
+
+## 10. timestamp와 getTime
+
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
+
+console.log(typeof lessonStartDate.getTime()); // number
+```
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">Date 객체</div><div class="wda-fnode-dsc">lessonStartDate</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">getTime()</div><div class="wda-fnode-dsc">타임스탬프(숫자)로 변환</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">두 값 비교</div><div class="wda-fnode-dsc">뺄셈으로 차이 계산</div></div>
+</div>
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>getTime()</code>은 1970년 1월 1일부터 흐른 밀리초를 숫자로 반환한다. 이 값 자체는 실행 환경의 시간대에 따라 달라지므로 정확한 숫자를 예로 들지 않는다. 두 Date의 <code>getTime()</code> 차이(또는 두 Date를 직접 뺀 값)는 9번처럼 안정적으로 일(day) 단위 계산에 쓸 수 있다.
+</div>
+
+---
+
+## 11. 날짜를 화면에 보여주기
+
+```javascript
+function formatLessonDate(date) {
   const year = date.getFullYear();
-  // 월은 0부터 시작하므로 +1 필수
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  const hour = String(date.getHours()).padStart(2, '0');
-  const min = String(date.getMinutes()).padStart(2, '0');
-  const sec = String(date.getSeconds()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
 
-  return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
+  return `${year}-${month}-${day}`;
 }
 
-console.log(formatDate(new Date()));
-// 예: "2024-05-05 14:30:05" 형식으로 출력됨
+const lessonStartDate = new Date(2026, 2, 10);
+console.log(formatLessonDate(lessonStartDate)); // 2026-03-10
 ```
 
-**📝 한글 포맷 (YYYY년 MM월 DD일 오전/오후)**
-
-- **용도** : 사용자에게 보여주는 친절한 날짜 형식입니다. (블로그 글 작성일, 댓글 시간 등)
-- **핵심** : 24시간제를 **12시간제(오전/오후)**로 변환하는 로직이 들어있습니다.
-
-```js
-// YYYY년 MM월 DD일 오전/오후 00시 00분
-function formatKorean(date) {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-
-  // 오전/오후 계산 로직
-  const hour = date.getHours();
-  const ampm = hour >= 12 ? '오후' : '오전';
-
-  // 12시간제로 변환 (0시는 12시로 표기하기 위해 || 12 사용)
-  const hour12 = hour % 12 || 12;
-  const min = date.getMinutes();
-
-  return `${year}년 ${month}월 ${day}일 ${ampm} ${hour12}시 ${min}분`;
-}
-
-console.log(formatKorean(new Date()));
-// 결과: "2024년 5월 5일 오후 2시 30분"
-```
-
-### 💡 12시간제 변환 원리 (심화)
-
-**핵심 연산자 (`||`)** — 자바스크립트에서 `OR` 연산자는 앞의 값이 **거짓(0, null, false)**일 때만 뒤의 값을 선택합니다.
-
-| **입력 (시)** | **계산 (`hour % 12`)** | **결과** |
-| --- | --- | --- |
-| **13시** | `13 % 12` = **1** (참) | 앞에 있는 `1`을 그대로 사용 (오후 1시) |
-| **12시** | `12 % 12` = **0** (거짓) | 뒤에 있는 **12**를 선택 (오후 12시) |
-| **0시(자정)** | `0 % 12` = **0** (거짓) | 뒤에 있는 **12**를 선택 (오전 12시) |
-
----
-
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>7. 실무 활용: 몇 분 전? (Relative Time)</h2>
-</div>
-
-**⚙️ 알고리즘 원리 (Logic)**
-
-- **핵심** : 현재 시간(`now`)과 작성된 시간(`date`)의 **차이(diff)**를 구하는 것이 시작입니다.
-- **단위 변환** : 밀리초(ms) 단위의 차이를 **초 → 분 → 시간 → 일** 순서로 나눕니다.
-- **조건문 순서** — **작은 단위부터** 걸러내는 것이 중요합니다. (초가 60보다 작으면 "방금 전", 아니면 분을 체크...)
-
-**📝 구현 코드**
-
-```js
-function timeAgo(date) {
-  const now = new Date();
-  const diff = now - date; // 차이 구하기 (ms)
-
-  // 미래 시간이 들어올 수도 있으므로 음수인 경우를 먼저 처리
-  if (diff < 0) return '미래 시간';
-
-  // 각 단위별로 변환 (내림 처리)
-  const sec = Math.floor(diff / 1000);
-  const min = Math.floor(sec / 60);
-  const hour = Math.floor(min / 60);
-  const day = Math.floor(hour / 24);
-
-  // 작은 단위부터 차례대로 비교
-  if (sec < 60) return '방금 전';
-  if (min < 60) return `${min}분 전`;
-  if (hour < 24) return `${hour}시간 전`;
-  if (day < 7) return `${day}일 전`;
-
-  // 7일 이상 지나면 일반 날짜로 표시
-  return date.toLocaleDateString();
-}
-
-// 사용 예시
-console.log(timeAgo(new Date(Date.now() - 1000 * 60 * 5)));
-// 결과: "5분 전" (현재 시간에서 5분을 뺀 값을 넣음)
-```
-
-**💡 보충 설명**
+**📌 개념**
 
 <div class="wda-callout wda-ci">
-  <strong>`Math.floor()`</strong> — 소수점을 버리고 정수만 남기는 함수입니다. (예: 5.9분 전 → 5분 전)<br><br>
-  <strong>순서의 중요성</strong> — 만약 <code>day</code>부터 검사하면, 1시간 전인 게시물도 <code>0일 전</code>으로 처리될 수 있습니다.<br>
-  반드시 <strong>"방금 전(초)"</strong>부터 물어봐야 정확한 표현이 나옵니다.<br><br>
-  <strong>라이브러리</strong> — 실무에서는 다국어 지원(약 100개 언어)이나 더 정교한 처리를 위해 <code>timeago.js</code> 같은 라이브러리를 쓰기도 하지만, 간단한 기능은 위 코드로 충분합니다.<br><br>
-  <strong>미래 시간 처리</strong> — 실무에서는 미래 날짜가 들어올 가능성도 있으므로 <code>diff &lt; 0</code>인 경우를 따로 처리하는 것이 안전합니다.
+  원하는 형식이 없으면 <code>getFullYear</code>/<code>getMonth</code>/<code>getDate</code>로 값을 꺼내 직접 조립한다. <code>padStart(2, "0")</code>로 한 자리 숫자 앞에 0을 채워 두 자리로 맞춘다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>8. 날짜 수정(Setter)과 주의사항</h2>
+## 12. ISO 문자열과 locale 문자열
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">📝 toISOString</div>
+
+```javascript
+const lessonStartDate =
+  new Date(2026, 2, 10);
+
+lessonStartDate.toISOString();
+// 표준 형식 문자열
+// (UTC 기준으로 변환됨)
+```
+
 </div>
 
-**📝 Date 수정하기 (Setters)**
+<div class="wda-compare-card">
 
-**기본 동작**: `setFullYear()`, `setMonth()`, `setDate()` 등 `set`으로 시작하는 메서드를 사용하여 날짜의 특정 부분을 수정할 수 있습니다.
+<div class="wda-compare-ttl">📝 toLocaleDateString</div>
+
+```javascript
+const lessonStartDate =
+  new Date(2026, 2, 10);
+
+lessonStartDate.toLocaleDateString();
+// 실행 환경 locale에 맞는
+// 문자열 (예: 2026. 3. 10.)
+```
+
+</div>
+
+</div>
+
+| 메서드 | 반환 형식 |
+|---|---|
+| `toISOString()` | 표준 ISO 문자열 (UTC 기준) |
+| `toLocaleDateString()` | 실행 환경 locale에 맞는 날짜 문자열 |
+| `toLocaleString()` | 실행 환경 locale에 맞는 날짜+시간 문자열 |
+
+**📌 개념**
+
+<div class="wda-callout wda-ci">
+  <code>toISOString()</code>은 데이터 저장이나 서버 전송처럼 규격화된 문자열이 필요할 때, <code>toLocaleDateString()</code>은 화면에 사람이 읽기 편한 날짜를 보여줄 때 적합하다. 두 결과 모두 실행 환경(시간대, locale)에 따라 달라질 수 있어 정확한 문자열을 예로 들지 않는다.
+</div>
+
+---
+
+## 13. 원본 Date 객체 변경 주의
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">⚠️ 원본 직접 수정</div>
+
+```javascript
+lessonStartDate.setDate(
+  lessonStartDate.getDate() + 14
+);
+// lessonStartDate 자신이 바뀐다
+```
+
+</div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">✅ 복사 후 수정</div>
+
+```javascript
+const lessonEndDate =
+  new Date(lessonStartDate);
+
+lessonEndDate.setDate(
+  lessonEndDate.getDate() + 14
+);
+// lessonStartDate는 그대로
+```
+
+</div>
+
+</div>
+
+```javascript
+const lessonStartDate = new Date(2026, 2, 10);
+const lessonEndDate = new Date(lessonStartDate);
+
+lessonEndDate.setDate(lessonEndDate.getDate() + 14);
+
+console.log(lessonStartDate.getDate()); // 10 (원본 유지)
+console.log(lessonEndDate.getDate());   // 24 (복사본만 변경)
+```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  🚨 <strong>자동 보정(Auto-correction) 주의</strong> — 날짜를 수정할 때, 해당 월에 존재하지 않는 날짜(예: 2월 31일)가 되면 에러가 나는 것이 아니라 <strong>자동으로 다음 달로 넘어갑니다.</strong>
-</div>
-
-```js
-const d = new Date(2024, 0, 31); // 2024년 1월 31일
-
-// 2월로 변경 시도 (1 = 2월)
-d.setMonth(1);
-
-// 기대값: 2월 31일 (존재하지 않음)
-// 실제값: 2월 29일(윤년) + 2일 더감 -> 3월 2일
-console.log(d.toLocaleDateString());
-// 결과: "2024. 3. 2." (???) -> 개발자가 의도치 않은 날짜가 됨!
-```
-
-**⚠️ 필수 주의사항 Top 3 (단기 속성)**
-
-개발자들이 가장 많이 실수하는 3가지 포인트입니다.
-
-<div class="wda-fgrid">
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ttl">1. 월(Month)은 0부터</div>
-    <div class="wda-fcard-dsc"><code>setMonth(1)</code>은 2월을 의미합니다. (0=1월, 11=12월)</div>
-  </div>
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ttl">2. 변경 가능 (Mutable)</div>
-    <div class="wda-fcard-dsc"><code>Date</code> 객체는 수정하면 <strong>원본 자체가 바뀝니다.</strong><br><code>const newDate = d.setHours(0)</code> 처럼 쓰면 <code>newDate</code>에는 날짜 객체가 아니라 <strong>숫자(타임스탬프)</strong>가 반환되므로 주의해야 합니다.</div>
-  </div>
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ttl">3. iOS/Safari 호환성</div>
-    <div class="wda-fcard-dsc">아이폰(iOS)이나 사파리에서는 <code>'2024-01-01 10:00'</code> 처럼 <strong>하이픈(-)과 공백</strong>이 섞인 문자열을 인식 못 해 <code>Invalid Date</code>가 뜰 수 있습니다.<br><strong>해결책</strong>: 슬래시(<code>/</code>)를 사용하여 <code>'2024/01/01'</code> 형식을 쓰는 것이 가장 안전합니다.</div>
-  </div>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>안전한 날짜 수정법</strong> — 월을 변경할 때는 <strong>일(Date)</strong>을 먼저 1일로 맞추고 월을 바꾸거나, 마지막 날짜를 계산해서 넘겨주는 방어 코드가 필요합니다.<br><br>
-  <strong>크로스 브라우징</strong> — 크롬에서는 잘 되던 날짜 코드가 아이폰에서만 안 된다면, 날짜 문자열 포맷 문제를 먼저 의심해볼 수 있습니다. 특히 <code>2024-01-01 10:00</code>처럼 하이픈과 공백이 섞인 형식은 피하고, 표준 ISO 형식인 <code>2024-01-01T10:00:00</code>처럼 작성하는 것이 안전합니다.
+  <code>setDate</code> 같은 메서드는 그 객체 자신을 직접 바꾼다. 원본을 그대로 두고 싶다면 <code>new Date(원본)</code>으로 복사한 뒤 복사본을 수정한다.
 </div>
 
 ---
 
-<div style="position:relative;overflow:visible;margin:1.5rem 0 0.5rem;">
-  <h2>✅ 핵심 요약</h2>
+## 14. 초보자가 자주 만나는 Date 실수
+
+<div class="wda-fgrid">
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 1 · 월 인자를 실제 월 그대로</div>
+
+```javascript
+const lessonStartDate = new Date(2026, 3, 10);
+console.log(lessonStartDate.getMonth()); // 3
+// 3월을 의도했다면 2를 넣었어야 한다
+// (실제로는 4월이 만들어짐)
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 월 인자는 0부터 시작하므로 실제 월보다 1 작은 값을 넣어야 한다.<br>
+  <strong>기억할 점:</strong> 3월을 만들려면 new Date(2026, 2, 10)처럼 2를 넣는다.
 </div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 2 · setDate 결과를 새 변수에 저장</div>
+
+```javascript
+const lessonEndDate = lessonStartDate.setDate(
+  lessonStartDate.getDate() + 14
+);
+console.log(typeof lessonEndDate); // number
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> setDate는 Date 객체가 아니라 숫자(타임스탬프)를 반환하며, 원본도 함께 바뀐다.<br>
+  <strong>기억할 점:</strong> 수정된 날짜가 필요하면 원본 변수를 그대로 사용한다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 3 · 범위를 벗어난 날짜 문자열</div>
+
+```javascript
+const invalidDate = new Date("2026-13-10");
+console.log(invalidDate.toString());
+// "Invalid Date"
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 13월처럼 존재하지 않는 값은 에러 없이 조용히 잘못된 날짜가 된다.<br>
+  <strong>기억할 점:</strong> 문자열로 만든 Date는 항상 유효한지 확인하는 습관을 들인다.
+</div>
+
+</div>
+
+</div>
+
+---
+
+## 15. 실습 과제
+
+**🎯 목표**
+
+강의 시작일로 마감일을 계산하고, 오늘 날짜와 비교해 마감 여부를 판단한다.
+
+**📋 요구사항**
+
+• `addDays(date, days)`로 특정 날짜에 일수를 더한 새 날짜를 반환한다(원본은 변경하지 않는다).<br>
+• `isExpired(deadline)`으로 오늘이 마감일을 지났는지 판단한다.<br>
+• `formatLessonDate(date)`로 날짜를 `"YYYY-MM-DD"` 형식 문자열로 만든다.
+
+```javascript
+// 구성 예시: addDays(복사 후 수정) / isExpired(오늘과 비교) / formatLessonDate(문자열 조립)
+```
+
+**💡 힌트 1 — addDays (원본 유지)**
+
+```javascript
+function addDays(date, days) {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+const lessonStartDate = new Date(2026, 2, 10);
+const reviewDeadline = addDays(lessonStartDate, 14);
+
+console.log(lessonStartDate.getDate()); // 10
+console.log(reviewDeadline.getDate());  // 24
+```
+
+**💡 힌트 2 — isExpired**
+
+```javascript
+function isExpired(deadline) {
+  const today = new Date();
+  return today > deadline;
+}
+```
+
+**💡 힌트 3 — formatLessonDate**
+
+```javascript
+function formatLessonDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+```
+
+**📌 정리 메모**
+
+• 월 인자는 항상 0부터 시작한다는 점을 기억한다.<br>
+• setDate 같은 메서드는 원본을 직접 바꾸므로, 원본을 지키려면 먼저 복사한다.<br>
+• 날짜 비교와 차이 계산은 Date 객체를 숫자처럼 다룰 수 있다는 원리를 이용한다.
+
+---
+
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li><strong>new Date()</strong>로 현재 시간을 생성하고, <code>get...</code> 메서드(getFullYear, getMonth 등)로 값을 꺼낸다.</li>
-    <li><strong>getMonth()/setMonth()</strong>는 0부터 시작(0=1월, 11=12월)하므로, 화면에 표시할 때 반드시 <strong>+1</strong>을 해야 한다.</li>
-    <li><strong>toLocaleString()</strong> 계열은 브라우저가 지역(Locale)에 맞게 자동 포맷하고, 커스텀 포맷은 <code>padStart(2, '0')</code>로 0을 채운다.</li>
-    <li>날짜끼리 <strong>빼기(-)</strong>를 하면 두 날짜의 차이가 <strong>밀리초(ms)</strong> 단위 숫자로 반환되며, <code>1000*60*60*24</code>로 나누면 일(day) 단위가 된다.</li>
-    <li><strong>toISOString()</strong>은 UTC 기준으로 변환되므로, KST(UTC+9)와 최대 9시간 차이가 나서 날짜가 하루 당겨질 수 있다.</li>
-    <li>Date 객체는 Setter로 값을 바꾸면 원본이 직접 바뀌는 <strong>Mutable</strong> 객체이며, 존재하지 않는 날짜(예: 2월 31일)는 자동으로 다음 달로 보정된다.</li>
-    <li>상대 시간("N분 전") 계산은 <strong>작은 단위(초)부터 큰 단위(일) 순으로</strong> 조건문을 검사해야 정확하다.</li>
+    <li><strong>new Date()</strong>로 현재 시각을, <strong>new Date(연, 월, 일)</strong>로 특정 날짜를 만든다. 문자열로 만들 때는 <strong>"YYYY-MM-DD"</strong> 형식이 가장 안전하다.</li>
+    <li><strong>getMonth()</strong>와 <code>new Date()</code>의 월 인자는 <strong>0부터 시작</strong>한다(0=1월, 11=12월). 일/시/분/초는 그대로의 값을 쓴다.</li>
+    <li><strong>setDate/setMonth</strong> 같은 set 메서드는 <strong>원본 객체를 직접 바꾼다</strong>. 원본을 지키려면 <code>new Date(원본)</code>으로 복사한 뒤 수정한다.</li>
+    <li>Date 객체는 <strong>&gt;, &lt;, &gt;=, &lt;=</strong>로 바로 비교할 수 있고, 두 Date를 빼면 <strong>밀리초 단위의 차이</strong>가 숫자로 반환된다.</li>
+    <li><strong>getTime()</strong>은 1970년 1월 1일부터 흐른 밀리초를 반환하며, 날짜 차이를 일(day) 단위로 바꿀 때 <code>1000*60*60*24</code>로 나눈다.</li>
+    <li><strong>toISOString()</strong>은 표준 형식의 문자열을, <strong>toLocaleDateString()</strong>은 실행 환경에 맞는 사람이 읽기 쉬운 문자열을 반환한다.</li>
   </ul>
 </div>
 
@@ -588,24 +590,20 @@ console.log(d.toLocaleDateString());
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: getMonth()가 반환하는 숫자가 실제 월과 같다?</div>
-    <div class="wda-mistake-right">정답: getMonth()는 <strong>0부터 시작</strong>해 5월이면 4가 반환되므로, 화면에 표시할 때는 <strong>+1</strong>을 해야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 3월을 만들려면 new Date(2026, 3, 10)처럼 3을 넣는다?</div>
+    <div class="wda-mistake-right">정답: 월은 <strong>0부터 시작</strong>하므로 3월은 <strong>2</strong>를 넣어야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: getDate()도 getMonth()처럼 0부터 시작한다?</div>
-    <div class="wda-mistake-right">정답: getDate()(일)는 우리가 아는 대로 <strong>1부터 시작</strong>하며, 0부터 시작하는 것은 월(Month)뿐이다.</div>
+    <div class="wda-mistake-wrong">오해: setDate의 반환값을 새 변수에 담으면 새 Date 객체가 된다?</div>
+    <div class="wda-mistake-right">정답: set 메서드는 <strong>숫자(타임스탬프)</strong>를 반환하며, 원본 객체 자체가 바뀐다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 시간대 표시가 없는 날짜 문자열은 항상 UTC로 해석된다?</div>
-    <div class="wda-mistake-right">정답: 시간대 표시가 없으면 <strong>브라우저의 로컬 시간대</strong>로 해석되며, UTC로 명확히 하려면 <code>Z</code>나 <code>+09:00</code>을 붙여야 한다.</div>
+    <div class="wda-mistake-wrong">오해: new Date(원본 변수)로 만든 값을 수정해도 원본이 함께 바뀐다?</div>
+    <div class="wda-mistake-right">정답: <code>new Date(원본)</code>은 <strong>새로운 복사본</strong>을 만들므로, 복사본을 수정해도 원본은 그대로다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 존재하지 않는 날짜(2월 31일)로 setMonth를 호출하면 에러가 난다?</div>
-    <div class="wda-mistake-right">정답: 에러 없이 <strong>자동으로 다음 달로 넘어가는 보정</strong>이 일어나 의도치 않은 날짜가 될 수 있다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: d.setHours(0)의 반환값을 새 변수에 담으면 Date 객체가 담긴다?</div>
-    <div class="wda-mistake-right">정답: Setter는 Date 객체가 아니라 <strong>숫자(타임스탬프)</strong>를 반환하며, 원본 <code>d</code> 자체가 직접 수정(Mutable)된다.</div>
+    <div class="wda-mistake-wrong">오해: 날짜 문자열은 어떤 형식으로 적어도 항상 똑같이 해석된다?</div>
+    <div class="wda-mistake-right">정답: 형식에 따라 해석이 달라질 수 있으므로 <strong>"YYYY-MM-DD"</strong> 같은 표준 형식을 쓰는 것이 안전하다.</div>
   </div>
 </div>
 
@@ -613,20 +611,20 @@ console.log(d.toLocaleDateString());
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 월 보정</div>
-    <div class="wda-formula-block-body"><code>getMonth() + 1 = 실제 월</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 생성</div>
+    <div class="wda-formula-block-body"><code>new Date(연, 월-1, 일)</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 날짜 차이</div>
-    <div class="wda-formula-block-body"><code>(d2 - d1) / 86400000 = 일수</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 비교/차이</div>
+    <div class="wda-formula-block-body"><code>d2 - d1 = 밀리초 차이</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 타임존</div>
-    <div class="wda-formula-block-body"><code>toISOString() = UTC (KST -9h)</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 일 단위 변환</div>
+    <div class="wda-formula-block-body"><code>ms / (1000*60*60*24)</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 4 · 0 채우기</div>
-    <div class="wda-formula-block-body"><code>String(n).padStart(2,'0')</code></div>
+    <div class="wda-formula-block-ttl">공식 4 · 원본 보호</div>
+    <div class="wda-formula-block-body"><code>new Date(원본) 후 수정</code></div>
   </div>
 </div>
 
@@ -634,35 +632,31 @@ console.log(d.toLocaleDateString());
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">new Date(2024, 11, 25)는 몇 월 며칠을 의미하나?</div>
-    <div class="wda-flip-back">2024년 12월 25일. 월은 0부터 시작하므로 11은 12월이다.</div>
+    <div class="wda-flip-front">new Date(2026, 2, 10)은 몇 월 며칠을 의미하나?</div>
+    <div class="wda-flip-back">2026년 3월 10일. 월은 0부터 시작하므로 2는 3월이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">getDay()가 반환하는 0과 6은 각각 무슨 요일?</div>
-    <div class="wda-flip-back">0은 일요일, 6은 토요일.</div>
+    <div class="wda-flip-front">getMonth()가 0부터 시작하는 값은 무엇이고, 그대로인 값은 무엇인가?</div>
+    <div class="wda-flip-back">월은 0부터 시작하고, 일/시/분/초는 그대로의 값이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">두 Date 객체를 뺄셈(end - start)하면 무엇이 반환되나?</div>
+    <div class="wda-flip-front">두 Date 객체를 뺄셈하면 무엇이 반환되나?</div>
     <div class="wda-flip-back">두 날짜 사이의 차이가 밀리초(ms) 단위 숫자로 반환된다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">toISOString()이 UTC 기준인 이유는?</div>
-    <div class="wda-flip-back">서버는 전 세계 사용자를 다루므로 특정 국가 시간이 아닌 절대 기준 시간(UTC)으로 저장하는 것이 원칙이기 때문이다.</div>
+    <div class="wda-flip-front">setDate 같은 set 메서드를 쓰면 원본은 어떻게 되나?</div>
+    <div class="wda-flip-back">원본 객체 자신이 직접 바뀐다(mutable).</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">존재하지 않는 날짜로 Setter를 호출하면 어떻게 되나?</div>
-    <div class="wda-flip-back">에러 없이 자동으로 다음 달/다음 날짜로 보정(auto-correction)된다.</div>
+    <div class="wda-flip-front">원본을 바꾸지 않고 새 날짜를 만들려면?</div>
+    <div class="wda-flip-back">new Date(원본)으로 복사한 뒤 복사본을 수정한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">상대 시간("N분 전") 계산에서 작은 단위부터 검사해야 하는 이유는?</div>
-    <div class="wda-flip-back">day부터 검사하면 1시간 전인 것도 0일 전으로 잘못 처리될 수 있기 때문이다.</div>
+    <div class="wda-flip-front">toISOString과 toLocaleDateString의 차이는?</div>
+    <div class="wda-flip-back">toISOString은 표준 형식 문자열, toLocaleDateString은 실행 환경에 맞는 사람이 읽기 쉬운 문자열을 반환한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">iOS/Safari에서 Invalid Date가 발생하지 않으려면 날짜 문자열을 어떻게 써야 하나?</div>
-    <div class="wda-flip-back">하이픈+공백('2024-01-01 10:00') 대신 슬래시('2024/01/01')나 표준 ISO 형식('2024-01-01T10:00:00')을 사용한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">d.setHours(0)의 반환값은 무엇인가?</div>
-    <div class="wda-flip-back">Date 객체가 아니라 숫자(타임스탬프)이며, 원본 d는 직접 수정된다.</div>
+    <div class="wda-flip-front">Date 객체를 문자열로 만들 때 가장 안전한 형식은?</div>
+    <div class="wda-flip-back">"YYYY-MM-DD" 같은 ISO 표준 형식이다.</div>
   </div>
 </div>

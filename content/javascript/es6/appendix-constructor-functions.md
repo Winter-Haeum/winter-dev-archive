@@ -1,13 +1,12 @@
 ---
-title: "부록: 생성자 함수의 모든 것 (The Guide to Constructor Functions)"
+title: "부록: 생성자 함수로 객체 여러 개 만들기"
 status: "completed"
-description: "new 연산자의 4단계 동작 원리, 생성자 호출과 일반 호출의 차이, return 함정을 실전 예제와 함께 정리한다."
+description: "같은 구조의 객체를 여러 개 만드는 생성자 함수의 문법과 new 호출 흐름, class와의 관계를 정리하는 보충 부록이다."
 category: "JavaScript"
-section: "ES6+ 심화 문법"
+section: "ES6+"
 tags:
   - javascript
-  - constructor
-  - this
+  - constructor-function
 ---
 
 <style>
@@ -15,40 +14,32 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
 .wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
 @media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
-.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-compare-ttl{font-size:.94rem;font-weight:700;margin-bottom:8px}
-.wda-compare-label{font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
-.wda-steps{border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:160px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
 .wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+/* 핵심 요약 전용 복습 UI — JavaScript 1-1~1-5·2-1~2-3·4-3·4-4 기준과 동일. 색은 background/border/accent에만
+   쓰고, 본문 텍스트는 카드 색과 무관하게 진회색(#2C2840)·strong은 #1F1B2E로 고정한다. */
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -65,375 +56,416 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
 .wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
 </style>
 
-## 1. 생성자 함수란? (The Factory)
+**📎 부록(Appendix)**
 
-**📌 왜 필요한가요?**
+<div class="wda-callout wda-ci">
+  • 이 부록은 같은 구조의 객체를 여러 개 만드는 생성자 함수를 정리하는 보충 자료다.<br>
+  • 4-4(this 바인딩)에서 다룬 생성자 함수의 this는 반복하지 않고, 생성자 함수의 사용 목적과 new 호출 흐름에 집중한다.
+</div>
 
-객체를 하나만 만들 때는 `{ ... }` (리터럴)을 쓰면 됩니다. 하지만 **똑같은 구조의 객체가 100개 필요하다면?** 일일이 다 쓰는 건 너무 힘들겠죠?
+## 🎯 학습 목표
 
-**📌 붕어빵 틀 (Mold)**
+<div class="wda-goal">
+  • <strong>생성자 함수 필요성 이해</strong> — 같은 구조의 객체를 여러 개 만들 때 생성자 함수가 왜 필요한지 설명할 수 있다.<br>
+  • <strong>new 호출 흐름 이해</strong> — new로 호출했을 때 새 객체가 만들어지고 this가 그 객체를 가리키는 흐름을 설명할 수 있다.<br>
+  • <strong>독립성 이해</strong> — 생성자 함수로 만든 여러 객체가 서로 독립된 값을 가진다는 것을 확인할 수 있다.<br>
+  • <strong>class와의 관계 이해</strong> — 생성자 함수와 class가 같은 목적을 가진 서로 다른 문법이라는 것을 안다.
+</div>
 
-생성자 함수는 객체를 찍어내는 **틀(설계도)**입니다. 재료(매개변수)만 넣으면 완성품(객체)이 나옵니다.
+---
 
-**🆚 코드 비교**
+## 1. 생성자 함수가 필요한 순간
 
-일반적인 방식과 생성자 함수를 사용한 방식의 차이점을 확인해 보세요.
+강의가 한두 개뿐이라면 객체 리터럴로 충분하다. 하지만 강의가 수십 개라면, 매번 같은 구조를 직접 반복해서 적어야 한다.
 
-```jsx
-// 1. 일반 객체 (힘듦)
-const user1 = { name: 'Kim', age: 20 };
-const user2 = { name: 'Lee', age: 22 };
-const user3 = { name: 'Park', age: 25 };
-// ... 언제 다 만들지? (코드가 중복되고 유지보수가 힘듦)
+---
 
-// 2. 생성자 함수 (편함)
-function User(name, age) {
-  // this = {}; (보이지 않지만 빈 객체가 만들어짐)
-  this.name = name; // 만들어진 객체에 이름표를 붙임
-  this.age = age;   // 만들어진 객체에 나이를 적음
-  // return this; (보이지 않지만 완성된 객체를 반환함)
+## 2. 객체 리터럴을 반복하면 생기는 문제
+
+<div class="wda-compare">
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">❌ 객체 리터럴 반복</div>
+
+구조가 같아도 매번 전부 다시 적어야 한다.
+
+```javascript
+const firstLesson = {
+  lessonTitle: "변수와 스코프",
+};
+const secondLesson = {
+  lessonTitle: "배열 다루기",
+};
+```
+
+</div>
+
+<div class="wda-compare-card wda-modern">
+
+<div class="wda-compare-ttl">✅ 생성자 함수 사용</div>
+
+구조는 함수 하나로 정의하고, 값만 바꿔 넣는다.
+
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
 }
 
-const u1 = new User('Kim', 20);  // 붕어빵 1호
-const u2 = new User('Lee', 22);  // 붕어빵 2호
-const u3 = new User('Park', 25); // 붕어빵 3호
+const firstLesson = new LessonCard(
+  "변수와 스코프"
+);
+const secondLesson = new LessonCard(
+  "배열 다루기"
+);
 ```
 
-**💡 보충 설명**
+</div>
 
-<div class="wda-callout wda-ci">
-  <ul>
-    <li>여기서 가장 중요한 핵심 키워드는 <strong><code>new</code></strong>입니다.</li>
-    <li>함수 이름 앞글자를 <strong>대문자</strong>(<code>User</code>)로 쓰는 것은 개발자들 사이의 <strong>약속</strong>("이건 생성자 함수니까 그냥 호출하지 마!")입니다.</li>
-    <li>실제로 마법을 부리는 건 <code>new</code> 연산자인데, <code>new</code>를 붙여서 함수를 실행하면 자바스크립트 엔진은 <strong>"아, 그냥 함수 실행이 아니라 객체를 하나 만들어 달라는 거구나?"</strong>라고 알아듣고, 내부적으로 빈 껍데기(객체)를 만들어서 <code>this</code>에 할당해 줍니다.</li>
-  </ul>
 </div>
 
 ---
 
-## 2. new 연산자의 4단계 마법
+## 3. 생성자 함수는 같은 구조의 객체를 만드는 함수다
 
-**⚙️ 동작 과정**
+```javascript
+function LessonCard(lessonTitle, teacherName, durationMinutes) {
+  this.lessonTitle = lessonTitle;
+  this.teacherName = teacherName;
+  this.durationMinutes = durationMinutes;
+}
+```
 
-`new`를 붙여서 함수를 실행하면, 자바스크립트 내부에선 **4가지 일**이 순서대로 일어납니다.
+매개변수로 받은 값을 `this`에 채워 넣어, 같은 구조의 객체를 반복해서 만들 수 있게 하는 함수다.
 
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">빈 객체 생성</div>
-      <div class="wda-sdsc">아무것도 없는 빈 깡통 객체 <code>{}</code>를 하나 만듭니다. 이때 새 객체는 생성자 함수의 <code>prototype</code>과 연결됩니다.</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">this 바인딩</div>
-      <div class="wda-sdsc">방금 만든 빈 객체를 <code>this</code>라고 부르기로 합니다.</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">함수 본문 실행</div>
-      <div class="wda-sdsc"><code>this.name = name</code> 처럼 빈 객체에 속성을 채워 넣습니다. (쓰기 작업)</div>
-    </div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">4</div>
-    <div class="wda-sbody">
-      <div class="wda-sttl">객체 반환</div>
-      <div class="wda-sdsc">함수에 <code>return</code>이 없어도, 꽉 찬 <code>this</code>가 자동으로 반환됩니다.</div>
-    </div>
-  </div>
-</div>
+---
 
-**💡 보충 설명**
+## 4. 생성자 함수 이름과 new
 
-<div class="wda-callout wda-ci">
-  <ul>
-    <li>이 과정은 마치 <strong>"새 집으로 이사 가는 과정"</strong>과 비슷합니다.</li>
-    <li><strong>건축 (<code>{}</code>)</strong>: 텅 빈 새 집을 하나 짓습니다.</li>
-    <li><strong>명의 등록 (<code>this</code>)</strong>: "이 집은 이제 내 집(<code>this</code>)이야!"라고 선언합니다.</li>
-    <li><strong>인테리어 (<code>this.name = ...</code>)</strong>: 가구를 들여놓고 색칠을 합니다.</li>
-    <li><strong>입주 (<code>return</code>)</strong>: 완성된 집의 열쇠를 건네받습니다.</li>
-    <li>개발자가 코드에 <code>return</code>을 적지 않아도 자바스크립트가 알아서 <strong>"자, 여기 완성된 객체입니다!"</strong> 하고 갖다 바치는 것이 바로 <code>new</code> 연산자의 핵심 마법입니다.</li>
-  </ul>
+```javascript
+const firstLesson = new LessonCard("변수와 스코프", "지수", 40);
+
+console.log(firstLesson);
+// LessonCard {
+//   lessonTitle: '변수와 스코프',
+//   teacherName: '지수',
+//   durationMinutes: 40
+// }
+```
+
+**✅ 선택 기준**
+
+<div class="wda-callout wda-cs">
+  생성자 함수 이름은 <strong>대문자로 시작</strong>하는 것이 관례다(<code>LessonCard</code>). 일반 함수와 구분해, "이 함수는 <code>new</code>로 호출해야 한다"는 신호를 준다.
 </div>
 
 ---
 
-## 3. 일반 호출 vs 생성자 호출
+## 5. 생성자 함수 안의 this
 
-**🆚 차이점 요약**
-
-똑같은 함수라도 `new`를 쓰냐 안 쓰냐에 따라 하늘과 땅 차이입니다.
-
-**❌ 일반 호출 (그냥 실행)**
-
-`new` 없이 함수를 실행하면 단순히 코드를 읽어 내려갈 뿐, 객체는 만들어지지 않습니다.
-
-```jsx
-const u = User('Kim', 20);
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+}
 ```
 
-- **빈 객체 생성?** `안 함`
-- **this?** 브라우저의 일반 script, non-strict 모드에서는 `window (전역)` 😱 (strict mode나 module 환경에서는 `undefined`)
-- **반환값?** `undefined` (return 문이 없으니까)
+`this.lessonTitle = lessonTitle`처럼, 매개변수로 받은 값을 `this`에 담아 새 객체를 채운다.
 
-**경고**
+---
+
+## 6. new로 호출될 때 일어나는 일
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">빈 객체 생성</div><div class="wda-fnode-dsc">new가 새 객체를 하나 만든다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">this 연결</div><div class="wda-fnode-dsc">this가 그 새 객체를 가리킨다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">함수 본문 실행</div><div class="wda-fnode-dsc">this에 property를 채운다.</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">객체 반환</div><div class="wda-fnode-dsc">채워진 객체가 자동으로 반환된다.</div></div>
+</div>
+
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+}
+
+const firstLesson = new LessonCard("변수와 스코프");
+
+console.log(firstLesson.lessonTitle);
+// 변수와 스코프
+```
+
+---
+
+## 7. 생성자 함수로 만든 객체는 서로 독립된 값을 가진다
+
+```javascript
+const firstLesson = new LessonCard("변수와 스코프", "지수", 40);
+const secondLesson = new LessonCard("배열 다루기", "민호", 55);
+
+firstLesson.durationMinutes = 45;
+
+console.log(firstLesson.durationMinutes);
+// 45
+
+console.log(secondLesson.durationMinutes);
+// 55 — 서로 다른 객체라 영향을 주지 않는다
+```
+
+---
+
+## 8. new를 빼먹으면 생기는 문제
+
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+}
+
+const brokenLesson = LessonCard("변수와 스코프");
+
+console.log(brokenLesson);
+// undefined — new 없이 호출하면 새 객체가 만들어지지 않는다
+```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  <ul>
-    <li>🔥 대참사 발생 (일반 script, non-strict 모드): <code>window.name = 'Kim'</code>이 되어버림. 전역 변수가 오염됨!</li>
-    <li>⚠️ strict mode나 <code>type="module"</code> 환경에서는 <code>this</code>가 <code>undefined</code>라서 <code>this.name = ...</code>에서 <strong>TypeError</strong>가 발생합니다.</li>
-  </ul>
+  <code>new</code>를 빼먹지 않는다. <code>new</code> 없이 호출하면 새 객체가 만들어지지 않고, <code>this</code>는 일반 함수 호출 규칙을 따라 다른 값을 가리킨다.
 </div>
 
-**✅ 생성자 호출 (new 사용)**
+---
 
-`new`를 붙이면 자바스크립트가 객체 생성 모드로 전환됩니다.
-
-```jsx
-const u = new User('Kim', 20);
-```
-
-- **빈 객체 생성?** `OK!`
-- **this?** `새로 만든 빈 객체`
-- **반환값?** `완성된 객체` (User 인스턴스)
-
-**정상 동작**
-
-<div class="wda-callout wda-cs">
-  <ul>
-    <li>✨ 안전하고 깔끔함: 내 의도대로 새로운 객체가 예쁘게 만들어져서 반환됨.</li>
-  </ul>
-</div>
-
-**💡 보충 설명**
-
-이 차이는 **"주문"**과 **"혼잣말"**의 차이입니다.
+## 9. 일반 함수와 생성자 함수 비교
 
 <div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-label">구분</div>
-    <div class="wda-compare-ttl">🍕 new 사용 (생성자 호출)</div>
-    <strong>상황 비유</strong>: 피자 가게에 가서 <strong>"피자 만들어 주세요(new)"</strong>라고 주문함<br>
-    <strong>결과물</strong>: 따끈한 <strong>피자 (객체)</strong>가 나옴<br>
-    <strong>영향</strong>: 나만의 피자를 받음 (안전한 객체 생성)
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-label">구분</div>
-    <div class="wda-compare-ttl">🗣️ 일반 호출 (그냥 실행)</div>
-    <strong>상황 비유</strong>: 허공에 대고 <strong>"치즈... 토마토..."</strong>라고 재료 이름만 외침<br>
-    <strong>결과물</strong>: 피자는 안 나옴, 목만 아픔 (<strong>undefined</strong>)<br>
-    <strong>영향</strong>: 엄한 사람(<strong>전역 객체 Window</strong>)에게 피해를 줌 (재료를 쏟아부음)
-  </div>
+
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">일반 함수(팩토리 함수)</div>
+
+객체를 만들어 직접 반환한다.
+
+```javascript
+function createLessonCard(lessonTitle) {
+  return { lessonTitle };
+}
+
+const firstLesson = createLessonCard(
+  "변수와 스코프"
+);
+console.log(firstLesson);
+// { lessonTitle: '변수와 스코프' }
+```
+
 </div>
 
-실수로 `new`를 빼먹으면, 일반 script의 non-strict 모드에서는 `this.name`이 전역 변수 `name`을 덮어써 버리는 심각한 버그가 생깁니다.  
-strict mode나 module 환경에서는 `this`가 `undefined`라서 즉시 TypeError가 발생하니 꼭 주의해야 합니다!
+<div class="wda-compare-card">
+
+<div class="wda-compare-ttl">생성자 함수</div>
+
+new가 객체 생성과 반환을 대신 처리한다.
+
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+}
+
+const secondLesson = new LessonCard(
+  "배열 다루기"
+);
+console.log(secondLesson);
+// LessonCard { lessonTitle: '배열 다루기' }
+```
+
+</div>
+
+</div>
+
+| 구분 | 일반 함수(팩토리 함수) | 생성자 함수 |
+|---|---|---|
+| 호출 방식 | 그냥 호출한다 | `new`로 호출한다 |
+| 객체 생성 | `return`으로 직접 반환한다 | `new`가 자동으로 만들고 반환한다 |
+| 이름 관례 | camelCase | PascalCase |
 
 ---
 
-## 4. 함정: return을 쓴다면?
+## 10. 메서드를 생성자 함수 안에 넣을 때의 주의
 
-**📌 기본 원칙**
-
-생성자 함수는 원래 `return`을 안 쓰는 게 원칙이지만, 만약 쓴다면?
-
-**🧪 케이스별 동작 확인**
-
-`return` 뒤에 무엇이 오느냐에 따라 결과가 완전히 달라집니다.
-
-**📌 원시값 반환 (return 100)** — 숫자, 문자열 같은 원시값을 리턴하면 **무시됩니다.**
-
-```jsx
-function Robot() {
-  this.name = 'Robot';
-  return 100; // 무시! (숫자는 객체가 아니므로 무시됨)
-}
-
-const bot = new Robot();
-console.log(bot);
-// { name: 'Robot' }
-// this가 반환됨 (원래 만들려던 객체가 정상적으로 나옴)
-```
-
-**📌 객체 반환 (return {})** — 객체를 리턴하면 그 객체가 **진짜 반환됩니다.** (this 버려짐!)
-
-```jsx
-function Robot() {
-  this.name = 'Robot';
-  return { name: 'Fake' }; // 객체를 강제로 리턴함
-}
-
-const bot = new Robot();
-console.log(bot);
-// { name: 'Fake' }
-// 공장 생산품 바꿔치기 당함! (열심히 만든 this는 버려짐)
-```
-
-**💡 여기서 "객체"의 범위**
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li>여기서 말하는 "객체"에는 일반 객체(<code>{}</code>)뿐 아니라 배열(<code>[]</code>)이나 함수처럼 <strong>참조 타입</strong>이면 모두 포함됩니다. 이런 값을 반환하면 <code>this</code> 대신 그 값이 반환됩니다.</li>
-    <li><code>null</code>은 <code>typeof</code> 결과가 <code>"object"</code>처럼 보이지만, 생성자 반환 규칙에서는 객체로 취급되지 않아 원래의 <code>this</code>가 그대로 반환됩니다.</li>
-  </ul>
-</div>
-
-**🧠 결론**
-
-생성자 함수 내부에서는 보통 return을 쓰지 않습니다. 자바스크립트가 알아서 this를 리턴해주니까요!
-
-**💡 보충 설명 — 공장장과 고객의 대화**
-
-`return` 뒤에 무엇이 오느냐에 따라 고객(`new`)의 반응이 완전히 달라집니다.
-
-<div class="wda-compare">
-  <div class="wda-compare-card">
-    <div class="wda-compare-label">반환 타입</div>
-    <div class="wda-compare-ttl">원시값 반환 (<code>return 100</code>)</div>
-    <strong>상황 비유 (👨‍🔧 공장장 vs 👤 고객)</strong>: 👨‍🔧 "자, 여기 <strong>숫자 100</strong> 가져가!" (이상한 물건)<br>👤 "뭐야 이거? 그냥 <strong>원래 주문한 거(<code>this</code>)</strong> 가져갈게요." (<strong>무시</strong>)<br>
-    <strong>실제 결과</strong>: <strong>원시값 무시됨</strong> — 원래 만들려던 <code>this</code> 객체가 정상 반환됨
-  </div>
-  <div class="wda-compare-card">
-    <div class="wda-compare-label">반환 타입</div>
-    <div class="wda-compare-ttl">객체 반환 (<code>return {}</code>)</div>
-    <strong>상황 비유 (👨‍🔧 공장장 vs 👤 고객)</strong>: 👨‍🔧 "자, 원래 거 말고 <strong>이게 더 좋은 겁니다(새 객체)</strong>."<br>👤 "어? 그런가요? 그럼 <strong>그걸로 주세요.</strong>" (<strong>수령</strong>)<br>
-    <strong>실제 결과</strong>: <strong>객체로 바꿔치기 됨</strong> — 열심히 만든 <code>this</code>는 버려지고, 새 객체가 반환됨
-  </div>
-</div>
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li>이 표를 보면 알 수 있듯이, 생성자 함수에서 <code>return</code>을 쓰는 것은 <strong>도박</strong>에 가깝습니다.</li>
-    <li>원시값을 쓰면 <strong>무시</strong>당하고, 객체를 쓰면 기껏 만든 인스턴스(<code>this</code>)가 <strong>증발</strong>해 버립니다.</li>
-    <li>그래서 생성자 함수를 만들 때는 <strong>"return 문은 아예 쓰지 않는다"</strong>는 것을 철칙으로 삼는 것이 가장 안전합니다. (자바스크립트가 알아서 <code>this</code>를 잘 포장해서 내보내 주니까 믿고 맡기세요!)</li>
-  </ul>
-</div>
-
----
-
-## 🌈 실전 예제 1: 쇼핑몰 장바구니
-
-**🎯 미션**
-
-생성자 함수로 여러 개의 상품을 표준화해서 만들어봅시다.
-
-**🧪 Product 틀 (생성자)**
-
-상품을 찍어낼 설계도(함수)를 먼저 만듭니다.
-
-```jsx
-function Product(name, price) {
-  // 1. 빈 객체가 this로 옴 (new가 만든 빈 주머니)
-  this.name = name;   // 상품 이름을 저장
-  this.price = price; // 상품 가격을 저장
-  this.sale = false;  // 할인 여부는 기본적으로 false로 통일
-  // 2. this 반환 (완성된 상품 객체를 자동으로 내보냄)
-}
-```
-
-**🧪 상품 찍어내기**
-
-설계도를 이용해 실제 상품(객체)들을 대량 생산합니다.
-
-```jsx
-// new 키워드로 사과 상품 생성
-const apple = new Product('사과', 1000);
-// new 키워드로 바나나 상품 생성
-const banana = new Product('바나나', 2000);
-
-console.log(apple);
-// Product { name: '사과', price: 1000, sale: false }
-// (규격에 맞는 사과 객체 완성!)
-
-console.log(banana);
-// Product { name: '바나나', price: 2000, sale: false }
-// (규격에 맞는 바나나 객체 완성!)
-```
-
-**핵심**
-
-<div class="wda-callout wda-cs">
-  <ul>
-    <li>"규격화된 객체(제품)"를 대량 생산할 때 생성자 함수가 빛을 발합니다!</li>
-  </ul>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li>이 예제에서 가장 눈여겨볼 점은 <strong><code>this.sale = false</code></strong>입니다.</li>
-    <li><code>apple</code>과 <code>banana</code>를 만들 때 <code>sale</code> 값을 따로 넣어주지 않았지만, 생성자 함수가 알아서 <strong>"모든 상품의 기본 할인 상태는 안 함(false)"</strong>으로 설정해 주었습니다.</li>
-    <li>만약 객체 리터럴(<code>{...}</code>)로 일일이 만들었다면,<br>실수로 <code>apple</code>에는 <code>sale</code> 속성을 빼먹거나, <code>banana</code>에는 <code>isSale</code>이라고 이름을 다르게 짓는 실수가 발생할 수 있습니다.</li>
-    <li>생성자 함수는 이런 실수를 막아주고 <strong>데이터의 규격(Standard)</strong>을 확실하게 잡아줍니다.</li>
-  </ul>
-</div>
-
----
-
-## 🌈 실전 예제 2: 게임 캐릭터
-
-**✅ 테스트 목표**
-
-캐릭터를 만들 때 `new`를 빼먹으면 어떤 일이 생기는지 확인해볼까요?
-
-**🧪 캐릭터 설계도**
-
-직업(`job`)과 체력(`hp`)을 설정하고 공격 기능을 가진 생성자 함수입니다.
-
-```jsx
-function Character(job, hp) {
-  this.job = job; // 입력받은 직업을 객체에 저장
-  this.hp = hp;   // 입력받은 체력을 객체에 저장
-
-  // 메서드 추가 (공격 기능)
-  this.attack = function() {
-    console.log(this.job + '가 공격합니다!');
+```javascript
+function LessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+  this.showLessonInfo = function () {
+    console.log(this.lessonTitle);
   };
 }
 ```
 
-**🆚 호출 결과 비교**
+**⚠️ 주의사항**
 
-`new` 키워드 유무에 따른 극명한 차이를 확인하세요.
+<div class="wda-callout wda-cw">
+  이렇게 메서드를 생성자 함수 안에서 매번 새로 만들면, <code>new</code>로 객체를 만들 때마다 <strong>내용이 같은 함수가 각각 따로</strong> 생성되어 메모리를 낭비한다. 여러 객체가 메서드를 공유하게 만드는 방법도 있지만, 이 부록에서는 다루지 않는다.
+</div>
 
-**✅ 정상 호출 (new O)**
+---
 
-```jsx
-const warrior = new Character('전사', 100);
-// -> warrior는 '전사' 객체가 됨.
+## 11. instanceof로 확인하기
+
+```javascript
+const firstLesson = new LessonCard("변수와 스코프");
+
+console.log(firstLesson instanceof LessonCard);
+// true
 ```
 
-**❌ 실수 호출 (new X)**
+`instanceof`로 어떤 생성자 함수에서 만들어진 객체인지 확인할 수 있다.
 
-```jsx
-const mage = Character('마법사', 50);
-// 일반 script의 non-strict 모드에서는 mage가 undefined가 되고,
-// this가 window를 가리켜 전역 오염이 발생할 수 있습니다.
-// strict mode나 module 환경에서는 this가 undefined라 TypeError가 발생합니다.
+---
+
+## 12. class와의 관계 짧게 보기
+
+```javascript
+class LessonCardClass {
+  constructor(lessonTitle) {
+    this.lessonTitle = lessonTitle;
+  }
+}
+
+const firstLesson = new LessonCardClass("변수와 스코프");
+
+console.log(firstLesson.lessonTitle);
+// 변수와 스코프
 ```
 
-**💡 보충 설명**
+**📌 개념**
 
 <div class="wda-callout wda-ci">
-  <ul>
-    <li>이 실수는 마치 <strong>"새 공책(new)"</strong>을 펴지 않고, 모두가 보는 <strong>"칠판(Window)"</strong>에 낙서를 하는 것과 같습니다.</li>
-    <li><strong>new 사용</strong> — 나만의 새 공책(<code>this</code>)을 받아서 거기에 '전사'라고 적습니다. → 안전함</li>
-    <li><strong>new 미사용</strong> — 공책을 안 주니까, 그냥 눈앞에 보이는 칠판(전역 객체)에 '마법사'라고 적어버립니다. → 다른 사람의 필기까지 망칠 수 있음(전역 오염)</li>
-    <li>그래서 최신 자바스크립트에서는 이런 실수를 방지하기 위해 <code>class</code> 문법이나 <code>strict mode</code>('use strict')를 사용하기도 합니다. (엄격 모드에서는 칠판에 낙서하려 하면 에러를 띄워주거든요!)</li>
-  </ul>
+  <code>class</code>는 생성자 함수와 <strong>같은 목적을 더 읽기 쉽게 표현하는 현대 문법</strong>이다. 결과는 같지만, 자세한 문법은 별도로 다룬다.
 </div>
+
+---
+
+## 13. 초보자가 자주 만나는 생성자 함수 실수
+
+<div class="wda-fgrid">
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 1 · new를 빼먹기</div>
+
+```javascript
+const brokenLesson = LessonCard("변수와 스코프");
+console.log(brokenLesson);
+// undefined
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> new가 없으면 새 객체가 만들어지지 않는다.<br>
+  <strong>기억할 점:</strong> 생성자 함수는 항상 new로 호출한다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 2 · 소문자로 시작하는 이름</div>
+
+```javascript
+function lessonCard(lessonTitle) {
+  this.lessonTitle = lessonTitle;
+}
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 일반 함수와 구분되지 않아 new를 빼먹기 쉬워진다.<br>
+  <strong>기억할 점:</strong> 생성자 함수 이름은 대문자로 시작한다.
+</div>
+
+</div>
+
+<div class="wda-fcard">
+
+<div class="wda-fcard-ttl">🔹 실수 3 · 화살표 함수로 생성자 만들기</div>
+
+```javascript
+const LessonCardArrow = (lessonTitle) => {
+  this.lessonTitle = lessonTitle;
+};
+
+new LessonCardArrow("변수와 스코프");
+// ❌ TypeError (일부러 에러 확인용)
+```
+
+<div class="wda-fcard-dsc">
+  <strong>왜 문제가 되나:</strong> 화살표 함수는 자신만의 this가 없어 new로 호출할 수 없다.<br>
+  <strong>기억할 점:</strong> 생성자 함수는 반드시 일반 함수로 만든다.
+</div>
+
+</div>
+
+</div>
+
+---
+
+## 14. 실습 과제
+
+**🎯 목표**
+
+생성자 함수로 강의 카드 여러 개를 만들고, 서로 독립적인지 확인한다.
+
+**📋 요구사항**
+
+• `LessonCard(lessonTitle, teacherName)` 생성자 함수를 만든다.<br>
+• `new`로 서로 다른 강의 카드 두 개를 만든다.<br>
+• 한쪽 값을 바꿔도 다른 쪽에 영향이 없는지 확인한다.<br>
+• `instanceof`로 만들어진 객체가 맞는지 확인한다.
+
+```javascript
+// 구성 예시: 생성자 함수 정의 / new로 두 객체 생성 / 값 변경 후 독립성 확인 / instanceof 확인
+```
+
+**💡 힌트 1 — 생성자 함수 정의**
+
+```javascript
+function LessonCard(lessonTitle, teacherName) {
+  this.lessonTitle = lessonTitle;
+  this.teacherName = teacherName;
+}
+
+const firstLesson = new LessonCard("변수와 스코프", "지수");
+
+console.log(firstLesson.lessonTitle);
+// 변수와 스코프
+```
+
+**💡 힌트 2 — 독립성 확인**
+
+```javascript
+const secondLesson = new LessonCard("배열 다루기", "민호");
+
+firstLesson.teacherName = "도윤";
+
+console.log(firstLesson.teacherName);
+// 도윤
+
+console.log(secondLesson.teacherName);
+// 민호
+```
+
+**💡 힌트 3 — instanceof 확인**
+
+```javascript
+console.log(firstLesson instanceof LessonCard);
+// true
+```
+
+**📌 정리 메모**
+
+• 생성자 함수는 항상 new로 호출한다.<br>
+• new로 만든 객체는 서로 독립된 값을 가진다.<br>
+• 이름은 대문자로 시작하는 것이 관례다.
 
 ---
 
@@ -443,11 +475,13 @@ const mage = Character('마법사', 50);
 
 <div class="wda-check-note">
   <ul>
-    <li>생성자 함수는 똑같은 구조의 객체를 여러 개 찍어낼 때 쓰는 <strong>"틀(설계도)"</strong>이며, 함수 이름은 관례적으로 <strong>대문자</strong>로 시작합니다 (예: <code>User</code>).</li>
-    <li><strong>new의 4단계</strong> — ① 빈 객체 생성 → ② this 바인딩 → ③ 함수 본문 실행(속성 채우기) → ④ this 자동 반환 순서로 동작합니다.</li>
-    <li>일반 script, non-strict 모드에서 <code>new</code> 없이 호출하면 this가 <strong>전역 객체(window)</strong>가 되어 전역 변수를 오염시키고 반환값은 <code>undefined</code>입니다.</li>
-    <li>strict mode나 module 환경에서는 new 없이 호출 시 this가 <code>undefined</code>가 되어 <strong>TypeError</strong>가 발생합니다.</li>
-    <li>생성자 함수 안에서 원시값을 <code>return</code>하면 무시되고, 객체를 <code>return</code>하면 this가 버려지고 그 객체가 대신 반환됩니다 — 그래서 <strong>return은 아예 쓰지 않는 것이 원칙</strong>입니다.</li>
+    <li>같은 구조의 객체를 여러 개 만들 때는 객체 리터럴 반복 대신 <strong>생성자 함수</strong>를 사용한다.</li>
+    <li>생성자 함수 이름은 <strong>대문자로 시작</strong>하는 관례가 있다(예: <code>LessonCard</code>).</li>
+    <li><code>new</code>로 호출하면 <strong>새 객체가 만들어지고</strong>, 함수 안의 <code>this</code>는 그 새 객체를 가리킨다.</li>
+    <li>생성자 함수로 만든 <strong>여러 객체는 서로 독립된 값</strong>을 가진다 — 하나를 바꿔도 다른 것에 영향을 주지 않는다.</li>
+    <li><strong>new를 빼먹으면</strong> 새 객체가 만들어지지 않는다.</li>
+    <li><strong>instanceof</strong>로 어떤 생성자 함수에서 만든 객체인지 확인할 수 있다.</li>
+    <li><strong>class</strong>는 생성자 함수와 같은 목적을 더 읽기 쉽게 표현하는 현대 문법이다.</li>
   </ul>
 </div>
 
@@ -455,16 +489,16 @@ const mage = Character('마법사', 50);
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: new를 빼먹어도 큰 문제는 없다?</div>
-    <div class="wda-mistake-right">정답: non-strict 모드에서는 <strong>전역 변수를 오염</strong>시키고, strict mode·module 환경에서는 <strong>TypeError</strong>가 발생하는 심각한 버그가 됩니다.</div>
+    <div class="wda-mistake-wrong">오해: 생성자 함수는 new 없이 호출해도 똑같이 동작한다?</div>
+    <div class="wda-mistake-right">정답: new가 없으면 <strong>새 객체가 만들어지지 않는다</strong>.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 생성자 함수에서 return 100처럼 값을 반환하면 그 값이 반환된다?</div>
-    <div class="wda-mistake-right">정답: <strong>원시값</strong>을 return하면 무시되고 원래 만들던 this가 반환됩니다. <strong>객체</strong>를 return하면 this가 버려지고 그 객체가 대신 반환됩니다.</div>
+    <div class="wda-mistake-wrong">오해: 생성자 함수로 만든 객체들은 값을 공유한다?</div>
+    <div class="wda-mistake-right">정답: 각 객체는 <strong>서로 독립된 값</strong>을 가진다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: null을 return하면 객체로 취급되어 this가 버려진다?</div>
-    <div class="wda-mistake-right">정답: <code>null</code>은 <code>typeof</code>가 "object"처럼 보여도 생성자 반환 규칙에서는 객체로 취급되지 않아, 원래의 <code>this</code>가 그대로 반환됩니다.</div>
+    <div class="wda-mistake-wrong">오해: 화살표 함수로도 생성자 함수를 만들 수 있다?</div>
+    <div class="wda-mistake-right">정답: 화살표 함수는 <strong>자신만의 this가 없어</strong> new로 호출할 수 없다.</div>
   </div>
 </div>
 
@@ -472,16 +506,16 @@ const mage = Character('마법사', 50);
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · new 4단계</div>
-    <div class="wda-formula-block-body"><code>빈 객체 → this 바인딩 → 본문 실행 → this 반환</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 이름 관례</div>
+    <div class="wda-formula-block-body"><code>생성자 함수 = 대문자 시작</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · new 없이 호출</div>
-    <div class="wda-formula-block-body"><code>non-strict = 전역 오염</code><br><code>strict/module = TypeError</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · new 흐름</div>
+    <div class="wda-formula-block-body"><code>new = 새 객체 생성 + this 연결 + 자동 반환</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · return 함정</div>
-    <div class="wda-formula-block-body"><code>원시값 = 무시</code><br><code>객체 = this 대체</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 확인</div>
+    <div class="wda-formula-block-body"><code>instanceof = 어떤 생성자로 만들었는지 확인</code></div>
   </div>
 </div>
 
@@ -489,31 +523,31 @@ const mage = Character('마법사', 50);
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">생성자 함수는 왜 쓰나?</div>
-    <div class="wda-flip-back">똑같은 구조의 객체를 여러 개 찍어낼 때 코드 중복 없이 표준화된 객체를 만들기 위해서다.</div>
+    <div class="wda-flip-front">생성자 함수가 필요한 이유는?</div>
+    <div class="wda-flip-back">같은 구조의 객체를 여러 개 만들 때 객체 리터럴 반복을 피하기 위해서다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">new 연산자의 4단계는?</div>
-    <div class="wda-flip-back">빈 객체 생성 → this 바인딩 → 함수 본문 실행(속성 채우기) → this 자동 반환.</div>
+    <div class="wda-flip-front">생성자 함수 이름은 보통 어떻게 짓나?</div>
+    <div class="wda-flip-back">대문자로 시작한다(PascalCase).</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">함수 이름을 대문자로 시작하는 이유는?</div>
-    <div class="wda-flip-back">"이건 생성자 함수니까 new 없이 그냥 호출하지 마"라는 개발자들 사이의 관례적 신호다.</div>
+    <div class="wda-flip-front">new로 호출하면 무슨 일이 일어나나?</div>
+    <div class="wda-flip-back">새 객체가 만들어지고, this가 그 객체를 가리키며, 함수 본문 실행 후 자동으로 반환된다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">new 없이 생성자 함수를 호출하면 (non-strict)?</div>
-    <div class="wda-flip-back">this가 전역 객체(window)가 되어 의도치 않게 전역 변수를 오염시키고, 반환값은 undefined다.</div>
+    <div class="wda-flip-front">new를 빼먹으면?</div>
+    <div class="wda-flip-back">새 객체가 만들어지지 않는다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">생성자 함수에서 원시값을 return하면?</div>
-    <div class="wda-flip-back">무시되고, 원래 만들어지던 this 객체가 그대로 반환된다.</div>
+    <div class="wda-flip-front">생성자 함수로 만든 객체들은 값을 공유하나?</div>
+    <div class="wda-flip-back">공유하지 않는다 — 서로 독립된 값을 가진다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">생성자 함수에서 객체를 return하면?</div>
-    <div class="wda-flip-back">this는 버려지고, return한 객체가 대신 반환된다.</div>
+    <div class="wda-flip-front">instanceof는 무엇을 확인하나?</div>
+    <div class="wda-flip-back">어떤 생성자 함수로 만들어진 객체인지 확인한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">생성자 함수 작성 시 가장 안전한 원칙은?</div>
-    <div class="wda-flip-back">return 문을 아예 쓰지 않는 것이다 — 자바스크립트가 알아서 this를 반환해준다.</div>
+    <div class="wda-flip-front">class는 생성자 함수와 어떤 관계인가?</div>
+    <div class="wda-flip-back">같은 목적을 더 읽기 쉽게 표현하는 현대 문법이다.</div>
   </div>
 </div>
