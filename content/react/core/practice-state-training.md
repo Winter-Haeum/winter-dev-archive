@@ -1,7 +1,7 @@
 ---
-title: "실습: state 활용 훈련 1~8"
+title: "실습: state 활용 훈련"
 status: "completed"
-description: "Counter, Toggle, Mirror, Color Box, Traffic Light, Login Check, Tab Menu, Accordion 등 8가지 미니 실습으로 useState 활용 패턴을 훈련한다."
+description: "학습 진행 상태 카드를 만들며 숫자/문자열/불리언/배열/객체 state를 직접 다뤄보는 useState 실습 문서다."
 category: "React"
 section: "Core"
 tags:
@@ -15,40 +15,30 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -67,636 +57,264 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
-<h2>1. 💻 실습 : Counter (숫자)</h2>
+<div class="wda-callout wda-ci">
+  이 문서는 개념을 처음 설명하는 문서가 아니라, <strong>2-4 state로 상태 관리하기</strong>에서 배운 내용을 직접 코드로 적용해보는 실습 문서입니다.
+</div>
 
-가장 기본이 되는 숫자를 세는 기능입니다. 아래 가이드에 따라 증가와 감소 기능을 모두 구현해 봅시다.
+## 🎯 실습 목표
 
-**🎯 Mission**
+<div class="wda-goal">
+  학습 진행 상태 카드(ProgressCard)를 만들면서 숫자, 문자열, 불리언, 배열, 객체 state를 각각 다뤄봅니다.
+</div>
 
-`src/components/Counter.jsx`를 만들고 다음을 구현하세요.
+---
 
-1. **State:** 초기값 `0`인 숫자 상태를 만드세요.
-2. **기능:**
-   - `+1` 버튼을 누르면 숫자가 1 증가합니다.
-   - `-1` 버튼을 누르면 숫자가 1 감소합니다.
-3. **핵심:** 이전 값을 기반으로 안전하게 변경하는 **함수형 업데이트**(`prev => ...`)를 사용해 보세요.
-
-**✅ 결과 예시**
-
-- **+1 클릭:** 0 ➡ 1 ➡ 2
-- **-1 클릭:** 2 ➡ 1 ➡ 0 ➡ -1
-
-**📝 정답 코드**
+## 1단계: 숫자 state로 완료 개수 세기
 
 ```jsx
-import { useState } from 'react';
+const [count, setCount] = useState(0);
 
-function Counter() {
+function handleAddCount() {
+  setCount((prev) => prev + 1);
+}
+```
+
+---
+
+## 2단계: 불리언 state로 진행 상태 전환하기
+
+```jsx
+const [isCompleted, setIsCompleted] = useState(false);
+
+function handleToggleCompleted() {
+  setIsCompleted((prev) => !prev);
+}
+```
+
+---
+
+## 3단계: 문자열 state로 입력값 연결하기
+
+```jsx
+const [title, setTitle] = useState("");
+
+<input value={title} onChange={(event) => setTitle(event.target.value)} />
+```
+
+---
+
+## 4단계: 배열 state에 항목 추가/삭제하기
+
+```jsx
+const [completedTitles, setCompletedTitles] = useState([]);
+
+function handleAddTitle() {
+  if (!title.trim()) return;
+
+  const newItem = { id: Date.now(), text: title };
+  setCompletedTitles((prev) => [...prev, newItem]);
+  setTitle("");
+}
+
+function handleRemoveTitle(id) {
+  setCompletedTitles((prev) => prev.filter((item) => item.id !== id));
+}
+```
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">잘못된 방식</div>
+    <code>completedTitles.push(newItem)</code> — 원본 배열을 직접 바꾼다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">올바른 방식</div>
+    <code>setCompletedTitles(prev =&gt; [...prev, newItem])</code> — 새 배열로 교체한다.
+  </div>
+</div>
+
+---
+
+## 5단계: 객체 state 업데이트하기
+
+```jsx
+const [summary, setSummary] = useState({ total: 0, lastTitle: "" });
+
+function handleUpdateSummary(newTitle) {
+  setSummary((prev) => ({ ...prev, total: prev.total + 1, lastTitle: newTitle }));
+}
+```
+
+<div class="wda-callout wda-cw">
+  <code>summary.total = summary.total + 1</code>처럼 객체를 직접 수정하지 않습니다. 항상 <code>{ ...prev, ... }</code>처럼 복사한 새 객체로 교체합니다.
+</div>
+
+---
+
+## 완성 코드
+
+```jsx
+import { useState } from "react";
+
+function ProgressCard() {
   const [count, setCount] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [title, setTitle] = useState("");
+  const [completedTitles, setCompletedTitles] = useState([]);
+  const [summary, setSummary] = useState({ total: 0, lastTitle: "" });
 
-  // 핵심: prev는 "변경 직전의 최신 값"을 의미합니다.
-  const handleIncrease = () => {
-    setCount(prev => prev + 1);
-  };
+  function handleAddCount() {
+    setCount((prev) => prev + 1);
+  }
 
-  const handleDecrease = () => {
-    setCount(prev => prev - 1);
-  };
+  function handleToggleCompleted() {
+    setIsCompleted((prev) => !prev);
+  }
+
+  function handleAddTitle() {
+    if (!title.trim()) return;
+
+    const newItem = { id: Date.now(), text: title };
+    setCompletedTitles((prev) => [...prev, newItem]);
+    setSummary((prev) => ({ ...prev, total: prev.total + 1, lastTitle: title }));
+    setTitle("");
+  }
+
+  function handleRemoveTitle(id) {
+    setCompletedTitles((prev) => prev.filter((item) => item.id !== id));
+  }
 
   return (
-    <div style={{ border: "1px solid #ddd", padding: "20px", marginBottom: "10px" }}>
-      <h2>1. Counter</h2>
-      <p>현재 값: <strong>{count}</strong></p>
-      <button onClick={handleIncrease} style={{ marginRight: "10px" }}>+1</button>
-      <button onClick={handleDecrease}>-1</button>
-    </div>
+    <section>
+      <p>완료한 항목: {count}</p>
+      <button onClick={handleAddCount}>하나 완료</button>
+
+      <p>상태: {isCompleted ? "완료" : "진행 중"}</p>
+      <button onClick={handleToggleCompleted}>상태 바꾸기</button>
+
+      <input value={title} onChange={(event) => setTitle(event.target.value)} />
+      <button onClick={handleAddTitle}>목록에 추가</button>
+
+      <ul>
+        {completedTitles.map((item) => (
+          <li key={item.id}>
+            {item.text}
+            <button onClick={() => handleRemoveTitle(item.id)}>삭제</button>
+          </li>
+        ))}
+      </ul>
+
+      <p>총 {summary.total}개, 마지막 항목: {summary.lastTitle}</p>
+    </section>
   );
 }
 
-export default Counter;
+export default ProgressCard;
 ```
 
-**💡 보충 설명**
+---
 
-<div class="wda-callout wda-ci">
-  <strong>함수형 업데이트 (<code>prev =&gt; prev + 1</code>)</strong>
-  <p>위 정답 예시처럼 <code>setCount(count + 1)</code> 대신 <code>prev</code>를 사용하는 것이 더 안전합니다. 연속으로 버튼을 따다닥 눌렀을 때도 숫자가 정확하게 반영됩니다.</p>
+## 확인 포인트
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">숫자/불리언</div>
+    <div class="wda-fcard-dsc">버튼을 누를 때마다 count가 늘고, 상태 텍스트가 반전된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">문자열</div>
+    <div class="wda-fcard-dsc">입력창에 타이핑한 내용이 바로 반영된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">배열</div>
+    <div class="wda-fcard-dsc">추가 버튼으로 목록이 늘고, 삭제 버튼으로 해당 항목만 사라진다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">객체</div>
+    <div class="wda-fcard-dsc">total과 lastTitle이 항목을 추가할 때마다 갱신된다.</div>
+  </div>
 </div>
 
 ---
 
-<h2>2. 💻 실습 : Toggle (불리언)</h2>
+## 흔한 실수
 
-스위치를 껐다 켰다 하는 ON/OFF 기능입니다.
-
-**🎯 Mission**
-
-`src/components/Toggle.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 초기값 `false`인 불리언 상태(`isOn`)를 만드세요.
-2. **화면:** 상태가 `true`면 **"ON"**, `false`면 **"OFF"**라고 글자가 보여야 합니다. (삼항 연산자 사용)
-3. **기능:** 버튼을 클릭할 때마다 상태가 반대로(`true ↔ false`) 바뀌어야 합니다.
-
-**✅ 결과 예시**
-
-- 초기 화면: **상태: OFF**
-- 버튼 클릭: **상태: ON** ➡ **상태: OFF** (반복)
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function Toggle() {
-  const [isOn, setIsOn] = useState(false);
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px", marginBottom: "10px" }}>
-      <h2>2. Toggle</h2>
-      {/* 삼항 연산자: 조건 ? 참일때 : 거짓일때 */}
-      <p>상태: <strong>{isOn ? 'ON' : 'OFF'}</strong></p>
-
-      {/* !isOn : 현재 값의 반대(Not)를 넣음 */}
-      <button onClick={() => setIsOn(!isOn)}>스위치</button>
-    </div>
-  );
-}
-
-export default Toggle;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>논리 부정 연산자 (<code>!</code>)</strong>
-  <ul>
-    <li><code>!true</code> ➡ <code>false</code></li>
-    <li><code>!false</code> ➡ <code>true</code></li>
-  </ul>
-  <p>현재 상태의 반대값을 넣으면 토글(Toggle) 기능이 완성됩니다.</p>
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">state를 직접 대입한다</div>
+    <div class="wda-fcard-dsc">count = count + 1처럼 쓰면 화면이 갱신되지 않는다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">배열에 push를 사용한다</div>
+    <div class="wda-fcard-dsc">원본을 직접 바꾸므로 새 배열로 교체해야 한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">객체 속성을 직접 수정한다</div>
+    <div class="wda-fcard-dsc">summary.total++ 대신 스프레드로 새 객체를 만들어야 한다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">이전 값을 사용하지 않는다</div>
+    <div class="wda-fcard-dsc">연속 갱신이 필요할 때는 함수형 업데이트가 더 안전하다.</div>
+  </div>
 </div>
 
 ---
 
-<h2>3. 💻 실습 : Mirror (문자열)</h2>
-
-입력한 글자를 거울처럼 실시간으로 보여주는 기능입니다.
-
-**🎯 Mission**
-
-`src/components/Mirror.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 빈 문자열(`""`)로 초기화된 상태(`text`)를 만드세요.
-2. **연결:** `input` 태그의 `value`와 `onChange`를 State에 연결하세요.
-3. **출력:** 입력된 글자가 바로 아래 `<p>` 태그에 똑같이 나타나야 합니다.
-
-**✅ 결과 예시**
-
-입력창에 "안녕하세요" 입력 ➡ 아래에 **"입력값: 안녕하세요"** 출력
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function Mirror() {
-  const [text, setText] = useState("");
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px" }}>
-      <h2>3. Mirror</h2>
-      <input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <p>입력값: <strong>{text}</strong></p>
-    </div>
-  );
-}
-
-export default Mirror;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>e.target.value</strong>
-  <p>사용자가 방금 입력한 키보드 값을 가져오는 명령어입니다. 이 값을 <code>setText</code>에 넣어주면 화면이 다시 그려지면서 글자가 나타납니다.</p>
-</div>
-
----
-
-<h2>4. 💻 실습 : Color Box</h2>
-
-배열과 인덱스를 활용하여 색상을 순서대로 변경하는 로직입니다.
-
-**🎯 Mission**
-
-`src/components/ColorBox.jsx`를 만들고 다음을 구현하세요.
-
-1. **배열 준비:** `['red', 'blue', 'green']` 색상 배열을 컴포넌트 내부나 외부에 선언하세요.
-2. **State:** 현재 색상이 아닌, **현재 색상의 순서(index)**를 저장하는 숫자 state를 만드세요. (0부터 시작)
-3. **기능:** 버튼을 누를 때마다 인덱스가 1씩 증가해야 하며, 마지막 색상 다음에는 다시 첫 번째(`0`)로 돌아와야 합니다. (나머지 연산자 `%` 활용)
-
-**✅ 결과 예시**
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">초기</div>
-    <div class="wda-sbody"><div class="wda-sdsc">빨간 상자</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">1회</div>
-    <div class="wda-sbody"><div class="wda-sdsc">파란 상자</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2회</div>
-    <div class="wda-sbody"><div class="wda-sdsc">초록 상자</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3회</div>
-    <div class="wda-sbody"><div class="wda-sdsc">다시 빨간 상자 (무한 반복)</div></div>
-  </div>
-</div>
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function ColorBox() {
-  const colors = ['red', 'blue', 'green'];
-  // 색상 자체가 아니라, '몇 번째'인지(index)를 기억합니다.
-  const [index, setIndex] = useState(0);
-
-  const handleChangeColor = () => {
-    // (현재번호 + 1)을 전체개수(3)로 나눈 나머지(%)를 구하면
-    // 0, 1, 2, 0, 1, 2... 가 반복됩니다.
-    setIndex((prev) => (prev + 1) % colors.length);
-  };
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px", marginBottom: "10px" }}>
-      <h2>4. Color Box</h2>
-      <div style={{
-        width: "100px",
-        height: "100px",
-        backgroundColor: colors[index], // 배열에서 색 꺼내오기
-        marginBottom: "10px"
-      }}></div>
-      <button onClick={handleChangeColor}>Change Color</button>
-    </div>
-  );
-}
-
-export default ColorBox;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>나머지 연산자 (<code>%</code>)</strong>
-  <p><code>(index + 1) % 3</code> 공식은 순환하는 로직을 만들 때 개발자들이 가장 즐겨 쓰는 패턴입니다. <code>if</code>문을 쓰지 않아도 돼서 코드가 훨씬 깔끔해집니다.</p>
-</div>
-
----
-
-<h2>5. 💻 실습 : Traffic Light</h2>
-
-객체(Object)를 활용하여 다음 상태를 미리 정의해두는 패턴입니다.
-
-**🎯 Mission**
-
-`src/components/TrafficLight.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 현재 신호등 색상(`light`)을 저장하세요. (초기값: `'red'`)
-2. **매핑 객체:** 각 색상일 때 다음 색상이 무엇인지 정의한 객체(`next`)를 만드세요.
-   - red ➡ yellow
-   - yellow ➡ green
-   - green ➡ red
-3. **기능:** 버튼을 누르면 이 객체를 참조하여 다음 색상으로 변경하세요.
-
-**✅ 결과 예시**
-
-버튼을 누를 때마다 원의 색상이 **빨강 ➡ 노랑 ➡ 초록 ➡ 빨강** 순서로 바뀝니다.
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function TrafficLight() {
-  const [light, setLight] = useState('red');
-
-  // 상태 기계(State Machine)처럼 동작을 미리 정의합니다.
-  const next = {
-    red: 'yellow',
-    yellow: 'green',
-    green: 'red'
-  };
-
-  const handleChangeLight = () => {
-    setLight(next[light]); // 현재가 red면 next['red']인 yellow가 됨
-  };
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px", marginBottom: "10px" }}>
-      <h2>5. Traffic Light</h2>
-      <div style={{
-        width: "100px",
-        height: "100px",
-        borderRadius: "50%",
-        backgroundColor: light,
-        marginBottom: "10px",
-        transition: "0.3s" // 부드럽게 바뀌는 효과
-      }}></div>
-      <button onClick={handleChangeLight}>Change Light</button>
-    </div>
-  );
-}
-
-export default TrafficLight;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>객체 매핑(Object Mapping)</strong>
-  <p>복잡한 <code>if-else</code>나 <code>switch</code> 문을 사용하는 대신, 이렇게 객체에 "A 다음은 B"라고 적어두고 꺼내 쓰는 방식이 훨씬 읽기 좋고 유지 보수하기 좋습니다.</p>
-</div>
-
----
-
-<h2>6. 💻 실습 : Login Check</h2>
-
-여러 개의 입력값(Input)을 검사하여 버튼을 활성화/비활성화하는 기능입니다.
-
-**🎯 Mission**
-
-`src/components/LoginCheck.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 아이디(`id`)와 비밀번호(`pw`)를 저장할 2개의 state를 만드세요.
-2. **Input:** 각각의 input 태그를 만들고 state와 연결하세요.
-3. **유효성 검사:** 아이디와 비밀번호가 **둘 다 입력되었을 때만** 버튼이 눌리도록 만드세요. (하나라도 비어있으면 `disabled`)
-
-**✅ 결과 예시**
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody"><div class="wda-sttl">초기</div><div class="wda-sdsc">로그인 버튼이 회색이고 눌리지 않음.</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody"><div class="wda-sttl">아이디만 입력</div><div class="wda-sdsc">여전히 눌리지 않음.</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody"><div class="wda-sttl">비밀번호까지 입력</div><div class="wda-sdsc">버튼이 활성화되어 클릭 가능해짐.</div></div>
-  </div>
-</div>
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function LoginCheck() {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px" }}>
-      <h2>6. Login Check</h2>
-      <div style={{ marginBottom: "10px" }}>
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-          placeholder="아이디 입력"
-        />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
-        <input
-          type="password"
-          value={pw}
-          onChange={(e) => setPw(e.target.value)}
-          placeholder="비밀번호 입력"
-        />
-      </div>
-
-      {/* 논리 연산자 OR(||): 둘 중 하나라도 비어있으면(true) -> disabled는 true */}
-      <button disabled={!id || !pw}>
-        로그인
-      </button>
-    </div>
-  );
-}
-
-export default LoginCheck;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>Disabled 처리</strong>
-  <p><code>&lt;button disabled={true}&gt;</code>가 되면 버튼이 비활성화됩니다.</p>
-  <strong>조건식 <code>!id || !pw</code></strong>
-  <ul>
-    <li><code>!id</code>: 아이디가 비어있으면 참(True)</li>
-    <li><code>||</code>: 또는 (OR)</li>
-  </ul>
-  <p>즉, "아이디가 없거나, 비밀번호가 없으면 ➡ 비활성화해라"라는 뜻입니다.</p>
-</div>
-
----
-
-<h2>7. 💻 실습 : Tab Menu</h2>
-
-현재 선택된 탭이 무엇인지 기억하고, 그에 따라 다른 내용을 보여주는 UI 패턴입니다.
-
-**🎯 Mission**
-
-`src/components/TabMenu.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 현재 선택된 탭의 이름(`currentTab`)을 저장하세요. (초기값: `'home'`)
-2. **버튼:** 'Home', 'About', 'Contact' 3개의 버튼을 만드세요.
-3. **스타일:** 선택된 버튼은 글자색이나 배경색을 다르게 하여 표시하세요. (조건부 스타일링)
-4. **내용:** 선택된 탭에 따라 아래 텍스트가 바뀌어야 합니다. (조건부 렌더링)
-
-**✅ 결과 예시**
-
-- **초기:** 'Home' 버튼이 활성화되어 있고 "🏠 홈 화면입니다."가 보임.
-- **About 클릭:** 'About' 버튼 색이 바뀌고 내용이 "ℹ️ 소개 화면입니다."로 교체됨.
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function TabMenu() {
-  const [currentTab, setCurrentTab] = useState('home');
-
-  // 선택된 탭에만 적용할 스타일 객체
-  const activeStyle = { backgroundColor: "black", color: "white" };
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px", marginBottom: "10px" }}>
-      <h2>7. Tab Menu</h2>
-
-      {/* 탭 버튼 영역 */}
-      <div style={{ display: "flex", gap: "10px" }}>
-        <button
-          onClick={() => setCurrentTab('home')}
-          // 조건부 스타일링: 현재 탭이 'home'이면 activeStyle 적용
-          style={currentTab === 'home' ? activeStyle : {}}
-        >
-          Home
-        </button>
-
-        <button
-          onClick={() => setCurrentTab('about')}
-          style={currentTab === 'about' ? activeStyle : {}}
-        >
-          About
-        </button>
-
-        <button
-          onClick={() => setCurrentTab('contact')}
-          style={currentTab === 'contact' ? activeStyle : {}}
-        >
-          Contact
-        </button>
-      </div>
-
-      {/* 내용 표시 영역 (조건부 렌더링) */}
-      <div style={{ marginTop: "20px", padding: "10px", border: "1px dashed #ccc" }}>
-        {currentTab === 'home' && <p>🏠 홈 내용이 보입니다.</p>}
-        {currentTab === 'about' && <p>ℹ️ 서비스 소개입니다.</p>}
-        {currentTab === 'contact' && <p>📞 010-1234-5678</p>}
-      </div>
-    </div>
-  );
-}
-
-export default TabMenu;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>조건부 렌더링 (<code>&&</code> 연산자)</strong>
-  <p><code>{조건 &amp;&amp; &lt;태그 /&gt;}</code> 패턴을 사용하면, 조건이 <code>true</code>일 때만 뒤에 있는 태그가 화면에 그려집니다. 리액트에서 무언가를 보여줬다 숨겼다 할 때 가장 많이 쓰는 문법입니다.</p>
-</div>
-
----
-
-<h2>8. 💻 실습 : Accordion</h2>
-
-클릭하면 내용이 펼쳐지고, 다시 클릭하면 접히는 UI입니다.
-
-**🎯 Mission**
-
-`src/components/Accordion.jsx`를 만들고 다음을 구현하세요.
-
-1. **State:** 내용이 열려있는지 닫혀있는지(`isOpen`)를 저장하는 불리언(Boolean) state를 만드세요. (초기값: `false`)
-2. **제목:** 클릭할 수 있는 제목 영역을 만드세요.
-3. **기능:** 제목을 클릭할 때마다 `isOpen` 상태가 반전(`true ↔ false`)되어야 합니다.
-4. **내용:** `isOpen`이 `true`일 때만 상세 내용이 화면에 나타나야 합니다.
-
-**✅ 결과 예시**
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody"><div class="wda-sttl">초기</div><div class="wda-sdsc">제목만 보이고 내용은 숨겨져 있음.</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody"><div class="wda-sttl">클릭 1회</div><div class="wda-sdsc">내용이 아래로 펼쳐짐.</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody"><div class="wda-sttl">클릭 2회</div><div class="wda-sdsc">내용이 다시 사라짐.</div></div>
-  </div>
-</div>
-
-**📝 정답 코드**
-
-```jsx
-import { useState } from 'react';
-
-function Accordion() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "20px" }}>
-      <h2>8. Accordion</h2>
-
-      <div
-        // 현재 값의 반대(!)로 설정하여 토글 기능 구현
-        onClick={() => setIsOpen(!isOpen)}
-        style={{
-          cursor: "pointer",
-          backgroundColor: "#f0f0f0",
-          padding: "10px",
-          display: "flex",
-          justifyContent: "space-between"
-        }}
-      >
-        <span>토글 제목</span>
-        <span>{isOpen ? "🔼" : "🔽"}</span>
-      </div>
-
-      {/* 논리 연산자(&&)를 이용한 조건부 렌더링 */}
-      {isOpen && (
-        <div style={{ padding: "20px", backgroundColor: "#fafafa" }}>
-          <p>여기에 상세 내용이 들어갑니다.</p>
-          <p>필요할 때만 보여주는 패턴입니다.</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default Accordion;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>토글 패턴 (<code>!state</code>)</strong>
-  <p><code>setIsOpen(!isOpen)</code>은 "현재 열려있으면 닫고, 닫혀있으면 열어라"라는 뜻입니다.</p>
-  <p>탭 메뉴(Tab)와 아코디언(Accordion)은 리액트 State를 활용하는 가장 대표적인 UI 예제입니다. 이 원리만 알면 드롭다운 메뉴, 모달 창 등 다양한 기능을 만들 수 있습니다.</p>
-</div>
-
----
-
-<h2>9. ✅ 핵심 요약</h2>
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>이전 값 기반으로 갱신할 때는 <strong>setState(prev =&gt; ...)</strong> 함수형 업데이트를 사용한다 (Counter).</li>
-    <li>불리언 상태는 <strong>setState(!state)</strong>로 간단히 반전시킬 수 있다 (Toggle, Accordion).</li>
-    <li>input의 <strong>value/onChange</strong>를 state에 연결하는 것이 Controlled Component의 기본이다 (Mirror).</li>
-    <li>값 자체보다 <strong>인덱스</strong>를 state로 저장하고 <strong>나머지 연산자(%)</strong>로 순환시키면 배열 값을 순서대로 꺼낼 수 있다 (Color Box).</li>
-    <li>if-else 대신 <strong>매핑 객체</strong>({ red: 'yellow', ... })로 "다음 상태"를 정의하면 코드가 간결해진다 (Traffic Light).</li>
-    <li><strong>|| 연산자</strong>로 여러 조건 중 하나라도 참이면 되는 검증(disabled)을 만들 수 있다 (Login Check).</li>
-    <li><strong>&& 연산자</strong>로 선택된 탭이거나 열린 상태일 때만 내용을 보여준다 (Tab Menu, Accordion).</li>
+    <li>숫자·불리언 state는 <strong>함수형 업데이트</strong>(<code>prev =&gt; ...</code>)로 안전하게 바꾼다.</li>
+    <li>문자열 state는 <strong>value/onChange</strong>로 input과 연결한다.</li>
+    <li>배열 state는 <strong>spread로 추가</strong>, <strong>filter로 삭제</strong>한다.</li>
+    <li>객체 state는 <strong>{ ...prev, key: value }</strong> 형태로 새 객체를 만들어 교체한다.</li>
   </ul>
 </div>
 
-**🧠 실수 방지 체크**
+**🧠 헷갈리기 쉬운 것**
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: setCount(count + 1)처럼 현재 값을 직접 참조해 갱신한다.</div>
-    <div class="wda-mistake-right">방지: 연속 클릭 시 최신 값이 반영되지 않을 수 있으므로 <code>setCount(prev =&gt; prev + 1)</code> 형태의 함수형 업데이트를 사용한다.</div>
+    <div class="wda-mistake-wrong">오해: setCount(count + 1)과 setCount(prev =&gt; prev + 1)은 항상 같은 결과다?</div>
+    <div class="wda-mistake-right">정답: 연속 호출 시 결과가 다를 수 있어, 이전 값에 의존할 때는 <strong>함수형 업데이트</strong>가 더 안전하다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 색상 인덱스를 (index + 1)로만 늘려 배열 범위를 벗어난다.</div>
-    <div class="wda-mistake-right">방지: <code>(prev + 1) % colors.length</code>처럼 나머지 연산자로 나눈 값을 사용해 마지막 다음엔 다시 0으로 순환시킨다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 로그인 버튼 활성화 조건에 !id && !pw처럼 AND를 사용한다.</div>
-    <div class="wda-mistake-right">방지: 아이디·비밀번호 중 하나라도 비어있으면 비활성화해야 하므로 <code>disabled={!id || !pw}</code>처럼 OR을 사용한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 탭 내용의 조건부 렌더링에서 값 자체를 조건으로 사용한다.</div>
-    <div class="wda-mistake-right">방지: <code>currentTab === 'home' && ...</code>처럼 명시적인 비교식을 써야 원하는 탭에서만 정확히 렌더링된다.</div>
+    <div class="wda-mistake-wrong">오해: 배열/객체 state도 일반 변수처럼 바로 수정해도 된다?</div>
+    <div class="wda-mistake-right">정답: 직접 수정하면 React가 변경을 감지하지 못할 수 있어 <strong>새 값으로 교체</strong>해야 한다.</div>
   </div>
 </div>
 
-**✅ 완성 기준**
+**🎯 최종 암기 공식**
 
-<div class="wda-check-note">
-  <ul>
-    <li>Counter: +1/-1 버튼으로 숫자가 정확히 증감한다.</li>
-    <li>Toggle: 클릭할 때마다 ON/OFF 텍스트가 반전된다.</li>
-    <li>Mirror: 입력한 글자가 실시간으로 아래에 그대로 출력된다.</li>
-    <li>Color Box: 클릭할 때마다 red → blue → green → red 순으로 순환한다.</li>
-    <li>Traffic Light: red → yellow → green → red 순으로 신호가 바뀐다.</li>
-    <li>Login Check: 아이디·비밀번호가 모두 입력된 경우에만 버튼이 활성화된다.</li>
-    <li>Tab Menu: 선택한 탭 버튼 스타일이 바뀌고 그에 맞는 내용이 표시된다.</li>
-    <li>Accordion: 클릭할 때마다 내용이 펼쳐지고 접힌다.</li>
-  </ul>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 숫자/불리언</div>
+    <div class="wda-formula-block-body"><code>setState(prev =&gt; ...)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 배열 추가/삭제</div>
+    <div class="wda-formula-block-body"><code>[...prev, item] / prev.filter(...)</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 객체</div>
+    <div class="wda-formula-block-body"><code>{ ...prev, key: value }</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Counter에서 함수형 업데이트를 쓰는 이유는?</div>
-    <div class="wda-flip-back">이전 값을 기준으로 안전하게 변경해, 연속 클릭 시에도 숫자가 정확히 반영되게 하기 위해서다.</div>
+    <div class="wda-flip-front">배열에 항목을 추가하는 안전한 방법은?</div>
+    <div class="wda-flip-back">setState(prev => [...prev, newItem])처럼 기존 배열을 복사한 새 배열을 만든다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Toggle에서 상태를 반전시키는 방법은?</div>
-    <div class="wda-flip-back">setIsOn(!isOn)처럼 논리 부정 연산자(!)로 현재 값의 반대를 넣는다.</div>
+    <div class="wda-flip-front">배열에서 항목을 삭제하는 안전한 방법은?</div>
+    <div class="wda-flip-back">filter()로 조건에 맞는 항목만 남긴 새 배열을 만든다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Color Box의 순환 로직 공식은?</div>
-    <div class="wda-flip-back">(index + 1) % colors.length로, 배열 끝에 도달하면 다시 0으로 돌아간다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Traffic Light가 객체 매핑을 쓴 이유는?</div>
-    <div class="wda-flip-back">if-else나 switch 없이 { red: 'yellow', ... }처럼 "다음 상태"를 미리 정의해 꺼내 쓰면 더 읽기 좋고 유지보수하기 좋다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Login Check의 disabled 조건식은?</div>
-    <div class="wda-flip-back">disabled={!id || !pw}로, 아이디나 비밀번호 중 하나라도 비어있으면 비활성화한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Tab Menu에서 내용을 조건부로 보여주는 방법은?</div>
-    <div class="wda-flip-back">currentTab === 'home' && &lt;p&gt;...&lt;/p&gt;처럼 && 연산자로 선택된 탭일 때만 렌더링한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Accordion의 열림/닫힘은 어떻게 제어하나?</div>
-    <div class="wda-flip-back">isOpen 불리언 state를 클릭 시 반전시키고, isOpen && &lt;div&gt;...&lt;/div&gt;로 내용을 조건부 렌더링한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Mirror가 Controlled Component인 이유는?</div>
-    <div class="wda-flip-back">input의 value와 onChange를 React state(text)에 연결해, state가 입력값의 기준이 되기 때문이다.</div>
+    <div class="wda-flip-front">객체 state의 한 속성만 바꾸려면?</div>
+    <div class="wda-flip-back">{ ...prev, key: value }처럼 나머지는 복사하고 바뀐 속성만 덮어쓴다.</div>
   </div>
 </div>
