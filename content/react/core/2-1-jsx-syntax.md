@@ -179,7 +179,7 @@ function StudyCard() {
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">JavaScript 표현식</div>
-    <code>{"{courseLevel}"}</code>, <code>{"{1 + 1}"}</code>처럼 계산되어 값이 나오는 코드.
+    <code>{courseLevel}</code>, <code>{1 + 1}</code>처럼 계산되어 값이 나오는 코드.
   </div>
 </div>
 
@@ -336,7 +336,7 @@ CSS 속성명은 `backgroundColor`처럼 camelCase로 씁니다.
   </div>
   <div class="wda-mistake-note">
     <div class="wda-mistake-wrong">오해: 인라인 스타일은 문자열로 지정해도 된다?</div>
-    <div class="wda-mistake-right">정답: JSX의 style은 <strong>객체</strong> <code>{"{{ color: 'blue' }}"}</code> 형태로 전달해야 한다.</div>
+    <div class="wda-mistake-right">정답: JSX의 style은 <strong>객체</strong> <code>{{ color: 'blue' }}</code> 형태로 전달해야 한다.</div>
   </div>
 </div>
 
