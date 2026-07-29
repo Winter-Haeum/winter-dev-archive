@@ -1,7 +1,7 @@
 ---
 title: "2-6 폼 입력 다루기"
 status: "completed"
-description: "제어 컴포넌트(Controlled Component)의 개념과 input/textarea/select/checkbox/radio 처리법, 객체 State로 여러 입력 관리하기, onSubmit과 유효성 검사까지 React 폼 처리의 기초를 정리한다."
+description: "새 학습 항목 입력 폼을 만들며 controlled component, value/onChange, submit 처리와 간단한 검증까지 React 폼 처리의 기초를 정리한다."
 category: "React"
 section: "Core"
 tags:
@@ -14,42 +14,30 @@ tags:
 .wda-ci{background:rgba(139,92,246,.06);border-color:#8b5cf6}
 .wda-cw{background:rgba(245,158,11,.07);border-color:#f59e0b}
 .wda-cs{background:rgba(34,197,94,.05);border-color:#22c55e}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
 .wda-clabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-cy .wda-clabel{color:#92400e}
 .wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 140px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(245,158,11,.15);color:#f59e0b;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-summary-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
-.wda-summary-table th,.wda-summary-table td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
-.wda-summary-table th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
-.wda-summary-table td:first-child{font-weight:700;white-space:nowrap;width:150px}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
 .wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
 .wda-callout p:last-child{margin-bottom:0}
 .wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
 .wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{width:34px !important}
-}
-.wda-fcard-pro{border-left:3px solid rgba(34,197,94,.22);background:rgba(34,197,94,.02)}
-.wda-fcard-con{border-left:3px solid rgba(244,129,110,.28);background:rgba(244,129,110,.025)}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -71,498 +59,227 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>제어 컴포넌트</strong> — "Single Source of Truth" 개념을 완벽히 이해합니다.<br>
-  • <strong>텍스트 입력</strong> — <code>input</code>과 <code>textarea</code>의 값을 state와 동기화합니다.<br>
-  • <strong>선택형 입력</strong> — <code>select</code>, <code>radio</code>, <code>checkbox</code>의 다양한 처리법을 익힙니다.<br>
-  • <strong>복합 상태 관리</strong> — 여러 개의 입력을 하나의 객체 state로 관리합니다.<br>
-  • <strong>제출과 유효성</strong> — <code>onSubmit</code> 이벤트 처리와 기초적인 유효성 검사를 구현합니다.
+  • <strong>controlled component 이해하기</strong> — input 값을 state로 관리하는 방식을 이해합니다.<br>
+  • <strong>다양한 입력 다루기</strong> — textarea, select, checkbox를 state와 연결하는 방법을 익힙니다.<br>
+  • <strong>제출 처리하기</strong> — preventDefault와 간단한 검증으로 submit을 처리합니다.<br>
+  • <strong>여러 입력 관리하기</strong> — 여러 input을 함께 다루는 기본 방식을 배웁니다.
 </div>
 
 ---
 
-<h2>1. 제어 컴포넌트란?</h2>
+## 1. form 처리가 필요한 순간
 
-**React state가 입력값의 "유일한 진실 공급원"**
-
-**📌 제어 컴포넌트의 특징**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">React state가 값을 관리</div>
-    <div class="wda-fcard-dsc">입력창의 값을 리액트 상태가 직접 쥐고 있습니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">value={state}로 표시</div>
-    <div class="wda-fcard-dsc">HTML 요소의 <code>value</code> 속성에 리액트 상태를 연결합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">onChange로 state 업데이트</div>
-    <div class="wda-fcard-dsc">사용자가 입력할 때마다 이벤트를 감지해 상태를 변경합니다.</div>
-  </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">항상 state와 화면이 동기화</div>
-    <div class="wda-fcard-dsc">메모리의 상태 값과 화면의 입력값이 늘 일치합니다.</div>
-  </div>
-</div>
-
-**💡 장점**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard wda-fcard-pro">
-    <div class="wda-fcard-dsc">입력값을 실시간으로 검증 가능</div>
-  </div>
-  <div class="wda-fcard wda-fcard-pro">
-    <div class="wda-fcard-dsc">조건부로 버튼 활성화/비활성화 처리 용이</div>
-  </div>
-  <div class="wda-fcard wda-fcard-pro">
-    <div class="wda-fcard-dsc">입력값 포맷팅 자동화 (전화번호 하이픈, 금액 콤마 등)</div>
-  </div>
-  <div class="wda-fcard wda-fcard-pro">
-    <div class="wda-fcard-dsc">여러 입력을 한 곳에서 효율적으로 관리</div>
-  </div>
-</div>
-
-**핵심 메커니즘**
-
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody"><div class="wda-sdsc">사용자가 타이핑</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody"><div class="wda-sdsc"><code>onChange</code> 발생</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody"><div class="wda-sdsc">state 업데이트</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">4</div>
-    <div class="wda-sbody"><div class="wda-sdsc">화면에 반영</div></div>
-  </div>
-</div>
+학습 목록에 새 항목을 추가하려면, 사용자가 입력창에 적은 제목을 어딘가에 저장해뒀다가 제출 시 사용해야 합니다. 이를 위해 input 값을 state로 관리하는 방법이 필요합니다.
 
 ---
 
-<h2>2. 왜 제어 컴포넌트인가요?</h2>
-
-**React가 입력값을 장악해야 하는 이유**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard wda-fcard-con">
-    <div class="wda-fcard-ttl">기존 HTML 방식 (비제어 방식)</div>
-    <div class="wda-fcard-dsc"><code>const value = document.getElementById('input').value;</code><br>• "입력값 내놔!"라고 물어봐야 함 (필요할 때마다 DOM에 직접 접근)<br>• 데이터가 DOM에만 존재함<br>• React는 현재 값이 뭔지 실시간으로 모름<br>• 실시간 검증이 어려움</div>
-  </div>
-  <div class="wda-fcard wda-fcard-pro">
-    <div class="wda-fcard-ttl">React 제어 컴포넌트 방식</div>
-    <div class="wda-fcard-dsc"><code>return &lt;input value={text} onChange={handleChange} /&gt;;</code><br>• React가 이미 알고 있음 (데이터가 늘 state 내에 존재)<br>• 타이핑하는 순간 바로 반영됨<br>• 입력 제한, 자동 완성 등의 구현이 매우 쉬움</div>
-  </div>
-</div>
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <strong>Single Source of Truth (진실의 유일한 원천)</strong>
-  <p>제어 컴포넌트에서는 React state가 입력값의 기준(source of truth)이 됩니다.<br>사용자가 입력하면 <code>onChange</code>로 state를 업데이트하고, 변경된 state가 다시 input의 <code>value</code>로 전달되어 화면에 표시됩니다.<br>이것이 React 폼 처리의 핵심 철학입니다.</p>
-  <p>제어 컴포넌트를 사용하면 '제출' 버튼을 누르기 전에도 사용자가 무엇을 입력하고 있는지 실시간으로 파악하여 에러 메시지를 띄워주는 등의 인터랙티브한 UI를 만들기 좋습니다.</p>
-</div>
-
----
-
-<h2>3. 인풋 텍스트 다루기</h2>
-
-가장 기본적인 텍스트 입력
-
-**📝 예제 코드**
+## 2. input 값을 state로 관리한다
 
 ```jsx
-import { useState } from "react";
-
-function App() {
-  const [name, setName] = useState(""); // 이름 상태 관리
-  const [text, setText] = useState(""); // 자기소개 상태 관리
-
-  // 이름 입력 시 실행되는 함수
-  const handleChangeName = (e) => {
-    setName(e.target.value); // 입력된 값을 name 상태에 저장
-  };
-
-  // 자기소개 입력 시 실행되는 함수
-  const handleChangeText = (e) => {
-    setText(e.target.value); // 입력된 값을 text 상태에 저장
-  };
-
-  return (
-    <div>
-      <div>
-        {/* value를 name 상태와 연결한 제어 컴포넌트 */}
-        <input value={name} onChange={handleChangeName} placeholder="이름" />
-      </div>
-      <div>
-        {/* textarea도 value와 onChange로 상태 동기화 */}
-        <textarea value={text} onChange={handleChangeText} placeholder="자기소개" />
-      </div>
-    </div>
-  );
-}
-
-export default App;
+const [newTitle, setNewTitle] = useState("");
 ```
 
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <p><strong>핵심 동작:</strong> <code>input</code>과 <code>textarea</code>에 <code>value={state}</code>를 부여하고, <code>onChange</code>에서 <code>e.target.value</code>를 통해 상태를 업데이트하는 것이 포인트입니다.</p>
-  <p><strong>제어 컴포넌트:</strong> React state가 입력값의 기준이 되어 값을 제어하는 방식으로, 위 코드의 핵심 구조입니다.</p>
-</div>
-
 ---
 
-<h2>4. textarea 다루기</h2>
+## 3. controlled component
 
-**🧪 여러 줄 텍스트 입력**
-
-```jsx
-import { useState } from "react";
-
-function TextareaInput() {
-  const [content, setContent] = useState("");
-
-  return (
-    <div>
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="내용을 입력하세요"
-        rows={4}
-      />
-      <p>글자 수: {content.length}</p>
-    </div>
-  );
-}
-
-export default TextareaInput;
-```
-
-**🆚 방식 비교**
-
-<div class="wda-fgrid">
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">HTML 방식</div>
-    <div class="wda-fcard-dsc"><code>&lt;textarea&gt;내용&lt;/textarea&gt;</code></div>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">uncontrolled 입력</div>
+    input이 자체적으로 값을 가지고 있어, React는 지금 값이 무엇인지 모른다.
   </div>
-  <div class="wda-fcard">
-    <div class="wda-fcard-ttl">React 방식</div>
-    <div class="wda-fcard-dsc"><code>&lt;textarea value={content} /&gt;</code></div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">controlled 입력</div>
+    value를 state와 연결해, React state가 입력값의 기준이 된다.
   </div>
 </div>
 
-**💡 보충 설명**
-
 <div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>rows={4}:</strong> 텍스트 입력창의 기본 높이를 4줄로 설정하는 속성입니다.</li>
-    <li><strong>content.length:</strong> 현재 입력된 문자열의 길이를 실시간으로 계산하여 화면에 표시합니다.</li>
-    <li><strong>React 방식의 차이:</strong> HTML은 태그 사이에 내용을 넣지만, React는 <code>input</code> 태그처럼 <code>value</code> 속성을 사용하여 상태를 제어합니다.</li>
-    <li><strong>value만 있으면 안 됨:</strong> 실제 제어 컴포넌트로 사용할 때는 <code>value</code>와 <code>onChange</code>를 함께 작성해야 합니다.<br><code>onChange</code> 없이 <code>value</code>만 있으면 읽기 전용처럼 동작할 수 있습니다.</li>
-  </ul>
+  input의 value와 state를 연결해야 controlled component가 됩니다. value만 있고 onChange가 없으면 값을 바꿀 수 없는 읽기 전용처럼 동작합니다.
 </div>
 
 ---
 
-<h2>5. select 드롭다운 다루기</h2>
+## 4. value와 onChange
 
-**🧪 선택 옵션 목록**
-
-```jsx
-import { useState } from "react";
-
-function SelectInput() {
-  const [fruit, setFruit] = useState('apple'); // 초기값을 'apple'로 설정
-
-  return (
-    <div>
-      {/* select 태그의 value를 상태(fruit)와 연결하여 제어 */}
-      <select value={fruit} onChange={(e) => setFruit(e.target.value)}>
-        <option value="apple">사과</option>
-        <option value="banana">바나나</option>
-        <option value="orange">오렌지</option>
-      </select>
-      <p>선택: {fruit}</p>
-    </div>
-  );
-}
-
-export default SelectInput;
-```
-
-**🆚 HTML과 차이**
-
-HTML은 `selected` 속성을 `option` 태그에 붙여서 기본값을 설정하지만, **React는 `select` 태그의 `value` 속성으로 선택 상태를 관리**합니다.
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>useState('apple'):</strong> 컴포넌트가 처음 렌더링될 때 '사과'가 선택된 상태로 시작하도록 초기값을 설정한 것입니다.</li>
-    <li><strong>제어 방식:</strong> 사용자가 드롭다운에서 다른 항목을 선택하면 <code>onChange</code>가 발생하고, <code>setFruit</code>를 통해 상태가 업데이트되면서 화면의 선택된 값이 바뀝니다.</li>
-  </ul>
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">value</div>
+    화면에 보여줄 값을 state에서 가져온다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">onChange</div>
+    사용자가 입력할 때마다 state를 갱신한다.
+  </div>
 </div>
 
----
-
-<h2>6. checkbox와 radio 다루기</h2>
-
-선택/체크 입력 요소
-
-**🧪 Checkbox (checked 사용)**
-
 ```jsx
-const [isAgree, setIsAgree] = useState(false);
-
 <input
-  id="agree"
-  type="checkbox"
-  checked={isAgree} // value 대신 checked 속성 사용
-  onChange={(e) => setIsAgree(e.target.checked)} // 체크 여부(true/false)로 상태 업데이트
+  value={newTitle}
+  onChange={(event) => setNewTitle(event.target.value)}
 />
-<label htmlFor="agree">약관 동의</label>
 ```
-
-**🧪 Radio (같은 name으로 그룹)**
-
-```jsx
-const [gender, setGender] = useState("");
-
-<label>
-  <input
-    type="radio"
-    name="gender" // 같은 이름을 가져야 하나의 그룹으로 묶임
-    value="male" // 해당 버튼이 가질 값
-    checked={gender === 'male'} // 상태가 'male'일 때만 체크됨
-    onChange={(e) => setGender(e.target.value)} // 선택 시 값 업데이트
-  />
-  남성
-</label>
-
-<label>
-  <input
-    type="radio"
-    name="gender"
-    value="female"
-    checked={gender === 'female'}
-    onChange={(e) => setGender(e.target.value)}
-  />
-  여성
-</label>
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-cw">
-  <ul>
-    <li><strong>주의사항:</strong> 텍스트 입력(<code>value</code>)과 달리, <code>checkbox</code>와 <code>radio</code>는 선택된 상태를 표현하기 위해 반드시 <strong><code>checked</code> 속성</strong>을 사용해야 합니다.</li>
-    <li><strong>e.target.checked:</strong> 체크박스에서는 <code>value</code>가 아닌 <code>checked</code> 프로퍼티를 통해 <code>true</code> 또는 <code>false</code> 값을 가져옵니다.</li>
-  </ul>
-</div>
 
 ---
 
-<h2>7. 여러 입력 필드 관리하기</h2>
-
-**📝 객체 state로 한 번에 관리**
+## 5. textarea와 select
 
 ```jsx
-import { useState } from "react";
+<textarea
+  value={description}
+  onChange={(event) => setDescription(event.target.value)}
+/>
 
-function Form() {
-  // 여러 개의 상태를 하나의 객체로 묶어서 관리
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+<select value={category} onChange={(event) => setCategory(event.target.value)}>
+  <option value="study">학습</option>
+  <option value="review">복습</option>
+</select>
+```
 
-  const handleChange = (e) => {
-    const { name, value } = e.target; // 이벤트 발생한 요소의 name과 value 추출
+textarea와 select도 input과 같은 방식으로 value와 onChange를 사용합니다.
 
-    // 중요: 기존 데이터를 복사(...prev)하고, 변경된 부분만 덮어쓰기
-    // [name]은 변수 안에 담긴 문자열(예: "email")을 키값으로 씁니다.
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
+---
 
-  return (
-    <form>
-      {/* 각 input의 name 속성이 state 객체의 키와 똑같아야 합니다 */}
-      <input name="name" value={form.name} onChange={handleChange} />
-      <input name="email" value={form.email} onChange={handleChange} />
-      <textarea name="message" value={form.message} onChange={handleChange} />
-    </form>
-  );
+## 6. checkbox 맛보기
+
+```jsx
+<input
+  type="checkbox"
+  checked={isImportant}
+  onChange={(event) => setIsImportant(event.target.checked)}
+/>
+```
+
+checkbox는 `value`가 아니라 `checked` 속성으로 상태를 표시하며, `event.target.checked`로 값을 읽습니다.
+
+---
+
+## 7. 여러 input 관리하기
+
+```jsx
+const [newTitle, setNewTitle] = useState("");
+const [category, setCategory] = useState("study");
+```
+
+여러 input은 각각 별도의 state로 관리할 수 있습니다. input 개수가 많아지면 하나의 객체로 묶어 관리하는 방식도 있지만, 처음에는 각각 따로 관리하는 방식이 이해하기 쉽습니다.
+
+---
+
+## 8. submit 처리와 preventDefault
+
+```jsx
+function handleSubmit(event) {
+  event.preventDefault();
+  // 제출 처리
 }
 
-export default Form;
+<form onSubmit={handleSubmit}>
+  <input value={newTitle} onChange={(event) => setNewTitle(event.target.value)} />
+  <button type="submit">추가</button>
+</form>
 ```
 
-**💡 보충 설명**
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">submit 기본 동작</div>
+    폼이 제출되면 페이지가 새로고침된다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">preventDefault</div>
+    <code>event.preventDefault()</code>로 새로고침을 막고 React가 제출을 처리한다.
+  </div>
+</div>
 
-<div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>객체 관리의 장점:</strong> 입력창이 10개라도 <code>useState</code>를 10번 쓰지 않고, 하나의 <code>handleChange</code> 함수로 모두 처리할 수 있어 코드가 깔끔해집니다.</li>
-    <li><strong>[name]: value:</strong> '계산된 속성 이름(Computed property name)' 문법으로, <code>name</code> 변수에 들어있는 값(예: "email")을 객체의 키로 사용하여 값을 업데이트합니다.</li>
-    <li><strong>...prev (Spread 문법):</strong> 리액트 상태는 불변성을 지켜야 하므로, 기존 객체를 복사한 뒤 바뀐 값만 덮어씌워야 합니다. (<code>...prev</code>를 빼먹으면 다른 입력값이 다 사라집니다.)</li>
-    <li><strong>checkbox까지 처리하려면:</strong> 위 <code>handleChange</code>는 text, email, textarea, select처럼 <code>value</code>를 사용하는 입력에 적합합니다. checkbox까지 하나의 handler로 처리하려면 <code>type</code>과 <code>checked</code>를 함께 확인해야 합니다.</li>
-  </ul>
-  <pre style="background:rgba(128,128,128,.08);border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:.78rem;"><code>const handleChange = (e) => {
-  const { name, value, type, checked } = e.target;
-
-  setForm((prev) => ({
-    ...prev,
-    [name]: type === 'checkbox' ? checked : value,
-  }));
-};</code></pre>
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">submit</div><div class="wda-fnode-dsc">버튼 클릭</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">검증</div><div class="wda-fnode-dsc">빈 값 확인</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">처리</div><div class="wda-fnode-dsc">목록에 추가 등</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">초기화</div><div class="wda-fnode-dsc">입력창 비우기</div></div>
 </div>
 
 ---
 
-<h2>8. 폼 제출 처리하기</h2>
-
-**onSubmit과 preventDefault**
-
-**📝 예제 코드**
+## 9. 간단한 검증
 
 ```jsx
-import { useState } from "react";
+function handleSubmit(event) {
+  event.preventDefault();
 
-function LoginForm() {
-  const [form, setForm] = useState({ email: "", password: "" });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 새로고침 방지
-    console.log('로그인 시도:', form);
-    // API 호출 등 처리
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input name="email" value={form.email} onChange={handleChange} />
-      <input name="password" type="password" value={form.password} onChange={handleChange} />
-      <button type="submit">로그인</button>
-    </form>
-  );
-}
-
-export default LoginForm;
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>e.preventDefault():</strong> React에서 form 제출을 직접 처리하고 페이지 새로고침을 막으려면 <code>e.preventDefault()</code>를 사용합니다.<br>일반적인 SPA 폼 처리에서는 거의 항상 사용한다고 이해하면 됩니다.</li>
-    <li><strong>객체 State 관리:</strong> <code>email</code>과 <code>password</code>를 <code>form</code>이라는 하나의 객체로 묶어서 관리하며, <code>[name]: value</code> 방식을 사용해 코드를 간결하게 유지했습니다.</li>
-    <li><strong>onSubmit 활용:</strong> <code>button</code>에 이벤트를 거는 대신 <code>form</code> 태그에 <code>onSubmit</code>을 연결하여 표준 웹 접근성을 준수했습니다.</li>
-  </ul>
-</div>
-
----
-
-<h2>9. 간단한 유효성 검사</h2>
-
-**⚙️ 제출 전 입력값 확인하기**
-
-```javascript
-const handleSubmit = (e) => {
-  e.preventDefault(); // 새로고침 막기
-
-  // 1. 빈 값 검사 (공백만 입력한 경우도 걸러냄)
-  if (!form.email.trim() || !form.password.trim()) {
-    alert('모든 필드를 입력해주세요.');
-    return; // 함수 종료 (더 이상 진행 X)
-  }
-
-  // 2. 이메일 형식 검사
-  if (!form.email.includes('@')) {
-    alert('올바른 이메일 형식이 아닙니다.');
+  if (!newTitle.trim()) {
     return;
   }
 
-  // 3. 비밀번호 길이 검사 (공백 제외 기준)
-  if (form.password.trim().length < 6) {
-    alert('비밀번호는 6자 이상이어야 합니다.');
+  // 제출 처리
+}
+```
+
+빈 값이거나 공백만 입력했다면 제출을 막습니다.
+
+---
+
+## 10. 입력값 초기화
+
+```jsx
+function handleSubmit(event) {
+  event.preventDefault();
+
+  if (!newTitle.trim()) {
     return;
   }
 
-  console.log('유효성 통과!', form);
-};
+  setNewTitle("");
+}
 ```
 
-위 코드는 아래 순서대로 검사를 진행하며, 하나라도 걸리면 그 자리에서 멈춥니다.
+제출 후 `setNewTitle("")`으로 입력창을 비웁니다.
 
-<div class="wda-steps">
-  <div class="wda-step">
-    <div class="wda-snum">1</div>
-    <div class="wda-sbody"><div class="wda-sttl">빈 값 검사</div><div class="wda-sdsc"><code>!form.email.trim() || !form.password.trim()</code> — 아이디/비밀번호가 비어있거나 공백만 있으면 중단</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">2</div>
-    <div class="wda-sbody"><div class="wda-sttl">이메일 형식 검사</div><div class="wda-sdsc"><code>form.email.includes('@')</code> — '@'가 없으면 중단</div></div>
-  </div>
-  <div class="wda-step">
-    <div class="wda-snum">3</div>
-    <div class="wda-sbody"><div class="wda-sttl">비밀번호 길이 검사</div><div class="wda-sdsc"><code>form.password.trim().length &lt; 6</code> — 공백 제외 6자 미만이면 중단</div></div>
-  </div>
-</div>
+---
 
-**💡 보충 설명**
+## 11. 다음 학습 흐름
 
 <div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>return의 역할:</strong> <code>alert</code>을 띄운 뒤 <code>return;</code>을 해주지 않으면, 경고창이 떴는데도 밑에 있는 코드가 계속 실행되어 버립니다. 문제가 발생했을 때 즉시 함수를 멈추기 위해 사용합니다.</li>
-    <li><strong>includes('@'):</strong> 문자열 안에 특정 문자('@')가 들어있는지 확인하는 메서드입니다.<br><code>includes('@')</code>는 학습용으로 사용하는 아주 기초적인 검사입니다.<br>실제 서비스에서는 더 정교한 검증 방식이나 서버 검증이 함께 필요합니다.</li>
-    <li><strong>클라이언트 유효성 검사:</strong> 서버로 데이터를 보내기 전에 프론트엔드에서 미리 잘못된 입력을 걸러내어, 불필요한 서버 요청을 줄이고 사용자에게 빠르게 피드백을 줍니다.<br>클라이언트 유효성 검사는 사용자에게 빠른 피드백을 주기 위한 1차 검사이며, 보안과 최종 데이터 검증은 반드시 서버에서도 다시 확인해야 합니다.</li>
-  </ul>
+  React Hook Form 같은 폼 라이브러리나 복잡한 검증은 이 문서에서 다루지 않습니다. 다양한 폼 입력을 직접 연습해보고 싶다면 <strong>실습: 폼 입력 훈련</strong> 문서에서 이어갈 수 있습니다.
 </div>
 
 ---
 
-<h2>10. ⁉️ FAQ</h2>
+## 12. 초보자 실수
 
-**Q1. React state를 입력값의 '유일한 진실 공급원'으로 사용하는 패턴을 무엇이라 하나요?**
-
-**Q2. 여러 개의 input 필드를 하나의 state로 관리할 때 사용하는 ES6 문법은?**
-
-**💡 정답 및 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <ul>
-    <li><strong>A1. 제어 컴포넌트 (Controlled Component)</strong> — HTML 요소(<code>input</code>, <code>textarea</code> 등)가 자체적으로 값을 유지하지 않고, React의 <code>state</code>가 값을 전적으로 제어하는 방식을 말합니다.</li>
-    <li><strong>A2. 계산된 속성 이름 (Computed property name)</strong> — 객체 안에서 대괄호 <code>[]</code>를 사용하여 변수에 담긴 값을 키(Key)로 사용하는 문법입니다. (예: <code>[e.target.name]: e.target.value</code>)</li>
-  </ul>
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">onChange 없이 value만 쓴다</div>
+    <div class="wda-fcard-dsc">입력이 전혀 되지 않는 읽기 전용 상태가 된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">preventDefault를 빠뜨린다</div>
+    <div class="wda-fcard-dsc">페이지가 새로고침되어 입력했던 state가 초기화된다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">빈 값 검증을 하지 않는다</div>
+    <div class="wda-fcard-dsc">빈 제목으로도 항목이 추가될 수 있다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">checkbox에 value를 사용한다</div>
+    <div class="wda-fcard-dsc">checkbox는 value가 아니라 checked로 상태를 제어해야 한다.</div>
+  </div>
 </div>
 
 ---
 
-<h2>11. ✅ 핵심 요약</h2>
-
-이번 챕터에서 배운 폼 처리의 핵심 원칙을 4단계 복습 카드로 정리합니다.
+## ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>React state가 입력값의 <strong>유일한 진실 공급원</strong>(Single Source of Truth)이 되는 방식을 <strong>제어 컴포넌트(Controlled Component)</strong>라고 합니다.</li>
-    <li>input·textarea는 <strong>value + onChange</strong>, checkbox·radio는 <strong>checked + onChange</strong>, select는 <strong>select 태그 자체의 value</strong>로 제어합니다.</li>
-    <li>여러 입력 필드는 <strong>하나의 객체 state</strong>로 묶어 관리하며, <code>[e.target.name]</code> 계산된 속성명으로 갱신합니다.</li>
-    <li>객체 state를 갱신할 때는 <code>{'{ ...prev, [name]: value }'}</code>처럼 기존 값을 복사한 뒤 바뀐 값만 덮어씁니다.</li>
-    <li>폼 제출 시 <strong><code>e.preventDefault()</code></strong>로 새로고침을 막고, 유효성 검사를 통과하지 못하면 <strong>return</strong>으로 제출을 막습니다.</li>
-    <li>클라이언트 유효성 검사는 빠른 피드백을 위한 1차 검사이며, 최종 검증은 <strong>서버에서도 다시</strong> 해야 합니다.</li>
+    <li>input의 <strong>value</strong>를 state와 연결하면 <strong>controlled component</strong>가 된다.</li>
+    <li>value와 <strong>onChange</strong>는 항상 세트로 작성한다.</li>
+    <li>checkbox는 value 대신 <strong>checked</strong> 속성과 <code>event.target.checked</code>로 제어한다.</li>
+    <li>폼 제출 시 <strong>event.preventDefault()</strong>로 새로고침을 막는다.</li>
+    <li>제출 전 빈 값 등을 확인하는 <strong>간단한 검증</strong>을 거치고, 제출 후에는 입력값을 <strong>초기화</strong>한다.</li>
   </ul>
 </div>
 
@@ -570,24 +287,20 @@ const handleSubmit = (e) => {
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: input에 value만 넣어주면 값을 제어하는 데 충분하다?</div>
-    <div class="wda-mistake-right">정답: <code>onChange</code> 없이 <code>value</code>만 있으면 리액트가 읽기 전용으로 취급해 입력이 전혀 되지 않습니다. <strong>value와 onChange는 항상 세트</strong>로 씁니다.</div>
+    <div class="wda-mistake-wrong">오해: input에 value만 넣어주면 충분하다?</div>
+    <div class="wda-mistake-right">정답: <code>onChange</code> 없이 value만 있으면 <strong>입력이 되지 않는다</strong>. 항상 세트로 작성한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: checkbox도 input처럼 value 속성으로 선택 상태를 표시한다?</div>
-    <div class="wda-mistake-right">정답: checkbox와 radio는 <code>value</code>가 아니라 <strong>checked 속성</strong>과 <code>e.target.checked</code>로 선택 상태를 제어해야 합니다.</div>
+    <div class="wda-mistake-wrong">오해: checkbox도 value로 선택 상태를 표시한다?</div>
+    <div class="wda-mistake-right">정답: checkbox와 radio는 <strong>checked</strong> 속성으로 제어한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: select의 기본값은 option 태그의 selected 속성으로 지정한다?</div>
-    <div class="wda-mistake-right">정답: React에서는 option의 <code>selected</code>가 아니라 <strong>select 태그 자체의 value</strong>로 선택 상태를 관리합니다.</div>
+    <div class="wda-mistake-wrong">오해: onSubmit에서 preventDefault는 있어도 그만이다?</div>
+    <div class="wda-mistake-right">정답: 안 쓰면 페이지가 <strong>새로고침</strong>되어 입력 state가 모두 초기화된다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: setForm(prev => ({...prev, [name]: value}))에서 ...prev는 생략해도 된다?</div>
-    <div class="wda-mistake-right">정답: <code>...prev</code>를 빼먹으면 이번에 바뀐 필드만 남고 <strong>나머지 입력값이 모두 사라집니다</strong>.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 클라이언트 쪽 유효성 검사만 통과하면 데이터는 안전하다?</div>
-    <div class="wda-mistake-right">정답: 클라이언트 검사는 빠른 피드백을 위한 <strong>1차 검사</strong>일 뿐이며, 보안과 최종 데이터 검증은 반드시 <strong>서버에서도</strong> 다시 확인해야 합니다.</div>
+    <div class="wda-mistake-wrong">오해: 검증 없이 제출해도 큰 문제가 없다?</div>
+    <div class="wda-mistake-right">정답: 빈 값 검증이 없으면 <strong>빈 항목</strong>이 그대로 추가될 수 있다.</div>
   </div>
 </div>
 
@@ -595,20 +308,20 @@ const handleSubmit = (e) => {
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 핵심 원칙</div>
-    <div class="wda-formula-block-body"><code>state = 입력값의 유일한 진실</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 제어 원칙</div>
+    <div class="wda-formula-block-body"><code>value + onChange = controlled</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 텍스트류</div>
-    <div class="wda-formula-block-body"><code>value + onChange</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 체크류</div>
+    <div class="wda-formula-block-ttl">공식 2 · checkbox</div>
     <div class="wda-formula-block-body"><code>checked + onChange</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 4 · 여러 입력</div>
-    <div class="wda-formula-block-body"><code>{'{ ...prev, [name]: value }'}</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 제출</div>
+    <div class="wda-formula-block-body"><code>event.preventDefault()</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 4 · 흐름</div>
+    <div class="wda-formula-block-body"><code>submit → 검증 → 처리 → 초기화</code></div>
   </div>
 </div>
 
@@ -616,27 +329,23 @@ const handleSubmit = (e) => {
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">React state를 입력값의 유일한 진실 공급원으로 사용하는 패턴을 무엇이라 하나?</div>
-    <div class="wda-flip-back">제어 컴포넌트 (Controlled Component)입니다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">여러 개의 input 필드를 하나의 state로 관리할 때 사용하는 ES6 문법은?</div>
-    <div class="wda-flip-back">계산된 속성 이름(Computed property name)입니다. [e.target.name]: e.target.value</div>
+    <div class="wda-flip-front">controlled component란?</div>
+    <div class="wda-flip-back">input의 value를 state와 연결해, state가 입력값의 기준이 되는 방식이다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">checkbox의 선택 상태를 제어하는 속성은?</div>
-    <div class="wda-flip-back">checked입니다. (value가 아닙니다)</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">select의 기본값은 어디서 관리하나?</div>
-    <div class="wda-flip-back">option의 selected가 아니라 select 태그 자체의 value로 관리합니다.</div>
+    <div class="wda-flip-back">checked다. value가 아니다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">폼 제출 시 새로고침을 막으려면?</div>
-    <div class="wda-flip-back">onSubmit 핸들러에서 e.preventDefault()를 호출합니다.</div>
+    <div class="wda-flip-back">onSubmit 핸들러에서 event.preventDefault()를 호출한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">클라이언트 유효성 검사만으로 충분한가?</div>
-    <div class="wda-flip-back">아닙니다. 1차 검사일 뿐이며 서버에서도 반드시 재검증해야 합니다.</div>
+    <div class="wda-flip-front">제출 후 입력창을 비우는 방법은?</div>
+    <div class="wda-flip-back">setNewTitle("")처럼 state를 빈 값으로 다시 설정한다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">간단한 검증은 언제 하나?</div>
+    <div class="wda-flip-back">preventDefault 이후, 실제 처리 전에 빈 값 등을 확인한다.</div>
   </div>
 </div>
