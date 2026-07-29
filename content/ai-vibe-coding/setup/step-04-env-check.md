@@ -2,13 +2,12 @@
 title: "4단계: 환경 세팅 상태 확인"
 category: "ai-vibe-coding"
 section: "setup"
-description: "setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 Claude에게 종합 점검을 요청하여 확인한다."
+description: "지금까지 준비한 개발 환경과 프로젝트 구조가 올바른지 AI에게 점검을 요청하고, 결과를 읽는 법과 자주 발견되는 문제의 조치법을 정리한다."
 tags:
   - ai-vibe-coding
   - setup
-  - claude-code
-  - claude-md
   - verification
+  - checklist
 date: "2026-06-08"
 status: "completed"
 ---
@@ -22,45 +21,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -71,216 +55,115 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
 .wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
 .wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  setup 단계에서 구축한 개발 환경과 프로젝트 구조가 올바르게 설정되었는지 확인한다.<br>
-  • <strong>디렉토리 구조 확인</strong> — VSCode에서 파일 구조를 시각적으로 확인<br>
-  • <strong>Claude 환경 점검</strong> — 자동 상태 점검 프롬프트 실행으로 시스템 확인
+  • <strong>점검 대상 파악</strong> — 무엇이 정상적으로 준비됐는지 확인할 항목을 정리합니다<br>
+  • <strong>AI에게 점검 요청하기</strong> — 여러 항목을 한 번에 확인받는 요청문을 작성합니다<br>
+  • <strong>결과 읽고 조치하기</strong> — 점검 결과에서 문제를 발견했을 때 대응하는 법을 익힙니다
 </div>
 
 ---
 
-## 📖 개념 설명
-
-**📁 프로젝트 디렉토리 구조 확인**
-
-VSCode를 실행하여 setup 단계에서 생성된 프로젝트 구조를 눈으로 확인합니다.
-
-1. VSCode 프로그램을 실행합니다.
-2. **File → Open Folder → `my_ai_web` 폴더 선택하여 열기**
-
----
-
-### 확인해야 할 디렉토리 구조
-
-VSCode 왼쪽 패널에서 다음과 같은 구조가 보여야 합니다.
-
-<div class="wda-memo">
-  <span class="wda-memo-label">📂 예상 디렉토리 구조</span>
-  <div class="wda-memo-body">
-
-```
-my_ai_web/
-├── .claude/
-│   ├── settings.local.json
-│   └── skills/
-│       └── gh_cli/
-│           └── skill.md
-├── CLAUDE.md (기본 한국어 설정)
-└── lecture1/
-    ├── CLAUDE.md (로키 역할, @ 연결자)
-    ├── docs/
-    │   ├── design-system.md
-    │   ├── code-convention.md
-    │   └── new_project.md
-    └── _template_settings/ (완성된 템플릿)
-        ├── package.json (MUI 포함)
-        ├── vite.config.js
-        ├── src/
-        │   ├── theme.js
-        │   ├── main.jsx (ThemeProvider 적용)
-        │   └── App.jsx
-        └── node_modules/
-```
-
-  </div>
-</div>
-
-**구조 확인 체크리스트**
-
-- [ ] `.claude` 폴더와 `settings.local.json` 파일 존재
-- [ ] `.claude/skills/gh_cli/skill.md` 파일 존재
-- [ ] `lecture1` 폴더와 하위 구조 완성
-- [ ] `_template_settings` 템플릿 폴더 존재
-- [ ] `docs` 폴더에 3개 md 파일 존재
-
----
-
-## ⚙️ 동작 원리
-
-### 상태 점검 5단계 흐름
-
-상태 점검 프롬프트를 실행하면 Claude가 다음 순서로 자동 확인합니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">로키 역할 및 문서 시스템 확인</div><div class="wda-sdsc"><code>CLAUDE.md</code>, <code>@docs/*.md</code> 3개 파일</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">GitHub 스킬 및 MCP 연결 확인</div><div class="wda-sdsc"><code>.claude/skills/gh_cli/skill.md</code>, <code>/mcp</code> 상태</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">프로젝트 구조 확인</div><div class="wda-sdsc"><code>_template_settings/</code> 존재 여부</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">React 템플릿 상태 확인</div><div class="wda-sdsc"><code>theme.js</code>, <code>main.jsx</code> ThemeProvider</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">종합 결과 보고</div><div class="wda-sdsc">✅ / ❌ 형식으로 최종 출력</div></div></div>
-</div>
-
-> 💡 **`@docs/` 연결이란?**  
-> `CLAUDE.md` 안에 `@docs/design-system.md`처럼 작성하면, Claude가 해당 파일을 자동으로 읽어 들입니다. 이 연결이 깨지면 디자인 규칙이나 코드 컨벤션을 Claude가 인식하지 못합니다.
-
----
-
-### Claude MCP 모드 실행 방법
-
-점검은 `lecture1` 디렉토리에서 Claude를 실행하는 것이 중요합니다.  
-실행 위치에 따라 CLAUDE.md를 읽는 범위가 달라지기 때문입니다.
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">실행 위치 중요</span><code>lecture1/</code>에서 실행 → 로키 역할 + @docs 연결 + 루트 CLAUDE.md 동시 인식
+  <p><strong>1~3단계에서 도구 설치, AI 요청 방법, GitHub 백업 준비를 마쳤다면, 이 문서는 그 결과가 실제로 올바르게 갖춰졌는지 확인하는 단계입니다.</strong></p>
+  <p>새로운 설정을 추가하지 않고, 지금까지의 준비 상태를 점검하고 다음 학습으로 넘어갈 준비가 됐는지 판단하는 데 집중합니다.</p>
 </div>
 
 ---
 
-## 💻 예제 코드
+## 2. 무엇을 점검하나
 
-**📝 Claude 환경 및 문서 시스템 확인**
-
-**✅ PowerShell 터미널 열기**
-
-VSCode에서 **Terminal → New Terminal** 을 선택하여 PowerShell 터미널을 엽니다.
-
-**✅ lecture1 디렉토리로 이동**
-
-프로젝트 작업을 위해 lecture1 디렉토리로 이동합니다.
-
-```powershell
-cd lecture1
-```
-
-**✅ Claude MCP 모드로 실행**
-
-MCP 설정을 인식하는 모드로 Claude Code를 실행합니다.
-
-```powershell
-claude --dangerously-skip-permissions
-```
-
----
-
-**🧪 상태 점검 프롬프트**
-
-Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 상태를 확인합니다.
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">점검 준비 완료</span>아래 프롬프트를 복사해서 Claude에게 붙여넣으면 5단계 자동 점검이 시작됩니다!
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">디렉토리 구조</div><div class="wda-fcard-dsc">프로젝트 폴더와 하위 구조가 예상대로 만들어졌는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">문서/설정 연결</div><div class="wda-fcard-dsc">AI가 프로젝트 규칙 문서를 정상적으로 읽어 들이는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">도구 인증 상태</div><div class="wda-fcard-dsc">GitHub CLI 같은 도구의 로그인 상태가 유지되고 있는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">실행 환경</div><div class="wda-fcard-dsc">프로젝트를 실제로 실행했을 때 정상 동작하는지 확인합니다.</div></div>
 </div>
 
-<div class="wda-prompt-head">📋 상태 점검 프롬프트 — 아래 코드 블록 전체를 복사하여 붙여넣으세요.</div>
+---
+
+## 3. AI에게 점검을 요청하는 법
+
+여러 항목을 하나씩 따로 묻기보다, 점검할 목록을 한 번에 제시하고 결과를 정해진 형식으로 받는 것이 효율적입니다.
 
 ```
-환경 세팅 상태를 종합 점검해줘. 다음 순서로 확인해줘:
+지금까지 준비한 setup-checklist 항목들이 정상인지 점검해줘.
 
-**1단계: 로키 역할 및 문서 시스템 확인**
-- 현재 너의 역할이 "로키"인지 확인
-- @docs/design-system.md 문서 내용 간단히 요약
-- @docs/code-convention.md 문서 내용 간단히 요약
-- @docs/new_project.md 문서 내용 간단히 요약
-- 3개 문서가 모두 정상적으로 로드되는지 확인
+확인할 항목:
+1. 프로젝트 디렉토리 구조가 예상대로 만들어졌는지
+2. 프로젝트 규칙 문서(설정 파일)가 정상적으로 인식되는지
+3. GitHub CLI 인증 상태가 유지되고 있는지
+4. 개발 서버가 정상적으로 실행되는지
 
-**2단계: GitHub 스킬 및 MCP 연결 상태 확인**
-- .claude/skills/gh_cli/skill.md 파일이 존재하는지 확인
-- /mcp 명령어로 현재 MCP 서버 연결 상태 확인 (Supabase MCP 등)
-
-**3단계: 프로젝트 구조 점검**
-- 현재 디렉토리 구조를 ls 명령어로 확인
-- _template_settings 템플릿 디렉토리가 존재하는지 확인
-- _template_settings/package.json에 MUI 관련 패키지들이 설치되어 있는지 확인
-
-**4단계: React 템플릿 상태 확인**
-- _template_settings/src/theme.js 파일이 존재하는지 확인
-- _template_settings/src/main.jsx에 ThemeProvider가 적용되어 있는지 확인
-
-**5단계: 종합 결과 보고**
-다음 형식으로 최종 결과 제시:
-
-환경 세팅 상태 점검 결과
-├── 로키 역할: ✅ 정상 / ❌ 오류
-├── 문서 시스템: ✅ 정상 / ❌ 오류
-├── GitHub 스킬: ✅ 정상 / ❌ 오류
-├── 프로젝트 구조: ✅ 정상 / ❌ 오류
-├── 템플릿 디렉토리: ✅ 정상 / ❌ 오류
-└── React 템플릿: ✅ 정상 / ❌ 오류
-
-1차 수업 준비 상태: ✅ 준비완료 / ❌ 추가설정필요
-
-**문제 발생 시:**
-- 각 오류의 구체적인 원인 분석
-- 해결 방법 제시
-- 추가 설정이 필요한 부분 명시
+출력 형식:
+각 항목을 "정상" 또는 "확인 필요"로 표시하고,
+"확인 필요"인 항목은 원인 추정과 확인 방법을 함께 알려주세요.
 ```
 
 ---
 
-## ⚠️ 주의사항
+## 4. 점검 결과를 읽는 법
 
-### 문제 발생 시 해결 방법
-
-점검 중 문제가 발견되면 다음과 같이 해결하세요.
-
-| 증상 | 원인 | 해결 방법 |
-|------|------|-----------|
-| 문서 시스템 오류 | `docs` 폴더 .md 파일 누락 또는 CLAUDE.md의 @ 연결 오류 | setup 2단계 통합 세팅 프롬프트 재실행 |
-| GitHub 스킬 파일 누락 | `.claude/skills/gh_cli/skill.md` 없음 | setup 3단계 자동 설정 프롬프트 재실행 |
-| 프로젝트 구조 누락 | `_template_settings` 폴더 또는 하위 파일 누락 | setup 2단계 통합 세팅 프롬프트 재실행 |
-| React 환경 미설정 | MUI 또는 `theme.js` 누락 | setup 2단계 통합 세팅 프롬프트 재실행 |
+<table class="wda-mtable">
+<thead><tr><th>표시</th><th>의미</th><th>다음 행동</th></tr></thead>
+<tbody>
+<tr><td>정상</td><td>해당 항목은 준비가 끝났다</td><td>다음 항목 확인으로 넘어감</td></tr>
+<tr><td>확인 필요</td><td>예상과 다르거나 확인되지 않았다</td><td>원인 추정을 보고 해당 단계를 다시 점검</td></tr>
+</tbody>
+</table>
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">재실행 전 확인</span>
-  어느 단계 프롬프트를 재실행해야 하는지 Claude가 명시해줍니다.<br>
-  점검 결과의 ❌ 항목을 기준으로 해당 단계 프롬프트만 다시 실행하면 됩니다.
+  <p>"확인 필요" 항목이 있어도 처음부터 전체를 다시 할 필요는 없습니다. 대부분 해당 항목과 관련된 이전 단계만 다시 확인하면 해결됩니다.</p>
 </div>
 
 ---
 
-## ✅ 핵심 요약
+## 5. 자주 발견되는 문제
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">문서/설정 미인식</div><div class="wda-fcard-dsc">설정 파일 경로가 틀렸거나 파일이 없는 경우입니다. 파일 위치와 이름을 다시 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">인증 만료</div><div class="wda-fcard-dsc">일정 시간이 지나면 로그인이 풀릴 수 있습니다. 인증 명령을 다시 실행합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">패키지 누락</div><div class="wda-fcard-dsc">설치가 중간에 끊긴 경우입니다. 설치 명령을 다시 실행하고 결과를 확인합니다.</div></div>
+</div>
+
+---
+
+## 6. 다음 단계로 넘어가기 전 체크리스트
+
+<div class="wda-check-note">
+  <ul>
+    <li>도구 설치 확인 명령이 모두 정상 버전을 출력하는가</li>
+    <li>AI가 프로젝트 규칙 문서를 정상적으로 인식하는가</li>
+    <li>GitHub 인증 상태가 유지되고 있는가</li>
+    <li>프로젝트를 실행했을 때 오류 없이 화면이 뜨는가</li>
+  </ul>
+</div>
+
+모든 항목이 정상이면 다음 학습으로 넘어갈 준비가 된 것입니다.
+
+---
+
+## 7. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>점검은 반드시 <strong>lecture1 디렉토리에서</strong> Claude를 실행해야 로키 역할 + @docs 연결 + 루트 CLAUDE.md를 <strong>동시에 인식</strong>한다.</li>
-    <li>상태 점검은 <strong>로키 역할·문서 시스템 → GitHub 스킬·MCP → 프로젝트 구조 → React 템플릿 → 종합 결과 보고</strong> 5단계로 진행된다.</li>
-    <li><code>@docs/</code> 연결이 깨지면 디자인 규칙이나 코드 컨벤션을 Claude가 <strong>인식하지 못한다</strong>.</li>
-    <li>점검 결과는 6개 항목을 <strong>✅ / ❌ 형식</strong>으로 종합 보고한다.</li>
+    <li>점검은 <strong>디렉토리 구조·문서 연결·인증 상태·실행 환경</strong> 네 가지를 중심으로 한다.</li>
+    <li>여러 항목은 <strong>한 번에 목록으로</strong> 요청하고, <strong>정해진 형식</strong>으로 결과를 받는다.</li>
+    <li>"확인 필요" 항목이 나와도 <strong>해당 부분만</strong> 다시 점검하면 된다.</li>
+    <li>모든 항목이 정상이어야 <strong>다음 학습으로 넘어갈 준비</strong>가 된 것이다.</li>
   </ul>
 </div>
 
@@ -288,86 +171,49 @@ Claude가 실행되면 다음 프롬프트를 복사하여 붙여넣어 종합 �
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 문서 시스템 오류는 CLAUDE.md만 손보면 된다?</div>
-    <div class="wda-mistake-right">정답: <code>docs</code> 폴더의 .md 파일 누락이나 @ 연결 오류일 수 있으며, <strong>setup 2단계 프롬프트를 재실행</strong>하면 복구된다.</div>
+    <div class="wda-mistake-wrong">실수: 점검 결과에 문제가 하나라도 있으면 처음부터 전부 다시 한다.</div>
+    <div class="wda-mistake-right">방지: 원인 추정을 보고 <strong>해당 단계만</strong> 다시 확인한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: GitHub 스킬 파일이 없으면 처음부터 다시 설치해야 한다?</div>
-    <div class="wda-mistake-right">정답: <strong>setup 3단계 자동 설정 프롬프트만 재실행</strong>하면 된다.</div>
+    <div class="wda-mistake-wrong">실수: 항목을 하나씩 따로따로 물어본다.</div>
+    <div class="wda-mistake-right">방지: 확인할 항목을 <strong>목록으로 한 번에</strong> 요청하면 더 빠르고 일관되게 확인할 수 있다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 프로젝트 구조나 React 환경(MUI, theme.js)이 빠지면 하나씩 손으로 고쳐야 한다?</div>
-    <div class="wda-mistake-right">정답: <strong>setup 2단계 통합 세팅 프롬프트를 재실행</strong>하면 한 번에 복구된다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: ❌ 항목이 나오면 전체 단계를 다시 해야 한다?</div>
-    <div class="wda-mistake-right">정답: Claude가 원인과 <strong>재실행할 단계를 명시</strong>해주므로 해당 단계 프롬프트만 다시 실행하면 된다.</div>
+    <div class="wda-mistake-wrong">실수: 인증 관련 오류를 계정 문제로 단정한다.</div>
+    <div class="wda-mistake-right">방지: 대부분 <strong>인증 시간이 만료</strong>된 것이므로 인증 명령을 다시 실행해본다.</div>
   </div>
 </div>
 
-**🏁 완성 기준**
+**🎯 점검 진행 공식**
 
-<div class="wda-check-note">
-  <ul>
-    <li>로키 역할 인사와 함께 <code>@docs/design-system.md</code> · <code>code-convention.md</code> · <code>new_project.md</code> 3개 문서가 정상 요약 출력된다.</li>
-    <li><code>.claude/skills/gh_cli/skill.md</code> 파일과 <code>_template_settings</code> 구조가 모두 확인된다.</li>
-    <li><code>theme.js</code> + <code>ThemeProvider</code>가 적용된 React 환경이 정상 확인된다.</li>
-    <li>종합 결과에서 <strong>"1차 수업 준비 상태: ✅ 준비완료"</strong>가 출력된다.</li>
-  </ul>
-</div>
-
-**💡 예상 결과**
-
-모든 환경이 정상적으로 설정되었다면 다음과 같은 결과를 확인할 수 있습니다.
-
-| 항목 | 정상 출력 |
-|------|-----------|
-| **로키 역할 확인** | `"안녕하세요! 저는 로키입니다"` 형태의 인사와 함께 역할 확인 |
-| **문서 시스템 동작** | `design-system`, `code-convention`, `new_project` 문서 내용 정상 출력 |
-| **GitHub 스킬** | `.claude/skills/gh_cli/skill.md` 파일 정상 존재 확인 |
-| **React 환경** | `MUI`, `theme.js`, `ThemeProvider` 모두 정상 설정 확인 |
-
----
-
-### 최종 점검 체크리스트
-
-- [ ] 로키 역할 인식 완료
-- [ ] `@docs` 문서 3개 정상 로드
-- [ ] GitHub 스킬 파일 존재 확인
-- [ ] `_template_settings` 구조 완성
-- [ ] `theme.js` + ThemeProvider 적용 확인
-- [ ] 1차 수업 준비 상태: ✅ 준비완료
-
-<div class="wda-done">
-  <div class="wda-done-ico">✅</div>
-  <div class="wda-done-ttl">환경 세팅 완료</div>
-  <div>모든 항목이 정상 확인되었다면 1차 수업의 본격적인 React 개발을 시작할 준비가 완료되었습니다!</div>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 점검 대상</div>
+    <div class="wda-formula-block-body"><code>구조 · 문서연결 · 인증 · 실행</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 결과 표기</div>
+    <div class="wda-formula-block-body"><code>정상 / 확인 필요 + 원인</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 조치</div>
+    <div class="wda-formula-block-body"><code>해당 단계만 재확인</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">왜 lecture1 디렉토리에서 Claude를 실행해야 하나?</div>
-    <div class="wda-flip-back">실행 위치에 따라 CLAUDE.md를 읽는 범위가 달라지므로, 로키 역할·@docs·루트 CLAUDE.md를 모두 인식하려면 lecture1에서 실행해야 한다.</div>
+    <div class="wda-flip-front">환경 점검에서 확인할 4가지 대상은?</div>
+    <div class="wda-flip-back">디렉토리 구조, 문서/설정 연결, 도구 인증 상태, 실행 환경입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">@docs/ 연결이 깨지면 어떻게 되나?</div>
-    <div class="wda-flip-back">디자인 규칙이나 코드 컨벤션을 Claude가 인식하지 못하게 된다.</div>
+    <div class="wda-flip-front">"확인 필요" 항목이 나오면 어떻게 하나요?</div>
+    <div class="wda-flip-back">전체를 다시 하지 않고, 해당 항목과 관련된 이전 단계만 다시 확인합니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">상태 점검 5단계는?</div>
-    <div class="wda-flip-back">로키 역할·문서 시스템 확인 → GitHub 스킬·MCP 확인 → 프로젝트 구조 확인 → React 템플릿 확인 → 종합 결과 보고 순서다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">점검 결과는 어떤 형식으로 표시되나?</div>
-    <div class="wda-flip-back">항목별로 ✅ 정상 / ❌ 오류로 표시하고, 마지막에 1차 수업 준비 상태를 종합 판정한다.</div>
+    <div class="wda-flip-front">여러 점검 항목을 요청할 때 좋은 방법은?</div>
+    <div class="wda-flip-back">항목을 목록으로 정리해 한 번에 요청하고, 결과 형식을 지정합니다.</div>
   </div>
 </div>
-
----
-
-## 🔗 참고 자료
-
-- [2단계 — 통합 세팅 및 첫 수업 준비](./step-02-integrated-setup)
-- [3단계 — GitHub 백업 환경 설정](./step-03-github-backup)

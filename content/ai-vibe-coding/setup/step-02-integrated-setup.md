@@ -2,15 +2,12 @@
 title: "2단계: 통합 세팅 및 첫 수업 준비"
 category: "ai-vibe-coding"
 section: "setup"
-description: "하나의 통합 프롬프트로 Claude 권한 최적화, React 개발환경 구축, CLAUDE.md 시스템을 자동 완성한다."
+description: "AI에게 여러 단계로 이어지는 작업을 요청할 때 필요한 맥락 구성, 범위 제한, 결과 검토 기준을 정리한다."
 tags:
   - ai-vibe-coding
   - setup
   - claude-code
-  - react
-  - vite
-  - mui
-  - claude-md
+  - prompt-context
 date: "2026-06-07"
 status: "completed"
 ---
@@ -24,45 +21,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -73,485 +55,144 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
 .wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
 .wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  하나의 강력한 통합 프롬프트로 <strong>Claude 권한 최적화</strong>, <strong>React 개발환경 구축(Vite + MUI)</strong>, <strong>CLAUDE.md 시스템</strong> 구성까지 모든 작업을 자동으로 완료한다.
+  • <strong>맥락의 중요성 이해</strong> — 짧은 요청과 맥락이 있는 요청의 결과 차이를 이해합니다<br>
+  • <strong>요청 구성 요소 파악</strong> — 목표·현재 상황·제약·출력 형식을 갖춰 요청하는 법을 익힙니다<br>
+  • <strong>결과 검토 기준</strong> — AI가 완료했다고 보고한 작업을 어떻게 확인할지 익힙니다
 </div>
 
 ---
 
-## 📖 개념 설명
+## 1. 이 문서에서 다루는 것
 
-**📌 통합 세팅 프롬프트 개요**
+<div class="wda-callout wda-ci">
+  <p><strong>1단계에서 개발 환경을 준비했다면, 이 문서는 그 환경에서 AI에게 실제로 작업을 요청하는 방법을 다룹니다.</strong></p>
+  <p>특히 프로젝트 초기 세팅처럼 <strong>여러 단계가 한 번에 이어지는 큰 작업</strong>을 요청할 때 어떻게 맥락을 주고 결과를 검토하는지에 집중합니다. GitHub 백업이나 보안 관리는 다음 문서에서 다룹니다.</p>
+</div>
 
-이 단계에서는 하나의 강력한 프롬프트로 다음 모든 작업을 자동 완료합니다.
+---
+
+## 2. 왜 맥락이 중요한가
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">맥락 없는 요청</div>
+    "프로젝트 세팅해줘"처럼 짧게 요청하면, AI는 어떤 프레임워크를, 어떤 구조로, 어디까지 만들어야 하는지 추측해야 합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">맥락이 있는 요청</div>
+    무엇을 만들지, 이미 준비된 것은 무엇인지, 결과물이 어떤 형태여야 하는지를 함께 주면 추측할 부분이 줄어듭니다.
+  </div>
+</div>
+
+---
+
+## 3. 요청 전에 확인할 4가지
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🔐</div><div class="wda-fcard-ttl">Claude 권한 최적화</div><div class="wda-fcard-dsc">.claude/settings.local.json 자동 생성 · 빠른 실행</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚛️</div><div class="wda-fcard-ttl">React 개발환경</div><div class="wda-fcard-dsc">Vite + MUI 완전 생태계 설치</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📄</div><div class="wda-fcard-ttl">문서 시스템</div><div class="wda-fcard-dsc">외부 문서 다운로드 · @ 연결자 설정</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">CLAUDE.md 구축</div><div class="wda-fcard-dsc">프로젝트별 역할과 규칙 설정</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🚀</div><div class="wda-fcard-ttl">첫 수업 준비</div><div class="wda-fcard-dsc">lecture1 프로젝트 완전 세팅</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">목표</div><div class="wda-fcard-dsc">최종적으로 무엇이 만들어져야 하는지 한 문장으로 정리합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">현재 상황</div><div class="wda-fcard-dsc">지금 무엇이 준비되어 있고 무엇이 없는지 알려줍니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">제약</div><div class="wda-fcard-dsc">건드리면 안 되는 파일, 지켜야 할 규칙을 명시합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">출력 형식</div><div class="wda-fcard-dsc">결과를 어떤 형태로 보고받고 싶은지 정합니다.</div></div>
 </div>
 
 ---
 
-**📝 사전 준비 확인사항**
+## 4. 여러 단계로 이어지는 작업 요청하기
 
-<div class="wda-callout wda-cw">
-  <span class="wda-clabel">사전 조건</span>
-  PowerShell에서 Claude를 <strong>최소 1회 실행하고 로그인을 완료</strong>했는지 확인하세요.<br>
-  <code>my_ai_web</code> 디렉토리에서 작업을 진행합니다.</div>
+포트폴리오 프로젝트의 초기 환경을 세팅하는 경우처럼, 한 번의 요청이 여러 단계로 이어질 때는 각 단계의 순서와 완료 조건을 함께 제시하는 것이 안전합니다.
 
----
-
-**✅ Claude 실행 및 통합 프롬프트 사용**
-
-VSCode에서 my_ai_web 디렉토리를 열고 PowerShell 터미널에서 권한이 최적화된 Claude를 실행합니다.
-
-**✅ VSCode 환경 준비**
-
-<div style="position:relative;padding-right:62px;">
-
-1. VSCode 프로그램 실행
-2. **File → Open Folder** → `my_ai_web` 폴더 선택
-3. **Terminal → New Terminal** → 드롭다운에서 **PowerShell** 선택
-4. 터미널 프롬프트에 `PS>` 가 표시되는지 확인
-</div>
-
----
-
-#### ⚠️ 기존 Claude 세션이 실행 중인 경우
-
-이미 Claude가 실행 중이라면 다음 순서로 종료해주세요.
-
-**PowerShell에서 Claude 실행 중**
-
-```powershell
-/exit
 ```
+project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 
-터미널 프롬프트가 `PS>` 상태로 돌아왔는지 확인하세요.
+목표:
+- portfolio-project라는 이름으로 새 React 프로젝트를 생성하고,
+  기본적인 폴더 구조를 갖춘 상태로 만들고 싶습니다.
 
----
+현재 상황:
+- 폴더는 비어 있고, Node.js와 npm은 이미 설치되어 있습니다.
+- 아직 어떤 프레임워크 설정도 되어 있지 않습니다.
 
-**✅ Claude 실행**
+제약:
+- 각 단계가 끝날 때마다 무엇을 했는지 알려주세요.
+- 패키지 설치가 실패하면 임의로 다른 방법을 시도하지 말고 먼저 알려주세요.
 
-my_ai_web 디렉토리의 PowerShell 터미널에서 다음 명령어를 실행합니다.
-
-```powershell
-claude --dangerously-skip-permissions
+출력 형식:
+1. 진행한 단계 목록
+2. 생성된 주요 파일과 폴더
+3. 다음에 확인해야 할 것
 ```
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">--dangerously-skip-permissions 옵션이란?</span>
-  각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있도록 허용하는 옵션입니다.<br>
-  신뢰할 수 있는 개발 환경에서 한 번에 많은 작업을 처리할 때 사용합니다.</div>
-
----
-
-## ⚙️ 동작 원리
-
-### 자동화 6단계 흐름
-
-통합 프롬프트를 Claude에 붙여넣으면 다음 6단계가 순서대로 자동 실행됩니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Claude 권한 설정 최적화</div><div class="wda-sdsc">결과물: <code>.claude/settings.local.json</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">React 개발환경 완전 구축</div><div class="wda-sdsc">결과물: <code>lecture1/my-react-app</code> (Vite + MUI)</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">문서 시스템 다운로드</div><div class="wda-sdsc">결과물: <code>lecture1/docs/</code> 내 3개 문서</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">CLAUDE.md 시스템 구축</div><div class="wda-sdsc">결과물: 루트 + lecture1 이중 구조</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">MUI 테마프로바이더 적용</div><div class="wda-sdsc">결과물: <code>theme.js</code> + <code>main.jsx</code> 수정</div></div></div>
-<div class="wda-step"><div class="wda-snum">6</div><div class="wda-sbody"><div class="wda-sttl">최종 확인 및 템플릿화</div><div class="wda-sdsc">결과물: <code>_template_settings</code> 디렉토리</div></div></div>
-</div>
-
-### 실행 순서 가이드
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Claude 실행</div><div class="wda-sdsc">PowerShell 터미널에서 <code>claude --dangerously-skip-permissions</code> 실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">프롬프트 복사</div><div class="wda-sdsc">아래 통합 세팅 프롬프트 전체를 복사</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">붙여넣기</div><div class="wda-sdsc">Claude Code에 프롬프트를 붙여넣고 Enter</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">자동 진행 대기</div><div class="wda-sdsc">Claude가 모든 단계를 자동으로 수행하는 동안 대기</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">완료 확인</div><div class="wda-sdsc">"개발준비완료" 메시지가 출력되면 성공 🎉</div></div></div>
+  <p>단계가 많은 작업일수록, "각 단계 완료 후 알려달라"처럼 <strong>중간 보고를 요청</strong>하면 어디서 문제가 생겼는지 훨씬 빨리 알 수 있습니다.</p>
 </div>
 
 ---
 
-### 예상 소요 시간
+## 5. 작업 범위를 제한하는 이유
 
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">소요 시간</span>
-  전체 과정은 약 <strong>5~10분</strong> 소요됩니다.<br>
-  네트워크 상태에 따라 패키지 설치 및 파일 다운로드 시간이 달라질 수 있습니다.<br>
-  모든 과정이 자동으로 진행되므로 <strong>중간에 중단하지 마세요.</strong></div>
+일부 AI 도구는 매 변경마다 승인을 묻지 않고 자동으로 진행하는 옵션을 제공합니다. 이런 옵션은 작업 속도를 높여주지만, 검토 없이 여러 파일이 한 번에 바뀔 수 있다는 위험도 함께 따라옵니다.
 
----
-
-## 💻 예제 코드
-
-### 통합 세팅 프롬프트 전문
-
-아래 프롬프트를 복사하여 Claude Code에 붙여넣으면 모든 환경 설정이 자동으로 완료됩니다.
-
-<div class="wda-prompt-head">📋 통합 세팅 프롬프트 — 아래 코드 블록 전체를 복사하여 Claude Code에 붙여넣으세요.</div>
-
-````
-### Claude Code 완전 자동 세팅 (권한설정 + React환경 + CLAUDE.md시스템)
-
-다음 작업을 **정확한 순서대로** 모두 자동으로 진행해주세요. 각 단계가 완료되면 "[단계명] 완료"라고 알려주세요.
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">신뢰할 수 있는 환경에서만</div><div class="wda-fcard-dsc">중요한 파일이 없는 새 프로젝트나 실습용 폴더에서 우선 사용해봅니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">변경 범위를 명시</div><div class="wda-fcard-dsc">"다른 파일은 건드리지 마세요"처럼 범위를 제한하는 문장을 함께 씁니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">완료 후 반드시 확인</div><div class="wda-fcard-dsc">자동으로 진행됐더라도 결과물은 사람이 직접 열어 확인합니다.</div></div>
+</div>
 
 ---
 
-## 1단계: Claude 권한 설정 최적화
+## 6. 결과를 검토하는 기준
 
-### 현재 디렉토리에 .claude 폴더 확인 및 생성
-- `.claude` 디렉토리가 없으면 생성
-- 이미 있으면 다음 단계 진행
-
-### 권한 설정 파일 생성
-`.claude/settings.local.json` 파일을 다음 내용으로 생성하거나 수정:
-```json
-{
-  "permissions": {
-    "allow": [
-      "*"
-    ],
-    "deny": []
-  },
-  "BASH_DEFAULT_TIMEOUT_MS": "600000",
-  "BASH_MAX_TIMEOUT_MS": "600000"
-}
-```
-
-### 전역 설정 파일에도 타임아웃 설정 적용
-`C:\Users\[사용자명]\.claude\settings.json` 파일을 열어서 다음 내용을 추가:
-```json
-{
-  "env": {
-    "BASH_DEFAULT_TIMEOUT_MS": "600000",
-    "BASH_MAX_TIMEOUT_MS": "600000"
-  }
-}
-```
-※ 기존 설정이 있다면 env 섹션에 위 두 줄만 추가
-※ [사용자명]은 현재 Windows 사용자 이름으로 변경
-
-### 권한 설정 완료 확인
-- 로컬 및 전역 JSON 형식이 올바른지 확인
-- 권한 설정 및 CLI 타임아웃 설정(10분) 적용 확인
-- 파일 생성 완료 메시지 출력
-
----
-
-## 2단계: React 개발환경 완전 구축
-
-### 프로젝트 디렉토리 구조 생성
-```bash
-# 루트 디렉토리에 lecture1 생성
-mkdir lecture1
-cd lecture1
-```
-
-### Vite React 프로젝트 생성
-```bash
-# my-react-app 프로젝트 생성 (y 자동 응답)
-echo 'y' | npm create vite@latest my-react-app -- --template react
-
-# 생성 완료 확인
-ls -la | grep my-react-app
-```
-
-### 프로젝트 디렉토리 이동 및 기본 의존성 설치
-```bash
-cd my-react-app
-npm install
-```
-
-### 필수 패키지 설치 (MUI 완전 생태계)
-다음 패키지들을 **정확한 순서로** 설치:
-```bash
-# React Router 설치
-npm install react-router-dom@latest
-
-# Material-UI 핵심 패키지
-npm install @mui/material @emotion/react @emotion/styled
-
-# Material-UI 아이콘 패키지
-npm install @mui/icons-material
-
-# Roboto 폰트 패키지
-npm install @fontsource/roboto
-
-# Vite React 플러그인 업데이트
-npm install --save-dev @vitejs/plugin-react@latest
-```
-
-### 개발 서버 테스트 및 자동 종료
-```bash
-# 10초 타임아웃으로 개발 서버 테스트
-timeout 10 npm run dev
-
-# 서버 로그에서 "Local: http://localhost:xxxx/" 확인
-# 포트 충돌 시 vite.config.js에서 다른 포트 설정
-
-# 개발 서버 프로세스 정리 (중요: Claude Code는 건드리지 않음)
-# 개발 서버 확인: netstat -ano | findstr LISTENING | findstr 517
-# 개발 서버만 종료: cmd //c "taskkill /PID [개발서버PID] /F"
-# 종료 확인: tasklist | findstr node.exe
-```
-
-### 설치된 패키지 버전 확인
-```bash
-npm ls
-npm outdated
-```
-
----
-
-## 3단계: 문서 시스템 다운로드 및 구조 생성
-
-### docs 디렉토리 생성
-```bash
-# lecture1 디렉토리에 docs 폴더 생성
-cd ../  # my-react-app에서 lecture1로 이동
-mkdir docs
-```
-
-### 필수 문서 파일 다운로드
-다음 URL에서 문서 파일들을 `lecture1/docs/`에 다운로드:
-```bash
-# 각 파일을 정확한 경로에 다운로드
-curl -o docs/design-system.md https://raw.githubusercontent.com/hw5511/vibe-web/main/docs/design-system.md
-curl -o docs/code-convention.md https://raw.githubusercontent.com/hw5511/vibe-web/main/docs/code-convention.md
-curl -o docs/new_project.md https://raw.githubusercontent.com/hw5511/vibe-web/main/docs/new_project.md
-```
-
-### 다운로드 완료 확인
-```bash
-# 파일 존재 및 크기 확인
-ls -la docs/
-wc -l docs/*.md
-```
-
----
-
-## 4단계: CLAUDE.md 시스템 구축
-
-### 루트 디렉토리 CLAUDE.md 생성
-**프로젝트 최상위 루트**에 다음 내용으로 CLAUDE.md 생성:
-```markdown
-# 기본 응답 설정
-
-## 언어 설정
-- 모든 답변은 한국어로 작성
-- 정중하고 친근한 말투 사용
-- 기술적 내용을 쉽게 설명
-
-## 개발 원칙
-- 코드 품질과 가독성 우선
-- 사용자 요청사항에 정확히 응답
-- 단계별 상세한 설명 제공
-```
-
-### lecture1 디렉토리 CLAUDE.md 다운로드 및 저장
-```bash
-# lecture1 디렉토리에서 CLAUDE.md 파일 다운로드
-curl -o CLAUDE.md https://raw.githubusercontent.com/hw5511/vibe-web/main/docs/CLAUDE.md
-```
-
-### @ 연결자 문서 임포트 확인
-- `@docs/design-system.md` 연결 확인
-- `@docs/code-convention.md` 연결 확인
-- `@docs/new_project.md` 연결 확인
-- 각 문서의 내용이 정상적으로 로드되는지 확인
-
----
-
-## 5단계: MUI 테마프로바이더 적용
-
-### my-react-app 디렉토리로 이동
-```bash
-cd my-react-app
-```
-
-### src/theme.js 파일 생성
-다음 내용으로 MUI 테마 설정 파일을 생성:
-```javascript
-import { createTheme } from '@mui/material/styles';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1976d2',
-    },
-    secondary: {
-      main: '#dc004e',
-    },
-  },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    h1: {
-      fontSize: '2.125rem',
-      fontWeight: 500,
-    },
-  },
-  spacing: 8,
-});
-
-export default theme;
-```
-
-### src/main.jsx 파일 수정
-ThemeProvider와 CssBaseline을 적용하여 다음과 같이 수정:
-```javascript
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import App from './App.jsx'
-import theme from './theme.js'
-import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
-)
-```
-
-### 테마 적용 확인을 위한 개발 서버 테스트
-```bash
-# 10초 타임아웃으로 테마 적용 테스트
-timeout 10 npm run dev
-
-# 서버 로그에서 "Local: http://localhost:xxxx/" 확인
-# CssBaseline이 적용된 깔끔한 페이지 확인
-```
-
-### 템플릿 디렉토리 생성 (향후 빠른 프로젝트 생성용)
-```bash
-# 완성된 my-react-app을 템플릿 이름으로 변경
-cd ../  # lecture1 디렉토리로 이동
-mv my-react-app _template_settings
-
-# 템플릿 디렉토리 생성 완료 확인
-ls -la | grep _template_settings
-```
-
----
-
-## 6단계: 최종 확인 및 완료
-
-### 프로젝트 구조 확인
-최종 디렉토리 구조가 다음과 같은지 확인:
-```
-프로젝트 루트/
-├── CLAUDE.md (기본 한국어 설정)
-└── lecture1/
-    ├── CLAUDE.md (로키 역할, @ 연결자)
-    ├── docs/
-    │   ├── design-system.md
-    │   ├── code-convention.md
-    │   └── new_project.md
-    └── _template_settings/ (완성된 템플릿)
-        ├── package.json (MUI 포함)
-        ├── vite.config.js
-        ├── src/
-        │   ├── theme.js (새로 생성)
-        │   ├── main.jsx (ThemeProvider 적용)
-        │   └── App.jsx
-        └── node_modules/
-```
-
-### 설치된 패키지 최종 확인
-`_template_settings/package.json`에서 다음 패키지들이 설치되었는지 확인:
-- react
-- react-dom
-- react-router-dom
-- @mui/material
-- @emotion/react
-- @emotion/styled
-- @mui/icons-material
-- @fontsource/roboto
-
-### CLAUDE.md 연결 테스트 및 테마 적용 확인
-lecture1 디렉토리에서 다음을 확인:
-- 디자인 시스템 문서 인식 여부
-- 코드 컨벤션 문서 인식 여부
-- 프로젝트 준비 시스템 문서 인식 여부
-- theme.js 파일이 정상적으로 생성되었는지 확인
-- main.jsx에 ThemeProvider와 CssBaseline이 적용되었는지 확인
-
----
-
-## 완료 확인
-
-모든 작업이 완료되면 다음과 같이 응답해주세요:
-
-```
-Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
-
-- 권한 설정: .claude/settings.local.json 생성 완료
-- React 환경: my-react-app 프로젝트 + MUI 완전 설치 완료
-- 문서 시스템: 3개 문서 다운로드 및 @ 연결자 설정 완료
-- CLAUDE.md: 루트 + lecture1 이중 구조 완료
-- MUI 테마: theme.js + ThemeProvider + CssBaseline 적용 완료
-- 템플릿 디렉토리: my-react-app을 _template_settings로 이름 변경하여 향후 빠른 프로젝트 생성 가능
-
-수업 1-1 (React 환경구축) 완료
-수업 1-2 (CLAUDE.md 시스템) 완료
-수업 1-3 (MUI 테마프로바이더) 완료
-
-개발준비완료
-```
-
-### 중요 주의사항
-1. **프로세스 관리**: 개발 서버 종료 시 Claude Code는 절대 건드리지 않기
-2. **파일 권한**: Windows 환경에서 권한 문제 발생 시 관리자 권한으로 실행
-3. **포트 충돌**: 개발 서버 포트 충돌 시 vite.config.js에서 다른 포트 설정
-4. **패키지 버전**: MUI는 최신 버전 사용, 호환성 문제 시 알려주기
-5. **경로 확인**: 모든 파일 경로가 정확한지 각 단계마다 확인하기
-````
-
----
-
-## ⚠️ 주의사항
-
-### 문제 해결 가이드
-
-| 오류 유형 | 해결 방법 |
-|-----------|-----------|
-| **권한 오류** | 관리자 권한으로 터미널 실행 후 재시도 |
-| **포트 충돌** | Claude가 자동으로 `vite.config.js`에서 다른 포트 설정 |
-| **네트워크 오류** | 파일 다운로드 실패 시 인터넷 연결 확인 |
-| **패키지 설치 실패** | `npm cache clean --force` 후 재설치 |
-| **경로 오류** | `my_ai_web` 디렉토리에서 작업하는지 확인 |
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">AI의 보고만 믿기</div>
+    "완료했습니다"라는 메시지만 보고 다음 단계로 넘어가면, 실제로는 일부만 처리됐거나 다른 파일이 영향을 받았을 수 있습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">직접 확인하기</div>
+    생성된 파일 목록을 눈으로 보고, 실행해서 정상 동작하는지 확인한 뒤 다음 단계로 넘어갑니다.
+  </div>
+</div>
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">프로세스 관리</span>
-  개발 서버 종료 시 Claude Code 프로세스는 절대 건드리지 않기.<br>
-  <strong>개발 서버 PID만 정확히 종료</strong>할 것.</div>
+  <p>완료 메시지가 항상 실제 상태와 정확히 일치하는 것은 아닙니다. 특히 여러 단계가 이어지는 작업일수록, 중간중간 결과물을 직접 열어 확인하는 습관이 필요합니다.</p>
+</div>
 
 ---
 
-## ✅ 핵심 요약
+## 7. 주의사항
+
+<div class="wda-callout wda-cw">
+  <p>요청문 안에 비밀번호, API 키, 액세스 토큰 같은 민감한 값을 그대로 적지 않습니다. 이런 정보를 다루는 방법은 다음 문서에서 별도로 설명합니다.</p>
+</div>
+
+<div class="wda-callout wda-ci">
+  <p>AI 도구의 화면 구성이나 옵션 이름은 버전에 따라 달라질 수 있습니다. 특정 버튼 위치나 메뉴 이름을 그대로 외우기보다, "무엇을 확인해야 하는지"를 기준으로 접근하는 것이 오래 유지됩니다.</p>
+</div>
+
+---
+
+## 8. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>통합 세팅 프롬프트 <strong>하나</strong>로 권한 최적화 · React 환경(Vite+MUI) · 문서 시스템 · CLAUDE.md · 테마 적용까지 <strong>자동 완료</strong>된다.</li>
-    <li>전체 과정은 약 <strong>5~10분</strong> 소요되며, 모든 과정이 자동으로 진행되므로 <strong>중간에 중단하면 안 된다</strong>.</li>
-    <li>완성된 프로젝트는 <code>_template_settings</code>로 이름이 바뀌어 이후 새 프로젝트를 빠르게 세팅하는 <strong>템플릿</strong>이 된다.</li>
-    <li>핵심 패키지는 <code>react-router-dom</code>, <code>@mui/material</code>, <code>@emotion/*</code>, <code>@mui/icons-material</code>, <code>@fontsource/roboto</code>다.</li>
-    <li>모든 단계가 끝나면 <strong>"개발준비완료"</strong> 메시지가 출력되어야 성공이다.</li>
+    <li>좋은 요청은 <strong>목표·현재 상황·제약·출력 형식</strong> 네 가지를 갖춘다.</li>
+    <li>여러 단계로 이어지는 작업은 <strong>중간 보고</strong>를 요청하면 문제를 더 빨리 발견할 수 있다.</li>
+    <li>자동 승인 옵션은 <strong>신뢰할 수 있는 환경</strong>에서, <strong>범위를 제한</strong>하며 사용한다.</li>
+    <li>AI의 "완료했습니다"는 <strong>참고용 보고</strong>일 뿐, 최종 확인은 사람이 직접 한다.</li>
+    <li>요청문에 <strong>비밀번호나 API 키를 직접 적지 않는다</strong>.</li>
   </ul>
 </div>
 
@@ -559,101 +200,53 @@ Claude Code 완전 자동 세팅 + 첫 3개 수업 완료!
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오류: 권한 오류가 발생했다.</div>
-    <div class="wda-mistake-right">방지: <strong>관리자 권한으로 터미널을 재실행</strong>한 뒤 다시 시도한다.</div>
+    <div class="wda-mistake-wrong">실수: "세팅해줘"처럼 짧게만 요청하고 결과를 기다린다.</div>
+    <div class="wda-mistake-right">방지: 목표·현재 상황·제약·출력 형식을 갖춰 요청하면 <strong>추측으로 인한 오차</strong>가 줄어든다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오류: 개발 서버 포트가 충돌한다.</div>
-    <div class="wda-mistake-right">방지: Claude가 자동으로 <code>vite.config.js</code>에서 <strong>다른 포트</strong>를 설정하도록 둔다.</div>
+    <div class="wda-mistake-wrong">실수: "완료했습니다" 메시지만 보고 바로 다음 작업을 요청한다.</div>
+    <div class="wda-mistake-right">방지: 결과물을 <strong>직접 열어 확인</strong>한 뒤 다음 단계로 넘어간다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오류: 문서 다운로드가 실패한다.</div>
-    <div class="wda-mistake-right">방지: <strong>인터넷 연결 상태</strong>를 먼저 확인한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오류: 패키지 설치가 실패한다.</div>
-    <div class="wda-mistake-right">방지: <code>npm cache clean --force</code> 후 재설치한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 개발 서버 테스트 후 프로세스를 아무거나 종료한다.</div>
-    <div class="wda-mistake-right">방지: <strong>개발 서버 PID만 정확히 종료</strong>하고, Claude Code 프로세스는 절대 건드리지 않는다.</div>
+    <div class="wda-mistake-wrong">실수: 자동 승인 옵션을 중요한 프로젝트에서 바로 사용한다.</div>
+    <div class="wda-mistake-right">방지: <strong>실습용 환경</strong>에서 먼저 익히고, 범위를 제한하는 문장을 함께 쓴다.</div>
   </div>
 </div>
 
-**🏁 완성 기준**
+**🎯 요청문 구성 공식**
 
-<div class="wda-check-note">
-  <ul>
-    <li><code>.claude/settings.local.json</code> 권한 설정 파일이 생성된다.</li>
-    <li><code>lecture1/_template_settings</code>에 Vite + MUI 프로젝트가 완성된다.</li>
-    <li><code>docs</code> 폴더에 3개 문서가 다운로드되고 <code>@</code> 연결자로 정상 로드된다.</li>
-    <li>루트 + lecture1 <strong>이중 구조</strong>의 CLAUDE.md가 완성된다.</li>
-    <li><code>theme.js</code> + <code>ThemeProvider</code> + <code>CssBaseline</code>이 적용된다.</li>
-  </ul>
-</div>
-
-### 이 단계에서 완성되는 수업
-
-- **수업 1-1**: React 환경구축 (Vite + MUI 설치)
-- **수업 1-2**: CLAUDE.md 시스템 (역할 설정 + 문서 연결)
-- **수업 1-3**: MUI 테마프로바이더 (`theme.js` + `ThemeProvider` + `CssBaseline`)
-
-### 설치되는 핵심 패키지 정리
-
-| 패키지 | 역할 |
-|--------|------|
-| `react` | React 핵심 라이브러리 |
-| `react-dom` | 브라우저에 React 컴포넌트를 렌더링 |
-| `react-router-dom` | 페이지 간 라우팅(경로 이동) 처리 |
-| `@mui/material` | MUI 컴포넌트 모음 |
-| `@emotion/react` | MUI 스타일 엔진 (필수 의존성) |
-| `@emotion/styled` | MUI 스타일드 컴포넌트 지원 |
-| `@mui/icons-material` | MUI 아이콘 패키지 |
-| `@fontsource/roboto` | Roboto 폰트 (MUI 권장 폰트) |
-
-### 환경 구축 완료!
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">통합 세팅 완료!</div>
-  <div>이 단계를 완료하면 수업 1-1, 1-2, 1-3이 동시에 완성됩니다.<br>이후 <code>_template_settings</code>를 복사해서 새 프로젝트를 빠르게 세팅할 수 있습니다.</div>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 4요소</div>
+    <div class="wda-formula-block-body"><code>목표 + 현재 상황 + 제약 + 출력 형식</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 다단계 작업</div>
+    <div class="wda-formula-block-body"><code>단계별 완료 보고 요청</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 검증</div>
+    <div class="wda-formula-block-body"><code>AI 보고 + 사람의 직접 확인</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">--dangerously-skip-permissions 옵션은?</div>
-    <div class="wda-flip-back">각 작업마다 사용자 승인을 요청하지 않고 Claude가 자동으로 파일을 생성·수정할 수 있게 하는 옵션이다.</div>
+    <div class="wda-flip-front">좋은 요청문의 4가지 구성 요소는?</div>
+    <div class="wda-flip-back">목표, 현재 상황, 제약, 출력 형식입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">통합 세팅 6단계는 무엇을 만드나?</div>
-    <div class="wda-flip-back">권한 설정 → React 환경 → 문서 다운로드 → CLAUDE.md → 테마 적용 → 템플릿화 순서로 자동 진행된다.</div>
+    <div class="wda-flip-front">여러 단계로 이어지는 작업을 요청할 때 유용한 방법은?</div>
+    <div class="wda-flip-back">각 단계가 끝날 때마다 중간 보고를 요청하는 것입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">_template_settings는 왜 만드나?</div>
-    <div class="wda-flip-back">완성된 프로젝트를 템플릿으로 남겨, 이후 새 프로젝트를 복사만으로 빠르게 세팅하기 위해서다.</div>
+    <div class="wda-flip-front">AI가 "완료했습니다"라고 말하면 바로 믿어도 되나요?</div>
+    <div class="wda-flip-back">아니요. 참고용 보고로 삼고, 결과물은 직접 확인해야 합니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">react-router-dom의 역할은?</div>
-    <div class="wda-flip-back">페이지 간 라우팅(경로 이동)을 처리한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">@emotion/react가 필요한 이유는?</div>
-    <div class="wda-flip-back">MUI의 스타일 엔진으로, MUI 컴포넌트 사용에 필수인 의존성이다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">개발 서버 테스트 후 반드시 지켜야 할 규칙은?</div>
-    <div class="wda-flip-back">개발 서버 프로세스만 정확히 종료하고, Claude Code 프로세스는 절대 건드리지 않는다.</div>
+    <div class="wda-flip-front">자동 승인 옵션을 쓸 때 지켜야 할 원칙은?</div>
+    <div class="wda-flip-back">신뢰할 수 있는 환경에서, 변경 범위를 제한하며 사용하고 결과는 반드시 확인합니다.</div>
   </div>
 </div>
-
----
-
-## 🔗 참고 자료
-
-- [공식 Vite 문서](https://vitejs.dev/guide/)
-- [공식 MUI 시작하기](https://mui.com/material-ui/getting-started/)
-- [공식 React Router 문서](https://reactrouter.com/)
-- [강사 문서 원본 (GitHub)](https://github.com/hw5511/vibe-web/tree/main/docs)
-
