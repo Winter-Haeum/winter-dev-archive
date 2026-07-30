@@ -1,15 +1,10 @@
 ---
-title: "2-1: Supabase MCP 설치 및 설정"
+title: "2-1: 왜 데이터가 필요한가"
 category: "ai-vibe-coding"
 section: "lesson-2"
-description: "Supabase 계정 생성부터 MCP 설치, OAuth 인증, 연결 확인까지 AI가 데이터베이스를 직접 관리할 수 있는 환경을 구축합니다."
-tags:
-  - ai-vibe-coding
-  - lesson-2
-  - supabase
-  - mcp
 date: "2026-06-10"
 status: "completed"
+description: "정적 화면과 데이터 기반 화면의 차이를 이해하고, 데이터베이스·테이블·행·열 개념을 표와 일상 비유로 익힙니다."
 ---
 
 <style>
@@ -21,49 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-.wda-compare{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-cbox{flex:1 1 180px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 15px}
-.wda-cbox-label{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.55;display:block;margin-bottom:6px}
-.wda-cbox-ttl{font-size:.9rem;font-weight:700;margin-bottom:6px}
-.wda-cbox-body{font-size:.8rem;opacity:.75;line-height:1.55}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid,.wda-cbox{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -85,158 +61,90 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>Supabase 계정 구축</strong> — 클라우드 데이터베이스 프로젝트 생성<br>
-  • <strong>MCP 설치</strong> — Claude에 Supabase MCP Server 등록<br>
-  • <strong>OAuth 인증</strong> — 브라우저 인증으로 안전하게 연결<br>
-  • <strong>연결 확인</strong> — /mcp로 연결 상태와 기능 테스트
+  • <strong>정적 vs 데이터 기반</strong> — 고정된 화면과 데이터를 불러와 보여주는 화면의 차이를 구분합니다<br>
+  • <strong>데이터베이스 개념</strong> — 표로 정보를 정리하는 방식이 데이터베이스의 기본 개념임을 이해합니다<br>
+  • <strong>용어 정리</strong> — 테이블·행·열(레코드·필드) 용어를 예시로 익힙니다
 </div>
 
 ---
 
-## 진행 순서
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">전체 진행 순서</span>
-  Supabase 계정 생성 → MCP 설치 → OAuth 인증 → 연결 확인 순서로 진행합니다.
-</div>
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Supabase 계정 생성 및 프로젝트 설정</div><div class="wda-sdsc">강사와 함께 계정 생성 및 새 프로젝트 준비</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">MCP 설치 명령어 실행</div><div class="wda-sdsc">Claude 종료 상태에서 터미널에 설치 명령어 입력</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">OAuth 인증 연결</div><div class="wda-sdsc">Claude 재실행 후 /mcp에서 브라우저 인증</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">MCP 연결 상태 확인 및 기능 테스트</div><div class="wda-sdsc">테이블 목록 조회, 프로젝트 URL 확인으로 동작 검증</div></div></div>
+  <p><strong>lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에 직접 적혀 있는 정적 화면이었습니다.</strong></p>
+  <p>project-section에 프로젝트를 하나 추가하려면 코드를 열어 직접 고쳐야 했습니다. 이 문서군에서는 project-section과 contact-section에 실제 데이터를 연결해서, 코드를 고치지 않고도 내용을 관리할 수 있는 구조를 만듭니다. 이 문서는 그 첫걸음으로 "왜 데이터가 필요한지"부터 정리합니다.</p>
 </div>
 
 ---
 
-<div style="display:flex;align-items:center;gap:18px;margin-top:1.5rem;margin-bottom:0.75rem;">
-  <h2 style="margin:0;">사전 준비: Supabase 계정 생성</h2>
-</div>
-
-강사의 안내에 따라 수강생과 함께 진행합니다.
-
-### Supabase 계정 생성
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">계정 생성 방법</span>
-  GitHub 계정으로 가입하면 가장 간편합니다. 이메일 인증 없이 바로 연동됩니다.
-</div>
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Supabase 접속</div><div class="wda-sdsc"><code>https://supabase.com</code> 접속 → "Start your project" 클릭</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">회원가입</div><div class="wda-sdsc">GitHub 또는 이메일로 가입</div></div></div>
-</div>
-
-### 새 프로젝트 생성
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">새 프로젝트 시작</div><div class="wda-sdsc">"New project" 클릭</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">Organization 선택</div><div class="wda-sdsc">Organization: Personal 선택</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">프로젝트 정보 입력</div><div class="wda-sdsc">프로젝트명: <strong>바이브코딩-방명록</strong> · Region: <strong>Northeast Asia (Seoul)</strong> 선택</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">데이터베이스 비밀번호 설정</div><div class="wda-sdsc">안전한 비밀번호 설정 후 반드시 메모장에 기록 — 나중에 확인 불가</div></div></div>
-</div>
-
-<div class="wda-callout wda-cw">
-  <span class="wda-clabel">⚠ 비밀번호 필수 보관</span>
-  프로젝트 생성 시 설정하는 데이터베이스 비밀번호는 이후 절대 확인할 수 없습니다.<br>반드시 메모장이나 비밀번호 관리 앱에 저장해두세요.
-</div>
-
----
-
-## Supabase MCP 설치
-
-<div class="wda-callout wda-cw">
-  <span class="wda-clabel">⚠ Claude 완전 종료 필수</span>
-  Claude Code가 실행 중이면 먼저 <code>/exit</code>로 종료하세요. 설치 명령어는 반드시 Claude 밖 터미널에서 실행해야 합니다.
-</div>
-
-Claude를 완전히 종료한 상태에서 터미널에 아래 명령어를 실행합니다.
-
-```bash
-claude mcp add --transport http supabase https://mcp.supabase.com/mcp
-```
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">이 명령어가 하는 일</span>
-  Supabase 공식 HTTP MCP 서버를 Claude에 등록합니다.<br>토큰이나 프로젝트 ID를 직접 입력할 필요 없이, 이후 Claude에서 브라우저 OAuth로 인증만 하면 됩니다.
-</div>
-
----
-
-## OAuth 인증 연결
-
-설치 후 Claude를 실행하고 아래 순서로 인증합니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Claude 실행 후 /mcp 입력</div><div class="wda-sdsc">터미널에서 <code>claude</code> 실행 → <code>/mcp</code> 명령어 입력 → MCP 서버 목록에서 supabase 확인</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">auth 선택</div><div class="wda-sdsc">supabase 항목에서 <code>auth</code> 선택 후 엔터 → 브라우저 자동으로 열림</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">브라우저에서 로그인</div><div class="wda-sdsc">Supabase 로그인 화면에서 GitHub 계정으로 로그인 → Authorize 클릭 → 인증 완료</div></div></div>
-</div>
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">연결 성공 확인</span>
-  <code>/mcp</code> 명령어에서 <strong>supabase ✔ connected</strong> 상태가 표시되면 완료입니다!
-</div>
-
----
-
-## 설정 완료 확인
-
-<div class="wda-memo">
-  <span class="wda-memo-label">확인 방법 3가지</span>
-  <div class="wda-memo-body">
-  📡 <strong>/mcp 연결 확인</strong> — <code>Supabase MCP Server ✔ connected</code> · 사용 가능한 도구 19개 표시<br>
-  📋 <strong>테이블 목록 확인</strong> — <code>mcp__supabase__list_tables</code> 도구 사용<br>
-  🌐 <strong>프로젝트 URL 확인</strong> — <code>mcp__supabase__get_project_url</code> 도구 사용
-  </div>
-</div>
-
-```
-# 테이블 목록 조회 테스트
-mcp__supabase__list_tables를 사용해서 현재 데이터베이스의 테이블 목록을 보여줘
-
-# 프로젝트 URL 확인
-mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
-```
-
----
-
-## 문제 해결
+## 2. 정적 화면과 데이터 기반 화면
 
 <div class="wda-compare">
-<div class="wda-cbox"><span class="wda-cbox-label">✘ failed 또는 연결 안됨</span><div class="wda-cbox-ttl">원인: OAuth 인증 미완료</div><div class="wda-cbox-body"><code>/mcp</code>에서 supabase → <code>auth</code> 다시 실행<br>브라우저에서 Authorize 버튼 클릭 확인<br>Claude Code 재시작 후 재시도</div></div>
-<div class="wda-cbox"><span class="wda-cbox-label">MCP 목록에 없음</span><div class="wda-cbox-ttl">원인: Claude 실행 중 설치</div><div class="wda-cbox-body">Claude 완전 종료 후 설치 명령어 재실행<br><code>claude mcp add --transport http supabase https://mcp.supabase.com/mcp</code></div></div>
-</div>
-
-<div class="wda-callout wda-cw">
-  <span class="wda-clabel">강사 지원이 필요한 경우</span>
-  브라우저 OAuth 창이 열리지 않거나 · 인증 후에도 계속 연결 실패하거나 · 네트워크 연결 문제가 발생한 경우 강사에게 도움을 요청하세요.
-</div>
-
-### Claude Code 재시작 방법
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">Claude Code 종료</div><div class="wda-sdsc"><code>/exit</code> 로 종료</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">재실행</div><div class="wda-sdsc">터미널에서 <code>claude</code> 로 재실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">연결 상태 확인</div><div class="wda-sdsc"><code>/mcp</code> 로 연결 상태 확인</div></div></div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">정적 화면 (지금까지)</div>
+    프로젝트 이름·설명이 코드 안에 문자열로 직접 적혀 있습니다. 내용을 바꾸려면 코드를 열어 수정하고 다시 배포해야 합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">데이터 기반 화면 (이제부터)</div>
+    프로젝트 정보가 별도 저장소에 보관되고, 화면은 그 저장소에서 값을 불러와 보여줍니다. 내용을 추가·수정해도 코드를 건드릴 필요가 없습니다.
+  </div>
 </div>
 
 ---
 
-## 최종 체크리스트
+## 3. 데이터베이스란 무엇인가
 
-<div class="wda-memo">
-  <span class="wda-memo-label">✅ 최종 완료 확인</span>
-  <div class="wda-memo-body">
-  ☐ Supabase 계정 생성 완료 (GitHub 로그인)<br>
-  ☐ 프로젝트 "바이브코딩-방명록" 생성 완료<br>
-  ☐ 데이터베이스 비밀번호 메모장에 저장 완료<br>
-  ☐ <code>claude mcp add</code> 명령어 실행 완료<br>
-  ☐ <code>/mcp</code>에서 OAuth 인증 완료<br>
-  ☐ <code>/mcp</code>에서 connected 상태 확인<br>
-  ☐ 테이블 목록 조회 성공<br>
-  ☐ 프로젝트 URL 확인 완료
-  </div>
+<div class="wda-callout wda-cs">
+  <span class="wda-clabel">핵심 개념</span>
+  <p>데이터베이스는 정보를 체계적으로 저장하고 관리하는 시스템입니다. 우리가 이미 익숙한 <strong>표로 정보를 정리하는 방식</strong>과 근본적으로 같은 개념입니다.</p>
+</div>
+
+예를 들어 포트폴리오에 넣을 프로젝트들을 표로 정리한다면 다음과 같은 모습이 됩니다.
+
+<table class="wda-mtable">
+<thead><tr><th>제목</th><th>설명</th><th>기술 스택</th><th>공개 여부</th></tr></thead>
+<tbody>
+<tr><td>메모 앱</td><td>할 일을 기록하는 웹 앱</td><td>React, MUI</td><td>공개</td></tr>
+<tr><td>날씨 위젯</td><td>지역별 날씨를 보여주는 위젯</td><td>JavaScript, API</td><td>공개</td></tr>
+<tr><td>내부 연습용 페이지</td><td>레이아웃 연습용 시안</td><td>HTML, CSS</td><td>비공개</td></tr>
+</tbody>
+</table>
+
+이런 표가 웹사이트 뒤편에 저장되어 있고, 화면은 이 표에서 필요한 값을 꺼내 보여주는 것이 데이터 기반 화면의 기본 원리입니다.
+
+---
+
+## 4. 테이블 · 행 · 열 용어 정리
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">테이블(Table)</div><div class="wda-fcard-dsc">위 예시 같은 표 전체를 가리킵니다. 포트폴리오라면 "프로젝트 테이블"처럼 부릅니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">행(Row) · 레코드</div><div class="wda-fcard-dsc">표의 한 줄, 즉 데이터 하나입니다. 프로젝트 하나가 행 하나에 해당합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">열(Column) · 필드</div><div class="wda-fcard-dsc">정보의 종류입니다. 제목, 설명, 기술 스택처럼 표의 세로 항목입니다.</div></div>
+</div>
+
+<div class="wda-callout wda-ci">
+  <p>엑셀에서 쓰던 <strong>행/열</strong>이라는 말과 데이터베이스의 <strong>레코드/필드</strong>는 같은 것을 가리키는 다른 이름입니다. 이후 문서에서는 두 표현을 섞어서 사용합니다.</p>
+</div>
+
+---
+
+## 5. 화면에서 저장할 수 있는 정보의 종류
+
+포트폴리오처럼 방문자가 보는 화면 뒤에는 보통 아래와 같은 정보들이 데이터로 저장됩니다.
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">보여주기 위한 정보</div><div class="wda-fcard-dsc">project-section에 나열할 프로젝트 목록처럼, 화면에 그대로 표시되는 정보입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">방문자가 남긴 정보</div><div class="wda-fcard-dsc">contact-section을 통해 방문자가 남긴 문의 메시지처럼, 사용자가 직접 입력한 정보입니다.</div></div>
+</div>
+
+---
+
+## 6. 외부 데이터 저장소, 개념만 먼저
+
+<div class="wda-callout wda-ci">
+  <span class="wda-clabel">한 걸음만 미리 보기</span>
+  <p>표 형태의 데이터를 인터넷 어딘가에 보관해 주는 서비스들이 있습니다. 코드가 직접 파일을 관리하는 대신, 이런 서비스에 표를 만들어 두고 필요할 때마다 값을 읽고 쓰는 방식입니다.</p>
+  <p>구체적으로 어떤 서비스를 어떻게 연결하는지는 [[2-3-ui-planning|다음 문서]]에서 다룹니다. 여기서는 "데이터를 저장하는 공간이 코드 바깥에도 있을 수 있다"는 개념만 기억해 둡니다.</p>
 </div>
 
 ---
@@ -247,11 +155,10 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 <div class="wda-check-note">
   <ul>
-    <li><strong>MCP(Model Context Protocol)</strong>는 AI와 데이터베이스를 연결하는 프로토콜이다.</li>
-    <li>설치 명령어는 <code>claude mcp add --transport http supabase https://mcp.supabase.com/mcp</code>이며, Claude를 <strong>완전히 종료한 상태</strong>의 터미널에서 실행한다.</li>
-    <li>연결은 <strong>브라우저 OAuth 인증</strong> 방식이며, 토큰이나 프로젝트 ID를 직접 입력할 필요가 없다.</li>
-    <li><code>/mcp</code> 명령어로 연결 상태를 확인하며, <strong>connected</strong> 상태가 되어야 정상이다.</li>
-    <li>데이터베이스 비밀번호는 프로젝트 생성 시 <strong>한 번만 확인 가능</strong>하므로 반드시 메모해둔다.</li>
+    <li>정적 화면은 <strong>코드에 값이 직접 적혀 있고</strong>, 데이터 기반 화면은 <strong>별도 저장소에서 값을 불러와</strong> 보여준다.</li>
+    <li>데이터베이스는 정보를 <strong>표로 정리하는 방식</strong>과 같은 개념이다.</li>
+    <li>표 전체는 <strong>테이블</strong>, 표의 한 줄은 <strong>행(레코드)</strong>, 정보의 종류는 <strong>열(필드)</strong>이라고 부른다.</li>
+    <li>화면 뒤에는 <strong>보여주기 위한 정보</strong>와 <strong>방문자가 남긴 정보</strong>가 함께 저장될 수 있다.</li>
   </ul>
 </div>
 
@@ -259,20 +166,12 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: MCP 설치 명령어는 Claude 안에서 실행해도 된다?</div>
-    <div class="wda-mistake-right">정답: 설치 명령어는 반드시 <strong>Claude를 완전히 종료한 상태</strong>의 터미널에서 실행해야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 데이터베이스는 특별한 프로그래밍 지식이 있어야만 이해할 수 있다?</div>
+    <div class="wda-mistake-right">정답: 기본 개념은 <strong>표로 정보를 정리하는 방식</strong>과 같아서, 엑셀 표를 다뤄본 경험만으로도 충분히 이해할 수 있다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: OAuth 인증은 토큰이나 API 키를 직접 입력해야 한다?</div>
-    <div class="wda-mistake-right">정답: Supabase MCP는 <strong>브라우저 OAuth 인증</strong>만으로 연결되며, 토큰이나 프로젝트 ID를 직접 입력할 필요가 없다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: MCP 목록에 supabase가 안 보이면 인증 문제다?</div>
-    <div class="wda-mistake-right">정답: MCP 목록 자체에 없다면 설치 명령어를 Claude 실행 중에 입력했을 가능성이 크므로, <strong>Claude를 완전히 종료 후 재설치</strong>해야 한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 데이터베이스 비밀번호는 나중에 Supabase 대시보드에서 다시 확인할 수 있다?</div>
-    <div class="wda-mistake-right">정답: 프로젝트 생성 시 설정한 비밀번호는 <strong>이후 절대 확인할 수 없으므로</strong> 반드시 메모장에 저장해야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 행/열과 레코드/필드는 서로 다른 개념이다?</div>
+    <div class="wda-mistake-right">정답: <strong>같은 것을 가리키는 다른 이름</strong>이다. 행=레코드, 열=필드다.</div>
   </div>
 </div>
 
@@ -280,16 +179,12 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 설치</div>
-    <div class="wda-formula-block-body"><code>claude mcp add --transport http supabase ...</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 화면 종류</div>
+    <div class="wda-formula-block-body"><code>정적 = 코드에 값 · 데이터 기반 = 저장소에서 값</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 인증</div>
-    <div class="wda-formula-block-body"><code>/mcp → auth → 브라우저 로그인</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 확인</div>
-    <div class="wda-formula-block-body"><code>/mcp → supabase ✔ connected</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 용어</div>
+    <div class="wda-formula-block-body"><code>테이블 = 표 · 행 = 레코드 · 열 = 필드</code></div>
   </div>
 </div>
 
@@ -297,29 +192,19 @@ mcp__supabase__get_project_url로 프로젝트 URL을 확인해줘
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">MCP란 무엇인가?</div>
-    <div class="wda-flip-back">AI와 데이터베이스를 연결하는 Model Context Protocol이다.</div>
+    <div class="wda-flip-front">정적 화면과 데이터 기반 화면의 차이는?</div>
+    <div class="wda-flip-back">정적 화면은 코드에 값이 직접 적혀 있고, 데이터 기반 화면은 별도 저장소에서 값을 불러온다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">MCP 설치는 어디서 실행하나?</div>
-    <div class="wda-flip-back">Claude를 완전히 종료한 상태의 터미널에서 실행한다.</div>
+    <div class="wda-flip-front">데이터베이스의 기본 개념은?</div>
+    <div class="wda-flip-back">정보를 표로 정리하는 방식과 같은 개념이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">OAuth 인증의 장점은?</div>
-    <div class="wda-flip-back">토큰을 직접 입력하지 않고 브라우저 로그인만으로 안전하게 연결할 수 있다.</div>
+    <div class="wda-flip-front">테이블·행·열은 각각 무엇을 가리키나?</div>
+    <div class="wda-flip-back">테이블은 표 전체, 행(레코드)은 데이터 한 줄, 열(필드)은 정보의 종류다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">연결 성공은 어떻게 확인하나?</div>
-    <div class="wda-flip-back">/mcp 명령어에서 supabase ✔ connected 상태를 확인한다.</div>
+    <div class="wda-flip-front">포트폴리오 화면 뒤에는 어떤 정보가 저장될 수 있나?</div>
+    <div class="wda-flip-back">보여주기 위한 정보(프로젝트 목록)와 방문자가 남긴 정보(문의 메시지)다.</div>
   </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">테이블 목록을 조회하는 도구는?</div>
-    <div class="wda-flip-back">mcp__supabase__list_tables다.</div>
-  </div>
-</div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">Supabase MCP 환경 구축 완료!</div>
-  <div>데이터베이스 관리 자동화를 위한 Supabase MCP 환경이 성공적으로 구축되었습니다.<br>이제 Claude가 Supabase 데이터베이스를 직접 관리할 수 있습니다!</div>
 </div>
