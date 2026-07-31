@@ -179,11 +179,22 @@ const remainder = 7 % 3;            // 1 (나머지)
 
 ```js
 // (row, col) → 1차원 인덱스 (가로 길이 width 기준)
-const index = row * width + col;
+const row = 2;
+const col = 3;
+const width = 5;
 
+const index = row * width + col;
+console.log(index); // 13
+```
+
+```js
 // 1차원 인덱스 → (row, col) 복구
-const row = Math.floor(index / width);
-const col = index % width;
+const targetIndex = 13;
+const boardWidth = 5;
+
+const targetRow = Math.floor(targetIndex / boardWidth);
+const targetCol = targetIndex % boardWidth;
+console.log(targetRow, targetCol); // 2 3
 ```
 
 ---
