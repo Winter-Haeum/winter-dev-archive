@@ -1,15 +1,10 @@
 ---
-title: "2-2: DB와 스키마 개념 소개"
+title: "2-2: 데이터 구조 설계하기"
 category: "ai-vibe-coding"
 section: "lesson-2"
-description: "데이터베이스의 역할과 구조를 표와 일상 예시로 이해하고, 웹디자이너가 DB 지식을 가졌을 때의 실무 강점을 살펴봅니다."
-tags:
-  - ai-vibe-coding
-  - lesson-2
-  - database
-  - schema
 date: "2026-06-10"
 status: "completed"
+description: "화면에 필요한 정보를 먼저 살펴보고, project-table이 어떤 필드로 이루어져야 하는지 설계하는 방법을 익힙니다."
 ---
 
 <style>
@@ -21,52 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-.wda-compare{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-cbox{flex:1 1 180px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 15px}
-.wda-cbox-label{font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.55;display:block;margin-bottom:6px}
-.wda-cbox-ttl{font-size:.9rem;font-weight:700;margin-bottom:6px}
-.wda-cbox-body{font-size:.8rem;opacity:.75;line-height:1.55}
-.wda-flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:.8rem 0 1.6rem}
-.wda-fnode{border:1px solid rgba(128,128,128,.2);border-radius:8px;padding:7px 13px;font-size:.8rem;font-weight:600}
-.wda-farrow{opacity:.4;font-size:.9rem;font-weight:700}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid,.wda-cbox{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -88,151 +61,116 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>DB 개념 이해</strong> — 데이터베이스가 표의 디지털 버전임을 일상 예시로 파악<br>
-  • <strong>키-벨류 구조</strong> — 데이터 검색의 핵심 원리 이해<br>
-  • <strong>웹사이트 연결</strong> — 모든 웹페이지가 DB와 연결된다는 개념 파악<br>
-  • <strong>디자이너 역량</strong> — DB 지식이 웹디자이너에게 주는 실무 강점 인식
+  • <strong>역방향 설계</strong> — 화면을 먼저 보고 필요한 데이터 항목을 찾아내는 방법을 익힙니다<br>
+  • <strong>필드 설계</strong> — project-table의 필드 이름·타입·필수 여부·공개 범위를 정합니다<br>
+  • <strong>AI 협업</strong> — 데이터 구조 초안을 AI에게 요청하고 검토하는 방법을 익힙니다
 </div>
 
 ---
 
-## 데이터베이스(DB)란 무엇인가?
-
-**🔑 핵심 개념**
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  데이터베이스는 웹사이트에서 정보를 체계적으로 저장하고 관리하는 시스템입니다.<br>쉽게 말해 <strong>디지털 서랍장</strong>과 같은 역할을 합니다.<br>일상생활에서 우리가 이미 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다.
+  <p><strong>[[2-1-supabase-mcp|이전 문서]]에서 데이터가 왜 필요한지 이해했다면, 이제는 project-section에 필요한 데이터를 구체적으로 설계할 차례입니다.</strong></p>
+  <p>추상적으로 테이블부터 그리지 않고, 실제 화면을 보면서 "이 화면에 무엇이 보이는가"를 거꾸로 따라가며 필드를 찾아내는 방법을 다룹니다. 저장소에 실제로 연결하는 방법은 [[2-3-ui-planning|다음 문서]]에서 다룹니다.</p>
 </div>
 
-**🧪 사람에 대한 '정보'를 어떻게 정리할 수 있는가?**
+---
 
-친구들의 정보를 조사해서 표로 만든다면 다음과 같이 정리할 수 있습니다.
-
-| 이름 | 나이 | 성별 | 별명 | 취미 | 성격 |
-|------|------|------|------|------|------|
-| 김민수 | 25 | 남 | 민수형 | 게임, 영화 | 활발함 |
-| 이지은 | 23 | 여 | 지은이 | 독서, 요리 | 차분함 |
-| 박철호 | 27 | 남 | 철호 | 운동, 음악 | 외향적 |
-
-**🧪 '음료수'의 경우에는 성분에 따른 표로 정리**
-
-편의점 음료수들의 정보를 성분별로 정리하면 다음과 같습니다.
-
-| 상품명 | 브랜드 | 칼로리 | 당분 | 카페인 | 가격 |
-|--------|--------|--------|------|--------|------|
-| 코카콜라 | 코카콜라 | 139kcal | 35g | 있음 | 1,500원 |
-| 제로콜라 | 코카콜라 | 0kcal | 0g | 있음 | 1,500원 |
-| 오렌지주스 | 미닛메이드 | 180kcal | 42g | 없음 | 2,000원 |
-
-**🔑 핵심 개념**
+## 2. 화면 → 데이터 항목 순서로 생각하기
 
 <div class="wda-callout wda-cs">
-  위처럼 일상에서 정보를 표로 정리하는 방식이 바로 데이터베이스의 기본 개념입니다.<br>사람 정보 표 → 웹사이트의 "회원 테이블", 음료수 정보 표 → 쇼핑몰의 "상품 테이블"이 됩니다.
+  <span class="wda-clabel">역방향 설계</span>
+  <p>테이블을 먼저 그리는 대신, 화면에 어떤 정보가 보여야 하는지부터 나열하면 필요한 필드가 자연스럽게 드러납니다. "이 화면에 이 정보가 보이니까 이 필드가 필요하구나"라는 흐름입니다.</p>
+</div>
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">1. 화면 확인</div><div class="wda-fnode-dsc">project-section에 무엇이 보이는지 확인</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">2. 정보 나열</div><div class="wda-fnode-dsc">제목, 설명, 링크 등 필요한 정보 나열</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">3. 필드 이름 정하기</div><div class="wda-fnode-dsc">title, description처럼 영문 필드명 부여</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">4. 세부 속성 정하기</div><div class="wda-fnode-dsc">타입 · 필수 여부 · 공개 범위 결정</div></div>
 </div>
 
 ---
 
-<div style="display:flex;align-items:center;gap:26px;margin-top:1.5rem;margin-bottom:0.75rem;">
-  <h2 style="margin:0;">엑셀 vs 데이터베이스</h2>
+## 3. project-table 설계 예시
+
+project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 링크가 보여야 한다고 가정하면 아래와 같은 구조가 나옵니다.
+
+<table class="wda-mtable">
+<thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>
+<tbody>
+<tr><td>id</td><td>숫자</td><td>자동</td><td>-</td><td>항목을 구분하는 고유 번호</td></tr>
+<tr><td>title</td><td>문자</td><td>필수</td><td>공개</td><td>프로젝트 제목</td></tr>
+<tr><td>description</td><td>문자</td><td>필수</td><td>공개</td><td>프로젝트 한 줄 설명</td></tr>
+<tr><td>tech_stack</td><td>문자</td><td>선택</td><td>공개</td><td>사용한 기술 목록</td></tr>
+<tr><td>link</td><td>문자</td><td>선택</td><td>공개</td><td>배포 주소나 저장소 링크</td></tr>
+<tr><td>is_public</td><td>불리언</td><td>필수</td><td>-</td><td>화면에 노출할지 여부</td></tr>
+<tr><td>created_at</td><td>날짜</td><td>자동</td><td>공개</td><td>등록된 시각</td></tr>
+</tbody>
+</table>
+
+<div class="wda-callout wda-ci">
+  <p><code>is_public</code>처럼 화면에는 보이지 않지만 <strong>필요한 관리용 필드</strong>도 있습니다. 화면에 직접 등장하지 않는다고 필드 설계에서 빠뜨리지 않도록 주의합니다.</p>
 </div>
+
+---
+
+## 4. contact-message는 어떤 정보가 필요할까
+
+문의 메시지 저장에 필요한 정보는 성격이 다릅니다. project-table은 "보여주기 위한 데이터"였다면, contact-message는 "방문자가 남기는 데이터"입니다. 자세한 필드 설계와 개인정보 처리 기준은 [[2-4-db-discovery|문의 기능 문서]]에서 이어서 다룹니다.
+
+---
+
+## 5. 공개 필드와 비공개 필드 구분하기
 
 <div class="wda-compare">
-<div class="wda-cbox"><span class="wda-cbox-label">엑셀 (우리가 아는 방식)</span><div class="wda-cbox-ttl">📋 스프레드시트</div><div class="wda-cbox-body"><strong>행(Row)</strong> — 각각의 데이터<br><strong>열(Column)</strong> — 데이터의 종류<br><em>예시: 이름, 나이, 전화번호</em></div></div>
-<div class="wda-cbox"><span class="wda-cbox-label">데이터베이스 (웹에서 사용)</span><div class="wda-cbox-ttl">🗄️ 디지털 저장소</div><div class="wda-cbox-body"><strong>레코드(Record)</strong> — 각각의 데이터<br><strong>필드(Field)</strong> — 데이터의 종류<br><em>예시: 회원정보, 게시물, 댓글</em></div></div>
-</div>
-
----
-
-## 키(Key)와 벨류(Value) 개념
-
-데이터베이스의 핵심은 **키-벨류** 구조입니다. 엑셀의 열 제목과 셀 내용의 관계와 동일합니다.
-
-### 전화번호부 테이블 예시
-
-| ID | name (키) | address (키) | email (키) | phone (키) |
-|----|-----------|--------------|------------|------------|
-| 1 | 김철수 | 부산시 해운대구 | kim@email.com | 010-5678-5678 |
-| 2 | 이영희 | 대구시 중구 | lee@email.com | 010-9999-8888 |
-| 3 | 홍길동 | 서울시 강남구 | hong@email.com | 010-1234-1234 |
-| 4 | 박민수 | 인천시 남동구 | park@email.com | 010-1111-2222 |
-
-### "홍길동의 전화번호를 찾아달라"는 요청이 들어왔다면?
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">질문 수신</div><div class="wda-sdsc">"홍길동의 전화번호는?" 질문</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">키로 행 찾기</div><div class="wda-sdsc"><strong>name(키)</strong>이 <strong>"홍길동"(벨류)</strong>인 행을 찾기</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">벨류 가져오기</div><div class="wda-sdsc">해당 행의 <strong>phone(키)</strong>에서 <strong>"010-1234-1234"(벨류)</strong> 가져오기</div></div></div>
-</div>
-
-<div class="wda-memo">
-  <span class="wda-memo-label">키-벨류 핵심 원리</span>
-  <div class="wda-memo-body">
-  키(Key) → 정보의 이름·분류 (name, phone, email …)<br>
-  벨류(Value) → 키에 해당하는 실제 값 ("홍길동", "010-1234-1234" …)<br>
-  <strong>이것이 데이터베이스에서 정보를 검색하는 기본 원리입니다!</strong>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">공개 필드</div>
+    화면에 그대로 노출되어도 문제없는 정보입니다. 프로젝트 제목, 설명, 기술 스택이 여기 속합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">비공개 필드</div>
+    운영 목적으로만 쓰이고 화면에 노출하지 않는 정보입니다. 관리용 메모, 노출 여부 값이 여기 속합니다.
   </div>
 </div>
 
 ---
 
-## 실제 웹사이트에서 DB는 어떻게 작동하는가
+## 6. AI에게 데이터 구조 초안 요청하기
 
-### '마이페이지' 접속 시 동작 흐름
+설계 방향이 어느 정도 잡히면, 아래처럼 화면 요구사항을 기준으로 초안을 요청할 수 있습니다.
 
-페이스북, 인스타그램, 네이버 등에서 내 정보 페이지를 클릭했을 때의 과정입니다.
+```
+project-table 구조를 설계하고 싶습니다.
 
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">클릭 — 사용자 행동</div><div class="wda-sdsc">"마이페이지" 버튼 클릭 → 로그인 상태에서 내 ID 확인 → 웹사이트가 누구의 정보를 보여줄지 파악</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">DB 검색 — 데이터베이스 조회</div><div class="wda-sdsc">회원 테이블에서 내 정보 검색 (이름, 이메일, 프로필 사진) · 게시물 테이블에서 내가 쓴 글 · 친구 테이블에서 팔로워 수</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">완성 — 페이지 렌더링</div><div class="wda-sdsc">내 프로필 정보 표시 · 내가 작성한 글 목록 · 친구/팔로워 수 · "홍길동님 환영합니다" 메시지</div></div></div>
-</div>
+project-section 화면에서 보여줘야 하는 정보:
+- 프로젝트 제목
+- 한 줄 설명
+- 사용한 기술 스택
+- 바로가기 링크
 
-**🔑 핵심 개념**
+요청:
+- 위 정보를 저장할 필드 이름(영문), 타입, 필수 여부를 표로 정리해주세요.
+- 화면에는 보이지 않지만 필요할 수 있는 관리용 필드가 있다면 함께 제안해주세요.
+```
 
-<div class="wda-callout wda-cs">
-  우리가 보는 모든 웹페이지는 실시간으로 데이터베이스에서 정보를 가져와서 만들어집니다.<br>이것이 바로 <strong>동적 웹사이트</strong>의 핵심 원리입니다.
-</div>
-
-### 웹페이지별 DB 연결 구조
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">👤</div><div class="wda-fcard-ttl">마이페이지</div><div class="wda-fcard-dsc">회원 테이블 + 게시물 테이블 + 활동 테이블</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📰</div><div class="wda-fcard-ttl">뉴스기사</div><div class="wda-fcard-dsc">기사 테이블 + 기자 테이블 + 언론사 테이블</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🛒</div><div class="wda-fcard-ttl">상품목록</div><div class="wda-fcard-dsc">상품 테이블 + 이미지 테이블 + 재고 테이블</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📦</div><div class="wda-fcard-ttl">상품상세</div><div class="wda-fcard-dsc">상품 테이블 + 리뷰 테이블 + 주문 테이블</div></div>
+<div class="wda-callout wda-cw">
+  <p>AI가 제안한 필드 이름이나 타입을 그대로 쓰기 전에, 실제로 화면에서 쓰지 않는 필드가 섞여 있지는 않은지 <strong>한 번 더 검토</strong>합니다.</p>
 </div>
 
 ---
 
-## 웹디자이너가 DB 지식을 가지면?
-
-단순한 '디자인만 하는 사람'에서 '디자인+개발을 아는 전문가'로 레벨업할 수 있습니다.
+## 7. 검토 체크리스트
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🎨</div><div class="wda-fcard-ttl">UI/UX 설계 능력</div><div class="wda-fcard-dsc">DB에 없는 필드를 디자인에 넣는 실수 방지. 현실적인 화면 설계 가능</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">입력 폼 전문성</div><div class="wda-fcard-dsc">어떤 데이터를 수집해야 하는지 파악하고 DB 구조에 맞는 폼 설계</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🤝</div><div class="wda-fcard-ttl">개발팀 소통</div><div class="wda-fcard-dsc">"이 기능 구현 가능한가요?" 질문 없이도 현실적인 디자인 제안</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🔄</div><div class="wda-fcard-ttl">데이터 흐름 이해</div><div class="wda-fcard-dsc">입력 → DB 저장 → 화면 출력 전체 과정을 고려한 설계</div></div>
-</div>
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">디자이너 레벨업</span>
-  DB 지식을 가진 디자이너는 개발자가 "이건 데이터가 없어서 안 돼요"라는 말을 하기 전에 미리 현실적인 디자인을 설계할 수 있습니다.<br>협업 효율이 크게 올라갑니다.
-</div>
-
-<div class="wda-compare">
-<div class="wda-cbox"><span class="wda-cbox-label">디자인 업무에서 강점</span><div class="wda-cbox-ttl">🎯 실제 작동하는 디자인</div><div class="wda-cbox-body">실제 작동하는 디자인 제안 가능<br>"이 데이터는 어디서 가져오나요?" 질문에 정확한 답변<br>개발자와 소통 시 전문성 인정</div></div>
-<div class="wda-cbox"><span class="wda-cbox-label">클라이언트 미팅에서 강점</span><div class="wda-cbox-ttl">💬 정확한 제안</div><div class="wda-cbox-body">"이 기능 구현 가능한가요?" 질문에 정확한 답변<br>디자인 단계에서 기술적 한계 미리 파악<br>현실적인 제안서 작성 가능</div></div>
-</div>
-
----
-
-## 오늘 배울 DB 활용
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">커뮤니티 사이트</div><div class="wda-fcard-dsc">회원가입/로그인 · 게시물 작성/조회 · 댓글 시스템 · 실시간 업데이트</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📖</div><div class="wda-fcard-ttl">포트폴리오 방명록</div><div class="wda-fcard-dsc">방문자 방명록 · 실시간 표시 · 작성 시간 자동 기록 · 반응형 디자인</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🚀</div><div class="wda-fcard-ttl">고급 기능 맛보기</div><div class="wda-fcard-dsc">별점 시스템 · 실시간 채팅 · 설문조사 사이트 · 자동 배포</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">불필요한 필드</div><div class="wda-fcard-dsc">화면 어디에서도 쓰지 않는 필드가 섞여 있지 않은지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">필수값 누락</div><div class="wda-fcard-dsc">반드시 있어야 화면이 정상적으로 보이는 값이 빠지지 않았는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">공개 범위</div><div class="wda-fcard-dsc">공개해도 되는 정보와 그렇지 않은 정보가 뒤섞이지 않았는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">이름의 명확성</div><div class="wda-fcard-dsc">필드 이름만 보고도 어떤 값인지 짐작할 수 있는지 확인합니다.</div></div>
 </div>
 
 ---
@@ -243,11 +181,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-check-note">
   <ul>
-    <li>데이터베이스는 정보를 체계적으로 저장·관리하는 시스템이며, 우리가 <strong>표로 정리하는 방식</strong>과 같은 개념이다.</li>
-    <li>엑셀에서는 행(Row)/열(Column), 데이터베이스에서는 <strong>레코드(Record)/필드(Field)</strong>라고 부른다.</li>
-    <li>데이터 검색의 기본 원리는 <strong>키(Key)로 행을 찾고</strong>, 그 행에서 <strong>벨류(Value)를 가져오는 것</strong>이다.</li>
-    <li>우리가 보는 모든 동적 웹페이지는 <strong>클릭 → DB 검색 → 화면 렌더링</strong> 과정을 거쳐 만들어진다.</li>
-    <li>DB 지식을 가진 웹디자이너는 현실적인 화면 설계와 개발팀과의 소통에서 강점을 가진다.</li>
+    <li>테이블 설계는 <strong>화면 확인 → 정보 나열 → 필드 이름 → 세부 속성</strong> 순서로 진행하면 수월하다.</li>
+    <li>project-table에는 <strong>id, title, description, tech_stack, link, is_public, created_at</strong> 같은 필드가 필요하다.</li>
+    <li>화면에 보이지 않아도 <strong>관리용 필드(예: is_public)</strong>가 필요할 수 있다.</li>
+    <li>필드는 <strong>공개 필드</strong>와 <strong>비공개 필드</strong>로 구분해서 관리한다.</li>
   </ul>
 </div>
 
@@ -255,16 +192,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 엑셀과 데이터베이스는 용어만 다를 뿐 완전히 같은 것이다?</div>
-    <div class="wda-mistake-right">정답: 개념은 비슷하지만 엑셀의 행/열은 데이터베이스에서 <strong>레코드/필드</strong>로 불리며, 웹사이트는 실시간으로 DB에서 데이터를 가져와 화면을 만든다.</div>
+    <div class="wda-mistake-wrong">오해: 화면에 보이는 정보만 필드로 만들면 된다?</div>
+    <div class="wda-mistake-right">정답: <strong>is_public처럼 화면에 직접 보이지 않는 관리용 필드</strong>도 설계에 포함해야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 키(Key)와 벨류(Value)는 아무 관계 없는 별도의 데이터다?</div>
-    <div class="wda-mistake-right">정답: 키는 정보의 이름·분류(name, phone 등)이고, 벨류는 그 키에 해당하는 실제 값이며, <strong>키로 행을 찾아 벨류를 가져오는 것</strong>이 검색의 기본 원리다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 웹디자이너는 DB 지식이 없어도 디자인 업무에 지장이 없다?</div>
-    <div class="wda-mistake-right">정답: DB 지식은 데이터가 없는 필드를 디자인에 넣는 실수를 방지하고, <strong>개발자와 더 정확하게 소통</strong>할 수 있게 해준다.</div>
+    <div class="wda-mistake-wrong">오해: AI가 제안한 데이터 구조는 그대로 사용해도 된다?</div>
+    <div class="wda-mistake-right">정답: 불필요한 필드나 공개 범위 오류가 없는지 <strong>사람이 한 번 더 검토</strong>해야 한다.</div>
   </div>
 </div>
 
@@ -272,16 +205,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 저장 단위</div>
-    <div class="wda-formula-block-body"><code>엑셀 행/열 = DB 레코드/필드</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 설계 순서</div>
+    <div class="wda-formula-block-body"><code>화면 확인 → 정보 나열 → 필드 이름 → 세부 속성</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 검색 원리</div>
-    <div class="wda-formula-block-body"><code>키(Key)로 찾고 → 벨류(Value) 가져오기</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 동적 웹</div>
-    <div class="wda-formula-block-body"><code>클릭 → DB 검색 → 화면 렌더링</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 필드 구분</div>
+    <div class="wda-formula-block-body"><code>공개 필드 vs 비공개 필드</code></div>
   </div>
 </div>
 
@@ -289,30 +218,19 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">데이터베이스란 무엇인가?</div>
-    <div class="wda-flip-back">정보를 체계적으로 저장·관리하는 시스템으로, 표로 정리하는 방식과 같은 개념이다.</div>
+    <div class="wda-flip-front">테이블 설계는 어떤 순서로 진행하나?</div>
+    <div class="wda-flip-back">화면 확인 → 정보 나열 → 필드 이름 정하기 → 세부 속성 정하기 순서다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">엑셀의 행/열은 DB에서 뭐라고 부르나?</div>
-    <div class="wda-flip-back">레코드(Record)/필드(Field)라고 부른다.</div>
+    <div class="wda-flip-front">project-table의 주요 필드는?</div>
+    <div class="wda-flip-back">id, title, description, tech_stack, link, is_public, created_at이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">데이터 검색의 기본 원리는?</div>
-    <div class="wda-flip-back">키(Key)로 원하는 행을 찾고, 그 행의 벨류(Value)를 가져오는 것이다.</div>
+    <div class="wda-flip-front">is_public 같은 필드가 필요한 이유는?</div>
+    <div class="wda-flip-back">화면에 직접 보이지 않아도 노출 여부를 관리하는 데 필요하기 때문이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">마이페이지를 클릭하면 무슨 일이 일어나나?</div>
-    <div class="wda-flip-back">로그인 정보로 회원 테이블 등을 조회해 내 정보를 화면에 렌더링한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">DB 지식이 있는 디자이너의 강점은?</div>
-    <div class="wda-flip-back">데이터가 없는 필드를 디자인에 넣는 실수를 막고, 개발팀과 현실적으로 소통할 수 있다.</div>
+    <div class="wda-flip-front">AI가 제안한 데이터 구조는 어떻게 다뤄야 하나?</div>
+    <div class="wda-flip-back">그대로 쓰지 않고 불필요한 필드나 공개 범위 오류가 없는지 검토한다.</div>
   </div>
 </div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🗄️</div>
-  <div class="wda-done-ttl">DB 개념 학습 완료!</div>
-  <div>이제 웹 개발에서 데이터베이스의 역할과 중요성을 완전히 이해했습니다.<br>다음 단계에서는 이 지식을 바탕으로 실제 프로젝트를 만들어보겠습니다!</div>
-</div>
-

@@ -1,15 +1,10 @@
 ---
-title: "2-5: 커뮤니티 기능 구현"
+title: "2-5: 목록 화면 상태 다루기"
 category: "ai-vibe-coding"
 section: "lesson-2"
-description: "3단계 UI 기획서와 4단계 DB 구조서를 바탕으로 AI에게 완전한 커뮤니티 사이트 프로젝트 생성과 GitHub Pages 배포를 요청합니다."
-tags:
-  - ai-vibe-coding
-  - lesson-2
-  - community
-  - deploy
 date: "2026-06-10"
 status: "completed"
+description: "여러 데이터를 나열하는 목록 화면에서 로딩·빈 상태·에러 상태를 어떻게 처리할지 정리하고, 커뮤니티형 화면에도 같은 원리가 적용됨을 확인합니다."
 ---
 
 <style>
@@ -21,45 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -81,141 +61,99 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>AI와 협업</strong> — 기획서를 프롬프트로 변환하여 AI에게 프로젝트 생성 요청<br>
-  • <strong>실제 배포 경험</strong> — GitHub Pages로 전 세계에서 접속 가능한 사이트 배포<br>
-  • <strong>커뮤니티 체험</strong> — 서로의 사이트에 방문하며 실제 사용자 경험
+  • <strong>목록 화면 상태</strong> — 정상·빈 상태·로딩·에러 네 가지 상태를 구분합니다<br>
+  • <strong>상태별 처리 기준</strong> — 각 상태에서 화면에 무엇을 보여줘야 하는지 정리합니다<br>
+  • <strong>패턴의 재사용</strong> — project-section 외의 목록형 화면에도 같은 원리가 적용됨을 확인합니다
 </div>
 
 ---
 
-## 5단계 진행 과정
-
-<div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ico">💻</div><div class="wda-fcard-ttl">lecture1 Claude 실행</div><div class="wda-fcard-dsc">개발 전용 AI '로키'에게 접속하여 프로젝트 개발 준비</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">🏗️</div><div class="wda-fcard-ttl">프로젝트 생성</div><div class="wda-fcard-dsc">3, 4단계 기획서를 바탕으로 완전한 커뮤니티 사이트 생성 및 배포</div></div>
-</div>
-
----
-
-## 1단계: lecture1 Claude 실행하기 (5분)
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">시작하기</span>
-  개발 전용 AI인 '로키'에게 접속하여 프로젝트 개발을 시작합니다.<br>PowerShell을 열고 아래 명령어를 차례대로 실행하세요.
-</div>
-
-```powershell
-cd lecture1
-```
-
-```powershell
-claude --dangerously-skip-permissions
-```
-
----
-
-## 2단계: 프로젝트 생성하기 (30분)
-
-로키 AI에서 3단계와 4단계에서 작성한 기획서를 바탕으로 실제 커뮤니티 사이트를 생성합니다.
-
-### 대화 초기화
-
-프로젝트 생성을 위해 먼저 대화를 초기화합니다.
-
-```
-/clear
-```
-
-### 프로젝트 생성 프롬프트
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">업로드 방법</span>
-  대화 초기화 후, <strong>완성된 기획문서를 드래그해서 업로드</strong>하고 아래 프롬프트를 함께 보내세요.
-</div>
-
-<div class="wda-prompt-head">💬 로키에게 보낼 프롬프트</div>
-
-```
-'my-community'라는 프로젝트를 생성해줘.
-
-작업은 Todo 계획을 세워서 순차적으로 진행해줘.
-
-요구사항:
-1. React + Vite로 프로젝트 생성
-2. Supabase MCP를 사용해서 데이터베이스 테이블 생성 및 연결
-3. 백엔드 없이 Supabase를 직접 연결하여 작동하는 구조
-4. GitHub Pages로 배포 (GitHub Actions 워크플로우 사용)
-
-개발 순서:
-1) 프로젝트 초기 설정
-2) Supabase 데이터베이스 설계 및 테이블 생성
-3) 프론트엔드 개발 (기획안 참고)
-4) Supabase 연동 구현
-5) npm run build로 로컬 빌드
-6) GitHub Actions 워크플로우 설정 (.github/workflows/deploy.yml 생성)
-7) GitHub에 커밋 및 푸시하여 자동 배포
-8) Actions 탭에서 배포 완료 확인 후 접속 가능한 URL 안내
-
----- 기획안 내용 (아래에 붙여넣기) -----
-[여기에 3단계와 4단계에서 작성한 기획안 전체 내용을 복사해서 붙여넣으세요]
-```
-
-### 로키 AI 자동 수행 과정
-
-<div class="wda-steps">
-  <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">React + Vite 프로젝트 생성</div><div class="wda-sdsc">MUI, React Router 등 필수 패키지 설치</div></div></div>
-  <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">Supabase MCP로 DB 생성</div><div class="wda-sdsc">users · posts · comments 테이블 자동 생성 및 연결</div></div></div>
-  <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">UI 컴포넌트 구현</div><div class="wda-sdsc">기획서에 따른 로그인 · 게시물 목록 · 상세 · 댓글 화면 개발</div></div></div>
-  <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">회원가입 · 로그인 · 게시물 · 댓글 기능 구현</div><div class="wda-sdsc">Supabase Auth 연동 및 CRUD 기능 완성</div></div></div>
-  <div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages로 자동 배포</div><div class="wda-sdsc">GitHub Actions 워크플로우 설정 · 커밋 푸시 · 배포 URL 안내</div></div></div>
-</div>
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">예상 소요 시간</span>
-  약 20~30분 · 대부분의 문제는 로키 AI가 자동으로 해결해줍니다!
+  <p><strong>[[2-4-db-discovery|이전 문서]]에서 문의 메시지를 저장하는 흐름을 다뤘다면, 이번에는 여러 데이터를 한 번에 나열하는 목록 화면을 다룹니다.</strong></p>
+  <p>project-section처럼 project-table의 여러 행을 화면에 나열할 때, 데이터가 없거나 불러오기에 실패하는 경우까지 고려해서 화면을 준비하는 방법을 정리합니다. 세부 쿼리 문법은 다루지 않고 <strong>화면 상태</strong>에 집중합니다.</p>
 </div>
 
 ---
 
-## 배포 완료 후 함께 테스트하기
-
-로키 AI가 프로젝트 생성과 배포를 완료하면, 모든 학생들이 함께 서로의 커뮤니티 사이트를 테스트해봅니다!
-
-### 배포 링크 공유 절차
-
-<div class="wda-steps">
-  <div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">자신의 배포 링크 확인</div><div class="wda-sdsc">로키 AI가 알려준 GitHub Pages URL 확인</div></div></div>
-  <div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">링크 접속 테스트</div><div class="wda-sdsc">본인 사이트가 정상 작동하는지 확인</div></div></div>
-  <div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">강사에게 링크 전달</div><div class="wda-sdsc">채팅이나 이메일로 배포 링크 공유</div></div></div>
-  <div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">다른 학생들과 링크 교환</div><div class="wda-sdsc">서로의 사이트 URL 공유</div></div></div>
-</div>
-
-### 서로의 사이트 체험하기
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">함께 체험하기</span>
-  최소 3명 이상의 다른 학생 사이트에 방문하여 회원가입, 게시물 작성, 댓글을 남겨보세요!
-</div>
+## 2. 목록 화면에서 고려할 네 가지 상태
 
 <div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ico">👀</div><div class="wda-fcard-ttl">사이트 탐색</div><div class="wda-fcard-dsc">최소 3명 이상의 다른 학생 사이트 방문 · 디자인과 색상 확인 · 모바일/데스크톱 테스트</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">👤</div><div class="wda-fcard-ttl">회원가입</div><div class="wda-fcard-dsc">다른 학생 사이트에 본인 이름으로 계정 생성</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">✍️</div><div class="wda-fcard-ttl">게시물 작성</div><div class="wda-fcard-dsc">"[본인이름]이 놀러왔어요!" 같은 인사 게시물 작성</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">댓글 남기기</div><div class="wda-fcard-dsc">다른 사람 게시물에 응원 댓글 2개 이상 작성</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">정상 상태</div><div class="wda-fcard-dsc">데이터를 정상적으로 불러와 목록으로 보여주는 상태입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">로딩 상태</div><div class="wda-fcard-dsc">데이터를 불러오는 중이라 아직 화면에 표시할 내용이 없는 상태입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">빈 상태</div><div class="wda-fcard-dsc">불러오기는 성공했지만 표시할 데이터가 하나도 없는 상태입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">에러 상태</div><div class="wda-fcard-dsc">데이터를 불러오는 과정에서 문제가 생긴 상태입니다.</div></div>
 </div>
 
 ---
 
-## 문제 발생 시 해결 방법
+## 3. 요청부터 화면 표시까지 흐름
 
-<div class="wda-memo">
-  <span class="wda-memo-label">트러블슈팅</span>
-  <div class="wda-memo-body">
-    1. 로키 AI에게 구체적인 에러 메시지를 알려주세요<br>
-    2. 강사와 함께 문제를 분석하고 해결합니다<br>
-    3. 필요시 기획문서를 수정하여 재시도합니다<br><br>
-    💡 대부분의 문제는 로키 AI가 자동으로 해결해줍니다!
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">1. 요청</div><div class="wda-fnode-dsc">목록 화면 진입 시 데이터 요청</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">2. 로딩 표시</div><div class="wda-fnode-dsc">응답을 기다리는 동안 로딩 표시</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">3. 분기</div><div class="wda-fnode-dsc">성공 시 정상/빈 상태, 실패 시 에러 상태</div></div>
+</div>
+
+---
+
+## 4. 상태별 화면 처리 기준
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">빈 상태가 있을 때</div>
+    "아직 등록된 프로젝트가 없습니다" 같은 안내 문구를 보여줘, 화면이 비어 보이는 것과 오류가 난 것을 구분할 수 있게 합니다.
   </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">빈 상태가 없을 때</div>
+    아무 문구 없이 텅 빈 화면만 남아, 방문자가 오류인지 데이터가 없는 것인지 알 수 없습니다.
+  </div>
+</div>
+
+<div class="wda-callout wda-cw">
+  <p>에러 상태에서는 "불러오기에 실패했습니다"처럼 무슨 일이 있었는지 간단히 안내하고, 가능하다면 <strong>다시 시도할 수 있는 방법</strong>을 함께 제공합니다.</p>
+</div>
+
+---
+
+## 5. 정렬과 필터, 가볍게 살펴보기
+
+목록이 많아지면 최신순으로 정렬하거나, 공개된 항목만 걸러서 보여주는 처리가 필요합니다. 이 문서군에서는 "정렬·필터 기준이 있다"는 개념만 소개하며, 구체적인 조회 문법은 다루지 않습니다.
+
+---
+
+## 6. 커뮤니티형 목록에도 같은 원리가 적용된다
+
+<div class="wda-callout wda-ci">
+  <span class="wda-clabel">패턴의 확장</span>
+  <p>포트폴리오에 방문자 게시글 같은 community-post 목록을 추가하더라도, 정상·로딩·빈 상태·에러 상태를 처리하는 원리는 project-table 목록과 동일합니다. 데이터의 종류가 달라져도 <strong>상태를 빠짐없이 준비한다는 원칙</strong>은 그대로 적용됩니다.</p>
+</div>
+
+---
+
+## 7. AI에게 목록 화면을 요청하는 예시
+
+```
+project-section에 project-table 목록을 보여주는 화면을 만들고 싶습니다.
+
+요청:
+- 데이터를 불러오는 동안 로딩 상태를 표시해주세요.
+- 데이터가 없을 때는 "아직 등록된 프로젝트가 없습니다" 같은 안내를 보여주세요.
+- 불러오기에 실패하면 에러 안내와 다시 시도 버튼을 보여주세요.
+- 최신 등록순으로 정렬해주세요.
+```
+
+---
+
+## 8. 검토 체크리스트
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">로딩 표시 유무</div><div class="wda-fcard-dsc">데이터를 불러오는 동안 화면이 비어 있지 않은지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">빈 상태 문구</div><div class="wda-fcard-dsc">데이터가 없을 때 안내 문구가 나타나는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">에러 재시도</div><div class="wda-fcard-dsc">실패했을 때 다시 시도할 방법이 있는지 확인합니다.</div></div>
 </div>
 
 ---
@@ -226,49 +164,36 @@ claude --dangerously-skip-permissions
 
 <div class="wda-check-note">
   <ul>
-    <li>프로젝트 생성 전 PowerShell에서 <code>cd lecture1</code> → <code>claude --dangerously-skip-permissions</code>로 로키 AI를 실행한다.</li>
-    <li>새 프로젝트를 만들 때는 <code>/clear</code>로 대화를 초기화한 뒤, 완성된 기획문서를 업로드하고 프롬프트를 함께 보낸다.</li>
-    <li>요구사항은 <strong>React+Vite 생성 · Supabase MCP로 DB 연결 · 백엔드 없이 Supabase 직접 연결 · GitHub Pages 배포</strong> 4가지다.</li>
-    <li>배포 완료 후에는 <strong>GitHub Pages URL</strong>을 확인하고 강사와 다른 학생들에게 공유한다.</li>
-    <li>최소 <strong>3명 이상</strong>의 다른 학생 사이트에 방문해 회원가입·게시물 작성·댓글 남기기를 체험한다.</li>
+    <li>목록 화면은 <strong>정상 · 로딩 · 빈 상태 · 에러</strong> 네 가지 상태를 모두 고려해서 만든다.</li>
+    <li>빈 상태에는 <strong>안내 문구</strong>를 넣어 오류와 구분되도록 한다.</li>
+    <li>에러 상태에는 <strong>무슨 일이 있었는지와 다시 시도할 방법</strong>을 함께 안내한다.</li>
+    <li>project-table 목록이든 <strong>community-post 같은 다른 목록</strong>이든 같은 상태 처리 원칙이 적용된다.</li>
   </ul>
 </div>
 
-**✅ 실수 방지 체크**
+**🧠 헷갈리기 쉬운 것**
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 기획안 없이 프롬프트만 보낸다?</div>
-    <div class="wda-mistake-right">방지: 대화 초기화(/clear) 후 완성된 기획문서를 드래그해서 업로드하고, 프롬프트와 함께 보내야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 데이터가 없으면 화면을 그냥 비워두면 된다?</div>
+    <div class="wda-mistake-right">정답: 안내 문구 없이 비워두면 방문자가 <strong>오류인지 데이터가 없는 것인지 구분할 수 없다.</strong></div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 에러가 나면 혼자 원인을 찾으려 애쓴다?</div>
-    <div class="wda-mistake-right">방지: 로키 AI에게 구체적인 에러 메시지를 알려주고, 필요하면 강사와 함께 문제를 분석한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 배포 링크를 확인하지 않고 바로 공유한다?</div>
-    <div class="wda-mistake-right">방지: 배포 완료 후 본인 사이트가 정상 작동하는지 먼저 접속 테스트를 한 뒤 링크를 공유한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 다른 학생 사이트는 구경만 하고 실제 기능은 써보지 않는다?</div>
-    <div class="wda-mistake-right">방지: 최소 3명 이상의 사이트에서 실제로 회원가입, 게시물 작성, 댓글 작성까지 체험한다.</div>
+    <div class="wda-mistake-wrong">오해: 로딩 상태는 순간적이라 신경 쓰지 않아도 된다?</div>
+    <div class="wda-mistake-right">정답: 네트워크 상황에 따라 로딩이 길어질 수 있어, <strong>로딩 표시가 없으면 화면이 멈춘 것처럼 보일 수 있다.</strong></div>
   </div>
 </div>
 
-**🎯 완성 기준**
+**🎯 최종 암기 공식**
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">기준 1 · 생성</div>
-    <div class="wda-formula-block-body"><code>React+Vite + Supabase MCP 연동 완료</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 네 가지 상태</div>
+    <div class="wda-formula-block-body"><code>정상 · 로딩 · 빈 상태 · 에러</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">기준 2 · 배포</div>
-    <div class="wda-formula-block-body"><code>GitHub Actions로 GitHub Pages 자동 배포</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">기준 3 · 체험</div>
-    <div class="wda-formula-block-body"><code>다른 학생 사이트 3곳 이상 방문·상호작용</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 흐름</div>
+    <div class="wda-formula-block-body"><code>요청 → 로딩 표시 → 성공/실패 분기</code></div>
   </div>
 </div>
 
@@ -276,29 +201,19 @@ claude --dangerously-skip-permissions
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">로키 AI는 어떻게 실행하나?</div>
-    <div class="wda-flip-back">PowerShell에서 cd lecture1 후 claude --dangerously-skip-permissions를 실행한다.</div>
+    <div class="wda-flip-front">목록 화면에서 고려할 네 가지 상태는?</div>
+    <div class="wda-flip-back">정상, 로딩, 빈 상태, 에러 상태다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">새 프로젝트를 시작하기 전 무엇을 하나?</div>
-    <div class="wda-flip-back">/clear로 대화를 초기화한다.</div>
+    <div class="wda-flip-front">빈 상태에는 무엇을 보여줘야 하나?</div>
+    <div class="wda-flip-back">데이터가 없다는 안내 문구를 보여줘 오류와 구분되게 한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">프로젝트 생성 요구사항 4가지는?</div>
-    <div class="wda-flip-back">React+Vite 생성, Supabase MCP 연동, 백엔드 없는 직접 연결, GitHub Pages 배포다.</div>
+    <div class="wda-flip-front">에러 상태에서 함께 제공하면 좋은 것은?</div>
+    <div class="wda-flip-back">무슨 일이 있었는지 안내와 다시 시도할 수 있는 방법이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">배포 후 가장 먼저 할 일은?</div>
-    <div class="wda-flip-back">본인의 배포 링크에 접속해 정상 작동하는지 확인하는 것이다.</div>
+    <div class="wda-flip-front">community-post 같은 다른 목록에도 같은 원리가 적용되나?</div>
+    <div class="wda-flip-back">그렇다. 데이터 종류가 달라도 네 가지 상태를 처리하는 원칙은 동일하다.</div>
   </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">서로의 사이트를 체험할 때 무엇을 하나?</div>
-    <div class="wda-flip-back">최소 3명 이상의 사이트에서 회원가입, 게시물 작성, 댓글 작성을 해본다.</div>
-  </div>
-</div>
-
-<div class="wda-done" style="text-align:center;">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">커뮤니티 사이트 프로젝트 완성!</div>
-  <div>UI 기획부터 DB 설계, 실제 개발과 배포까지 완전한 웹 개발 프로세스를 경험했습니다.<br>여러분이 직접 기획한 커뮤니티 사이트가 전 세계에서 접속 가능한 실제 웹사이트가 되었습니다!</div>
 </div>

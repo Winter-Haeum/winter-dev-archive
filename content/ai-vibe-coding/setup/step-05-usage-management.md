@@ -2,13 +2,12 @@
 title: "5단계: Claude Code 사용량 관리 및 무제한 활용 가이드"
 category: "ai-vibe-coding"
 section: "setup"
-description: "실시간 사용량 확인, Wallet 자동 충전 설정까지 수업을 끊김 없이 진행하는 Claude Code 사용량 관리 방법을 익힌다."
+description: "Claude Code 사용량 제한 구조를 이해하고, 실시간으로 확인하며, 한도에 다가갈 때 어떻게 대처할지 정리한다."
 tags:
   - ai-vibe-coding
   - setup
   - claude-code
   - usage
-  - wallet
 date: "2026-06-08"
 status: "completed"
 ---
@@ -22,45 +21,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -71,120 +55,103 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
 .wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
 .wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>사용량 이해</strong> — Pro Plan 제한 구조와 현황 파악<br>
-  • <strong>실시간 확인</strong> — 사용량 모니터링 방법 습득<br>
-  • <strong>Wallet 설정</strong> — 자동 충전으로 수업 중단 없이 활용
+  • <strong>사용량 구조 이해</strong> — 시간 단위로 제한이 있다는 개념을 이해합니다<br>
+  • <strong>실시간 확인 습관</strong> — 작업 전 사용량을 확인하는 습관을 들입니다<br>
+  • <strong>한도 대처법</strong> — 한도에 다가갈 때 선택할 수 있는 방법을 익힙니다
 </div>
 
 ---
 
-## 📖 개념 설명
+## 1. 이 문서에서 다루는 것
 
-**📌 Pro Plan 사용량 제한이란?**
+<div class="wda-callout wda-ci">
+  <p><strong>이 문서는 Claude Code를 요금제 기반으로 사용할 때, 사용량 제한이 어떻게 동작하고 어떻게 확인하는지를 다룹니다.</strong></p>
+  <p>구체적인 요금, 한도 수치, 화면 구성은 서비스 정책에 따라 계속 바뀔 수 있으므로, 이 문서는 <strong>변하지 않는 원리</strong>를 중심으로 설명합니다. 정확한 최신 수치는 항상 공식 설정 페이지에서 직접 확인합니다.</p>
+</div>
 
-Claude Code Pro Plan($20/월)은 다음과 같은 사용량 제한이 있습니다.
+---
+
+## 2. 사용량 제한 구조 이해하기
+
+요금제 기반 사용에는 보통 두 종류의 제한이 함께 존재합니다.
 
 <div class="wda-fgrid">
-  <div class="wda-fcard"><div class="wda-fcard-ico">⏱️</div><div class="wda-fcard-ttl">5시간당 제한</div><div class="wda-fcard-dsc">약 10~40개 프롬프트</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">📅</div><div class="wda-fcard-ttl">주간 제한</div><div class="wda-fcard-dsc">40~80시간 Sonnet 4 사용</div></div>
-  <div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">공유 사용량</div><div class="wda-fcard-dsc">웹 Claude와 사용량 공유</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">단기 제한</div><div class="wda-fcard-dsc">일정 시간(예: 몇 시간) 동안 사용할 수 있는 양이 정해져 있습니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">장기 제한</div><div class="wda-fcard-dsc">주 단위 등 더 긴 기간에 걸친 총 사용량도 함께 관리됩니다.</div></div>
 </div>
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">사용량이 공유된다는 것은?</span>
-  <code>claude.ai</code> 웹사이트에서 대화를 나누는 것과 Claude Code CLI에서 사용하는 것이 동일한 월간 사용량 풀을 나눠 씁니다.<br>
-  웹에서 많이 사용했다면 Claude Code에서 사용할 수 있는 양이 줄어들 수 있습니다.
+  <p>웹 브라우저에서 사용하는 대화형 서비스와 터미널의 Claude Code가 <strong>같은 사용량을 나눠 쓰는 경우</strong>가 있습니다. 한쪽에서 많이 사용하면 다른 쪽에서 쓸 수 있는 양이 줄어들 수 있다는 점을 기억해 둡니다.</p>
 </div>
 
-**⚠️ 주의사항**
+---
+
+## 3. 실시간 사용량 확인하기
+
+작업을 시작하기 전, 계정 설정 페이지에서 현재 사용량과 다음 초기화 시점을 확인하는 습관을 들입니다.
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">현재 사용량</div><div class="wda-fcard-dsc">지금까지 얼마나 사용했는지 비율로 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">초기화 시점</div><div class="wda-fcard-dsc">언제 사용량이 다시 채워지는지 확인합니다.</div></div>
+</div>
+
+<div class="wda-callout wda-cs">
+  <p>중요한 작업을 시작하기 전 사용량 페이지를 먼저 확인하면, 작업 도중 한도에 걸려 중단되는 상황을 미리 예방할 수 있습니다.</p>
+</div>
+
+단기 제한은 보통 고정된 시각이 아니라, 처음 사용한 시점을 기준으로 일정 시간이 지나면 풀리는 방식으로 동작합니다. 정확한 초기화 시점은 사용량 페이지에서 직접 확인하는 것이 가장 정확합니다.
+
+---
+
+## 4. 한도에 다가갈 때 대처하기
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">초기화를 기다리기</div>
+    급하지 않은 작업이라면 제한이 풀릴 때까지 기다리는 것이 가장 간단합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">추가 사용량 옵션 검토</div>
+    일부 요금제는 한도를 넘겨도 추가 비용을 지불하고 계속 사용할 수 있는 옵션을 제공합니다.
+  </div>
+</div>
 
 <div class="wda-callout wda-cw">
-  수업 중 제한에 도달하면 일시적으로 Claude Code 사용이 중단될 수 있습니다.
+  <p>추가 사용량 옵션은 편리하지만 <strong>추가 비용이 발생</strong>할 수 있습니다. 이 값이 자동으로 계속 청구되는지, 사용할 때마다 확인이 필요한지는 서비스 정책에 따라 다르므로 활성화 전에 설정 페이지에서 조건을 직접 확인합니다.</p>
 </div>
 
 ---
 
-**✅ 실시간 사용량 확인하기**
-
-수업 중 현재 사용량을 `claude.ai/settings/usage`에서 실시간으로 확인할 수 있습니다.
-
-확인 가능한 정보: **현재 사용량** (n% 사용 중) · **초기화 시간** (n시간 n분 후 리셋) · **주간 사용량** (주간 한도 대비 현황)
-
-**✅ 권장 방식**
-
-<div class="wda-callout wda-cs">
-  수업 시작 전에 사용량 페이지를 확인하여 충분한 여유가 있는지 체크하는 것을 권장합니다.
-</div>
-
----
-
-## ⚙️ 동작 원리
-
-### 사용량 초과 → Wallet 자동 충전 흐름
-
-Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 차감하여 계속 사용할 수 있습니다.
+## 5. 주의사항
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">흐름</span>Pro Plan 한도 도달 → Wallet 잔액 자동 차감 (설정 시) → 수업 중단 없이 계속 사용 가능
-</div>
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">Wallet이란?</span>
-  Claude 계정에 충전해두는 선불 크레딧입니다.<br>
-  Pro Plan 구독 한도를 초과해도 Wallet 잔액이 있으면 API 사용량처럼 과금되면서 계속 사용할 수 있습니다.<br>
-  자동 충전 설정을 켜두면 잔액 부족 시 자동으로 재충전됩니다.
-</div>
-
-### 5시간 제한 초기화 방식
-
-사용량 제한은 **롤링 방식(rolling window)**으로 초기화됩니다. 즉, 고정된 시각에 리셋되는 것이 아니라 처음 사용 시점부터 5시간이 지나면 해당 사용량이 해제됩니다. 사용량 페이지의 "초기화 시간"을 통해 언제 여유가 생기는지 확인할 수 있습니다.
-
----
-
-## 💻 예제 코드
-
-**✅ Wallet 자동 충전 설정하기 (권장)**
-
-구독 한도 초과 시 자동으로 Wallet에서 충전하여 수업을 중단 없이 계속 진행할 수 있습니다.
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">설정 순서</span>
-  1. <strong>설정 페이지 이동</strong> — <code>claude.ai/settings/usage</code> 접속<br>
-  2. <strong>추가 사용량 옵션 활성화</strong> — "추가 사용량 한도에 도달했을 때 Claude를 계속 사용하려면 추가 사용량을 켜세요." 활성화<br>
-  3. <strong>추가 사용량 구매</strong> — '추가사용량 구매' 버튼 클릭
+  <p>이 문서에 적힌 제한 수치나 요금 구조는 예시이며, 실제 값은 서비스 정책 변경에 따라 달라질 수 있습니다. 수업이나 작업을 시작하기 전에는 항상 공식 설정 페이지에서 그 시점의 정확한 값을 확인합니다.</p>
 </div>
 
 ---
 
-## ⚠️ 주의사항
-
-### 사용량 관련 주의사항
-
-| 상황 | 주의 사항 |
-|------|-----------|
-| **웹 Claude 병행 사용** | 웹과 CLI가 사용량을 공유하므로, 수업 전 웹에서의 과도한 사용을 줄이는 것이 좋습니다. |
-| **Wallet 자동 충전** | 자동 충전을 활성화하면 한도 초과 시 추가 비용이 발생합니다. 월 예산을 고려하여 설정하세요. |
-| **수업 직전 확인** | 사용량이 80% 이상이면 수업 중 중단될 수 있으므로, 초기화 시간을 확인하거나 Wallet을 준비해두세요. |
-
----
-
-## ✅ 핵심 요약
+## 6. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>Pro Plan은 <strong>5시간당 제한</strong>(약 10~40개 프롬프트)과 <strong>주간 제한</strong>(40~80시간 Sonnet 4 사용)이 있다.</li>
-    <li>웹 <code>claude.ai</code>와 Claude Code CLI는 <strong>동일한 월간 사용량 풀</strong>을 나눠 쓴다.</li>
-    <li>사용량은 <code>claude.ai/settings/usage</code>에서 <strong>현재 사용량 · 초기화 시간 · 주간 사용량</strong>을 실시간 확인할 수 있다.</li>
-    <li>5시간 제한은 <strong>롤링 방식(rolling window)</strong>으로, 처음 사용한 시점부터 5시간이 지나면 해제된다.</li>
-    <li><strong>Wallet 자동 충전</strong>을 켜두면 Pro Plan 한도를 넘어도 수업 중단 없이 계속 사용할 수 있다.</li>
+    <li>사용량 제한은 보통 <strong>단기(시간 단위)</strong>와 <strong>장기(주 단위 등)</strong> 두 종류가 함께 존재한다.</li>
+    <li>웹 서비스와 터미널 도구가 <strong>같은 사용량을 공유</strong>하는 경우가 있다.</li>
+    <li>작업 전 <strong>사용량과 초기화 시점</strong>을 미리 확인하는 습관이 중단을 예방한다.</li>
+    <li>추가 사용량 옵션은 <strong>비용이 발생</strong>할 수 있으므로 조건을 먼저 확인한다.</li>
+    <li>정확한 수치는 항상 <strong>공식 설정 페이지</strong>에서 그 시점 기준으로 확인한다.</li>
   </ul>
 </div>
 
@@ -192,65 +159,53 @@ Pro Plan 구독 한도 초과 시, Wallet에 잔액이 있으면 자동으로 �
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 웹 Claude와 Claude Code는 사용량이 따로 관리된다?</div>
-    <div class="wda-mistake-right">정답: <strong>같은 풀을 공유</strong>하므로 웹에서 과도하게 사용하면 Claude Code에서 쓸 수 있는 양이 줄어든다.</div>
+    <div class="wda-mistake-wrong">실수: 웹 서비스와 터미널 도구의 사용량이 따로 관리된다고 생각한다.</div>
+    <div class="wda-mistake-right">방지: <strong>같은 풀을 공유</strong>할 수 있으므로, 한쪽을 많이 쓰면 다른 쪽 여유가 줄어들 수 있다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: Wallet 자동 충전은 무조건 켜두는 게 이득이다?</div>
-    <div class="wda-mistake-right">정답: 한도 초과 시 <strong>추가 비용이 발생</strong>하므로 월 예산을 고려해서 설정해야 한다.</div>
+    <div class="wda-mistake-wrong">실수: 추가 사용량 옵션을 조건 확인 없이 켠다.</div>
+    <div class="wda-mistake-right">방지: <strong>비용 조건을 먼저 확인</strong>하고 필요에 맞게 설정한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 사용량이 80%면 아직 여유가 있다?</div>
-    <div class="wda-mistake-right">정답: 80% 이상이면 <strong>수업 중 중단될 수 있으므로</strong> 초기화 시간을 확인하거나 Wallet을 미리 준비해야 한다.</div>
+    <div class="wda-mistake-wrong">실수: 문서에 적힌 수치를 항상 맞는 값으로 여긴다.</div>
+    <div class="wda-mistake-right">방지: 수치는 <strong>바뀔 수 있으므로</strong> 공식 설정 페이지에서 최신 값을 확인한다.</div>
   </div>
 </div>
 
-**🏁 완성 기준**
+**🎯 확인 습관 공식**
 
-<div class="wda-check-note">
-  <ul>
-    <li><code>claude.ai/settings/usage</code>에서 현재 사용량과 초기화 시간을 확인했다.</li>
-    <li>Wallet 자동 충전 활성화 여부를 결정하고 필요하면 설정을 마쳤다.</li>
-    <li>아래 수업 전 체크리스트 3항목을 모두 확인했다.</li>
-  </ul>
-</div>
-
-### 수업 전 체크리스트
-
-- [ ] `claude.ai/settings/usage` 에서 사용량 확인
-- [ ] 초기화 시간 확인 (한도 가까우면 대기 또는 Wallet 준비)
-- [ ] Wallet 자동 충전 활성화 여부 확인
-
-<div class="wda-done">
-  <div class="wda-done-ico">🚀</div>
-  <div class="wda-done-ttl">사용량 관리 준비 완료!</div>
-  <div>이제 수업 중 어떤 상황에서도 중단 없이 Claude Code를 활용할 수 있습니다.<br>준비된 개발 환경으로 React 개발의 세계를 탐험해보세요!</div>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 작업 전</div>
+    <div class="wda-formula-block-body"><code>사용량 + 초기화 시점 확인</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 공유 여부</div>
+    <div class="wda-formula-block-body"><code>웹 서비스 ≈ 터미널 도구</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 3 · 최신성</div>
+    <div class="wda-formula-block-body"><code>정확한 값은 설정 페이지에서</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Wallet이란?</div>
-    <div class="wda-flip-back">Claude 계정에 충전해두는 선불 크레딧으로, 구독 한도를 넘어도 계속 사용할 수 있게 해준다.</div>
+    <div class="wda-flip-front">사용량 제한은 보통 몇 종류로 나뉘나요?</div>
+    <div class="wda-flip-back">단기(시간 단위)와 장기(주 단위 등) 두 종류가 함께 존재하는 경우가 많습니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">5시간 제한은 어떻게 초기화되나?</div>
-    <div class="wda-flip-back">고정된 시각이 아니라 처음 사용한 시점부터 5시간이 지나면 롤링 방식으로 해제된다.</div>
+    <div class="wda-flip-front">웹 서비스와 터미널 도구의 사용량 관계는?</div>
+    <div class="wda-flip-back">같은 사용량 풀을 공유하는 경우가 있어, 한쪽을 많이 쓰면 다른 쪽 여유가 줄어들 수 있습니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">사용량이 공유된다는 것은 무슨 뜻인가?</div>
-    <div class="wda-flip-back">claude.ai 웹과 Claude Code CLI가 동일한 월간 사용량 풀을 나눠 쓴다는 뜻이다.</div>
+    <div class="wda-flip-front">중요한 작업 전 확인해야 할 것은?</div>
+    <div class="wda-flip-back">현재 사용량과 다음 초기화 시점입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">수업 전에 확인해야 할 것은?</div>
-    <div class="wda-flip-back">claude.ai/settings/usage에서 사용량과 초기화 시간을 확인하고, 필요하면 Wallet을 미리 준비한다.</div>
+    <div class="wda-flip-front">이 문서의 구체적인 수치를 그대로 믿어도 되나요?</div>
+    <div class="wda-flip-back">아니요. 정책이 바뀔 수 있으므로 공식 설정 페이지에서 그 시점의 정확한 값을 확인해야 합니다.</div>
   </div>
 </div>
-
----
-
-## 🔗 참고 자료
-
-- [Claude 사용량 설정 페이지](https://claude.ai/settings/usage)
-- [Anthropic 요금제 안내](https://www.anthropic.com/pricing)

@@ -2,7 +2,7 @@
 title: "1단계: 개발환경 구축"
 category: "ai-vibe-coding"
 section: "setup"
-description: "Git, Node.js, VS Code, Claude Code, Prettier, ESLint까지 AI 개발 환경을 구축한다."
+description: "Git, Node.js, VS Code, Claude Code를 설치하고 정상 동작을 확인하며, AI 도움을 받아 프로젝트를 시작하기 전 준비를 마친다."
 tags:
   - ai-vibe-coding
   - setup
@@ -11,8 +11,6 @@ tags:
   - vscode
   - git
   - claude-code
-  - prettier
-  - eslint
 date: "2025-11-24"
 status: "completed"
 ---
@@ -26,51 +24,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 160px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:center}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
 .wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
-.wda-fnode-ico{font-size:1.1rem;margin-bottom:4px}
 .wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
 .wda-fnode-dsc{font-size:.82rem;line-height:1.55}
 .wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -81,164 +58,62 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
 .wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
 .wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>핵심 도구 설치</strong> — Git · Node.js · Claude Code · VSCode<br>
-  • <strong>운영체제별 설치</strong> — Windows / Mac 각 환경에 맞게 설치<br>
-  • <strong>환경 검증</strong> — 설치된 도구의 버전 확인 및 동작 검증<br>
-  • <strong>Claude Code 인증</strong> — VSCode 터미널에서 AI 개발 환경 완성
+  • <strong>필요한 도구 파악</strong> — 프로젝트를 시작하기 전 무엇을 준비해야 하는지 확인합니다<br>
+  • <strong>핵심 도구 설치</strong> — Git, Node.js, VS Code, Claude Code를 설치합니다<br>
+  • <strong>설치 확인</strong> — 각 도구가 정상적으로 동작하는지 검증합니다
 </div>
 
 ---
 
-## 📖 개념 설명
-
-### 설치할 도구
-
-| 도구 | 권장 버전 | 역할 | 비고 |
-|------|-----------|------|------|
-| **Git** | 2.40 이상 | 코드 버전 관리 | Windows: winget, Mac: 기본 내장 |
-| **Node.js** | 20 LTS 이상 | JavaScript 실행 환경 | npm 포함 |
-| **npm** | Node.js와 함께 설치 | 패키지 설치 관리자 | Node.js 설치 시 자동 제공 |
-| **VS Code** | 최신 버전 | 코드 편집기 | Claude Code 터미널 실행 환경 |
-| **Claude Code** | 최신 버전 | AI 기반 개발 도구 | npm 전역 설치 후 네이티브 업그레이드 |
-
-### 초보자를 위한 보충 설명
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">패키지 관리자란?</span><strong>winget</strong>: Windows 10/11에 기본 내장된 패키지 관리자. 명령어 한 줄로 프로그램을 설치할 수 있어 복잡한 설치 과정이 필요 없습니다.<br><strong>Homebrew</strong>: macOS 전용 패키지 관리자. Mac에는 기본 내장되어 있지 않아 별도 설치가 필요합니다.<br><strong>npm install -g</strong>: <code>-g</code> 플래그는 "global"의 약자로, 특정 프로젝트가 아닌 시스템 전체에서 사용할 수 있도록 설치합니다.
+  <p><strong>이 setup 카테고리는 5개 문서로 이루어져 있으며, 각 문서는 준비 과정의 서로 다른 단계를 다룹니다.</strong></p>
+  <p>이 문서(1단계)는 그 중 가장 처음, <strong>포트폴리오 프로젝트를 만들기 전 작업 환경을 준비하는 단계</strong>입니다. 필요한 도구를 설치하고 정상 동작을 확인하는 데 집중하며, AI에게 작업을 요청하는 방법이나 GitHub 백업, 보안 관리는 이후 문서에서 다룹니다.</p>
 </div>
 
 ---
 
-## ⚙️ 동작 원리
+## 2. 준비물 한눈에 보기
 
-### 설치 의존 관계
-
-<div class="wda-flow">
-<div class="wda-fnode"><div class="wda-fnode-ico">📦</div><div class="wda-fnode-ttl">Node.js 설치</div></div>
-<div class="wda-farrow">→</div>
-<div class="wda-fnode"><div class="wda-fnode-ico">📦</div><div class="wda-fnode-ttl">npm 자동 포함</div></div>
-<div class="wda-farrow">→</div>
-<div class="wda-fnode"><div class="wda-fnode-ico">⬇️</div><div class="wda-fnode-ttl">npm install -g</div><div class="wda-fnode-dsc">claude-code 설치</div></div>
-<div class="wda-farrow">→</div>
-<div class="wda-fnode"><div class="wda-fnode-ico">⬆️</div><div class="wda-fnode-ttl">claude install</div><div class="wda-fnode-dsc">네이티브 업그레이드</div></div>
-<div class="wda-farrow">→</div>
-<div class="wda-fnode"><div class="wda-fnode-ico">🤖</div><div class="wda-fnode-ttl">claude 실행</div><div class="wda-fnode-dsc">인증 완료</div></div>
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">Git</div><div class="wda-fcard-dsc">코드 변경 이력을 관리하는 버전 관리 도구입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">Node.js</div><div class="wda-fcard-dsc">JavaScript를 실행하는 환경이며, 패키지 관리자인 npm이 함께 설치됩니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">VS Code</div><div class="wda-fcard-dsc">코드를 작성하고 터미널을 실행하는 편집기입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">Claude Code</div><div class="wda-fcard-dsc">터미널에서 AI에게 코드 작업을 요청할 수 있게 해주는 도구입니다.</div></div>
 </div>
 
-Git과 Node.js는 독립적으로 설치되며, Claude Code는 Node.js의 npm을 통해 설치됩니다.
-Claude Code 설치 후 `claude install`을 실행하면 npm 패키지보다 빠르고 안정적인 네이티브 실행 파일로 업그레이드됩니다.
+이 문서는 운영체제별 설치 명령과 확인 방법을 다루며, 각 도구의 세부 사용법은 뒤 문서에서 필요할 때마다 설명합니다.
 
 ---
 
-## 💻 예제 코드
+## 3. Windows에 설치하기
 
----
+Windows 10/11에는 `winget`이라는 패키지 관리자가 기본 내장되어 있어, 명령어 한 줄로 프로그램을 설치할 수 있습니다.
 
-## 1. Windows 설치 가이드
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">Windows 설치 방법</span>PowerShell에서 <code>winget</code> 명령어를 사용하여 간편하게 설치할 수 있습니다.</div>
-
----
-
-### 📦 winget이란?
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  winget은 Windows 10/11에 기본 내장된 패키지 관리자입니다.<br>
-  복잡한 설치 과정 없이 명령어 한 줄로 프로그램을 설치할 수 있어요!</div>
-
----
-
-**✅ PowerShell 관리자 권한으로 실행**
-
-Windows 키를 누르고 **"PowerShell"**을 검색한 후, **"관리자 권한으로 실행"**을 선택합니다.
-
----
-
-**✅ Git 설치**
-
-다음 명령어를 실행하여 Git을 설치합니다.
+Windows 키를 누르고 "PowerShell"을 검색해 **관리자 권한으로 실행**한 뒤 아래 명령을 차례로 입력합니다.
 
 ```powershell
 winget install Git.Git
-```
-
----
-
-**✅ Node.js 설치**
-
-다음 명령어를 실행하여 Node.js를 설치합니다.
-
-```powershell
 winget install OpenJS.NodeJS
 ```
 
-**⚠️ 주의사항**
-
 <div class="wda-callout wda-cw">
-  Git과 Node.js 설치 후에는 <strong>반드시 PowerShell을 닫고 새로 열어야</strong> 명령어가 인식됩니다.
+  <p>설치가 끝나면 <strong>PowerShell을 완전히 닫고 새로 열어야</strong> 명령어가 인식됩니다. 이번에는 관리자 권한이 아닌 일반 권한으로 실행합니다.</p>
 </div>
 
----
-
-### ✅ 설치 확인
-
-Git과 Node.js 설치가 완료되었다면 현재 관리자 권한 PowerShell을 닫고 새 PowerShell을 일반 권한으로 실행합니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">관리자 PowerShell 닫기</div><div class="wda-sdsc">현재 관리자 권한 PowerShell 창을 닫습니다.</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">일반 권한 PowerShell 실행</div><div class="wda-sdsc">Windows 키 → <strong>"powershell"</strong> 입력 → <strong>일반으로 실행</strong> (관리자 권한 X)</div></div></div>
-</div>
-
-### 설치 확인 명령어
-
-```powershell
-git --version
-node --version
-npm --version
-```
-
-### 정상 설치 시 출력 예시
-
-```
-git version 2.x.x
-
-v20.x.x
-(Node.js 버전)
-
-10.x.x
-(npm 버전)
-```
-
----
-
-### 🔧 npm 명령어 오류 발생 시 해결 방법
-
-npm 명령어가 인식되지 않거나 오류가 발생하는 경우 다음 단계를 따라주세요.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">오류가 발생한 PowerShell 창 닫기</div><div class="wda-sdsc">현재 PowerShell 창을 닫습니다.</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">관리자 권한 PowerShell 실행</div><div class="wda-sdsc">Windows 키 → "powershell" 입력 → 관리자 권한으로 실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">실행 정책 변경</div><div class="wda-sdsc">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">실행 정책 변경 확인</div><div class="wda-sdsc">"실행 정책을 변경하시겠습니까?" 프롬프트에서 Y를 입력하고 Enter를 누르세요.</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">관리자 PowerShell 종료</div><div class="wda-sdsc">현재 관리자 권한 PowerShell을 닫습니다.</div></div></div>
-<div class="wda-step"><div class="wda-snum">6</div><div class="wda-sbody"><div class="wda-sttl">일반 PowerShell 실행</div><div class="wda-sdsc">Windows 키 → "powershell" 입력 → 일반으로 실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">7</div><div class="wda-sbody"><div class="wda-sttl">npm 정상 인식 확인</div><div class="wda-sdsc"><code>npm --version</code></div></div></div>
-</div>
-
----
-
-**✅ Claude Code 설치**
-
-npm을 사용하여 Claude Code를 전역으로 설치합니다.
+새 PowerShell에서 Claude Code를 설치합니다.
 
 ```powershell
 npm install -g @anthropic-ai/claude-code
@@ -246,150 +121,52 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
-### ✅ Claude Code 설치 확인
+## 4. Mac에 설치하기
 
-설치가 완료되면 다음 명령어로 확인합니다.
+macOS는 Git이 기본 포함되어 있지만, Node.js 설치를 위해 Homebrew라는 패키지 관리자를 먼저 설치해야 합니다.
 
-```powershell
-claude --version
-```
-
----
-
-### ✅ Windows 설치 완료
-
-<div class="wda-done">
-  <div class="wda-done-ico">✅</div>
-  <div class="wda-done-ttl">Git, Node.js, Claude Code 설치 완료!</div>
-  <div>아래의 "VSCode 설정 및 실행 확인" 섹션으로 진행하세요.</div>
-</div>
-
----
-
-### Windows 설치 요약
-
-#### 설치 순서
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">①</div><div class="wda-sbody"><div class="wda-sttl">PowerShell 관리자 권한 실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">②</div><div class="wda-sbody"><div class="wda-sttl">Git 설치</div><div class="wda-sdsc"><code>winget install Git.Git</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">③</div><div class="wda-sbody"><div class="wda-sttl">Node.js 설치</div><div class="wda-sdsc"><code>winget install OpenJS.NodeJS</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">④</div><div class="wda-sbody"><div class="wda-sttl">PowerShell 재실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">⑤</div><div class="wda-sbody"><div class="wda-sttl">설치 확인</div><div class="wda-sdsc"><code>git --version</code> · <code>node --version</code> · <code>npm --version</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑥</div><div class="wda-sbody"><div class="wda-sttl">Claude Code 설치</div><div class="wda-sdsc"><code>npm install -g @anthropic-ai/claude-code</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑦</div><div class="wda-sbody"><div class="wda-sttl">설치 확인</div><div class="wda-sdsc"><code>claude --version</code></div></div></div>
-</div>
-
-#### 설치되는 도구
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">📁</div><div class="wda-fcard-ttl">Git</div><div class="wda-fcard-dsc">코드 버전 관리 도구</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⬡</div><div class="wda-fcard-ttl">Node.js</div><div class="wda-fcard-dsc">JavaScript 실행 환경</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📦</div><div class="wda-fcard-ttl">npm</div><div class="wda-fcard-dsc">패키지 설치 도구</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🤖</div><div class="wda-fcard-ttl">Claude Code</div><div class="wda-fcard-dsc">AI 기반 개발 도구</div></div>
-</div>
-
----
-
-## 2. Mac 설치 가이드
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">Mac 설치 방법</span>
-  macOS 사용자는 Homebrew를 사용하여 설치합니다.<br>
-  터미널을 열고 다음 단계를 따라주세요.</div>
-
----
-
-### 💻 시스템 요구사항
-
-<div class="wda-callout wda-ci"><span class="wda-clabel">요구사항</span>macOS 10.15 이상 &nbsp;·&nbsp; 4GB 이상 RAM &nbsp;·&nbsp; 인터넷 연결 필요</div>
-
----
-
-**✅ 터미널 실행**
-
-Finder에서 **"터미널"**을 검색하여 실행합니다.
-
----
-
-**✅ Homebrew 설치**
-
-Mac에서 개발 도구를 쉽게 설치하기 위해 Homebrew를 먼저 설치합니다.
+Finder에서 "터미널"을 검색해 실행한 뒤 아래 명령을 차례로 입력합니다.
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install node
+sudo npm install -g @anthropic-ai/claude-code
 ```
-
----
-
-**✅ Node.js 설치**
-
-Homebrew를 사용하여 Node.js를 설치합니다.
-
-**🔎 참고**
 
 <div class="wda-callout wda-ci">
-  Git은 macOS에 기본 포함되어 있습니다.
+  <p><code>sudo</code> 명령을 실행하면 <code>Password:</code>가 표시됩니다. Mac 로그인 비밀번호를 입력하면 되는데, 보안을 위해 입력해도 화면에 아무 표시가 나타나지 않습니다. 정상 동작이므로 그대로 입력 후 Enter를 누릅니다.</p>
 </div>
-
-```bash
-brew install node
-```
 
 ---
 
-### ✅ 설치 확인
+## 5. 설치 확인하기
 
-Node.js와 npm이 정상적으로 설치되었는지 확인합니다.
+아래 네 명령어로 모든 도구가 정상적으로 설치되었는지 확인합니다.
 
 ```bash
 git --version
 node --version
 npm --version
+claude --version
 ```
 
----
-
-**✅ Claude Code 설치**
-
-sudo 명령어를 사용하여 Claude Code를 전역으로 설치합니다.
-
-```bash
-sudo npm install -g @anthropic-ai/claude-code
-```
-
----
+각 명령어가 버전 번호를 출력하면 정상입니다. 하나라도 "찾을 수 없음" 같은 오류가 나오면, 터미널을 완전히 닫고 새로 연 뒤 다시 시도합니다.
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">비밀번호 입력 안내</span>
-  터미널에 <code>Password:</code> 가 표시되면 Mac 로그인 비밀번호를 입력하세요.<br>
-  입력 시 화면에 표시되지 않지만 정상적으로 입력되고 있습니다.<br>
-  입력 완료 후 Enter를 누르세요.
+  <p>명령어가 계속 인식되지 않는다면, 설치 경로가 시스템의 실행 경로(PATH)에 등록되지 않았을 가능성이 큽니다. 대부분 터미널이나 VS Code를 완전히 재시작하면 해결됩니다. 재시작으로도 해결되지 않으면 각 도구의 공식 설치 문서에서 운영체제·버전에 맞는 최신 해결 방법을 확인하는 것이 안전합니다.</p>
 </div>
 
 ---
 
-### 🔧 명령어 인식 문제 해결 (필요시)
+## 6. VS Code에서 작업 폴더 준비하기
 
-Homebrew 환경에서 `claude` 명령어가 인식되지 않는 경우
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">작업 폴더 생성</div><div class="wda-fcard-dsc">프로젝트를 담을 폴더를 하나 만듭니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">폴더 열기</div><div class="wda-fcard-dsc">VS Code에서 File → Open Folder로 방금 만든 폴더를 엽니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">터미널 열기</div><div class="wda-fcard-dsc">Terminal → New Terminal로 내장 터미널을 엽니다.</div></div>
+</div>
 
-**✅ 잘못된 심볼릭 링크 제거**
-
-```bash
-rm /opt/homebrew/bin/claude
-```
-
-**✅ 올바른 심볼릭 링크 생성**
-
-```bash
-ln -s $(npm root -g)/@anthropic-ai/claude-code/bin/claude /opt/homebrew/bin/claude
-```
-
----
-
-### ✅ Claude Code 설치 확인
-
-설치가 완료되면 다음 명령어로 확인합니다.
+터미널에서 Claude Code가 정상 인식되는지 다시 확인합니다.
 
 ```bash
 claude --version
@@ -397,667 +174,69 @@ claude --version
 
 ---
 
-### 🔍 설치 상태 진단
+## 7. Claude Code 인증하기
 
-```bash
-claude doctor
-```
+터미널에서 `claude`를 처음 실행하면 로그인 절차를 안내합니다.
 
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">기능 설명</span><code>claude doctor</code> 명령어는 설치 상태를 자동으로 진단하고, 문제가 있는 경우 해결 방법을 안내합니다.</div>
-
----
-
-### ✅ Mac 설치 완료
-
-<div class="wda-done">
-  <div class="wda-done-ico">✅</div>
-  <div class="wda-done-ttl">Git, Node.js, Claude Code 설치 완료!</div>
-  <div>아래의 "VSCode 설정 및 실행 확인" 섹션으로 진행하세요.</div>
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">1. 로그인 방식 선택</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">2. 인증 링크 열기</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">3. 브라우저 로그인</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">4. 코드 입력</div></div>
 </div>
-
----
-
-### Mac 설치 요약
-
-#### 설치 순서
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">①</div><div class="wda-sbody"><div class="wda-sttl">터미널 실행</div><div class="wda-sdsc">Finder에서 "터미널" 검색 후 실행</div></div></div>
-<div class="wda-step"><div class="wda-snum">②</div><div class="wda-sbody"><div class="wda-sttl">Homebrew 설치</div><div class="wda-sdsc"><code>/bin/bash -c "$(curl -fsSL https://...install.sh)"</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">③</div><div class="wda-sbody"><div class="wda-sttl">Node.js 설치</div><div class="wda-sdsc"><code>brew install node</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">④</div><div class="wda-sbody"><div class="wda-sttl">설치 확인</div><div class="wda-sdsc"><code>git --version</code> · <code>node --version</code> · <code>npm --version</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑤</div><div class="wda-sbody"><div class="wda-sttl">Claude Code 설치</div><div class="wda-sdsc"><code>sudo npm install -g @anthropic-ai/claude-code</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑥</div><div class="wda-sbody"><div class="wda-sttl">설치 확인</div><div class="wda-sdsc"><code>claude --version</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑦</div><div class="wda-sbody"><div class="wda-sttl">설치 상태 진단</div><div class="wda-sdsc"><code>claude doctor</code></div></div></div>
-</div>
-
-#### 설치되는 도구
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">📁</div><div class="wda-fcard-ttl">Git</div><div class="wda-fcard-dsc">코드 버전 관리 도구 (macOS 기본 포함)</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⬡</div><div class="wda-fcard-ttl">Node.js</div><div class="wda-fcard-dsc">JavaScript 실행 환경</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📦</div><div class="wda-fcard-ttl">npm</div><div class="wda-fcard-dsc">패키지 설치 도구</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🤖</div><div class="wda-fcard-ttl">Claude Code</div><div class="wda-fcard-dsc">AI 기반 개발 도구</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🍺</div><div class="wda-fcard-ttl">Homebrew</div><div class="wda-fcard-dsc">Mac 패키지 관리자</div></div>
-</div>
-
----
-
-## 3. VSCode 설정 및 실행 확인
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">이 섹션에서는</span>VSCode를 설치하고 터미널 환경을 최적화한 후, Claude Code를 실행하여 인증을 완료합니다.</div>
-
----
-
-**✅ VSCode 설치**
-
-VSCode가 설치되어 있지 않다면 **[https://code.visualstudio.com](https://code.visualstudio.com)** 에서 다운로드하세요.
-
----
-
-**✅ 작업 폴더 생성 및 열기**
-
-1. 바탕화면(또는 원하는 위치)에 **`my_ai_web`** 폴더를 생성합니다.
-2. VSCode를 실행합니다.
-3. **File → Open Folder → `my_ai_web` 폴더 선택**
-
----
-
-### 🖥️ 터미널 패널 우측 이동 (권장)
-
-터미널을 우측으로 이동하면 코드 편집 공간이 넓어지고 작업이 편리해집니다.
-
-1. **Terminal → New Terminal** 로 터미널 열기
-2. 터미널 패널의 **"Terminal" 탭 우클릭**
-3. **Move Panel Right** 선택
-
----
-
-### ⊞ 터미널 분할 (선택)
-
-여러 터미널을 동시에 사용하려면 **Split Terminal** 버튼(분할 아이콘)을 클릭합니다.
-
-**💡 사용 팁**
-
-<div class="wda-callout wda-ci">
-  터미널을 분할하면 한쪽에서 Claude Code를 실행하고, 다른 쪽에서 명령어를 테스트할 수 있어요.
-</div>
-
----
-
-### ✅ Claude Code 버전 확인
-
-VSCode 터미널에서 Claude Code가 정상 인식되는지 확인합니다.
-
-```powershell
-claude --version
-```
-
-버전 번호가 출력되면 정상입니다. 인식되지 않는 경우 아래 **"명령어 인식 문제 해결"** 항목을 먼저 진행하세요.
-
----
-
-### ⬆️ 네이티브 설치 업데이트
-
-npm 버전에서 성능이 더 좋은 네이티브(Native) 버전으로 업데이트합니다.
-
-```powershell
-claude install
-```
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  <code>claude install</code>은 npm 패키지 버전보다 빠르고 안정적인 네이티브 실행 파일로 업데이트합니다.<br>
-  설치 후 <code>~/.local/bin/</code>에 배치되며 성능이 향상됩니다.
-</div>
-
----
-
-**✅ Claude Code 실행**
-
-업데이트가 완료되면 Claude Code를 실행합니다.
-
-```powershell
-claude
-```
-
----
-
-### 🔧 명령어 인식 문제 해결 (Windows)
-
-VSCode 터미널에서
-
-```
-claude
-```
-
-또는
-
-```
-npm
-```
-
-이 인식되지 않는 경우 아래 PowerShell 스크립트를 실행하면 PATH 환경 변수를 자동으로 설정합니다.
-
----
-
-### Windows PATH 자동 설정 스크립트
-
-```powershell
-# 1. 추가할 경로 리스트 초기화
-$pathsToAdd = @()
-
-# 2. Node.js & Git 기본 경로 탐색
-$basePaths = @("C:\Program Files\nodejs", "C:\Program Files\Git\cmd")
-foreach ($bp in $basePaths) {
-    if (Test-Path $bp) { $pathsToAdd += $bp }
-}
-
-# 3. Claude Code 네이티브 설치 경로 (핵심)
-$claudeNativePath = Join-Path $env:USERPROFILE ".local\bin"
-$claudeAppDataPath = "$env:LOCALAPPDATA\Programs\claude-code"
-
-if (Test-Path $claudeNativePath) { $pathsToAdd += $claudeNativePath }
-if (Test-Path $claudeAppDataPath) { $pathsToAdd += $claudeAppDataPath }
-
-# 4. npm 관련 경로 (Global Prefix)
-try {
-    $npmPrefix = (npm config get prefix).Trim()
-    if ($npmPrefix -and (Test-Path $npmPrefix)) { $pathsToAdd += $npmPrefix }
-} catch {}
-
-$defaultNpmPath = "$env:APPDATA\npm"
-if (Test-Path $defaultNpmPath) { $pathsToAdd += $defaultNpmPath }
-
-# --- 경로 등록 로직 (중복 제거 및 영구 적용) ---
-$pathsToAdd = $pathsToAdd | Select-Object -Unique
-
-$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
-$currentUserPaths = $userPath.Split(';', [System.StringSplitOptions]::RemoveEmptyEntries)
-
-$newPaths = $pathsToAdd | Where-Object { $currentUserPaths -notcontains $_ }
-
-if ($newPaths.Count -gt 0) {
-    $updatedPath = (($currentUserPaths + $newPaths) | Select-Object -Unique) -join ';'
-    [Environment]::SetEnvironmentVariable("Path", $updatedPath, "User")
-    Write-Host "PATH 환경 변수에 저장 완료:" -ForegroundColor Green
-    $newPaths | ForEach-Object { Write-Host " - $_" }
-} else {
-    Write-Host "모든 경로가 이미 등록되어 있습니다." -ForegroundColor Gray
-}
-
-# --- 현재 터미널 세션에 즉시 반영 ---
-$currentSessionPaths = $env:Path.Split(';', [System.StringSplitOptions]::RemoveEmptyEntries)
-$env:Path = (($currentSessionPaths + $pathsToAdd) | Select-Object -Unique) -join ';'
-
-# --- 검증 및 경로 분석 로직 ---
-Write-Host "
-[설치 상태 및 버전 확인]" -ForegroundColor Cyan
-Write-Host "--------------------------------"
-
-$claudeCheck = where.exe claude 2>$null
-if ($claudeCheck) {
-    $firstClaude = ($claudeCheck | Select-Object -First 1)
-    Write-Host "Claude 실행 위치: $firstClaude"
-    if ($firstClaude -like "*.localin*") {
-        Write-Host "현재 '네이티브(Native)' 버전 사용 중" -ForegroundColor Yellow
-    } else {
-        Write-Host "현재 'npm' 패키지 버전 사용 중" -ForegroundColor Gray
-    }
-    try {
-        $version = claude --version
-        Write-Host "Claude 버전: $version"
-    } catch {}
-} else {
-    Write-Host "Claude를 찾을 수 없습니다." -ForegroundColor Red
-}
-
-Write-Host "--------------------------------"
-Write-Host "Node.js: $(try{node -v}catch{'N/A'})"
-Write-Host "npm:     $(try{npm -v}catch{'N/A'})"
-Write-Host "Git:     $(try{git --version}catch{'N/A'})"
-Write-Host "--------------------------------"
-```
-
----
-
-### 📋 Windows 스크립트 실행 후
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">확인</span>스크립트 실행 후 Claude / Node.js / npm 버전이 출력되면 정상입니다.<br>"Claude를 찾을 수 없습니다."가 나오면 VSCode를 완전히 닫고 다시 열어서 재시도하세요.
-</div>
-
----
-
-### 🔧 명령어 인식 문제 해결 (Mac)
-
-Mac 사용자는 아래 bash 스크립트를 VSCode 터미널에 복사하여 실행하세요.
-
----
-
-### Mac PATH 자동 설정 스크립트
-
-```bash
-#!/bin/bash
-
-# 1. 추가할 경로 리스트 초기화
-paths_to_add=()
-
-# 2. Homebrew 경로 탐색
-if [ -d "/opt/homebrew/bin" ]; then
-    paths_to_add+=("/opt/homebrew/bin")
-fi
-if [ -d "/usr/local/bin" ]; then
-    paths_to_add+=("/usr/local/bin")
-fi
-
-# 3. Claude Code 네이티브 설치 경로 (핵심)
-claude_native_path="$HOME/.local/bin"
-claude_npm_path="$HOME/.npm-global/bin"
-
-if [ -d "$claude_native_path" ]; then
-    paths_to_add+=("$claude_native_path")
-fi
-if [ -d "$claude_npm_path" ]; then
-    paths_to_add+=("$claude_npm_path")
-fi
-
-# 4. npm 관련 경로 (Global Prefix)
-if command -v npm &>/dev/null; then
-    npm_prefix=$(npm config get prefix 2>/dev/null)
-    if [ -n "$npm_prefix" ] && [ -d "$npm_prefix/bin" ]; then
-        paths_to_add+=("$npm_prefix/bin")
-    fi
-fi
-
-npm_global_default="$HOME/.npm-global/bin"
-if [ -d "$npm_global_default" ]; then
-    paths_to_add+=("$npm_global_default")
-fi
-
-# --- 경로 등록 로직 (중복 제거 및 영구 적용) ---
-shell_rc="$HOME/.zshrc"
-if [ ! -f "$shell_rc" ]; then
-    shell_rc="$HOME/.bashrc"
-fi
-
-added_count=0
-for p in "${paths_to_add[@]}"; do
-    if [[ ":$PATH:" != *":$p:"* ]]; then
-        export PATH="$p:$PATH"
-        if ! grep -qF "$p" "$shell_rc" 2>/dev/null; then
-            echo "export PATH=\"$p:\$PATH\"" >> "$shell_rc"
-            echo "  + $p (영구 등록)"
-            added_count=$((added_count + 1))
-        fi
-    fi
-done
-
-if [ $added_count -eq 0 ]; then
-    echo "모든 경로가 이미 등록되어 있습니다."
-fi
-
-# --- Claude 심볼릭 링크 복구 (Homebrew 환경) ---
-if ! command -v claude &>/dev/null; then
-    npm_root=$(npm root -g 2>/dev/null)
-    claude_bin="$npm_root/@anthropic-ai/claude-code/bin/claude"
-    if [ -f "$claude_bin" ]; then
-        brew_bin="/opt/homebrew/bin"
-        if [ -d "$brew_bin" ]; then
-            rm -f "$brew_bin/claude"
-            ln -s "$claude_bin" "$brew_bin/claude"
-            echo "Claude 심볼릭 링크 복구 완료: $brew_bin/claude"
-        fi
-    fi
-fi
-
-# --- 검증 및 경로 분석 로직 ---
-echo ""
-echo "[설치 상태 및 버전 확인]"
-echo "--------------------------------"
-
-claude_path=$(which claude 2>/dev/null)
-if [ -n "$claude_path" ]; then
-    echo "Claude 실행 위치: $claude_path"
-    if [[ "$claude_path" == *".local/bin"* ]]; then
-        echo "현재 '네이티브(Native)' 버전 사용 중"
-    else
-        echo "현재 'npm' 패키지 버전 사용 중"
-    fi
-    claude --version 2>/dev/null || true
-else
-    echo "Claude를 찾을 수 없습니다."
-    echo "VSCode를 완전히 닫고 다시 열어서 재시도하세요."
-fi
-
-echo "--------------------------------"
-echo "Node.js: $(node -v 2>/dev/null || echo 'N/A')"
-echo "npm:     $(npm -v 2>/dev/null || echo 'N/A')"
-echo "Git:     $(git --version 2>/dev/null || echo 'N/A')"
-echo "--------------------------------"
-```
-
----
-
-### 📋 Mac 스크립트 실행 후
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">확인</span>
-  스크립트 실행 후 터미널을 닫고 VSCode를 재시작하면 PATH 설정이 완전히 적용됩니다.<br>
-  Homebrew 환경에서 심볼릭 링크도 자동 복구됩니다.</div>
-
----
-
-**✅ 인증 과정**
-
-Claude Code 최초 실행 시 다음 단계를 순서대로 진행하세요.
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">인증 순서 안내</span>
-  아래 순서를 차례대로 따라 진행합니다.<br>
-  브라우저와 터미널을 번갈아가며 사용합니다.
-</div>
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">로그인 옵션 선택</div><div class="wda-sdsc"><code>Log in with subscription</code> 선택</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">인증 링크 열기</div><div class="wda-sdsc">터미널에 표시되는 링크를 <code>Ctrl + 클릭</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">브라우저 인증</div><div class="wda-sdsc">Anthropic 계정으로 로그인</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">인증 코드 복사</div><div class="wda-sdsc">브라우저에서 생성된 코드를 복사</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">코드 입력</div><div class="wda-sdsc">터미널로 돌아가서 코드를 붙여넣고 Enter</div></div></div>
-</div>
-
----
-
-### ⚠️ 인증 코드 주의사항
 
 <div class="wda-callout wda-cw">
-  인증 코드는 <strong>제한 시간</strong>이 있으므로 빠르게 진행하세요.<br>
-  시간이 초과되면 다시 <code>claude</code> 명령어를 실행하세요.
+  <p>인증 코드는 유효 시간이 정해져 있습니다. 시간을 넘기면 <code>claude</code> 명령을 다시 실행해 처음부터 진행합니다.</p>
+</div>
+
+인증이 끝나면 준비가 완료됩니다. 정확한 화면 구성이나 버튼 위치는 버전에 따라 달라질 수 있으므로, 화면에 표시되는 안내 문구를 기준으로 진행합니다.
+
+---
+
+## 8. 코드 스타일 도구 소개
+
+VS Code에 ESLint와 Prettier 확장을 추가하면 코드 품질과 스타일을 자동으로 관리할 수 있습니다.
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">Prettier — 스타일 담당</div>
+    들여쓰기, 따옴표, 세미콜론처럼 "어떻게 보이는지"를 자동으로 정리합니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">ESLint — 품질 담당</div>
+    사용하지 않는 변수, 문법 오류처럼 "올바르게 쓰였는지"를 검사합니다.
+  </div>
+</div>
+
+두 도구는 역할이 다르므로 함께 사용하는 것이 일반적입니다. 세부 설정 방법은 프로젝트를 실제로 만드는 뒤 단계에서 필요할 때 다룹니다.
+
+---
+
+## 9. 다음 단계로
+
+<div class="wda-check-note">
+  <ul>
+    <li>Git, Node.js, VS Code, Claude Code 설치와 인증까지 마쳤다면 이 단계는 끝입니다.</li>
+    <li>다음 문서에서는 이렇게 준비된 환경에서 <strong>AI에게 작업을 요청할 때 필요한 맥락 구성법</strong>을 다룹니다.</li>
+  </ul>
 </div>
 
 ---
 
-### 🎉 개발환경 구축 완료
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">개발환경 구축 완료!</div>
-  <div>Git, Node.js, Claude Code 설치와 VSCode 설정이 모두 완료되었습니다.<br>이제 AI와 함께 웹 개발을 시작할 준비가 되었어요!</div>
-</div>
-
----
-
-### VSCode 설정 요약
-
-#### VSCode 설정 순서
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">①</div><div class="wda-sbody"><div class="wda-sttl">VSCode 설치</div><div class="wda-sdsc">code.visualstudio.com 다운로드</div></div></div>
-<div class="wda-step"><div class="wda-snum">②</div><div class="wda-sbody"><div class="wda-sttl">my_ai_web 폴더 생성</div></div></div>
-<div class="wda-step"><div class="wda-snum">③</div><div class="wda-sbody"><div class="wda-sttl">VSCode에서 폴더 열기</div><div class="wda-sdsc">File → Open Folder</div></div></div>
-<div class="wda-step"><div class="wda-snum">④</div><div class="wda-sbody"><div class="wda-sttl">터미널 우측 이동</div><div class="wda-sdsc">Move Panel Right</div></div></div>
-<div class="wda-step"><div class="wda-snum">⑤</div><div class="wda-sbody"><div class="wda-sttl">터미널 분할 (선택)</div><div class="wda-sdsc">Split Terminal</div></div></div>
-<div class="wda-step"><div class="wda-snum">⑥</div><div class="wda-sbody"><div class="wda-sttl">Claude 버전 확인</div><div class="wda-sdsc"><code>claude --version</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑦</div><div class="wda-sbody"><div class="wda-sttl">네이티브 설치 업데이트</div><div class="wda-sdsc"><code>claude install</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑧</div><div class="wda-sbody"><div class="wda-sttl">Claude 실행</div><div class="wda-sdsc"><code>claude</code></div></div></div>
-<div class="wda-step"><div class="wda-snum">⑨</div><div class="wda-sbody"><div class="wda-sttl">로그인 인증</div><div class="wda-sdsc">Log in with subscription → 브라우저 인증 → 코드 입력</div></div></div>
-<div class="wda-step"><div class="wda-snum">⑩</div><div class="wda-sbody"><div class="wda-sttl">개발 시작 🎉</div></div></div>
-</div>
-
-#### 이번 단계 목표
-
-<div class="wda-callout wda-ci">
-  VSCode 안에서 Claude Code를 실행하고 인증까지 완료하여 AI 개발 환경을 완성한다.
-</div>
-
----
-
-## 4. VSCode 확장 프로그램 및 에디터 설정
-
-### 필수 확장 프로그램
-
-설치 후 아래 확장 프로그램을 추가한다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🔍</div><div class="wda-fcard-ttl">ESLint</div><div class="wda-fcard-dsc">코드 문법 오류 실시간 감지</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">✨</div><div class="wda-fcard-ttl">Prettier</div><div class="wda-fcard-dsc">코드 자동 포맷</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🗂️</div><div class="wda-fcard-ttl">vscode-icons</div><div class="wda-fcard-dsc">파일 아이콘 가독성 향상</div></div>
-</div>
-
-**✅ 권장 방식**
-
-<div class="wda-callout wda-cs">
-  확장 프로그램은 처음에 최소한으로만 설치한다.<br>
-  너무 많은 확장은 에디터를 느리게 하고, 어떤 확장이 문제를 일으키는지 파악하기 어렵게 만든다.
-</div>
-
-### VS Code 기본 설정
-
-`Ctrl + Shift + P` → **Open User Settings (JSON)** 을 선택한 뒤 아래 내용을 붙여 넣는다.
-
-```json
-{
-  "editor.fontSize": 14,
-  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
-  "editor.fontLigatures": true,
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": false,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.minimap.enabled": false,
-  "editor.wordWrap": "on",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
-  "editor.stickyScroll.enabled": false,
-  "editor.renderWhitespace": "boundary",
-  "editor.lineNumbers": "on",
-  "editor.scrollBeyondLastLine": false,
-  "editor.smoothScrolling": true,
-  "terminal.integrated.fontSize": 13,
-  "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
-  "explorer.confirmDelete": false,
-  "explorer.compactFolders": false,
-  "files.autoSave": "onFocusChange",
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "workbench.colorTheme": "Default Dark Modern",
-  "workbench.startupEditor": "none",
-  "eslint.validate": ["javascript", "javascriptreact"],
-  "prettier.singleQuote": true,
-  "prettier.semi": true,
-  "prettier.trailingComma": "es5"
-}
-```
-
----
-
-## 5. Git 기본 설정
-
-설치 후 기본 설정을 진행한다.
-
-```bash
-git config --global user.name "본인 이름"
-git config --global user.email "이메일@example.com"
-git config --global core.autocrlf input
-```
-
-**✅ 실습 포인트**
-
-<div class="wda-callout wda-ci">
-  터미널에서 <code>git --version</code>을 입력해보자.<br>
-  <code>git version 2.x.x</code>가 출력되면 설치가 완료된 것이다.
-</div>
-
----
-
-## 6. 전체 설치 검증
-
-세 가지 도구가 모두 설치되었는지 한 번에 확인한다.
-
-```bash
-node -v && npm -v && git --version
-```
-
-출력 예시:
-
-```
-v20.11.0
-10.2.4
-git version 2.x.x
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  Node.js를 설치하면 <code>npm</code>이 자동으로 함께 설치된다.<br>
-  별도로 설치할 필요 없다.
-</div>
-
----
-
-## 7. Prettier & ESLint 설정
-
-VS Code에서 코드 스타일을 자동으로 관리하기 위해 두 가지 도구를 설정한다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🎨</div><div class="wda-fcard-ttl">Prettier</div><div class="wda-fcard-dsc">코드 포맷팅 — 들여쓰기, 따옴표, 세미콜론 스타일 관리</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🔍</div><div class="wda-fcard-ttl">ESLint</div><div class="wda-fcard-dsc">코드 품질 검사 — 문법 오류, 사용하지 않는 변수 탐지</div></div>
-</div>
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  Prettier는 <strong>어떻게 보이는지</strong> (스타일)를 담당하고, ESLint는 <strong>올바르게 쓰였는지</strong> (품질)를 담당한다.<br>
-  두 도구는 역할이 다르므로 함께 사용한다.
-</div>
-
-### Prettier 설정
-
-프로젝트 루트에 `.prettierrc` 파일을 생성한다.
-
-```json
-{
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "printWidth": 100
-}
-```
-
-**💡 보충 설명**
-
-<div class="wda-callout wda-ci">
-  <code>.prettierrc</code>는 프로젝트마다 다를 수 있다.<br>
-  팀 협업 시에는 팀 전체가 동일한 <code>.prettierrc</code>를 공유해야 포맷이 일치한다.
-</div>
-
-### ESLint 설정
-
-프로젝트 루트에 `eslint.config.js` 파일을 생성한다.
-
-```js
-import js from '@eslint/js';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-
-export default [
-  js.configs.recommended,
-  {
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-      'no-unused-vars': 'warn',
-    },
-  },
-];
-```
-
-**⚠️ 주의사항**
-
-<div class="wda-callout wda-cw">
-  ESLint 설정 파일명이 <code>.eslintrc.js</code>가 아닌 <code>eslint.config.js</code>인 것에 주의하자.<br>
-  ESLint v9부터 새로운 Flat Config 형식을 사용한다.
-</div>
-
-### 저장 시 자동 포맷 확인
-
-VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
-
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
-```
-
-**✅ 권장 방식**
-
-<div class="wda-callout wda-cs">
-  <code>formatOnSave</code>를 활성화하면 파일 저장 시 자동으로 포맷이 정리된다.<br>
-  커밋 전 포맷을 정리하는 번거로움을 없앨 수 있다.
-</div>
-
----
-
-## ⚠️ 주의사항
-
-### 공통
-
-- Git과 Node.js 설치 후 반드시 터미널을 닫고 새로 열어야 명령어가 인식됩니다.
-- 인증 코드는 제한 시간이 있으므로 빠르게 진행해야 합니다. 시간 초과 시 `claude` 명령어를 다시 실행하세요.
-
-### Windows
-
-- `Set-ExecutionPolicy` 변경은 관리자 권한 PowerShell에서만 가능합니다.
-- PATH 설정 스크립트 실행 후 `"Claude를 찾을 수 없습니다."`가 나오면 VSCode를 완전히 닫고 재시작하세요.
-- `claude install` 실행 후 PATH 설정이 자동 변경되므로 VSCode 터미널 재시작이 필요할 수 있습니다.
-
-### Mac
-
-- `sudo npm install` 시 비밀번호 입력 화면에서는 타이핑해도 화면에 표시되지 않습니다. 정상적으로 입력되고 있으니 입력 후 Enter를 누르세요.
-- Homebrew 환경에서 `claude` 명령어가 인식되지 않으면 심볼릭 링크가 깨진 것이므로 2-8항의 링크 재생성 단계를 진행하세요.
-- Mac PATH 설정 스크립트 실행 후 VSCode를 재시작해야 변경사항이 완전히 적용됩니다.
-
----
-
-## 🔗 참고 자료
-
-- [VSCode 공식 다운로드](https://code.visualstudio.com)
-- [Node.js 공식 사이트](https://nodejs.org)
-- [Node.js 공식 문서](https://nodejs.org/ko/docs)
-- [VS Code 공식 문서](https://code.visualstudio.com/docs)
-- [Git 공식 사이트](https://git-scm.com)
-- [Git 공식 문서](https://git-scm.com/doc)
-- [Homebrew 공식 사이트](https://brew.sh)
-- [Claude Code 공식 문서](https://docs.anthropic.com/claude-code)
-- [Prettier 공식 문서](https://prettier.io/docs/en/)
-- [ESLint 공식 문서](https://eslint.org/docs/latest/)
-
----
-
-## ✅ 핵심 요약
+## 10. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>Windows는 <strong>winget</strong>, Mac은 <strong>Homebrew</strong>로 Git·Node.js를 설치한다 (Mac은 Git이 기본 내장).</li>
-    <li>Node.js를 설치하면 <strong>npm이 자동으로 함께 설치</strong>된다.</li>
-    <li>Claude Code는 <code>npm install -g</code>로 먼저 설치하고, <code>claude install</code>로 <strong>네이티브 버전</strong>으로 업그레이드한다.</li>
+    <li>Windows는 <strong>winget</strong>, Mac은 <strong>Homebrew</strong>로 Git·Node.js를 준비한다 (Mac은 Git이 기본 포함).</li>
+    <li>Node.js를 설치하면 <strong>npm이 함께 설치</strong>된다.</li>
     <li>설치 확인은 <code>git --version</code> · <code>node --version</code> · <code>npm --version</code> · <code>claude --version</code> 네 가지로 한다.</li>
-    <li>Prettier는 <strong>스타일(포맷)</strong>을, ESLint는 <strong>품질(문법 오류)</strong>을 담당하며 함께 사용한다.</li>
+    <li>도구 설치 직후에는 <strong>터미널을 닫고 새로 열어야</strong> 명령어가 인식되는 경우가 많다.</li>
+    <li>Prettier는 <strong>스타일</strong>을, ESLint는 <strong>품질</strong>을 담당하며 함께 사용한다.</li>
   </ul>
 </div>
 
@@ -1065,82 +244,53 @@ VS Code Settings에서 아래 설정이 적용되어 있는지 확인한다.
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: Git·Node.js 설치 후 같은 터미널에서 바로 명령어를 입력한다.</div>
-    <div class="wda-mistake-right">방지: 설치 후 <strong>반드시 터미널을 닫고 새로 열어야</strong> 명령어가 인식된다.</div>
+    <div class="wda-mistake-wrong">실수: 설치 후 같은 터미널에서 바로 명령어를 입력한다.</div>
+    <div class="wda-mistake-right">방지: 설치 후 <strong>터미널을 닫고 새로 열어야</strong> 명령어가 인식된다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: 일반 권한 PowerShell에서 실행 정책을 변경하려 한다.</div>
-    <div class="wda-mistake-right">방지: <code>Set-ExecutionPolicy</code> 변경은 <strong>관리자 권한 PowerShell에서만</strong> 가능하다.</div>
+    <div class="wda-mistake-wrong">실수: Mac에서 sudo 명령 실행 중 비밀번호 입력 화면에 아무것도 안 보여서 오류로 착각한다.</div>
+    <div class="wda-mistake-right">방지: 정상 동작이다. <strong>입력이 화면에 표시되지 않을 뿐</strong>이므로 입력 후 Enter를 누른다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: PATH 설정 스크립트 실행 후에도 "Claude를 찾을 수 없습니다."가 계속 뜬다고 재설치부터 한다.</div>
-    <div class="wda-mistake-right">방지: 먼저 <strong>VSCode를 완전히 닫고 재시작</strong>하면 대부분 해결된다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: Mac에서 <code>sudo npm install</code> 중 비밀번호를 입력해도 화면에 아무것도 안 보여서 오류로 착각한다.</div>
-    <div class="wda-mistake-right">방지: 정상 동작이다. <strong>입력이 화면에 표시되지 않을 뿐</strong>이므로 입력 후 Enter를 누르면 된다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">실수: Mac에서 <code>claude</code> 명령어가 안 되면 처음부터 다시 설치한다.</div>
-    <div class="wda-mistake-right">방지: Homebrew 환경에서는 대부분 <strong>심볼릭 링크가 깨진 것</strong>이므로 링크 재생성 단계만 다시 진행하면 된다.</div>
+    <div class="wda-mistake-wrong">실수: 인증 코드 입력이 늦어져 시간이 초과됐는데 같은 코드를 계속 시도한다.</div>
+    <div class="wda-mistake-right">방지: <code>claude</code> 명령을 <strong>다시 실행</strong>해 처음부터 인증을 진행한다.</div>
   </div>
 </div>
 
-**🏁 완성 기준**
+**🎯 최종 확인 기준**
 
-<div class="wda-check-note">
-  <ul>
-    <li><code>git --version</code> · <code>node --version</code> · <code>npm --version</code> · <code>claude --version</code> 네 명령어 모두 <strong>정상적으로 버전이 출력</strong>된다.</li>
-    <li>VSCode 터미널에서 <code>claude</code> 실행 후 <strong>구독 로그인 인증까지 완료</strong>된다.</li>
-    <li>ESLint · Prettier 확장이 설치되고, 저장 시 <strong>자동 포맷(formatOnSave)</strong>이 적용된다.</li>
-  </ul>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">확인 1 · 도구 버전</div>
+    <div class="wda-formula-block-body"><code>git · node · npm · claude --version</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">확인 2 · 인증</div>
+    <div class="wda-formula-block-body"><code>claude 실행 후 로그인 완료</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">확인 3 · 코드 스타일</div>
+    <div class="wda-formula-block-body"><code>Prettier(스타일) + ESLint(품질)</code></div>
+  </div>
 </div>
-
-### 전체 설치 흐름 비교
-
-| 단계 | Windows | Mac |
-| --- | --- | --- |
-| 패키지 관리자 | winget (기본 내장) | Homebrew (별도 설치 필요) |
-| Git | `winget install Git.Git` | 기본 내장 |
-| Node.js | `winget install OpenJS.NodeJS` | `brew install node` |
-| Claude Code | `npm install -g @anthropic-ai/claude-code` | `sudo npm install -g @anthropic-ai/claude-code` |
-| 설치 확인 | `claude --version` | `claude --version` / `claude doctor` |
-| 네이티브 업그레이드 | `claude install` | `claude install` |
-
-### 완성 확인 체크리스트
-
-- [ ] 터미널을 닫고 새로 열었는가?
-- [ ] VSCode를 완전히 닫고 재시작했는가?
-- [ ] PATH 설정 스크립트를 실행했는가?
-- [ ] Windows: 실행 정책(ExecutionPolicy)을 변경했는가?
-- [ ] Mac: 심볼릭 링크가 올바르게 연결되어 있는가?
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">winget이란?</div>
-    <div class="wda-flip-back">Windows 10/11에 기본 내장된 패키지 관리자로, 명령어 한 줄로 프로그램을 설치할 수 있다.</div>
+    <div class="wda-flip-front">Windows에서 Git과 Node.js를 설치하는 도구는?</div>
+    <div class="wda-flip-back">winget입니다. Windows 10/11에 기본 내장된 패키지 관리자입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Mac에서 Node.js를 설치하는 명령어는?</div>
-    <div class="wda-flip-back"><code>brew install node</code>이다. Git은 macOS에 기본 포함되어 있다.</div>
+    <div class="wda-flip-front">Mac에서 Node.js를 설치하려면?</div>
+    <div class="wda-flip-back">Homebrew를 먼저 설치한 뒤 brew install node를 실행합니다. Git은 macOS에 기본 포함되어 있습니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">claude install은 무엇을 하나?</div>
-    <div class="wda-flip-back">npm 패키지 버전보다 빠르고 안정적인 네이티브 실행 파일로 업그레이드한다.</div>
+    <div class="wda-flip-front">설치 직후 명령어가 인식되지 않을 때 가장 먼저 할 일은?</div>
+    <div class="wda-flip-back">터미널을 완전히 닫고 새로 여는 것입니다.</div>
   </div>
   <div class="wda-flip-card">
     <div class="wda-flip-front">ESLint와 Prettier의 역할 차이는?</div>
-    <div class="wda-flip-back">Prettier는 스타일(포맷)을, ESLint는 코드 품질(문법 오류)을 담당한다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">formatOnSave를 켜면 무엇이 좋은가?</div>
-    <div class="wda-flip-back">파일 저장 시 자동으로 포맷이 정리되어 커밋 전에 따로 정리할 필요가 없다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">Windows에서 npm 명령어가 인식되지 않을 때 가장 먼저 볼 것은?</div>
-    <div class="wda-flip-back">관리자 권한 PowerShell에서 실행 정책(ExecutionPolicy)을 RemoteSigned로 변경했는지 확인한다.</div>
+    <div class="wda-flip-back">Prettier는 스타일(포맷)을, ESLint는 코드 품질(문법 오류)을 담당합니다.</div>
   </div>
 </div>
-

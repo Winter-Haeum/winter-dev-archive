@@ -1,15 +1,10 @@
 ---
-title: "2-4: UI 보고 필요한 DB 찾아내기"
+title: "2-4: 문의 기능 만들기"
 category: "ai-vibe-coding"
 section: "lesson-2"
-description: "3단계에서 만든 UI를 보면서 users · posts · comments 세 테이블을 발견하고, 테이블 간 연결 관계를 자연어로 이해합니다."
-tags:
-  - ai-vibe-coding
-  - lesson-2
-  - database
-  - table-design
 date: "2026-06-10"
 status: "completed"
+description: "contact-section에 문의 메시지를 저장하는 흐름을 설계하고, 입력값 검증과 최소한의 개인정보 수집 기준을 정리합니다."
 ---
 
 <style>
@@ -21,47 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-.wda-flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:.8rem 0 1.6rem}
-.wda-fnode{border:1px solid rgba(128,128,128,.2);border-radius:8px;padding:7px 13px;font-size:.8rem;font-weight:600}
-.wda-farrow{opacity:.4;font-size:.9rem;font-weight:700}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -83,239 +61,106 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>역방향 사고</strong> — UI 화면에서 필요한 DB 구조를 직접 발견하는 방법 습득<br>
-  • <strong>3개 테이블 발견</strong> — users · posts · comments 테이블의 구조와 필드 이해<br>
-  • <strong>테이블 연결 관계</strong> — ID로 테이블들이 서로 연결되는 원리 파악<br>
-  • <strong>DB 구조서 작성</strong> — 자연어로 데이터베이스 구조 정리 실습
+  • <strong>contact-message 설계</strong> — 문의 메시지를 저장할 필드를 정합니다<br>
+  • <strong>입력 → 저장 흐름</strong> — 입력값이 검증을 거쳐 저장되는 과정을 이해합니다<br>
+  • <strong>최소 수집 원칙</strong> — 꼭 필요한 정보만 받는 기준을 익힙니다
 </div>
 
 ---
 
-## 🔄 역방향 학습법: UI → DB 발견
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">이번 시간의 특별한 방식</span>추상적인 테이블 설계부터 시작하지 않고, 실제 UI 화면을 보면서 "어? 이거 어떻게 저장하지?" 하며 자연스럽게 DB 구조를 발견해나갑니다!
+  <p><strong>[[2-3-ui-planning|이전 문서]]에서 데이터 저장소 연결을 마쳤다면, 이번에는 contact-section에 실제 입력 기능을 연결할 차례입니다.</strong></p>
+  <p>방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.</p>
 </div>
+
+---
+
+## 2. contact-message 구조
+
+<table class="wda-mtable">
+<thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>
+<tbody>
+<tr><td>id</td><td>숫자</td><td>자동</td><td>-</td><td>메시지를 구분하는 고유 번호</td></tr>
+<tr><td>name</td><td>문자</td><td>필수</td><td>비공개</td><td>작성자 이름</td></tr>
+<tr><td>message</td><td>문자</td><td>필수</td><td>비공개</td><td>문의 내용</td></tr>
+<tr><td>email</td><td>문자</td><td>선택</td><td>비공개</td><td>답장을 원할 때만 입력받는 연락처</td></tr>
+<tr><td>created_at</td><td>날짜</td><td>자동</td><td>비공개</td><td>작성된 시각</td></tr>
+</tbody>
+</table>
+
+<div class="wda-callout wda-ci">
+  <p>project-table과 달리 contact-message는 방문자가 직접 입력하는 데이터이므로, 필드 대부분을 <strong>비공개</strong>로 설계합니다. 문의자 본인 확인 용도 외에 다른 목적으로 공개하지 않습니다.</p>
+</div>
+
+---
+
+## 3. 입력 → 검증 → 저장 흐름
+
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">1. 입력</div><div class="wda-fnode-dsc">방문자가 이름과 메시지를 입력</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">2. 검증</div><div class="wda-fnode-dsc">빈 값·형식 오류 확인</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">3. 저장</div><div class="wda-fnode-dsc">contact-message에 기록</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">4. 결과 표시</div><div class="wda-fnode-dsc">성공 또는 실패 안내</div></div>
+</div>
+
+---
+
+## 4. 검증해야 할 항목
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">💡</div><div class="wda-fcard-ttl">직관적 이해</div><div class="wda-fcard-dsc">"로그인 화면에 이메일이 보이니까 users 테이블에 email 필드가 필요하구나!"</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🎯</div><div class="wda-fcard-ttl">현실적 설계</div><div class="wda-fcard-dsc">실제 사용할 데이터만 테이블에 포함 — 불필요한 필드 없음</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚡</div><div class="wda-fcard-ttl">즉시 연결</div><div class="wda-fcard-dsc">UI와 DB가 어떻게 연결되는지 바로 이해 가능</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🧠</div><div class="wda-fcard-ttl">문제 해결형 사고</div><div class="wda-fcard-dsc">"이 기능을 위해서는 어떤 데이터가 필요할까?" 생각하는 습관</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">빈 값 방지</div><div class="wda-fcard-dsc">이름이나 메시지가 비어 있으면 저장을 막습니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">글자 수 제한</div><div class="wda-fcard-dsc">지나치게 긴 메시지가 저장되지 않도록 제한을 둡니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">형식 확인</div><div class="wda-fcard-dsc">이메일을 입력받는다면 형식이 올바른지 확인합니다.</div></div>
 </div>
 
 ---
 
-## 📋 먼저 '테이블'이 뭔지 이해하기
+## 5. 최소한의 개인정보만 수집하기
 
-데이터베이스의 "테이블"은 우리가 익숙한 표와 같습니다.
-
-### 학생 명단 표 예시
-
-| 번호 | 이름 | 이메일 | 전화번호 | 가입일 |
-|------|------|--------|----------|--------|
-| 1 | 홍길동 | hong@email.com | 010-1234-5678 | 2024-08-05 |
-| 2 | 김개발 | kim@email.com | 010-2345-6789 | 2024-08-04 |
-| 3 | 이질문 | lee@email.com | 010-3456-7890 | 2024-08-03 |
-
-<div class="wda-memo">
-  <span class="wda-memo-label">📌 테이블 용어 정리</span>
-  <div class="wda-memo-body">
-<strong>행(Row)</strong> — 각각의 데이터 (홍길동, 김개발, 이질문…)<br>
-<strong>열(Column)</strong> — 정보의 종류 (번호, 이름, 이메일, 전화번호, 가입일)<br>
-<strong>테이블(Table)</strong> — 이런 표 전체를 가리키는 말<br>
-앞으로 이런 형태로 데이터를 저장하는 것을 <strong>"테이블"</strong>이라고 합니다!
-</div></div>
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">개인정보 최소 수집</span>
+  <p>문의 기능에 필요한 만큼만 정보를 받습니다. 이름과 메시지만으로 충분하다면 그 외의 정보(전화번호, 주소 등)는 요청하지 않습니다. 이메일처럼 답장에만 필요한 정보는 선택 입력으로 두고, 예제나 문서에는 <strong>실제 개인정보를 넣지 않습니다.</strong></p>
+</div>
 
 ---
 
-## 👤 1단계: 회원가입 화면 분석 → users 테이블 발견
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문</span>"회원가입 화면을 보고 생각해보세요!<br>가입하려는 사람이 입력하는 정보들을 하나씩 말해보세요."
-</div>
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">Q1</div><div class="wda-sbody"><div class="wda-sttl">화면에서 입력받는 정보들</div><div class="wda-sdsc">이름 · 이메일 · 비밀번호 · 전화번호</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q2</div><div class="wda-sbody"><div class="wda-sttl">사용자에 대한 정보의 종류</div><div class="wda-sdsc">개인정보 · 연락처 · 로그인 정보 등</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q3</div><div class="wda-sbody"><div class="wda-sttl">화면에 안 보이지만 필요한 정보</div><div class="wda-sdsc">언제 가입했는지 (가입일) · 사용자 번호 (자동 증가)</div></div></div>
-</div>
+## 6. 저장 전 확인 절차
 
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견!</span>회원가입 화면을 보니 <strong>users 테이블</strong>이 필요하다는 걸 알 수 있네요!
+  <p>전송 버튼을 누르기 전에 입력한 내용을 다시 보여주거나, 전송 직후 "메시지가 접수되었습니다" 같은 결과 안내를 보여주면 방문자가 정상적으로 처리되었는지 알 수 있습니다.</p>
 </div>
-
-| id | name | email | phone | created_at |
-|----|------|-------|-------|------------|
-| 1 | 홍길동 | hong@email.com | 010-1234-5678 | 2024-08-05 |
-| 2 | 김개발 | kim@email.com | 010-2345-6789 | 2024-08-04 |
-| 3 | 이질문 | lee@email.com | 010-3456-7890 | 2024-08-03 |
 
 ---
 
-## 📝 2단계: 게시물 목록 화면 분석 → posts 테이블 발견
+## 7. AI에게 요청하는 예시
 
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문</span>"게시물 목록을 보고 생각해보세요!<br>각 게시물에 어떤 정보들이 표시되고 있나요?"
-</div>
+```
+contact-section에 문의 메시지 입력 기능을 추가하고 싶습니다.
 
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">Q1</div><div class="wda-sbody"><div class="wda-sttl">각 게시물에 표시되는 정보들</div><div class="wda-sdsc">제목 · 작성자 이름 · 작성일 · 댓글 개수</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q2</div><div class="wda-sbody"><div class="wda-sttl">이 정보들을 저장할 테이블 이름</div><div class="wda-sdsc">게시물 테이블 — posts!</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q3</div><div class="wda-sbody"><div class="wda-sttl">작성자 정보는 어떻게 연결?</div><div class="wda-sdsc">users 테이블과 연결 → author_id로 참조</div></div></div>
-</div>
+저장할 정보:
+- name (필수)
+- message (필수)
+- email (선택)
 
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견!</span>게시물 목록을 보니 <strong>posts 테이블</strong>이 필요하네요!
-</div>
-
-| id | title | content | author_id | created_at |
-|----|-------|---------|-----------|------------|
-| 1 | 안녕하세요 첫 게시물입니다 | 커뮤니티 오픈했어요... | 1 | 2024-08-05 |
-| 2 | React 개발 팁 공유합니다 | 꿀팁 알려드려요... | 2 | 2024-08-04 |
-| 3 | 질문있습니다 | DB 연결 방법 알려주세요... | 3 | 2024-08-03 |
-
-<div class="wda-memo">
-  <span class="wda-memo-label">💡 포인트</span>
-  <div class="wda-memo-body">
-<code>author_id</code>는 users 테이블의 <code>id</code>와 연결됩니다.<br>번호로 테이블이 연결되는 방식입니다.
-</div></div>
+요청:
+- 빈 값과 지나치게 긴 입력을 막는 검증을 포함해주세요.
+- 저장 성공/실패를 화면에 안내하는 처리를 포함해주세요.
+- email 외의 개인정보는 추가로 요청하지 마세요.
+```
 
 ---
 
-## 💬 3단계: 댓글 화면 분석 → comments 테이블 발견
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문</span>"댓글 부분을 보고 생각해보세요!<br>각 댓글에 어떤 정보들이 보이나요?"
-</div>
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">Q1</div><div class="wda-sbody"><div class="wda-sttl">각 댓글에 표시되는 정보들</div><div class="wda-sdsc">댓글 내용 · 작성자 이름 · 작성시간</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q2</div><div class="wda-sbody"><div class="wda-sttl">댓글이 어떤 게시물에 달린 건지 어떻게 알까?</div><div class="wda-sdsc">게시물 번호를 함께 저장 → post_id로 참조</div></div></div>
-<div class="wda-step"><div class="wda-snum">Q3</div><div class="wda-sbody"><div class="wda-sttl">댓글 작성자 정보 연결 방법</div><div class="wda-sdsc">users 테이블과 연결 → author_id로 참조</div></div></div>
-</div>
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견!</span>댓글 화면을 보니 <strong>comments 테이블</strong>이 필요하다는 걸 알 수 있어요!
-</div>
-
-| id | content | author_id | post_id | created_at |
-|----|---------|-----------|---------|------------|
-| 1 | 축하합니다! 좋은 커뮤니티 만들어주세요 | 2 | 1 | 2024-08-05 |
-| 2 | 기대되네요! 자주 이용하겠습니다 | 3 | 1 | 2024-08-05 |
-| 3 | 꿀팁 감사드립니다! | 1 | 2 | 2024-08-04 |
-
----
-
-## 🔗 테이블들이 어떻게 연결되는지 이해하기
-
-### 핵심 개념: 번호로 연결
+## 8. 생성된 코드 검토 기준
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">👤</div><div class="wda-fcard-ttl">users 테이블</div><div class="wda-fcard-dsc">회원 정보 보관함<br>홍길동 (id: 1) · 김개발 (id: 2) · 이질문 (id: 3)</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">posts 테이블</div><div class="wda-fcard-dsc">게시물 정보 보관함<br>"첫 게시물" (author_id: 1) · "개발 팁" (author_id: 2)</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">comments 테이블</div><div class="wda-fcard-dsc">댓글 정보 보관함<br>"축하합니다!" (author_id: 2, post_id: 1)</div></div>
-</div>
-
-<div class="wda-memo">
-  <span class="wda-memo-label">🔗 연결 관계 요약</span>
-  <div class="wda-memo-body">
-👤 <strong>users → posts</strong> — 한 사용자가 여러 게시물 작성 가능 · posts의 <code>author_id</code>로 연결<br>
-👤 <strong>users → comments</strong> — 한 사용자가 여러 댓글 작성 가능 · comments의 <code>author_id</code>로 연결<br>
-📝 <strong>posts → comments</strong> — 한 게시물에 여러 댓글 달릴 수 있음 · comments의 <code>post_id</code>로 연결
-</div></div>
-
----
-
-## ✍️ DB 구조 자연어로 정리하기 (10분)
-
-### 함께 진행하는 방식
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">강사와 함께 토론 (5분)</div><div class="wda-sdsc">"users 테이블에는 어떤 정보가 저장되나요?" · "posts 테이블에는 어떤 정보가 필요할까요?" · "comments 테이블은 어떤 구조로 만들까요?"</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">개인 DB 구조서 작성 (5분)</div><div class="wda-sdsc">아래 템플릿을 메모장에 복사해서 채우기 · 막히는 부분은 강사나 옆 사람과 상의하기</div></div></div>
-</div>
-
-### DB 구조 정리 템플릿
-
-아래 템플릿을 메모장에 복사해서 UI 화면을 보면서 필요한 정보들을 자연어로 정리해보세요!
-
-```
-== 커뮤니티 사이트 DB 구조 정리 ==
-
-사용자 정보 (users 테이블)
-
-- 회원가입 화면에서 필요한 정보들:
-
-  * 사용자 번호:
-    (자동으로 1, 2, 3... 증가)
-
-  * 이름:
-
-  * 이메일:
-    (로그인할 때 사용)
-
-  * 비밀번호:
-
-  * 전화번호:
-
-  * 가입일:
-    (언제 가입했는지)
-
-게시물 정보 (posts 테이블)
-
-- 게시물 목록/상세 화면에서 필요한 정보들:
-
-  * 게시물 번호:
-    (자동으로 1, 2, 3... 증가)
-
-  * 제목:
-
-  * 내용:
-
-  * 작성자:
-    (어떤 사용자가 썼는지 - users 테이블과 연결)
-
-  * 작성일:
-    (언제 썼는지)
-
-  * 수정일:
-    (마지막으로 언제 수정했는지)
-
-댓글 정보 (comments 테이블)
-
-- 댓글 화면에서 필요한 정보들:
-
-  * 댓글 번호:
-    (자동으로 1, 2, 3... 증가)
-
-  * 댓글 내용:
-
-  * 작성자:
-    (어떤 사용자가 썼는지 - users 테이블과 연결)
-
-  * 게시물:
-    (어떤 게시물에 달린 댓글인지 - posts 테이블과 연결)
-
-  * 작성일:
-    (언제 썼는지)
-
-테이블 연결 관계
-
-- 사용자 → 게시물:
-  한 사용자가 여러 게시물 작성 가능
-
-- 사용자 → 댓글:
-  한 사용자가 여러 댓글 작성 가능
-
-- 게시물 → 댓글:
-  한 게시물에 여러 댓글 작성 가능
-
-== DB 구조 정리 완료 ==
-```
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">다음 단계 예고</span>5단계에서는 3단계 UI 기획서 + 4단계 DB 구조서를 하나로 합쳐서 Claude Code AI에게 프로젝트 생성을 요청합니다.<br>Supabase MCP를 사용한 실제 데이터베이스 생성과 연결, 그리고 GitHub Pages 배포까지!
+  <div class="wda-fcard"><div class="wda-fcard-ttl">검증 로직 존재</div><div class="wda-fcard-dsc">빈 값이나 형식 오류를 실제로 막고 있는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">결과 안내</div><div class="wda-fcard-dsc">저장 성공/실패가 화면에 표시되는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">불필요한 수집 여부</div><div class="wda-fcard-dsc">요청하지 않은 개인정보 필드가 추가되지 않았는지 확인합니다.</div></div>
 </div>
 
 ---
@@ -326,11 +171,10 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-check-note">
   <ul>
-    <li>테이블은 <strong>행(Row)</strong>=데이터, <strong>열(Column)</strong>=정보의 종류로 구성된 표다.</li>
-    <li>회원가입 화면에서 <strong>users</strong> 테이블(id, name, email, phone, created_at)을 발견한다.</li>
-    <li>게시물 목록 화면에서 <strong>posts</strong> 테이블(id, title, content, author_id, created_at)을 발견한다.</li>
-    <li>댓글 화면에서 <strong>comments</strong> 테이블(id, content, author_id, post_id, created_at)을 발견한다.</li>
-    <li>테이블은 <strong>id 번호</strong>로 서로 연결된다 — posts의 author_id, comments의 author_id·post_id.</li>
+    <li>contact-message는 <strong>id, name, message, email, created_at</strong>으로 구성하고, 대부분을 비공개로 설계한다.</li>
+    <li>입력 기능은 <strong>입력 → 검증 → 저장 → 결과 표시</strong> 흐름으로 만든다.</li>
+    <li>검증은 <strong>빈 값 방지·글자 수 제한·형식 확인</strong>을 기본으로 한다.</li>
+    <li>문의 기능에는 <strong>꼭 필요한 정보만</strong> 요청하고, 이메일 같은 선택 정보는 선택 입력으로 둔다.</li>
   </ul>
 </div>
 
@@ -338,16 +182,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: author_id는 그냥 임의의 숫자를 넣으면 된다?</div>
-    <div class="wda-mistake-right">정답: author_id는 <strong>users 테이블의 id 값을 그대로 참조</strong>해서 "어떤 사용자가 작성했는지"를 연결하는 값이다.</div>
+    <div class="wda-mistake-wrong">오해: 문의 기능을 만들 때 이름·이메일·전화번호를 모두 받아야 한다?</div>
+    <div class="wda-mistake-right">정답: 기능에 <strong>꼭 필요한 정보만</strong> 받는다. 전화번호처럼 쓰지 않을 정보는 요청하지 않는다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 댓글은 작성자 정보만 있으면 충분하다?</div>
-    <div class="wda-mistake-right">정답: 댓글은 author_id(작성자 연결)뿐 아니라 <strong>post_id(게시물 연결)</strong>도 함께 저장해야 어떤 게시물의 댓글인지 알 수 있다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: created_at 같은 필드는 화면에 안 보이니 필요 없다?</div>
-    <div class="wda-mistake-right">정답: 화면에 직접 보이지 않아도 <strong>가입일·작성일처럼 나중에 필요한 정보</strong>는 테이블에 미리 포함해야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 저장만 되면 검증은 생략해도 된다?</div>
+    <div class="wda-mistake-right">정답: 빈 값이나 지나치게 긴 입력을 막는 <strong>검증 없이는 데이터 품질을 보장할 수 없다.</strong></div>
   </div>
 </div>
 
@@ -355,16 +195,12 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · users</div>
-    <div class="wda-formula-block-body"><code>id, name, email, phone, created_at</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 입력 흐름</div>
+    <div class="wda-formula-block-body"><code>입력 → 검증 → 저장 → 결과 표시</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · posts</div>
-    <div class="wda-formula-block-body"><code>id, title, content, author_id, created_at</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · comments</div>
-    <div class="wda-formula-block-body"><code>id, content, author_id, post_id, created_at</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 수집 원칙</div>
+    <div class="wda-formula-block-body"><code>필요한 정보만, 최소한으로</code></div>
   </div>
 </div>
 
@@ -372,27 +208,19 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">users 테이블은 어떤 화면에서 발견하나?</div>
-    <div class="wda-flip-back">회원가입 화면에서 입력받는 정보를 보고 발견한다.</div>
+    <div class="wda-flip-front">contact-message의 기본 필드는?</div>
+    <div class="wda-flip-back">id, name, message, email, created_at이다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">posts 테이블의 author_id는 무엇을 연결하나?</div>
-    <div class="wda-flip-back">users 테이블의 id와 연결해 작성자를 나타낸다.</div>
+    <div class="wda-flip-front">입력 기능의 처리 흐름은?</div>
+    <div class="wda-flip-back">입력 → 검증 → 저장 → 결과 표시 순서다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">comments 테이블에 post_id가 필요한 이유는?</div>
-    <div class="wda-flip-back">어떤 게시물에 달린 댓글인지 연결하기 위해서다.</div>
+    <div class="wda-flip-front">개인정보는 어떤 기준으로 수집하나?</div>
+    <div class="wda-flip-back">기능에 꼭 필요한 만큼만 최소한으로 수집한다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">테이블들은 무엇으로 서로 연결되나?</div>
-    <div class="wda-flip-back">id 번호(author_id, post_id 같은 참조 값)로 연결된다.</div>
+    <div class="wda-flip-front">생성된 코드를 검토할 때 무엇을 확인하나?</div>
+    <div class="wda-flip-back">검증 로직 존재 여부, 결과 안내 여부, 불필요한 정보 수집 여부다.</div>
   </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">테이블이란 무엇인가?</div>
-    <div class="wda-flip-back">행(Row)=데이터, 열(Column)=정보의 종류로 이루어진 표다.</div>
-  </div>
-</div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🔍</div><div class="wda-done-ttl">UI → DB 발견 완료!</div><div>UI 화면을 보면서 자연스럽게 데이터베이스 구조를 발견했습니다.<br>작성한 DB 구조서를 메모장에 잘 보관해두세요.<br>다음 단계에서 이 데이터베이스를 활용해서 실제 동작하는 커뮤니티 사이트를 만들어보겠습니다!</div>
 </div>

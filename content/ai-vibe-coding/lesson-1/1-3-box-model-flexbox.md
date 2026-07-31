@@ -2,7 +2,7 @@
 title: "1-3: 박스 모델과 Flexbox 이해"
 category: "ai-vibe-coding"
 section: "lesson-1"
-description: "웹 레이아웃의 핵심인 박스모델 개념과 Flexbox의 유동적 특성을 자연어로 이해하고, AI를 활용해 실제 네비게이션을 제작한다."
+description: "박스 모델과 Flexbox의 기본 개념을 이해하고, 앞서 기획한 섹션의 첫 화면 초안을 AI에게 요청하는 방법을 정리한다."
 tags:
   - ai-vibe-coding
   - lesson-1
@@ -23,47 +23,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-compare{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-cbox{flex:1 1 180px;border-radius:10px;padding:14px 16px}
-.wda-cbox-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;display:block}
-.wda-cbox-ttl{font-size:1rem;font-weight:800;margin-bottom:6px}
-.wda-cbox-body{font-size:.82rem;opacity:.78;line-height:1.6}
-.wda-cbox-plain{background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18)}
-.wda-cbox-plain .wda-cbox-label{color:rgba(128,128,128,.9)}
-.wda-cbox-flex{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.25)}
-.wda-cbox-flex .wda-cbox-label{color:#8b5cf6}
-.wda-cbox-flex .wda-cbox-ttl{color:#8b5cf6}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -80,173 +63,101 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
 .wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid,.wda-cbox{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
 </style>
-
-웹 레이아웃의 핵심인 박스모델 개념과 Flexbox의 유동적 특성을 자연어로 이해하고 실제 네비게이션을 제작해봅니다.
-
----
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>박스모델 개념 이해</strong> — 투명한 박스에 이름, 크기, 색상을 설정하는 원리<br>
-  • <strong>Flexbox 유동성 파악</strong> — 정렬과 크기에 유동적인 flex의 특성<br>
-  • <strong>실제 예시 체험</strong> — 반응형 그리드와 크기 변화 데모 확인<br>
-  • <strong>네비게이션 제작</strong> — AI를 활용한 실제 flexbox 네비게이션 구현
+  • <strong>박스 모델 이해</strong> — 웹의 모든 요소가 박스로 다뤄진다는 개념을 이해합니다<br>
+  • <strong>Flexbox 개념 이해</strong> — 정렬과 크기가 유동적으로 조절되는 원리를 이해합니다<br>
+  • <strong>화면 초안 요청하기</strong> — 목표·현재 상태·제약·출력 형식을 갖춰 AI에게 요청합니다
 </div>
 
 ---
 
-## 📖 개념 설명
-
-### 📦 박스모델(Box Model)이란?
-
-웹에서 모든 요소는 투명한 박스로 시작됩니다. 이 박스에 다양한 속성을 설정하여 우리가 보는 웹 페이지가 만들어집니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">박스에 이름 선언</div><div class="wda-sdsc">처음에는 완전히 투명한 박스가 있습니다.<br>이 박스에 "navigation", "header", "content" 같은 이름을 부여합니다.<br>마치 빈 상자에 "옷장", "책상" 라벨을 붙이는 것과 같아요!</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">박스 크기 설정</div><div class="wda-sdsc">박스의 너비(width)와 높이(height)를 설정합니다.<br>예를 들어 "너비 300px, 높이 200px"처럼요.<br>상자의 크기를 미리 정해두는 것과 같습니다!</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">색상과 테두리 설정</div><div class="wda-sdsc">배경색(background-color)을 파란색으로, 테두리(border)를 2px 검은색으로 설정할 수 있습니다.<br>투명했던 박스가 이제 눈에 보이기 시작해요!</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">박스 안에 내용 추가</div><div class="wda-sdsc">박스 안에 텍스트를 입력하거나 다른 작은 박스들을 넣을 수 있습니다.<br>상자 안에 물건을 넣거나 더 작은 상자를 넣는 것과 같아요!</div></div></div>
-</div>
-
-### 🌐 모든 웹 요소는 박스다
-
-웹 페이지의 모든 요소는 **박스**입니다!
-
-**🔑 핵심 개념**
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  글자도 박스 안에 들어가요 &nbsp;·&nbsp; 이미지도 박스예요 &nbsp;·&nbsp; 버튼도 박스예요 &nbsp;·&nbsp; 심지어 페이지 전체도 하나의 큰 박스입니다!
+  <p><strong>1-2에서 정리한 섹션 기획을 바탕으로, 이 문서는 첫 화면 초안을 AI에게 요청하는 방법을 다룹니다.</strong></p>
+  <p>그 과정에서 레이아웃을 이해하는 데 필요한 박스 모델과 Flexbox의 기본 개념도 함께 정리합니다. AI에게 요청할 때 필요한 맥락 구성의 일반 원칙은 setup 문서에서 다뤘으며, 여기서는 그 원칙을 포트폴리오 화면 요청에 실제로 적용합니다.</p>
 </div>
 
 ---
 
-### 🔄 Flexbox란? — 유동적인 박스
+## 2. 박스 모델: 모든 요소는 박스다
 
-박스모델을 이해했다면, 이제 특별한 박스인 **Flexbox**를 알아볼 차례입니다.
-
-**🔑 핵심 개념**
-
-<div class="wda-callout wda-cw">
-  <strong>"flex하다 = 유동적이다"</strong>
-</div>
-
-### ✨ Flex의 두 가지 유동성
+웹 페이지의 모든 요소는 사각형 박스로 다뤄집니다. 글자도, 이미지도, 버튼도 각각 하나의 박스입니다.
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🎯</div><div class="wda-fcard-ttl">정렬에 유동적이다</div><div class="wda-fcard-dsc">박스들을 자동으로 가운데 정렬할 수 있어요<br>양 끝으로 밀어서 정렬할 수도 있어요<br>균등하게 간격을 두고 정렬할 수도 있어요</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📐</div><div class="wda-fcard-ttl">크기에 유동적이다</div><div class="wda-fcard-dsc">화면이 커지면 박스도 자동으로 커져요<br>화면이 작아지면 박스도 자동으로 작아져요<br>남은 공간을 똑똑하게 나누어 차지해요</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">크기</div><div class="wda-fcard-dsc">너비와 높이로 박스의 크기를 정합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">배경과 테두리</div><div class="wda-fcard-dsc">색상과 테두리로 박스를 눈에 보이게 만듭니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">내부 내용</div><div class="wda-fcard-dsc">박스 안에 텍스트나 더 작은 박스를 담을 수 있습니다.</div></div>
 </div>
 
 ---
 
-## ⚙️ 동작 원리
+## 3. Flexbox: 유동적으로 배치되는 박스
 
-### 실제로 보고 체험해보기
-
-이론만으로는 이해하기 어려우니, 실제 Flexbox가 어떻게 동작하는지 직접 확인해보세요!
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🔲</div><div class="wda-fcard-ttl">반응형 그리드 예시</div><div class="wda-fcard-dsc">정렬에 유동적인 특성을 확인해보세요. 카드들이 화면 크기에 따라 자동으로 정렬됩니다.</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">↔️</div><div class="wda-fcard-ttl">크기 변화 박스</div><div class="wda-fcard-dsc">크기에 유동적인 특성을 확인해보세요. <code>flex: 1</code> 방식으로 박스가 화면을 채우는 모습을 보세요.</div></div>
-</div>
-
----
-
-## 💻 예제 코드
-
-### 🔍 핵심 개념 정리 — 일반 박스 vs Flex Box
-
-**📌 개념**
-
-<div class="wda-callout wda-ci">
-  투명한 박스는 <strong>Flex Box</strong>라고 부르며, 그 안의 속성은 <strong>flex</strong>이다.
-</div>
+여러 개의 박스를 나란히 배치하고 정렬할 때 자주 쓰이는 방식이 Flexbox입니다.
 
 <div class="wda-compare">
-<div class="wda-cbox wda-cbox-plain"><span class="wda-cbox-label">일반 박스</span><div class="wda-cbox-ttl">🔒 고정적</div><div class="wda-cbox-body">크기와 위치가 고정적</div></div>
-<div class="wda-cbox wda-cbox-flex"><span class="wda-cbox-label">Flex Box</span><div class="wda-cbox-ttl">✨ 유동적</div><div class="wda-cbox-body">크기와 정렬이 유동적<br><code>flex</code> 속성으로 똑똑한 레이아웃 구현 가능</div></div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">정렬에 유동적</div>
+    박스들을 가운데, 양 끝, 균등 간격 등으로 자동 정렬할 수 있습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">크기에 유동적</div>
+    화면 크기가 바뀌면 박스 크기도 자동으로 함께 조정됩니다.
+  </div>
+</div>
+
+<div class="wda-callout wda-ci">
+  <p>이런 레이아웃 원리를 알아두면, AI가 만든 결과물이 왜 그렇게 배치됐는지 이해하기 쉬워지고, 원하는 배치를 요청할 때도 더 정확하게 표현할 수 있습니다.</p>
 </div>
 
 ---
 
-### 🧭 Flexbox로 네비게이션 만들기
+## 4. 첫 화면 초안 요청하기
 
-이제 배운 개념을 활용해서 실제로 네비게이션을 만들어보겠습니다!  
-큰 네비게이션 박스 안에 두 개의 작은 박스를 넣는 구조입니다.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">큰 네비게이션 박스</div><div class="wda-sdsc">전체를 감싸는 메인 컨테이너 &nbsp;·&nbsp; Flexbox 설정: 양 끝 정렬</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">로고 박스</div><div class="wda-sdsc">왼쪽에 위치할 로고 영역 &nbsp;·&nbsp; 내용: 사이트 로고나 제목</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">메뉴들 박스</div><div class="wda-sdsc">오른쪽에 위치할 메뉴 영역 &nbsp;·&nbsp; 항목: 홈 · 소개 · 상품 · 연락처 · 설정</div></div></div>
-</div>
-
-### 🤖 AI 네비게이션 제작 프롬프트
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">AI 활용 팁</span>다음 프롬프트를 복사해서 AI에게 요청하면 Flexbox 네비게이션을 만들어줍니다.
-</div>
-
-<div class="wda-prompt-head">📋 AI 네비게이션 제작 프롬프트 — 아래 코드 블록 전체를 복사하여 Claude Code에 붙여넣으세요.</div>
+1-2에서 정리한 섹션과 정보 구조를 바탕으로, 목표·현재 상태·제약·출력 형식을 갖춰 요청합니다.
 
 ```
-flexbox를 사용해서 네비게이션을 만들어줘.
+portfolio-draft의 첫 화면 초안을 만들고 싶습니다.
 
-구조:
-- 큰 네비게이션 박스 (가로 전체, 높이 60px, 배경색 #2d3748)
-- 안에 두 개 박스를 양 끝 정렬:
-  1. 로고 박스: "MyWebsite" 텍스트 (왼쪽)
-  2. 메뉴들 박스: 5개 메뉴 항목들 (오른쪽)
+목표:
+- Hero, profile-section, project-section, contact-section
+  네 영역이 위에서 아래로 순서대로 배치된 화면을 만들어주세요.
 
-메뉴들 박스 안의 5개 항목:
-- 홈, 소개, 상품, 연락처, 설정
+현재 상태:
+- 아직 실제 텍스트나 이미지는 없고, 각 섹션이 무슨 역할인지
+  알아볼 수 있는 정도의 안내 문구만 있으면 됩니다.
 
-스타일링:
-- 로고는 흰색, 굵게, 20px
-- 메뉴 항목들은 연한 회색, 16px, 각각 15px 간격
-- 호버시 흰색으로 변경
-- 전체적으로 깔끔한 모던 스타일로
+제약:
+- 화면이 좁아져도 레이아웃이 깨지지 않게 만들어주세요.
+- 색상이나 애니메이션 같은 세부 디자인은 아직 신경 쓰지 마세요.
 
-ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" 섹션을 만들고 거기에 구현해줘.
+출력 형식:
+1. 만들어진 섹션 목록
+2. 각 섹션의 파일 위치
+3. 확인해야 할 점
 ```
-
----
-
-## ✅ 핵심 요약
-
-### ✅ 체크포인트
-
-다음 내용을 이해했는지 확인해보세요.
 
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">오늘 배운 것</span>박스모델 4단계 · Flexbox 두 가지 유동성 · 반응형 그리드 · 네비게이션 제작
+  <p>이 단계의 목표는 "구조가 보이는 초안"입니다. 디자인이 완성되지 않았어도 정상입니다. 결과가 만족스럽지 않다면 다음 문서에서 다룰 검토·수정 요청 방법을 사용합니다.</p>
 </div>
 
-- [ ] 박스모델 4단계 과정 이해 (이름 → 크기 → 색상 → 내용)
-- [ ] 모든 웹 요소가 박스라는 개념 파악
-- [ ] Flexbox의 두 가지 유동성 이해 (정렬 + 크기)
-- [ ] 반응형 그리드 데모 확인 완료
-- [ ] 크기 변화 데모 확인 완료
-- [ ] 네비게이션 박스 구조 분석 이해
-- [ ] AI 프롬프트로 실제 네비게이션 제작 성공
+---
+
+## 5. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
 <div class="wda-check-note">
   <ul>
-    <li>박스모델은 <strong>이름 선언 → 크기 설정 → 색상/테두리 설정 → 내용 추가</strong> 4단계로 진행된다.</li>
-    <li>웹의 모든 요소(글자·이미지·버튼·페이지 전체)는 <strong>박스</strong>다.</li>
-    <li>Flexbox는 <strong>정렬에 유동적</strong>(가운데·양끝·균등 정렬)이고 <strong>크기에 유동적</strong>(화면 크기에 따라 자동 조절)이다.</li>
-    <li>투명한 박스를 <strong>Flex Box</strong>, 그 안의 속성을 <strong>flex</strong>라 부른다.</li>
+    <li>웹의 모든 요소는 <strong>박스</strong>로 다뤄지며, 크기·배경·내용을 가진다.</li>
+    <li>Flexbox는 <strong>정렬</strong>과 <strong>크기</strong> 두 가지 측면에서 유동적이다.</li>
+    <li>화면 초안을 요청할 때도 <strong>목표·현재 상태·제약·출력 형식</strong>을 갖춘다.</li>
+    <li>첫 초안의 목표는 완성된 디자인이 아니라 <strong>구조가 보이는 상태</strong>다.</li>
   </ul>
 </div>
 
@@ -254,16 +165,12 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 일반 박스와 Flex Box는 똑같이 동작한다?</div>
-    <div class="wda-mistake-right">정답: 일반 박스는 크기·위치가 <strong>고정적</strong>이지만, Flex Box는 정렬과 크기가 <strong>유동적</strong>이다.</div>
+    <div class="wda-mistake-wrong">오해: Flexbox는 크기 조절에만 유동적이다?</div>
+    <div class="wda-mistake-right">정답: <strong>정렬</strong>과 <strong>크기</strong> 두 가지 모두에 유동적이다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: flex는 크기 조절에만 유동적이다?</div>
-    <div class="wda-mistake-right">정답: flex는 <strong>정렬</strong>(가운데·양끝·균등)과 <strong>크기</strong>(화면 크기 대응) 두 가지 모두에 유동적이다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 네비게이션은 로고와 메뉴를 각각 다른 배치 방식으로 만들어야 한다?</div>
-    <div class="wda-mistake-right">정답: 큰 Flex 박스 안에 <strong>로고 박스 + 메뉴들 박스</strong>를 넣고 양 끝 정렬만 지정하면 된다.</div>
+    <div class="wda-mistake-wrong">오해: 첫 초안부터 색상과 애니메이션까지 요청해야 한다?</div>
+    <div class="wda-mistake-right">정답: 첫 초안은 <strong>구조 확인</strong>이 목표이며, 세부 디자인은 이후 단계에서 다듬는다.</div>
   </div>
 </div>
 
@@ -271,16 +178,16 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 박스모델</div>
-    <div class="wda-formula-block-body"><code>이름 → 크기 → 색상 → 내용</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 박스 모델</div>
+    <div class="wda-formula-block-body"><code>크기 + 배경/테두리 + 내용</code></div>
   </div>
   <div class="wda-formula-block">
     <div class="wda-formula-block-ttl">공식 2 · flex 유동성</div>
     <div class="wda-formula-block-body"><code>정렬 + 크기</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · 네비게이션 구조</div>
-    <div class="wda-formula-block-body"><code>큰 박스(양끝정렬) = 로고 + 메뉴들</code></div>
+    <div class="wda-formula-block-ttl">공식 3 · 요청 구성</div>
+    <div class="wda-formula-block-body"><code>목표 + 현재상태 + 제약 + 출력형식</code></div>
   </div>
 </div>
 
@@ -288,33 +195,15 @@ ui_test 프로젝트의 새로운 섹션으로 추가해서 "Flex Navigation" �
 
 <div class="wda-flip-deck">
   <div class="wda-flip-card">
-    <div class="wda-flip-front">박스모델 4단계는?</div>
-    <div class="wda-flip-back">이름 선언 → 크기 설정 → 색상/테두리 설정 → 내용 추가 순서로 진행된다.</div>
+    <div class="wda-flip-front">웹의 모든 요소는 무엇으로 다뤄지나요?</div>
+    <div class="wda-flip-back">사각형 박스로 다뤄집니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">웹의 모든 요소는 무엇에서 시작되나?</div>
-    <div class="wda-flip-back">투명한 박스에서 시작된다.</div>
+    <div class="wda-flip-front">Flexbox의 두 가지 유동성은?</div>
+    <div class="wda-flip-back">정렬에 유동적인 것과 크기에 유동적인 것입니다.</div>
   </div>
   <div class="wda-flip-card">
-    <div class="wda-flip-front">Flex의 두 가지 유동성은?</div>
-    <div class="wda-flip-back">정렬에 유동적인 것과 크기에 유동적인 것 두 가지다.</div>
+    <div class="wda-flip-front">첫 화면 초안 요청의 목표는?</div>
+    <div class="wda-flip-back">완성된 디자인이 아니라 구조가 잘 보이는 상태입니다.</div>
   </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">일반 박스와 Flex Box의 차이는?</div>
-    <div class="wda-flip-back">일반 박스는 크기·위치가 고정적이고, Flex Box는 정렬과 크기가 유동적이다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">flexbox 네비게이션의 기본 구조는?</div>
-    <div class="wda-flip-back">양 끝 정렬된 큰 박스 안에 로고 박스와 메뉴들 박스를 넣는 구조다.</div>
-  </div>
-  <div class="wda-flip-card">
-    <div class="wda-flip-front">flex 속성은 무엇에 적용되나?</div>
-    <div class="wda-flip-back">투명한 Flex Box 내부 자식 요소들의 정렬과 크기를 제어한다.</div>
-  </div>
-</div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">박스모델과 Flexbox 학습 완료!</div>
-  <div>웹 레이아웃의 핵심 개념을 자연어로 이해하고 실제 네비게이션까지 제작해봤습니다.<br>이제 어떤 복잡한 레이아웃도 박스의 관점에서 분석할 수 있어요!</div>
 </div>
