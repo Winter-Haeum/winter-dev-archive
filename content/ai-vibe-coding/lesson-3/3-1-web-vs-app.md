@@ -1,16 +1,10 @@
 ---
-title: "3-1: 웹과 앱의 차이점"
+title: "3-1: 웹 화면과 모바일 화면의 차이"
 category: "ai-vibe-coding"
 section: "lesson-3"
-description: "웹과 앱의 기본 개념부터 기술적 차이점, 실무 선택 기준, PWA, 미래 전망까지 체계적으로 학습합니다."
-tags:
-  - ai-vibe-coding
-  - lesson-3
-  - web
-  - app
-  - pwa
 date: "2026-06-11"
 status: "completed"
+description: "같은 화면이라도 화면 크기에 따라 다르게 보여야 하는 이유를 이해하고, 반응형 사고방식의 기본 개념을 익힙니다."
 ---
 
 <style>
@@ -22,44 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -81,151 +61,82 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>기본 개념 정립</strong> — 웹과 앱의 정확한 정의와 동작 원리의 차이를 이해한다<br>
-  • <strong>비교 분석</strong> — 설치 방식·성능·기기 기능 활용 등 핵심 차이점을 설명할 수 있다<br>
-  • <strong>실무 판단력</strong> — 새로운 프로젝트를 시작할 때 웹/앱 중 어떤 것을 선택할지 근거를 들어 결정할 수 있다<br>
-  • <strong>미래 전망</strong> — PWA와 기술 발전 방향을 이해하여 변화하는 개발 환경에 대비한다
+  • <strong>화면 차이 이해</strong> — 같은 정보라도 화면 크기에 따라 다르게 보여야 하는 이유를 이해합니다<br>
+  • <strong>반응형 사고방식</strong> — "줄이기"가 아니라 "재배치"라는 관점을 익힙니다<br>
+  • <strong>확인 기준</strong> — 실제 기기·브라우저 크기에서 확인해야 하는 이유를 이해합니다
 </div>
 
 ---
 
-## 🌐 웹(Web)이란?
-
-웹은 인터넷 브라우저를 통해 접근하는 서비스로, URL(주소)만 알면 설치 없이 바로 이용할 수 있습니다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🔗</div><div class="wda-fcard-ttl">접근 방식</div><div class="wda-fcard-dsc">Chrome · Safari · Firefox 등 브라우저에서 URL 입력 즉시 이용 · 설치 불필요</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">💻</div><div class="wda-fcard-ttl">기술 스택</div><div class="wda-fcard-dsc">HTML · CSS · JavaScript<br>프레임워크: React · Vue · Angular<br>서버: Node.js · Python · Java</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🖥️</div><div class="wda-fcard-ttl">플랫폼 독립성</div><div class="wda-fcard-dsc">Windows · macOS · iOS · Android 모든 기기에서 동일 동작 · 반응형 디자인 적용</div></div>
-</div>
-
----
-
-## 📦 앱(App)이란?
+## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">앱이란?</span>
-  앱은 모바일 기기나 데스크톱에 설치하여 사용하는 응용 프로그램으로, 해당 플랫폼에 최적화된 성능과 기능을 제공합니다.
+  <p><strong>lesson-1~2에서 만든 포트폴리오는 지금까지 데스크톱 화면 기준으로만 확인해 왔습니다.</strong></p>
+  <p>이 문서군에서는 같은 포트폴리오를 모바일 등 더 작은 화면에서도 보기 좋게 확장하는 방법을 다룹니다. 이 문서는 그 첫걸음으로, 화면 크기가 달라지면 왜 화면 구성도 달라져야 하는지부터 정리합니다.</p>
 </div>
+
+---
+
+## 2. 같은 정보, 다른 화면
+
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">넓은 화면 (데스크톱)</div>
+    여러 섹션과 정보를 한 화면에 나란히 배치할 수 있습니다. 마우스로 세밀한 위치를 클릭할 수 있습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">좁은 화면 (모바일)</div>
+    한 번에 보여줄 수 있는 공간이 적어, 정보에 순서를 매겨 위에서 아래로 쌓아야 합니다. 손가락으로 터치하므로 클릭 영역이 더 커야 합니다.
+  </div>
+</div>
+
+---
+
+## 3. 화면 구성이 달라지는 이유
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🍎</div><div class="wda-fcard-ttl">네이티브 앱</div><div class="wda-fcard-dsc">iOS: Swift/Objective-C<br>Android: Kotlin/Java<br>최고 성능 · 기기 기능 100% 활용 · 플랫폼별 개발 필요</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🔄</div><div class="wda-fcard-ttl">하이브리드 앱</div><div class="wda-fcard-dsc">React Native · Flutter<br>한 번 개발로 멀티 플랫폼 지원<br>개발 비용 절약 · 성능은 네이티브 대비 낮음</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">화면 크기</div><div class="wda-fcard-dsc">보여줄 수 있는 공간 자체가 좁아지므로 정보를 나열하는 방식이 달라집니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">입력 방식</div><div class="wda-fcard-dsc">마우스 클릭과 손가락 터치는 요구하는 버튼 크기와 간격이 다릅니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">이용 상황</div><div class="wda-fcard-dsc">이동 중이거나 한 손으로 조작하는 상황을 함께 고려해야 합니다.</div></div>
 </div>
 
 ---
 
-## ⚖️ 웹 vs 앱 — 핵심 차이점 3가지
+## 4. 반응형 사고방식: 줄이기가 아니라 재배치
 
-**🆚 설치와 접근성**
-
-| 구분 | 웹 | 앱 |
-|---|---|---|
-| **접근** | URL 입력 → 즉시 사용 | 앱스토어 → 다운로드 → 설치 → 사용 |
-| **업데이트** | 배포 즉시 모든 사용자 반영 | 앱스토어 심사 + 사용자 업데이트 승인 필요 |
-| **사례** | 네이버, 유튜브 웹 버전 | 카카오톡, 배달의민족 앱 |
-
-**🆚 성능과 속도**
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">성능 비교</span>
-  📦 <strong>데이터 로딩:</strong> 웹은 매번 서버에서 다운로드 / 앱은 기본 파일이 기기에 저장되어 필요 데이터만 로드<br>
-  ⚡ <strong>처리 속도:</strong> 웹은 브라우저 렌더링 레이어 존재 / 앱은 기기 하드웨어에 직접 접근하여 빠름<br>
-  🎮 <strong>사례:</strong> 웹게임은 끊길 수 있음 / 모바일 게임은 부드러운 경험 제공
-</div>
-
-**🆚 기기 기능 활용**
-
-| 구분 | 웹 | 앱 |
-|---|---|---|
-| **카메라** | 브라우저 API로 제한적 접근 | 직접 완전 제어 |
-| **GPS/위치** | 허용 필요, 정밀도 낮음 | 높은 정밀도로 항상 접근 |
-| **푸시 알림** | 일부 브라우저만 지원 | 완전 지원 |
-| **오프라인** | 인터넷 연결 필수 | 기본 기능 오프라인 사용 가능 |
-
----
-
-## 🔍 실제 서비스 사례로 보는 웹 vs 앱
-
-| 서비스 | 웹 버전의 특징 | 앱 버전의 특징 |
-|---|---|---|
-| **YouTube** | 큰 화면 시청 · 여러 탭 열기 가능 · 백그라운드 재생 제한 | 오프라인 다운로드 · 백그라운드 재생 · 알림 수신 |
-| **Instagram** | 기본 피드 보기 · 사진 업로드 제한 · DM 기능 일부 제한 | 카메라 직접 연동 · 스토리 · 릴스 · 실시간 알림 완전 지원 |
-| **쿠팡** | 넓은 화면에서 상품 비교 · 여러 탭으로 쇼핑 | 위치 기반 배송 정보 · 바코드 스캔 · 푸시 할인 알림 |
-| **은행 서비스** | 인터넷뱅킹 · 복잡한 업무 처리 용이 | 지문·얼굴 인식 로그인 · 간편 송금 · 위치 기반 ATM 찾기 |
-
----
-
-## 🛠️ 개발자 관점 — 웹과 앱의 장단점
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">개발자 시각</span>
-  각각의 방식은 분명한 장단점이 있습니다. 프로젝트 목표와 팀 상황에 따라 최적의 선택이 달라집니다.
-</div>
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">✅</div><div class="wda-fcard-ttl">웹 개발 장점</div><div class="wda-fcard-dsc">배포 즉시 모든 사용자 업데이트 · 한 번 개발로 모든 플랫폼 지원 · SEO 가능 · 상대적으로 저렴한 개발 비용</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚠️</div><div class="wda-fcard-ttl">웹 개발 단점</div><div class="wda-fcard-dsc">브라우저 호환성 문제 발생 가능 · 인터넷 연결 필수 · 기기 고급 기능 활용 제한</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">✅</div><div class="wda-fcard-ttl">앱 개발 장점</div><div class="wda-fcard-dsc">최적화된 성능과 UX · 오프라인 기본 기능 사용 · 기기 모든 기능 자유롭게 활용 · 높은 보안성</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚠️</div><div class="wda-fcard-ttl">앱 개발 단점</div><div class="wda-fcard-dsc">iOS · Android 플랫폼별 개발 필요 · 앱스토어 심사 프로세스 · 업데이트 시 사용자 동의 필요 · 높은 개발 비용</div></div>
-</div>
-
----
-
-## 🤔 언제 웹을, 언제 앱을 선택할까?
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">웹을 선택하는 경우</span>
-  📄 <strong>정보 제공이 주목적</strong> — 회사 홈페이지 · 블로그 · 뉴스 사이트<br>
-  💰 <strong>예산과 시간이 제한적</strong> — 스타트업 · 개인 프로젝트 · 빠른 MVP 출시<br>
-  🔍 <strong>검색 노출이 중요</strong> — SEO가 핵심인 마케팅·브랜딩 사이트<br>
-  🖥️ <strong>데스크톱 사용자 비중이 높음</strong> — B2B 서비스 · 관리 도구<br>
-  🌍 <strong>글로벌 접근성 필요</strong> — 다양한 기기와 OS를 모두 지원해야 할 때<br><br>
-  대표 사례: 네이버 블로그 · 티스토리 · 회사 홈페이지 · 쇼핑몰
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">화면만 줄이기</div>
+    데스크톱 레이아웃을 그대로 축소하면 글자와 버튼이 너무 작아지고, 정보가 한눈에 들어오지 않습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">정보 우선순위 재배치</div>
+    좁은 화면에서 가장 먼저 봐야 할 정보를 위로 올리고, 나머지는 아래로 쌓거나 접어서 보여줍니다.
+  </div>
 </div>
 
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">앱을 선택하는 경우</span>
-  🔄 <strong>자주 사용하는 서비스</strong> — 소셜미디어 · 게임 · 음악 스트리밍<br>
-  📷 <strong>기기 기능 활용이 필수</strong> — 카메라 · GPS · 알림이 핵심 기능<br>
-  🔒 <strong>보안이 중요</strong> — 금융 · 결제 · 민감한 개인정보 처리<br>
-  ⚡ <strong>빠른 반응성이 필요</strong> — 실시간 채팅 · 게임 · 라이브 스트리밍<br><br>
-  대표 사례: 카카오톡 · 인스타그램 · 배달의민족 · 토스
+  <p>반응형 화면을 만든다는 것은 <strong>같은 내용을 작게 그리는 일이 아니라, 화면 크기에 맞게 정보의 순서와 비중을 다시 정하는 일</strong>입니다.</p>
 </div>
 
 ---
 
-## 🚀 PWA: 웹과 앱의 장점을 합친 기술
-
-PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 새로운 형태의 서비스입니다. 앱스토어 없이도 홈 화면에 설치할 수 있고, 오프라인에서도 동작합니다.
+## 5. 접근 방식 맛보기: 모바일 퍼스트 vs 데스크톱 우선
 
 <div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">📲</div><div class="wda-fcard-ttl">앱처럼 설치</div><div class="wda-fcard-dsc">웹사이트를 홈 화면에 추가하여 앱처럼 사용 · 앱스토어 심사 없이 즉시 배포</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📶</div><div class="wda-fcard-ttl">오프라인 동작</div><div class="wda-fcard-dsc">Service Worker로 캐시 관리 · 인터넷 연결 없이도 기본 기능 사용 가능</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🔔</div><div class="wda-fcard-ttl">푸시 알림</div><div class="wda-fcard-dsc">네이티브 앱처럼 푸시 알림 발송 가능 · 브라우저를 닫아도 알림 수신</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">모바일 퍼스트</div><div class="wda-fcard-dsc">좁은 화면 기준으로 먼저 설계하고, 넓은 화면에서는 정보를 추가로 채워 넣는 접근입니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">데스크톱 우선</div><div class="wda-fcard-dsc">넓은 화면 기준으로 먼저 설계하고, 좁은 화면에서는 정보를 줄이거나 재배치하는 접근입니다.</div></div>
 </div>
 
-| 서비스 | PWA 활용 사례 |
-|---|---|
-| **트위터** | 앱 대신 PWA 버전을 주력으로 운영 · 데이터 사용량 70% 감소 |
-| **스타벅스** | PWA로 주문과 결제 시스템 구현 · 느린 인터넷에서도 정상 작동 |
-| **핀터레스트** | PWA 도입 후 사용자 참여도 60%, 핵심 지표 44% 향상 |
-| **인스타그램** | 인터넷이 느린 지역을 위한 Lite PWA 버전 별도 제공 |
+두 접근 모두 널리 쓰이며, 이 문서군에서는 어느 한쪽을 강요하지 않고 "화면 크기별로 다르게 설계한다"는 개념만 기억해 둡니다.
 
 ---
 
-## 🔭 웹과 앱의 미래 전망
+## 6. 확인은 반드시 실제 화면에서
 
-기술 발전과 함께 웹과 앱의 경계가 점점 모호해지고 있습니다. 두 영역 모두 빠르게 진화 중입니다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">🌐</div><div class="wda-fcard-ttl">웹의 진화</div><div class="wda-fcard-dsc">WebAssembly로 네이티브 수준 성능 · Web APIs로 기기 기능 범위 확대 · PWA 보편화 · 5G 확산으로 속도 한계 해결</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📱</div><div class="wda-fcard-ttl">앱의 진화</div><div class="wda-fcard-dsc">크로스 플랫폼(Flutter · React Native)으로 멀티 플랫폼 개발 · AI 통합 개인화 경험 · AR/VR 새로운 인터페이스 · IoT 스마트 기기 연동</div></div>
-</div>
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">핵심 트렌드</span>
-  현재 개발 트렌드는 <strong>"웹처럼 배포하고, 앱처럼 동작하는"</strong> 방향으로 수렴하고 있습니다. PWA, 크로스 플랫폼 프레임워크, WebAssembly 등이 경계를 허물고 있으며, 앞으로는 "웹인지 앱인지"보다 "사용자 경험이 좋은가"가 더 중요해질 것입니다.
+<div class="wda-callout wda-cw">
+  <span class="wda-clabel">확인 기준</span>
+  <p>브라우저 창 크기를 손으로 줄여보는 것만으로는 실제 모바일 기기에서 어떻게 보이는지 정확히 알기 어렵습니다. 가능하면 <strong>실제 기기나 브라우저의 화면 크기 검사 도구</strong>로 확인합니다. 도구의 구체적인 이름이나 화면 구성은 계속 바뀔 수 있으므로, 여기서는 "실제 크기에서 확인한다"는 원칙만 기억해 둡니다.</p>
 </div>
 
 ---
@@ -236,12 +147,10 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 
 <div class="wda-check-note">
   <ul>
-    <li>웹은 <strong>URL 입력 즉시 사용</strong>, 앱은 <strong>앱스토어 설치</strong>가 필요하다.</li>
-    <li>앱은 <strong>기기에 저장된 파일</strong>로 실행되어 빠르고, 웹은 <strong>매번 서버에서 다운로드</strong>한다.</li>
-    <li>앱은 <strong>카메라·GPS·푸시 알림</strong> 등 기기 기능을 완전히 활용하지만, 웹은 브라우저 API로 제한적이다.</li>
-    <li>웹은 <strong>SEO(검색 노출)</strong>가 가능하지만, 앱은 불가능하다.</li>
-    <li>웹은 <strong>배포 즉시 모든 사용자에게 반영</strong>되지만, 앱은 <strong>사용자 업데이트 승인</strong>이 필요하다.</li>
-    <li>PWA는 <strong>웹 기술로 앱처럼 동작</strong>하는 절충안으로, 설치 없이 홈 화면 추가와 오프라인 사용이 가능하다.</li>
+    <li>화면이 좁아지면 <strong>정보를 나열하는 공간 자체가 줄어들어</strong> 구성 방식도 달라져야 한다.</li>
+    <li>반응형은 <strong>화면을 줄이는 것이 아니라 정보 우선순위를 재배치하는 것</strong>이다.</li>
+    <li>모바일 퍼스트와 데스크톱 우선 접근은 <strong>시작점만 다를 뿐</strong> 둘 다 화면 크기별 설계를 목표로 한다.</li>
+    <li>반응형 화면은 <strong>실제 기기나 화면 크기 검사 도구</strong>로 확인해야 정확하다.</li>
   </ul>
 </div>
 
@@ -249,20 +158,12 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 앱이 무조건 웹보다 더 좋은 선택이다?</div>
-    <div class="wda-mistake-right">정답: 정보 제공·SEO·빠른 배포가 중요하면 <strong>웹</strong>이, 기기 기능·보안·최고 UX가 중요하면 <strong>앱</strong>이 유리하다. 목적에 따라 선택이 달라진다.</div>
+    <div class="wda-mistake-wrong">오해: 모바일 화면은 데스크톱 화면을 그대로 축소하면 된다?</div>
+    <div class="wda-mistake-right">정답: 그대로 축소하면 글자·버튼이 너무 작아진다. <strong>정보 우선순위를 다시 배치</strong>해야 한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: PWA는 그냥 웹사이트일 뿐이다?</div>
-    <div class="wda-mistake-right">정답: PWA는 <strong>웹 기술로 만들지만 앱처럼 설치·오프라인 동작·푸시 알림</strong>까지 지원하는 절충 기술이다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 하이브리드 앱은 네이티브 앱과 성능이 동일하다?</div>
-    <div class="wda-mistake-right">정답: 하이브리드 앱(React Native·Flutter)은 개발 비용은 절약되지만 <strong>성능은 네이티브 대비 낮다</strong>.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: 웹은 검색 노출도 안 되고 앱보다 항상 불리하다?</div>
-    <div class="wda-mistake-right">정답: 웹은 <strong>SEO가 가능</strong>해 마케팅·브랜딩에 강점이 있다. 앱은 SEO가 불가능하다.</div>
+    <div class="wda-mistake-wrong">오해: 브라우저 창 크기만 줄여보면 모바일 화면 확인이 끝난다?</div>
+    <div class="wda-mistake-right">정답: 터치 조작감이나 실제 기기의 화면 비율은 <strong>실제 기기나 검사 도구</strong>로 확인해야 정확히 알 수 있다.</div>
   </div>
 </div>
 
@@ -270,46 +171,32 @@ PWA(Progressive Web App)는 웹 기술로 만들지만 앱처럼 동작하는 �
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 1 · 접근 방식</div>
-    <div class="wda-formula-block-body"><code>웹 = URL 즉시</code><br><code>앱 = 설치 필요</code></div>
+    <div class="wda-formula-block-ttl">공식 1 · 반응형의 본질</div>
+    <div class="wda-formula-block-body"><code>줄이기 X · 재배치 O</code></div>
   </div>
   <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 2 · 선택 기준</div>
-    <div class="wda-formula-block-body"><code>정보·SEO·저예산 → 웹</code><br><code>기기기능·보안·UX → 앱</code></div>
-  </div>
-  <div class="wda-formula-block">
-    <div class="wda-formula-block-ttl">공식 3 · PWA</div>
-    <div class="wda-formula-block-body"><code>PWA = 웹 편의성 + 앱 UX</code></div>
+    <div class="wda-formula-block-ttl">공식 2 · 확인 방법</div>
+    <div class="wda-formula-block-body"><code>실제 기기·검사 도구로 확인</code></div>
   </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
-  <div class="wda-flip-card"><div class="wda-flip-front">웹과 앱의 가장 큰 차이는?</div><div class="wda-flip-back">웹은 URL로 즉시 사용하고, 앱은 앱스토어에서 설치해야 사용할 수 있다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">왜 앱이 웹보다 빠르게 느껴지나?</div><div class="wda-flip-back">앱은 파일이 기기에 저장되어 있어 필요한 데이터만 불러오지만, 웹은 매번 서버에서 다운로드하기 때문이다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">SEO가 가능한 쪽은?</div><div class="wda-flip-back">웹만 검색엔진 노출(SEO)이 가능하고, 앱은 불가능하다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">PWA란?</div><div class="wda-flip-back">웹 기술로 만들지만 설치·오프라인 동작·푸시 알림까지 지원하는, 웹과 앱의 장점을 합친 기술이다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">네이티브 앱과 하이브리드 앱의 차이는?</div><div class="wda-flip-back">네이티브는 플랫폼별로 따로 개발해 성능이 최고지만, 하이브리드는 한 번 개발로 멀티 플랫폼을 지원하는 대신 성능이 다소 낮다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">웹을 선택해야 하는 대표 상황은?</div><div class="wda-flip-back">정보 제공이 목적이거나, 예산·시간이 제한적이거나, SEO가 중요할 때다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">앱을 선택해야 하는 대표 상황은?</div><div class="wda-flip-back">카메라·GPS 등 기기 기능이 필수이거나, 보안이 중요하거나, 자주 쓰는 서비스일 때다.</div></div>
-</div>
-
----
-
-## ✍️ 실습 과제 — 내가 자주 쓰는 서비스 3가지 분석
-
-자주 사용하는 서비스 3개를 선택해서 아래 질문에 답해보세요.
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">웹·앱 모두 사용 경험</div><div class="wda-sdsc">웹 버전과 앱 버전을 모두 사용해봤나요? 어떤 차이를 느꼈나요?</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">상황별 사용 패턴</div><div class="wda-sdsc">어떤 상황에서 웹을, 어떤 상황에서 앱을 사용하나요? 이유도 생각해보세요.</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">개발 방향 선택</div><div class="wda-sdsc">만약 이 서비스를 직접 개발한다면 웹과 앱 중 어떤 것부터 시작하겠나요?</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">이유 설명</div><div class="wda-sdsc">그 이유는 무엇인가요? 오늘 학습한 차이점을 근거로 설명해보세요.</div></div></div>
-</div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">3-1 완료!</div>
-  <div>웹과 앱의 차이점을 체계적으로 학습했습니다. 이제 새 프로젝트를 시작할 때 어떤 방향으로 개발할지 판단할 수 있는 기초 지식을 갖추었습니다!</div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">화면 크기가 달라지면 왜 구성도 달라져야 하나?</div>
+    <div class="wda-flip-back">보여줄 수 있는 공간, 입력 방식, 이용 상황이 모두 달라지기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">반응형 화면 만들기의 핵심은?</div>
+    <div class="wda-flip-back">화면을 줄이는 것이 아니라 정보의 순서와 비중을 재배치하는 것이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">모바일 퍼스트와 데스크톱 우선의 차이는?</div>
+    <div class="wda-flip-back">어느 화면 크기를 기준으로 먼저 설계하느냐의 시작점 차이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">반응형 화면은 어떻게 확인해야 정확한가?</div>
+    <div class="wda-flip-back">브라우저 창 크기 조절만으로는 부족하며, 실제 기기나 화면 크기 검사 도구로 확인해야 한다.</div>
+  </div>
 </div>

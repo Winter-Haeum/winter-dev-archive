@@ -1,17 +1,10 @@
 ---
-title: "3-3: SNS DB 분석 및 미니 SNS 구현"
+title: "3-3: 피드·목록형 화면 검토하기"
 category: "ai-vibe-coding"
 section: "lesson-3"
-description: "SNS UI를 역방향으로 분석하여 DB 구조를 직접 발견하고, AI 프롬프트 한 방으로 미니 SNS를 구현·배포합니다."
-tags:
-  - ai-vibe-coding
-  - lesson-3
-  - sns
-  - database
-  - supabase
-  - deploy
 date: "2026-06-11"
 status: "completed"
+description: "카드가 반복되는 피드·목록 화면의 구성 요소를 정리하고, 빈 상태·로딩·에러 상태까지 포함해 화면을 검토하는 기준을 익힙니다."
 ---
 
 <style>
@@ -23,45 +16,30 @@ status: "completed"
 .wda-ci .wda-clabel{color:#8b5cf6}
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
-.wda-fcard{flex:1 1 150px;background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-fcard-ico{font-size:1.3rem;margin-bottom:6px}
+.wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
 .wda-fcard-dsc{font-size:.89rem;line-height:1.65}
-.wda-done{border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:16px 20px;margin:.8rem 0 1.4rem;background:rgba(34,197,94,.04);text-align:center;font-size:.82rem;line-height:1.6}
-.wda-done-ico{font-size:1.8rem;margin-bottom:6px}
-.wda-done-ttl{font-size:1rem;font-weight:700;color:#22c55e;margin-bottom:4px}
-.wda-steps{background:rgba(128,128,128,.03);border:1px solid rgba(128,128,128,.15);border-radius:10px;overflow:hidden;margin:.8rem 0 1.6rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.wda-step{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-bottom:1px solid rgba(128,128,128,.1)}
-.wda-step:last-child{border-bottom:none}
-.wda-snum{min-width:26px;height:26px;border-radius:50%;background:rgba(139,92,246,.12);color:#8b5cf6;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.wda-sbody{flex:1;min-width:0}
-.wda-sttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
-.wda-sdsc{font-size:.89rem;line-height:1.65}
-.wda-prompt-head{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-bottom:none;border-radius:10px 10px 0 0;padding:8px 14px;font-size:.78rem;font-weight:700;color:#8b5cf6;letter-spacing:.03em}
-.wda-memo{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 16px;margin:.8rem 0 1.6rem}
-.wda-memo-label{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f59e0b;margin-bottom:8px;display:block}
-.wda-memo-body{font-size:.81rem;line-height:1.6}
-.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:13px 18px;margin:.8rem 0 1.6rem;font-size:.79rem;line-height:1.75}
-.wda-goal-label{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#22c55e;display:block;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;font-size:.78rem;margin:.8rem 0 1.6rem}
-th{font-weight:600;padding:6px 10px;background:rgba(128,128,128,.07);border:1px solid rgba(128,128,128,.18);font-size:.72rem;letter-spacing:.02em;text-align:left}
-td{padding:5px 10px;border:1px solid rgba(128,128,128,.14);vertical-align:top;line-height:1.5;font-size:.78rem}
-tr:nth-child(even) td{background:rgba(128,128,128,.025)}
-.wda-cy{background:rgba(250,204,21,.07);border-color:#ca8a04}
-.wda-cy .wda-clabel{color:#92400e}
-p:has(> strong:only-child){margin-top:2.2rem !important;margin-bottom:.2rem !important}
-p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-child)+ol,p:has(> strong:only-child)+div,p:has(> strong:only-child)+pre{margin-top:.15rem !important}
-.wda-deco{position:absolute;z-index:2;pointer-events:none}
-.wda-char{position:absolute;z-index:3;pointer-events:none}
-@media (max-width:640px){
-.wda-deco{max-width:55px !important}
-.wda-char{max-width:110px !important}
-.wda-goal,.wda-callout,.wda-done,.wda-memo,.wda-steps,.wda-fgrid{padding-left:16px !important;padding-right:16px !important}
-}
-@media (max-width:554px){
-.wda-char{display:none !important}
-}
+.wda-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8rem 0 1.6rem}
+@media(max-width:600px){.wda-compare{grid-template-columns:1fr}}
+.wda-compare-card{border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:14px 16px;font-size:.89rem;line-height:1.65;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.wda-compare-ttl{font-size:.92rem;font-weight:700;line-height:1.5;margin-bottom:8px}
+.wda-flow{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0 1.6rem;align-items:flex-start}
+.wda-fnode{flex:1 1 90px;border:1px solid rgba(128,128,128,.18);border-radius:8px;padding:10px 12px;text-align:center;min-width:80px}
+.wda-fnode-ttl{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.wda-fnode-dsc{font-size:.82rem;line-height:1.55}
+.wda-farrow{color:rgba(139,92,246,.45);font-size:1.1rem;flex-shrink:0;padding:0 2px;align-self:center}
+@media(max-width:600px){.wda-flow{flex-direction:column;align-items:center}.wda-farrow{transform:rotate(90deg)}}
+.wda-callout p{margin:0 0 .45rem;font-size:.9rem;line-height:1.75}
+.wda-callout p:last-child{margin-bottom:0}
+.wda-callout ul{margin:.35rem 0 0;padding-left:1.1rem}
+.wda-callout li{margin:.24rem 0;line-height:1.75;font-size:.83rem}
+.wda-callout .wda-clabel{font-size:.7rem;line-height:1.3}
+table.wda-mtable{width:100%;border-collapse:collapse;font-size:.83rem;margin:.8rem 0 1.4rem}
+table.wda-mtable th,table.wda-mtable td{border:1px solid rgba(128,128,128,.2);padding:8px 12px;vertical-align:top;line-height:1.65}
+table.wda-mtable th{background:rgba(139,92,246,.08);font-weight:700;text-align:left;white-space:nowrap}
+table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .wda-check-note{border:1px dashed rgba(128,128,128,.22);border-radius:8px;padding:14px 18px;background:rgba(128,128,128,.03);margin:.8rem 0 1.6rem;color:#2C2840}
 .wda-check-note ul{list-style:none;margin:0;padding:0}
 .wda-check-note li{position:relative;padding-left:1.4rem;margin:.4rem 0;font-size:.89rem;line-height:1.65}
@@ -72,264 +50,122 @@ p:has(> strong:only-child)+p,p:has(> strong:only-child)+ul,p:has(> strong:only-c
 .wda-mistake-wrong{font-size:.87rem;line-height:1.6;color:#C98245;text-decoration:line-through;text-decoration-color:#C98245;margin-bottom:4px}
 .wda-mistake-right{font-size:.89rem;line-height:1.65;font-weight:600;color:#2C2840}
 .wda-mistake-right strong{color:#1F1B2E;font-weight:700}
+.wda-formula-board{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem;padding:14px;border-radius:12px;background:rgba(128,128,128,.025);border:1px dashed rgba(128,128,128,.22)}
+.wda-formula-block{flex:1 1 160px;min-width:150px;border-radius:8px;padding:10px 13px;background:#FFF3F6;border:1px dashed #F0B4C2}
+.wda-formula-block-ttl{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#D86F8A;margin-bottom:6px}
+.wda-formula-block-body{font-size:.87rem;line-height:1.7;font-weight:600;color:#2C2840}
+.wda-formula-block-body code{background:transparent;padding:0;font-weight:700;font-family:'JetBrains Mono','Fira Code',monospace;color:#1F1B2E}
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
 ## 🎯 학습 목표
 
 <div class="wda-goal">
-  • <strong>역방향 학습</strong> — UI 화면을 보고 필요한 DB 테이블 구조를 직접 발견하는 역방향 분석 방법 체험<br>
-  • <strong>DB 구조 이해</strong> — users · posts · comments 테이블의 관계와 연결 방식을 자연스럽게 이해한다<br>
-  • <strong>DB 구조서 작성</strong> — 발견한 내용을 실제 DB 설계 문서 형태로 정리할 수 있다<br>
-  • <strong>미니 SNS 구현</strong> — 작성한 DB 구조서를 바탕으로 AI와 협력하여 실제 SNS를 구현·배포한다
+  • <strong>피드 카드 구조</strong> — 카드가 반복되는 화면의 기본 구성 요소를 정리합니다<br>
+  • <strong>화면 상태 재확인</strong> — 빈 상태·로딩·에러 상태를 모바일 화면 관점에서 검토합니다<br>
+  • <strong>검토 중심 접근</strong> — 새로운 데이터 저장 방식을 배우지 않고, 이미 있는 화면을 검토하는 데 집중합니다
 </div>
 
 ---
 
-## 🔄 역방향 학습법: SNS UI → DB 발견
+## 1. 이 문서에서 다루는 것
 
-오늘은 일반적인 순서(DB 설계 → UI 개발)의 반대로 접근합니다. **먼저 완성된 SNS 화면을 보고**, 거기서 필요한 DB 구조를 역으로 추론해냅니다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">👁️</div><div class="wda-fcard-ttl">직관적 이해</div><div class="wda-fcard-dsc">"이 화면에 이런 정보가 보이니까 DB에도 이런 필드가 필요하구나!" — 눈에 보이는 것부터 시작</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">🎯</div><div class="wda-fcard-ttl">현실적 설계</div><div class="wda-fcard-dsc">실제 화면에서 출발하므로 불필요한 필드 없이 꼭 필요한 것만 설계하게 됨</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">⚡</div><div class="wda-fcard-ttl">즉시 연결</div><div class="wda-fcard-dsc">DB 설계 → 바로 구현으로 이어지는 흐름 · 설계와 개발 사이 단절 없음</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📱</div><div class="wda-fcard-ttl">SNS 특화</div><div class="wda-fcard-dsc">사용자·게시물·댓글 관계는 대부분의 SNS에서 공통 패턴 · 응용 범위 넓음</div></div>
+<div class="wda-callout wda-ci">
+  <p><strong>lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다.</strong></p>
+  <p>데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 <strong>화면에 카드가 여러 개 반복될 때의 구성과 상태</strong>에 집중합니다.</p>
 </div>
 
 ---
 
-## 📊 먼저 알아두기: 테이블(Table) 개념
+## 2. 피드·목록형 화면의 기본 구성 요소
 
-DB 테이블은 **엑셀 스프레드시트**처럼 행(row)과 열(column)로 이루어진 데이터 저장소입니다.
+<table class="wda-mtable">
+<thead><tr><th>구성 요소</th><th>역할</th></tr></thead>
+<tbody>
+<tr><td>작성자 표시</td><td>이 카드가 누구의 내용인지 보여줍니다.</td></tr>
+<tr><td>내용 요약</td><td>전체 내용 중 화면에 보여줄 핵심만 간추립니다.</td></tr>
+<tr><td>작성 시간</td><td>언제 등록된 항목인지 알려줍니다.</td></tr>
+<tr><td>상태 표시</td><td>공개 여부, 처리 중 여부 같은 부가 정보를 보여줍니다.</td></tr>
+</tbody>
+</table>
 
-| id | email | nickname | created_at |
-|---|---|---|---|
-| 1 | kim@test.com | 김철수 | 2026-01-15 |
-| 2 | lee@test.com | 이영희 | 2026-01-16 |
-| 3 | park@test.com | 박민준 | 2026-01-17 |
+---
 
-**🔑 핵심 개념**
+## 3. 카드 반복 구조
 
-<div class="wda-callout wda-ci">
-  📌 <strong>행(Row)</strong> = 데이터 한 건 (사용자 1명, 게시물 1개 등)<br>
-  📌 <strong>열(Column)</strong> = 데이터 속성 (이름, 이메일, 날짜 등)<br>
-  📌 <strong>id</strong> = 각 행을 구분하는 고유 번호 (자동 생성) · 다른 테이블과 연결할 때 사용
+<div class="wda-flow">
+  <div class="wda-fnode"><div class="wda-fnode-ttl">1. 데이터 목록</div><div class="wda-fnode-dsc">post-list 형태로 준비된 여러 항목</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">2. 카드 반복</div><div class="wda-fnode-dsc">항목 하나당 feed-card 하나로 표시</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">3. 상태 처리</div><div class="wda-fnode-dsc">로딩·빈 상태·에러 상태 분기</div></div>
+  <div class="wda-farrow">→</div>
+  <div class="wda-fnode"><div class="wda-fnode-ttl">4. 사용자 흐름 확인</div><div class="wda-fnode-dsc">스크롤·터치로 자연스럽게 탐색되는지 확인</div></div>
 </div>
 
 ---
 
-## 🔍 1단계: 강사와 함께 SNS UI 분석하기 (15분)
+## 4. 화면 상태를 모바일 관점에서 다시 보기
 
-SNS 화면을 하나씩 보면서 "이 정보를 저장하려면 어떤 DB가 필요할까?" 함께 찾아봅니다.
-
-### 로그인 화면 분석 → users 테이블 발견
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문 — 로그인 화면</span>
-  Q1. "로그인할 때 뭐가 필요할까요?" → 이메일, 비밀번호<br>
-  Q2. "회원가입할 때는 어떤 정보를 입력하나요?" → 이메일, 비밀번호, 닉네임<br>
-  Q3. "프로필 화면에는 어떤 정보가 보이나요?" → 닉네임, 프로필 사진<br>
-  Q4. "이 정보들을 모두 저장하는 테이블 이름은 뭐가 좋을까요?" → users 테이블!
-</div>
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견! — users 테이블</span>
-  <strong>id</strong> — 사용자 고유 번호 (자동 생성)<br>
-  <strong>email</strong> — 이메일 주소 (로그인에 사용)<br>
-  <strong>password</strong> — 비밀번호 (암호화하여 저장)<br>
-  <strong>nickname</strong> — 닉네임 (화면에 표시)<br>
-  <strong>profile_image</strong> — 프로필 사진 URL<br>
-  <strong>created_at</strong> — 가입 날짜
-</div>
-
-### 메인 피드 화면 분석 → posts 테이블 발견
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문 — 메인 피드 화면</span>
-  Q1. "피드에 보이는 게시물 카드에서 어떤 정보가 보이나요?" → 작성자 이름, 내용, 이미지, 좋아요 수, 날짜<br>
-  Q2. "이 중에서 게시물 자체에 저장해야 할 정보는 무엇일까요?" → 내용, 이미지, 좋아요 수, 날짜<br>
-  Q3. "누가 작성했는지는 어떻게 알 수 있을까요?" → 작성자 ID (users 테이블과 연결)<br>
-  Q4. "이 정보들을 저장하는 테이블 이름은?" → posts 테이블!
-</div>
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견! — posts 테이블</span>
-  <strong>id</strong> — 게시물 고유 번호<br>
-  <strong>user_id</strong> — 작성자 ID (users 테이블의 id 참조 · "이 게시물을 누가 썼나?")<br>
-  <strong>content</strong> — 게시물 내용<br>
-  <strong>image_url</strong> — 첨부 이미지 URL<br>
-  <strong>likes_count</strong> — 좋아요 수<br>
-  <strong>created_at</strong> — 작성 날짜
-</div>
-
-### 프로필/상세 화면 분석 → comments 테이블 발견
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">강사 질문 — 댓글 영역</span>
-  Q1. "게시물 상세 화면의 댓글에는 어떤 정보가 있나요?" → 작성자 이름, 댓글 내용, 날짜<br>
-  Q2. "댓글이 어떤 게시물에 달린 건지는 어떻게 알 수 있을까요?" → 게시물 ID (posts 테이블과 연결)<br>
-  Q3. "댓글 작성자 정보는 어디서 가져올까요?" → 사용자 ID (users 테이블과 연결)<br>
-  Q4. "이 정보들을 저장하는 테이블 이름은?" → comments 테이블!
-</div>
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">발견! — comments 테이블</span>
-  <strong>id</strong> — 댓글 고유 번호<br>
-  <strong>post_id</strong> — 댓글이 달린 게시물 ID (posts 테이블의 id 참조)<br>
-  <strong>user_id</strong> — 댓글 작성자 ID (users 테이블의 id 참조)<br>
-  <strong>content</strong> — 댓글 내용<br>
-  <strong>created_at</strong> — 작성 날짜
-</div>
-
----
-
-## 🔗 2단계: SNS 테이블 연결 관계 이해하기 (10분)
-
-3개의 테이블이 서로 어떻게 연결되는지 살펴봅니다.
-
-<div class="wda-fgrid">
-<div class="wda-fcard"><div class="wda-fcard-ico">👤</div><div class="wda-fcard-ttl">users 테이블</div><div class="wda-fcard-dsc">사용자 정보 저장<br>id · email · nickname · profile_image<br>1명의 사용자 = 1개의 행</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">📝</div><div class="wda-fcard-ttl">posts 테이블</div><div class="wda-fcard-dsc">게시물 정보 저장<br>user_id로 users 연결<br>1개의 게시물 = 1개의 행</div></div>
-<div class="wda-fcard"><div class="wda-fcard-ico">💬</div><div class="wda-fcard-ttl">comments 테이블</div><div class="wda-fcard-dsc">댓글 정보 저장<br>post_id·user_id로 연결<br>1개의 댓글 = 1개의 행</div></div>
-</div>
-
-<div class="wda-memo">
-  <span class="wda-memo-label">🔗 테이블 연결 관계 핵심</span>
-  <div class="wda-memo-body">
-    <strong>users → posts (1:N)</strong> — 한 명의 사용자가 여러 개의 게시물을 작성할 수 있음<br>
-    posts 테이블의 <code>user_id</code> = users 테이블의 <code>id</code>를 가리킴<br><br>
-    <strong>posts → comments (1:N)</strong> — 하나의 게시물에 여러 개의 댓글이 달릴 수 있음<br>
-    comments 테이블의 <code>post_id</code> = posts 테이블의 <code>id</code>를 가리킴<br><br>
-    <strong>users → comments (1:N)</strong> — 한 명의 사용자가 여러 게시물에 댓글을 달 수 있음<br>
-    comments 테이블의 <code>user_id</code> = users 테이블의 <code>id</code>를 가리킴
+<div class="wda-compare">
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">피드 데이터 있음</div>
+    카드가 세로로 쌓여 나열됩니다. 카드 간 간격이 좁으면 다음 카드와 헷갈릴 수 있습니다.
+  </div>
+  <div class="wda-compare-card">
+    <div class="wda-compare-ttl">빈 상태</div>
+    항목이 하나도 없을 때는 좁은 화면에서도 "아직 등록된 내용이 없습니다" 같은 안내가 눈에 잘 띄어야 합니다.
   </div>
 </div>
 
----
-
-## 📝 3단계: SNS DB 구조서 작성하기 (15분)
-
-발견한 내용을 정리하여 나만의 DB 구조서를 작성합니다. 이 구조서는 다음 단계에서 AI에게 프로젝트 생성을 요청할 때 핵심 자료가 됩니다.
-
-<div class="wda-callout wda-cs">
-  <span class="wda-clabel">진행 방식</span>
-  ⏱️ <strong>강사와 함께 토론 (7분)</strong> — "우리 SNS에는 어떤 컬럼이 더 필요할까요?" · 추가 아이디어 논의<br>
-  ✏️ <strong>개인 작성 (8분)</strong> — 아래 템플릿을 메모장에 복사하여 자신만의 SNS DB 구조서 완성
+<div class="wda-callout wda-cw">
+  <p>로딩·에러 상태는 [[2-5-community-dev|lesson-2 문서]]에서 다룬 것과 같은 원칙(로딩 표시·빈 상태 안내·에러 시 재시도)을 따르되, 좁은 화면에서는 안내 문구와 버튼이 <strong>충분한 터치 영역</strong>을 갖는지 함께 확인합니다.</p>
 </div>
 
-아래 템플릿을 메모장 또는 텍스트 편집기에 복사해서 작성하세요.
+---
+
+## 5. 카드가 여러 장 쌓일 때 주의점
+
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">카드 간 간격</div><div class="wda-fcard-dsc">카드 사이 여백이 부족하면 어디까지가 한 카드인지 구분하기 어렵습니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">내용 길이</div><div class="wda-fcard-dsc">긴 내용은 요약해서 보여주고, 전체 내용은 별도 화면에서 확인하게 합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">더 불러오기</div><div class="wda-fcard-dsc">한 번에 몇 개까지 보여줄지, 더 볼 방법을 어떻게 안내할지는 개념만 소개하고 세부 구현은 다루지 않습니다.</div></div>
+</div>
+
+---
+
+## 6. AI에게 피드 화면 검토를 요청하는 예시
 
 ```
-== SNS DB 구조서 ==
+목표:
+- 목록 화면(feed-card 반복)이 모바일에서도 잘 보이는지 점검하고 싶습니다.
 
-[ users 테이블 — 사용자 정보 ]
-- id: 사용자 고유 번호 (자동 생성)
-- email: 이메일 주소
-- password: 비밀번호 (암호화 저장, Supabase Auth가 처리)
-- nickname: 닉네임
-- profile_image: 프로필 사진 URL
-- created_at: 가입 날짜
+현재 상황:
+- 카드가 세로로 나열되고 있습니다.
+- 데이터가 없을 때, 불러오는 중일 때 화면이 어떻게 보이는지 확실하지 않습니다.
 
-[ posts 테이블 — 게시물 ]
-- id: 게시물 고유 번호
-- user_id: 작성자 ID (users 테이블 참조)
-- content: 게시물 내용
-- image_url: 첨부 이미지 URL
-- likes_count: 좋아요 수
-- created_at: 작성 날짜
+제약:
+- 새로운 데이터 저장 방식을 추가하지 말고 화면 상태 처리만 점검해주세요.
+- 실제 개인정보는 넣지 말고 placeholder로 유지해주세요.
 
-[ 게시물 작성 방식 ]
-- user_id로 users 테이블에서 작성자 정보 가져오기
-
-[ comments 테이블 — 댓글 ]
-- id: 댓글 고유 번호
-- post_id: 댓글이 달린 게시물 ID (posts 테이블 참조)
-- user_id: 댓글 작성자 ID (users 테이블 참조)
-- content: 댓글 내용
-- created_at: 작성 날짜
-
-[ 테이블 연결 관계 ]
-- users → posts: 한 명의 사용자가 여러 개의 게시물 작성 가능
-- posts → comments: 하나의 게시물에 여러 개의 댓글 작성 가능
-- users → comments: 한 명의 사용자가 여러 게시물에 댓글 작성 가능
-
-== DB 설계 완료 ==
+출력 형식:
+1. 확인된 카드 구성 문제
+2. 빈 상태·로딩·에러 상태 처리 여부
+3. 수정 요청문
+4. 다시 확인할 체크리스트
 ```
 
 ---
 
-## 🚀 4단계: 미니 SNS 프로젝트 구현 및 배포
+## 7. 검토 체크리스트
 
-DB 구조서가 완성되었습니다. 이제 AI를 활용하여 실제 미니 SNS 프로젝트를 구현하고 GitHub Pages로 배포합니다.
-
-<div class="wda-callout wda-ci">
-  <span class="wda-clabel">기획 → 구현으로 전환</span>
-  지금까지 SNS UI 분석 → DB 구조 발견 → 구조서 작성까지 마쳤습니다. 이제 작성한 DB 구조서를 AI에게 전달하고, <strong>프롬프트 한 번</strong>으로 완전한 미니 SNS를 구현해봅니다!
+<div class="wda-fgrid">
+  <div class="wda-fcard"><div class="wda-fcard-ttl">카드 구성</div><div class="wda-fcard-dsc">작성자·내용 요약·시간·상태가 빠짐없이 표시되는지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">간격과 여백</div><div class="wda-fcard-dsc">카드 사이 간격이 좁은 화면에서도 충분한지 확인합니다.</div></div>
+  <div class="wda-fcard"><div class="wda-fcard-ttl">상태 처리</div><div class="wda-fcard-dsc">빈 상태·로딩·에러 상태가 모바일에서도 잘 보이는지 확인합니다.</div></div>
 </div>
 
-### lecture1 Claude 실행
-
-PowerShell을 열고 아래 명령어를 차례대로 실행하세요.
-
-```powershell
-cd lecture1
-```
-
-```powershell
-claude --dangerously-skip-permissions
-```
-
-그 후 대화를 초기화합니다.
-
-```
-/clear
-```
-
-### 미니 SNS 생성 프롬프트
-
-<div class="wda-prompt-head">💬 Claude Code에 보낼 프롬프트</div>
-
-```
-'mini_sns'라는 프로젝트를 생성해줘.
-
-작업은 Todo 계획을 세워서 순차적으로 진행해줘.
-
-요구사항:
-1. React + Vite로 프로젝트 생성
-2. Supabase MCP를 사용해서 데이터베이스 테이블 생성 및 연결
-3. 백엔드 없이 Supabase를 직접 연결하여 작동하는 구조
-4. GitHub Pages로 배포 (GitHub Actions 워크플로우 사용)
-
-SNS 핵심 기능:
-1) 회원가입 및 로그인 (Supabase Auth 사용)
-2) 게시물 작성/조회/삭제 기능
-3) 댓글 작성/조회 기능
-4) 사용자 프로필 조회 기능
-
-개발 순서:
-1) 프로젝트 초기 설정
-2) Supabase 데이터베이스 설계 및 테이블 생성 (users, posts, comments)
-3) 프론트엔드 개발
-4) Supabase 연동 구현
-5) npm run build로 로컬 빌드
-6) GitHub Actions 워크플로우 설정 (.github/workflows/deploy.yml 생성)
-7) GitHub에 커밋 및 푸시하여 자동 배포
-8) Actions 탭에서 배포 완료 확인 후 접속 가능한 URL 안내
-
----- DB 구조서 내용 -----
-[여기에 3단계에서 작성한 DB 구조서 내용을 복사해서 붙여넣으세요]
-```
-
-### AI 자동 수행 과정
-
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">1</div><div class="wda-sbody"><div class="wda-sttl">React + Vite 프로젝트 생성</div><div class="wda-sdsc">MUI · React Router · Supabase 클라이언트 등 필수 패키지 자동 설치</div></div></div>
-<div class="wda-step"><div class="wda-snum">2</div><div class="wda-sbody"><div class="wda-sttl">Supabase MCP로 DB 자동 생성</div><div class="wda-sdsc">users · posts · comments 테이블 생성 · RLS(보안 정책) 설정 · 외래 키 연결</div></div></div>
-<div class="wda-step"><div class="wda-snum">3</div><div class="wda-sbody"><div class="wda-sttl">UI 컴포넌트 구현</div><div class="wda-sdsc">로그인 · 회원가입 · 피드 · 게시물 상세 · 댓글 · 프로필 화면 개발</div></div></div>
-<div class="wda-step"><div class="wda-snum">4</div><div class="wda-sbody"><div class="wda-sttl">Supabase Auth + CRUD 기능 완성</div><div class="wda-sdsc">회원가입·로그인 · 게시물 작성/삭제 · 댓글 기능 · 프로필 조회 연동</div></div></div>
-<div class="wda-step"><div class="wda-snum">5</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 자동 배포</div><div class="wda-sdsc">GitHub Actions 워크플로우 설정 → 커밋 푸시 → 배포 완료 URL 안내</div></div></div>
-</div>
+---
 
 ## ✅ 핵심 요약
 
@@ -337,52 +173,56 @@ SNS 핵심 기능:
 
 <div class="wda-check-note">
   <ul>
-    <li>SNS DB는 최소 <strong>users · posts · comments</strong> 3개 테이블로 구성된다.</li>
-    <li><strong>posts.user_id</strong>는 users 테이블의 id를 참조해 작성자를 식별한다.</li>
-    <li><strong>comments</strong>는 post_id(게시물)와 user_id(작성자) 둘 다로 연결된다.</li>
-    <li>테이블 관계는 모두 <strong>1:N</strong>이다 — 한 사용자가 여러 게시물·댓글을 만들 수 있다.</li>
-    <li>완성한 DB 구조서는 <strong>AI 구현 프롬프트에 그대로 붙여넣어</strong> 활용한다.</li>
+    <li>피드·목록형 화면의 카드는 <strong>작성자·내용 요약·작성 시간·상태 표시</strong>로 구성된다.</li>
+    <li>카드 반복 구조는 <strong>데이터 목록 → 카드 반복 → 상태 처리 → 사용자 흐름 확인</strong> 순서로 검토한다.</li>
+    <li>데이터 저장·조회 방식은 lesson-2에서 다뤘으므로, 이 문서에서는 <strong>화면 검토</strong>에만 집중한다.</li>
+    <li>카드가 여러 장 쌓일 때는 <strong>카드 간 간격과 내용 길이</strong>를 특히 신경 쓴다.</li>
   </ul>
 </div>
 
-**🚫 실수 방지 체크**
+**🧠 헷갈리기 쉬운 것**
 
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: comments 테이블에는 게시물 정보만 연결하면 된다?</div>
-    <div class="wda-mistake-right">정답: comments는 <strong>post_id와 user_id 둘 다</strong> 필요하다 — 어떤 게시물에 누가 남긴 댓글인지 모두 알아야 한다.</div>
+    <div class="wda-mistake-wrong">오해: 피드 화면을 다루려면 DB 조회 문법부터 다시 배워야 한다?</div>
+    <div class="wda-mistake-right">정답: 데이터 조회 방식은 <strong>lesson-2에서 이미 다뤘고</strong>, 이 문서는 화면에 카드가 반복될 때의 구성과 상태 검토에 집중한다.</div>
   </div>
   <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: DB 구조서 없이 "SNS 만들어줘"라고만 요청해도 된다?</div>
-    <div class="wda-mistake-right">정답: 미리 작성한 <strong>DB 구조서를 프롬프트에 붙여넣어야</strong> AI가 정확한 테이블·관계로 구현한다.</div>
-  </div>
-  <div class="wda-mistake-note">
-    <div class="wda-mistake-wrong">오해: id 값은 직접 정해서 입력해야 한다?</div>
-    <div class="wda-mistake-right">정답: id는 <strong>자동으로 생성되는 고유 번호</strong>이므로 직접 입력하지 않는다.</div>
+    <div class="wda-mistake-wrong">오해: 카드 간격은 데스크톱과 모바일에서 똑같이 두면 된다?</div>
+    <div class="wda-mistake-right">정답: 좁은 화면에서는 간격이 부족하면 <strong>카드 경계가 헷갈릴 수 있어</strong> 별도로 점검해야 한다.</div>
   </div>
 </div>
 
-**✅ 완성 기준**
+**🎯 최종 암기 공식**
 
-<div class="wda-steps">
-<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">users · posts · comments 구조서 작성 완료</div><div class="wda-sdsc">각 테이블의 컬럼과 역할을 설명할 수 있나요?</div></div></div>
-<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">테이블 간 1:N 연결 관계 이해</div><div class="wda-sdsc">user_id · post_id가 어느 테이블을 참조하는지 설명할 수 있나요?</div></div></div>
-<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">Supabase MCP로 테이블 생성 확인</div><div class="wda-sdsc">Supabase 대시보드에서 users · posts · comments 테이블이 보이나요?</div></div></div>
-<div class="wda-step"><div class="wda-snum">✓</div><div class="wda-sbody"><div class="wda-sttl">GitHub Pages 배포 URL 접속 확인</div><div class="wda-sdsc">회원가입 · 게시물 작성 · 댓글까지 실제로 동작하나요?</div></div></div>
+<div class="wda-formula-board">
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 1 · 카드 구성</div>
+    <div class="wda-formula-block-body"><code>작성자 · 내용 요약 · 시간 · 상태</code></div>
+  </div>
+  <div class="wda-formula-block">
+    <div class="wda-formula-block-ttl">공식 2 · 검토 흐름</div>
+    <div class="wda-formula-block-body"><code>목록 → 카드 반복 → 상태 처리 → 흐름 확인</code></div>
+  </div>
 </div>
 
 **🎴 클릭 복습 카드**
 
 <div class="wda-flip-deck">
-  <div class="wda-flip-card"><div class="wda-flip-front">SNS DB에 필요한 3개 테이블은?</div><div class="wda-flip-back">users, posts, comments다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">posts 테이블의 user_id는 무엇을 하나?</div><div class="wda-flip-back">users 테이블의 id를 참조해 게시물 작성자를 식별한다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">comments 테이블이 참조하는 두 테이블은?</div><div class="wda-flip-back">posts(post_id)와 users(user_id) 두 테이블을 모두 참조한다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">역방향 학습법이란?</div><div class="wda-flip-back">완성된 UI 화면을 먼저 보고, 필요한 DB 구조를 거꾸로 추론해내는 학습 방법이다.</div></div>
-  <div class="wda-flip-card"><div class="wda-flip-front">작성한 DB 구조서는 언제 쓰이나?</div><div class="wda-flip-back">AI에게 구현을 요청하는 프롬프트에 그대로 붙여넣어 활용한다.</div></div>
-</div>
-
-<div class="wda-done">
-  <div class="wda-done-ico">🎉</div>
-  <div class="wda-done-ttl">3-3 완료!</div>
-  <div>SNS UI에서 DB 구조를 직접 발견하고, AI 협업으로 실제 미니 SNS까지 구현·배포했습니다. 역방향 학습법으로 DB 개념이 훨씬 자연스럽게 이해됐을 것입니다!</div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">피드 카드의 기본 구성 요소는?</div>
+    <div class="wda-flip-back">작성자 표시, 내용 요약, 작성 시간, 상태 표시다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">이 문서에서 데이터 저장·조회 방식을 다시 다루지 않는 이유는?</div>
+    <div class="wda-flip-back">해당 내용은 lesson-2에서 이미 다뤘고, 이 문서는 화면 검토에 집중하기 때문이다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">카드가 여러 장 쌓일 때 특히 신경 써야 할 것은?</div>
+    <div class="wda-flip-back">카드 간 간격과 내용 길이(요약 처리)다.</div>
+  </div>
+  <div class="wda-flip-card">
+    <div class="wda-flip-front">빈 상태·에러 상태 처리 원칙은 어디서 이어지나?</div>
+    <div class="wda-flip-back">lesson-2에서 다룬 로딩 표시·빈 상태 안내·에러 재시도 원칙을 그대로 이어받는다.</div>
+  </div>
 </div>
