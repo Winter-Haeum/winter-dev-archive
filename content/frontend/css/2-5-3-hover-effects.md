@@ -162,7 +162,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 <div class="wda-callout wda-ci">
-  <p><code>perspective</code>는 3D 공간의 "카메라와의 거리"를 설정한다. 값이 작을수록 원근감이 강해지고, 값이 클수록 평면에 가까워진다. <code>rotateX</code>는 세로축 기준 회전(위아래로 기울임), <code>rotateY</code>는 가로축 기준 회전(좌우로 기울임)이다.</p>
+  <p><code>perspective</code>는 3D 공간의 "카메라와의 거리"를 설정한다. 값이 작을수록 원근감이 강해지고, 값이 클수록 평면에 가까워진다. <code>rotateX</code>는 가로축(X축) 기준 회전(위아래로 기울임), <code>rotateY</code>는 세로축(Y축) 기준 회전(좌우로 기울임)이다.</p>
 </div>
 
 ---
