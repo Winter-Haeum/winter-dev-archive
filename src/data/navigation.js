@@ -10,7 +10,7 @@ export const categories = [
     slug: 'frontend',
     description: '웹의 뼈대를 이루는 기초 기술. HTML 구조, CSS 속성, Flexbox·Grid 레이아웃, 개발자 도구 활용까지 탄탄한 기반을 쌓습니다.',
     nestedSidebar: true,
-    sections: ['HTML', 'CSS', 'Layout', 'DevTools'],
+    sections: ['HTML', 'CSS', 'Layout', 'DevTools', 'Git 기본', 'GitHub 연결과 협업 기본', 'Git 프로젝트 관리 문서', 'CSS Framework'],
     sectionDocs: {
       HTML: [
         { slug: '1-1-www-and-website', title: '1-1: 월드 와이드 웹과 인터넷', folder: 'html' },
@@ -52,6 +52,28 @@ export const categories = [
       DevTools: [
         { slug: '1-4-1-inspect-website-with-devtools', title: '1-4-1 DevTools로 웹사이트 들여다보기', folder: 'devtools' },
         { slug: '1-4-2-responsive-preview', title: '1-4-2 반응형 화면 미리보기', folder: 'devtools' },
+      ],
+      'Git 기본': [
+        { slug: '3-1-1-why-git', title: '3-1-1 Git이 왜 필요한가요?', folder: 'git' },
+        { slug: '3-1-2-git-structure', title: '3-1-2 Git의 구조 이해하기', folder: 'git' },
+        { slug: '3-1-3-cli-basics', title: '3-1-3 CLI 명령어 기본 익히기', folder: 'git' },
+      ],
+      'GitHub 연결과 협업 기본': [
+        { slug: '3-2-1-create-github-account', title: '3-2-1 GitHub 계정 만들기', folder: 'github' },
+        { slug: '3-2-2-connect-local-and-github', title: '3-2-2 내 컴퓨터와 GitHub 연결하기', folder: 'github' },
+        { slug: '3-2-3-commit-push-pull', title: '3-2-3 Commit, push, pull 사용하기', folder: 'github' },
+        { slug: '3-2-4-branch-workflow', title: '3-2-4 branch로 작업 나누기', folder: 'github' },
+      ],
+      'Git 프로젝트 관리 문서': [
+        { slug: '3-3-1-gitignore', title: '3-3-1 gitignore로 버전 관리 제외 파일 설정하기', folder: 'git' },
+        { slug: '3-3-2-readme-project-intro', title: '3-3-2 README.md로 프로젝트 소개하기', folder: 'git' },
+        { slug: '3-3-3-markdown-basics', title: '3-3-3 Markdown 문법 알아보기', folder: 'git' },
+      ],
+      'CSS Framework': [
+        { slug: '4-1-what-is-css-framework', title: '4.1 CSS 프레임워크란 무엇인가요?', folder: 'css-framework' },
+        { slug: '4-2-component-based-vs-utility-first', title: '4.2 Component based vs Utility first', folder: 'css-framework' },
+        { slug: '4-3-bootstrap-introduction', title: '4.3 Bootstrap 소개', folder: 'css-framework' },
+        { slug: '4-4-tailwindcss-practical-use', title: '4.4 TailwindCSS 제대로 쓰기', folder: 'css-framework' },
       ],
     },
   },
