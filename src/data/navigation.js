@@ -9,7 +9,18 @@ export const categories = [
     emoji: '📚',
     slug: 'frontend',
     description: '웹의 뼈대를 이루는 기초 기술. HTML 구조, CSS 속성, Flexbox·Grid 레이아웃, 개발자 도구 활용까지 탄탄한 기반을 쌓습니다.',
+    nestedSidebar: true,
     sections: ['HTML', 'CSS', 'Layout', 'DevTools'],
+    sectionDocs: {
+      HTML: [
+        { slug: '1-1-www-and-website', title: '1-1: 월드 와이드 웹과 인터넷', folder: 'html' },
+        { slug: '1-2-client-server-http', title: '1-2: 클라이언트와 서버, 그리고 HTTP', folder: 'html' },
+        { slug: '1-3-html-document-structure', title: '1-3: HTML 문서의 기본 구조', folder: 'html' },
+        { slug: '1-4-tags-attributes-elements', title: '1-4: 태그·속성·요소 이해하기', folder: 'html' },
+        { slug: '1-5-semantic-markup', title: '1-5: 의미를 담는 시맨틱 마크업', folder: 'html' },
+        { slug: '1-6-html-tags-in-practice', title: '1-6: 실전 HTML 태그 활용', folder: 'html' },
+      ],
+    },
   },
   {
     id: 'javascript',
