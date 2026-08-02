@@ -43,49 +43,52 @@ export const categories = [
     slug: 'css',
     description: '웹페이지를 꾸미는 스타일 언어. 선택자와 박스 모델 같은 기본기부터 Flexbox·Grid 레이아웃, 반응형 웹까지 CSS 전 범위를 다룹니다.',
     nestedSidebar: true,
+    // 섹션명 앞에 번호를 붙여 slugify 결과를 고유하게 만든다 (JavaScript 카테고리와 동일한 패턴).
+    // 순수 한글 섹션명만 있으면 slugify()가 전부 빈 문자열을 반환해 아코디언 상태 키가
+    // 충돌하고, 여러 섹션이 동시에 펼쳐지는 문제가 발생한다.
     sections: [
-      'CSS 기본 문법',
-      '선택자 심화',
-      'Flexbox',
-      'Grid',
-      '위치와 변형',
-      '전환과 애니메이션',
-      '반응형 웹',
+      '1. CSS 기본 문법',
+      '2. 선택자 심화',
+      '3. Flexbox',
+      '4. Grid',
+      '5. 위치와 변형',
+      '6. 전환과 애니메이션',
+      '7. 반응형 웹',
     ],
     sectionDocs: {
-      'CSS 기본 문법': [
+      '1. CSS 기본 문법': [
         { slug: '1-1-css-syntax-and-apply', title: '1-1 CSS 문법과 적용 방법', folder: 'css' },
         { slug: '1-2-css-selectors', title: '1-2 선택자로 원하는 요소 골라내기', folder: 'css' },
         { slug: '1-3-colors-and-fonts', title: '1-3 색상과 폰트로 개성 표현하기', folder: 'css' },
         { slug: '1-4-box-model', title: '1-4 박스 모델 완벽 이해', folder: 'css' },
         { slug: '1-5-display-and-position', title: '1-5 Display와 Position으로 배치하기', folder: 'css' },
       ],
-      '선택자 심화': [
+      '2. 선택자 심화': [
         { slug: '2-1-attribute-selectors', title: '2-1 속성 선택자로 정교하게 선택하기', folder: 'css' },
         { slug: '2-2-pseudo-classes', title: '2-2 가상 클래스로 상태 다루기', folder: 'css' },
         { slug: '2-3-pseudo-elements', title: '2-3 가상 요소로 꾸미기 요소 추가하기', folder: 'css' },
       ],
-      Flexbox: [
+      '3. Flexbox': [
         { slug: '3-1-flexbox-concept', title: '3-1 Flexbox 개념 이해하기', folder: 'css' },
         { slug: '3-2-flex-container-and-items', title: '3-2 Container와 Item 속성 활용하기', folder: 'css' },
         { slug: '3-3-flexbox-layouts', title: '3-3 Flexbox로 다양한 레이아웃 만들기', folder: 'css' },
       ],
-      Grid: [
+      '4. Grid': [
         { slug: '4-1-grid-structure', title: '4-1 Grid 구조 이해하기', folder: 'css' },
         { slug: '4-2-grid-rows-and-columns', title: '4-2 행과 열로 자유롭게 배치하기', folder: 'css' },
         { slug: '4-3-advanced-grid-layouts', title: '4-3 Grid 고급 레이아웃들', folder: 'css' },
       ],
-      '위치와 변형': [
+      '5. 위치와 변형': [
         { slug: '5-1-position-layout', title: '5-1 Position으로 요소 배치하기', folder: 'css' },
         { slug: '5-2-transform-effects', title: '5-2 Transform으로 변형 효과주기', folder: 'css' },
         { slug: '5-3-z-index-stacking', title: '5-3 z-index와 쌓임 순서 이해하기', folder: 'css' },
       ],
-      '전환과 애니메이션': [
+      '6. 전환과 애니메이션': [
         { slug: '6-1-transition-effects', title: '6-1 Transition으로 부드러운 전환 효과', folder: 'css' },
         { slug: '6-2-animation-keyframes', title: '6-2 Animation과 @keyframes로 움직임 표현하기', folder: 'css' },
         { slug: '6-3-hover-effects', title: '6-3 Hover 효과로 생동감 더하기', folder: 'css' },
       ],
-      '반응형 웹': [
+      '7. 반응형 웹': [
         { slug: '7-1-media-query', title: '7-1 Media Query로 화면 크기 대응하기', folder: 'css' },
         { slug: '7-2-device-optimization', title: '7-2 다양한 기기에 최적화하기', folder: 'css' },
         { slug: '7-3-responsive-techniques', title: '7-3 반응형 기법 익히기', folder: 'css' },
@@ -278,15 +281,25 @@ export const categories = [
     emoji: '🎨',
     slug: 'css-framework',
     description: '빠르게 UI를 완성하는 CSS 프레임워크. 프레임워크가 필요한 이유부터 Component based와 Utility first 방식 비교, Bootstrap과 TailwindCSS 활용까지 정리합니다.',
-    nestedSidebar: true,
-    sections: ['CSS Framework'],
+    // 하위 섹션이 1개뿐이라 중간 섹션 없이 문서를 바로 노출한다 (HTML/coding-test와 동일한 flat 패턴).
+    // sections 각 항목이 실제로는 문서 1개씩을 가리키며, sectionLinks로 바로 문서 경로에 연결한다.
+    sections: [
+      '1-1 CSS 프레임워크란 무엇인가요?',
+      '1-2 Component based vs Utility first',
+      '1-3 Bootstrap 소개',
+      '1-4 TailwindCSS 제대로 쓰기',
+    ],
+    sectionLinks: {
+      '1-1 CSS 프레임워크란 무엇인가요?': '/css-framework/css-framework/4-1-what-is-css-framework',
+      '1-2 Component based vs Utility first': '/css-framework/css-framework/4-2-component-based-vs-utility-first',
+      '1-3 Bootstrap 소개': '/css-framework/css-framework/4-3-bootstrap-introduction',
+      '1-4 TailwindCSS 제대로 쓰기': '/css-framework/css-framework/4-4-tailwindcss-practical-use',
+    },
     sectionDocs: {
-      'CSS Framework': [
-        { slug: '4-1-what-is-css-framework', title: '1-1 CSS 프레임워크란 무엇인가요?', folder: 'css-framework' },
-        { slug: '4-2-component-based-vs-utility-first', title: '1-2 Component based vs Utility first', folder: 'css-framework' },
-        { slug: '4-3-bootstrap-introduction', title: '1-3 Bootstrap 소개', folder: 'css-framework' },
-        { slug: '4-4-tailwindcss-practical-use', title: '1-4 TailwindCSS 제대로 쓰기', folder: 'css-framework' },
-      ],
+      '1-1 CSS 프레임워크란 무엇인가요?': [{ slug: '4-1-what-is-css-framework', title: '1-1 CSS 프레임워크란 무엇인가요?', folder: 'css-framework' }],
+      '1-2 Component based vs Utility first': [{ slug: '4-2-component-based-vs-utility-first', title: '1-2 Component based vs Utility first', folder: 'css-framework' }],
+      '1-3 Bootstrap 소개': [{ slug: '4-3-bootstrap-introduction', title: '1-3 Bootstrap 소개', folder: 'css-framework' }],
+      '1-4 TailwindCSS 제대로 쓰기': [{ slug: '4-4-tailwindcss-practical-use', title: '1-4 TailwindCSS 제대로 쓰기', folder: 'css-framework' }],
     },
   },
   {
