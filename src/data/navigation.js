@@ -9,17 +9,31 @@ export const categories = [
     emoji: '📄',
     slug: 'html',
     description: '웹 문서의 뼈대를 이루는 마크업 언어. 웹의 동작 원리부터 시맨틱 태그 활용까지 HTML의 기본기를 다집니다.',
-    nestedSidebar: true,
-    sections: ['HTML 기본 문법'],
+    // 하위 섹션이 1개뿐이라 중간 섹션 없이 문서를 바로 노출한다 (coding-test와 동일한 flat 패턴).
+    // sections 각 항목이 실제로는 문서 1개씩을 가리키며, sectionLinks로 바로 문서 경로에 연결한다.
+    sections: [
+      '1-1: 월드 와이드 웹과 인터넷',
+      '1-2: 클라이언트와 서버, 그리고 HTTP',
+      '1-3: HTML 문서의 기본 구조',
+      '1-4: 태그·속성·요소 이해하기',
+      '1-5: 의미를 담는 시맨틱 마크업',
+      '1-6: 실전 HTML 태그 활용',
+    ],
+    sectionLinks: {
+      '1-1: 월드 와이드 웹과 인터넷': '/html/html/1-1-www-and-website',
+      '1-2: 클라이언트와 서버, 그리고 HTTP': '/html/html/1-2-client-server-http',
+      '1-3: HTML 문서의 기본 구조': '/html/html/1-3-html-document-structure',
+      '1-4: 태그·속성·요소 이해하기': '/html/html/1-4-tags-attributes-elements',
+      '1-5: 의미를 담는 시맨틱 마크업': '/html/html/1-5-semantic-markup',
+      '1-6: 실전 HTML 태그 활용': '/html/html/1-6-html-tags-in-practice',
+    },
     sectionDocs: {
-      'HTML 기본 문법': [
-        { slug: '1-1-www-and-website', title: '1-1: 월드 와이드 웹과 인터넷', folder: 'html' },
-        { slug: '1-2-client-server-http', title: '1-2: 클라이언트와 서버, 그리고 HTTP', folder: 'html' },
-        { slug: '1-3-html-document-structure', title: '1-3: HTML 문서의 기본 구조', folder: 'html' },
-        { slug: '1-4-tags-attributes-elements', title: '1-4: 태그·속성·요소 이해하기', folder: 'html' },
-        { slug: '1-5-semantic-markup', title: '1-5: 의미를 담는 시맨틱 마크업', folder: 'html' },
-        { slug: '1-6-html-tags-in-practice', title: '1-6: 실전 HTML 태그 활용', folder: 'html' },
-      ],
+      '1-1: 월드 와이드 웹과 인터넷': [{ slug: '1-1-www-and-website', title: '1-1: 월드 와이드 웹과 인터넷', folder: 'html' }],
+      '1-2: 클라이언트와 서버, 그리고 HTTP': [{ slug: '1-2-client-server-http', title: '1-2: 클라이언트와 서버, 그리고 HTTP', folder: 'html' }],
+      '1-3: HTML 문서의 기본 구조': [{ slug: '1-3-html-document-structure', title: '1-3: HTML 문서의 기본 구조', folder: 'html' }],
+      '1-4: 태그·속성·요소 이해하기': [{ slug: '1-4-tags-attributes-elements', title: '1-4: 태그·속성·요소 이해하기', folder: 'html' }],
+      '1-5: 의미를 담는 시맨틱 마크업': [{ slug: '1-5-semantic-markup', title: '1-5: 의미를 담는 시맨틱 마크업', folder: 'html' }],
+      '1-6: 실전 HTML 태그 활용': [{ slug: '1-6-html-tags-in-practice', title: '1-6: 실전 HTML 태그 활용', folder: 'html' }],
     },
   },
   {
