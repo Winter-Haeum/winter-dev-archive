@@ -1,5 +1,5 @@
 ---
-title: "1-3-1. CSS 문법과 적용 방법"
+title: "1-1 CSS 문법과 적용 방법"
 category: "frontend"
 section: "css"
 date: "2026-08-01"

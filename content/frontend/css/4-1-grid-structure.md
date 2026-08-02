@@ -1,5 +1,5 @@
 ---
-title: "2-3-1. Grid 구조 이해하기"
+title: "4-1 Grid 구조 이해하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"

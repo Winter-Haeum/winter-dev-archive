@@ -1,5 +1,5 @@
 ---
-title: "2-4-2. Transform으로 변형 효과 주기"
+title: "5-2 Transform으로 변형 효과주기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <div class="wda-callout wda-ci">
   <p><strong>transform은 요소의 실제 레이아웃 위치는 그대로 두고, 화면에 그려지는 모습만 이동·회전·확대·기울이는 속성입니다.</strong></p>
-  <p><code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [[2-4-1-position-placement|이전 문서]]에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.</p>
+  <p><code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [[5-1-position-layout|이전 문서]]에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.</p>
 </div>
 
 ---

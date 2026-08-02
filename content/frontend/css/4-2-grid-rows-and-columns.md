@@ -1,5 +1,5 @@
 ---
-title: "2-3-2. 행과 열로 자유롭게 배치하기"
+title: "4-2 행과 열로 자유롭게 배치하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-3-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 <strong>행과 열을 실제로 어떻게 자유자재로 배치하는지</strong>를 다룬다.</p>
+  <p>[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 <strong>행과 열을 실제로 어떻게 자유자재로 배치하는지</strong>를 다룬다.</p>
   <p>단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.</p>
 </div>
 

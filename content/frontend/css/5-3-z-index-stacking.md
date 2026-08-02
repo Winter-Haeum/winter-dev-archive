@@ -1,5 +1,5 @@
 ---
-title: "2-4-3. z-index와 쌓임 순서 이해하기"
+title: "5-3 z-index와 쌓임 순서 이해하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p><strong>[[2-4-1-position-placement|Position 실전 패턴]]과 [[2-4-2-transform-effects|Transform]]을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다.</strong></p>
+  <p><strong>[[5-1-position-layout|Position 실전 패턴]]과 [[5-2-transform-effects|Transform]]을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다.</strong></p>
   <p>단순히 숫자를 크게 주는 것만으로는 해결되지 않는 경우가 많은데, 그 이유가 바로 이 문서의 핵심인 Stacking Context에 있습니다.</p>
 </div>
 

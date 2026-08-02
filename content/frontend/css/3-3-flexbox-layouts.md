@@ -1,5 +1,5 @@
 ---
-title: "2-2-3. Flexbox로 다양한 레이아웃 만들기"
+title: "3-3 Flexbox로 다양한 레이아웃 만들기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-2-2-flex-container-item-properties|이전 문서]]에서 Container·Item 속성을 하나씩 익혔다면, 이 문서에서는 그 속성들을 조합해 실무에서 실제로 쓰는 <strong>8가지 레이아웃 패턴</strong>을 만들어본다. 패턴마다 구조 설명, HTML·CSS 코드, 핵심 포인트, 주의사항을 함께 정리한다.</p>
+  <p>[[3-2-flex-container-and-items|이전 문서]]에서 Container·Item 속성을 하나씩 익혔다면, 이 문서에서는 그 속성들을 조합해 실무에서 실제로 쓰는 <strong>8가지 레이아웃 패턴</strong>을 만들어본다. 패턴마다 구조 설명, HTML·CSS 코드, 핵심 포인트, 주의사항을 함께 정리한다.</p>
 </div>
 
 Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지로 정리할 수 있다.

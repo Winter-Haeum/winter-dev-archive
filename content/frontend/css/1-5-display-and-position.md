@@ -1,5 +1,5 @@
 ---
-title: "1-3-5 Display와 Position으로 배치하기"
+title: "1-5 Display와 Position으로 배치하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[1-3-4-box-model|이전 문서]]에서 요소 하나의 크기와 여백을 다뤘다면, 이 문서에서는 그 요소들을 화면 어디에 어떤 방식으로 놓을지를 다룬다.</p>
+  <p>[[1-4-box-model|이전 문서]]에서 요소 하나의 크기와 여백을 다뤘다면, 이 문서에서는 그 요소들을 화면 어디에 어떤 방식으로 놓을지를 다룬다.</p>
   <p>display는 요소가 "어떻게 표시되는지"를, position은 "어디에 위치하는지"를 결정한다. 두 속성은 CSS 레이아웃의 뼈대가 되는 개념이므로, 이후 Flexbox·Grid를 배우기 전에 반드시 정리하고 넘어가야 한다.</p>
 </div>
 

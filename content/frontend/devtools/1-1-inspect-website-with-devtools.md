@@ -1,5 +1,5 @@
 ---
-title: "1-4-1 DevTools로 웹사이트 들여다보기"
+title: "1-1 DevTools로 웹사이트 들여다보기"
 category: "frontend"
 section: "devtools"
 date: "2026-08-01"

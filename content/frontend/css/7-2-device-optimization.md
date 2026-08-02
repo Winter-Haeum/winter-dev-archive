@@ -1,5 +1,5 @@
 ---
-title: "2-6-2. 다양한 기기에서 최적화하기"
+title: "7-2 다양한 기기에 최적화하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p><strong>[[2-6-1-media-query|Media Query]]로 "언제" 스타일을 바꿀지 정했다면, 이 문서는 "어떤 기기"를 위해 무엇을 바꿔야 하는지에 집중합니다.</strong></p>
+  <p><strong>[[7-1-media-query|Media Query]]로 "언제" 스타일을 바꿀지 정했다면, 이 문서는 "어떤 기기"를 위해 무엇을 바꿔야 하는지에 집중합니다.</strong></p>
   <p>모바일·태블릿·데스크탑은 화면 크기만 다른 것이 아니라 입력 방식과 사용 패턴 자체가 다르므로, 이를 반영한 설계 기준을 정리합니다.</p>
 </div>
 

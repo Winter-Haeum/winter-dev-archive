@@ -1,5 +1,5 @@
 ---
-title: "2-5-3. Hover 효과로 생동감 더하기"
+title: "6-3 Hover 효과로 생동감 더하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-5-1-transition-basics|2-5-1]]에서 transition의 기본기를, [[2-5-2-animation-keyframes|2-5-2]]에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 <strong>종합 실습</strong>이다. 대부분의 예시는 transition만으로 충분히 구현된다.</p>
+  <p>[[6-1-transition-effects|2-5-1]]에서 transition의 기본기를, [[6-2-animation-keyframes|2-5-2]]에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 <strong>종합 실습</strong>이다. 대부분의 예시는 transition만으로 충분히 구현된다.</p>
 </div>
 
 ---

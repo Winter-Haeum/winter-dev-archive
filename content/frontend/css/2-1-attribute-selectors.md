@@ -1,5 +1,5 @@
 ---
-title: "2-1-1. 속성 선택자로 정교하게 선택하기"
+title: "2-1 속성 선택자로 정교하게 선택하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[1-3-2-css-selectors|이전 문서]]에서 태그·클래스·ID 기본 선택자와 자손·자식·그룹 선택자를 다뤘다면, 이 문서부터는 그 위에서 <strong>더 정교하게 요소를 골라내는 방법</strong>을 다룬다.</p>
+  <p>[[1-2-css-selectors|이전 문서]]에서 태그·클래스·ID 기본 선택자와 자손·자식·그룹 선택자를 다뤘다면, 이 문서부터는 그 위에서 <strong>더 정교하게 요소를 골라내는 방법</strong>을 다룬다.</p>
   <p>클래스를 추가로 붙이지 않고도 HTML 속성값만으로 요소를 선택하는 <strong>속성 선택자</strong>와, 형제 관계까지 활용하는 <strong>콤비네이터</strong>, 그리고 스타일 충돌을 해결하는 <strong>우선순위 점수 계산법</strong>이 이번 챕터의 핵심이다.</p>
 </div>
 

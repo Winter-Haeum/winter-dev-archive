@@ -1,5 +1,5 @@
 ---
-title: "1-5-2 블록으로 나누어 생각하기"
+title: "2-2 블록으로 나누어 생각하기"
 category: "frontend"
 section: "layout"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p><strong>[[1-5-1-analyze-webpage-structure|이전 문서]]에서 웹페이지를 눈으로 뜯어보는 분석법을 익혔다면, 이 문서는 그 분석 결과를 실제 HTML 구조로 옮기는 "설계" 단계를 다룹니다.</strong></p>
+  <p><strong>[[2-1-analyze-webpage-structure|이전 문서]]에서 웹페이지를 눈으로 뜯어보는 분석법을 익혔다면, 이 문서는 그 분석 결과를 실제 HTML 구조로 옮기는 "설계" 단계를 다룹니다.</strong></p>
   <p>분석이 "읽는 연습"이라면, 블록 단위 사고는 "쓰는 연습"이다. 화면을 상자들의 조합으로 바라보고, 그 상자를 그대로 코드로 옮기는 훈련을 한다.</p>
 </div>
 

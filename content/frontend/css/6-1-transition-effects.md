@@ -1,5 +1,5 @@
 ---
-title: "2-5-1. Transition으로 부드러운 전환 효과"
+title: "6-1 Transition으로 부드러운 전환 효과"
 category: "frontend"
 section: "css"
 date: "2026-08-01"

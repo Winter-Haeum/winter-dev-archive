@@ -1,5 +1,5 @@
 ---
-title: "2-6-3. 반응형 기법 익히기"
+title: "7-3 반응형 기법 익히기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"

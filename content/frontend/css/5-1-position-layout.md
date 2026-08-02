@@ -1,5 +1,5 @@
 ---
-title: "2-4-1. Position으로 요소 배치하기 (심화)"
+title: "5-1 Position으로 요소 배치하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[1-3-5-display-and-position|이전 문서]]에서 position 5가지 값의 기본 개념과 기준점을 익혔다면, 이 문서는 그 지식을 실제 화면에서 자주 마주치는 UI 조각으로 확장한다.</p>
+  <p>[[1-5-display-and-position|이전 문서]]에서 position 5가지 값의 기본 개념과 기준점을 익혔다면, 이 문서는 그 지식을 실제 화면에서 자주 마주치는 UI 조각으로 확장한다.</p>
   <p>모달, 드롭다운, 툴팁, 사이드바, 토스트처럼 이름만 들어도 익숙한 컴포넌트들이 사실은 position 몇 줄의 조합으로 만들어진다는 것을 확인하고, 겹치는 요소들의 순서를 관리하는 z-index와 Stacking Context 기초까지 함께 정리한다.</p>
 </div>
 

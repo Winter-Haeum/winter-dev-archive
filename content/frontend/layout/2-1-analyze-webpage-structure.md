@@ -1,5 +1,5 @@
 ---
-title: "1-5-1 실전 웹페이지 구조 분석하기"
+title: "2-1 실전 웹페이지 구조 분석하기"
 category: "frontend"
 section: "layout"
 date: "2026-08-01"

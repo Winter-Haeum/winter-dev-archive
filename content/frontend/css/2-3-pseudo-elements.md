@@ -1,5 +1,5 @@
 ---
-title: "2-1-3. 가상 요소로 꾸미기 — 요소 추가하기"
+title: "2-3 가상 요소로 꾸미기 요소 추가하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-1-2-pseudo-classes|이전 문서]]에서 콜론 1개짜리 가상 클래스로 요소의 <strong>상태</strong>를 다뤘다면, 이 문서는 콜론 2개짜리 <strong>가상 요소</strong>로 HTML에는 없는 새로운 요소를 CSS만으로 만들어내는 방법을 다룬다.</p>
+  <p>[[2-2-pseudo-classes|이전 문서]]에서 콜론 1개짜리 가상 클래스로 요소의 <strong>상태</strong>를 다뤘다면, 이 문서는 콜론 2개짜리 <strong>가상 요소</strong>로 HTML에는 없는 새로운 요소를 CSS만으로 만들어내는 방법을 다룬다.</p>
   <p>아이콘 추가, 말풍선 툴팁, 배지, 구분선처럼 마크업을 늘리지 않고도 꾸밀 수 있는 실전 패턴 위주로 정리한다.</p>
 </div>
 

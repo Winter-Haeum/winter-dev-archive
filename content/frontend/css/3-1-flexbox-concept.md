@@ -1,5 +1,5 @@
 ---
-title: "2-2-1. Flexbox 개념 이해하기"
+title: "3-1 Flexbox 개념 이해하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>이 문서는 Flexbox를 처음 배울 때 반드시 짚고 가야 할 <strong>배경과 기본 개념</strong>을 다룬다. 개별 속성의 세부 사용법은 다음 문서인 [[2-2-2-flex-container-item-properties|Container와 Item 속성 활용하기]]에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.</p>
+  <p>이 문서는 Flexbox를 처음 배울 때 반드시 짚고 가야 할 <strong>배경과 기본 개념</strong>을 다룬다. 개별 속성의 세부 사용법은 다음 문서인 [[3-2-flex-container-and-items|Container와 Item 속성 활용하기]]에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.</p>
 </div>
 
 ---

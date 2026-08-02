@@ -1,5 +1,5 @@
 ---
-title: "1-3-2 선택자로 원하는 요소 골라내기"
+title: "1-2 선택자로 원하는 요소 골라내기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[1-3-1-css-syntax-and-apply|이전 문서]]에서 CSS를 어디에 어떻게 적용하는지 배웠다면, 이 문서에서는 "선택자 { 속성: 값; }" 구조 중 맨 앞의 <strong>선택자</strong> 부분을 자세히 다룬다.</p>
+  <p>[[1-1-css-syntax-and-apply|이전 문서]]에서 CSS를 어디에 어떻게 적용하는지 배웠다면, 이 문서에서는 "선택자 { 속성: 값; }" 구조 중 맨 앞의 <strong>선택자</strong> 부분을 자세히 다룬다.</p>
   <p>선택자는 스타일을 적용할 대상을 정확히 지정하는 역할을 한다. 선택자를 얼마나 정교하게 쓰느냐에 따라 코드의 재사용성과 유지보수성이 크게 달라진다.</p>
 </div>
 

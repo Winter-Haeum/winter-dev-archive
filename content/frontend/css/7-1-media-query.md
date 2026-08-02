@@ -1,5 +1,5 @@
 ---
-title: "2-6-1. Media Query로 화면 크기 대응하기"
+title: "7-1 Media Query로 화면 크기 대응하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"

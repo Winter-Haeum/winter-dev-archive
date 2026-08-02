@@ -1,5 +1,5 @@
 ---
-title: "2-2-2 Container와 Item속성 활용하기"
+title: "3-2 Container와 Item 속성 활용하기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-2-1-flexbox-concepts|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 <strong>하나씩 실전 코드로</strong> 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.</p>
+  <p>[[3-1-flexbox-concept|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 <strong>하나씩 실전 코드로</strong> 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.</p>
 </div>
 
 ---

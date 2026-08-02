@@ -1,5 +1,5 @@
 ---
-title: "2-1-2. 가상 클래스로 상태 다루기"
+title: "2-2 가상 클래스로 상태 다루기"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-1-1-attribute-selectors|이전 문서]]에서 속성값과 요소 관계로 선택하는 법을 배웠다면, 이 문서는 <strong>요소의 "상태"</strong>를 기준으로 선택하는 가상 클래스를 다룬다.</p>
+  <p>[[2-1-attribute-selectors|이전 문서]]에서 속성값과 요소 관계로 선택하는 법을 배웠다면, 이 문서는 <strong>요소의 "상태"</strong>를 기준으로 선택하는 가상 클래스를 다룬다.</p>
   <p>순서·위치 기반의 구조적 가상 클래스와, hover·checked·valid 같은 상태 기반 가상 클래스를 모두 살펴본다.</p>
 </div>
 

@@ -1,5 +1,5 @@
 ---
-title: "2-3-3. Grid로 구현할 수 있는 고급 레이아웃들"
+title: "4-3 Grid 고급 레이아웃들"
 category: "frontend"
 section: "css"
 date: "2026-08-01"
@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 1. 이 문서에서 다루는 것
 
 <div class="wda-callout wda-ci">
-  <p>[[2-3-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 <strong>실제 서비스에서 쓰이는 완성형 레이아웃</strong>을 만든다.</p>
+  <p>[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 <strong>실제 서비스에서 쓰이는 완성형 레이아웃</strong>을 만든다.</p>
   <p>신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.</p>
 </div>
 
