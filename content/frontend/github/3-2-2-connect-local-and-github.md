@@ -1,5 +1,5 @@
 ---
-title: "3-2-2 내 컴퓨터와 GitHub 연결하기"
+title: "2-2 내 컴퓨터와 GitHub 연결하기"
 category: "frontend"
 section: "github"
 date: "2026-08-02"

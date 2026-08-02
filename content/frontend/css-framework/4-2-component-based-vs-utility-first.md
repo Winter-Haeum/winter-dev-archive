@@ -1,5 +1,5 @@
 ---
-title: "4.2 Component based vs Utility first"
+title: "1-2 Component based vs Utility first"
 category: "frontend"
 section: "css-framework"
 date: "2026-08-02"

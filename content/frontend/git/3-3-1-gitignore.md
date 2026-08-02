@@ -1,5 +1,5 @@
 ---
-title: "3-3-1 gitignore로 버전 관리 제외 파일 설정하기"
+title: "3-1 gitignore로 버전 관리 제외 파일 설정하기"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

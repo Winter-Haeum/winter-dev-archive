@@ -1,5 +1,5 @@
 ---
-title: "3-3-2 README.md로 프로젝트 소개하기"
+title: "3-2 README.md로 프로젝트 소개하기"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

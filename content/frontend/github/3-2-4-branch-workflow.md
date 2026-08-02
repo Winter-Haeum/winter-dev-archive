@@ -1,5 +1,5 @@
 ---
-title: "3-2-4 branch로 작업 나누기"
+title: "2-4 branch로 작업 나누기"
 category: "frontend"
 section: "github"
 date: "2026-08-02"

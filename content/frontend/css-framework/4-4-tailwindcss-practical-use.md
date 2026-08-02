@@ -1,5 +1,5 @@
 ---
-title: "4.4 TailwindCSS 제대로 쓰기"
+title: "1-4 TailwindCSS 제대로 쓰기"
 category: "frontend"
 section: "css-framework"
 date: "2026-08-02"

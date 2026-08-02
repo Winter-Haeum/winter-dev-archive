@@ -1,5 +1,5 @@
 ---
-title: "3-1-2 Git의 구조 이해하기"
+title: "1-2 Git의 구조 이해하기"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

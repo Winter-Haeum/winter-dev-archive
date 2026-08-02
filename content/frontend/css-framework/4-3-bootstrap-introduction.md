@@ -1,5 +1,5 @@
 ---
-title: "4.3 Bootstrap 소개"
+title: "1-3 Bootstrap 소개"
 category: "frontend"
 section: "css-framework"
 date: "2026-08-02"

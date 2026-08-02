@@ -1,5 +1,5 @@
 ---
-title: "4.1 CSS 프레임워크란 무엇인가요?"
+title: "1-1 CSS 프레임워크란 무엇인가요?"
 category: "frontend"
 section: "css-framework"
 date: "2026-08-02"

@@ -1,5 +1,5 @@
 ---
-title: "3-2-3 Commit, push, pull 사용하기"
+title: "2-3 Commit, push, pull 사용하기"
 category: "frontend"
 section: "github"
 date: "2026-08-02"

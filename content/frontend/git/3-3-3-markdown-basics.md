@@ -1,5 +1,5 @@
 ---
-title: "3-3-3 Markdown 문법 알아보기"
+title: "3-3 Markdown 문법 알아보기"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

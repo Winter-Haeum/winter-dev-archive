@@ -4,30 +4,15 @@
  */
 export const categories = [
   {
-    id: 'frontend',
-    name: 'Frontend Fundamentals',
-    emoji: '📚',
-    slug: 'frontend',
-    description: '웹의 뼈대를 이루는 기초 기술. HTML 구조, CSS 속성, Flexbox·Grid 레이아웃, 개발자 도구 활용까지 탄탄한 기반을 쌓습니다.',
+    id: 'html',
+    name: 'HTML',
+    emoji: '📄',
+    slug: 'html',
+    description: '웹 문서의 뼈대를 이루는 마크업 언어. 웹의 동작 원리부터 시맨틱 태그 활용까지 HTML의 기본기를 다집니다.',
     nestedSidebar: true,
-    sections: [
-      'HTML',
-      'CSS 기본 문법',
-      '선택자 심화',
-      'Flexbox',
-      'Grid',
-      '위치와 변형',
-      '전환과 애니메이션',
-      '반응형 웹',
-      'DevTools',
-      'Layout',
-      'Git 기본',
-      'GitHub 연결과 협업 기본',
-      'Git 프로젝트 관리 문서',
-      'CSS Framework',
-    ],
+    sections: ['HTML 기본 문법'],
     sectionDocs: {
-      HTML: [
+      'HTML 기본 문법': [
         { slug: '1-1-www-and-website', title: '1-1: 월드 와이드 웹과 인터넷', folder: 'html' },
         { slug: '1-2-client-server-http', title: '1-2: 클라이언트와 서버, 그리고 HTTP', folder: 'html' },
         { slug: '1-3-html-document-structure', title: '1-3: HTML 문서의 기본 구조', folder: 'html' },
@@ -35,6 +20,25 @@ export const categories = [
         { slug: '1-5-semantic-markup', title: '1-5: 의미를 담는 시맨틱 마크업', folder: 'html' },
         { slug: '1-6-html-tags-in-practice', title: '1-6: 실전 HTML 태그 활용', folder: 'html' },
       ],
+    },
+  },
+  {
+    id: 'css',
+    name: 'CSS',
+    emoji: '🖍',
+    slug: 'css',
+    description: '웹페이지를 꾸미는 스타일 언어. 선택자와 박스 모델 같은 기본기부터 Flexbox·Grid 레이아웃, 반응형 웹까지 CSS 전 범위를 다룹니다.',
+    nestedSidebar: true,
+    sections: [
+      'CSS 기본 문법',
+      '선택자 심화',
+      'Flexbox',
+      'Grid',
+      '위치와 변형',
+      '전환과 애니메이션',
+      '반응형 웹',
+    ],
+    sectionDocs: {
       'CSS 기본 문법': [
         { slug: '1-1-css-syntax-and-apply', title: '1-1 CSS 문법과 적용 방법', folder: 'css' },
         { slug: '1-2-css-selectors', title: '1-2 선택자로 원하는 요소 골라내기', folder: 'css' },
@@ -72,6 +76,17 @@ export const categories = [
         { slug: '7-2-device-optimization', title: '7-2 다양한 기기에 최적화하기', folder: 'css' },
         { slug: '7-3-responsive-techniques', title: '7-3 반응형 기법 익히기', folder: 'css' },
       ],
+    },
+  },
+  {
+    id: 'devtools-layout',
+    name: 'DevTools & Layout',
+    emoji: '🔍',
+    slug: 'devtools-layout',
+    description: '브라우저 개발자 도구로 화면을 뜯어보고, 레이아웃을 블록 단위로 분석하는 실전 감각을 기릅니다.',
+    nestedSidebar: true,
+    sections: ['DevTools', 'Layout'],
+    sectionDocs: {
       DevTools: [
         { slug: '1-1-inspect-website-with-devtools', title: '1-1 DevTools로 웹사이트 들여다보기', folder: 'devtools' },
         { slug: '1-2-responsive-preview', title: '1-2 반응형 화면 미리보기', folder: 'devtools' },
@@ -79,28 +94,6 @@ export const categories = [
       Layout: [
         { slug: '2-1-analyze-webpage-structure', title: '2-1 실전 웹페이지 구조 분석하기', folder: 'layout' },
         { slug: '2-2-think-in-blocks', title: '2-2 블록으로 나누어 생각하기', folder: 'layout' },
-      ],
-      'Git 기본': [
-        { slug: '3-1-1-why-git', title: '3-1-1 Git이 왜 필요한가요?', folder: 'git' },
-        { slug: '3-1-2-git-structure', title: '3-1-2 Git의 구조 이해하기', folder: 'git' },
-        { slug: '3-1-3-cli-basics', title: '3-1-3 CLI 명령어 기본 익히기', folder: 'git' },
-      ],
-      'GitHub 연결과 협업 기본': [
-        { slug: '3-2-1-create-github-account', title: '3-2-1 GitHub 계정 만들기', folder: 'github' },
-        { slug: '3-2-2-connect-local-and-github', title: '3-2-2 내 컴퓨터와 GitHub 연결하기', folder: 'github' },
-        { slug: '3-2-3-commit-push-pull', title: '3-2-3 Commit, push, pull 사용하기', folder: 'github' },
-        { slug: '3-2-4-branch-workflow', title: '3-2-4 branch로 작업 나누기', folder: 'github' },
-      ],
-      'Git 프로젝트 관리 문서': [
-        { slug: '3-3-1-gitignore', title: '3-3-1 gitignore로 버전 관리 제외 파일 설정하기', folder: 'git' },
-        { slug: '3-3-2-readme-project-intro', title: '3-3-2 README.md로 프로젝트 소개하기', folder: 'git' },
-        { slug: '3-3-3-markdown-basics', title: '3-3-3 Markdown 문법 알아보기', folder: 'git' },
-      ],
-      'CSS Framework': [
-        { slug: '4-1-what-is-css-framework', title: '4.1 CSS 프레임워크란 무엇인가요?', folder: 'css-framework' },
-        { slug: '4-2-component-based-vs-utility-first', title: '4.2 Component based vs Utility first', folder: 'css-framework' },
-        { slug: '4-3-bootstrap-introduction', title: '4.3 Bootstrap 소개', folder: 'css-framework' },
-        { slug: '4-4-tailwindcss-practical-use', title: '4.4 TailwindCSS 제대로 쓰기', folder: 'css-framework' },
       ],
     },
   },
@@ -224,11 +217,30 @@ export const categories = [
   },
   {
     id: 'dev-tools',
-    name: 'Development Tools',
-    emoji: '🛠',
+    name: 'Git & GitHub',
+    emoji: '🐙',
     slug: 'dev-tools',
-    description: '개발 생산성을 높이는 필수 도구들. Git 버전 관리, GitHub 협업, Webpack과 Vite 번들러 설정까지 정리합니다.',
-    sections: ['Git', 'GitHub', 'Webpack', 'Vite'],
+    description: '버전 관리와 협업의 기본기. Git의 구조와 CLI 명령어부터 GitHub 연결, commit·push·pull, branch 워크플로우, 프로젝트 관리 문서까지 다룹니다.',
+    nestedSidebar: true,
+    sections: ['Git 기본', 'GitHub 연결과 협업 기본', 'Git 프로젝트 관리 문서'],
+    sectionDocs: {
+      'Git 기본': [
+        { slug: '3-1-1-why-git', title: '1-1 Git이 왜 필요한가요?', folder: 'git' },
+        { slug: '3-1-2-git-structure', title: '1-2 Git의 구조 이해하기', folder: 'git' },
+        { slug: '3-1-3-cli-basics', title: '1-3 CLI 명령어 기본 익히기', folder: 'git' },
+      ],
+      'GitHub 연결과 협업 기본': [
+        { slug: '3-2-1-create-github-account', title: '2-1 GitHub 계정 만들기', folder: 'github' },
+        { slug: '3-2-2-connect-local-and-github', title: '2-2 내 컴퓨터와 GitHub 연결하기', folder: 'github' },
+        { slug: '3-2-3-commit-push-pull', title: '2-3 Commit, push, pull 사용하기', folder: 'github' },
+        { slug: '3-2-4-branch-workflow', title: '2-4 branch로 작업 나누기', folder: 'github' },
+      ],
+      'Git 프로젝트 관리 문서': [
+        { slug: '3-3-1-gitignore', title: '3-1 gitignore로 버전 관리 제외 파일 설정하기', folder: 'git' },
+        { slug: '3-3-2-readme-project-intro', title: '3-2 README.md로 프로젝트 소개하기', folder: 'git' },
+        { slug: '3-3-3-markdown-basics', title: '3-3 Markdown 문법 알아보기', folder: 'git' },
+      ],
+    },
   },
   {
     id: 'web-network',
@@ -251,8 +263,17 @@ export const categories = [
     name: 'CSS Framework',
     emoji: '🎨',
     slug: 'css-framework',
-    description: '빠르게 UI를 완성하는 CSS 프레임워크. Bootstrap의 그리드 시스템과 Tailwind의 유틸리티 클래스를 비교하며 정리합니다.',
-    sections: ['Bootstrap', 'Tailwind'],
+    description: '빠르게 UI를 완성하는 CSS 프레임워크. 프레임워크가 필요한 이유부터 Component based와 Utility first 방식 비교, Bootstrap과 TailwindCSS 활용까지 정리합니다.',
+    nestedSidebar: true,
+    sections: ['CSS Framework'],
+    sectionDocs: {
+      'CSS Framework': [
+        { slug: '4-1-what-is-css-framework', title: '1-1 CSS 프레임워크란 무엇인가요?', folder: 'css-framework' },
+        { slug: '4-2-component-based-vs-utility-first', title: '1-2 Component based vs Utility first', folder: 'css-framework' },
+        { slug: '4-3-bootstrap-introduction', title: '1-3 Bootstrap 소개', folder: 'css-framework' },
+        { slug: '4-4-tailwindcss-practical-use', title: '1-4 TailwindCSS 제대로 쓰기', folder: 'css-framework' },
+      ],
+    },
   },
   {
     id: 'testing',

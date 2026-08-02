@@ -1,5 +1,5 @@
 ---
-title: "3-1-1 Git이 왜 필요한가요?"
+title: "1-1 Git이 왜 필요한가요?"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

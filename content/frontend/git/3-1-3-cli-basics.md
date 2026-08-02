@@ -1,5 +1,5 @@
 ---
-title: "3-1-3 CLI 명령어 기본 익히기"
+title: "1-3 CLI 명령어 기본 익히기"
 category: "frontend"
 section: "git"
 date: "2026-08-02"

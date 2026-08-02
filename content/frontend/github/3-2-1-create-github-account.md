@@ -1,5 +1,5 @@
 ---
-title: "3-2-1 GitHub 계정 만들기"
+title: "2-1 GitHub 계정 만들기"
 category: "frontend"
 section: "github"
 date: "2026-08-02"
