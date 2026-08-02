@@ -32,6 +32,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { categories } from '@/data/navigation';
 import { slugify, stripSectionNumber } from '@/utils/slugify';
 
+/**
+ * currentSectionSlug(URL의 section 파라미터)는 표시 단원의 슬러그일 수도 있고,
+ * (CSS/JavaScript처럼) 문서가 실제로 위치한 콘텐츠 폴더명일 수도 있다.
+ * 폴더명이 표시 단원 슬러그와 다른 경우, sectionDocs를 역으로 검색해 문서가 속한
+ * 표시 단원을 찾아 그 단원의 Accordion 키를 반환한다 (sidebar.jsx와 동일한 방식).
+ */
+function resolveOpenSectionKey(categoryId, sectionSlug, docSlug) {
+  if (!sectionSlug) return null;
+
+  const cat = categories.find((c) => c.id === categoryId);
+  if (!cat?.nestedSidebar) return `${categoryId}/${sectionSlug}`;
+
+  const directMatch = cat.sections.find((s) => slugify(s) === sectionSlug);
+  if (directMatch) return `${categoryId}/${sectionSlug}`;
+
+  const sectionViaFolder = cat.sectionDocs
+    ? Object.keys(cat.sectionDocs).find((name) =>
+        cat.sectionDocs[name].some(
+          (d) => d.slug === docSlug && (d.folder ?? slugify(name)) === sectionSlug
+        )
+      )
+    : null;
+
+  return sectionViaFolder ? `${categoryId}/${slugify(sectionViaFolder)}` : `${categoryId}/${sectionSlug}`;
+}
+
 function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug, currentDocSlug }) {
   const location = useLocation();
 
@@ -40,7 +66,7 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
 
   // Accordion — 한 번에 하나의 섹션만 열림 (nestedSidebar용)
   const [openSectionKey, setOpenSectionKey] = useState(
-    currentSectionSlug ? `${currentCategoryId}/${currentSectionSlug}` : null
+    resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug)
   );
 
   useEffect(() => {
@@ -49,8 +75,8 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
 
   useEffect(() => {
     if (!currentSectionSlug) return;
-    setOpenSectionKey(`${currentCategoryId}/${currentSectionSlug}`);
-  }, [currentCategoryId, currentSectionSlug]);
+    setOpenSectionKey(resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug));
+  }, [currentCategoryId, currentSectionSlug, currentDocSlug]);
 
   const toggle = (catId) => {
     setOpenCategoryId((prev) => (prev === catId ? null : catId));
