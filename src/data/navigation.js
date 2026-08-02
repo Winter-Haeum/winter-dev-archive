@@ -264,8 +264,79 @@ export const categories = [
     name: 'Web & Network',
     emoji: '🌐',
     slug: 'web-network',
-    description: '브라우저와 서버가 통신하는 방식. HTTP 프로토콜, Fetch API, CORS 정책, REST API 설계 원칙을 다룹니다.',
-    sections: ['HTTP', 'Fetch', 'CORS', 'API', 'SaaS'],
+    description: '웹 서비스의 종류와 SaaS 개념부터 프론트엔드·백엔드의 역할, API가 필요한 이유까지 웹 생태계의 기본 구조를 다룹니다.',
+    // 하위 섹션이 1개뿐이라 중간 섹션 없이 문서를 바로 노출한다 (HTML/CSS Framework와 동일한 flat 패턴).
+    // sections 각 항목이 실제로는 문서 1개씩을 가리키며, sectionLinks로 바로 문서 경로에 연결한다.
+    sections: [
+      '1-1 웹 서비스의 종류 알아보기',
+      '1-2 프론트엔드와 백엔드',
+      '1-3 API의 세계',
+    ],
+    sectionLinks: {
+      '1-1 웹 서비스의 종류 알아보기': '/web-network/web-network/1-1-web-service-types',
+      '1-2 프론트엔드와 백엔드': '/web-network/web-network/1-2-frontend-and-backend',
+      '1-3 API의 세계': '/web-network/web-network/1-3-api-world',
+    },
+    sectionDocs: {
+      '1-1 웹 서비스의 종류 알아보기': [{ slug: '1-1-web-service-types', title: '1-1 웹 서비스의 종류 알아보기', folder: 'web-network' }],
+      '1-2 프론트엔드와 백엔드': [{ slug: '1-2-frontend-and-backend', title: '1-2 프론트엔드와 백엔드', folder: 'web-network' }],
+      '1-3 API의 세계': [{ slug: '1-3-api-world', title: '1-3 API의 세계', folder: 'web-network' }],
+    },
+  },
+  {
+    id: 'http',
+    name: 'HTTP',
+    emoji: '📡',
+    slug: 'http',
+    description: 'HTTP 요청과 응답의 구조, method와 status code, Fetch API와 JSON, 그리고 CORS가 왜 발생하는지 다룹니다.',
+    sections: [
+      '1-1 HTTP 통신의 기초',
+      '1-2 Fetch API와 JSON',
+      '1-3 CORS 알아보기',
+    ],
+    sectionLinks: {
+      '1-1 HTTP 통신의 기초': '/http/http/1-1-http-basics',
+      '1-2 Fetch API와 JSON': '/http/http/1-2-fetch-api-and-json',
+      '1-3 CORS 알아보기': '/http/http/1-3-cors',
+    },
+    sectionDocs: {
+      '1-1 HTTP 통신의 기초': [{ slug: '1-1-http-basics', title: '1-1 HTTP 통신의 기초', folder: 'http' }],
+      '1-2 Fetch API와 JSON': [{ slug: '1-2-fetch-api-and-json', title: '1-2 Fetch API와 JSON', folder: 'http' }],
+      '1-3 CORS 알아보기': [{ slug: '1-3-cors', title: '1-3 CORS 알아보기', folder: 'http' }],
+    },
+  },
+  {
+    id: 'jquery',
+    name: 'jQuery',
+    emoji: '💠',
+    slug: 'jquery',
+    description: 'jQuery가 등장한 배경과 역사, 그리고 선택자·DOM 조작·이벤트 처리·기본 애니메이션 같은 핵심 기능을 정리합니다.',
+    sections: [
+      '1-1 jQuery의 역할과 역사',
+      '1-2 jQuery 핵심 기능 및 기본 효과',
+    ],
+    sectionLinks: {
+      '1-1 jQuery의 역할과 역사': '/jquery/jquery/1-1-jquery-role-and-history',
+      '1-2 jQuery 핵심 기능 및 기본 효과': '/jquery/jquery/1-2-jquery-core-and-effects',
+    },
+    sectionDocs: {
+      '1-1 jQuery의 역할과 역사': [{ slug: '1-1-jquery-role-and-history', title: '1-1 jQuery의 역할과 역사', folder: 'jquery' }],
+      '1-2 jQuery 핵심 기능 및 기본 효과': [{ slug: '1-2-jquery-core-and-effects', title: '1-2 jQuery 핵심 기능 및 기본 효과', folder: 'jquery' }],
+    },
+  },
+  {
+    id: 'regular-expression',
+    name: 'Regular Expression',
+    emoji: '🔎',
+    slug: 'regular-expression',
+    description: '문자열 패턴을 검사하는 정규표현식이 왜 필요한지, 자주 쓰는 기호와 이메일·전화번호 같은 입문자용 예시를 다룹니다.',
+    sections: ['1-1 정규표현식'],
+    sectionLinks: {
+      '1-1 정규표현식': '/regular-expression/regular-expression/1-1-regular-expression',
+    },
+    sectionDocs: {
+      '1-1 정규표현식': [{ slug: '1-1-regular-expression', title: '1-1 정규표현식', folder: 'regular-expression' }],
+    },
   },
   {
     id: 'database',
