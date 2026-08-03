@@ -372,6 +372,38 @@ export const categories = [
     sections: ['Firebase', 'Supabase'],
   },
   {
+    id: 'firebase',
+    name: 'Firebase',
+    emoji: '🔥',
+    slug: 'firebase',
+    description: 'Google이 제공하는 BaaS 플랫폼. 서버리스 개념부터 Firestore·Authentication·Storage·Hosting 같은 주요 서비스, 실제 배포 과정, 실전에서 함께 쓰이는 보조 개념까지 다룹니다.',
+    nestedSidebar: true,
+    sections: ['Firebase 기본', 'Firebase 주요 서비스', 'Firebase 배포', '부록'],
+    sectionDocs: {
+      'Firebase 기본': [
+        { slug: '1-1-firebase', title: '1-1 Firebase', folder: 'basics' },
+        { slug: '1-2-serverless-architecture', title: '1-2 서버리스 아키텍처란?', folder: 'basics' },
+        { slug: '1-3-firebase-services-overview', title: '1-3 서비스 둘러보기', folder: 'basics' },
+      ],
+      'Firebase 주요 서비스': [
+        { slug: '2-1-firestore-database', title: '2-1 Firestore 데이터베이스', folder: 'services' },
+        { slug: '2-2-authentication', title: '2-2 Authentication', folder: 'services' },
+        { slug: '2-3-storage', title: '2-3 Storage 파일 저장', folder: 'services' },
+        { slug: '2-4-hosting', title: '2-4 Hosting 배포', folder: 'services' },
+      ],
+      'Firebase 배포': [
+        { slug: '3-1-what-is-deployment', title: '3-1 배포가 뭔가요?', folder: 'deployment' },
+        { slug: '3-2-firebase-hosting-deployment', title: '3-2 Firebase Hosting 배포 방법', folder: 'deployment' },
+        { slug: '3-3-deployment-services', title: '3-3 다양한 배포 서비스 소개', folder: 'deployment' },
+      ],
+      '부록': [
+        { slug: '4-1-react-portal', title: '4-1 React Portal', folder: 'appendix' },
+        { slug: '4-2-zustand', title: '4-2 Zustand', folder: 'appendix' },
+        { slug: '4-3-api-fetch-axios', title: '4-3 API 연동(fetch & axios)', folder: 'appendix' },
+      ],
+    },
+  },
+  {
     id: 'css-framework',
     name: 'CSS Framework',
     emoji: '🎨',
