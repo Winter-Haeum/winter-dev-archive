@@ -99,6 +99,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
 
 원래 JavaScript는 크롬이나 사파리 같은 **브라우저 안에서만** 실행되는 언어였습니다. Node.js는 브라우저 없이도 컴퓨터에서 직접 JavaScript 코드를 실행할 수 있게 해주는 **실행 환경(런타임)**입니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   Node.js = JavaScript runtime. 문법은 똑같은 JavaScript이지만, 브라우저가 아니라 컴퓨터(터미널) 위에서 실행된다는 점이 다릅니다.
 </div>
@@ -118,6 +120,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   같은 JavaScript 문법을 쓰지만 <strong>실행되는 위치와 용도</strong>가 다릅니다. React 코드 자체는 브라우저에서 실행되고, 그 코드를 준비하는 도구는 Node.js 위에서 실행됩니다.
 </div>
@@ -136,6 +140,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
     개발 서버, 코드 변환기 같은 도구가 동작하는 곳. 이 도구들은 <strong>Node.js</strong> 위에서 실행된다.
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   Node.js는 개발 도구 실행에 필요합니다. React 앱 자체를 실행하는 것이 아니라, 개발 중에 필요한 도구들을 동작시키는 기반입니다.
@@ -204,6 +210,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
   </tr>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   Node.js/npm 설치 방법은 <strong>1-2 Node.js 설치하기</strong>에서, 패키지 버전·명령어 상세는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다룹니다. 이 문서에서는 각 명령의 <strong>역할</strong>만 확인합니다.
 </div>
@@ -227,6 +235,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
 
 `scripts`에 등록된 `dev`는 `npm run dev`로 실행할 수 있고, `dependencies`에는 이 프로젝트가 필요로 하는 패키지 목록이 담깁니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   `package.json`의 자세한 구조는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다룹니다. 여기서는 "프로젝트 설명서" 역할만 기억하면 됩니다.
 </div>
@@ -236,6 +246,8 @@ React로 만든 앱은 최종적으로 브라우저에서 실행됩니다. 하�
 ## 9. node_modules는 설치된 패키지 폴더다
 
 `npm install`을 실행하면 `package.json`에 적힌 패키지들이 `node_modules`라는 폴더에 다운로드됩니다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   node_modules는 직접 수정하지 않습니다. npm이 자동으로 관리하는 폴더이며, 필요한 패키지는 npm 명령으로 설치·삭제합니다.

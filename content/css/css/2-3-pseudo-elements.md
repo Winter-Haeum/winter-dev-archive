@@ -188,6 +188,8 @@ a[target="_blank"]::after {
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>content: attr(...)</code>는 <strong>텍스트 값만</strong> 가져올 수 있다. 색상이나 크기 같은 CSS 값을 속성에서 끌어오는 것은 <code>attr()</code>의 기본 문법으로는 지원하지 않으므로, 이런 값 전달이 필요하면 CSS 커스텀 속성(변수)을 함께 활용하는 방식을 고려해야 한다.</p>
 </div>
@@ -249,6 +251,8 @@ p.intro::first-line {
 ```
 
 초보자가 놓치기 쉬운 포인트는 다음과 같다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>::selection</code>은 <code>content</code> 속성이 필요 없다. <strong>색상과 배경색 계열의 속성만</strong> 적용되며, 그 외 대부분의 속성은 브라우저가 무시한다.</p>
@@ -326,6 +330,8 @@ p.intro::first-line {
   </div>
 </div>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>간단한 상태 표시 아이콘은 유니코드 문자로 충분한 경우가 많다. 브랜드에 맞는 정교한 아이콘이 필요하다면 <code>url()</code>로 SVG 아이콘 파일을 콘텐츠로 삽입하는 방식을 함께 고려하면 좋다.</p>
 </div>
@@ -388,6 +394,8 @@ p.intro::first-line {
 <tr><td>오른쪽 요소 → 왼쪽을 가리킴</td><td><code>border-right-color</code></td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>말풍선을 정확한 위치에 붙이려면 부모 요소에는 <code>position: relative</code>, 가상 요소에는 <code>position: absolute</code>가 함께 필요하다. 부모에 <code>relative</code>가 빠지면 가상 요소가 화면 전체를 기준으로 배치되어 엉뚱한 곳에 나타난다.</p>

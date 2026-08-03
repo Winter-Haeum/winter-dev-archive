@@ -111,6 +111,8 @@ lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>로딩·에러 상태는 [[2-5-community-dev|lesson-2 문서]]에서 다룬 것과 같은 원칙(로딩 표시·빈 상태 안내·에러 시 재시도)을 따르되, 좁은 화면에서는 안내 문구와 버튼이 <strong>충분한 터치 영역</strong>을 갖는지 함께 확인합니다.</p>
 </div>

@@ -144,6 +144,8 @@ CSS와 DevTools 사용법을 익혔다면, 다음 단계는 그 도구로 "실�
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>같은 "동영상 서비스"라도 큰 영역 구성은 서비스마다 다르다. 처음부터 정답을 맞히려 하지 말고, 눈에 보이는 큰 상자가 몇 개인지부터 세어보는 연습을 한다.</p>
 </div>
@@ -204,6 +206,8 @@ Netflix의 메인 화면을 예로 들면, Main 내부가 아래처럼 순서대
   <div class="wda-fcard"><div class="wda-fcard-ttl">footer</div><div class="wda-fcard-dsc">화면 맨 하단, 저작권·연락처·사이트 정보</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>header 안에는 nav가 들어가는 경우가 많아 "header = nav"라고 착각하기 쉽다. header는 상단 영역 전체를 감싸는 태그이고, nav는 그 안에서 이동 링크만 모아둔 태그이므로 서로 다른 역할이다.</p>
 </div>
@@ -253,6 +257,8 @@ Netflix의 메인 화면을 예로 들면, Main 내부가 아래처럼 순서대
 <tr><td>그리드 패턴</td><td>행과 열로 이루어진 일정한 규칙의 배치</td><td>CSS Grid나 Flexbox가 적용된 클래스인지 확인한다</td><td>쇼핑몰 상품 그리드, 포트폴리오 갤러리</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>반복 패턴을 찾아내면 "카드 하나만 정확히 분석해도 나머지는 같은 구조"라는 사실을 알 수 있다. 화면 전체를 하나하나 다 뜯어볼 필요 없이, 반복 단위 하나만 집중해서 분석하는 것이 효율적이다.</p>

@@ -128,6 +128,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>공통 스타일을 먼저 정의하고 예외적인 상황만 @media로 <strong>덮어쓰는</strong> 순서를 지키면, 스타일시트 전체를 화면 크기별로 흩어놓지 않고도 유지보수하기 쉬운 구조를 만들 수 있다.</p>
 </div>
@@ -205,6 +207,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>실무에서는 <strong>and</strong>로 범위를 좁히는 패턴이 대부분을 차지한다. 쉼표(OR)는 서로 동떨어진 두 조건을 한 번에 처리해야 하는 특수한 케이스에서, <strong>not</strong>과 <strong>only</strong>는 가끔 쓰는 보조 도구 정도로 기억해두면 충분하다.</p>
 </div>
@@ -223,6 +227,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   .layout { flex-direction: row; }
 }
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>orientation</code>을 <strong>단독으로</strong> 쓰면 가로로 넓은 데스크탑 화면도 landscape 조건에 함께 걸려버리는 실수를 하기 쉽다. 모바일·태블릿의 방향 전환만 다루고 싶다면 반드시 <code>width</code> 조건과 함께 묶어야 한다.</p>
@@ -301,6 +307,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 <tr><td>Material UI</td><td>0px</td><td>600px</td><td>900px</td><td>1200px</td><td>1536px</td><td>-</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>Breakpoint를 정할 때 "아이폰은 375px이니까 375px에 맞춘다"처럼 <strong>특정 디바이스 크기를 기준으로 삼는 방식(Device-based)</strong>은 지양해야 한다. 디바이스 종류는 계속 늘어나고 화면 크기도 제각각이기 때문이다. 대신 <strong>콘텐츠가 실제로 깨지기 시작하는 지점을 기준으로 Breakpoint를 잡는 방식(Content-based)</strong>이 현대적인 접근이다.</p>
@@ -390,6 +398,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 <tr><td>유지보수 부담</td><td>이미 데스크탑 퍼스트로 짜인 대규모 스타일시트를 전환하기 부담스럽다</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>그럼에도 데스크탑 퍼스트가 여전히 유용한 상황이 있다. <strong>기존 프로젝트</strong>를 유지보수할 때, <strong>Admin 페이지</strong>처럼 PC 사용이 절대적일 때, <strong>B2B SaaS</strong>나 <strong>내부 대시보드</strong>처럼 모바일 접근이 거의 없는 서비스에서는 데스크탑 퍼스트가 오히려 더 실용적이다.</p>

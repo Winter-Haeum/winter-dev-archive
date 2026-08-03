@@ -133,6 +133,8 @@ function LearningStatus({ isLoading, errorMessage }) {
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   숫자 0은 falsy이지만 화면에 그대로 "0"이 출력될 수 있습니다. <code>count &gt; 0 &amp;&amp; ...</code>처럼 비교식으로 명확히 표현하는 것이 안전합니다.
 </div>

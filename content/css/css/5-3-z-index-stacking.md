@@ -124,6 +124,8 @@ B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>대부분의 z-index 오류는 값 자체가 아니라 <strong>의도치 않게 생성된 Stacking Context</strong> 때문에 발생한다. 부모 요소에 <code>transform</code>이나 <code>opacity</code>가 걸려 있다면, 자식이 아무리 큰 z-index를 줘도 그 부모의 레이어 안에서만 유효하다.</p>
 </div>

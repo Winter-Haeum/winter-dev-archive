@@ -73,6 +73,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 [[1-1-www-and-website|이전 문서]]에서 클라이언트-서버 모델을 큰 그림으로 살펴봤다면, 이 문서는 그 사이의 대화 규칙인 HTTP를 자세히 다룹니다. HTML 태그 문법은 아직 다루지 않으며, "브라우저와 서버가 정확히 무엇을 주고받는가"에 집중합니다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>초창기 웹은 문서 몇 개를 서로 연결하는 정도로도 충분했습니다. 하지만 문서 수가 폭발적으로 늘어나면서 "브라우저가 서버에게 정확히 어떤 문서를 달라고 요청해야 하는가"라는 문제가 생겼습니다.</p>
   <p>이 문제를 풀기 위해 만들어진 것이 <strong>HTTP(HyperText Transfer Protocol)</strong>입니다. HTTP는 클라이언트와 서버가 문서를 주고받을 때 지키기로 약속한 통신 규칙입니다.</p>
@@ -135,6 +137,8 @@ Accept: text/html
 <tr><td>DELETE</td><td>서버에 있는 데이터를 삭제할 때 사용합니다.</td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>실무에서 가장 자주 보이는 조합은 <strong>GET + POST</strong>입니다. 목록을 불러올 때는 GET, 새로운 글을 등록하거나 로그인 정보를 제출할 때는 POST를 사용합니다.</p>
@@ -212,6 +216,8 @@ Content-Type: text/html
 ---
 
 ## 9. HTTPS — HTTP의 보안 확장
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>기본 HTTP는 내용을 그대로(평문으로) 전송하기 때문에, 중간에서 통신을 가로채면 내용이 그대로 노출될 수 있습니다. <strong>HTTPS</strong>는 이 내용을 암호화해 안전하게 전송하는 방식입니다. 브라우저 주소창의 자물쇠 아이콘으로 HTTPS 적용 여부를 확인할 수 있습니다.</p>

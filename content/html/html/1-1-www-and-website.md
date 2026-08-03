@@ -101,6 +101,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 3. "World Wide Web"이라는 이름
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>World(세계) + Wide(넓게 퍼진) + Web(거미줄)을 합치면 "전 세계에 넓게 퍼진 거미줄"이라는 뜻이 됩니다. 문서들이 링크로 서로 이어지는 모습이 마치 거미줄처럼 사방으로 연결된 구조를 이룬다는 데서 나온 이름입니다.</p>
   <p>웹의 핵심 철학은 결국 <strong>연결성(Connectivity)</strong>입니다. 하나의 문서에서 다른 문서로, 다시 그 문서에서 또 다른 문서로 — 클릭 한 번마다 새로운 정보로 이동할 수 있다는 것이 웹을 웹답게 만드는 특징입니다.</p>
@@ -122,6 +124,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
     그 인터넷이라는 통신망 위에서 동작하는 여러 서비스 중 하나입니다. URL·HTTP·HTML을 기반으로 문서를 주고받는 서비스입니다.
   </div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>인터넷을 우편을 배달할 수 있는 <strong>전국 배달망 전체</strong>라고 생각하면, 웹은 그 배달망을 이용하는 여러 서비스 중 하나(예: 편지 배달 서비스)에 해당합니다. 이메일, 파일 전송 등 인터넷 위에서 동작하는 서비스는 웹 말고도 여러 가지가 있습니다. 즉 <strong>웹은 인터넷의 일부</strong>이지, 인터넷 전체가 곧 웹은 아닙니다.</p>
@@ -174,6 +178,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 8. 클라이언트-서버 모델 맛보기
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>웹은 항상 <strong>요청하는 쪽(클라이언트)</strong>과 <strong>응답하는 쪽(서버)</strong> 두 역할로 나뉘어 동작합니다. 우편을 보내고 받는 과정에 비유하면 쉽게 이해할 수 있습니다.</p>

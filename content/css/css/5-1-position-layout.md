@@ -111,6 +111,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>부모(<code>.card</code>)에 <code>position: relative</code>를 깜빡하면 <code>.badge</code>는 가장 가까운 positioned 조상을 찾아 계속 위로 올라가다가, 결국 아무 조상도 못 찾으면 <strong>브라우저 전체(뷰포트)</strong>를 기준으로 배치된다. 카드 모서리에 붙어야 할 배지가 화면 구석으로 날아가는 사고는 대부분 이 실수 때문에 생긴다.</p>
 </div>
@@ -429,6 +431,8 @@ body {
 ```
 
 `column-reverse`를 쓰면 새 토스트가 항상 화면과 가장 가까운 자리에서부터 쌓여 자연스러운 알림 흐름을 만든다. `z-index: 9999`처럼 매우 높은 값을 주는 이유는 토스트가 어떤 화면에서도 다른 요소에 가려지면 안 되는, 사실상 가장 위 계층의 UI이기 때문이다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>토스트가 여러 개 쌓이면 화면을 너무 많이 가릴 수 있다. 최대 개수를 제한하거나 오래된 토스트부터 자동으로 사라지게 하고, <code>prefers-reduced-motion</code> 미디어 쿼리로 모션에 민감한 사용자를 위한 대체 처리를 함께 고려해야 한다. 스크린 리더 사용자를 위해서는 <code>role="alert"</code> 속성도 권장된다. 배경 콘텐츠와 겹치지 않도록 위치와 여백도 함께 점검한다.</p>

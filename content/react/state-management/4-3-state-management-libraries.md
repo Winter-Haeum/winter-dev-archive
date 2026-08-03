@@ -91,6 +91,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>Redux는 <strong>[[4-2-usereducer|4-2 문서]]에서 배운 reducer 패턴</strong>을 앱 전체 단위로 확장한 것과 개념적으로 비슷합니다. action을 dispatch하면 reducer가 새 상태를 계산하고, 그 상태를 구독하는 컴포넌트가 갱신됩니다.</p>
 </div>
@@ -121,6 +123,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">상태가 자주 얽히는 프로젝트</div><div class="wda-fcard-dsc">Zustand처럼 가벼운 도구나, 팀이 이미 익숙한 Redux를 고려합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">서버 데이터가 많은 프로젝트</div><div class="wda-fcard-dsc">클라이언트 상태 도구와 별개로 TanStack Query 같은 서버 상태 전용 도구를 함께 사용합니다.</div></div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>전역 상태가 로그인 정보나 테마 정도라면 무거운 라이브러리를 바로 도입할 필요는 없습니다. Context와 useReducer의 조합만으로 충분한 경우가 많으며, 상태가 실제로 복잡하게 얽히기 시작할 때 라이브러리 도입을 검토해도 늦지 않습니다.</p>

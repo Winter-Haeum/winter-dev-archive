@@ -101,6 +101,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .button:hover { background-color: #4f46e5; }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>단순한 색상·크기 전환에는 transition, 로딩 스피너처럼 <strong>계속 반복</strong>되거나 여러 단계를 거치는 복잡한 움직임에는 animation을 사용한다.</p>
 </div>
@@ -331,6 +333,8 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
   animation: fadeIn 0.4s ease-out, pulse 2s ease-in-out infinite;
 }
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><strong>shorthand 핵심 정리</strong> — 실무에서는 <code>animation: name duration timing-function iteration-count;</code> 정도만으로도 대부분의 패턴을 커버한다. 나머지(delay, direction, fill-mode, play-state)는 필요할 때만 추가한다.</p>

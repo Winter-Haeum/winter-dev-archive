@@ -107,6 +107,8 @@ setCount(count + 1);
 setCount(prev => prev + 1);
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>같은 이벤트 핸들러 안에서 setter를 여러 번 호출할 때</strong> 특히 차이가 드러납니다. <code>setCount(count + 1)</code>을 두 번 써도 <code>count</code>는 클로저에 저장된 같은 값이라 결과가 1만 증가하지만, <code>setCount(prev =&gt; prev + 1)</code>을 두 번 쓰면 2만큼 증가합니다.</p>
 </div>
@@ -180,6 +182,8 @@ function handleSortChange(nextSortBy) {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>전개 구문의 순서가 중요합니다.</strong> <code>{ sortBy: nextSortBy, ...prev }</code>처럼 순서를 바꾸면 <code>...prev</code>가 뒤에서 <code>sortBy</code>를 다시 덮어써 버려, 방금 바꾼 값이 사라집니다. 바꿀 속성은 항상 <code>...prev</code> 뒤에 적습니다.</p>
 </div>
@@ -199,6 +203,8 @@ function handleSortChange(nextSortBy) {
 
 ## 7. state로 둘 값과 계산할 값 구분
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><strong>다른 state나 props로부터 계산할 수 있는 값은 state로 만들지 않습니다.</strong></p>
 </div>
@@ -217,10 +223,14 @@ const checkedCount = checkedIds.length;
 
 ## 8. 초보자 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>배열이나 객체 state를 직접 수정하고 setter만 호출하는 경우</strong></p>
   <p><code>checkedIds.push(id); setCheckedIds(checkedIds);</code>처럼 쓰면, 배열 참조 자체는 바뀌지 않았기 때문에 React가 변경을 감지하지 못해 화면이 갱신되지 않을 수 있습니다. 항상 새 배열·새 객체를 만들어 setter에 넘겨야 합니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>setter 호출 직후 같은 변수를 다시 읽는 경우</strong></p>

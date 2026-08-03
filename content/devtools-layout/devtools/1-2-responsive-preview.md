@@ -155,6 +155,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>회전 버튼은 가로로 눕혔을 때 <strong>레이아웃이 깨지지 않는지</strong> 빠르게 확인하는 용도로 유용하다. 특히 CSS에 <code>orientation</code> 미디어 쿼리를 사용했다면, 실제로 방향이 바뀔 때 의도한 스타일이 적용되는지 반드시 이 기능으로 점검해야 한다.</p>
 </div>
@@ -212,6 +214,8 @@ navigator.userAgent
   <div class="wda-fcard"><div class="wda-fcard-ttl">하드웨어 기능</div><div class="wda-fcard-dsc">카메라, GPS, 자이로 센서 등 실제 하드웨어가 필요한 기능은 시뮬레이션할 수 없다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">브라우저 차이</div><div class="wda-fcard-dsc">Chrome 엔진 기반으로만 흉내 내기 때문에, 실제 Safari 등 다른 브라우저의 렌더링과 다를 수 있다.</div></div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>반응형 모드는 개발 중 빠르게 확인하기 위한 <strong>1차 점검 도구</strong>다. 최종 배포 전에는 반드시 실제 기기에서 한 번 더 테스트해야 한다.</p>

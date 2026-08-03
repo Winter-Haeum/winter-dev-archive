@@ -149,6 +149,8 @@ useEffect(() => {
 
 ## 5. (참고) 클래스 생명주기 메서드와의 대응 관계
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>클래스 컴포넌트는 오늘날 새로 작성하는 코드에서는 거의 쓰이지 않지만, 기존 코드를 읽을 때를 위해 대응 관계만 짧게 정리합니다.</p>
 </div>
@@ -169,6 +171,8 @@ useEffect(() => {
 ## 6. Strict Mode에서 두 번 실행되는 이유
 
 개발 모드에서 `useEffect` 콘솔 로그가 두 번 찍히는 현상을 발견할 수 있습니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>Strict Mode는 <strong>Mount → Unmount → Mount</strong>를 의도적으로 한 번 더 시뮬레이션해, cleanup이 제대로 작성됐는지 검증합니다. 개발 모드에서만 나타나며 프로덕션 빌드에서는 한 번만 실행됩니다.</p>

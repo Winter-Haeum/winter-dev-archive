@@ -104,6 +104,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 ### 하위 섹션
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>#</code> 뒤에는 반드시 <strong>공백 1칸</strong>을 넣어야 제목으로 인식된다. 레벨 1(<code>#</code>)은 문서 전체를 대표하는 제목으로 한 번만 사용하고, 레벨 2~3은 섹션을 구분하는 용도로 가장 많이 쓰인다.</p>
 </div>
@@ -148,6 +150,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
    1. 하위 항목은 3칸 들여쓰기
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>들여쓰기 칸 수가 다르다. <strong>순서 없는 목록은 2칸</strong>, <strong>순서 있는 목록은 3칸</strong>으로 하위 항목을 들여써야 렌더러가 같은 목록의 하위 항목으로 정확히 인식한다.</p>
 </div>
@@ -158,6 +162,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 - [ ] 아직 하지 않은 일
 - [x] 완료한 일
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>GitHub에서는 체크리스트를 Issue나 Pull Request의 진행 상황 표시, 개발 로드맵 작성 등에 실제로 클릭 가능한 형태로 자주 활용한다.</p>
@@ -212,6 +218,8 @@ https://www.google.com
   <div class="wda-fcard"><div class="wda-fcard-ttl">SEO</div><div class="wda-fcard-dsc">검색 엔진이 이미지 내용을 이해하는 데 활용되어 검색 결과 노출에 영향을 준다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>Markdown 문법만으로는 이미지 크기나 정렬을 조절할 수 없다. 크기를 지정하려면 <code>img</code> 태그를, 가운데 정렬을 하려면 <code>div align="center"</code>처럼 HTML을 함께 사용해야 한다.</p>
 </div>
@@ -242,6 +250,8 @@ def greet():
     print("hello world")
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>설치 명령어처럼 터미널에서 실행하는 코드는 <code>bash</code>나 <code>shell</code> 언어로 지정하고, 코드 예시는 되도록 <code>javascript</code>, <code>python</code>, <code>html</code>, <code>css</code> 등 언어 하이라이팅을 항상 적용한다. 파일명을 밝혀야 할 때는 코드 첫 줄에 주석으로 명시하면 읽는 사람이 헷갈리지 않는다.</p>
 </div>
@@ -266,6 +276,8 @@ def greet():
 | :--------- | :---------: | ----------: |
 | 텍스트    | 텍스트      | 텍스트      |
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>파이프 위치에 공백을 맞춰 작성하면 렌더링 전 원본 텍스트도 읽기 쉬워진다. 다만 표가 너무 복잡해지면 오히려 가독성이 떨어지므로, API 문서나 기능 비교처럼 항목이 명확한 곳에 적당히 활용하는 편이 좋다.</p>

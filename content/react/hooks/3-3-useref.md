@@ -116,6 +116,8 @@ function SearchPanel() {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>DOM이 아직 연결되기 전에는 <code>ref.current</code>가 <code>null</code>일 수 있습니다.</strong> <code>inputRef.current?.focus()</code>처럼 존재 여부를 확인하는 방식이 안전합니다.</p>
 </div>
@@ -212,6 +214,8 @@ function TimerBox() {
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><code>let</code> 변수로 타이머 ID를 저장하면, 화면이 매초 다시 그려질 때 변수가 초기화되어 <code>stop</code>이 멈춰야 할 타이머를 찾지 못합니다. <code>timerIdRef</code>는 리렌더링과 무관하게 값을 유지하므로 이런 문제가 없습니다.</p>
 </div>
@@ -219,6 +223,8 @@ function TimerBox() {
 ---
 
 ## 6. useState vs useRef 선택 기준
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><strong>결정 기준: "이 값이 바뀌었을 때 화면이 다시 그려져야 하는가?"</strong></p>
@@ -229,15 +235,21 @@ function TimerBox() {
 
 ## 7. 초보자 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>ref.current를 바꾸고 화면이 바로 바뀌길 기대하는 경우</strong></p>
   <p><code>countRef.current += 1</code>은 값은 정확히 바뀌지만, React에게 "다시 그려라"는 신호를 보내지 않으므로 화면의 숫자는 그대로 남습니다. 화면에 표시해야 하는 값이라면 useState를 써야 합니다.</p>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>렌더링 로직(함수 본문)에서 ref.current를 직접 바꾸는 경우</strong></p>
   <p>컴포넌트 함수가 실행되는 도중(Render Phase)에 <code>ref.current</code>를 바꾸면 예측하기 어려운 동작으로 이어질 수 있습니다. ref 값은 항상 이벤트 핸들러나 useEffect 안에서만 변경합니다.</p>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>참고</strong>: 자식 컴포넌트가 자신의 내부 DOM을 부모에게 공개해야 하는 경우 <code>forwardRef</code>라는 별도 API가 쓰입니다. 이 문서에서는 다루지 않습니다.</p>

@@ -86,6 +86,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </ul>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>이 시점에서 화면이 완벽할 필요는 없습니다. 구조가 잡혀 있고, 각 섹션의 역할을 알아볼 수 있으면 lesson-1의 목표는 달성된 것입니다.</p>
 </div>

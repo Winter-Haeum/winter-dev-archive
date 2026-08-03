@@ -103,6 +103,8 @@ console.log(formatLessonTitle("배열 구조분해"));
 
 ## 3. 화살표 함수 축약 규칙
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <ul>
     <li>매개변수 <strong>0개</strong>: 괄호가 필수다. <code>() =&gt; ...</code></li>

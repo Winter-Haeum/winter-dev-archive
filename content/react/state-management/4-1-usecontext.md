@@ -220,6 +220,8 @@ function CourseListPage() {
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>Provider의 <code>value</code>에 객체를 매번 새로 만들어 넣으면 렌더링마다 새 객체가 생성되어 불필요한 리렌더링을 유발할 수 있습니다. 값이 크거나 소비하는 컴포넌트가 많다면 <code>useMemo</code>로 value를 안정화하는 것을 고려합니다.</p>
 </div>

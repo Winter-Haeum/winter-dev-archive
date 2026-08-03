@@ -83,6 +83,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>project-table과 달리 contact-message는 방문자가 직접 입력하는 데이터이므로, 필드 대부분을 <strong>비공개</strong>로 설계합니다. 문의자 본인 확인 용도 외에 다른 목적으로 공개하지 않습니다.</p>
 </div>
@@ -123,6 +125,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 5. 저장 전 확인 절차
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>전송 버튼을 누르기 전에 입력한 내용을 다시 보여주거나, 전송 직후 "메시지가 접수되었습니다" 같은 결과 안내를 보여주면 방문자가 정상적으로 처리되었는지 알 수 있습니다.</p>

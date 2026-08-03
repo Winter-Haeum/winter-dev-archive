@@ -57,6 +57,8 @@ tags:
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   이 문서는 개념을 처음 설명하는 문서가 아니라, <strong>2-6 폼 입력 다루기</strong>에서 배운 내용을 직접 코드로 적용해보는 실습 문서입니다.
 </div>

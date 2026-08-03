@@ -103,6 +103,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><strong>자주 하는 질문.</strong> 왜 <code>1 / 4</code>로 병합할까? 열이 3개면 그리드 라인은 1~4번까지 생기기 때문에, 1번부터 4번까지가 곧 3열 전체다. Sidebar·Main·Ads에는 왜 <code>grid-column</code>을 쓰지 않았을까? 자동 배치에 맡기면 순서대로 각각 1번째, 2번째, 3번째 칸에 알아서 들어가기 때문이다. Sidebar와 Ads의 너비를 고정하는 이유는, 광고와 내비게이션처럼 크기가 일정해야 레이아웃이 흔들리지 않는 영역이기 때문이다.</p>
 </div>
@@ -164,9 +166,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .footer   { grid-area: footer; }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>grid-template-areas의 장점</strong>은 레이아웃이 코드만 봐도 시각적으로 보이고, 라인 번호를 따로 계산할 필요가 없으며, 나중에 유지보수하기도 쉽다는 점이다.</p>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>자주 하는 질문.</strong> Sidebar가 2행에 걸쳐 있는데 어떻게 병합될까? <code>grid-template-areas</code>에서 같은 이름(<code>sidebar</code>)이 여러 줄에 반복되면 자동으로 하나의 영역으로 합쳐진다. <code>grid-column</code>보다 <code>grid-template-areas</code>가 항상 더 좋은가? 복잡한 레이아웃엔 <code>areas</code>가 유리하지만, 2분할처럼 간단한 구조는 <code>grid-column</code>만으로 충분하다. 실무에서 정말 쓰이는가? 대시보드·관리자 페이지·SaaS 제품 화면에서 실제로 많이 쓰인다.</p>
@@ -235,6 +241,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><strong>자주 하는 질문.</strong> 열 개수는 어떻게 계산되나? 화면 폭을 <code>minmax()</code>의 최소값으로 나눈 몫만큼 열이 생긴다. 언제 1fr로 확장되나? 몫을 나누고 남는 공간이 있을 때, 그 공간이 이미 만들어진 열들에 1fr 비율로 고르게 배분된다. 실무에서 미디어 쿼리 없이도 되는가? 카드 크기가 동일한 갤러리형 UI라면 미디어 쿼리 없이 <code>auto-fit</code> 하나로 충분한 경우가 많다.</p>
 </div>
@@ -253,6 +261,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
     빈 칸을 <strong>제거</strong>하고, 실제 존재하는 아이템이 남은 공간을 나눠 채운다. 갤러리·카드 목록처럼 아이템이 화면을 꽉 채워 보여야 하는 UI에 적합하다.
   </div>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>실무에서는 대부분의 갤러리·카드 목록에 <strong>auto-fit</strong>이 권장된다. <strong>자주 하는 질문.</strong> 둘의 차이는 빈 칸 유지 여부다. 어떤 게 더 좋은가는 상황에 따라 다르지만 기본값은 <code>auto-fit</code>이다. <code>auto-fill</code>은 아이템 개수가 유동적인 리스트에서 그리드 틀 자체를 유지하고 싶을 때 사용한다.</p>
@@ -327,6 +337,8 @@ PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 �
 </div>
 
 핵심 패턴은 단순하다. `@media (max-width: 768px) { grid-template-columns: 1fr; }` — 가로 2열을 세로 1열로 바꾸는 것이 반응형 Grid의 기본형이다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>자주 하는 질문.</strong> 왜 768px을 기준으로 잡을까? 태블릿과 모바일을 가르는 대표적인 기준점으로 실무에서 관용적으로 쓰이기 때문이다. <code>grid-template-columns</code>만 바꾸면 되는가? 열 구조가 단순하다면 대부분 이것만으로 충분하다. <code>auto-fit</code>과 미디어 쿼리 중 무엇을 써야 하는가? 카드가 전부 동일한 역할을 하는 갤러리는 <code>auto-fit</code>이 적합하고, 헤더·사이드바·광고처럼 <strong>역할이 서로 다른 영역이 섞인</strong> 신문형·대시보드형 레이아웃은 미디어 쿼리로 명시적으로 재배치하는 편이 안전하다.</p>

@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Node.js/npm의 역할(1-1~1-3)과 React의 기본 개념(1-4)을 살펴봤습니다. 이제 실제로 React 프로젝트를 만들고 화면을 띄워볼 차례입니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   Node.js/npm 명령어 상세는 <strong>1-1 ~ 1-3</strong>에서, React 개념은 <strong>1-4</strong>에서 다뤘습니다. 이 문서는 실제 프로젝트 생성과 실행 흐름에 집중합니다.
 </div>
@@ -130,6 +132,8 @@ cd course-dashboard
 npm install
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <code>npm install</code> 명령 자체는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다뤘습니다. 여기서는 프로젝트 생성 흐름 안에서 이 명령이 언제 등장하는지에 집중합니다.
 </div>
@@ -158,6 +162,8 @@ npm run dev
 ## 8. localhost에서 확인하기
 
 명령을 실행하면 터미널에 접속 주소가 출력됩니다. 그 주소를 브라우저에서 열면 화면을 확인할 수 있습니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   출력되는 주소의 포트 번호는 환경마다 다를 수 있습니다. 터미널에 나온 주소를 그대로 열면 되며, 특정 숫자를 정답처럼 외울 필요는 없습니다.

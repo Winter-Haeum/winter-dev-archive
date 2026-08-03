@@ -106,6 +106,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>에러 상태에서는 "불러오기에 실패했습니다"처럼 무슨 일이 있었는지 간단히 안내하고, 가능하다면 <strong>다시 시도할 수 있는 방법</strong>을 함께 제공합니다.</p>
 </div>

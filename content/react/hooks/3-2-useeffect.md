@@ -124,6 +124,8 @@ function LearningFetcher({ keyword }) {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>의존성 배열을 생략하고 effect 안에서 state를 바꾸면 무한 루프에 빠질 수 있습니다.</strong> effect 실행 → state 변경 → 재렌더링 → effect 재실행이 반복되기 때문입니다. 의도적으로 매번 실행해야 하는 경우가 아니라면 항상 배열을 명시합니다.</p>
 </div>
@@ -151,6 +153,8 @@ function TimerBox() {
   return <p>{seconds}초</p>;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>Cleanup은 컴포넌트가 사라질 때만 실행되는 것이 아닙니다. 의존성 값이 바뀌어 <strong>새 effect가 다시 실행되기 직전</strong>에도 이전 effect의 cleanup이 먼저 호출됩니다. 타이머를 해제하지 않으면 이전 타이머가 계속 남아 있는 상태로 새 타이머가 하나 더 생깁니다.</p>
@@ -192,10 +196,14 @@ function LearningFetcher({ courseId }) {
 
 ## 6. 흔한 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>의존성 배열에 있는 값을 effect 내부에서 바꾸는 경우</strong></p>
   <p>예를 들어 <code>[count]</code>를 의존성으로 둔 effect 안에서 <code>setCount(count + 1)</code>을 호출하면, count가 바뀔 때마다 effect가 다시 실행되고 effect가 다시 count를 바꾸는 무한 루프에 빠집니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>effect 안에서 쓰는 값을 의존성 배열에서 빠뜨리는 경우</strong></p>

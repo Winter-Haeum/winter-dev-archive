@@ -57,6 +57,8 @@ tags:
 .wda-flip-deck{display:flex;flex-wrap:wrap;gap:12px;margin:.8rem 0 1.6rem}
 </style>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   이 문서는 개념을 처음 설명하는 문서가 아니라, <strong>2-8 리스트 렌더링</strong>에서 배운 내용을 직접 코드로 적용해보는 실습 문서입니다. map·filter·sort 자체의 동작 원리는 JavaScript 고차 배열 메서드 문서에서 다뤘으므로 여기서는 반복하지 않습니다.
 </div>

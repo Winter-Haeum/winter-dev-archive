@@ -113,6 +113,8 @@ Working Directory는 특별할 것 없는 평범한 폴더다. 파일을 만들�
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>.git</code> 폴더를 삭제하면 그 프로젝트의 <strong>모든 버전 기록이 영구히 사라진다</strong>. 이 폴더는 절대 직접 수정하거나 삭제하지 말고, 반드시 Git 명령어를 통해서만 다뤄야 한다.</p>
 </div>
@@ -122,6 +124,8 @@ Working Directory는 특별할 것 없는 평범한 폴더다. 파일을 만들�
 ## 3. Staging Area — 커밋을 준비하는 공간
 
 Working Directory에서 파일을 아무리 수정해도, 그 변경 사항이 곧바로 저장되는 것은 아니다. 저장(커밋)하기 전에 반드시 "이 파일들을 저장할 거야"라고 표시하는 과정이 필요한데, 그 표시가 쌓이는 곳이 Staging Area다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>사진 촬영에 비유하면 이해가 쉽다. <strong>Working Directory</strong>는 사람들이 자유롭게 움직이며 놀고 있는 상태고, <strong>Staging Area</strong>는 사진을 찍기 위해 포즈를 잡는 순간이며, <strong>Repository</strong>는 셔터를 눌러 그 순간을 사진 한 장으로 영구히 남기는 것이다.</p>

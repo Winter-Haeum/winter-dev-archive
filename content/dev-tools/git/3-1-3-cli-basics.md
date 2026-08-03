@@ -202,9 +202,13 @@ cd my-project
 touch index.html style.css script.js
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>폴더·파일 이름에 <strong>공백이 있으면 반드시 큰따옴표로 감싸야</strong> 한다(예: <code>mkdir "my folder"</code>). 이미 존재하는 폴더 이름으로 <code>mkdir</code>을 실행하면 에러가 발생한다. 한글 이름도 사용은 가능하지만, 인코딩 문제를 피하려면 영문 이름을 권장한다.</p>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>이름 짓기 팁 — 공백은 반드시 따옴표로 감싸고, 가능하면 <strong>영문 소문자 + 하이픈(-) 또는 언더스코어(_)</strong> 조합을 사용한다. 파일을 만들 때는 확장자를 빠뜨리지 않는다.</p>
@@ -234,6 +238,8 @@ cat a.txt > b.txt            # a.txt의 내용을 b.txt로 복사
     <code>i</code> 입력 모드 진입 → <code>ESC</code> 명령 모드 복귀 → <code>:wq</code> 저장 후 종료 · <code>:q!</code> 저장하지 않고 종료
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>처음에는 nano처럼 화면 안내가 보이는 편집기로 시작하는 것을 권장한다. vim은 배우는 데 시간이 걸리지만 익숙해지면 훨씬 빠르게 편집할 수 있다. macOS와 Linux는 대부분 두 편집기가 기본 설치돼 있고, Windows는 Git Bash를 설치하면 함께 딸려온다.</p>
@@ -268,9 +274,13 @@ ls -a
 
 <code>ls</code>에 <code>-a</code> 옵션을 붙이면 <code>.git</code>처럼 이름이 점(.)으로 시작하는 숨김 파일·폴더까지 모두 표시된다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>.git</code> 폴더는 그 프로젝트의 모든 버전 히스토리가 저장된 곳이다. 직접 열어서 내용을 건드리거나 삭제하면 <strong>이력 전체가 복구 불가능하게 사라진다</strong>.</p>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><code>git init</code>은 프로젝트당 한 번만 실행하면 된다. 실행한 뒤에는 습관적으로 <code>git status</code>를 실행해 지금 상태를 확인하는 것이 좋다.</p>
@@ -379,6 +389,8 @@ git add index.html
 git commit -m "index.html 초기 생성"
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>git add</code> 없이 바로 <code>git commit</code>을 실행하면 아무 변경 사항도 저장되지 않는다. 메시지 없이 커밋하는 것도 피해야 한다. <strong>status → add → status → commit</strong> 순서를 지키는 습관을 들이면 실수를 크게 줄일 수 있다.</p>
 </div>
@@ -398,6 +410,8 @@ git log --oneline       # 커밋마다 한 줄로 간단히 보기
 git log -n 5             # 최근 5개 커밋만 보기
 git log --oneline -5     # 최근 5개를 한 줄씩 간단히 보기
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>실무에서는 <code>git log --oneline</code>을 가장 자주 사용한다. 커밋 ID는 전체 해시를 다 볼 필요 없이 앞 7자리 정도만 있어도 다른 명령어에서 식별자로 충분히 사용할 수 있다.</p>
@@ -455,10 +469,14 @@ add하기 전 마지막으로 무엇이 바뀌었는지 확인하거나, 실수�
 
 ## 14. 터미널 사용 시 주의사항
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>절대 실행하지 말 것</strong> — <code>rm -rf /</code>는 시스템의 모든 파일을 강제로 삭제하는 명령어이며, 실행하면 복구가 거의 불가능하다. 이 명령어를 어디선가 보게 되더라도 <strong>절대로 Enter를 누르지 말 것</strong>.</p>
   <p>비슷하게 위험한 명령어로 <code>sudo rm -rf /</code>(관리자 권한으로 시스템 전체 삭제), 포크 폭탄(fork bomb, 프로세스를 무한 증식시켜 시스템을 마비시키는 코드), <code>mkfs</code>(디스크를 포맷하는 명령어)가 있다. 출처가 불분명한 명령어는 의미를 정확히 알기 전까지 절대 실행하지 않는다.</p>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>안전하게 사용하는 가장 기본적인 방법은 <strong>명령어를 실행하기 전 <code>pwd</code>로 지금 위치를 항상 확인하는 습관</strong>을 들이는 것이다. 특히 삭제나 초기화처럼 되돌리기 어려운 명령어일수록 실행 전 위치 확인이 중요하다.</p>

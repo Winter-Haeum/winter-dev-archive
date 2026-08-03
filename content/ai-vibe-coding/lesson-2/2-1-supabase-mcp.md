@@ -115,6 +115,8 @@ lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에
   <div class="wda-fcard"><div class="wda-fcard-ttl">열(Column) · 필드</div><div class="wda-fcard-dsc">정보의 종류입니다. 제목, 설명, 기술 스택처럼 표의 세로 항목입니다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>엑셀에서 쓰던 <strong>행/열</strong>이라는 말과 데이터베이스의 <strong>레코드/필드</strong>는 같은 것을 가리키는 다른 이름입니다. 이후 문서에서는 두 표현을 섞어서 사용합니다.</p>
 </div>

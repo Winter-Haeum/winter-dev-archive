@@ -146,6 +146,8 @@ ls
 git remote -v
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>오픈소스 프로젝트를 공부할 때는 <code>clone</code>으로 코드를 직접 받아 구조를 분석해보는 방식이 좋다. 실제로 배포되는 프로젝트가 어떻게 구성되는지 가장 빠르게 익힐 수 있다.</p>
 </div>
@@ -167,6 +169,8 @@ git remote -v
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>정리하면 HTTPS는 "빠르게 시작하기"에 유리하고, SSH는 "매번 인증하지 않고 안전하게 쓰기"에 유리하다. 아래 절부터는 SSH 키를 직접 생성하고 등록하는 과정을 다룬다.</p>
 </div>
@@ -184,6 +188,8 @@ SSH 인증은 한 쌍의 키를 기반으로 동작한다.
 <tr><td>비밀키(Private Key)</td><td>내 컴퓨터에만 저장하는 키입니다. 절대로 다른 사람과 공유하면 안 되며, 파일명은 보통 <code>id_rsa</code> 또는 <code>id_ed25519</code>입니다.</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>비밀키는 이름 그대로 절대 노출되면 안 되는 값이다. 코드 저장소나 채팅, 문서 어디에도 비밀키 내용을 그대로 붙여 넣지 않는다. GitHub에 등록해야 하는 것은 항상 <strong>공개키</strong>뿐이다.</p>
@@ -259,6 +265,8 @@ cat ~/.ssh/id_ed25519.pub
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">④ 등록 완료</div><div class="wda-fnode-dsc">Add SSH key 클릭</div></div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>여러 컴퓨터에서 작업한다면 컴퓨터마다 SSH 키를 각각 생성하고 각각 등록해야 한다. 하나의 키를 여러 컴퓨터에서 공유하는 방식은 권장하지 않는다.</p>

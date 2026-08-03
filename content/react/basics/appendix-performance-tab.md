@@ -110,6 +110,8 @@ tags:
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   각 작업을 나타내는 막대의 색상과 라벨은 브라우저 버전에 따라 달라질 수 있습니다. 색상만 보지 말고 막대의 라벨도 함께 확인하세요.
 </div>
@@ -135,6 +137,8 @@ timeline에서 유독 길게 늘어진 막대가 있다면, 그 구간이 시간
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   React 렌더링과 브라우저 작업은 이어지지만 같은 단계는 아닙니다. Virtual DOM이 계산을 마친 뒤에야 브라우저의 rendering·painting이 이어집니다.
 </div>
@@ -153,6 +157,8 @@ timeline에서 유독 길게 늘어진 막대가 있다면, 그 구간이 시간
     실제로 Record → Interact → Stop을 거쳐 결과를 확인한다.
   </div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   Performance 탭 결과만으로 원인을 단정하지 않습니다. 한 번의 기록 결과는 그 순간의 상황일 뿐이며, 필요하면 여러 번 반복해서 확인합니다.

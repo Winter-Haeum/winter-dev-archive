@@ -96,6 +96,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>위 용어들은 <strong>개념만 소개</strong>합니다. 실제 설정값이나 정확한 절차는 사용하는 도메인 서비스와 배포 서비스의 공식 안내에 따라 다르며, 이 문서에서 특정 수치나 절차를 고정해 알려드리지 않습니다.</p>
 </div>
@@ -115,6 +117,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">5. 접속 확인</div><div class="wda-fnode-dsc">새 주소로 실제 접속 확인</div></div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>설정 반영에는 시간이 걸릴 수 있습니다. 바로 접속되지 않는다고 해서 실패로 단정하지 말고, 잠시 후 다시 확인해 봅니다.</p>

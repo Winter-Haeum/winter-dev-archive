@@ -81,6 +81,8 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
   <div class="wda-fcard"><div class="wda-fcard-ttl">기여 가이드 제공</div><div class="wda-fcard-dsc">다른 개발자가 이 프로젝트에 기여하는 방법을 안내한다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>README.md는 단순한 파일 하나가 아니라 <strong>프로젝트의 얼굴</strong>이다. 코드를 한 줄도 읽기 전에 이 문서만으로 프로젝트의 첫인상이 결정된다.</p>
 </div>
@@ -113,6 +115,8 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 <tr><td>추가 정보</td><td>기여 가이드, 라이선스, 문의처 등</td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>이 구조는 고정된 정답이 아니라 프로젝트 규모와 성격에 따라 달라질 수 있다. 기업의 대규모 프로젝트는 기여 가이드를 <code>CONTRIBUTING.md</code>로, 행동 강령을 <code>CODE_OF_CONDUCT.md</code>로 따로 분리해 관리하기도 한다.</p>
@@ -221,6 +225,8 @@ push가 끝나면 GitHub 저장소 첫 화면에 README.md 내용이 자동으�
     코드를 하나씩 열어봐야 프로젝트를 파악할 수 있어 진입 장벽이 높고, 관리되지 않는 프로젝트라는 인상을 준다.
   </div>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>참고로 GitHub 프로필 자체도 같은 이름의 저장소에 README.md를 두면 프로필 페이지처럼 꾸밀 수 있다. 다만 이 문서에서는 프로젝트 소개용 README에 집중한다.</p>

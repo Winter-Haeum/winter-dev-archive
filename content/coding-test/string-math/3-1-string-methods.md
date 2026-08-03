@@ -111,6 +111,8 @@ str.startsWith("Hello"); // 시작 부분 확인
 str.endsWith("d");        // 끝 부분 확인
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>모든 탐색 메서드는 대소문자를 구분합니다. 대소문자 구분 없이 찾으려면 양쪽을 모두 <code>toLowerCase()</code>로 맞춘 뒤 비교합니다.</p>
 </div>
@@ -128,6 +130,8 @@ str.slice(0, 5);   // "Hello"
 str.slice(6);      // "World" (끝까지)
 str.slice(-5);     // "World" (뒤에서 5글자)
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>비슷한 메서드로 <code>substring</code>이 있지만, 음수를 넣으면 0으로 취급해버려 의도와 다르게 동작할 수 있습니다. 코딩테스트에서는 배열의 <code>slice</code>와 동작이 같은 <strong>slice</strong> 쪽을 기본으로 사용합니다.</p>
@@ -166,6 +170,8 @@ input.trim();        // "Hello World" (양쪽 공백 제거)
 ["a", "b", "c"].join("");  // "abc"
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>공식: <code>split(A).join(B)</code>는 "A를 B로 바꾸기"와 같습니다.</strong> 예를 들어 <code>"010-1234".split("-").join("")</code>은 하이픈을 전부 제거하는 효과를 냅니다.</p>
 </div>
@@ -187,6 +193,8 @@ const reversed = "Hello".split("").reverse().join(""); // "olleh"
 // 자주 쓰는 패턴: 특정 문자 전부 제거
 "a b c".replaceAll(" ", ""); // "abc"
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>replace</code>는 첫 번째로 일치하는 것만 바꿉니다. 전체를 바꾸려면 <code>replaceAll</code>을 써야 합니다.</p>
@@ -224,10 +232,14 @@ String.fromCharCode(65); // "A" (코드 → 문자)
 
 ## 9. 흔한 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>str[0] = 'X'로 문자열을 직접 수정하려는 경우</strong></p>
   <p>문자열은 불변이라 대입이 조용히 무시됩니다. 새 문자열을 만들어 변수에 다시 담아야 합니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>replace 한 번으로 모든 문자가 바뀔 것이라 기대하는 경우</strong></p>

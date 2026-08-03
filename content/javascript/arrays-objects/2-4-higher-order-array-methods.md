@@ -168,6 +168,8 @@ lessonList.map(lesson => lesson.title);
 
 이렇게 **함수를 인자로 받는 함수**를 고차 함수(Higher-Order Function)라고 부르고, 배열의 `map`·`filter`·`reduce` 등은 이 개념을 활용한 대표적인 메서드입니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   콜백은 보통 <code>(element, index, array)</code> 세 값을 받을 수 있습니다. 지금은 대부분 <code>element</code> 하나만 사용해도 충분합니다.
 </div>
@@ -215,6 +217,8 @@ const lessonLabels = lessonList.map(
 
 console.log(lessonLabels[0]); // '변수와 자료형 (30분)'
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <strong>map은 새 배열을 반환합니다.</strong> 콜백이 반환한 값들을 순서대로 모아 새 배열을 만들 뿐, <code>lessonList</code> 자체는 그대로 남아 있습니다.
@@ -270,6 +274,8 @@ console.log(missingLesson); // undefined
     조건에 맞는 요소를 전부 모아 배열로 반환
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   "ID로 강의 하나 찾기"처럼 결과가 하나뿐이라고 확신할 수 있는 경우에는 <code>filter</code>가 아니라 <code>find</code>를 사용하세요. 찾는 즉시 멈추기 때문에 배열이 클수록 더 유리합니다.
@@ -328,6 +334,8 @@ console.log(totalStudyMinutes); // 215
 
 콜백은 `(누적값, 현재 요소)` 순서로 받고, 두 번째 인자인 `0`은 **초기값**입니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   초기값을 생략하면 배열의 첫 번째 요소가 초기값으로 쓰입니다. 이때 배열이 <strong>비어 있으면 에러</strong>가 발생하므로, 초기값은 항상 명시하는 습관을 들이세요.
 </div>
@@ -340,6 +348,8 @@ try {
   console.log(error instanceof TypeError); // true
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   reduce는 합계뿐 아니라 객체나 배열 같은 다른 형태의 값도 만들 수 있는 유연한 메서드입니다. 다만 처음에는 <strong>합계·평균처럼 값 하나를 누적하는 패턴</strong>부터 익히고, 복잡한 활용은 필요할 때 하나씩 늘려가는 것으로 충분합니다.
@@ -362,6 +372,8 @@ lessonList.forEach(lesson => console.log(lesson.title));
 const result = lessonList.forEach(lesson => lesson.title);
 console.log(result); // undefined
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <strong>forEach는 반환값을 모으는 용도가 아닙니다.</strong> 새 배열이 필요하면 <code>map</code>, 조건에 맞는 값만 필요하면 <code>filter</code>를 사용하세요.
@@ -408,6 +420,8 @@ console.log(lessonList.map(lesson => lesson.title));
 // lessonList 순서는 그대로 유지됨
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <strong>sort는 원본 배열을 바꿀 수 있습니다.</strong> <code>[...lessonList]</code>로 복사본을 만든 뒤 정렬하면 원본 순서를 지킬 수 있습니다.
 </div>
@@ -436,6 +450,8 @@ const sortedLessons = [...lessonList].sort(
 lessonList는 그대로, 새 배열만 정렬됨
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   최신 JavaScript에는 원본을 바꾸지 않는 <code>toSorted()</code>도 있습니다. <code>lessonList.toSorted((a, b) =&gt; a.minutes - b.minutes)</code>처럼 쓸 수 있지만, 실행 환경에 따라 지원 여부가 다를 수 있으니 먼저 <code>[...arr].sort(...)</code> 패턴에 익숙해지는 것을 권합니다.
@@ -536,9 +552,13 @@ const completedMinutes = lessonList
 console.log(completedMinutes); // 120
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   체이닝이 가능한 이유는 단순합니다. <code>filter</code>와 <code>map</code>이 <strong>배열을 반환</strong>하기 때문에 그 배열에 다시 <code>.</code>을 찍어 다음 메서드를 부를 수 있는 것입니다. 반면 <code>reduce</code>처럼 배열이 아닌 값을 반환하면, 그 뒤에는 더 이상 배열 메서드를 이어 붙일 수 없습니다.
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   체이닝을 과하게 길게 쓰면 오히려 읽기 어려워집니다. 한 줄에 메서드 두세 개 정도로 유지하고, 더 길어질 것 같다면 중간 변수로 나누는 것이 좋습니다.
@@ -561,6 +581,8 @@ const nextLessonList = [...lessonList, { id: 6, title: '테스트 코드', minut
 console.log(lessonList.length);     // 5 (원본 그대로)
 console.log(nextLessonList.length); // 6 (새 배열에만 추가됨)
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   원본 배열을 그대로 유지하고 새 배열을 만들어 쓰는 습관을 들이면, 나중에 같은 데이터를 여러 곳에서 함께 사용할 때 예상치 못한 변경으로 인한 버그를 줄일 수 있습니다.
@@ -592,6 +614,8 @@ console.log(nextLessonList.length); // 6 (새 배열에만 추가됨)
 ---
 
 ## 15. 실습 과제
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <strong>🎯 목표</strong><br>

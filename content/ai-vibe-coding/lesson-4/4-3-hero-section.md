@@ -98,6 +98,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>새로고침 시 화면이 제대로 뜨지 않는 문제는 배포 환경의 경로 설정과 관련된 경우가 많습니다. 정확한 원인과 해결 방법은 서비스와 프로젝트 구조에 따라 달라지므로, 이 문서에서는 <strong>증상을 알아채는 것까지</strong>를 목표로 하고 구체적인 해결은 AI와 함께 상황에 맞게 확인합니다.</p>
 </div>

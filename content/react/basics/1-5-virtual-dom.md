@@ -81,6 +81,8 @@ React는 이 계산을 대신해줍니다. 개발자는 데이터(state)만 바�
 
 ## 2. DOM 직접 조작과 React 렌더링
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   DOM 직접 조작과 React 방식의 기본 차이는 <strong>1-4 React가 뭔가요?</strong>에서 다뤘습니다. 여기서는 그 차이가 화면을 다시 그리는 단계에서 구체적으로 어떻게 이어지는지 살펴봅니다.
 </div>
@@ -179,6 +181,8 @@ function toggleComplete(courseId) {
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   강의 목록처럼 여러 항목을 반복해서 그릴 때는 각 항목에 <code>key</code>를 지정해야, 순서가 바뀌거나 항목이 추가·삭제되어도 React가 어떤 항목이 바뀐 것인지 정확히 추적할 수 있습니다. key 선택 기준과 실전 예제는 <strong>2-8 리스트 렌더링</strong>에서 자세히 다룹니다.
 </div>
@@ -197,6 +201,8 @@ function toggleComplete(courseId) {
     아주 단순한 변경은 비교 과정이 오히려 부담일 수 있다. 화면이 복잡하고 변경이 잦을수록 React의 계산 방식이 유리해진다.
   </div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   Virtual DOM은 무조건 빠르다는 뜻이 아닙니다. "매번 어디를 고칠지 직접 계산하지 않아도 된다"는 점이 핵심입니다.

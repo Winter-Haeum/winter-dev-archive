@@ -132,6 +132,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 4. 다시 확인할 체크리스트
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>위 예시는 방향을 보여주는 참고용입니다. 실제로 요청할 때는 <strong>지금 화면에서 실제로 확인된 문제</strong>를 구체적으로 채워 넣습니다.</p>
 </div>

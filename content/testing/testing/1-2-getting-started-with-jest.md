@@ -188,6 +188,8 @@ test('객체는 toEqual로 비교한다', () => {
 
 Jest는 오랫동안 자바스크립트 테스트 도구의 표준처럼 쓰여 왔지만, 최근에는 Vite 기반 프로젝트에서 **Vitest**라는 도구도 널리 쓰입니다. Vitest는 Jest와 문법이 매우 비슷해서, Jest 문법을 익혀두면 Vitest로 넘어가는 데도 큰 어려움이 없습니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>이 문서에서는 test·expect·describe라는 가장 기본적인 구조를 Jest를 기준으로 설명하지만, 이 구조 자체는 Vitest를 포함한 대부분의 자바스크립트 테스트 도구에서 공통으로 쓰이는 뼈대입니다.</p>
 </div>

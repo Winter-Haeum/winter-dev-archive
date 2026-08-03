@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버그 수정을 진행할 수 있는 독립적인 작업 공간이다. branch 자체는 커밋이 쌓이는 별도의 타임라인이라서, 같은 프로젝트 안에서도 서로 다른 실험이나 기능을 동시에 안전하게 진행할 수 있다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>나무에 비유하면 이해하기 쉽다. <strong>main</strong>은 나무의 줄기이고, <strong>branch</strong>는 줄기에서 갈라져 나온 가지다. 가지에서 작업을 끝내면 다시 줄기(main)에 <strong>merge</strong>해 하나로 합친다.</p>
 </div>
@@ -90,6 +92,8 @@ Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버�
 <tr><td>hotfix branch</td><td>운영 중 발견된 문제를 긴급하게 수정할 때 사용합니다.</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>팀에서는 브랜치 이름 규칙을 미리 정해두는 것이 좋다. 예를 들어 <code>feature/login-ui</code>, <code>bugfix/header-typo</code>처럼 <strong>종류/내용</strong> 형태로 통일하면 누가 봐도 브랜치의 목적을 바로 파악할 수 있다.</p>
@@ -175,6 +179,8 @@ ls
 
 main으로 돌아가면 `login.html`이 화면에서 사라진 것처럼 보인다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>이때 파일이 <strong>삭제된 것이 아니다.</strong> 단지 main branch에는 해당 파일이 아직 없는 것뿐이다. branch마다 존재하는 파일 구조가 다를 수 있다는 점을 기억해두면, 파일이 갑자기 사라진 것처럼 보여도 당황하지 않을 수 있다.</p>
 </div>
@@ -253,6 +259,8 @@ git merge feature-login
 ## 8. 왜 main에 바로 작업하지 않을까
 
 협업에서는 어떤 변경도 main branch에서 직접 진행하지 않는 것이 기본 원칙이다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>main은 언제나 배포 가능한 안정된 상태를 유지해야 하는 branch다. 여기에 바로 작업하면 <strong>실수 하나가 곧바로 배포 버전에 영향</strong>을 줄 수 있고, 여러 사람이 동시에 손대면 <strong>충돌이 잦아지며</strong>, 코드 리뷰(Pull Request) 과정을 거치지 않고 변경이 반영되어 <strong>검증 없는 코드</strong>가 그대로 쌓일 위험도 커진다. feature branch에서 작업하고 리뷰를 거쳐 merge하는 흐름을 지켜야 이런 문제를 예방할 수 있다.</p>

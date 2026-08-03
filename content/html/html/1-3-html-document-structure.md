@@ -100,6 +100,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. DOCTYPE 선언의 의미
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><code>&lt;!DOCTYPE html&gt;</code>은 "이 문서는 HTML5 표준을 따릅니다"라고 브라우저에게 알려주는 선언입니다. 문서의 맨 첫 줄에 위치해야 합니다.</p>
 </div>
@@ -131,6 +133,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>지금은 더 이상 "HTML6", "HTML7" 같은 버전이 나오지 않습니다. HTML은 <strong>Living Standard(살아있는 표준)</strong> 방식으로 관리되며, 필요할 때마다 조금씩 개정되는 하나의 표준만 존재합니다.</p>
 </div>
@@ -154,6 +158,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 <meta name="description" content="HTML 문서 구조를 배우는 학습 페이지입니다." />
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>charset</code>은 반드시 head 영역의 가장 첫 줄 근처에 있어야 합니다. 인코딩 지정이 늦어지면 그 사이에 있는 한글이 깨진 문자로 표시될 수 있습니다.</p>
 </div>
@@ -172,6 +178,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 <link rel="stylesheet" href="main.css" />
 <script src="main.js" defer></script>
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>script는 기본적으로 HTML 해석을 멈추고 먼저 실행됩니다. head 안에 script를 넣어야 한다면 <code>defer</code> 속성을 붙여 "HTML을 끝까지 읽은 뒤에 실행해 달라"고 지정할 수 있습니다. 초보자가 자주 겪는 화면 깜빡임·로딩 지연 문제를 줄여주는 속성입니다.</p>
@@ -204,6 +212,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 ---
 
 ## 7. 초보자 주의점
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>DOCTYPE을 빠뜨리거나 head 안의 필수 meta 태그를 생략해도 당장은 화면이 나올 수 있습니다. 하지만 모바일 화면이 이상하게 보이거나, 한글이 깨지거나, 검색 결과에 설명이 나오지 않는 등의 문제로 이어질 수 있으므로 처음부터 습관을 들이는 것이 좋습니다.</p>

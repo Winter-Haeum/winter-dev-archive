@@ -138,6 +138,8 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>CSS의 <code>display</code> 속성을 사용하면 요소의 성격을 바꿀 수 있습니다. 블록 요소를 인라인처럼, 인라인 요소를 블록처럼 동작하게 만들 수도 있습니다.</p>
 </div>
@@ -159,6 +161,8 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
 <tr><td><code>lang</code></td><td>요소 또는 문서의 언어를 지정합니다.</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>id</code>는 한 문서 안에서 <strong>단 하나만</strong> 사용할 수 있습니다. 같은 이름의 id를 여러 요소에 붙이면 스타일링이나 JavaScript 코드가 첫 번째 요소에만 정확히 적용되고 나머지는 예상과 다르게 동작할 수 있습니다.</p>

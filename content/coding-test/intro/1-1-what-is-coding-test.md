@@ -81,6 +81,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">평가 방식</div><div class="wda-fcard-dsc">사람이 아니라 채점 서버가 정해진 테스트 케이스로 코드를 실행해 평가합니다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>채점 서버는 제출한 코드에 수십 개의 테스트 데이터를 넣어봅니다. 하나라도 틀리거나, 정답이어도 실행 시간이 너무 오래 걸리면 오답으로 처리됩니다.</p>
 </div>
@@ -113,6 +115,8 @@ function solution(numbers) {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>채점 시스템은 정해진 이름의 함수를 호출하도록 설계되어 있습니다. 함수 이름을 임의로 바꾸면 채점 자체가 진행되지 않습니다.</p>
 </div>
@@ -128,6 +132,8 @@ function solution(numbers) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">효율성</div><div class="wda-fcard-dsc">제한 시간 안에 실행이 끝나는지 확인합니다. 정답이어도 너무 느리면 실패합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">메모리</div><div class="wda-fcard-dsc">허용된 메모리 범위 안에서 동작하는지 확인합니다.</div></div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>제약 조건에 적힌 입력 크기(N)를 보면 어떤 접근이 통할지 미리 가늠할 수 있습니다. N이 100,000을 넘는데 이중 반복문(O(N²))으로 풀면 대부분 시간 초과가 납니다. 시간 복잡도를 다루는 자세한 내용은 [[2-1-array-methods|2-1 문서]]에서 다룹니다.</p>
@@ -145,6 +151,8 @@ function solution(numbers) {
 <tr><td>알고리즘</td><td>정렬·탐색·그래프 탐색·동적 계획법처럼 정해진 해결 절차를 적용하는 능력</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>처음부터 어려운 알고리즘을 파고들기보다, 구현 문제로 감을 잡는 것이 먼저입니다. 조건을 코드로 옮기는 연습이 되어 있어야 자료구조와 알고리즘도 제대로 활용할 수 있습니다.</p>
@@ -166,6 +174,8 @@ function solution(numbers) {
 ---
 
 ## 6. 흔한 오해
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>"수학을 잘해야 한다"</strong> — 고등수학 수준의 지식은 대부분 필요 없습니다. 사칙연산과 논리적으로 순서를 따지는 힘이면 충분합니다.</p>

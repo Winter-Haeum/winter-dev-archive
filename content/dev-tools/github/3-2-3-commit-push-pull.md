@@ -91,9 +91,13 @@ git add .
 git commit -m "Add login form validation"
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>좋은 커밋 메시지는 협업에서 특히 중요하다. 무엇을 바꿨는지 명확히 쓰고, Add·Fix·Update처럼 현재형 동사로 시작하며, 제목은 50자 이내로 짧게 유지하는 습관을 들이면 좋다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>commit은 어디까지나 <strong>로컬 저장소에만</strong> 저장된다. 커밋을 아무리 많이 쌓아도 GitHub 저장소에는 아직 아무 변화가 없으며, 이 내용을 원격으로 보내려면 반드시 <code>push</code>가 필요하다.</p>
@@ -199,6 +203,8 @@ git pull
     ① 작업 전 <code>pull</code>로 팀원 코드 받기 → ② 파일 수정 → ③ commit → ④ push 전 다시 <code>pull</code>로 최신 여부 확인(충돌 방지) → ⑤ push 순서로 진행합니다.
   </div>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><strong>황금 룰: pull → 작업 → commit → pull → push.</strong> 이 순서를 지키면 협업 중 발생하는 충돌을 가장 안정적으로 최소화할 수 있다. 특히 push 직전에 한 번 더 pull을 실행하는 습관이 충돌을 예방하는 핵심이다.</p>

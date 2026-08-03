@@ -125,6 +125,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>디자인이 화려하다고 해서(좋은 UI) 사용하기 편한 것(좋은 UX)은 아닙니다. 원하는 정보를 찾기 어렵거나 사용 흐름이 복잡하면, UI가 예뻐도 UX는 낮을 수 있습니다.</p>
 </div>

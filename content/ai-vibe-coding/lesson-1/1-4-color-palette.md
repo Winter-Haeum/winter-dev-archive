@@ -122,6 +122,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 2. 남아있는 확인 필요 사항
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>"다른 섹션은 유지해주세요"처럼 <strong>수정 범위를 제한</strong>하면, 문제없던 부분까지 함께 바뀌는 것을 막을 수 있습니다.</p>
 </div>

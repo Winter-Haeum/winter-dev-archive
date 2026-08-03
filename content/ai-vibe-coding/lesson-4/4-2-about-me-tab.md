@@ -80,6 +80,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>어떤 서비스를 선택하든 <strong>공통 원리는 같습니다</strong>: 저장소의 코드를 빌드하고, 결과물을 공개 주소로 서비스합니다. 서비스별 정확한 버튼 위치나 요금은 이 문서에서 단정하지 않으며, 실제 사용 시점의 공식 안내를 확인해야 합니다.</p>
 </div>
@@ -132,6 +134,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 3. 배포 방식 선택 시 고려할 점
 4. 배포 후 다시 확인할 항목
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>배포가 <strong>"반드시 성공한다"거나 "완벽히 해결된다"</strong>고 단정할 수 없습니다. 환경과 서비스 정책에 따라 결과가 달라질 수 있으므로, 준비 항목을 점검한 뒤에도 실제 배포 결과를 다시 확인해야 합니다.</p>

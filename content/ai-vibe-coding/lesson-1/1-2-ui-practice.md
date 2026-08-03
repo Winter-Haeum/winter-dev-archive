@@ -99,6 +99,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>이 단계에서는 실제 이름, 연락처 같은 개인정보를 넣지 않습니다. "이름 자리", "이메일 자리"처럼 어떤 정보가 들어갈지 자리만 표시해 둡니다.</p>
 </div>
@@ -117,6 +119,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
     디자인, 실제 콘텐츠, 배포까지 포함됩니다. 이 과정은 뒤 이어지는 학습에서 단계적으로 진행합니다.
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>처음부터 완벽한 디자인을 목표로 하면 시작이 늦어집니다. 구조가 잘 잡힌 초안을 먼저 만들고, 이후 단계에서 다듬어가는 순서가 더 효율적입니다.</p>

@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 <code>.gitignore</code>는 Git이 <strong>추적하지 않을 파일과 디렉토리</strong>를 지정하는 설정 파일이다. 프로젝트 루트 디렉토리에 두며, 여기에 등록된 파일은 <code>git add</code>나 <code>git status</code> 결과에 나타나지 않는다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>단, 이미 Git이 추적 중인 파일에는 <code>.gitignore</code>가 적용되지 않는다.</strong> 한 번이라도 커밋된 적이 있는 파일은 나중에 패턴을 추가해도 계속 추적된다. 이 문제는 6장에서 <code>git rm --cached</code>로 해결한다.</p>
 </div>
@@ -94,6 +96,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ### 민감정보 보호가 가장 중요하다
 
 <code>.env</code>, <code>credentials.json</code>, <code>*.pem</code>, <code>*.key</code>, <code>secrets.yml</code> 같은 파일명 패턴은 인증 정보를 담고 있을 가능성이 높다. 이런 파일이 public 저장소에 올라가면 전 세계에 노출되며, API 키가 유출되면 예상치 못한 과금이나 보안 사고로 이어질 수 있다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>API 키나 비밀번호는 절대 Git에 커밋하지 않는다.</strong> 실수로 한 번 올라간 값은 커밋 히스토리에 남기 때문에, 삭제해도 이미 유출된 것으로 간주하고 즉시 키를 재발급해야 한다.</p>
@@ -136,6 +140,8 @@ Thumbs.db
 
 <code>#</code>으로 시작하는 줄은 주석으로 처리되며, 빈 줄은 무시되어 섹션을 구분하는 용도로 자주 쓰인다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><code>.gitignore</code> 파일 자체는 팀 전체가 같은 무시 규칙을 공유해야 하므로 반드시 저장소에 커밋해서 관리한다.</p>
 </div>
@@ -161,6 +167,8 @@ Thumbs.db
 *.log
 !error.log
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>디렉토리를 가리킬 때 슬래시를 빼먹으면 문제가 생길 수 있다. <code>node_modules/</code>는 디렉토리로 정확히 인식되지만, <code>node_modules</code>라고만 쓰면 같은 이름의 파일까지 함께 걸러질 수 있어 의도가 불분명해진다.</p>
@@ -199,6 +207,8 @@ build/
 *.egg-info/
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>민감정보는 절대 커밋하지 않는다.</strong> <code>.env</code>, <code>.env.local</code>, <code>.env.production</code>, <code>config/secrets.yml</code>, <code>credentials.json</code>, <code>service-account.json</code>, <code>*.pem</code>, <code>*.key</code> 같은 파일은 항상 무시 목록에 포함시킨다. API 키·DB 비밀번호·인증서가 유출되면 금전적 피해로 이어질 수 있다.</p>
 </div>
@@ -236,6 +246,8 @@ echo ".env" >> .gitignore
 git add .gitignore
 git commit -m "chore: remove .env from tracking"
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>핵심은 <code>--cached</code> 옵션이다. 이 옵션 덕분에 로컬 파일은 그대로 남고 Git 기록에서만 제거되므로, 협업 중 발생한 실수도 안전하게 복구할 수 있다.</p>
