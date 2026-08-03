@@ -84,8 +84,9 @@ identity<string>("hello"); // T가 string으로 채워짐
 identity<number>(123);     // T가 number로 채워짐
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">너무 어렵게 생각하지 않아도 된다</span>
   <p>제네릭은 처음 보면 낯설 수 있지만, "이 함수(또는 컴포넌트)는 어떤 타입이든 받을 수 있고, 실제로 사용하는 순간 그 타입이 정해진다"는 정도로 이해하는 것으로 충분합니다. 처음부터 복잡한 제네릭 조합을 외우려 하기보다는, 이 문서의 예시처럼 반복되는 패턴부터 익혀나가는 것을 권장합니다.</p>
 </div>
 

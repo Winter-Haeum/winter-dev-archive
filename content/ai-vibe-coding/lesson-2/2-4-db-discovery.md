@@ -117,8 +117,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 4. 최소한의 개인정보만 수집하기
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">개인정보 최소 수집</span>
   <p>문의 기능에 필요한 만큼만 정보를 받습니다. 이름과 메시지만으로 충분하다면 그 외의 정보(전화번호, 주소 등)는 요청하지 않습니다. 이메일처럼 답장에만 필요한 정보는 선택 입력으로 두고, 예제나 문서에는 <strong>실제 개인정보를 넣지 않습니다.</strong></p>
 </div>
 

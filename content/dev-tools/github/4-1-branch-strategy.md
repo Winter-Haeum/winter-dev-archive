@@ -83,8 +83,9 @@ Git & GitHub 카테고리의 심화 섹션인 "GitHub 중급"의 첫 문서로, 
   <div class="wda-fcard"><div class="wda-fcard-ttl">검토 기회 상실</div><div class="wda-fcard-dsc">아무도 코드를 확인하지 못한 채 그대로 반영되어 버립니다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">main은 "언제나 안전한 상태"여야 한다</span>
   <p>많은 팀에서 main 브랜치는 "지금 당장 배포해도 문제없는 상태"를 유지하는 것을 원칙으로 삼습니다. 작업 중인 코드를 main에 바로 올리면 이 원칙이 깨지기 때문에, 새로운 작업은 별도의 브랜치에서 진행하고 준비가 끝난 뒤에만 main으로 합칩니다.</p>
 </div>
 
@@ -137,8 +138,9 @@ feature branch라는 큰 원칙은 같지만, 실제로 브랜치를 얼마나 �
   </div>
 </div>
 
+**🔎 참고**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">정답은 하나가 아니다</span>
   <p>어떤 브랜치 전략이 "정답"이라기보다는, 팀의 규모·배포 주기·프로젝트 성격에 맞는 전략을 고르는 것이 중요합니다. 입문 단계에서는 "main은 항상 안전하게 유지하고, 새 작업은 feature branch에서 시작한다"는 큰 원칙만 확실히 익혀두면 충분합니다.</p>
 </div>
 
@@ -152,8 +154,9 @@ feature branch의 작업 내용이 main에 합쳐지고 나면, 그 브랜치는
 git branch -d feature/login   # 로컬 브랜치 삭제
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">삭제는 병합을 확인한 다음에</span>
   <p>브랜치 삭제는 되돌리기 번거로운 작업입니다. 병합이 실제로 완료됐는지 확인하지 않은 채 브랜치를 지우면 작업 내용을 잃어버릴 수 있으므로, 항상 병합 상태를 먼저 확인한 뒤 삭제하는 습관을 들이는 것이 안전합니다.</p>
 </div>
 

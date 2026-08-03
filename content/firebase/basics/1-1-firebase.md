@@ -88,8 +88,9 @@ Firebase는 Google이 제공하는 **BaaS(Backend as a Service)** 플랫폼입�
 
 ## 2. 백엔드를 완전히 몰라도 되는 도구는 아니다
 
+**📌 개념**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">Firebase는 백엔드 지식을 대체하지 않는다</span>
   <p>Firebase는 백엔드 인프라를 직접 구축하는 부담을 줄여주는 도구이지, 백엔드 개념 자체를 몰라도 되게 만들어주는 도구는 아닙니다. 데이터를 어떤 구조로 저장할지, 누구에게 어떤 권한을 줄지, 보안 규칙을 어떻게 세울지는 여전히 개발자가 이해하고 설계해야 하는 영역입니다.</p>
 </div>
 
@@ -137,8 +138,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 ```
 
+**💼 실무 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">설정값 관리 팁</span>
   <p>apiKey 같은 값은 코드에 포함되긴 하지만, 실제 접근 제어는 Firebase 콘솔의 보안 규칙이 담당합니다. 다만 실무에서는 이런 설정값을 환경 변수 파일로 분리해서 관리하는 습관을 들이는 것이 좋습니다.</p>
 </div>
 

@@ -124,8 +124,9 @@ npm run build
 firebase deploy
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">빌드를 잊으면 옛날 파일이 올라간다</span>
   <p>firebase deploy는 dist 폴더에 있는 파일을 그대로 서버에 올립니다. 코드를 수정한 뒤 npm run build를 하지 않고 바로 배포하면, 수정 전의 예전 파일이 다시 올라가는 실수가 생길 수 있습니다.</p>
 </div>
 

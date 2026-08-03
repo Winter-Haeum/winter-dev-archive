@@ -122,8 +122,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 5. 커뮤니티형 목록에도 같은 원리가 적용된다
 
+**📌 개념**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">패턴의 확장</span>
   <p>포트폴리오에 방문자 게시글 같은 community-post 목록을 추가하더라도, 정상·로딩·빈 상태·에러 상태를 처리하는 원리는 project-table 목록과 동일합니다. 데이터의 종류가 달라져도 <strong>상태를 빠짐없이 준비한다는 원칙</strong>은 그대로 적용됩니다.</p>
 </div>
 

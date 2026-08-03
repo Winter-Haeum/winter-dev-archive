@@ -87,8 +87,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">4. 병합</div><div class="wda-fnode-dsc">문제없으면 main에 합치기</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">PR은 "질문"이기도 하다</span>
   <p>PR을 올리는 것은 단순히 코드를 제출하는 것을 넘어, "이렇게 만들었는데 괜찮을까요?"라고 팀에 묻는 과정이기도 합니다. 어떤 기능을 왜 이렇게 구현했는지 설명을 함께 남기면, 리뷰하는 사람이 맥락을 더 쉽게 이해할 수 있습니다.</p>
 </div>
 
@@ -109,8 +110,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 코드 리뷰는 "누가 더 잘 짰는가"를 겨루는 자리가 아닙니다. 나 혼자서는 놓치기 쉬운 부분을 다른 시선으로 한 번 더 확인해서, 결과적으로 더 안정적인 코드를 만드는 것이 목적입니다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">좋은 리뷰 습관</span>
   <p>리뷰를 남길 때는 "이건 틀렸어요" 같은 단정적인 표현보다, "이 부분은 이런 이유로 다르게 짜보면 어떨까요?"처럼 이유와 제안을 함께 남기는 것이 좋습니다. 반대로 리뷰를 받는 입장에서도, 지적을 개인적인 비판이 아니라 코드를 더 좋게 만들기 위한 의견으로 받아들이는 태도가 협업을 원활하게 만듭니다.</p>
 </div>
 
@@ -139,8 +141,9 @@ return "손님";
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">conflict는 실수가 아니다</span>
   <p>conflict가 발생했다고 해서 누군가 잘못한 것이 아닙니다. 여러 사람이 같은 코드를 함께 다루다 보면 자연스럽게 겹치는 부분이 생길 수 있습니다. 중요한 것은 당황하지 않고, 어떤 코드를 남길지 팀과 상의해서 침착하게 정리하는 것입니다.</p>
 </div>
 

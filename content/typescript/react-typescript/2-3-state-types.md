@@ -99,8 +99,9 @@ const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
 const [list, setList] = useState<string[]>([]);
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">빈 배열은 타입을 함께 적어주는 것이 안전하다</span>
   <p>useState([])처럼 빈 배열만 넘기면 TypeScript가 배열의 요소 타입을 정확히 추론하지 못할 수 있습니다. 이런 경우 useState&lt;string[]&gt;([])처럼 제네릭으로 요소 타입을 명확히 적어주는 것이 좋습니다.</p>
 </div>
 

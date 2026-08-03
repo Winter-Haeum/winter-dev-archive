@@ -118,8 +118,9 @@ tags:
 
 **🚫 다른 언어는 왜 안 되나?**
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">브라우저에서 직접 실행되지 않음</span>
   • Python / Java / C++ 코드는 일반적인 브라우저에서 그대로 직접 실행되지 않는다.<br>
   • 브라우저가 기본적으로 내장하고 있는 것은 <strong>JavaScript 엔진</strong>뿐이라, JavaScript만 바로 실행할 수 있다.
 </div>

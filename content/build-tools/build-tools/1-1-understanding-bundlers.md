@@ -114,8 +114,9 @@ console.log(add(1, 2));
   <div class="wda-fcard"><div class="wda-fcard-ttl">호환성 문제</div><div class="wda-fcard-dsc">최신 문법으로 짠 코드를 구버전 브라우저가 이해하지 못할 수 있습니다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">파일이 많아질수록 느려진다</span>
   <p>HTTP 요청 하나하나에는 약간의 시간이 걸립니다. 파일 수가 늘어날수록 이 요청 횟수가 누적되어 페이지 로딩 속도가 느려질 수 있습니다. 개발할 때는 파일을 잘게 나누는 것이 편하지만, 사용자에게 전달할 때는 오히려 손해가 되는 셈입니다.</p>
 </div>
 
@@ -161,8 +162,9 @@ console.log(add(1, 2));
   </div>
 </div>
 
+**🔎 참고**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">Webpack만이 유일한 정답은 아니다</span>
   <p>Webpack은 여전히 많은 프로젝트에서 쓰이는 강력한 도구이지만, 최근 새로 시작하는 프론트엔드 프로젝트에서는 개발 경험이 빠른 Vite 같은 도구를 선택하는 경우도 많습니다. 어떤 도구를 쓰든 "여러 파일을 브라우저가 이해할 수 있는 결과물로 묶어준다"는 번들러의 기본 역할은 같습니다.</p>
 </div>
 

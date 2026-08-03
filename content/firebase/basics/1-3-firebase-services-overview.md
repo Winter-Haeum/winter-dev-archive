@@ -110,8 +110,9 @@ Firebase는 수십 가지 기능을 제공하지만, 처음 배울 때는 목적
   <div class="wda-fcard"><div class="wda-fcard-ttl">배포</div><div class="wda-fcard-dsc">Hosting — 완성된 앱을 실제 인터넷 주소로 공개합니다.</div></div>
 </div>
 
+**📌 개념**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">이 카테고리의 학습 순서</span>
   <p>다음 섹션인 "Firebase 주요 서비스"에서는 이 네 가지를 하나씩 자세히 다룹니다. 이후 "Firebase 배포" 섹션에서는 완성된 앱을 실제로 인터넷에 공개하는 과정을, "부록" 섹션에서는 실전 앱을 만들 때 Firebase와 함께 자주 쓰이는 React Portal·Zustand·API 연동 같은 보조 개념을 다룹니다.</p>
 </div>
 

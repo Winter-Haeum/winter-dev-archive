@@ -145,8 +145,9 @@ const regex = /abc/gi;
   <div class="wda-fcard"><div class="wda-fcard-ttl">\s</div><div class="wda-fcard-dsc">공백, 탭, 줄바꿈 같은 공백 문자 하나입니다.</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">{n,m} 쓸 때 주의</span>
   <p>중괄호 안의 쉼표 뒤에 공백을 넣으면(<code>{3, 4}</code>) 정규식이 의도대로 동작하지 않을 수 있습니다. 반드시 <code>{3,4}</code>처럼 공백 없이 붙여 써야 합니다.</p>
 </div>
 
@@ -179,8 +180,9 @@ phoneRegex.test('010-12-34');     // false
 
 정규식은 강력하지만, 조건을 너무 세밀하게 다 담으려 하면 패턴 자체가 길고 읽기 어려워집니다. 입문 단계에서는 완벽한 검증보다 **"기본적인 형식만 걸러낸다"**는 목표로 접근하는 것이 실용적입니다.
 
+**💼 실무 팁**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">복잡할수록 좋은 패턴이 아니다</span>
   <p>이메일 형식을 100% 완벽하게 검증하는 정규식은 실무에서도 매우 길고 복잡합니다. 대부분의 서비스는 정규식으로 기본 형식만 확인하고, 실제 이메일이 유효한지는 인증 메일 발송 같은 별도 절차로 재확인합니다. 정규식 하나로 모든 예외를 처리하려 하기보다, 적당한 수준에서 멈추는 판단도 중요합니다.</p>
 </div>
 

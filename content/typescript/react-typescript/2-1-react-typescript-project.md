@@ -119,8 +119,9 @@ react-ts 템플릿을 사용하면 TypeScript 컴파일 설정, React 타입 정
 </tbody>
 </table>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">기준은 JSX 포함 여부</span>
   <p>화면에 태그를 그리는 컴포넌트 파일은 .tsx로, 데이터를 가공하거나 API를 호출하는 순수 로직 파일은 .ts로 작성하는 것이 일반적인 관례입니다.</p>
 </div>
 

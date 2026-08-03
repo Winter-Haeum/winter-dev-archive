@@ -116,8 +116,9 @@ dist/
   <div class="wda-fcard"><div class="wda-fcard-ttl">번들된 CSS 파일</div><div class="wda-fcard-dsc">여러 스타일 파일이 합쳐지고 압축된 결과입니다.</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">파일 이름에 붙는 이상한 문자열</span>
   <p>빌드 결과물의 파일명에는 <code>index-a1b2c3.js</code>처럼 알 수 없는 문자열(해시)이 붙는 경우가 많습니다. 이는 코드가 바뀌면 해시 값도 바뀌도록 만들어, 사용자의 브라우저가 예전 파일을 계속 캐시해서 쓰는 문제를 방지하기 위한 장치입니다.</p>
 </div>
 
@@ -137,8 +138,9 @@ dist/
 
 이 흐름 덕분에, 배포 서버 입장에서는 React인지 다른 프레임워크인지 신경 쓸 필요가 없습니다. 결국 서버가 넘겨주는 것은 HTML·CSS·JS로만 이루어진 평범한 정적 파일이기 때문입니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">개발 서버 화면만 보고 완료라고 착각하지 않기</span>
   <p>개발 서버(<code>npm run dev</code>)에서 화면이 잘 보인다고 해서 배포 준비가 끝난 것은 아닙니다. 개발 서버와 실제 배포 환경은 설정이 다를 수 있으므로, 배포 전에는 반드시 <code>npm run build</code>로 실제 결과물을 만들어보고, 그 결과물이 의도한 대로 동작하는지 확인하는 과정이 필요합니다.</p>
 </div>
 

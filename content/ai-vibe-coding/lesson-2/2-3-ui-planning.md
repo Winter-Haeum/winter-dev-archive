@@ -96,8 +96,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 3. 연결 정보는 어떻게 관리해야 할까
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">가장 중요한 원칙</span>
   <p>연결 주소나 인증 키 같은 값은 <strong>코드나 문서에 직접 적지 않습니다.</strong> 별도의 환경변수 파일에 보관하고, 이 파일이 저장소에 함께 올라가지 않도록 제외 목록에 등록합니다.</p>
 </div>
 

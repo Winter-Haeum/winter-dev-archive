@@ -130,8 +130,9 @@ function Modal({ children }) {
   <div class="wda-fnode"><div class="wda-fnode-ttl">이벤트</div><div class="wda-fnode-dsc">부모 컴포넌트로 정상 전달</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">물리적 위치와 논리적 위치는 다르다</span>
   <p>Portal로 렌더링된 컴포넌트는 화면상 위치(DOM)만 바뀔 뿐, React가 관리하는 컴포넌트 트리(논리적 위치)는 그대로 유지됩니다. 그래서 클릭 이벤트나 부모로부터 받은 props는 평소와 다름없이 정상적으로 동작합니다.</p>
 </div>
 
@@ -139,8 +140,9 @@ function Modal({ children }) {
 
 ## 4. Firebase와 함께 쓰이는 이유
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">React Portal은 Firebase 기능이 아니다</span>
   <p>React Portal은 Firebase가 제공하는 기능이 아니라 React 자체의 내장 기능입니다. 다만 Firebase로 실전 앱을 만들 때 "로그인 안내 모달", "업로드 진행 알림 토스트"처럼 화면 최상단에 떠야 하는 UI가 자주 필요하기 때문에, Firebase 서비스를 활용한 앱과 함께 자주 등장하는 보조 개념으로 소개합니다.</p>
 </div>
 

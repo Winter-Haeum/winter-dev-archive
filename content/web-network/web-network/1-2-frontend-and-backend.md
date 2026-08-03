@@ -137,8 +137,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">보안 처리</div><div class="wda-fcard-dsc">로그인 인증, 권한 관리로 데이터를 안전하게 지킵니다.</div></div>
 </div>
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">데이터베이스란</span>
   <p>데이터베이스(DB)는 회원 정보, 게시글, 채팅 메시지처럼 서비스가 다루는 모든 데이터를 저장해두는 창고입니다. 엑셀처럼 표 형태로 데이터를 관리하되, 훨씬 빠르고 안전하게 대량의 데이터를 처리할 수 있습니다.</p>
 </div>
 

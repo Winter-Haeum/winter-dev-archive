@@ -196,8 +196,9 @@ Content-Type: text/html
 
 ## 8. 쿠키가 필요한 이유
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">HTTP의 특징</span>
   <p>HTTP는 <strong>Stateless(상태를 기억하지 않음)</strong> 통신입니다. 방금 전 요청에서 로그인했더라도, 다음 요청에서는 서버가 "이 사람이 누구였는지" 자동으로 기억하지 못합니다.</p>
 </div>
 

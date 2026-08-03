@@ -122,8 +122,9 @@ HTTP 요청 메시지는 크게 세 부분으로 이루어집니다.
 
 이 네 가지는 데이터를 다루는 기본 동작인 **CRUD(Create·Read·Update·Delete)**와 정확히 대응합니다. "글을 쓰고, 읽고, 고치고, 지운다"는 흐름이 곧 POST-GET-PUT-DELETE입니다.
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">GET과 POST의 결정적 차이</span>
   <p>GET은 조회만 하므로 데이터를 URL 뒤에 붙여 보내고, 브라우저 기록에 남습니다. POST는 데이터를 바디(Body)에 담아 보내므로 URL에 노출되지 않습니다. 그래서 비밀번호처럼 민감한 정보는 절대 GET으로 보내면 안 되고, 반드시 POST를 사용해야 합니다.</p>
 </div>
 
@@ -150,8 +151,9 @@ HTTP 요청 메시지는 크게 세 부분으로 이루어집니다.
   <div class="wda-fcard"><div class="wda-fcard-ttl">500 Server Error</div><div class="wda-fcard-dsc">서버 내부 코드에 문제가 생겨 처리하지 못했습니다.</div></div>
 </div>
 
+**🔎 참고**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">4xx vs 5xx, 책임 소재가 다르다</span>
   <p>4xx는 "요청을 보낸 쪽이 다시 확인해야 할 문제"(주소 오타, 인증 누락)이고, 5xx는 "서버 쪽에서 고쳐야 할 문제"입니다. 에러 화면이 떴을 때 앞자리 숫자만 봐도 어느 쪽을 먼저 의심해야 할지 감을 잡을 수 있습니다.</p>
 </div>
 

@@ -149,8 +149,9 @@ test('버튼을 클릭하면 숫자가 1 증가한다', async () => {
 
 여기서 중요한 것은 `userEvent.click(button)`처럼 코드로 사용자의 클릭을 재현한다는 점입니다. 실제로 마우스를 움직이지 않아도, 테스트 코드 안에서 "사용자가 버튼을 눌렀을 때"라는 상황을 그대로 만들어낼 수 있습니다.
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">async/await가 필요한 이유</span>
   <p>userEvent가 제공하는 동작들은 비동기로 처리됩니다. 실제 사용자가 클릭하는 과정을 좀 더 사실적으로 흉내 내기 위해서인데, 그래서 <code>userEvent.click(...)</code> 앞에는 <code>await</code>를 붙이고 테스트 함수 자체는 <code>async</code>로 선언해야 합니다.</p>
 </div>
 

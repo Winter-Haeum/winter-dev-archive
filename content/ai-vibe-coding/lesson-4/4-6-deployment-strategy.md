@@ -111,8 +111,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 4. AI 사용의 한계와 사람의 책임
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">기억해 둘 것</span>
   <p>AI는 코드와 문서 초안을 빠르게 만들어 주지만, <strong>실제로 안전한지, 법적으로 문제없는지, 사실과 다르지 않은지</strong>는 사람이 최종적으로 확인해야 합니다. "법적으로 100% 안전하다"거나 "완벽하게 해결된다"는 표현은 이 문서군 전체에서 사용하지 않았습니다 — AI가 만든 결과물도 마찬가지입니다.</p>
 </div>
 

@@ -87,8 +87,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">주방</div><div class="wda-fnode-dsc">서버</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">메뉴판 = API 명세서</span>
   <p>식당의 메뉴판에는 주문 가능한 요리 목록과 가격이 정리되어 있습니다. API 명세서도 마찬가지로 "어떤 주소로 요청하면 어떤 데이터를 돌려받는지"를 미리 문서로 정리해둔 것입니다. 개발자는 이 메뉴판만 보고도 실제 요리(서버 코드)가 어떻게 만들어지는지 몰라도 주문(API 호출)할 수 있습니다.</p>
 </div>
 
@@ -152,8 +153,9 @@ API라는 약속이 없다면 프로그램끼리 데이터를 주고받는 일�
 
 오픈 API를 쓰려면 보통 **API 키**가 필요합니다. API 키는 "누가 이 API를 요청했는지" 확인하는 일종의 신분증으로, 사용량을 추적하고 접근 권한을 제한하는 데 쓰입니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">주의 — API 키는 비밀번호처럼 다룰 것</span>
   <p>API 키가 노출되면 다른 사람이 내 이름으로 요청을 보내 요금이 과금되거나 서비스가 악용될 수 있습니다. GitHub 같은 공개 저장소에 API 키를 그대로 올리지 않도록 항상 주의해야 합니다.</p>
 </div>
 
