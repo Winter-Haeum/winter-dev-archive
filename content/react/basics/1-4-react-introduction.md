@@ -84,6 +84,8 @@ React는 이 문제를 다른 방식으로 접근합니다. **"화면이 어떻�
 
 ## 2. React는 UI를 만들기 위한 라이브러리다
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   React는 프레임워크가 아니라 <strong>UI(사용자 인터페이스)를 만들기 위한 라이브러리</strong>입니다. 화면 전체의 구조를 강제하지 않고, 필요한 곳에 필요한 만큼 가져다 씁니다.
 </div>
@@ -127,6 +129,8 @@ function CourseList({ courseList }) {
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   왼쪽은 요소를 찾고, 만들고, 내용을 채우고, 붙이는 과정을 <strong>직접 지시</strong>합니다. 오른쪽은 "강의 목록이 이렇게 생겼으면 화면은 이런 모양이어야 한다"는 <strong>결과만 선언</strong>합니다. 요소를 만들고 붙이는 과정 자체는 React가 대신 처리합니다.
 </div>
@@ -156,6 +160,8 @@ React는 화면을 하나의 큰 덩어리로 만들지 않고, 역할이 분명
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   각 조각(컴포넌트)은 독립적으로 만들고 확인할 수 있어서, 화면이 커져도 어디를 고쳐야 하는지 찾기 쉬워집니다.
 </div>
@@ -177,6 +183,8 @@ function CourseDashboard({ courseList }) {
   );
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   화면을 직접 고치는 대신, <strong>데이터(courseList)를 바꾸면 화면이 그 데이터에 맞게 다시 그려집니다.</strong> "화면을 어떻게 고칠까"가 아니라 "데이터가 무엇인가"에 집중하면 됩니다.
@@ -210,6 +218,8 @@ function CourseCard({ courseTitle }) {
   return <li>{courseTitle}</li>;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   JSX는 브라우저가 그대로 읽을 수 없어서 빌드 도구가 JavaScript로 변환해줍니다. 자세한 문법 규칙은 <strong>2-1 JSX 문법</strong>에서 다룹니다.
@@ -248,6 +258,8 @@ function CourseCard({ courseTitle }) {
 
 <CourseCard courseTitle="변수와 스코프" />
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   같은 <code>CourseCard</code> 컴포넌트라도 <code>courseTitle</code> 값만 바꿔서 여러 번 재사용할 수 있습니다. props를 다루는 자세한 방법은 <strong>2-3 props로 데이터 전달하기</strong>에서 다룹니다.
@@ -289,6 +301,8 @@ state나 props 같은 데이터가 바뀌면, React는 화면이 어떤 모습�
   <div class="wda-fnode"><div class="wda-fnode-ttl">화면 갱신</div><div class="wda-fnode-dsc">바뀐 부분만 반영</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   React는 화면 전체를 매번 새로 그리지 않고, 실제로 바뀐 부분만 찾아서 반영합니다. 이 원리(Virtual DOM, Diffing)는 <strong>1-5 가상 DOM의 개념</strong>에서 자세히 다룹니다.
 </div>
@@ -310,6 +324,8 @@ React 초기에는 클래스(class) 문법으로 컴포넌트를 만들었습니
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   이 문서 시리즈는 <strong>함수형 컴포넌트를 기준으로 학습합니다.</strong> class component는 오래된 코드를 읽을 때 참고할 정도로만 알아두면 충분합니다.
 </div>
@@ -328,6 +344,8 @@ React 초기에는 클래스(class) 문법으로 컴포넌트를 만들었습니
     상호작용이 거의 없는 짧은 소개 페이지 한 장처럼 정적인 화면.
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   React는 모든 문제를 해결하는 도구가 아닙니다. 화면에 데이터가 자주 바뀌고 상호작용이 많을수록 React의 장점이 커집니다.

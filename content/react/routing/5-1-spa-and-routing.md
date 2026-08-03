@@ -89,6 +89,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>React Router는 이 SPA 방식의 화면 전환을 구현해주는 라이브러리입니다. 사용자가 링크를 클릭하면, 서버에 새 페이지를 요청하지 않고 브라우저 주소와 화면만 리액트가 바꿔줍니다. 다만 데이터가 필요한 페이지라면 API 요청은 별도로 발생할 수 있습니다.</p>
 </div>
@@ -229,10 +231,14 @@ function CourseDetailPage() {
 
 ## 8. 초보자 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>앱 내부 이동에 &lt;a href&gt;를 쓰는 경우</strong></p>
   <p>브라우저가 새로고침되어 리액트 상태(로그인 정보, 입력값 등)가 전부 사라집니다. 앱 내부 이동은 항상 &lt;Link&gt; 또는 &lt;NavLink&gt;를 사용합니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>Route path에 콜론을 빠뜨리는 경우</strong></p>

@@ -202,6 +202,8 @@ function StudySummary({ children }) {
 
 ## 9. props는 읽기 전용이다
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   props는 읽기 전용입니다. 자식 컴포넌트에서 props 값을 직접 바꿀 수 없습니다.
 </div>

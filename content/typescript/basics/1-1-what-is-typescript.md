@@ -81,8 +81,9 @@ TypeScript는 완전히 새로운 언어가 아닙니다. JavaScript 문법을 �
   <div class="wda-fcard"><div class="wda-fcard-ttl">Microsoft가 개발</div><div class="wda-fcard-dsc">대규모 프로젝트에서 겪은 문제를 해결하려고 만들어졌습니다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">중요한 오해 바로잡기</span>
   <p>"TypeScript는 JavaScript를 대체하는 완전히 다른 언어다"라고 생각하기 쉽지만, 정확히는 <strong>JavaScript 위에 타입 시스템을 얹은 것</strong>에 가깝습니다. 그리고 브라우저는 TypeScript를 직접 실행하지 못합니다. TypeScript 코드는 결국 JavaScript로 변환된 뒤에야 실행됩니다.</p>
 </div>
 
@@ -139,8 +140,9 @@ TypeScript 코드는 그 자체로 브라우저에서 실행되지 않습니다.
 
 이 과정에서 컴파일러는 코드에 타입과 관련된 실수가 없는지 먼저 검사합니다. 문제가 있으면 JavaScript 파일을 만들지 않고 오류를 알려주기 때문에, 잘못된 코드가 브라우저까지 흘러가는 일을 미리 막을 수 있습니다.
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">개발 도구를 바꾸는 것이지, 실행 방식을 바꾸는 것이 아니다</span>
   <p>TypeScript를 쓴다고 해서 브라우저나 Node.js가 새로운 언어를 배우는 것은 아닙니다. 개발자가 코드를 작성하는 방식이 바뀔 뿐, 최종적으로 실행되는 것은 여전히 JavaScript입니다.</p>
 </div>
 

@@ -129,6 +129,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 핵심 포인트는 다음과 같다. `justify-content: space-between`으로 로고와 나머지 영역을 좌우로 벌리고, `align-items: center`로 세로 중앙 정렬을 맞춘다. 메뉴 간격은 `.nav-menu`에 준 `gap`으로 조정하며, `height: 64px`로 네비게이션 바의 높이를 고정한다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>`.navbar`의 justify-content를 <code>center</code>로 바꾸면 로고까지 화면 중앙으로 모여버려 좌우 배치 구조가 깨진다. 또한 <code>gap</code>을 <code>.navbar</code>에 직접 주면 로고-메뉴-유저 사이에도 간격이 생겨 과도하게 벌어진다. 올바른 방법은 <strong>전체 정렬은 .navbar에 space-between, 메뉴 간격은 .nav-menu에만 gap</strong>을 주는 것이다.</p>
 </div>
@@ -294,6 +296,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 ```
 
 핵심 포인트는 `flex-direction: column`으로 Header → Main → Footer를 세로로 쌓고, `.main-content`에 준 `flex: 1`이 남은 공간을 모두 차지하게 만드는 것이다. Sidebar는 고정 너비, Main은 나머지 공간을 채우는 구조다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>.container</code>의 높이는 <code>height: 100vh</code>가 아니라 <strong>min-height: 100vh</strong>를 권장한다. height로 고정하면 콘텐츠가 화면보다 길어졌을 때 내용이 잘리거나 겹칠 수 있지만, min-height는 화면보다 짧을 때는 100vh를 채우고 콘텐츠가 길어지면 자연스럽게 늘어난다.</p>

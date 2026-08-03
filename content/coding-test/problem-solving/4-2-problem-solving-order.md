@@ -92,6 +92,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>이 과정을 거치면 코드를 짜기 전에 머릿속 로직의 허점을 미리 발견할 수 있습니다. 조건이 까다로운 문제일수록 Dry Run 없이 바로 코드를 짜면 디버깅에 더 많은 시간을 뺏깁니다.</p>
 </div>
@@ -129,6 +131,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <tr><td>5. 합계를 반환한다</td><td><code>return sum;</code></td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>의사코드를 코드 에디터에 주석으로 먼저 붙여넣고, 그 아래에 한 줄씩 실제 코드를 채워나가는 방식이 효과적입니다. "무엇을 할지"와 "어떻게 문법으로 쓸지"를 분리해서 생각할 수 있습니다.</p>
@@ -192,6 +196,8 @@ console.log(solution([-1, 2]));         // 음수 포함
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">검증</div><div class="wda-fnode-dsc">10분</div></div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>계획에 10분을 투자하면 구현이 훨씬 빨라집니다. 계획 없이 바로 코드를 짜면 중간에 막혀 처음부터 다시 짜는 경우가 더 많아, 오히려 시간이 더 오래 걸립니다.</p>

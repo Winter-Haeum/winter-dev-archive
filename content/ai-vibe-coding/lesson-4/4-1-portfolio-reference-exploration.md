@@ -94,6 +94,8 @@ lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 
   </div>
 </div>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>final-qa 단계의 목표는 <strong>더 많이 만드는 것이 아니라, 있는 것을 확실하게 다듬는 것</strong>입니다.</p>
 </div>
@@ -137,6 +139,8 @@ lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 
 3. 수정 우선순위
 4. 배포 후 다시 확인할 항목
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>위 예시는 방향을 보여주는 참고용입니다. 실제 요청에는 <strong>지금 화면에서 확인된 내용</strong>을 구체적으로 채워 넣습니다. 점검 결과가 "완벽하다"는 뜻은 아니며, 사람이 최종적으로 다시 확인해야 합니다.</p>

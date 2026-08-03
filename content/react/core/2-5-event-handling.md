@@ -145,6 +145,8 @@ function handleComplete(itemId) {
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   이벤트 핸들러에는 함수 자체를 전달합니다. 인자가 필요하면 <code>() =&gt; handleComplete(item.id)</code>처럼 화살표 함수로 감싸서 전달합니다.
 </div>
@@ -180,6 +182,8 @@ function handleFilterChange(event) {
 <input onChange={handleFilterChange} />
 <form onSubmit={handleSubmit}>...</form>
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   onChange로 입력값을 다루는 방법과 onSubmit으로 폼을 제출하는 방법은 <strong>2-6 폼 입력 다루기</strong>에서 자세히 다룹니다.

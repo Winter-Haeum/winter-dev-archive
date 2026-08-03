@@ -86,8 +86,9 @@ Firebase Hosting은 React 앱을 실행해주는 서버가 아닙니다. 정확�
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">실제로 화면을 그리는 건 브라우저다</span>
   <p>React 앱은 빌드 과정을 거치면 정적인 HTML/CSS/JS 파일 묶음이 됩니다. Hosting은 이 파일들을 사용자의 브라우저에 전달하는 역할만 하고, 실제로 화면을 그리고 동작시키는 것은 파일을 내려받은 사용자의 브라우저입니다.</p>
 </div>
 

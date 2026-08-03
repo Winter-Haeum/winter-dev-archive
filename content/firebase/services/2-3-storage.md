@@ -81,8 +81,9 @@ Firestore가 텍스트 위주의 데이터를 저장하는 데 특화되어 있�
   <div class="wda-fcard"><div class="wda-fcard-ttl">동영상</div><div class="wda-fcard-dsc">비교적 큰 용량의 미디어 파일도 다룰 수 있습니다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">Firestore와 Storage는 역할이 다르다</span>
   <p>Firestore 문서 하나의 용량에는 제한이 있어서, 이미지 파일 자체를 문서 안에 직접 넣지 않습니다. 보통은 파일을 Storage에 올리고, 그 파일의 주소(URL)만 문자열로 Firestore 문서에 저장하는 방식을 사용합니다.</p>
 </div>
 
@@ -139,8 +140,9 @@ async function savePost(title, imageUrl) {
 
 ## 4. 보안 규칙 없이 파일을 무제한 공개하면 안 된다
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">테스트 모드는 임시 상태다</span>
   <p>Firebase 콘솔에서 Storage를 처음 켤 때 "테스트 모드"를 선택하면, 일정 기간 동안 누구나 파일을 읽고 쓸 수 있는 상태가 됩니다. 이는 개발 편의를 위한 임시 설정일 뿐, 실제 서비스에서는 로그인한 사용자만 자신의 파일을 올리고, 필요한 범위에서만 파일을 읽을 수 있도록 보안 규칙을 반드시 설정해야 합니다.</p>
 </div>
 

@@ -76,6 +76,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 1-1에서 Node.js와 npm이 왜 필요한지 역할을 살펴봤습니다. 이제 실제로 내 컴퓨터에 Node.js가 준비되어 있는지 확인하고, 없다면 설치할 차례입니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   Node.js/npm이 왜 필요한지는 <strong>1-1 Node.js와 npm 이해하기</strong>에서 다뤘습니다. 이 문서에서는 "설치 상태를 준비하고 확인하는 방법"에 집중합니다.
 </div>
@@ -96,6 +98,8 @@ Node.js 공식 사이트에는 보통 두 가지 버전이 안내됩니다.
     최신 기능을 먼저 담은 버전. 실험적인 기능이 있어 예상치 못한 변화가 있을 수 있다.
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   처음 설치한다면 <strong>LTS</strong> 버전을 선택합니다. 학습 중에는 안정성이 우선입니다.
@@ -153,6 +157,8 @@ npm -v
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   버전 출력은 사람마다 다를 수 있습니다. 설치 시점이나 선택한 LTS 버전에 따라 숫자가 다르게 나오는 것이 정상이므로, 특정 숫자를 정답처럼 외울 필요는 없습니다.
 </div>
@@ -178,6 +184,8 @@ npm -v
 
 `node -v`를 입력했는데 명령어를 찾을 수 없다는 메시지가 뜨는 경우가 있습니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   설치 문제 해결은 기본 점검까지만 다룹니다. 아래 순서대로 확인해 보세요.
 </div>
@@ -200,6 +208,8 @@ npm -v
 ---
 
 ## 7. 설치 후 바로 하지 않아도 되는 것
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   package.json 구조, dependencies/devDependencies, npm 명령어 상세는 <strong>1-3 npm으로 패키지 관리하기</strong>에서 다룹니다. React 프로젝트를 실제로 만드는 방법은 <strong>1-6 React 프로젝트 제대로 이해하기</strong>에서 다룹니다. 지금은 설치 상태를 확인하는 것까지만 하면 충분합니다.

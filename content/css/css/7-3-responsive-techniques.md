@@ -230,6 +230,8 @@ Media Query는 **뷰포트(화면 전체)** 크기를 기준으로 스타일을 
 
 같은 카드 컴포넌트라도 넓은 메인 영역에 놓이면 가로형으로, 좁은 사이드바에 놓이면 세로형으로 — 뷰포트 크기와 무관하게 **자신이 속한 컨테이너의 크기**에 따라 스스로 모양을 바꿀 수 있다는 것이 Container Query의 핵심 가치다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>컨테이너 자신의 크기를 <code>@container</code>로 변화시키면 순환 참조가 발생할 수 있으니 주의한다. 또한 <code>container-type</code> 선언 없이 <code>@container</code>만 쓰면 아무 효과가 없다.</p>
 </div>

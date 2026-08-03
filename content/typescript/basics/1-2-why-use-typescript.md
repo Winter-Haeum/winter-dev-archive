@@ -121,8 +121,9 @@ async function fetchUser(id: number): Promise<User> {
 
 이 함수의 시그니처만 봐도 "숫자 id를 받아서 User 형태의 데이터를 비동기로 돌려준다"는 사실을 별도의 설명 없이 알 수 있습니다.
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">협업할 때 특히 도움이 된다</span>
   <p>동료가 만든 함수를 처음 사용할 때, 함수 내부 구현을 뜯어보지 않아도 타입만으로 어떤 데이터가 오가는지 짐작할 수 있습니다. 팀 규모가 커질수록 이 효과는 더 커집니다.</p>
 </div>
 
@@ -138,8 +139,9 @@ TypeScript를 도입한다고 모든 문제가 사라지는 것은 아닙니다.
   <div class="wda-fcard"><div class="wda-fcard-ttl">모든 버그를 막지는 못함</div><div class="wda-fcard-dsc">타입이 맞아도 로직 자체가 틀리면 여전히 버그가 생깁니다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">타입 검사는 '보험'에 가깝다</span>
   <p>TypeScript는 코드가 완벽하다는 것을 증명해주는 도구가 아니라, 흔히 저지르는 실수를 줄여주는 안전장치에 가깝습니다. 실제 서비스 로직이 올바른지는 여전히 테스트와 코드 리뷰로 확인해야 합니다.</p>
 </div>
 

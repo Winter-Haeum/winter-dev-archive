@@ -94,6 +94,8 @@ function solution(num1, num2) {
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>화면 하단의 테스트 케이스 추가 기능으로, 직접 생각한 경계값을 넣어 미리 확인할 수 있습니다. 제출 전에는 우측 상단의 언어 설정이 JavaScript로 되어 있는지도 확인합니다.</p>
 </div>
@@ -112,6 +114,8 @@ function solution(num1, num2) {
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>const result = n + 1;</code>처럼 계산만 하고 <code>return</code>하지 않으면, 값은 정확히 계산됐어도 함수 밖으로 전달되지 않아 오답 처리됩니다.</p>
 </div>
@@ -125,6 +129,8 @@ function solution(num1, num2) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">Level 0 · 기초 (20문제+)</div><div class="wda-fcard-dsc">배열 원소의 길이, 중복된 숫자 개수, 배열 자르기, 짝수 홀수 개수</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">Level 1 · 도전 (5문제+)</div><div class="wda-fcard-dsc">약수의 개수와 덧셈, 문자열 내림차순 정렬, 자릿수 더하기</div></div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>프로그래머스에서 [코딩테스트 연습] → [난이도별 정렬]로 Level 0부터 차근차근 진행하는 것을 권장합니다. 제출 전에는 항상 극단적인 값(최소·최대)으로 직접 테스트해보는 습관을 들입니다.</p>

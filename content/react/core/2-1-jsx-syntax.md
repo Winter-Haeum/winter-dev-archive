@@ -89,6 +89,8 @@ function StudyCard() {
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   JSX는 새로운 언어가 아니라 JavaScript를 확장한 문법입니다. 함수 안에서 UI 구조를 값처럼 반환할 수 있게 해줍니다.
 </div>
@@ -183,6 +185,8 @@ function StudyCard() {
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   중괄호 안에는 <code>if</code>문 같은 명령문은 넣을 수 없습니다. 조건에 따라 다른 값을 보여주고 싶다면 삼항 연산자를 사용하며, 자세한 조건부 렌더링은 <strong>2-7</strong>에서 다룹니다.
 </div>
@@ -216,6 +220,8 @@ function StudyCard() {
 </div>
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <code>class</code>와 <code>for</code>는 JavaScript 예약어와 겹치기 때문에, JSX에서는 <code>className</code>과 <code>htmlFor</code>로 이름을 바꿔 사용합니다.
 </div>
@@ -235,6 +241,8 @@ CSS 속성명은 `backgroundColor`처럼 camelCase로 씁니다.
 ---
 
 ## 9. 조건부/리스트 렌더링 맛보기
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   조건부 렌더링은 <strong>2-7</strong>에서, 리스트 렌더링은 <strong>2-8</strong>에서 자세히 다룹니다. 여기서는 중괄호 안에서 어떻게 쓰이는지만 살짝 확인합니다.

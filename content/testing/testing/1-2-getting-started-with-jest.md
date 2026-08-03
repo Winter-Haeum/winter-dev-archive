@@ -81,8 +81,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 npm install -D jest
 ```
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">-D 옵션의 의미</span>
   <p><code>-D</code>는 이 패키지를 개발 환경에서만 쓰겠다는 표시입니다. Jest는 실제 서비스가 사용자에게 응답할 때는 필요 없고, 개발자가 코드를 검증할 때만 필요하기 때문에 개발 의존성으로 설치합니다.</p>
 </div>
 
@@ -177,8 +178,9 @@ test('객체는 toEqual로 비교한다', () => {
 });
 ```
 
+**🔎 참고**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">toBe와 toEqual을 헷갈리지 말 것</span>
   <p><code>toBe</code>는 자바스크립트의 <code>===</code>와 같은 방식으로 비교합니다. 객체나 배열은 내용이 같아도 메모리상 다른 객체이면 <code>toBe</code>로는 실패합니다. 객체·배열의 내용을 비교할 때는 <code>toEqual</code>을 사용해야 합니다.</p>
 </div>
 
@@ -187,6 +189,8 @@ test('객체는 toEqual로 비교한다', () => {
 ## 5. Jest만 있는 것은 아니다
 
 Jest는 오랫동안 자바스크립트 테스트 도구의 표준처럼 쓰여 왔지만, 최근에는 Vite 기반 프로젝트에서 **Vitest**라는 도구도 널리 쓰입니다. Vitest는 Jest와 문법이 매우 비슷해서, Jest 문법을 익혀두면 Vitest로 넘어가는 데도 큰 어려움이 없습니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>이 문서에서는 test·expect·describe라는 가장 기본적인 구조를 Jest를 기준으로 설명하지만, 이 구조 자체는 Vitest를 포함한 대부분의 자바스크립트 테스트 도구에서 공통으로 쓰이는 뼈대입니다.</p>

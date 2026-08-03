@@ -245,6 +245,8 @@ p {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>!important</code>는 편리해 보이지만 남발하면 나중에 그보다 더 강한 스타일을 덮어써야 할 때 <code>!important</code>를 또 붙이는 악순환이 생긴다. 우선순위 구조 자체가 무너지면 어떤 스타일이 왜 적용되는지 추적하기 어려워진다.</p>
   <p>정말 불가피한 예외 상황(외부 라이브러리 스타일을 강제로 덮어써야 하는 경우 등)이 아니라면, 선택자에 클래스나 ID를 추가해서 점수를 높이는 방식으로 해결하는 것이 바람직하다.</p>
@@ -308,6 +310,8 @@ button {
 <!-- CDN 방식 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>reset.css와 normalize.css를 동시에 적용하면 서로 다른 방향으로 스타일을 초기화하면서 충돌이 생길 수 있다. 둘 중 하나만 선택해서 사용해야 한다. 또한 부트스트랩 같은 CSS 프레임워크는 내부에 자체 초기화 스타일을 이미 포함하고 있는 경우가 많으므로, 프레임워크를 쓸 때는 별도의 초기화 스타일시트를 중복으로 넣지 않도록 주의한다.</p>

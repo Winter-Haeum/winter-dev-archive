@@ -209,6 +209,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><strong>align-items와 align-content를 혼동하지 않는 팁:</strong> align-items는 한 줄 안에서 아이템 하나하나를 교차축 방향으로 정렬하고, align-content는 flex-wrap으로 만들어진 <strong>줄 전체</strong>를 정렬한다. 아이템이 한 줄이면 align-content는 아무 효과가 없다.</p>
 </div>
@@ -251,6 +253,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>Container 속성 핵심 정리</strong> — 필수 2개는 <code>justify-content</code> + <code>align-items</code>다. 자주 쓰는 4개는 <code>flex-direction</code>, <code>flex-wrap</code>, <code>gap</code>, <code>align-content</code>다. 실무 패턴은 중앙 정렬(<code>center</code> + <code>center</code>), 네비게이션(<code>space-between</code>), 카드 그리드(<code>flex-wrap: wrap</code> + <code>gap</code>)로 정리된다.</p>
 </div>
@@ -287,6 +291,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <tr><td><code>2</code> 이상</td><td>숫자가 클수록 더 많은 여유 공간을 차지한다</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>실무에서는 flex-grow를 단독으로 쓰기보다 <strong><code>flex: 1</code> 단축 속성</strong>으로 함께 지정하는 경우가 훨씬 많다.</p>
@@ -369,6 +375,8 @@ HTML 구조는 그대로 유지한 채, 화면에 보이는 순서만 바꾼다.
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>접근성 주의</strong> — 스크린 리더는 order로 바뀐 시각적 순서가 아니라 <strong>HTML 문서 순서 그대로</strong> 읽는다. order를 남용해 화면 순서와 문서 순서가 크게 어긋나면, 스크린 리더 사용자가 체감하는 콘텐츠 순서와 화면상 순서가 달라질 수 있다.</p>
 </div>
@@ -393,6 +401,8 @@ order는 아래와 같은 상황에서 자주 쓰인다.
   order: 2;
 }
 ```
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><strong>Item 속성 핵심 정리</strong> — 필수 1개는 <code>flex</code> 단축 속성이다. <code>flex: 1</code> 하나만 알아도 실무의 80%를 커버한다. 자주 쓰는 3개는 <code>flex-grow</code>, <code>align-self</code>, <code>order</code>다. 실무 패턴은 균등 분배(<code>flex: 1</code>), 비율 분배(<code>flex: 1, 2</code>), 고정 크기(<code>flex: 0 0 200px</code>)로 정리된다.</p>

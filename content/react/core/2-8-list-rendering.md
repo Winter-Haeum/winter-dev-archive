@@ -75,6 +75,8 @@ tags:
 
 ## 2. 배열을 JSX 목록으로 바꾸기
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   map·filter·sort 같은 배열 메서드 자체의 동작 원리는 JavaScript 고차 배열 메서드 문서에서 다뤘습니다. 이 문서에서는 그 결과를 JSX로 렌더링하는 방법에 집중합니다.
 </div>
@@ -109,6 +111,8 @@ function LearningList({ items }) {
 ---
 
 ## 4. key가 필요한 이유
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   key는 화면에 보이는 값이 아니라, React가 어떤 항목이 바뀌었는지 구분하는 기준입니다.

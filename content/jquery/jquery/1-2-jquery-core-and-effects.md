@@ -114,8 +114,9 @@ $('.item').addClass('active');
 
 `.css()`는 인자가 1개면 값을 읽고, 2개면 값을 설정하는 식으로 하나의 메서드가 읽기·쓰기를 모두 처리합니다. jQuery 메서드 상당수가 이런 방식을 따릅니다.
 
+**🔎 참고**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">text() vs html()</span>
   <p><code>.text()</code>는 태그를 제외한 순수 텍스트만 다루고, <code>.html()</code>은 태그까지 포함해 다룹니다. 사용자가 입력한 값을 그대로 <code>.html()</code>에 넣으면 악성 스크립트가 실행될 위험(XSS)이 있으므로, 단순 텍스트 변경에는 <code>.text()</code>를 쓰는 것이 안전합니다.</p>
 </div>
 
@@ -164,8 +165,9 @@ $('.accordion-title').on('click', function () {
 
 속도는 `'slow'`, `'fast'` 같은 문자열이나 밀리초 숫자로 지정할 수 있고, 두 번째 인자로 함수(콜백)를 넘기면 애니메이션이 끝난 뒤 실행할 동작을 지정할 수 있습니다.
 
+**🔎 참고**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">최신 방식과 비교하면</span>
   <p>요즘은 성능을 위해 CSS의 <code>transition</code>이나 <code>animation</code> 속성으로 효과를 처리하는 경우가 많습니다. jQuery의 효과 메서드는 자바스크립트로 매 프레임을 계산하는 방식이라, 대규모 애니메이션에는 CSS 방식이 더 부드러울 수 있습니다. 다만 간단한 토글 효과를 빠르게 붙일 때는 여전히 실용적입니다.</p>
 </div>
 

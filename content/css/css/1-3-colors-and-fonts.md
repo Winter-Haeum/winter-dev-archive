@@ -149,6 +149,8 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 </tbody>
 </table>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>실무에서는 <code>rem</code> 사용을 권장한다. <code>em</code>은 중첩된 요소마다 부모의 크기를 곱해가며 계산되어 실제 크기를 예측하기 어렵지만, <code>rem</code>은 항상 <code>html</code>의 font-size 하나만 기준으로 계산되기 때문에 일관성 있게 관리할 수 있다.</p>
 </div>
@@ -312,6 +314,8 @@ a:hover {
   line-height: 1.7;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>정리하면 텍스트 줄바꿈 제어는 <strong>공백 처리(white-space)</strong>, <strong>단어 끊기 방식(word-break)</strong>, <strong>넘침 시 예외 처리(overflow-wrap)</strong> 세 축으로 나누어 생각하면 된다. 코드블록은 <code>white-space: pre</code>로 공백과 줄바꿈을 그대로 보존하고, 입력 폼처럼 한 줄을 유지해야 하는 곳은 <code>nowrap</code> 계열을, 본문처럼 자연스럽게 읽혀야 하는 곳은 <code>keep-all</code> + <code>break-word</code> 조합을 사용한다.</p>

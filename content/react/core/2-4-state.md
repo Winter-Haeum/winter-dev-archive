@@ -135,6 +135,8 @@ function StudyCard() {
   <div class="wda-fnode"><div class="wda-fnode-ttl">re-render</div><div class="wda-fnode-dsc">화면 다시 그림</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   버튼에 이벤트를 연결하는 자세한 방법(이벤트 객체, onChange 등)은 <strong>2-5 이벤트 처리하기</strong>에서 다룹니다.
 </div>
@@ -153,6 +155,8 @@ function StudyCard() {
     <code>setIsCompleted(true)</code> — React가 감지하고 화면을 다시 그린다.
   </div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   state는 직접 대입하지 않습니다. 반드시 setter 함수를 통해서만 값을 바꿉니다.
@@ -179,6 +183,8 @@ function markCompleted(courseId) {
   setCompletedCourseIds(prev => [...prev, courseId]);
 }
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   배열 state는 <code>push</code>처럼 원본을 직접 바꾸지 않고, <strong>새 배열로 교체</strong>합니다.
@@ -208,6 +214,8 @@ const [completedCourseIds, setCompletedCourseIds] = useState([]);
 ```
 
 두 state는 서로 독립적으로 관리되며, 한쪽을 바꿔도 다른 쪽에는 영향이 없습니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   여러 컴포넌트가 같은 값을 알아야 한다면, 공통 부모 컴포넌트(StudyDashboard)에 state를 두고 자식에게 props로 내려주는 방식을 사용합니다.
@@ -243,6 +251,8 @@ const [completedCourseIds, setCompletedCourseIds] = useState([]);
 ---
 
 ## 12. 다음 학습 흐름
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   복잡한 상태 로직(useReducer)과 전역 상태(Context)는 각각 <strong>4-2, 4-1</strong>에서 다룹니다. 이벤트 처리 상세는 <strong>2-5</strong>에서 다룹니다.

@@ -83,8 +83,9 @@ let someValue: unknown = "this is a string";
 let len: number = (someValue as string).length; // OK
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">단언은 값을 실제로 바꾸지 않는다</span>
   <p>as는 값을 다른 타입으로 변환하는 것이 아니라, 컴파일러에게 "타입 검사를 이렇게 해달라"고 요청하는 것뿐입니다. 실제 값과 단언한 타입이 다르면, 컴파일은 통과해도 실행 중에 오류가 발생할 수 있습니다.</p>
 </div>
 
@@ -114,8 +115,9 @@ anything = 42;
 anything.foo(); // 컴파일은 통과하지만, 실행 시 오류가 날 수 있음
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">any는 무조건 금지가 아니라, 신중하게 다뤄야 할 도구다</span>
   <p>any를 쓰면 TypeScript가 제공하는 타입 검사 대부분을 포기하게 되므로, 입문 단계에서는 되도록 피하는 것이 좋습니다. 다만 마이그레이션 중이거나 타입을 도저히 알 수 없는 극히 예외적인 상황에서는 임시로 사용할 수도 있습니다. "무조건 쓰면 안 된다"고 단정하기보다는, 가능하면 다른 방법을 먼저 찾아보는 습관이 중요합니다.</p>
 </div>
 

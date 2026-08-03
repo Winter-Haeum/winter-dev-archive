@@ -160,6 +160,8 @@ p:nth-of-type(2) {
 </tbody>
 </table>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>공식을 외울 때는 <code>n</code>에 0, 1, 2, 3 …을 순서대로 대입해서 결과를 직접 계산해보는 것이 가장 확실하다. <code>3n+1</code>이라면 n=0일 때 1, n=1일 때 4, n=2일 때 7이 되는 식이다.</p>
 </div>
@@ -264,6 +266,8 @@ h3 a:hover {
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>라이브러리나 리셋 CSS를 작성할 때는 <code>:where()</code>를 사용해 사용자 스타일이 항상 이길 수 있게 만드는 것이 관례다. 반대로 우선순위를 확실히 확보하고 싶다면 <code>:is()</code>가 더 알맞다.</p>
 </div>
@@ -335,6 +339,8 @@ input[type="checkbox"]:checked + label::before {
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>Form 상태를 스타일링할 때는 <strong>색상만으로 상태를 구분하지 않는다.</strong> 색약 사용자를 위해 아이콘이나 텍스트를 함께 제공하고, <code>:focus</code> 스타일을 절대 지우지 않으며, 스크린 리더와 키보드만으로도 상태를 알 수 있는지 항상 점검해야 한다.</p>
 </div>
@@ -365,6 +371,8 @@ input:invalid {
 ```
 
 `:required`가 붙은 입력 옆에는 보통 라벨에 별표(`*`)를 함께 표시해서 시각적으로도 필수 항목임을 알린다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>페이지가 막 로드된 시점에는 입력값이 비어 있어도 <code>required</code>가 걸린 필드는 곧바로 <code>:invalid</code> 상태가 된다. 이 상태를 그대로 빨간 테두리로 보여주면 사용자가 아직 아무것도 입력하지 않았는데도 오류처럼 보이는 문제가 생긴다.</p>

@@ -104,6 +104,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 3. useEffect를 언제 쓰나
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>렌더링 중에 계산할 수 있는 값이라면 useEffect가 필요 없습니다.</strong> 예를 들어 배열의 길이나 합계처럼 다른 state로부터 바로 계산되는 값은 effect 없이 렌더링 중에 구합니다. useEffect는 <strong>서버 요청, 타이머, 구독</strong>처럼 리액트 바깥의 시스템과 동기화해야 할 때만 사용합니다.</p>
 </div>
@@ -111,6 +113,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 4. Custom Hook을 만드는 기준
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>서로 다른 컴포넌트에서 <strong>useState·useEffect·useRef를 조합하는 코드가 반복해서 나타날 때</strong>가 Custom Hook을 만들 타이밍입니다. 로직은 재사용되지만, 호출할 때마다 상태는 독립적으로 생성된다는 점을 기억합니다.</p>

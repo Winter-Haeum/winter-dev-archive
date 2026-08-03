@@ -227,6 +227,8 @@ a[href*="youtube"] { color: red; }
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>[attr*=value]</code>와 <code>[attr~=value]</code>를 혼동하기 쉽다. <code>*=</code>은 부분 문자열 포함이라 <code>"inactive"</code> 안의 <code>"active"</code>도 걸리지만, <code>~=</code>은 공백으로 나뉜 완전한 단어만 비교하므로 <code>"inactive"</code>는 걸리지 않는다.</p>
 </div>
@@ -368,6 +370,8 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 
 이 표에서 보듯 `#email`이 가장 높은 점수를 가져 다른 두 규칙을 모두 이긴다. `.container .text`는 클래스가 두 번 등장해 `.container > p`보다 점수가 높다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>점수를 억지로 외우기보다 튜플 형태 <code>(인라인, ID, 클래스/속성/가상클래스, 태그)</code>로 자릿수를 나눠 비교하는 습관을 들이면 계산이 쉬워진다. 예를 들어 <code>.menu &gt; li[data-active="true"]</code>는 클래스 10 + 태그 1 + 속성 10 = 21점이다.</p>
 </div>
@@ -394,6 +398,8 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 ```
 
 동작 방식은 라디오 버튼이 체크되면, 뒤따르는 형제 중 `.content`가 나타나는 원리다. 그런데 탭이 여러 개면 문제가 생긴다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>~</code>는 <strong>뒤에 나오는 형제 전부</strong>를 선택하기 때문에, <code>#tab1:checked ~ .content</code>는 tab1 뒤에 있는 모든 <code>.content</code>를 다 열어버린다. 탭이 3개면 3개 콘텐츠가 동시에 보이는 예상치 못한 결과가 나온다.</p>

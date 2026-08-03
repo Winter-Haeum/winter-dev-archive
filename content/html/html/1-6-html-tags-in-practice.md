@@ -83,6 +83,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <h3>그 다음 단계 제목</h3>
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>제목 태그는 글자를 크게 보이려는 목적이 아니라 <strong>구조를 나타내는 목적</strong>으로 사용합니다. 단순히 크게 보이고 싶다면 CSS로 글자 크기를 조절해야 합니다. h1을 여러 번 반복해서 사용하면 검색 엔진과 스크린 리더가 문서 구조를 파악하기 어려워집니다.</p>
 </div>
@@ -117,6 +119,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   안전하게 새 탭에서 열기
 </a>
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>rel</code> 속성 없이 <code>target="_blank"</code>만 사용하면, 새로 열린 탭이 원래 페이지를 조작할 수 있는 보안 취약점이 생길 수 있습니다. 외부 링크를 새 탭에서 열 때는 <code>rel="noopener noreferrer"</code>를 습관처럼 붙이는 것이 안전합니다.</p>
@@ -170,6 +174,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <li>코드 작성하기</li>
 </ol>
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>ul</code>과 <code>ol</code> 바로 아래에는 반드시 <code>li</code>만 올 수 있습니다. <code>li</code>를 <code>div</code>로 감싸는 구조는 허용되지 않습니다.</p>
@@ -242,6 +248,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </form>
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>체크박스나 라디오 버튼처럼 선택형 입력은 <code>input</code>을 <code>label</code> 안에 직접 넣는 방식도 자주 사용합니다. 별도로 <code>id</code>/<code>for</code>를 맞추지 않아도 자동으로 연결됩니다.</p>
 </div>
@@ -289,6 +297,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <tr><td><code>button</code></td><td>기본 동작이 없는 일반 버튼입니다. JavaScript와 함께 사용합니다.</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>form 안에서 <code>&lt;button&gt;</code>은 <code>type</code>을 생략하면 기본값이 <code>submit</code>이 됩니다. 폼 제출을 의도하지 않은 버튼이라면 반드시 <code>type="button"</code>을 명시해야 예상치 못한 제출을 막을 수 있습니다.</p>

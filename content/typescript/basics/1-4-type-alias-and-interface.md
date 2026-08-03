@@ -91,8 +91,9 @@ const admin: User = {
 };
 ```
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">객체뿐 아니라 다양한 타입에 이름을 붙일 수 있다</span>
   <p>type은 객체 구조뿐 아니라 union 타입, 튜플, 함수 타입처럼 다양한 형태에 이름을 붙일 수 있습니다. 예를 들어 <code>type Status = "success" | "error" | "loading";</code>처럼 특정 상태값들의 조합에도 이름을 줄 수 있습니다.</p>
 </div>
 
@@ -143,8 +144,9 @@ interface User extends BaseEntity {
 }
 ```
 
+**🔎 참고**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">둘 중 하나가 항상 정답은 아니다</span>
   <p>"interface가 type보다 항상 더 좋다"거나 그 반대라고 단정할 수는 없습니다. 두 문법 모두 널리 쓰이며, 팀이나 프로젝트의 컨벤션에 따라 선택 기준이 달라질 수 있습니다.</p>
 </div>
 

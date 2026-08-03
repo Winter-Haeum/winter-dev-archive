@@ -73,6 +73,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 [[1-4-tags-attributes-elements|이전 문서]]에서 블록·인라인 요소를 다뤘다면, 이 문서는 "어떤 태그를 골라야 하는가"에 대한 기준을 다룹니다. 같은 화면을 만들더라도 <code>div</code>만으로 채우는 것과, 의미를 가진 태그로 채우는 것은 결과물의 품질이 크게 달라집니다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>시맨틱 마크업</strong>은 태그 이름 자체가 그 영역의 역할을 설명하는 방식입니다. 검색 엔진, 스크린 리더, 함께 작업하는 다른 개발자 모두가 태그 이름만 보고도 문서 구조를 이해할 수 있습니다.</p>
 </div>
@@ -161,6 +163,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>구조적인 의미가 필요하면 시맨틱 태그를, 순수하게 스타일링 목적이라면 <code>div</code>/<code>span</code>을 사용합니다. 모든 곳에 시맨틱 태그를 억지로 끼워 맞출 필요는 없습니다.</p>
 </div>
@@ -202,6 +206,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 7. 초보자 주의점
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>HTML5 이전에는 시맨틱 태그가 없어 <code>&lt;div id="header"&gt;</code>처럼 class/id로만 역할을 표현했습니다. 지금도 오래된 예제나 자료에서는 이런 방식을 볼 수 있지만, 새로 작성하는 문서에서는 가능하면 시맨틱 태그를 우선 고려하는 것이 좋습니다.</p>

@@ -88,6 +88,8 @@ transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화
 
 `:hover` 블록 안에 `transition`을 넣으면 어떻게 될까. 마우스를 올릴 때는 전환이 적용되지만, 마우스를 뗄 때 목표 상태에는 이미 transition 정의가 없으므로 원래 상태로 즉시 툭 끊기듯 돌아간다. 그래서 원칙은 다음과 같다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>핵심 원칙</strong> — 전환 속성(<code>transition</code>)은 항상 <strong>초기 상태(A)</strong>에 작성하고, <strong>목표 상태(B)</strong>에는 변화가 일어날 값만 작성한다. 이렇게 해야 들어갈 때와 나갈 때 모두 부드럽게 동작한다.</p>
 </div>
@@ -157,6 +159,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>초보자가 자주 헷갈리는 부분은 <strong>초(s) 단위와 밀리초(ms) 단위 표기</strong>다. <code>0.3s</code>와 <code>300ms</code>는 같은 값이지만, <code>0.3ms</code>처럼 소수점을 잘못 붙이면 거의 0에 가까운 시간이 되어 전환이 눈에 보이지 않는다.</p>
 </div>
@@ -185,6 +189,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
   transition-delay: 0s, 0.1s;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>transition-delay</code>에 음수 값을 주면 전환이 <strong>이미 진행된 지점부터</strong> 시작한 것처럼 보인다. 자주 쓰이지는 않지만 고급 타이밍 조절에 활용된다.</p>
@@ -215,6 +221,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 .link { transition: color 0.2s; }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>순서 암기법</strong> — "무엇을(property) · 얼마나(duration) · 어떻게(timing-function) · 언제(delay)" 순서로 외운다. duration은 생략할 수 없지만, timing-function과 delay는 생략 가능하며 각각 <code>ease</code>, <code>0s</code>가 기본값으로 적용된다.</p>
 </div>
@@ -236,6 +244,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </tbody>
 </table>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>실무 권장</strong> — 대부분(90% 이상)의 상황에서는 <code>ease</code>만으로 충분하다. 요소가 <strong>등장</strong>할 때는 <code>ease-out</code>, <strong>사라질</strong> 때는 <code>ease-in</code>, 모달처럼 고급스러운 인상이 필요할 때는 <code>ease-in-out</code>을 사용한다.</p>
 </div>
@@ -249,6 +259,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 /* steps(구간 수) - 연속적이지 않고 프레임처럼 끊어서 이동 */
 .sprite { transition-timing-function: steps(4); }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>cubic-bezier()</code>는 온라인 곡선 편집 도구(예: cubic-bezier.com)로 값을 시각적으로 조정한 뒤 붙여 넣는 방식이 일반적이다. <code>steps()</code>는 연속 전환이 아니라 계단식으로 값이 변해, 스프라이트 애니메이션 같은 프레임 표현에 쓰인다.</p>
@@ -271,6 +283,8 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 <tr><td><code>:focus-within</code></td><td>자신 또는 자손 요소가 포커스를 가졌을 때</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>값이 실제로 바뀌지 않으면 transition은 <strong>재생되지 않는다</strong>. 예를 들어 hover 시에도 색상 값을 동일하게 두면, transition을 정의해도 아무 변화도 보이지 않는다.</p>
@@ -344,6 +358,8 @@ transition만으로 해결하기 어려운 움직임도 있다. 두 기능의 �
     <code>@keyframes</code>로 <strong>여러 단계</strong>를 미리 정의할 수 있고, <strong>트리거 없이 자동 실행</strong>되며 무한 반복도 가능하다. 복잡한 움직임에 적합하다.
   </div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>로딩 스피너처럼 트리거 없이 계속 움직여야 하거나, 여러 단계를 거치는 복잡한 움직임이 필요하다면 transition이 아니라 <strong>animation과 @keyframes</strong>를 사용해야 한다. 이 내용은 다음 문서에서 이어간다.</p>

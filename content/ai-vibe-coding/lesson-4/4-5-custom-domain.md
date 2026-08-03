@@ -125,8 +125,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 4. 개인정보·보안 정보 제거
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">공개 전 마지막 확인</span>
   <p>README나 커밋 이력에 <strong>실제 이메일, 연락처, 연결 키 값</strong>이 남아 있지 않은지 확인합니다. 예시가 필요하다면 실제 값 대신 placeholder를 사용합니다.</p>
 </div>
 

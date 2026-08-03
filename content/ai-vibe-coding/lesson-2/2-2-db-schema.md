@@ -72,8 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 [[2-1-supabase-mcp|이전 문서]]에서 데이터가 왜 필요한지 이해했다면, 이제는 project-section에 필요한 데이터를 구체적으로 설계할 차례입니다. 추상적으로 테이블부터 그리지 않고, 실제 화면을 보면서 "이 화면에 무엇이 보이는가"를 거꾸로 따라가며 필드를 찾아내는 방법을 다룹니다. 저장소에 실제로 연결하는 방법은 [[2-3-ui-planning|다음 문서]]에서 다룹니다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
-  <span class="wda-clabel">역방향 설계</span>
   <p>테이블을 먼저 그리는 대신, 화면에 어떤 정보가 보여야 하는지부터 나열하면 필요한 필드가 자연스럽게 드러납니다. "이 화면에 이 정보가 보이니까 이 필드가 필요하구나"라는 흐름입니다.</p>
 </div>
 
@@ -105,6 +106,8 @@ project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 �
 <tr><td>created_at</td><td>날짜</td><td>자동</td><td>공개</td><td>등록된 시각</td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>is_public</code>처럼 화면에는 보이지 않지만 <strong>필요한 관리용 필드</strong>도 있습니다. 화면에 직접 등장하지 않는다고 필드 설계에서 빠뜨리지 않도록 주의합니다.</p>
@@ -150,6 +153,8 @@ project-section 화면에서 보여줘야 하는 정보:
 - 위 정보를 저장할 필드 이름(영문), 타입, 필수 여부를 표로 정리해주세요.
 - 화면에는 보이지 않지만 필요할 수 있는 관리용 필드가 있다면 함께 제안해주세요.
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>AI가 제안한 필드 이름이나 타입을 그대로 쓰기 전에, 실제로 화면에서 쓰지 않는 필드가 섞여 있지는 않은지 <strong>한 번 더 검토</strong>합니다.</p>

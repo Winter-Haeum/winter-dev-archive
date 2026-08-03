@@ -110,6 +110,8 @@ gh --version
 gh auth login
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>이 방식을 <strong>OAuth</strong>라고 합니다. 비밀번호를 직접 전달하지 않고, 신뢰하는 앱(GitHub CLI)에 필요한 권한만 허용하는 인증 방식입니다. 구글 계정으로 다른 서비스에 로그인하는 것과 비슷한 원리입니다.</p>
 </div>
@@ -141,6 +143,8 @@ gh auth status
 2. 이번에 올라간 파일 목록 요약
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>백업 요청 후에는 실제로 저장소 페이지에 접속해 파일이 의도한 대로 올라갔는지 <strong>직접 확인</strong>합니다. 특히 민감한 파일이 실수로 포함되지 않았는지 살펴봅니다.</p>
 </div>
@@ -162,6 +166,8 @@ API 키, 비밀번호, 액세스 토큰 같은 값은 코드와 함께 저장소
 VITE_PUBLIC_PROJECT_URL=your_project_url_here
 VITE_PUBLIC_ANON_KEY=your_anon_key_here
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>실제 <code>.env</code> 파일의 값은 절대 코드에 직접 적거나 AI와의 대화창에 그대로 붙여넣지 않습니다. api-key와 access-token은 한 번 노출되면 즉시 재발급하는 것이 안전합니다.</p>

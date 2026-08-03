@@ -96,8 +96,9 @@ async function getUsers() {
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. .json() 변환</div><div class="wda-fnode-dsc">본문 데이터를 실제로 쓸 수 있는 객체로 파싱</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">왜 await를 두 번 쓸까</span>
   <p>첫 번째 <code>await</code>는 "서버와 연결되어 응답이 도착했는지"를 기다리고, 두 번째 <code>await</code>는 "그 응답 본문을 다 읽어서 객체로 바꿨는지"를 기다립니다. 연결 확인과 본문 다운로드는 서로 다른 단계이기 때문에 각각 기다려야 합니다.</p>
 </div>
 
@@ -154,8 +155,9 @@ async function createUser(userData) {
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">JSON 문법은 엄격하다</span>
   <p>JSON에서는 키와 문자열 값에 반드시 큰따옴표(<code>"</code>)를 써야 하고, 마지막 항목 뒤에 쉼표를 붙이면 안 됩니다. 자바스크립트 객체 문법보다 훨씬 엄격하므로, 직접 JSON 문자열을 작성할 일이 있다면 이 규칙을 지켜야 합니다.</p>
 </div>
 

@@ -250,6 +250,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 BFC는 블록 요소들이 레이아웃될 때 사용하는 독립적인 영역이다. BFC 안에서는 바깥 요소와 margin이 서로 영향을 주고받지 않고, float 요소도 이 영역 안에서만 배치가 계산된다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>BFC의 주요 효과는 세 가지다. <strong>Margin Collapse 방지</strong>(서로 다른 BFC에 속한 요소끼리는 margin이 겹치지 않음), <strong>float 요소 격리</strong>(float된 자식이 부모 밖으로 삐져나오는 문제 방지), <strong>독립적인 레이아웃 영역 확보</strong>다.</p>
 </div>
@@ -329,6 +331,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 <tr><td>주요 용도</td><td>일반적인 테두리 디자인</td><td>포커스 표시 등 접근성</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>디자인이 마음에 안 든다고 <code>outline: none</code>으로 무조건 없애버리면 키보드 사용자가 지금 어떤 요소에 포커스가 있는지 전혀 알 수 없게 된다. 없앨 경우 반드시 <code>border</code>나 <code>box-shadow</code> 같은 대체 스타일로 포커스 표시를 남겨야 한다.</p>

@@ -181,6 +181,8 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
 </button>
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><code>dispatch</code> 함수 자체는 참조가 항상 안정적입니다. useEffect나 useCallback의 의존성 배열에 넣지 않아도 안전합니다.</p>
 </div>

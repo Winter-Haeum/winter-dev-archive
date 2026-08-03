@@ -94,6 +94,8 @@ const [newTitle, setNewTitle] = useState("");
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   input의 value와 state를 연결해야 controlled component가 됩니다. value만 있고 onChange가 없으면 값을 바꿀 수 없는 읽기 전용처럼 동작합니다.
 </div>
@@ -239,6 +241,8 @@ function handleSubmit(event) {
 ---
 
 ## 11. 다음 학습 흐름
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   React Hook Form 같은 폼 라이브러리나 복잡한 검증은 이 문서에서 다루지 않습니다. 다양한 폼 입력을 직접 연습해보고 싶다면 <strong>실습: 폼 입력 훈련</strong> 문서에서 이어갈 수 있습니다.

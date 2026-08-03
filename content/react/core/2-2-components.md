@@ -208,6 +208,8 @@ export default StudyCard;
 
 ## 10. 다음 학습 흐름
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   컴포넌트에 값을 전달하는 방법(props)과 컴포넌트가 스스로 값을 바꾸는 방법(state)은 각각 <strong>2-3, 2-4</strong>에서 자세히 다룹니다.
 </div>

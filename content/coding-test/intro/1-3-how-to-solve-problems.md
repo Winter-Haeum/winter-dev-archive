@@ -86,6 +86,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">4. 검증</div><div class="wda-fnode-dsc">테스트하고 제출</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>이해와 계획을 건너뛰고 바로 코드를 작성하면, 중간에 논리가 꼬여 처음부터 다시 짜는 경우가 많습니다. 1~2단계에 시간을 투자할수록 3~4단계가 오히려 빨라집니다.</p>
 </div>
@@ -120,6 +122,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 배열에서 가장 큰 수를 찾는 문제의 의사코드 예시입니다.
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>1. 첫 번째 값을 최댓값으로 둔다.<br>2. 배열을 처음부터 끝까지 돌면서, 현재 값이 최댓값보다 크면 최댓값을 그 값으로 바꾼다.<br>3. 최종 최댓값을 반환한다.</p>
 </div>
@@ -143,6 +147,8 @@ function solution(numbers) {
   return max; // 4. 결과 반환
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>초기값을 0으로 두면 안 되는 경우가 있습니다.</strong> 배열이 [-5, -3, -1]처럼 음수만 있다면 0이 최댓값이 되어버려 오답이 됩니다. 배열의 첫 번째 원소를 기준으로 삼는 것이 안전합니다. 이런 방식으로 하나씩 비교하며 찾는 것을 <strong>선형 탐색</strong>이라고 합니다.</p>
@@ -169,6 +175,8 @@ function solution(numbers) {
   </div>
 </div>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>"왜 틀렸지?" 싶을 때는 경계값부터 의심해봅니다.</p>
 </div>
@@ -188,6 +196,8 @@ function solution(numbers) {
   </div>
 </div>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>10분 동안 고민해도 실마리가 안 보이면, 일단 다음 문제로 넘어갔다가 나중에 다시 돌아옵니다.</p>
 </div>
@@ -205,6 +215,8 @@ function solution(numbers) {
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">검토</div><div class="wda-fnode-dsc">마지막 재확인</div></div>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>어려운 문제 하나에 시간을 다 쓰다가 쉬운 문제조차 못 풀면 가장 큰 손해입니다. 확실히 풀 수 있는 문제로 점수를 먼저 확보한 뒤, 남은 시간을 어려운 문제에 투자합니다.</p>

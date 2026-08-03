@@ -100,6 +100,8 @@ Flexbox로 이 구조를 구현하면 예상과 다른 결과가 나온다.
 
 A(66.666%) + B(33.333%)까지는 한 줄(100%)을 채우고 줄바꿈된다. 문제는 다음 줄이다. C(33.333%)가 새 줄에서 시작한 뒤, D(66.666%)를 이어 붙이려 해도 C와 같은 줄에 붙지 않고 또 다른 줄로 넘어가 버린다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>왜 안 될까?</strong> Flexbox는 태생적으로 <strong>1차원</strong> 레이아웃 도구다. <code>flex-wrap</code>은 "한 줄에 다 안 들어가면 다음 줄로 넘긴다"는 줄바꿈만 제어할 뿐, "이 요소는 2번째 줄, 3번째 칸에 배치한다"는 <strong>행(row) 개념 자체가 없다.</strong> 그래서 C 다음에 D를 정확히 이어 붙이는 식의 격자 배치는 Flexbox의 설계 범위를 벗어난다.</p>
 </div>
@@ -150,6 +152,8 @@ Grid를 이해하는 가장 쉬운 방법은 엑셀 스프레드시트를 떠올
   <div class="wda-fcard"><div class="wda-fcard-ttl">그리드 라인 (Grid Line)</div><div class="wda-fcard-dsc">셀과 셀을 구분하는 경계선이며, 1번부터 순서대로 번호가 매겨진다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>엑셀에서 셀 하나하나가 행 번호와 열 번호로 특정되듯, Grid도 그리드 라인 번호를 기준으로 "이 요소는 1번 라인부터 3번 라인까지 차지한다"는 식으로 위치를 지정한다.</p>
 </div>
@@ -175,9 +179,13 @@ Grid의 가장 기본적인 문법은 다음과 같다.
 </tbody>
 </table>
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>fr 단위가 실무에서 가장 많이 쓰이는 이유</strong>는 남은 공간을 자동으로 계산해서 비율로 나눠주기 때문이다. <code>1fr 1fr 1fr</code>은 균등 3등분이고, <code>2fr 1fr 1fr</code>은 2:1:1 비율로 나뉜다. <code>gap</code>이 있어도 fr이 알아서 남은 공간만 계산하기 때문에 반응형 레이아웃에 특히 적합하다.</p>
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>grid-template-rows</code>를 생략하면 행이 사라지는 것이 아니라, 콘텐츠 높이만큼 <strong>자동으로 행이 생성</strong>된다. 실무에서는 열은 명시하고 행은 생략하는 경우가 많다.</p>
@@ -289,6 +297,8 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 .item-d { grid-column: 2 / 4; }  /* 2번 라인 ~ 4번 라인, 2칸 차지 */
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>그리드 라인 번호는 <strong>0이 아니라 1부터 시작</strong>한다. 3열 그리드라면 라인은 1, 2, 3, 4번까지 4개가 생긴다는 점을 기억해야 한다.</p>
 </div>
@@ -310,6 +320,8 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 ## 7. 자동 배치 동작과 실전 팁
 
 `grid-column`, `grid-row`를 지정하지 않은 Item은 순서대로 자동 배치된다. 1행 1열, 1행 2열, 1행 3열... 처럼 왼쪽에서 오른쪽, 위에서 아래로 채워진다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>Grid Item으로 인정되는 건 <strong>Container의 직계 자식(direct child)</strong>뿐이다. 아래처럼 <code>span</code>이 <code>div</code> 안에 한 번 더 감싸져 있다면 이 <code>span</code>은 Grid Item이 아니라 부모 <code>div</code> 안의 일반 인라인 요소일 뿐이다.</p>
@@ -433,6 +445,8 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
 <tr><td><code>calc()</code> 필요 여부</td><td>퍼센트 계산 시 필요한 경우 많음</td><td><code>fr</code> 단위 덕분에 거의 불필요</td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>선택 기준은 단순하다.</strong> 한 방향으로만 흐르면 Flexbox, 행과 열을 동시에 신경 써야 하면 Grid다. 실무에서는 페이지 전체는 Grid로 큰 틀을 잡고, 그 안의 버튼 그룹이나 네비게이션은 Flexbox로 처리하는 <strong>혼합 사용이 가장 흔하다.</strong></p>

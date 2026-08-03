@@ -103,6 +103,8 @@ GitHub가 제공하는 기능은 크게 네 가지로 정리할 수 있다.
   <div class="wda-fcard"><div class="wda-fcard-ttl">포트폴리오 역할</div><div class="wda-fcard-dsc">Contribution 그래프로 활동 내역이 시각화되어 채용 담당자에게 개발 이력을 보여줄 수 있습니다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>여기서 자주 헷갈리는 부분이 있다. <code>git log</code>로 커밋 이력을 확인하는 것처럼 <strong>로컬 파일의 버전을 추적하는 일은 어디까지나 Git의 기능</strong>이다. GitHub는 그 기록을 클라우드에서 공유·협업하는 역할을 맡을 뿐, 로컬 버전 추적 자체를 대신하지 않는다.</p>
 </div>
@@ -135,6 +137,8 @@ GitHub가 제공하는 기능은 크게 네 가지로 정리할 수 있다.
   <div class="wda-fnode"><div class="wda-fnode-ttl">⑨ 가입 완료</div><div class="wda-fnode-dsc">계정 생성 완료</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>③단계에서 입력하는 이메일은 실제로 받을 수 있는 주소여야 한다. 이메일 인증 코드를 확인해야 계정이 정상적으로 활성화되기 때문이다. 예시 문서에서는 <code>your-email@example.com</code> 같은 형태로 표기하지만, 실제 가입 시에는 본인이 사용하는 이메일을 입력해야 한다.</p>
 </div>
@@ -154,6 +158,8 @@ GitHub가 제공하는 기능은 크게 네 가지로 정리할 수 있다.
 <tr><td>위치 · 웹사이트</td><td>거주 지역이나 개인 사이트 링크를 추가할 수 있습니다.</td></tr>
 </tbody>
 </table>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>프로필 페이지는 채용 담당자가 GitHub에서 가장 먼저 확인하는 화면인 경우가 많다. 사진, 소개글, 링크만 깔끔하게 정리해도 프로필의 신뢰도가 눈에 띄게 올라간다.</p>

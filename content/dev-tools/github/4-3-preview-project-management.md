@@ -101,8 +101,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">4. 확인</div><div class="wda-fnode-dsc">브라우저로 바로 접속해서 확인</div></div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">main과는 분리된 주소</span>
   <p>Preview 배포로 만들어지는 주소는 실제 서비스 주소(main 브랜치를 배포한 결과)와는 별개입니다. 그래서 PR의 코드에 문제가 있더라도 실제 사용자에게 영향을 주지 않고, 안전하게 미리 확인만 해볼 수 있습니다.</p>
 </div>
 
@@ -121,8 +122,9 @@ Preview 환경에 접속했을 때는 아래와 같은 관점으로 확인하면
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">Preview는 코드 리뷰를 대신하지 않는다</span>
   <p>Preview 배포는 눈으로 보는 확인을 도와줄 뿐, 코드 자체의 품질이나 구조를 검토하는 코드 리뷰를 대신하지는 못합니다. 두 가지를 함께 활용할 때 "코드도 깔끔하고, 화면도 의도한 대로 동작한다"는 확신을 가지고 병합할 수 있습니다.</p>
 </div>
 

@@ -113,8 +113,9 @@ https://example.com:443/products
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. 검증</div><div class="wda-fnode-dsc">브라우저가 두 값을 비교해 통과/차단 결정</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">차단하는 주체는 서버가 아니라 브라우저다</span>
   <p>CORS 에러가 떠도 서버 로그에는 요청이 정상 처리(200 OK)된 것으로 남을 수 있습니다. 서버는 응답을 이미 보냈지만, 그 응답에 허용 헤더가 없다는 걸 확인한 <strong>브라우저가</strong> 자바스크립트에게 데이터를 넘기지 않고 차단하는 것입니다. Postman이나 서버 간 통신에는 이 정책이 적용되지 않습니다.</p>
 </div>
 
@@ -142,8 +143,9 @@ app.use(cors({
 }));
 ```
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">와일드카드(*)는 만능이 아니다</span>
   <p><code>Access-Control-Allow-Origin: *</code>로 설정하면 모든 출처를 허용해 편리하지만, 로그인 정보(쿠키·인증 토큰)를 함께 보내는 요청에는 사용할 수 없습니다. 로그인 기능이 있는 서비스라면 구체적인 도메인을 명시하는 것이 안전합니다.</p>
 </div>
 
@@ -169,8 +171,9 @@ export default {
 
 브라우저는 같은 출처(내 개발 서버)에만 요청을 보내고, 그 요청을 개발 서버가 대신 백엔드로 전달합니다. 서버끼리의 통신에는 SOP가 적용되지 않기 때문에 가능한 방법입니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">프록시는 로컬 개발 전용이다</span>
   <p>이 설정은 <code>npm run dev</code>로 개발 서버를 띄웠을 때만 동작합니다. 실제 배포 환경에는 이 프록시가 존재하지 않으므로, 배포 시에는 반드시 백엔드 서버에서 CORS를 허용하도록 설정해야 합니다.</p>
 </div>
 

@@ -112,6 +112,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>세 가지 효과를 동시에 쓸 때는 <code>transition-property</code>를 각각 나열하기보다 <code>transition: all 0.25s ease;</code>처럼 한 번에 지정하는 편이 관리하기 쉽다. 다만 대상 속성이 명확한 컴포넌트라면 개별 지정이 더 안전하다.</p>
 </div>
@@ -154,6 +156,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   transform: rotateX(6deg) rotateY(-6deg);
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><code>perspective</code>는 3D 공간의 "카메라와의 거리"를 설정한다. 값이 작을수록 원근감이 강해지고, 값이 클수록 평면에 가까워진다. <code>rotateX</code>는 가로축(X축) 기준 회전(위아래로 기울임), <code>rotateY</code>는 세로축(Y축) 기준 회전(좌우로 기울임)이다.</p>
@@ -201,6 +205,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>오버레이는 <code>::after</code> 가상 요소로 <code>rgba(0,0,0,0)</code>에서 <code>rgba(0,0,0,0.5)</code>로 배경색을 전환해 만든다. 부모에는 <code>position: relative</code>, 가상 요소에는 <code>position: absolute</code>가 필요하다. 이 위에 캡션이나 버튼을 <code>opacity</code> 전환과 함께 얹으면 이미지 카드 UI로 확장할 수 있다.</p>
 </div>
@@ -230,6 +236,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
   width: 100%;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>핵심 포인트</strong> — 실제 <code>text-decoration: underline</code>을 쓰지 않고 <strong>가상 요소(::after)의 width를 0에서 100%로 전환</strong>하는 것이 이 애니메이션의 핵심이다. text-decoration은 즉시 나타나거나 사라질 뿐, 자라나는 효과를 줄 수 없다.</p>
@@ -267,6 +275,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 /* 이후 모든 형제를 흐리게 */
 .item:hover ~ .item { opacity: 0.5; }
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>CSS 선택자는 <strong>역방향(이전 형제)</strong>을 지원하지 않는다. hover한 요소보다 앞에 있는 형제를 제어해야 한다면 JavaScript로 클래스를 토글하는 방식이 필요하다.</p>
@@ -320,9 +330,13 @@ li:has(input:checked) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">재사용성</div><div class="wda-fcard-dsc">공통 hover 스타일은 CSS 변수나 유틸리티 클래스로 관리해 재사용성을 높인다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>성능 고려</strong> — <code>box-shadow</code>, <code>border-radius</code> 같은 속성을 과도하게 애니메이션하면 렌더링 비용이 커질 수 있다. <code>transform</code>과 <code>opacity</code> 중심으로 애니메이션을 설계하는 편이 성능에 유리하다.</p>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p><strong>협업 팁</strong> — hover 효과를 코드로 바로 만들기 전에, 디자이너와 "언제, 얼마나, 어디로 움직이는지"를 Figma 프로토타입 등에서 먼저 정의해두면 구현 단계에서 시행착오를 줄일 수 있다.</p>

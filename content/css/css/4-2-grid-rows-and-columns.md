@@ -133,6 +133,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 1fr ≒ 161.33px, 2fr ≒ 322.67px, 3fr ≒ 484px
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p><strong>fr 단위의 자동 계산 장점</strong>은 세 가지다. gap을 자동으로 먼저 제외하고, 비율을 정확하게 분배하며, <code>calc()</code>를 직접 쓸 필요가 없다. 실전에서는 <code>1fr 1fr 1fr</code>(균등), <code>1fr 2fr</code>(사이드바보다 넓은 메인), <code>2fr 1fr</code>(메인이 사이드바보다 넓은 구조)의 조합이 가장 흔하다.</p>
 </div>
@@ -159,6 +161,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 총 fr = 1 + 2 = 3
 1fr = 256px, 2fr = 512px
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p><strong>핵심 원리</strong>는 항상 같다. 먼저 고정 <code>px</code> 값을 빼고, 다음으로 <code>gap</code>을 빼고, 마지막으로 남은 공간을 <code>fr</code> 합계로 나눈다.</p>
@@ -228,6 +232,8 @@ grid-template-columns: 200px repeat(3, 1fr) 100px;
 grid-template-columns: minmax(100px, 300px) 1fr;
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>실전에서 가장 많이 쓰이는 패턴은 반응형 카드 레이아웃의 <code>repeat(auto-fit, minmax(200px, 1fr))</code>다. 화면이 좁아지면 각 카드는 최소 200px 밑으로 줄어들지 않고, 대신 열의 개수가 자동으로 줄어든다. 사이드바처럼 너비 범위를 제한하고 싶은 영역에도 <code>minmax()</code>를 그대로 적용할 수 있다.</p>
 </div>
@@ -274,6 +280,8 @@ grid-template-rows: 80px auto 60px;
 }
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>카드형 UI처럼 행·열 간격을 다르게 주고 싶다면 <code>gap: 행값 열값</code> 형태를, 세로로만 나열되는 리스트라면 <code>row-gap</code>만 지정하고 <code>column-gap</code>은 0으로 두는 패턴이 실전에서 자주 쓰인다.</p>
 </div>
@@ -291,6 +299,8 @@ grid-template-rows: 80px auto 60px;
 .sidebar { grid-column: 1 / 2; }  /* 1칸 */
 .main    { grid-column: 2 / 4; }  /* 2칸 */
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>라인 번호는 1부터 시작한다.</strong> 3열 그리드라면 라인은 1, 2, 3, 4까지 총 4개가 생긴다. "3열이니까 끝 라인도 3번"이라고 착각하기 쉬운 부분이다.</p>
@@ -382,6 +392,8 @@ grid-template-rows: 80px auto 60px;
   grid-area: 1 / 2 / span 2 / span 2;
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>실무에서는 값 4개를 순서대로 외워야 하는 <code>grid-area</code> 단일 지정보다, 읽기 쉬운 <code>grid-column</code>/<code>grid-row</code> 분리 작성이 약 80% 비중으로 더 많이 쓰인다. <code>grid-area</code>는 뒤에서 다룰 <code>grid-template-areas</code>와 짝을 이룰 때 진짜 진가를 발휘한다.</p>

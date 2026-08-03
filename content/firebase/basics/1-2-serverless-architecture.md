@@ -75,8 +75,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 서버리스(Serverless)라는 이름 때문에 "서버가 전혀 존재하지 않는다"고 오해하기 쉽지만, 실제로는 그렇지 않습니다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">서버리스의 정확한 의미</span>
   <p>서버는 여전히 존재합니다. 다만 그 서버를 구매하고, 설정하고, 관리하는 일을 개발자가 아니라 클라우드 업체(Google, AWS 등)가 대신 맡아준다는 뜻입니다. 개발자 입장에서는 서버 관리를 "직접 하지 않아도 되는" 상태이기 때문에 서버리스라고 부릅니다.</p>
 </div>
 
@@ -138,8 +139,9 @@ await addDoc(collection(db, 'posts'), {
 });
 ```
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">BaaS는 서버리스의 한 형태</span>
   <p>Firebase처럼 데이터베이스나 인증 같은 기능을 API 형태로 제공하는 서비스를 BaaS라고 부르는데, 이는 서버리스 아키텍처의 대표적인 활용 형태 중 하나입니다. 서버를 직접 관리하지 않는다는 점에서 서버리스 개념과 맞닿아 있습니다.</p>
 </div>
 

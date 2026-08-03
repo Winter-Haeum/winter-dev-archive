@@ -96,8 +96,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">접근 범위</div><div class="wda-fcard-dsc">개발 환경은 나만 볼 수 있지만, 배포 환경은 실제 사용자가 접속합니다.</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">로컬에서 잘 되는 것과 배포 후 잘 되는 것은 별개다</span>
   <p>내 컴퓨터에서 npm run dev로 잘 돌아간다고 해서, 배포 후에도 반드시 똑같이 동작한다는 보장은 없습니다. 환경 변수 설정, 경로 설정 등이 다를 수 있으므로 배포 후에는 실제 주소로 접속해 정상 동작을 반드시 확인해야 합니다.</p>
 </div>
 

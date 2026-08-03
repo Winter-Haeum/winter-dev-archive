@@ -92,8 +92,9 @@ React 컴포넌트는 기본적으로 부모가 자식에게 props로 데이터�
 
 ## 2. 전역 상태 관리가 필요한 이유
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">모든 상태를 전역으로 만들 필요는 없다</span>
   <p>모든 상태를 전역 상태로 관리할 필요는 없습니다. 로그인한 사용자 정보, 장바구니 내용처럼 여러 화면에서 공통으로 필요한 데이터만 전역 상태로 두고, 특정 컴포넌트에서만 쓰이는 상태는 그대로 useState로 관리하는 것이 좋습니다.</p>
 </div>
 
@@ -145,8 +146,9 @@ function AddButton() {
 
 ## 5. Firebase와 함께 쓰이는 이유
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">Zustand는 Firebase 기능이 아니다</span>
   <p>Zustand는 Firebase가 제공하는 기능이 아니라 React 상태 관리를 위한 별도의 라이브러리입니다. 다만 Firebase Authentication으로 로그인한 사용자 정보를 앱 전체에서 공유해야 하는 경우가 많기 때문에, 실전 앱을 만들 때 Firebase와 함께 자주 등장하는 보조 개념으로 소개합니다.</p>
 </div>
 

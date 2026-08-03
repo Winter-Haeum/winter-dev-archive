@@ -106,6 +106,8 @@ class 자체는 값이 아니라 **객체를 찍어내는 틀**입니다. class�
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   class는 객체 생성을 더 읽기 좋게 표현하는 문법입니다. 결과적으로 만들어지는 것은 이전과 같은 객체입니다.
 </div>
@@ -147,6 +149,8 @@ class CourseCard {
   </div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   두 코드 모두 <code>new CourseCard(...)</code>로 객체를 만들고 <code>getSummary()</code>를 호출할 수 있습니다. class는 <code>function</code>과 <code>prototype</code>을 따로 쓰지 않고, 한 블록 안에 constructor와 method를 모아 씁니다.
 </div>
@@ -160,6 +164,8 @@ class CourseCard {
   // constructor와 method는 이 블록 안에 작성한다
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   class 이름은 문법상 필수는 아니지만, 관례적으로 <strong>대문자로 시작</strong>합니다(<code>CourseCard</code>). 일반 변수와 구분해 "이 이름은 new로 호출하는 class"라는 신호를 줍니다.
@@ -180,6 +186,8 @@ class CourseCard {
   }
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   constructor는 new 호출 시 실행됩니다. 매개변수로 받은 값을 <code>this.속성 = 값</code> 형태로 담아 인스턴스를 채우는 역할을 합니다.
@@ -239,6 +247,8 @@ const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
 console.log(firstCourse.courseTitle); // '변수와 자료형'
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   constructor와 method 안의 <code>this</code>는 그 instance 자신을 가리킵니다. this가 호출 방식에 따라 달라지는 자세한 내용은 4-4 this 바인딩 문서에서 다룹니다. 이 부록에서는 "class 안의 this는 instance"라는 점만 기억하면 충분합니다.
 </div>
@@ -270,6 +280,8 @@ const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
 console.log(firstCourse.getSummary());
 // 변수와 자료형 - 지수 (30분)
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   method와 method 사이에는 <strong>콤마(,)를 쓰지 않습니다.</strong> 객체 리터럴과 헷갈려 콤마를 찍으면 <code>SyntaxError</code>가 발생합니다.
@@ -366,6 +378,8 @@ console.log(featured instanceof CourseCard); // true
   <div class="wda-fnode"><div class="wda-fnode-ttl">추가 값 설정</div><div class="wda-fnode-dsc">badgeLabel 설정</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   자식 constructor에서 <code>this</code>를 사용하기 전에 반드시 <code>super(...)</code>를 먼저 호출해야 합니다.
 </div>
@@ -397,6 +411,8 @@ const emptyCourse = CourseCard.createDefault();
 console.log(emptyCourse.getSummary());
 // 제목 미정 - 담당자 미정 (0분)
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   static method는 instance가 아니라 class 이름으로 호출합니다. <code>emptyCourse.createDefault()</code>처럼 instance에서는 호출할 수 없습니다.
@@ -451,6 +467,8 @@ console.log(emptyCourse.getSummary());
 ---
 
 ## 14. 실습 과제
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <strong>🎯 목표</strong><br>

@@ -75,8 +75,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Authentication은 "이 사용자가 누구인지"를 확인하는 Firebase의 인증 서비스입니다. 회원가입, 로그인, 로그인 상태 유지처럼 사용자 신원과 관련된 기능을 직접 구현하지 않고도 사용할 수 있게 해줍니다.
 
+**📌 개념**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">인증(Authentication)과 인가(Authorization)</span>
   <p>인증은 "당신은 누구입니까?"를 확인하는 절차이고, 인가는 "당신은 무엇을 할 수 있습니까?"를 결정하는 절차입니다. Firebase Authentication은 인증을 담당하며, 로그인한 사용자가 어떤 데이터에 접근할 수 있는지(인가)는 이후 배울 보안 규칙에서 별도로 다룹니다.</p>
 </div>
 
@@ -145,8 +146,9 @@ onAuthStateChanged(auth, (user) => {
 
 ## 4. 로그인 화면은 인증의 일부일 뿐
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">인증만으로 데이터 보안이 완성되지는 않는다</span>
   <p>Authentication으로 "누가 로그인했는지"는 확인할 수 있지만, "이 사용자가 특정 데이터를 읽거나 쓸 수 있는지"는 Firestore나 Storage의 보안 규칙에서 별도로 설정해야 합니다. 로그인 기능을 붙였다고 해서 데이터가 자동으로 안전해지는 것은 아닙니다.</p>
 </div>
 

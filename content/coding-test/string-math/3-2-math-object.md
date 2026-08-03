@@ -95,6 +95,8 @@ Math.min(...arr); // 1
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>Math.max(arr)</code>처럼 배열을 그대로 넣으면 <strong>NaN</strong>이 나옵니다. 반드시 <code>Math.max(...arr)</code>처럼 펼쳐 넣어야 합니다.</p>
 </div>
@@ -110,6 +112,8 @@ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 <tr><td>-3.7</td><td>-4</td><td>-3</td><td>-4</td></tr>
 </tbody>
 </table>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>음수에서는 <code>ceil</code>과 <code>floor</code>의 방향이 헷갈리기 쉽습니다. floor는 항상 "더 작은 정수 방향"으로 움직이므로, -3.7보다 작은 정수 중 가장 큰 값인 -4가 됩니다.</p>
@@ -153,6 +157,8 @@ Math.sqrt(dx ** 2 + dy ** 2); // 두 점 사이 거리(피타고라스 정리)
 const arr = ['a', 'b', 'c'];
 const picked = arr[Math.floor(Math.random() * arr.length)];
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><code>Math.random()</code>은 암호학적으로 안전하지 않습니다. 보안이 필요한 값을 만들 때는 <code>crypto.getRandomValues()</code> 같은 별도 API를 사용해야 합니다.</p>
@@ -219,10 +225,14 @@ N이 10억이어도 약 3만 번(√1,000,000,000 ≈ 31,622)만 반복하면 �
 
 ## 9. 흔한 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>Math.max/min에 배열을 그대로 넘기는 경우</strong></p>
   <p><code>Math.max(arr)</code>는 NaN을 반환합니다. 스프레드 연산자로 <code>Math.max(...arr)</code>처럼 풀어 넣어야 합니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>toFixed 결과를 숫자로 착각하는 경우</strong></p>

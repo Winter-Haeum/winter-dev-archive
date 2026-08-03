@@ -84,6 +84,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">장기 제한</div><div class="wda-fcard-dsc">주 단위 등 더 긴 기간에 걸친 총 사용량도 함께 관리됩니다.</div></div>
 </div>
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>웹 브라우저에서 사용하는 대화형 서비스와 터미널의 Claude Code가 <strong>같은 사용량을 나눠 쓰는 경우</strong>가 있습니다. 한쪽에서 많이 사용하면 다른 쪽에서 쓸 수 있는 양이 줄어들 수 있다는 점을 기억해 둡니다.</p>
 </div>
@@ -98,6 +100,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">현재 사용량</div><div class="wda-fcard-dsc">지금까지 얼마나 사용했는지 비율로 확인합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">초기화 시점</div><div class="wda-fcard-dsc">언제 사용량이 다시 채워지는지 확인합니다.</div></div>
 </div>
+
+**✅ 권장 방식**
 
 <div class="wda-callout wda-cs">
   <p>중요한 작업을 시작하기 전 사용량 페이지를 먼저 확인하면, 작업 도중 한도에 걸려 중단되는 상황을 미리 예방할 수 있습니다.</p>
@@ -120,6 +124,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>추가 사용량 옵션은 편리하지만 <strong>추가 비용이 발생</strong>할 수 있습니다. 이 값이 자동으로 계속 청구되는지, 사용할 때마다 확인이 필요한지는 서비스 정책에 따라 다르므로 활성화 전에 설정 페이지에서 조건을 직접 확인합니다.</p>
 </div>
@@ -127,6 +133,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 4. 주의사항
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>이 문서에 적힌 제한 수치나 요금 구조는 예시이며, 실제 값은 서비스 정책 변경에 따라 달라질 수 있습니다. 수업이나 작업을 시작하기 전에는 항상 공식 설정 페이지에서 그 시점의 정확한 값을 확인합니다.</p>

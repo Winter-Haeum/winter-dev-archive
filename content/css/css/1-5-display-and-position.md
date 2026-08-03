@@ -103,6 +103,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소와 같은 줄에 나란히 배치되면서도, `width`, `height`, `margin`, `padding`을 자유롭게 지정할 수 있다. 버튼, 카드형 메뉴, 아이콘과 텍스트를 나란히 배치하는 UI에서 자주 활용된다.
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>HTML에서 <code>inline-block</code> 요소들을 줄바꿈하며 나열하면, 그 줄바꿈이 공백 문자로 인식되어 요소 사이에 의도치 않은 <strong>약 4px 간격</strong>이 생긴다. 해결 방법은 세 가지다: HTML에서 태그 사이 공백을 제거하거나, 태그를 한 줄로 이어 쓰거나, 부모 요소에 <code>font-size: 0</code>을 지정한 뒤 자식에서 다시 font-size를 지정하는 것이다.</p>
 </div>
@@ -267,6 +269,8 @@ body {
 ```
 
 `z-index`도 `top`/`left`처럼 <strong>positioned 요소(static이 아닌 요소)</strong>에서만 동작한다. 기본값은 `auto`이며, 음수 값도 사용할 수 있어 특정 요소를 다른 요소 뒤로 보낼 때 활용된다.
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>z-index는 같은 <strong>Stacking Context(쌓임 맥락)</strong> 안에서만 서로 비교된다. 부모 요소가 <code>opacity</code>가 1 미만이거나 <code>transform</code>, <code>filter</code>, <code>perspective</code>, <code>mix-blend-mode</code>, <code>isolation: isolate</code>, <code>will-change</code>, <code>position: fixed</code> 중 하나라도 가지고 있으면 그 부모가 새로운 Stacking Context를 만든다. 이 경우 자식에 아무리 큰 z-index를 줘도 다른 Stacking Context에 속한 요소보다 항상 위에 놓인다는 보장이 없다.</p>

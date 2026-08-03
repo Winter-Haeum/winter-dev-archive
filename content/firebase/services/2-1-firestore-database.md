@@ -86,8 +86,9 @@ Firestore는 Firebase가 제공하는 데이터베이스 서비스입니다. 여
   </div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
-  <span class="wda-clabel">SQL처럼 다루지 않도록 주의</span>
   <p>Firestore를 배울 때 SQL 데이터베이스의 사고방식을 그대로 가져오면 헷갈리기 쉽습니다. Firestore는 미리 정해진 표 구조를 따르지 않고, 각 문서가 유연하게 자신만의 필드를 가질 수 있는 구조라는 점을 기억해야 합니다.</p>
 </div>
 
@@ -156,8 +157,9 @@ async function getUsers() {
 }
 ```
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">모든 작업은 비동기다</span>
   <p>Firestore와의 통신은 인터넷을 통해 이루어지는 작업이므로 시간이 걸립니다. 그래서 async/await을 사용해 결과가 올 때까지 기다린 뒤 다음 코드를 실행하는 것이 기본입니다.</p>
 </div>
 

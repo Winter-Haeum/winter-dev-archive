@@ -95,8 +95,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**🔎 참고**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">정답이 하나만 있는 것은 아니다</span>
   <p>어떤 서비스가 "가장 좋다"고 단정할 수는 없습니다. 이미 Firebase의 데이터베이스나 인증 기능을 쓰고 있다면 Firebase Hosting으로 한 번에 관리하는 것이 편할 수 있고, 백엔드 기능 없이 순수한 정적 사이트라면 GitHub Pages나 Vercel도 충분히 좋은 선택입니다.</p>
 </div>
 

@@ -163,8 +163,9 @@ const Button: React.FC<ButtonProps> = ({ label, onClick }) => {
   </div>
 </div>
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">둘 다 틀린 방법이 아니다</span>
   <p>React.FC를 반드시 써야 한다거나, 반드시 쓰지 말아야 한다고 단정할 수는 없습니다. 팀이나 프로젝트의 컨벤션에 따라 선택이 달라질 수 있는 부분이므로, 함께 작업하는 코드베이스의 스타일을 따르는 것이 가장 안전합니다.</p>
 </div>
 

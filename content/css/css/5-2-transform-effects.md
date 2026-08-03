@@ -171,6 +171,8 @@ transform: scaleY(0.5);
 .wide   { transform: scale(2, 1); }    /* 가로만 2배 */
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>scale은 <code>width</code>/<code>height</code>를 직접 바꾸는 것이 아니라 화면에 그려지는 단계에서만 크기를 바꾼다. 그래서 레이아웃 재계산(리플로우) 없이 동작하고, 애니메이션이 부드럽다.</p>
 </div>
@@ -323,6 +325,8 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 .box-fast { transition: transform 0.3s; }
 .box-fast:hover { transform: translate(20px, -10px); } /* 레이아웃은 그대로, 화면에서만 이동 */
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>GPU 가속을 더 확실히 유도하려면 <code>will-change: transform</code>이나 <code>transform: translateZ(0)</code>을 쓸 수 있지만, "이 요소는 곧 바뀔 것"이라는 브라우저용 힌트일 뿐이다. 남발하면 GPU 레이어가 과도하게 생성되어 오히려 느려지므로, 실제로 자주 움직이는 요소에만 제한적으로 사용한다.</p>

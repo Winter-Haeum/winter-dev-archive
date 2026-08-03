@@ -119,8 +119,9 @@ interface ButtonProps {
 }
 ```
 
+**💡 사용 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">기본값과 함께 쓰면 더 편해진다</span>
   <p>선택적 props는 구조 분해 할당 시 기본값을 함께 지정해두면, 값을 넘기지 않았을 때도 컴포넌트가 예측 가능하게 동작합니다. 예를 들어 <code>{"{ disabled = false }"}</code>처럼 작성할 수 있습니다.</p>
 </div>
 

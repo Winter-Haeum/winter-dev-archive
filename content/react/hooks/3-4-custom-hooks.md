@@ -243,10 +243,14 @@ function PanelB() {
 
 ## 8. 초보자 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>함수 이름을 use로 시작하지 않는 경우</strong></p>
   <p>내부에서 useState를 쓰더라도 함수 이름이 <code>use</code>로 시작하지 않으면 React와 ESLint가 이를 Hook으로 인식하지 못해, Hook 규칙 검사가 제대로 동작하지 않을 수 있습니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>같은 Custom Hook을 쓰면 상태도 같이 바뀐다고 오해하는 경우</strong></p>

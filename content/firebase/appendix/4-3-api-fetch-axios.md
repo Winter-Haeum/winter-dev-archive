@@ -96,8 +96,9 @@ const res = await axios.get('/api/posts');
 const data = res.data;
 ```
 
+**💼 실무 팁**
+
 <div class="wda-callout wda-cb">
-  <span class="wda-clabel">둘 중 하나가 항상 정답은 아니다</span>
   <p>작은 프로젝트나 학습 목적이라면 별도 설치가 필요 없는 fetch로 충분하고, 여러 요청을 다루는 실무 프로젝트에서는 axios의 편의 기능이 도움이 될 수 있습니다. 프로젝트 규모와 팀의 선호에 따라 선택하면 됩니다.</p>
 </div>
 
@@ -168,8 +169,9 @@ function PostList() {
 
 ## 4. Firebase와 외부 API를 함께 쓰는 경우
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">Firebase SDK와 fetch/axios는 다른 역할이다</span>
   <p>Firestore나 Storage는 Firebase SDK가 제공하는 전용 함수(addDoc, getDocs 등)로 통신하지만, 그 외의 외부 API(날씨 정보, 결제 서비스 등)를 호출할 때는 여전히 fetch나 axios가 필요합니다. 즉 fetch/axios는 Firebase 전용 기능이 아니라, Firebase와 함께 실전 앱을 만들 때 외부 서비스를 연동하기 위한 보조 도구로 자주 쓰입니다.</p>
 </div>
 

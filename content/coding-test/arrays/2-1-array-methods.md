@@ -119,6 +119,8 @@ const passCount1 = scores.filter(s => s >= 60).length;
 const passCount2 = scores.reduce((count, s) => s >= 60 ? count + 1 : count, 0);
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p>단순히 개수만 필요하다면 <code>filter(...).length</code>가 더 읽기 쉽습니다. 조건을 만족하는 요소 자체도 함께 써야 한다면 <code>filter</code> 결과를 그대로 활용합니다.</p>
 </div>
@@ -138,6 +140,8 @@ const total = prices.reduce((acc, price) => acc + price, 0);
 // 최댓값 누적 (Math.max(...arr)로도 가능하지만, 조건이 붙으면 reduce가 유리)
 const maxPrice = prices.reduce((acc, price) => price > acc ? price : acc, prices[0]);
 ```
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>reduce의 두 번째 인자(초깃값)를 빠뜨리면, 배열의 첫 요소가 초깃값으로 쓰이면서 의도와 다른 결과가 나올 수 있습니다. 합계처럼 항등원이 명확한 경우 초깃값을 항상 명시합니다.</p>
@@ -185,6 +189,8 @@ queue.push('B');
 queue.shift(); // 'A' — 먼저 들어온 것부터 꺼냄
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><code>unshift</code>/<code>shift</code>는 앞쪽 요소를 넣거나 뺄 때마다 나머지 요소를 전부 한 칸씩 옮겨야 해서 O(n)입니다. 큐를 아주 많이 반복해서 조작해야 하는 문제라면 속도 저하를 염두에 두어야 합니다.</p>
 </div>
@@ -202,6 +208,8 @@ nums.sort();                    // [10, 2, 30, 4] — 문자열 비교라 틀림
 nums.sort((a, b) => a - b);     // [2, 4, 10, 30] — 오름차순
 nums.sort((a, b) => b - a);     // [30, 10, 4, 2] — 내림차순
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>비교 함수가 반환하는 값이 음수면 <code>a</code>를 앞으로, 양수면 <code>b</code>를 앞으로 보냅니다. <code>a - b</code>는 오름차순, <code>b - a</code>는 내림차순이라고 공식처럼 외워둡니다.</p>
@@ -228,10 +236,14 @@ arr.some(n => n > 2);     // true (조건에 맞는 게 하나라도 있는지)
 
 ## 8. 흔한 실수
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p><strong>reduce 초깃값을 빠뜨리는 경우</strong></p>
   <p><code>arr.reduce((a, b) => a + b)</code>처럼 초깃값을 생략하면 배열의 첫 요소가 초깃값이 됩니다. 빈 배열이 들어오면 에러가 나므로, 항상 초깃값을 명시하는 습관이 안전합니다.</p>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p><strong>숫자 배열을 sort()로 바로 정렬하는 경우</strong></p>

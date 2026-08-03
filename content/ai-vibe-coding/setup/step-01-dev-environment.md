@@ -102,6 +102,8 @@ winget install Git.Git
 winget install OpenJS.NodeJS
 ```
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>설치가 끝나면 <strong>PowerShell을 완전히 닫고 새로 열어야</strong> 명령어가 인식됩니다. 이번에는 관리자 권한이 아닌 일반 권한으로 실행합니다.</p>
 </div>
@@ -126,6 +128,8 @@ brew install node
 sudo npm install -g @anthropic-ai/claude-code
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <p><code>sudo</code> 명령을 실행하면 <code>Password:</code>가 표시됩니다. Mac 로그인 비밀번호를 입력하면 되는데, 보안을 위해 입력해도 화면에 아무 표시가 나타나지 않습니다. 정상 동작이므로 그대로 입력 후 Enter를 누릅니다.</p>
 </div>
@@ -144,6 +148,8 @@ claude --version
 ```
 
 각 명령어가 버전 번호를 출력하면 정상입니다. 하나라도 "찾을 수 없음" 같은 오류가 나오면, 터미널을 완전히 닫고 새로 연 뒤 다시 시도합니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <p>명령어가 계속 인식되지 않는다면, 설치 경로가 시스템의 실행 경로(PATH)에 등록되지 않았을 가능성이 큽니다. 대부분 터미널이나 VS Code를 완전히 재시작하면 해결됩니다. 재시작으로도 해결되지 않으면 각 도구의 공식 설치 문서에서 운영체제·버전에 맞는 최신 해결 방법을 확인하는 것이 안전합니다.</p>
@@ -180,6 +186,8 @@ claude --version
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">4. 코드 입력</div></div>
 </div>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>인증 코드는 유효 시간이 정해져 있습니다. 시간을 넘기면 <code>claude</code> 명령을 다시 실행해 처음부터 진행합니다.</p>

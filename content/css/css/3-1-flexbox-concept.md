@@ -95,6 +95,8 @@ Flexbox는 이 문제들을 단 몇 줄로 해결한다.
 }
 ```
 
+**✅ 권장 방식**
+
 <div class="wda-callout wda-cs">
   <p>Flexbox 컨테이너를 선언하는 순간 <strong>완벽한 가로·세로 중앙 정렬</strong>, <strong>자식 요소의 자동 동일 높이</strong>, <strong><code>flex: 1</code>을 이용한 공간 자동 분배</strong>가 기본으로 따라온다. Float 시절에는 별도로 계산하고 clearfix까지 신경 써야 했던 문제들이 CSS 몇 줄로 정리된다.</p>
 </div>
@@ -129,6 +131,8 @@ Flexbox를 다루는 내내 가장 먼저 확인해야 하는 것이 바로 **�
 <tr><td>column-reverse</td><td>세로 역방향 — <code>justify-content</code>로 정렬</td><td>가로 방향 — <code>align-items</code>로 정렬</td></tr>
 </tbody>
 </table>
+
+**⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   <p>flex-direction을 <code>column</code>으로 바꾸면 justify-content와 align-items가 담당하는 방향이 통째로 뒤바뀐다. row에서 쓰던 습관대로 "justify-content는 가로 정렬"이라고 생각한 채 column에 그대로 적용하면 원하는 결과가 나오지 않는다. <strong>주축이 어느 방향인지부터 먼저 확인</strong>하는 습관을 들여야 한다.</p>

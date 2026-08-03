@@ -76,6 +76,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 React 프로젝트에는 React 자체뿐 아니라 빌드 도구, 코드 검사 도구 같은 여러 package가 함께 필요합니다. 이 package들을 설치하고, 최신 상태로 관리하고, 필요 없어지면 제거하는 작업이 npm package 관리입니다.
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   package/library/dependency의 의미는 <strong>1-1 Node.js와 npm 이해하기</strong>에서 다뤘습니다. 이 문서에서는 실제로 package.json을 읽고 명령으로 관리하는 방법에 집중합니다.
 </div>
@@ -101,6 +103,8 @@ React 프로젝트에는 React 자체뿐 아니라 빌드 도구, 코드 검사 
   }
 }
 ```
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   위 코드는 설명을 위한 축약 예시입니다. 실제 package.json은 더 많은 필드를 가질 수 있습니다.
@@ -147,6 +151,8 @@ npm install react
 ```
 
 패키지를 설치하면 `dependencies`에 이름이 기록되고, 실제 파일은 `node_modules`에 다운로드됩니다.
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   인자 없이 <code>npm install</code>만 실행하면, package.json에 이미 적힌 패키지 전체를 한 번에 설치합니다. 동료의 프로젝트를 받았을 때 가장 먼저 실행하는 명령입니다.
@@ -207,6 +213,8 @@ npm run build
   <div class="wda-fnode"><div class="wda-fnode-ttl">package-lock 고정</div><div class="wda-fnode-dsc">설치된 버전 기록</div></div>
 </div>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   node_modules는 직접 수정하지 않습니다. package-lock.json도 함부로 지우지 않습니다. 둘 다 npm 명령으로 관리되는 파일입니다.
 </div>
@@ -236,9 +244,13 @@ npm run build
 
 ## 10. npm audit과 npx 짧게 보기
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
   <code>npm audit</code>은 설치된 패키지에 알려진 보안 취약점이 있는지 점검하는 명령입니다.
 </div>
+
+**💡 설명**
 
 <div class="wda-callout wda-ci">
   <code>npx</code>는 패키지를 프로젝트에 설치하지 않고 바로 실행하는 도구입니다. React 프로젝트를 생성할 때 이런 방식의 명령을 사용하는 예는 <strong>1-6 React 프로젝트 제대로 이해하기</strong>에서 이어집니다.

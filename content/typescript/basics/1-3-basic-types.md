@@ -136,8 +136,9 @@ id = 12345;    // OK
 // id = true;  // 오류: boolean은 허용되지 않음
 ```
 
+**💡 설명**
+
 <div class="wda-callout wda-ci">
-  <span class="wda-clabel">"이거 아니면 저거"라는 의미</span>
   <p>Union 타입은 "이 값은 A이거나 B다"라는 뜻입니다. 예를 들어 게시글 ID가 서버에 따라 문자열로 오기도 하고 숫자로 오기도 한다면, <code>string | number</code>처럼 표현해 두 경우를 모두 허용할 수 있습니다.</p>
 </div>
 

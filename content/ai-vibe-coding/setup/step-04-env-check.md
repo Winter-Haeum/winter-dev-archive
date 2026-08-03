@@ -116,6 +116,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
+**⚠️ 주의사항**
+
 <div class="wda-callout wda-cw">
   <p>"확인 필요" 항목이 있어도 처음부터 전체를 다시 할 필요는 없습니다. 대부분 해당 항목과 관련된 이전 단계만 다시 확인하면 해결됩니다.</p>
 </div>
