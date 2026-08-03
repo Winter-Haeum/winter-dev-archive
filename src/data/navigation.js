@@ -239,7 +239,7 @@ export const categories = [
     slug: 'dev-tools',
     description: '버전 관리와 협업의 기본기. Git의 구조와 CLI 명령어부터 GitHub 연결, commit·push·pull, branch 워크플로우, 프로젝트 관리 문서까지 다룹니다.',
     nestedSidebar: true,
-    sections: ['Git 기본', 'GitHub 연결과 협업 기본', 'Git 프로젝트 관리 문서'],
+    sections: ['Git 기본', 'GitHub 연결과 협업 기본', 'Git 프로젝트 관리 문서', 'GitHub 중급'],
     sectionDocs: {
       'Git 기본': [
         { slug: '3-1-1-why-git', title: '1-1 Git이 왜 필요한가요?', folder: 'git' },
@@ -256,6 +256,11 @@ export const categories = [
         { slug: '3-3-1-gitignore', title: '3-1 gitignore로 버전 관리 제외 파일 설정하기', folder: 'git' },
         { slug: '3-3-2-readme-project-intro', title: '3-2 README.md로 프로젝트 소개하기', folder: 'git' },
         { slug: '3-3-3-markdown-basics', title: '3-3 Markdown 문법 알아보기', folder: 'git' },
+      ],
+      'GitHub 중급': [
+        { slug: '4-1-branch-strategy', title: '4-1 브랜치 전략 알아보기', folder: 'github' },
+        { slug: '4-2-collaboration', title: '4-2 협업하기', folder: 'github' },
+        { slug: '4-3-preview-project-management', title: '4-3 Preview 프로젝트 관리하기', folder: 'github' },
       ],
     },
   },
@@ -378,8 +383,46 @@ export const categories = [
     name: 'Testing',
     emoji: '🧪',
     slug: 'testing',
-    description: '테스트 주도 개발 방법론과 테스트 작성법. TDD 사이클을 이해하고 더 신뢰할 수 있는 코드를 만드는 방법을 다룹니다.',
-    sections: ['TDD'],
+    description: '테스트가 필요한 이유부터 TDD 사이클, Jest와 React Testing Library로 테스트를 작성하는 방법까지 다룹니다.',
+    // 하위 섹션이 1개뿐이라 중간 섹션 없이 문서를 바로 노출한다 (HTML/CSS Framework와 동일한 flat 패턴).
+    // sections 각 항목이 실제로는 문서 1개씩을 가리키며, sectionLinks로 바로 문서 경로에 연결한다.
+    sections: [
+      '1-1 TDD가 뭔가요?',
+      '1-2 Jest 시작하기',
+      '1-3 간단한 컴포넌트 테스트 작성하기',
+    ],
+    sectionLinks: {
+      '1-1 TDD가 뭔가요?': '/testing/testing/1-1-what-is-tdd',
+      '1-2 Jest 시작하기': '/testing/testing/1-2-getting-started-with-jest',
+      '1-3 간단한 컴포넌트 테스트 작성하기': '/testing/testing/1-3-simple-component-test',
+    },
+    sectionDocs: {
+      '1-1 TDD가 뭔가요?': [{ slug: '1-1-what-is-tdd', title: '1-1 TDD가 뭔가요?', folder: 'testing' }],
+      '1-2 Jest 시작하기': [{ slug: '1-2-getting-started-with-jest', title: '1-2 Jest 시작하기', folder: 'testing' }],
+      '1-3 간단한 컴포넌트 테스트 작성하기': [{ slug: '1-3-simple-component-test', title: '1-3 간단한 컴포넌트 테스트 작성하기', folder: 'testing' }],
+    },
+  },
+  {
+    id: 'build-tools',
+    name: 'Build Tools',
+    emoji: '📦',
+    slug: 'build-tools',
+    description: '번들러가 필요한 이유부터 entry·output·loader·plugin 같은 설정 개념, 개발용 빌드와 배포용 빌드의 차이까지 다룹니다.',
+    sections: [
+      '1-1 번들러 이해하기',
+      '1-2 번들러 설정하기',
+      '1-3 빌드와 배포',
+    ],
+    sectionLinks: {
+      '1-1 번들러 이해하기': '/build-tools/build-tools/1-1-understanding-bundlers',
+      '1-2 번들러 설정하기': '/build-tools/build-tools/1-2-bundler-configuration',
+      '1-3 빌드와 배포': '/build-tools/build-tools/1-3-build-and-deploy',
+    },
+    sectionDocs: {
+      '1-1 번들러 이해하기': [{ slug: '1-1-understanding-bundlers', title: '1-1 번들러 이해하기', folder: 'build-tools' }],
+      '1-2 번들러 설정하기': [{ slug: '1-2-bundler-configuration', title: '1-2 번들러 설정하기', folder: 'build-tools' }],
+      '1-3 빌드와 배포': [{ slug: '1-3-build-and-deploy', title: '1-3 빌드와 배포', folder: 'build-tools' }],
+    },
   },
   {
     id: 'coding-test',
