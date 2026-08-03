@@ -85,6 +85,11 @@ function SectionPage() {
   const sectionDirectLink = category.sectionLinks?.[sectionName];
   if (sectionDirectLink) return <Navigate to={sectionDirectLink} replace />;
 
+  // draft 상태의 index.md는 아직 정리되지 않은 자리표시자로 간주하고 무시한다.
+  // (예: 여러 대단원이 폴더 하나를 공유할 때, 그 폴더의 초안 index.md가
+  //  모든 대단원의 실제 문서 목록을 가려버리는 문제를 방지)
+  const hasUsableIndex = Boolean(sectionIndex?.content) && sectionIndex?.frontmatter?.status !== 'draft';
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
       <Header
@@ -163,7 +168,7 @@ function SectionPage() {
             </Box>
           ) : (
             <>
-              {sectionIndex?.content ? (
+              {hasUsableIndex ? (
                 /* ── index.md 본문이 있는 경우: 마크다운 + 시작하기 버튼 ── */
                 <>
                   <Box component='section' aria-label='섹션 소개 본문' sx={{ mb: 5 }}>
