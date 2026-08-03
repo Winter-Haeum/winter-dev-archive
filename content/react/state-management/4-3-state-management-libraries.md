@@ -66,16 +66,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Context API가 부족해지는 시점
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다.</strong></p>
-  <p>[[4-1-usecontext|4-1]], [[4-2-usereducer|4-2 문서]]에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다. 실제 설치 명령어나 API 사용법은 각 라이브러리의 공식 문서를 참고합니다.</p>
-</div>
-
----
-
-## 2. Context API가 부족해지는 시점
+이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다. [[4-1-usecontext|4-1]], [[4-2-usereducer|4-2 문서]]에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다. 실제 설치 명령어나 API 사용법은 각 라이브러리의 공식 문서를 참고합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Provider 중첩</div><div class="wda-fcard-dsc">공유할 값의 종류가 늘어날수록 Provider를 겹겹이 쌓아야 합니다.</div></div>
@@ -87,7 +80,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 주요 라이브러리 핵심 아이디어 비교
+## 2. 주요 라이브러리 핵심 아이디어 비교
 
 <table class="wda-mtable">
 <thead><tr><th>라이브러리</th><th>핵심 아이디어</th></tr></thead>
@@ -104,7 +97,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 클라이언트 상태 vs 서버 상태
+## 3. 클라이언트 상태 vs 서버 상태
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -121,7 +114,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 선택 기준
+## 4. 선택 기준
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">작은 프로젝트</div><div class="wda-fcard-dsc">Context + useReducer로 시작해도 충분한 경우가 많습니다.</div></div>
@@ -135,7 +128,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. ✅ 핵심 요약
+## 5. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

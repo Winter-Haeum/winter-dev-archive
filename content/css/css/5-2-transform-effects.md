@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. translate — 위치 이동
 
-<div class="wda-callout wda-ci">
-  <p><strong>transform은 요소의 실제 레이아웃 위치는 그대로 두고, 화면에 그려지는 모습만 이동·회전·확대·기울이는 속성입니다.</strong></p>
-  <p><code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [[5-1-position-layout|이전 문서]]에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.</p>
-</div>
-
----
-
-## 2. translate — 위치 이동
+transform은 요소의 실제 레이아웃 위치는 그대로 두고, 화면에 그려지는 모습만 이동·회전·확대·기울이는 속성입니다. <code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [[5-1-position-layout|이전 문서]]에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.
 
 `translate()`는 요소를 가로(X), 세로(Y) 방향으로 이동시키는 함수다. 레이아웃 흐름에는 전혀 영향을 주지 않고, 화면에 그려지는 위치만 옮긴다.
 
@@ -111,7 +104,7 @@ X는 양수면 오른쪽·음수면 왼쪽, Y는 양수면 아래·음수면 위
 
 ---
 
-## 3. rotate — 회전 효과
+## 2. rotate — 회전 효과
 
 `rotate()`는 요소를 기준점(기본값은 정중앙)을 축으로 돌리는 함수다.
 
@@ -147,7 +140,7 @@ transform: rotate(90deg);
 
 ---
 
-## 4. scale — 크기 조절
+## 3. scale — 크기 조절
 
 `scale()`은 요소의 크기를 배율로 키우거나 줄인다.
 
@@ -184,7 +177,7 @@ transform: scaleY(0.5);
 
 ---
 
-## 5. skew — 기울이기
+## 4. skew — 기울이기
 
 `skew()`는 요소를 평행사변형처럼 비스듬히 기울이는 함수다.
 
@@ -204,7 +197,7 @@ X축 양수는 위쪽이 오른쪽으로 밀리듯 기울고, Y축 양수는 오
 
 ---
 
-## 6. transform-origin — 변형 기준점
+## 5. transform-origin — 변형 기준점
 
 `transform-origin`은 회전·확대·기울이기가 "어디를 축으로" 일어날지 정하는 속성이다. 기본값은 `center`이며, `translate`를 제외한 나머지 세 함수(rotate, scale, skew)에 큰 영향을 준다.
 
@@ -227,7 +220,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 7. 여러 변형 조합하기
+## 6. 여러 변형 조합하기
 
 `transform`은 여러 함수를 한 줄에 이어서 쓸 수 있다. 단, 각 변형은 앞서 적용된 변형의 좌표계를 기준으로 다시 계산되기 때문에 **순서에 따라 결과가 달라진다**.
 
@@ -246,7 +239,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 8. Position + Transform으로 정중앙 배치하기
+## 7. Position + Transform으로 정중앙 배치하기
 
 모달을 화면 정중앙에 놓는 가장 널리 쓰이는 공식이다.
 
@@ -279,7 +272,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 9. 위치 고정 + 회전 패턴 (Floating UI)
+## 8. 위치 고정 + 회전 패턴 (Floating UI)
 
 화면 스크롤과 무관하게 항상 같은 자리에 떠 있는 플로팅 버튼, 채팅 버튼 같은 UI는 `position: fixed`와 `transform`을 함께 쓴다.
 
@@ -309,7 +302,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 10. 성능: transform vs top/left
+## 9. 성능: transform vs top/left
 
 <table class="wda-mtable">
 <thead><tr><th>기준</th><th>transform</th><th>top / left</th></tr></thead>
@@ -337,7 +330,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 11. 3D 트랜스폼 기초
+## 10. 3D 트랜스폼 기초
 
 3D 회전을 쓰려면 먼저 부모 요소에 `perspective`로 원근감을 줘야 한다.
 
@@ -358,7 +351,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ---
 
-## 12. 실전: 3D 카드 뒤집기
+## 11. 실전: 3D 카드 뒤집기
 
 ```html
 <div class="card-container">

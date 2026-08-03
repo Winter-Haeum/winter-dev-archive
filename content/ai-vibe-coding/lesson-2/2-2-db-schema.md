@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 화면 → 데이터 항목 순서로 생각하기
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[2-1-supabase-mcp|이전 문서]]에서 데이터가 왜 필요한지 이해했다면, 이제는 project-section에 필요한 데이터를 구체적으로 설계할 차례입니다.</strong></p>
-  <p>추상적으로 테이블부터 그리지 않고, 실제 화면을 보면서 "이 화면에 무엇이 보이는가"를 거꾸로 따라가며 필드를 찾아내는 방법을 다룹니다. 저장소에 실제로 연결하는 방법은 [[2-3-ui-planning|다음 문서]]에서 다룹니다.</p>
-</div>
-
----
-
-## 2. 화면 → 데이터 항목 순서로 생각하기
+[[2-1-supabase-mcp|이전 문서]]에서 데이터가 왜 필요한지 이해했다면, 이제는 project-section에 필요한 데이터를 구체적으로 설계할 차례입니다. 추상적으로 테이블부터 그리지 않고, 실제 화면을 보면서 "이 화면에 무엇이 보이는가"를 거꾸로 따라가며 필드를 찾아내는 방법을 다룹니다. 저장소에 실제로 연결하는 방법은 [[2-3-ui-planning|다음 문서]]에서 다룹니다.
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">역방향 설계</span>
@@ -96,7 +89,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. project-table 설계 예시
+## 2. project-table 설계 예시
 
 project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 링크가 보여야 한다고 가정하면 아래와 같은 구조가 나옵니다.
 
@@ -119,13 +112,13 @@ project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 �
 
 ---
 
-## 4. contact-message는 어떤 정보가 필요할까
+## 3. contact-message는 어떤 정보가 필요할까
 
 문의 메시지 저장에 필요한 정보는 성격이 다릅니다. project-table은 "보여주기 위한 데이터"였다면, contact-message는 "방문자가 남기는 데이터"입니다. 자세한 필드 설계와 개인정보 처리 기준은 [[2-4-db-discovery|문의 기능 문서]]에서 이어서 다룹니다.
 
 ---
 
-## 5. 공개 필드와 비공개 필드 구분하기
+## 4. 공개 필드와 비공개 필드 구분하기
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -140,7 +133,7 @@ project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 �
 
 ---
 
-## 6. AI에게 데이터 구조 초안 요청하기
+## 5. AI에게 데이터 구조 초안 요청하기
 
 설계 방향이 어느 정도 잡히면, 아래처럼 화면 요구사항을 기준으로 초안을 요청할 수 있습니다.
 
@@ -164,7 +157,7 @@ project-section 화면에서 보여줘야 하는 정보:
 
 ---
 
-## 7. 검토 체크리스트
+## 6. 검토 체크리스트
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">불필요한 필드</div><div class="wda-fcard-dsc">화면 어디에서도 쓰지 않는 필드가 섞여 있지 않은지 확인합니다.</div></div>

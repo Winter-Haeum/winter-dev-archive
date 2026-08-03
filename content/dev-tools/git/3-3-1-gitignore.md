@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. .gitignore란
 
-<div class="wda-callout wda-ci">
-  <p><strong>프로젝트 루트에는 소스 코드 말고도 Git이 굳이 몰라도 되는 파일이 많습니다.</strong></p>
-  <p>이 문서는 그런 파일을 걸러내는 <code>.gitignore</code>를 다룹니다. 이어지는 3-3-2에서는 README.md로 프로젝트를 소개하는 법을, 3-3-3에서는 그 README를 제대로 쓰기 위한 Markdown 문법을 다룹니다.</p>
-</div>
-
----
-
-## 2. .gitignore란
+프로젝트 루트에는 소스 코드 말고도 Git이 굳이 몰라도 되는 파일이 많습니다. 이 문서는 그런 파일을 걸러내는 <code>.gitignore</code>를 다룹니다. 이어지는 3-3-2에서는 README.md로 프로젝트를 소개하는 법을, 3-3-3에서는 그 README를 제대로 쓰기 위한 Markdown 문법을 다룹니다.
 
 <code>.gitignore</code>는 Git이 <strong>추적하지 않을 파일과 디렉토리</strong>를 지정하는 설정 파일이다. 프로젝트 루트 디렉토리에 두며, 여기에 등록된 파일은 <code>git add</code>나 <code>git status</code> 결과에 나타나지 않는다.
 
@@ -96,7 +89,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 왜 필요한가
+## 2. 왜 필요한가
 
 ### 민감정보 보호가 가장 중요하다
 
@@ -116,7 +109,7 @@ macOS의 <code>.DS_Store</code>, Windows의 <code>Thumbs.db</code>, IDE 개인 �
 
 ---
 
-## 4. .gitignore 파일 생성하기
+## 3. .gitignore 파일 생성하기
 
 프로젝트 루트에서 파일을 하나 만들고 편집기로 연다.
 
@@ -149,7 +142,7 @@ Thumbs.db
 
 ---
 
-## 5. 기본 패턴 작성법
+## 4. 기본 패턴 작성법
 
 <table class="wda-mtable">
 <thead><tr><th>패턴 종류</th><th>작성 예시</th><th>의미</th></tr></thead>
@@ -175,7 +168,7 @@ Thumbs.db
 
 ---
 
-## 6. 실무 필수 패턴 모음
+## 5. 실무 필수 패턴 모음
 
 프레임워크·언어별로 자주 쓰이는 패턴을 미리 알아두면 새 프로젝트마다 빠르게 적용할 수 있다.
 
@@ -212,7 +205,7 @@ build/
 
 ---
 
-## 7. 이미 추적된 파일 제거하기
+## 6. 이미 추적된 파일 제거하기
 
 실수로 <code>.env</code> 파일을 커밋해버린 상황을 가정해보자. 뒤늦게 <code>.gitignore</code>에 <code>.env</code>를 추가해도 Git은 이미 추적 중인 파일이라 계속 변경 사항을 감지한다. <strong>.gitignore는 아직 추적되지 않은 파일에만 적용되기 때문이다.</strong>
 

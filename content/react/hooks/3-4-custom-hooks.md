@@ -71,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Custom Hook이 필요한 이유
 
-<div class="wda-callout wda-ci">
-  <p><strong>Custom Hook은 useState·useEffect·useRef 같은 기본 Hook을 조합해, 반복되는 로직을 재사용 가능한 함수로 뽑아낸 것입니다.</strong></p>
-  <p>이 문서는 [[3-1-usestate|3-1]], [[3-2-useeffect|3-2]], [[3-3-useref|3-3]]에서 배운 Hook들을 어떻게 조합해서 나만의 Hook을 만드는지 다룹니다.</p>
-</div>
-
----
-
-## 2. Custom Hook이 필요한 이유
+Custom Hook은 useState·useEffect·useRef 같은 기본 Hook을 조합해, 반복되는 로직을 재사용 가능한 함수로 뽑아낸 것입니다. 이 문서는 [[3-1-usestate|3-1]], [[3-2-useeffect|3-2]], [[3-3-useref|3-3]]에서 배운 Hook들을 어떻게 조합해서 나만의 Hook을 만드는지 다룹니다.
 
 `HookDashboard`와 `SearchPanel` 양쪽에서 입력값을 관리하는 로직을 각각 작성한다고 해보겠습니다.
 
@@ -98,7 +91,7 @@ const handleSearchChange = (e) => setSearchValue(e.target.value);
 
 ---
 
-## 3. use 접두사 규칙과 기본 구조
+## 2. use 접두사 규칙과 기본 구조
 
 ```jsx
 function useInput(initialValue) {
@@ -117,7 +110,7 @@ function useInput(initialValue) {
 
 ---
 
-## 4. useToggle 만들기
+## 3. useToggle 만들기
 
 모달을 열고 닫거나 상세 영역을 펼치고 접는 것처럼, 불리언 값을 뒤집는 로직을 뽑아냅니다.
 
@@ -148,7 +141,7 @@ function HookDashboard() {
 
 ---
 
-## 5. useInput 만들기
+## 4. useInput 만들기
 
 ```jsx
 function useInput(initialValue = '') {
@@ -178,7 +171,7 @@ function SearchPanel() {
 
 ---
 
-## 6. useLearningData 만들기 — Hook 합성
+## 5. useLearningData 만들기 — Hook 합성
 
 [[3-2-useeffect|3-2 문서]]에서 다룬 데이터 페칭 패턴을 Custom Hook으로 뽑아내면, 여러 컴포넌트에서 같은 로직을 재사용할 수 있습니다.
 
@@ -213,7 +206,7 @@ function HookDashboard() {
 
 ---
 
-## 7. Hook 규칙
+## 6. Hook 규칙
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">최상위에서만 호출</div><div class="wda-fcard-dsc">반복문, 조건문, 중첩 함수 안에서 Hook을 호출하면 안 됩니다. React는 호출 순서로 각 Hook의 상태를 구분합니다.</div></div>
@@ -230,7 +223,7 @@ function Bad() {
 
 ---
 
-## 8. 로직은 공유, 상태는 독립
+## 7. 로직은 공유, 상태는 독립
 
 같은 Custom Hook을 여러 컴포넌트에서 호출해도, 각 호출은 서로 다른 state를 가집니다.
 
@@ -248,7 +241,7 @@ function PanelB() {
 
 ---
 
-## 9. 초보자 실수
+## 8. 초보자 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>함수 이름을 use로 시작하지 않는 경우</strong></p>
@@ -262,7 +255,7 @@ function PanelB() {
 
 ---
 
-## 10. ✅ 핵심 요약
+## 9. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

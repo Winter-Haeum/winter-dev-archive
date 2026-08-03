@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 같은 정보, 다른 화면
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-1~2에서 만든 포트폴리오는 지금까지 데스크톱 화면 기준으로만 확인해 왔습니다.</strong></p>
-  <p>이 문서군에서는 같은 포트폴리오를 모바일 등 더 작은 화면에서도 보기 좋게 확장하는 방법을 다룹니다. 이 문서는 그 첫걸음으로, 화면 크기가 달라지면 왜 화면 구성도 달라져야 하는지부터 정리합니다.</p>
-</div>
-
----
-
-## 2. 같은 정보, 다른 화면
+lesson-1~2에서 만든 포트폴리오는 지금까지 데스크톱 화면 기준으로만 확인해 왔습니다. 이 문서군에서는 같은 포트폴리오를 모바일 등 더 작은 화면에서도 보기 좋게 확장하는 방법을 다룹니다. 이 문서는 그 첫걸음으로, 화면 크기가 달라지면 왜 화면 구성도 달라져야 하는지부터 정리합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -92,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 화면 구성이 달라지는 이유
+## 2. 화면 구성이 달라지는 이유
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">화면 크기</div><div class="wda-fcard-dsc">보여줄 수 있는 공간 자체가 좁아지므로 정보를 나열하는 방식이 달라집니다.</div></div>
@@ -102,7 +95,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 반응형 사고방식: 줄이기가 아니라 재배치
+## 3. 반응형 사고방식: 줄이기가 아니라 재배치
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -121,7 +114,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 접근 방식 맛보기: 모바일 퍼스트 vs 데스크톱 우선
+## 4. 접근 방식 맛보기: 모바일 퍼스트 vs 데스크톱 우선
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">모바일 퍼스트</div><div class="wda-fcard-dsc">좁은 화면 기준으로 먼저 설계하고, 넓은 화면에서는 정보를 추가로 채워 넣는 접근입니다.</div></div>
@@ -132,7 +125,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 확인은 반드시 실제 화면에서
+## 5. 확인은 반드시 실제 화면에서
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">확인 기준</span>

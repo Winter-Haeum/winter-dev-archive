@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Branch란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[3-2-3-commit-push-pull|이전 문서]]에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다.</strong></p>
-  <p>branch를 만들고 전환하고 삭제하고 다시 합치는 과정까지, 협업의 기본 리듬을 익히는 것이 이 문서의 목표다.</p>
-</div>
-
----
-
-## 2. Branch란 무엇인가
+[[3-2-3-commit-push-pull|이전 문서]]에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다. branch를 만들고 전환하고 삭제하고 다시 합치는 과정까지, 협업의 기본 리듬을 익히는 것이 이 문서의 목표다.
 
 Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버그 수정을 진행할 수 있는 독립적인 작업 공간이다. branch 자체는 커밋이 쌓이는 별도의 타임라인이라서, 같은 프로젝트 안에서도 서로 다른 실험이나 기능을 동시에 안전하게 진행할 수 있다.
 
@@ -104,7 +97,7 @@ Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버�
 
 ---
 
-## 3. Branch 생성하기
+## 2. Branch 생성하기
 
 새 branch는 `git branch` 명령어로 만든다.
 
@@ -135,7 +128,7 @@ git branch
 
 ---
 
-## 4. Branch 전환하기
+## 3. Branch 전환하기
 
 branch를 전환하는 명령어는 두 가지가 있는데, 최근에는 용도가 명확한 `git switch`를 사용하는 것이 권장된다.
 
@@ -162,7 +155,7 @@ git switch -c feature-new
 
 ---
 
-## 5. Branch에서 작업하기
+## 4. Branch에서 작업하기
 
 branch를 전환하면 작업 디렉토리의 파일 내용 전체가 그 branch 기준으로 바뀐다. 각 branch는 서로 다른 커밋 히스토리를 가지기 때문이다.
 
@@ -188,7 +181,7 @@ main으로 돌아가면 `login.html`이 화면에서 사라진 것처럼 보인�
 
 ---
 
-## 6. Branch 목록 확인하기
+## 5. Branch 목록 확인하기
 
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>설명</th></tr></thead>
@@ -202,7 +195,7 @@ main으로 돌아가면 `login.html`이 화면에서 사라진 것처럼 보인�
 
 ---
 
-## 7. Branch 삭제하기
+## 6. Branch 삭제하기
 
 branch를 삭제할 때는 안전한 방식과 강제 방식이 나뉜다.
 
@@ -227,7 +220,7 @@ branch를 삭제할 때는 안전한 방식과 강제 방식이 나뉜다.
 
 ---
 
-## 8. Merge란 무엇인가
+## 7. Merge란 무엇인가
 
 merge는 branch의 변경 사항을 main에 통합하는 과정이다. 새 기능 개발이 끝나면 feature branch를 main으로 합쳐 배포를 준비한다. merge는 단순히 파일 하나를 옮기는 것이 아니라, branch 전체의 커밋 히스토리를 main에 통째로 통합하는 작업이다.
 
@@ -257,7 +250,7 @@ git merge feature-login
 
 ---
 
-## 9. 왜 main에 바로 작업하지 않을까
+## 8. 왜 main에 바로 작업하지 않을까
 
 협업에서는 어떤 변경도 main branch에서 직접 진행하지 않는 것이 기본 원칙이다.
 

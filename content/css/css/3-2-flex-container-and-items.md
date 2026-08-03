@@ -69,15 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Container 속성(부모 요소) 정리
 
-<div class="wda-callout wda-ci">
-  <p>[[3-1-flexbox-concept|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 <strong>하나씩 실전 코드로</strong> 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.</p>
-</div>
-
----
-
-## 2. Container 속성(부모 요소) 정리
+[[3-1-flexbox-concept|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 하나씩 실전 코드로 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.
 
 ### 2-1. flex-direction — 주축 방향 결정
 
@@ -263,7 +257,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. Item 속성 — 개별 요소 6가지 속성
+## 2. Item 속성 — 개별 요소 6가지 속성
 
 ### 3-1. flex-grow — 여유 공간을 차지하는 비율
 

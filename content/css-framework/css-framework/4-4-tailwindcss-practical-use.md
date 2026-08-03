@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. TailwindCSS 시작하기
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-3-bootstrap-introduction|이전 문서]]에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다.</strong></p>
-  <p>CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와의 관계까지 순서대로 정리한다.</p>
-</div>
-
----
-
-## 2. TailwindCSS 시작하기
+[[4-3-bootstrap-introduction|이전 문서]]에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다. CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와의 관계까지 순서대로 정리한다.
 
 TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootstrap처럼 미리 완성된 버튼을 제공하는 대신, CSS 속성 하나당 클래스 하나를 제공해서 HTML에서 직접 스타일을 조합하게 한다.
 
@@ -109,7 +102,7 @@ TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootst
 
 ---
 
-## 3. 유틸리티 클래스 다루기
+## 2. 유틸리티 클래스 다루기
 
 Utility first 방식의 핵심은 CSS 속성을 클래스 이름으로 그대로 표현하는 것이다. 버튼 하나를 만들어보면 이 감각을 바로 확인할 수 있다.
 
@@ -146,7 +139,7 @@ Utility first 방식의 핵심은 CSS 속성을 클래스 이름으로 그대로
 
 ---
 
-## 4. 반응형 디자인 만들기
+## 3. 반응형 디자인 만들기
 
 TailwindCSS의 반응형은 미디어 쿼리를 직접 작성하는 대신, 브레이크포인트 접두어를 클래스 앞에 붙이는 방식으로 동작한다.
 
@@ -190,7 +183,7 @@ TailwindCSS의 반응형은 미디어 쿼리를 직접 작성하는 대신, 브�
 
 ---
 
-## 5. 순수 CSS로 변환해서 이해하기
+## 4. 순수 CSS로 변환해서 이해하기
 
 TailwindCSS가 실제로 어떤 CSS를 대신 작성해주는지는 순수 CSS 버전과 비교해보면 가장 잘 드러난다.
 

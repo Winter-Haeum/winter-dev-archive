@@ -72,16 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 값만 볼지, 새 배열을 만들지 먼저 판단하기
 
-<div class="wda-callout wda-ci">
-  <p><strong>push·map·filter 같은 배열 메서드의 기본 문법은 JavaScript 문서(2-2 배열, 2-4 고차 함수)에서 이미 다뤘습니다.</strong></p>
-  <p>이 문서는 그 메서드들을 코딩테스트 문제에서 <strong>언제, 어떤 상황에</strong> 골라 써야 하는지 패턴 중심으로 정리합니다.</p>
-</div>
-
----
-
-## 2. 값만 볼지, 새 배열을 만들지 먼저 판단하기
+push·map·filter 같은 배열 메서드의 기본 문법은 JavaScript 문서(2-2 배열, 2-4 고차 함수)에서 이미 다뤘습니다. 이 문서는 그 메서드들을 코딩테스트 문제에서 언제, 어떤 상황에 골라 써야 하는지 패턴 중심으로 정리합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -112,7 +105,7 @@ function solution(numbers) {
 
 ---
 
-## 3. 카운팅 패턴: 조건에 맞는 개수 세기
+## 2. 카운팅 패턴: 조건에 맞는 개수 세기
 
 "조건을 만족하는 것이 몇 개인가"를 묻는 문제는 두 가지 방식으로 풀 수 있습니다.
 
@@ -132,7 +125,7 @@ const passCount2 = scores.reduce((count, s) => s >= 60 ? count + 1 : count, 0);
 
 ---
 
-## 4. 누적값 패턴: 합계와 최댓값
+## 3. 누적값 패턴: 합계와 최댓값
 
 `reduce`는 배열을 하나의 값으로 압축할 때 쓰는 패턴입니다.
 
@@ -152,7 +145,7 @@ const maxPrice = prices.reduce((acc, price) => price > acc ? price : acc, prices
 
 ---
 
-## 5. 인덱스가 필요한 순간
+## 4. 인덱스가 필요한 순간
 
 값뿐 아니라 위치 정보도 필요할 때는 인덱스를 함께 받습니다.
 
@@ -168,7 +161,7 @@ const labeled = items.map((value, index) => `${index}: ${value}`);
 
 ---
 
-## 6. push·pop·shift·unshift로 스택·큐 만들기
+## 5. push·pop·shift·unshift로 스택·큐 만들기
 
 <table class="wda-mtable">
 <thead><tr><th>조합</th><th>동작</th><th>시간 복잡도</th></tr></thead>
@@ -198,7 +191,7 @@ queue.shift(); // 'A' — 먼저 들어온 것부터 꺼냄
 
 ---
 
-## 7. 정렬 기준 잡기
+## 6. 정렬 기준 잡기
 
 `sort()`는 기본적으로 요소를 **문자열**로 바꿔 비교합니다. 숫자를 크기순으로 정렬하려면 비교 함수가 필요합니다.
 
@@ -216,7 +209,7 @@ nums.sort((a, b) => b - a);     // [30, 10, 4, 2] — 내림차순
 
 ---
 
-## 8. 중복 제거와 존재 확인
+## 7. 중복 제거와 존재 확인
 
 ```js
 const arr = [1, 2, 2, 3, 3, 3];
@@ -233,7 +226,7 @@ arr.some(n => n > 2);     // true (조건에 맞는 게 하나라도 있는지)
 
 ---
 
-## 9. 흔한 실수
+## 8. 흔한 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>reduce 초깃값을 빠뜨리는 경우</strong></p>
@@ -247,7 +240,7 @@ arr.some(n => n > 2);     // true (조건에 맞는 게 하나라도 있는지)
 
 ---
 
-## 10. ✅ 핵심 요약
+## 9. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

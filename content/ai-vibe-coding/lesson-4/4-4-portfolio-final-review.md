@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 기본 주소 vs 커스텀 도메인
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-3-hero-section|이전 문서]]에서 배포된 화면을 점검했다면, 이번에는 domain-checklist, 즉 방문자에게 보여줄 주소를 정리하는 단계입니다.</strong></p>
-  <p>특정 도메인 판매 업체의 화면 절차는 이 문서에서 다루지 않습니다. 업체 화면은 계속 바뀔 수 있으므로, <strong>연결 개념과 확인 기준</strong>을 중심으로 정리합니다.</p>
-</div>
-
----
-
-## 2. 기본 주소 vs 커스텀 도메인
+[[4-3-hero-section|이전 문서]]에서 배포된 화면을 점검했다면, 이번에는 domain-checklist, 즉 방문자에게 보여줄 주소를 정리하는 단계입니다. 특정 도메인 판매 업체의 화면 절차는 이 문서에서 다루지 않습니다. 업체 화면은 계속 바뀔 수 있으므로, 연결 개념과 확인 기준을 중심으로 정리합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -92,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 도메인 연결 관련 용어 맛보기
+## 2. 도메인 연결 관련 용어 맛보기
 
 <table class="wda-mtable">
 <thead><tr><th>용어</th><th>개념</th></tr></thead>
@@ -109,7 +102,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 연결 절차 개념 흐름
+## 3. 연결 절차 개념 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 도메인 준비</div><div class="wda-fnode-dsc">원하는 도메인 구매</div></div>
@@ -129,7 +122,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 확인해야 할 것
+## 4. 확인해야 할 것
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">HTTPS 적용 여부</div><div class="wda-fcard-dsc">새 주소로 접속했을 때 안전한 연결(HTTPS)로 표시되는지 확인합니다.</div></div>

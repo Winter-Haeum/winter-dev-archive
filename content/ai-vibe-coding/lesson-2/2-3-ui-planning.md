@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 연결을 위해 준비할 것
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[2-2-db-schema|이전 문서]]에서 설계한 project-table을 실제로 저장할 공간이 필요합니다.</strong></p>
-  <p>이 문서는 Supabase 같은 외부 데이터 서비스에 연결하는 흐름을 다룹니다. 특정 서비스의 화면 구성은 계속 바뀔 수 있으므로, 이 문서에서는 <strong>어떤 도구를 쓰든 공통적으로 거치는 절차와 원칙</strong>을 중심으로 정리합니다.</p>
-</div>
-
----
-
-## 2. 연결을 위해 준비할 것
+[[2-2-db-schema|이전 문서]]에서 설계한 project-table을 실제로 저장할 공간이 필요합니다. 이 문서는 Supabase 같은 외부 데이터 서비스에 연결하는 흐름을 다룹니다. 특정 서비스의 화면 구성은 계속 바뀔 수 있으므로, 이 문서에서는 어떤 도구를 쓰든 공통적으로 거치는 절차와 원칙을 중심으로 정리합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">데이터 서비스 계정</div><div class="wda-fcard-dsc">표 형태의 데이터를 저장해 주는 외부 서비스의 계정입니다.</div></div>
@@ -87,7 +80,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 연결 흐름
+## 2. 연결 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 계정·저장공간 준비</div><div class="wda-fnode-dsc">서비스 가입 후 저장 공간 하나 생성</div></div>
@@ -101,7 +94,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 연결 정보는 어떻게 관리해야 할까
+## 3. 연결 정보는 어떻게 관리해야 할까
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">가장 중요한 원칙</span>
@@ -123,7 +116,7 @@ AI에게 연결 작업을 요청할 때도 마찬가지입니다. 실제 키 값
 
 ---
 
-## 5. 연결이 성공했는지 확인하는 기준
+## 4. 연결이 성공했는지 확인하는 기준
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">목록 조회 성공</div><div class="wda-fcard-dsc">만들어 둔 테이블 목록을 코드나 도구에서 정상적으로 불러올 수 있습니다.</div></div>
@@ -133,7 +126,7 @@ AI에게 연결 작업을 요청할 때도 마찬가지입니다. 실제 키 값
 
 ---
 
-## 6. 연결이 안 될 때 점검 순서
+## 5. 연결이 안 될 때 점검 순서
 
 <div class="wda-check-note">
   <ul>

@@ -70,22 +70,15 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 라이브러리란
 
-<div class="wda-callout wda-ci">
-  <p><strong>jQuery는 순수 자바스크립트로 화면을 다루는 방법을 익히기 전, "왜 이런 도구가 필요했는가"를 먼저 이해하기 위한 문서입니다.</strong></p>
-  <p>이 문서에서는 jQuery의 등장 배경과 현재 위치를 다룹니다. 실제 선택자·DOM 조작 문법은 다음 문서(1-2 jQuery 핵심 기능 및 기본 효과)에서 이어집니다.</p>
-</div>
-
----
-
-## 2. 라이브러리란
+jQuery는 순수 자바스크립트로 화면을 다루는 방법을 익히기 전, "왜 이런 도구가 필요했는가"를 먼저 이해하기 위한 문서입니다. 이 문서에서는 jQuery의 등장 배경과 현재 위치를 다룹니다. 실제 선택자·DOM 조작 문법은 다음 문서(1-2 jQuery 핵심 기능 및 기본 효과)에서 이어집니다.
 
 **라이브러리**는 자주 쓰는 기능을 미리 만들어둔 코드 모음입니다. 필요한 기능을 처음부터 직접 구현하지 않고, 이미 만들어진 것을 가져다 쓸 수 있다는 점이 핵심입니다. **jQuery**는 웹페이지의 요소를 선택하고 조작하는 작업(DOM 조작)을 쉽게 만들어주는 자바스크립트 라이브러리입니다.
 
 ---
 
-## 3. 2006년, jQuery가 필요했던 이유
+## 2. 2006년, jQuery가 필요했던 이유
 
 지금은 상상하기 어렵지만, 2000년대 중반의 웹 개발자는 세 가지 골칫거리를 매번 마주해야 했습니다.
 
@@ -99,7 +92,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. jQuery가 해결한 것
+## 3. jQuery가 해결한 것
 
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>순수 자바스크립트(과거)</th><th>jQuery</th></tr></thead>
@@ -114,7 +107,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 왜 요즘은 예전만큼 쓰지 않을까
+## 4. 왜 요즘은 예전만큼 쓰지 않을까
 
 <div class="wda-compare">
   <div class="wda-compare-card">

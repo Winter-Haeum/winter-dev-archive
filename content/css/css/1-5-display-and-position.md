@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Display 속성이란
 
-<div class="wda-callout wda-ci">
-  <p>[[1-4-box-model|이전 문서]]에서 요소 하나의 크기와 여백을 다뤘다면, 이 문서에서는 그 요소들을 화면 어디에 어떤 방식으로 놓을지를 다룬다.</p>
-  <p>display는 요소가 "어떻게 표시되는지"를, position은 "어디에 위치하는지"를 결정한다. 두 속성은 CSS 레이아웃의 뼈대가 되는 개념이므로, 이후 Flexbox·Grid를 배우기 전에 반드시 정리하고 넘어가야 한다.</p>
-</div>
-
----
-
-## 2. Display 속성이란
+[[1-4-box-model|이전 문서]]에서 요소 하나의 크기와 여백을 다뤘다면, 이 문서에서는 그 요소들을 화면 어디에 어떤 방식으로 놓을지를 다룬다. display는 요소가 "어떻게 표시되는지"를, position은 "어디에 위치하는지"를 결정한다. 두 속성은 CSS 레이아웃의 뼈대가 되는 개념이므로, 이후 Flexbox·Grid를 배우기 전에 반드시 정리하고 넘어가야 한다.
 
 `display`는 요소가 화면에 어떤 방식으로 표시될지를 결정하는 속성이다. 줄바꿈 여부, 크기 지정 가능 여부, 화면 표시 여부는 물론 Flexbox·Grid 같은 레이아웃 모드를 켜는 역할도 한다.
 
@@ -96,7 +89,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 대표 display 값 자세히 보기
+## 2. 대표 display 값 자세히 보기
 
 ### 3-1. display: block
 
@@ -142,7 +135,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 ---
 
-## 4. Flex와 Grid 살짝 맛보기
+## 3. Flex와 Grid 살짝 맛보기
 
 `display: flex`와 `display: grid`는 여러 자식 요소를 한 번에 정렬하고 배치하기 위한 전용 레이아웃 모드다.
 
@@ -161,7 +154,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 ---
 
-## 5. Position 속성이란
+## 4. Position 속성이란
 
 `position`은 요소를 문서의 기본 흐름과 다르게 배치하고 싶을 때 사용하는 속성이다. 다섯 가지 값이 있다.
 
@@ -180,7 +173,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 ---
 
-## 6. 각 Position 값 자세히 보기
+## 5. 각 Position 값 자세히 보기
 
 ### 6-1. static
 
@@ -249,7 +242,7 @@ body {
 
 ---
 
-## 7. top, right, bottom, left
+## 6. top, right, bottom, left
 
 이 네 속성은 positioned 요소가 기준점으로부터 얼마나 떨어질지를 지정한다. `static` 요소에서는 아무 효과가 없다.
 
@@ -264,7 +257,7 @@ body {
 
 ---
 
-## 8. z-index와 쌓임 순서
+## 7. z-index와 쌓임 순서
 
 `z-index`는 겹쳐진 요소들 사이의 위아래 순서(쌓임 순서)를 숫자로 지정한다. 숫자가 클수록 위쪽에 놓인다.
 
@@ -281,7 +274,7 @@ body {
 
 ---
 
-## 9. 실전 UI 패턴
+## 8. 실전 UI 패턴
 
 ### 9-1. 고정 헤더
 

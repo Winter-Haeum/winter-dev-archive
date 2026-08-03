@@ -73,16 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 그대로 사용 vs 검토 후 수정
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-3에서 첫 화면 초안을 요청했다면, 이 문서는 그 결과물을 그대로 쓰지 않고 검토하는 단계입니다.</strong></p>
-  <p>AI가 만든 결과는 항상 완벽하지 않습니다. 이 문서는 무엇을 확인해야 하는지, 문제를 발견했을 때 어떻게 수정을 요청하는지를 다룹니다.</p>
-</div>
-
----
-
-## 2. 그대로 사용 vs 검토 후 수정
+1-3에서 첫 화면 초안을 요청했다면, 이 문서는 그 결과물을 그대로 쓰지 않고 검토하는 단계입니다. AI가 만든 결과는 항상 완벽하지 않습니다. 이 문서는 무엇을 확인해야 하는지, 문제를 발견했을 때 어떻게 수정을 요청하는지를 다룹니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -97,7 +90,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 검토 체크리스트
+## 2. 검토 체크리스트
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">내용 누락</div><div class="wda-fcard-dsc">요청했던 섹션이나 정보가 실제로 빠짐없이 들어갔는지 확인합니다.</div></div>
@@ -108,7 +101,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 수정을 요청하는 법
+## 3. 수정을 요청하는 법
 
 문제를 발견했다면, "이상해요"처럼 막연하게 말하기보다 **어디가, 어떻게** 문제인지 구체적으로 설명합니다.
 
@@ -135,7 +128,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. ✅ 핵심 요약
+## 4. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

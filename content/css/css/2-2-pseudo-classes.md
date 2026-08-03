@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 가상 클래스란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p>[[2-1-attribute-selectors|이전 문서]]에서 속성값과 요소 관계로 선택하는 법을 배웠다면, 이 문서는 <strong>요소의 "상태"</strong>를 기준으로 선택하는 가상 클래스를 다룬다.</p>
-  <p>순서·위치 기반의 구조적 가상 클래스와, hover·checked·valid 같은 상태 기반 가상 클래스를 모두 살펴본다.</p>
-</div>
-
----
-
-## 2. 가상 클래스란 무엇인가
+[[2-1-attribute-selectors|이전 문서]]에서 속성값과 요소 관계로 선택하는 법을 배웠다면, 이 문서는 요소의 "상태"를 기준으로 선택하는 가상 클래스를 다룬다. 순서·위치 기반의 구조적 가상 클래스와, hover·checked·valid 같은 상태 기반 가상 클래스를 모두 살펴본다.
 
 가상 클래스는 HTML 코드에 직접 작성되어 있지 않은 <strong>상태, 위치, 인터랙션 조건</strong>을 기준으로 요소를 선택하는 선택자다. 콜론 하나(`:`)로 시작하며, 실제로 클래스를 추가하지 않아도 "지금 이 요소가 어떤 상황에 있는가"를 CSS가 스스로 판단해서 스타일을 적용한다.
 
@@ -94,7 +87,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 인터랙션 상태: :hover, :active, :focus
+## 2. 인터랙션 상태: :hover, :active, :focus
 
 사용자의 마우스·키보드 동작에 반응하는 가장 기본적인 가상 클래스다.
 
@@ -116,7 +109,7 @@ input:focus {
 
 ---
 
-## 4. 구조적 가상 클래스: 위치로 선택하기
+## 3. 구조적 가상 클래스: 위치로 선택하기
 
 ### 4-1. :first-child, :last-child
 
@@ -203,7 +196,7 @@ p:first-of-type { color: blue; }  /* 선택 됨: p 중에서는 첫 번째 */
 
 ---
 
-## 5. :not() 부정 선택자
+## 4. :not() 부정 선택자
 
 괄호 안의 조건에 <strong>해당하지 않는</strong> 요소만 선택한다.
 
@@ -236,7 +229,7 @@ li:not(:last-child) {
 
 ---
 
-## 6. :is()와 :where() — 현대 CSS 논리 선택자
+## 5. :is()와 :where() — 현대 CSS 논리 선택자
 
 여러 선택자를 그룹으로 묶어 반복을 줄여주는 논리 선택자다. 그룹 선택자(쉼표)와 비슷해 보이지만, 조합 선택자 안에서 그룹을 만들 수 있다는 점이 다르다.
 
@@ -277,7 +270,7 @@ h3 a:hover {
 
 ---
 
-## 7. Form 상태 선택자
+## 6. Form 상태 선택자
 
 입력 요소의 상태에 따라 스타일을 다르게 적용하는 가상 클래스 그룹이다.
 
@@ -348,7 +341,7 @@ input[type="checkbox"]:checked + label::before {
 
 ---
 
-## 8. 검증 선택자: HTML5 폼 검증과 연동하기
+## 7. 검증 선택자: HTML5 폼 검증과 연동하기
 
 `required`, `pattern`, `minlength`, `maxlength` 같은 HTML5 검증 속성과 짝을 이루는 가상 클래스들이다.
 
@@ -404,7 +397,7 @@ input:not(:placeholder-shown):invalid {
 
 ---
 
-## 9. 가상 클래스 조합 패턴
+## 8. 가상 클래스 조합 패턴
 
 가상 클래스는 콜론을 연달아 붙여서 여러 조건을 동시에 만족하는 요소만 선택할 수 있다.
 
@@ -431,7 +424,7 @@ input:focus:valid {
 
 ---
 
-## 10. 브라우저 호환성과 성능 팁
+## 9. 브라우저 호환성과 성능 팁
 
 <table class="wda-mtable">
 <thead><tr><th>세대</th><th>대표 선택자</th></tr></thead>

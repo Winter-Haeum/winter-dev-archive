@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. git commit 다시 보기
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[3-2-2-connect-local-and-github|이전 문서]]에서 로컬과 GitHub를 연결했다면, 이제 실제로 코드를 주고받을 차례입니다.</strong></p>
-  <p>이번 문서는 commit으로 기록한 변경 내역을 push로 GitHub에 올리고, pull로 최신 코드를 받아오는 기본 흐름을 다룹니다.</p>
-</div>
-
----
-
-## 2. git commit 다시 보기
+[[3-2-2-connect-local-and-github|이전 문서]]에서 로컬과 GitHub를 연결했다면, 이제 실제로 코드를 주고받을 차례입니다. 이번 문서는 commit으로 기록한 변경 내역을 push로 GitHub에 올리고, pull로 최신 코드를 받아오는 기본 흐름을 다룹니다.
 
 commit은 작업 내역을 로컬 저장소에 기록하는 행위다. 특정 시점의 프로젝트 상태를 하나의 스냅샷으로 저장한다고 이해하면 된다.
 
@@ -108,7 +101,7 @@ git commit -m "Add login form validation"
 
 ---
 
-## 3. git push란 무엇인가
+## 2. git push란 무엇인가
 
 `git push`는 로컬에 쌓인 커밋을 GitHub 원격 저장소로 업로드하는 과정이다.
 
@@ -151,7 +144,7 @@ push를 실행하면 터미널에는 `enumerating objects`, `counting objects`, 
 
 ---
 
-## 4. git pull이란 무엇인가
+## 3. git pull이란 무엇인가
 
 `git pull`은 원격 저장소인 GitHub의 최신 코드를 로컬로 가져오는 명령어다.
 
@@ -192,7 +185,7 @@ git pull
 
 ---
 
-## 5. Commit → Push → Pull 기본 워크플로우
+## 4. Commit → Push → Pull 기본 워크플로우
 
 혼자 작업할 때와 팀과 협업할 때는 이 세 명령어를 조합하는 방식이 조금 다르다.
 
@@ -213,7 +206,7 @@ git pull
 
 ---
 
-## 6. 실습: push / pull 흐름 이해하기
+## 5. 실습: push / pull 흐름 이해하기
 
 ### 혼자 실습하기 (로컬 → GitHub)
 

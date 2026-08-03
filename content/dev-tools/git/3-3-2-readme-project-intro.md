@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. README.md란
 
-<div class="wda-callout wda-ci">
-  <p><strong>3-3-1에서 저장소에 올리지 않을 파일을 정리했다면, 이번에는 반대로 저장소를 열었을 때 가장 먼저 보여줄 문서를 만들 차례다.</strong></p>
-  <p>README.md를 제대로 작성하려면 결국 Markdown 문법을 알아야 한다. 문법 자체는 이어지는 3-3-3에서 자세히 다루므로, 이 문서에서는 README.md가 어떤 문서이고 무엇을 담아야 하는지에 집중한다.</p>
-</div>
-
----
-
-## 2. README.md란
+3-3-1에서 저장소에 올리지 않을 파일을 정리했다면, 이번에는 반대로 저장소를 열었을 때 가장 먼저 보여줄 문서를 만들 차례다. README.md를 제대로 작성하려면 결국 Markdown 문법을 알아야 한다. 문법 자체는 이어지는 3-3-3에서 자세히 다루므로, 이 문서에서는 README.md가 어떤 문서이고 무엇을 담아야 하는지에 집중한다.
 
 README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub 저장소에 들어가면 가장 먼저 보이는 파일이며, Markdown 문법으로 작성하고 <code>.md</code> 확장자를 사용한다. 위치는 항상 <strong>프로젝트 루트 디렉토리</strong>다.
 
@@ -94,7 +87,7 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 
 ---
 
-## 3. 왜 중요한가
+## 2. 왜 중요한가
 
 <table class="wda-mtable">
 <thead><tr><th>이유</th><th>내용</th></tr></thead>
@@ -107,7 +100,7 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 
 ---
 
-## 4. README.md 기본 구조
+## 3. README.md 기본 구조
 
 잘 정리된 README는 대체로 다음 순서를 따른다.
 
@@ -127,7 +120,7 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 
 ---
 
-## 5. 좋은 README.md 예시 분석
+## 4. 좋은 README.md 예시 분석
 
 간단한 Todo 앱을 예로 들면, 아래와 같은 흐름으로 작성할 수 있다.
 
@@ -166,7 +159,7 @@ MIT
 
 ---
 
-## 6. 실습: README.md 작성하기
+## 5. 실습: README.md 작성하기
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 파일 생성</div><div class="wda-fnode-dsc">프로젝트 루트에 README.md 생성</div></div>

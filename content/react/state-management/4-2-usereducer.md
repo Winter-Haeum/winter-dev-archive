@@ -72,16 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. useState의 한계
 
-<div class="wda-callout wda-ci">
-  <p><strong>useReducer는 상태 변경 로직이 복잡해질 때, 그 로직을 컴포넌트 밖의 함수 하나로 모으는 Hook입니다.</strong></p>
-  <p>여러 컴포넌트가 값을 공유하는 방법은 [[4-1-usecontext|4-1 문서]]에서 다뤘습니다. Redux 같은 라이브러리 내부 구조는 [[4-3-state-management-libraries|4-3 문서]]에서 개념 수준으로만 다룹니다.</p>
-</div>
-
----
-
-## 2. useState의 한계
+useReducer는 상태 변경 로직이 복잡해질 때, 그 로직을 컴포넌트 밖의 함수 하나로 모으는 Hook입니다. 여러 컴포넌트가 값을 공유하는 방법은 [[4-1-usecontext|4-1 문서]]에서 다뤘습니다. Redux 같은 라이브러리 내부 구조는 [[4-3-state-management-libraries|4-3 문서]]에서 개념 수준으로만 다룹니다.
 
 강의 목록처럼 객체 배열을 다루고, 추가·완료 처리·삭제 등 동작이 늘어나면 각 핸들러가 컴포넌트 곳곳에서 `setState`를 각자 호출하게 됩니다.
 
@@ -104,7 +97,7 @@ const toggleCourse = (id) => {
 
 ---
 
-## 3. useReducer의 3요소
+## 2. useReducer의 3요소
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">State</div><div class="wda-fcard-dsc">현재 상태 값. 예: <code>{ courses: [] }</code></div></div>
@@ -124,7 +117,7 @@ const toggleCourse = (id) => {
 
 ---
 
-## 4. 기본 문법
+## 3. 기본 문법
 
 ```jsx
 import { useReducer } from 'react';
@@ -162,7 +155,7 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
 
 ---
 
-## 5. Action 객체 구조
+## 4. Action 객체 구조
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">type (필수)</div><div class="wda-fcard-dsc">어떤 작업인지 나타내는 문자열. 대문자와 언더스코어를 관습적으로 사용합니다.</div></div>
@@ -177,7 +170,7 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
 
 ---
 
-## 6. dispatch 사용법
+## 5. dispatch 사용법
 
 ```jsx
 <button type="button" onClick={() => dispatch({ type: 'ADD', payload: 'CSS 기초' })}>
@@ -194,7 +187,7 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
 
 ---
 
-## 7. Reducer 작성 시 지켜야 할 것
+## 6. Reducer 작성 시 지켜야 할 것
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">불변성 유지</div><div class="wda-fcard-dsc">push·splice 대신 spread, map, filter로 새 배열·객체를 반환합니다.</div></div>
@@ -215,7 +208,7 @@ case 'ADD':
 
 ---
 
-## 8. useState vs useReducer 선택 기준
+## 7. useState vs useReducer 선택 기준
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -230,7 +223,7 @@ case 'ADD':
 
 ---
 
-## 9. ✅ 핵심 요약
+## 8. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

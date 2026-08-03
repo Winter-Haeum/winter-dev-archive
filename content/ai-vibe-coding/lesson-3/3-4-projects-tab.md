@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. lesson-3 전체 흐름 되짚기
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-3에서는 데스크톱 기준으로 만들어진 포트폴리오를 모바일 화면까지 고려하도록 확장하는 과정을 다뤘습니다.</strong></p>
-  <p>이 문서는 새로운 내용을 배우기보다, 지금까지 만든 반응형 화면이 잘 갖춰졌는지 점검하고 정리하는 문서입니다.</p>
-</div>
-
----
-
-## 2. lesson-3 전체 흐름 되짚기
+lesson-3에서는 데스크톱 기준으로 만들어진 포트폴리오를 모바일 화면까지 고려하도록 확장하는 과정을 다뤘습니다. 이 문서는 새로운 내용을 배우기보다, 지금까지 만든 반응형 화면이 잘 갖춰졌는지 점검하고 정리하는 문서입니다.
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">3-1</div><div class="wda-fnode-dsc">화면 크기 차이 이해</div></div>
@@ -91,7 +84,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 최종 점검 체크리스트
+## 2. 최종 점검 체크리스트
 
 <div class="wda-check-note">
   <ul>
@@ -104,7 +97,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 자주 나오는 반응형 문제와 수정 요청
+## 3. 자주 나오는 반응형 문제와 수정 요청
 
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>확인 방법</th><th>요청 예시 방향</th></tr></thead>
@@ -118,7 +111,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI가 만든 결과물, 끝까지 검토하는 습관
+## 4. AI가 만든 결과물, 끝까지 검토하는 습관
 
 <div class="wda-callout wda-ci">
   <p>lesson-1~2부터 이어온 원칙은 lesson-3에서도 동일합니다. AI가 수정해 준 레이아웃과 카드 화면 모두 <strong>생성 → 검토 → 필요하면 수정 요청</strong>의 흐름을 거칩니다. 결과물을 화면 크기만 줄여 확인하지 말고, 이 문서들에서 정리한 체크리스트로 한 번씩 점검하는 습관을 들입니다.</p>
@@ -126,7 +119,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 다음 단계 미리보기
+## 5. 다음 단계 미리보기
 
 <div class="wda-callout wda-cs">
   <p>지금까지 화면의 구조와 반응형 동작을 다듬었다면, 이후 문서에서는 포트폴리오를 최종적으로 완성하고 외부에 공개하는 단계를 다룰 예정입니다. 구체적인 내용은 해당 문서에서 자세히 안내합니다.</p>

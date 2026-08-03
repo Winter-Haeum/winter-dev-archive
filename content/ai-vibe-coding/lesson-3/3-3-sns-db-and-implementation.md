@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 피드·목록형 화면의 기본 구성 요소
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다.</strong></p>
-  <p>데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 <strong>화면에 카드가 여러 개 반복될 때의 구성과 상태</strong>에 집중합니다.</p>
-</div>
-
----
-
-## 2. 피드·목록형 화면의 기본 구성 요소
+lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다. 데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
 
 <table class="wda-mtable">
 <thead><tr><th>구성 요소</th><th>역할</th></tr></thead>
@@ -91,7 +84,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 카드 반복 구조
+## 2. 카드 반복 구조
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 데이터 목록</div><div class="wda-fnode-dsc">post-list 형태로 준비된 여러 항목</div></div>
@@ -105,7 +98,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 화면 상태를 모바일 관점에서 다시 보기
+## 3. 화면 상태를 모바일 관점에서 다시 보기
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -124,7 +117,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 카드가 여러 장 쌓일 때 주의점
+## 4. 카드가 여러 장 쌓일 때 주의점
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">카드 간 간격</div><div class="wda-fcard-dsc">카드 사이 여백이 부족하면 어디까지가 한 카드인지 구분하기 어렵습니다.</div></div>
@@ -134,7 +127,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. AI에게 피드 화면 검토를 요청하는 예시
+## 5. AI에게 피드 화면 검토를 요청하는 예시
 
 ```
 목표:
@@ -157,7 +150,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. 검토 체크리스트
+## 6. 검토 체크리스트
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">카드 구성</div><div class="wda-fcard-dsc">작성자·내용 요약·시간·상태가 빠짐없이 표시되는지 확인합니다.</div></div>

@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. contact-message 구조
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[2-3-ui-planning|이전 문서]]에서 데이터 저장소 연결을 마쳤다면, 이번에는 contact-section에 실제 입력 기능을 연결할 차례입니다.</strong></p>
-  <p>방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.</p>
-</div>
-
----
-
-## 2. contact-message 구조
+[[2-3-ui-planning|이전 문서]]에서 데이터 저장소 연결을 마쳤다면, 이번에는 contact-section에 실제 입력 기능을 연결할 차례입니다. 방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.
 
 <table class="wda-mtable">
 <thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>
@@ -96,7 +89,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 입력 → 검증 → 저장 흐름
+## 2. 입력 → 검증 → 저장 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 입력</div><div class="wda-fnode-dsc">방문자가 이름과 메시지를 입력</div></div>
@@ -110,7 +103,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 검증해야 할 항목
+## 3. 검증해야 할 항목
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">빈 값 방지</div><div class="wda-fcard-dsc">이름이나 메시지가 비어 있으면 저장을 막습니다.</div></div>
@@ -120,7 +113,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 최소한의 개인정보만 수집하기
+## 4. 최소한의 개인정보만 수집하기
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">개인정보 최소 수집</span>
@@ -129,7 +122,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 저장 전 확인 절차
+## 5. 저장 전 확인 절차
 
 <div class="wda-callout wda-cs">
   <p>전송 버튼을 누르기 전에 입력한 내용을 다시 보여주거나, 전송 직후 "메시지가 접수되었습니다" 같은 결과 안내를 보여주면 방문자가 정상적으로 처리되었는지 알 수 있습니다.</p>
@@ -137,7 +130,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. AI에게 요청하는 예시
+## 6. AI에게 요청하는 예시
 
 ```
 contact-section에 문의 메시지 입력 기능을 추가하고 싶습니다.
@@ -155,7 +148,7 @@ contact-section에 문의 메시지 입력 기능을 추가하고 싶습니다.
 
 ---
 
-## 8. 생성된 코드 검토 기준
+## 7. 생성된 코드 검토 기준
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">검증 로직 존재</div><div class="wda-fcard-dsc">빈 값이나 형식 오류를 실제로 막고 있는지 확인합니다.</div></div>

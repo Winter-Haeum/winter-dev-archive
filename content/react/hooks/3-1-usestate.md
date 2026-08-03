@@ -72,18 +72,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. useState 다시 보기
 
-<div class="wda-callout wda-ci">
-  <p><strong>core의 state 문서(2-4)에서 useState의 기본 문법과 재렌더링 원리를 이미 다뤘습니다.</strong></p>
-  <p>이 문서는 그 다음 단계로, useState라는 Hook을 실제 화면에서 어떻게 안전하게 다루는지 패턴 중심으로 정리합니다. 상태 업데이트 로직이 복잡해질 때 쓰는 <strong>useReducer</strong>, 여러 컴포넌트가 값을 공유하는 <strong>Context</strong>, 입력 검증이 포함된 <strong>form 처리</strong>, 서버에서 가져온 데이터 상태, <strong>useEffect</strong>와의 조합, <strong>상태 관리 라이브러리</strong>는 각각 별도 문서에서 다룹니다.</p>
-</div>
+core의 state 문서(2-4)에서 useState의 기본 문법과 재렌더링 원리를 이미 다뤘습니다. 이 문서는 그 다음 단계로, useState라는 Hook을 실제 화면에서 어떻게 안전하게 다루는지 패턴 중심으로 정리합니다. 상태 업데이트 로직이 복잡해질 때 쓰는 useReducer, 여러 컴포넌트가 값을 공유하는 Context, 입력 검증이 포함된 form 처리, 서버에서 가져온 데이터 상태, useEffect와의 조합, 상태 관리 라이브러리는 각각 별도 문서에서 다룹니다.
 
 이후 예시는 학습 대시보드 컴포넌트 <code>HookDashboard</code>를 기준으로 설명합니다.
-
----
-
-## 2. useState 다시 보기
 
 ```jsx
 import { useState } from 'react';
@@ -102,7 +95,7 @@ function HookDashboard() {
 
 ---
 
-## 3. 이전 값 기반 업데이트
+## 2. 이전 값 기반 업데이트
 
 setter에 새 값을 직접 넣는 대신, **이전 값을 인자로 받는 함수**를 넘기면 항상 최신 state를 기준으로 값을 바꿀 수 있습니다.
 
@@ -120,7 +113,7 @@ setCount(prev => prev + 1);
 
 ---
 
-## 4. boolean·string·number state
+## 3. boolean·string·number state
 
 `HookDashboard`에는 선택된 필터(문자열), 상세 보기 여부(불리언) 같은 단순 값 state가 여러 개 있을 수 있습니다.
 
@@ -141,7 +134,7 @@ function handleDetailToggle() {
 
 ---
 
-## 5. 배열 state 업데이트
+## 4. 배열 state 업데이트
 
 `HookDashboard`에서 사용자가 체크한 강의 id 목록을 배열 state로 관리한다고 해보겠습니다.
 
@@ -172,7 +165,7 @@ function handleUncheck(id) {
 
 ---
 
-## 6. 객체 state 업데이트
+## 5. 객체 state 업데이트
 
 `viewOption`처럼 여러 속성을 가진 객체를 state로 둘 때는, 바뀌지 않는 속성까지 함께 복사해야 합니다.
 
@@ -193,7 +186,7 @@ function handleSortChange(nextSortBy) {
 
 ---
 
-## 7. 여러 state, 하나로 묶을까 나눌까
+## 6. 여러 state, 하나로 묶을까 나눌까
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">따로 관리</div><div class="wda-fcard-dsc"><code>selectedFilter</code>와 <code>checkedIds</code>처럼 서로 독립적으로 바뀌는 값은 각각 별도 useState로 둡니다.</div></div>
@@ -204,7 +197,7 @@ function handleSortChange(nextSortBy) {
 
 ---
 
-## 8. state로 둘 값과 계산할 값 구분
+## 7. state로 둘 값과 계산할 값 구분
 
 <div class="wda-callout wda-ci">
   <p><strong>다른 state나 props로부터 계산할 수 있는 값은 state로 만들지 않습니다.</strong></p>
@@ -222,7 +215,7 @@ const checkedCount = checkedIds.length;
 
 ---
 
-## 9. 초보자 실수
+## 8. 초보자 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>배열이나 객체 state를 직접 수정하고 setter만 호출하는 경우</strong></p>
@@ -236,7 +229,7 @@ const checkedCount = checkedIds.length;
 
 ---
 
-## 10. ✅ 핵심 요약
+## 9. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Markdown이란
 
-<div class="wda-callout wda-ci">
-  <p><strong>3-3-2에서 README.md의 구조를 살펴봤다면, 이 문서는 그 안을 채우는 실제 문법을 다룬다.</strong></p>
-  <p>이 페이지 자체가 Markdown을 실시간으로 렌더링하는 사이트이기 때문에, 아래 예시들은 실제로 적용되지 않고 코드 형태로 보이도록 모두 코드블록 안에 넣었다. 눈으로 문법을 확인한 뒤 직접 <code>.md</code> 파일에 옮겨 적으며 연습하는 것을 권장한다.</p>
-</div>
-
----
-
-## 2. Markdown이란
+3-3-2에서 README.md의 구조를 살펴봤다면, 이 문서는 그 안을 채우는 실제 문법을 다룬다. 이 페이지 자체가 Markdown을 실시간으로 렌더링하는 사이트이기 때문에, 아래 예시들은 실제로 적용되지 않고 코드 형태로 보이도록 모두 코드블록 안에 넣었다. 눈으로 문법을 확인한 뒤 직접 <code>.md</code> 파일에 옮겨 적으며 연습하는 것을 권장한다.
 
 Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</strong>다. 복잡한 태그 없이 간단한 기호만으로 서식이 있는 문서를 작성할 수 있다.
 
@@ -89,7 +82,7 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ---
 
-## 3. 제목 만들기
+## 2. 제목 만들기
 
 <code>#</code> 개수로 제목 레벨을 표현하며, h1부터 h6까지 총 6단계를 지원한다.
 
@@ -117,7 +110,7 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ---
 
-## 4. 텍스트 서식
+## 3. 텍스트 서식
 
 <table class="wda-mtable">
 <thead><tr><th>서식</th><th>문법</th></tr></thead>
@@ -141,7 +134,7 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ---
 
-## 5. 목록 만들기
+## 4. 목록 만들기
 
 순서가 없는 목록은 <code>-</code> 또는 <code>*</code>로, 순서가 있는 목록은 숫자와 마침표로 만든다.
 
@@ -172,7 +165,7 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ---
 
-## 6. 링크 만들기
+## 5. 링크 만들기
 
 <table class="wda-mtable">
 <thead><tr><th>종류</th><th>설명</th></tr></thead>
@@ -203,7 +196,7 @@ https://www.google.com
 
 ---
 
-## 7. 이미지 넣기
+## 6. 이미지 넣기
 
 기본 문법은 링크 앞에 느낌표를 붙인 형태다.
 
@@ -233,7 +226,7 @@ https://www.google.com
 
 ---
 
-## 8. 코드 작성하기
+## 7. 코드 작성하기
 
 문장 중간에 짧은 코드를 표시할 때는 백틱 하나로 감싸고, 여러 줄의 코드는 백틱 세 개로 감싼 코드블록을 사용한다. 코드블록을 여는 첫 백틱 뒤에 언어 이름을 붙이면 그 언어에 맞춰 문법 강조가 적용되고, GitHub에서는 줄 번호도 함께 표시된다.
 
@@ -255,7 +248,7 @@ def greet():
 
 ---
 
-## 9. 표(Table) 만들기
+## 8. 표(Table) 만들기
 
 파이프(<code>|</code>)로 열을 구분하고, 헤더 아래에 구분선을 넣으면 표가 만들어진다.
 
@@ -280,7 +273,7 @@ def greet():
 
 ---
 
-## 10. 기타 유용한 문법
+## 9. 기타 유용한 문법
 
 ```markdown
 ---
@@ -297,7 +290,7 @@ def greet():
 
 ---
 
-## 11. Markdown 문법 한눈에 정리
+## 10. Markdown 문법 한눈에 정리
 
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>문법</th></tr></thead>

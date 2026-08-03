@@ -69,15 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. HTML 문서의 기본 뼈대
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서부터는 실제 HTML 코드를 다룹니다.</strong> 태그 하나하나를 배우기 전에, 모든 HTML 문서가 공통으로 갖는 뼈대와 head 영역에 들어가는 필수 정보를 먼저 정리합니다.</p>
-</div>
-
----
-
-## 2. HTML 문서의 기본 뼈대
+이 문서부터는 실제 HTML 코드를 다룹니다. 태그 하나하나를 배우기 전에, 모든 HTML 문서가 공통으로 갖는 뼈대와 head 영역에 들어가는 필수 정보를 먼저 정리합니다.
 
 모든 HTML 문서는 아래와 같은 기본 구조를 따릅니다.
 
@@ -104,7 +98,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. DOCTYPE 선언의 의미
+## 2. DOCTYPE 선언의 의미
 
 <div class="wda-callout wda-cs">
   <p><code>&lt;!DOCTYPE html&gt;</code>은 "이 문서는 HTML5 표준을 따릅니다"라고 브라우저에게 알려주는 선언입니다. 문서의 맨 첫 줄에 위치해야 합니다.</p>
@@ -123,7 +117,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. HTML 표준은 어떻게 발전해 왔을까
+## 3. HTML 표준은 어떻게 발전해 왔을까
 
 HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 규칙을 거쳐 지금의 모습이 되었습니다.
 
@@ -143,7 +137,7 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 
 ---
 
-## 5. 필수 meta 태그 정리
+## 4. 필수 meta 태그 정리
 
 <table class="wda-mtable">
 <thead><tr><th>meta 태그</th><th>역할</th></tr></thead>
@@ -166,7 +160,7 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 
 ---
 
-## 6. title, link, script의 역할
+## 5. title, link, script의 역할
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">title</div><div class="wda-fcard-dsc">브라우저 탭과 검색 결과에 표시되는 페이지 제목입니다.</div></div>
@@ -185,7 +179,7 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 
 ---
 
-## 7. 절대 경로 vs 상대 경로
+## 6. 절대 경로 vs 상대 경로
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -209,7 +203,7 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 
 ---
 
-## 8. 초보자 주의점
+## 7. 초보자 주의점
 
 <div class="wda-callout wda-cw">
   <p>DOCTYPE을 빠뜨리거나 head 안의 필수 meta 태그를 생략해도 당장은 화면이 나올 수 있습니다. 하지만 모바일 화면이 이상하게 보이거나, 한글이 깨지거나, 검색 결과에 설명이 나오지 않는 등의 문제로 이어질 수 있으므로 처음부터 습관을 들이는 것이 좋습니다.</p>

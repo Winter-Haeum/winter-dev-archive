@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 제출 전 정리할 항목
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-4-portfolio-final-review|이전 문서]]에서 공개 주소를 정리했다면, 이번에는 submission-ready 상태를 만드는 문서 정리 단계입니다.</strong></p>
-  <p>화면 자체가 아니라 <strong>README, 프로젝트 설명, 커밋과 PR 같은 텍스트 자료</strong>를 점검합니다.</p>
-</div>
-
----
-
-## 2. 제출 전 정리할 항목
+[[4-4-portfolio-final-review|이전 문서]]에서 공개 주소를 정리했다면, 이번에는 submission-ready 상태를 만드는 문서 정리 단계입니다. 화면 자체가 아니라 README, 프로젝트 설명, 커밋과 PR 같은 텍스트 자료를 점검합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">README</div><div class="wda-fcard-dsc">프로젝트 목적, 주요 기능, 사용 방법이 빠짐없이 정리되어 있는지 확인합니다.</div></div>
@@ -88,7 +81,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 자동 생성 문서는 그대로 쓰지 않는다
+## 2. 자동 생성 문서는 그대로 쓰지 않는다
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -114,7 +107,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. README 정리 흐름
+## 3. README 정리 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 초안 작성</div><div class="wda-fnode-dsc">AI에게 README 초안 요청</div></div>
@@ -130,7 +123,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 개인정보·보안 정보 제거
+## 4. 개인정보·보안 정보 제거
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">공개 전 마지막 확인</span>
@@ -139,7 +132,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. AI에게 README 정리 요청하기
+## 5. AI에게 README 정리 요청하기
 
 ```
 목표:

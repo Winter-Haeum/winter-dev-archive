@@ -71,15 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Hook 4개 한눈에 비교
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 새로운 개념을 추가하지 않고, [[3-1-usestate|3-1]]~[[3-4-custom-hooks|3-4]]에서 배운 내용을 비교·복습하는 용도입니다.</strong></p>
-</div>
-
----
-
-## 2. Hook 4개 한눈에 비교
+이 문서는 새로운 개념을 추가하지 않고, [[3-1-usestate|3-1]]~[[3-4-custom-hooks|3-4]]에서 배운 내용을 비교·복습하는 용도입니다.
 
 <table class="wda-mtable">
 <thead><tr><th>Hook</th><th>역할</th><th>화면 갱신 여부</th><th>배운 문서</th></tr></thead>
@@ -93,7 +87,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. useState vs useRef 재확인
+## 2. useState vs useRef 재확인
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -108,7 +102,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. useEffect를 언제 쓰나
+## 3. useEffect를 언제 쓰나
 
 <div class="wda-callout wda-cw">
   <p><strong>렌더링 중에 계산할 수 있는 값이라면 useEffect가 필요 없습니다.</strong> 예를 들어 배열의 길이나 합계처럼 다른 state로부터 바로 계산되는 값은 effect 없이 렌더링 중에 구합니다. useEffect는 <strong>서버 요청, 타이머, 구독</strong>처럼 리액트 바깥의 시스템과 동기화해야 할 때만 사용합니다.</p>
@@ -116,7 +110,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. Custom Hook을 만드는 기준
+## 4. Custom Hook을 만드는 기준
 
 <div class="wda-callout wda-ci">
   <p>서로 다른 컴포넌트에서 <strong>useState·useEffect·useRef를 조합하는 코드가 반복해서 나타날 때</strong>가 Custom Hook을 만들 타이밍입니다. 로직은 재사용되지만, 호출할 때마다 상태는 독립적으로 생성된다는 점을 기억합니다.</p>
@@ -124,7 +118,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. Hook 선택 흐름
+## 5. Hook 선택 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">화면에 보여줄 값?</div><div class="wda-fnode-dsc">예 → useState</div></div>
@@ -138,7 +132,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. 앞으로 만나게 될 Hook들
+## 6. 앞으로 만나게 될 Hook들
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">useContext, useReducer</div><div class="wda-fcard-dsc">여러 컴포넌트가 값을 공유하거나 상태 업데이트 로직이 복잡해질 때 쓰는 Hook입니다. 다음 상태 관리 문서에서 다룹니다.</div></div>
@@ -147,7 +141,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 8. ✅ 핵심 요약
+## 7. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 시맨틱 HTML이란
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[1-4-tags-attributes-elements|이전 문서]]에서 블록·인라인 요소를 다뤘다면, 이 문서는 "어떤 태그를 골라야 하는가"에 대한 기준을 다룹니다.</strong></p>
-  <p>같은 화면을 만들더라도 <code>div</code>만으로 채우는 것과, 의미를 가진 태그로 채우는 것은 결과물의 품질이 크게 달라집니다.</p>
-</div>
-
----
-
-## 2. 시맨틱 HTML이란
+[[1-4-tags-attributes-elements|이전 문서]]에서 블록·인라인 요소를 다뤘다면, 이 문서는 "어떤 태그를 골라야 하는가"에 대한 기준을 다룹니다. 같은 화면을 만들더라도 <code>div</code>만으로 채우는 것과, 의미를 가진 태그로 채우는 것은 결과물의 품질이 크게 달라집니다.
 
 <div class="wda-callout wda-cs">
   <p><strong>시맨틱 마크업</strong>은 태그 이름 자체가 그 영역의 역할을 설명하는 방식입니다. 검색 엔진, 스크린 리더, 함께 작업하는 다른 개발자 모두가 태그 이름만 보고도 문서 구조를 이해할 수 있습니다.</p>
@@ -99,7 +92,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 시맨틱 마크업이 중요한 이유
+## 2. 시맨틱 마크업이 중요한 이유
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">접근성 향상</div><div class="wda-fcard-dsc">스크린 리더가 "탐색 영역", "주요 콘텐츠"처럼 의미 기반으로 안내할 수 있습니다.</div></div>
@@ -109,7 +102,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 레이아웃을 만드는 시맨틱 태그
+## 3. 레이아웃을 만드는 시맨틱 태그
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">header</div><div class="wda-fcard-dsc">머리글 영역입니다. 로고, 제목, 소개 문구가 들어갑니다.</div></div>
@@ -130,7 +123,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 콘텐츠를 나누는 시맨틱 태그
+## 4. 콘텐츠를 나누는 시맨틱 태그
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -157,7 +150,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. div/span은 언제 사용할까
+## 5. div/span은 언제 사용할까
 
 <table class="wda-mtable">
 <thead><tr><th>태그</th><th>의미</th><th>사용 시점</th></tr></thead>
@@ -174,7 +167,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. 실전 예제: 블로그 레이아웃
+## 6. 실전 예제: 블로그 레이아웃
 
 실무에서 자주 쓰이는 시맨틱 레이아웃 패턴은 header → nav → main(article + aside) → footer 흐름을 따릅니다.
 
@@ -208,7 +201,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 8. 초보자 주의점
+## 7. 초보자 주의점
 
 <div class="wda-callout wda-cw">
   <p>HTML5 이전에는 시맨틱 태그가 없어 <code>&lt;div id="header"&gt;</code>처럼 class/id로만 역할을 표현했습니다. 지금도 오래된 예제나 자료에서는 이런 방식을 볼 수 있지만, 새로 작성하는 문서에서는 가능하면 시맨틱 태그를 우선 고려하는 것이 좋습니다.</p>

@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 배포 방식 개념 비교
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-1-portfolio-reference-exploration|이전 문서]]에서 화면을 점검했다면, 이제 그 화면을 외부에 공개하는 deployment-plan을 세울 차례입니다.</strong></p>
-  <p>특정 서비스의 최신 화면이나 요금은 계속 바뀔 수 있으므로, 이 문서에서는 <strong>배포 방식의 공통 개념과 준비 항목</strong>을 중심으로 다룹니다.</p>
-</div>
-
----
-
-## 2. 배포 방식 개념 비교
+[[4-1-portfolio-reference-exploration|이전 문서]]에서 화면을 점검했다면, 이제 그 화면을 외부에 공개하는 deployment-plan을 세울 차례입니다. 특정 서비스의 최신 화면이나 요금은 계속 바뀔 수 있으므로, 이 문서에서는 배포 방식의 공통 개념과 준비 항목을 중심으로 다룹니다.
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>공통 개념</th><th>참고</th></tr></thead>
@@ -93,7 +86,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 배포 전 확인할 항목
+## 2. 배포 전 확인할 항목
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">빌드 성공 여부</div><div class="wda-fcard-dsc">배포 전 로컬에서 빌드가 오류 없이 완료되는지 확인합니다.</div></div>
@@ -104,7 +97,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 배포 전 체크 vs 배포 후 체크
+## 3. 배포 전 체크 vs 배포 후 체크
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -119,7 +112,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI에게 배포 준비 점검 요청하기
+## 4. AI에게 배포 준비 점검 요청하기
 
 ```
 목표:

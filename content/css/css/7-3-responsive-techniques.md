@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 유연한 레이아웃 단위
 
-<div class="wda-callout wda-ci">
-  <p><strong>CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단위·미디어쿼리를 반응형이라는 관점으로 다시 묶어서 정리합니다.</strong></p>
-  <p>특히 미디어쿼리를 아예 쓰지 않고도 화면 크기에 자동으로 반응하는 기법(유연한 단위, auto-fit, Container Queries)에 집중합니다.</p>
-</div>
-
----
-
-## 2. 유연한 레이아웃 단위
+CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단위·미디어쿼리를 반응형이라는 관점으로 다시 묶어서 정리합니다. 특히 미디어쿼리를 아예 쓰지 않고도 화면 크기에 자동으로 반응하는 기법(유연한 단위, auto-fit, Container Queries)에 집중합니다.
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th></tr></thead>
@@ -104,7 +97,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. CSS 함수 — minmax / calc / clamp
+## 2. CSS 함수 — minmax / calc / clamp
 
 ```css
 /* Grid에서 최소 200px 보장, 남는 공간은 균등 분배 */
@@ -121,7 +114,7 @@ font-size: clamp(1rem, 2.5vw, 2rem);
 
 ---
 
-## 4. 반응형 이미지 — max-width / srcset / picture
+## 3. 반응형 이미지 — max-width / srcset / picture
 
 이미지에 고정 px를 쓰면 화면이 줄어들 때 부모 밖으로 넘치거나 레이아웃이 깨진다.
 
@@ -164,7 +157,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 ---
 
-## 5. Flexbox 반응형 — flex-wrap + flex-basis
+## 4. Flexbox 반응형 — flex-wrap + flex-basis
 
 ```css
 /* ❌ 줄바꿈이 없으면 좁은 화면에서 찌그러진다 */
@@ -179,7 +172,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 ---
 
-## 6. Grid 반응형 — auto-fit + minmax()
+## 5. Grid 반응형 — auto-fit + minmax()
 
 ```css
 /* ❌ 열 개수 고정 — 작은 화면에서 넘침 */
@@ -209,7 +202,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 ---
 
-## 7. Container Queries — 부모 컨테이너 크기 기준 스타일링
+## 6. Container Queries — 부모 컨테이너 크기 기준 스타일링
 
 Media Query는 **뷰포트(화면 전체)** 크기를 기준으로 스타일을 바꾼다. 반면 Container Query는 **부모 컨테이너**의 크기를 기준으로 스타일을 바꾼다.
 

@@ -73,16 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 무엇을 점검하나
 
-<div class="wda-callout wda-ci">
-  <p><strong>1~3단계에서 도구 설치, AI 요청 방법, GitHub 백업 준비를 마쳤다면, 이 문서는 그 결과가 실제로 올바르게 갖춰졌는지 확인하는 단계입니다.</strong></p>
-  <p>새로운 설정을 추가하지 않고, 지금까지의 준비 상태를 점검하고 다음 학습으로 넘어갈 준비가 됐는지 판단하는 데 집중합니다.</p>
-</div>
-
----
-
-## 2. 무엇을 점검하나
+1~3단계에서 도구 설치, AI 요청 방법, GitHub 백업 준비를 마쳤다면, 이 문서는 그 결과가 실제로 올바르게 갖춰졌는지 확인하는 단계입니다. 새로운 설정을 추가하지 않고, 지금까지의 준비 상태를 점검하고 다음 학습으로 넘어갈 준비가 됐는지 판단하는 데 집중합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">디렉토리 구조</div><div class="wda-fcard-dsc">프로젝트 폴더와 하위 구조가 예상대로 만들어졌는지 확인합니다.</div></div>
@@ -93,7 +86,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. AI에게 점검을 요청하는 법
+## 2. AI에게 점검을 요청하는 법
 
 여러 항목을 하나씩 따로 묻기보다, 점검할 목록을 한 번에 제시하고 결과를 정해진 형식으로 받는 것이 효율적입니다.
 
@@ -113,7 +106,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 점검 결과를 읽는 법
+## 3. 점검 결과를 읽는 법
 
 <table class="wda-mtable">
 <thead><tr><th>표시</th><th>의미</th><th>다음 행동</th></tr></thead>
@@ -129,7 +122,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 자주 발견되는 문제
+## 4. 자주 발견되는 문제
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">문서/설정 미인식</div><div class="wda-fcard-dsc">설정 파일 경로가 틀렸거나 파일이 없는 경우입니다. 파일 위치와 이름을 다시 확인합니다.</div></div>
@@ -139,7 +132,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 다음 단계로 넘어가기 전 체크리스트
+## 5. 다음 단계로 넘어가기 전 체크리스트
 
 <div class="wda-check-note">
   <ul>
@@ -154,7 +147,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. ✅ 핵심 요약
+## 6. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 
