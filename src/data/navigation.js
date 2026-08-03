@@ -178,8 +178,28 @@ export const categories = [
     name: 'TypeScript',
     emoji: '🔷',
     slug: 'typescript',
-    description: 'JavaScript에 정적 타입을 더한 언어. 타입 시스템의 기초부터 React와의 통합까지, 더 안전하고 예측 가능한 코드를 작성합니다.',
-    sections: ['Basics', 'React + TypeScript'],
+    description: 'JavaScript에 정적 타입을 더한 언어. 타입 시스템의 기초부터 React와의 통합, 실전 패턴까지 더 안전하고 예측 가능한 코드를 작성합니다.',
+    nestedSidebar: true,
+    sections: ['TypeScript 기본', 'React + TypeScript', 'TypeScript 실전 패턴'],
+    sectionDocs: {
+      'TypeScript 기본': [
+        { slug: '1-1-what-is-typescript', title: '1-1 TypeScript가 뭔가요?', folder: 'basics' },
+        { slug: '1-2-why-use-typescript', title: '1-2 왜 TypeScript를 사용할까?', folder: 'basics' },
+        { slug: '1-3-basic-types', title: '1-3 기본 타입 익히기', folder: 'basics' },
+        { slug: '1-4-type-alias-and-interface', title: '1-4 타입 별칭과 인터페이스', folder: 'basics' },
+        { slug: '1-5-type-assertion', title: '1-5 타입 단언 알아보기', folder: 'basics' },
+      ],
+      'React + TypeScript': [
+        { slug: '2-1-react-typescript-project', title: '2-1 React + TypeScript 프로젝트 시작하기', folder: 'react-typescript' },
+        { slug: '2-2-props-types', title: '2-2 Props 타입 정의하기', folder: 'react-typescript' },
+        { slug: '2-3-state-types', title: '2-3 State 타입 정의하기', folder: 'react-typescript' },
+        { slug: '2-4-event-handler-types', title: '2-4 이벤트 핸들러 타입 지정하기', folder: 'react-typescript' },
+      ],
+      'TypeScript 실전 패턴': [
+        { slug: '3-1-generic-reusable-component', title: '3-1 제네릭으로 재사용 컴포넌트 만들기', folder: 'patterns' },
+        { slug: '3-2-custom-hook-types', title: '3-2 커스텀 훅에 타입 적용하기', folder: 'patterns' },
+      ],
+    },
   },
   {
     id: 'react',
