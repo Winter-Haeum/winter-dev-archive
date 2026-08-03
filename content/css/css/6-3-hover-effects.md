@@ -69,15 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 버튼 hover 효과
 
-<div class="wda-callout wda-ci">
-  <p>[[6-1-transition-effects|2-5-1]]에서 transition의 기본기를, [[6-2-animation-keyframes|2-5-2]]에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 <strong>종합 실습</strong>이다. 대부분의 예시는 transition만으로 충분히 구현된다.</p>
-</div>
-
----
-
-## 2. 버튼 hover 효과
+[[6-1-transition-effects|2-5-1]]에서 transition의 기본기를, [[6-2-animation-keyframes|2-5-2]]에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 종합 실습이다. 대부분의 예시는 transition만으로 충분히 구현된다.
 
 버튼은 hover 효과를 가장 자주 적용하는 요소다. 기본 패턴은 아래 4가지로 정리된다.
 
@@ -124,7 +118,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 카드 hover: Lift Up과 Tilt
+## 2. 카드 hover: Lift Up과 Tilt
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -167,7 +161,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 이미지 hover: 줌 효과와 오버레이
+## 3. 이미지 hover: 줌 효과와 오버레이
 
 ### 4-1. 줌 효과
 
@@ -213,7 +207,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 ---
 
-## 5. 텍스트 hover: 언더라인 애니메이션
+## 4. 텍스트 hover: 언더라인 애니메이션
 
 `text-decoration` 대신 가상 요소로 밑줄을 직접 그리면, 밑줄이 왼쪽에서 오른쪽으로 그려지는 애니메이션을 만들 수 있다.
 
@@ -243,7 +237,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 ---
 
-## 6. 고급 hover: 자식·형제 요소 제어
+## 5. 고급 hover: 자식·형제 요소 제어
 
 ### 6-1. 자식 요소 제어
 
@@ -280,7 +274,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 ---
 
-## 7. 고급 hover: :has()와 :not() 활용
+## 6. 고급 hover: :has()와 :not() 활용
 
 ### 7-1. :has() — 자식·후손 상태 기반으로 부모 선택
 
@@ -318,7 +312,7 @@ li:has(input:checked) {
 
 ---
 
-## 8. 실전 적용 포인트
+## 7. 실전 적용 포인트
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">과함 피하기</div><div class="wda-fcard-dsc">하나의 크고 화려한 애니메이션보다, 작은 변화 여러 개를 섞는 편이 더 자연스럽다.</div></div>

@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 텍스트 태그
 
-<div class="wda-callout wda-ci">
-  <p><strong>지금까지 문서 구조와 시맨틱 태그의 개념을 다뤘다면, 이 문서는 실제로 화면을 채울 때 자주 쓰는 태그들을 모아 정리합니다.</strong></p>
-  <p>한 번에 모든 속성을 외울 필요는 없습니다. 필요할 때 다시 찾아볼 수 있는 참고 자료로 활용해도 좋습니다.</p>
-</div>
-
----
-
-## 2. 텍스트 태그
+지금까지 문서 구조와 시맨틱 태그의 개념을 다뤘다면, 이 문서는 실제로 화면을 채울 때 자주 쓰는 태그들을 모아 정리합니다. 한 번에 모든 속성을 외울 필요는 없습니다. 필요할 때 다시 찾아볼 수 있는 참고 자료로 활용해도 좋습니다.
 
 ### 제목 태그 (h1~h6)
 
@@ -108,7 +101,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 링크 태그
+## 2. 링크 태그
 
 ```html
 <a href="https://example.com">외부 사이트로 이동</a>
@@ -131,7 +124,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 이미지 태그
+## 3. 이미지 태그
 
 ```html
 <img src="cat.jpg" alt="창가에 앉아 있는 하얀 고양이" width="300" height="200" />
@@ -153,7 +146,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 리스트 태그
+## 4. 리스트 태그
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -193,7 +186,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 표(table) 태그
+## 5. 표(table) 태그
 
 ```html
 <table>
@@ -234,7 +227,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. 폼(form) 태그
+## 6. 폼(form) 태그
 
 ### label과 input 연결하기
 

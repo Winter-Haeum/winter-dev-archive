@@ -70,16 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 복습 — 기본 Grid 컨테이너
 
-<div class="wda-callout wda-ci">
-  <p>[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 <strong>행과 열을 실제로 어떻게 자유자재로 배치하는지</strong>를 다룬다.</p>
-  <p>단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.</p>
-</div>
-
----
-
-## 2. 복습 — 기본 Grid 컨테이너
+[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 행과 열을 실제로 어떻게 자유자재로 배치하는지를 다룬다. 단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.
 
 ```css
 .container {
@@ -93,7 +86,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. grid-template-columns — 단위별 특징
+## 2. grid-template-columns — 단위별 특징
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">px 고정</div><div class="wda-fcard-dsc">항상 같은 너비를 유지한다. 화면 크기가 바뀌어도 반응하지 않는다.</div></div>
@@ -103,7 +96,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. fr 단위 계산 원리
+## 3. fr 단위 계산 원리
 
 <div class="wda-formula-board">
   <div class="wda-formula-block">
@@ -146,7 +139,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. px + fr 혼합 계산
+## 4. px + fr 혼합 계산
 
 고정 폭이 필요한 영역은 `px`로 먼저 잡고, 나머지 가변 영역만 `fr`로 나누는 방식이 실무에서 표준처럼 쓰인다.
 
@@ -182,7 +175,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. repeat() 함수 — 반복 정의 줄이기
+## 5. repeat() 함수 — 반복 정의 줄이기
 
 같은 크기의 열을 여러 개 반복해서 적어야 할 때, 하나씩 나열하면 타이핑이 늘어나고 열 개수를 바꿀 때마다 일일이 고쳐야 해서 가독성도 떨어진다.
 
@@ -221,7 +214,7 @@ grid-template-columns: 200px repeat(3, 1fr) 100px;
 
 ---
 
-## 7. minmax() 함수 — 최소·최대 크기 제한
+## 6. minmax() 함수 — 최소·최대 크기 제한
 
 `minmax(최소값, 최대값)`은 셀 크기가 특정 범위 안에서만 움직이도록 제한한다.
 
@@ -241,7 +234,7 @@ grid-template-columns: minmax(100px, 300px) 1fr;
 
 ---
 
-## 8. grid-template-rows — 행 높이 정의
+## 7. grid-template-rows — 행 높이 정의
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>특징</th></tr></thead>
@@ -265,7 +258,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 9. gap 세분화 패턴
+## 8. gap 세분화 패턴
 
 ```css
 /* 패턴 1 - 통합, 가장 많이 쓰는 형태 */
@@ -287,7 +280,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 10. grid-column — 열 방향 배치
+## 9. grid-column — 열 방향 배치
 
 시작 라인과 끝 라인을 `/`로 구분해서 지정한다. `1 / 3`은 1번 라인부터 3번 라인까지, 즉 2칸을 차지한다는 뜻이다.
 
@@ -305,7 +298,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 11. grid-column: span — 칸 합치기
+## 10. grid-column: span — 칸 합치기
 
 `span N`은 "현재 위치에서 오른쪽으로 N칸을 차지한다"는 뜻이다. 시작 라인은 자동 배치에 맡기고 칸 수만 지정하고 싶을 때 편리하다.
 
@@ -338,7 +331,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 12. grid-row — 행 방향 배치
+## 11. grid-row — 행 방향 배치
 
 `grid-column`과 동일한 문법을 행에 적용한다.
 
@@ -356,7 +349,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 13. grid-area — 위치 지정 단일 속성
+## 12. grid-area — 위치 지정 단일 속성
 
 `grid-column`과 `grid-row`를 한 번에 지정하는 단축 속성이다. 값 순서는 `row-start / column-start / row-end / column-end`다.
 
@@ -396,7 +389,7 @@ grid-template-rows: 80px auto 60px;
 
 ---
 
-## 14. grid-template-areas — 영역 이름으로 설계하기
+## 13. grid-template-areas — 영역 이름으로 설계하기
 
 라인 번호 방식은 구조가 복잡해질수록 숫자만 보고 전체 배치를 떠올리기 어려워진다. `grid-template-areas`는 레이아웃을 문자열로 그림처럼 표현할 수 있게 해준다.
 
@@ -439,7 +432,7 @@ grid-template-areas:
 
 ---
 
-## 15. grid-template-areas 실전 — 페이지 전체 레이아웃
+## 14. grid-template-areas 실전 — 페이지 전체 레이아웃
 
 ```html
 <div class="page">
@@ -471,7 +464,7 @@ grid-template-areas:
 
 ---
 
-## 16. 핵심 개념 총정리
+## 15. 핵심 개념 총정리
 
 <table class="wda-mtable">
 <thead><tr><th>개념</th><th>핵심 내용</th></tr></thead>

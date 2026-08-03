@@ -76,16 +76,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 준비물 한눈에 보기
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 setup 카테고리는 5개 문서로 이루어져 있으며, 각 문서는 준비 과정의 서로 다른 단계를 다룹니다.</strong></p>
-  <p>이 문서(1단계)는 그 중 가장 처음, <strong>포트폴리오 프로젝트를 만들기 전 작업 환경을 준비하는 단계</strong>입니다. 필요한 도구를 설치하고 정상 동작을 확인하는 데 집중하며, AI에게 작업을 요청하는 방법이나 GitHub 백업, 보안 관리는 이후 문서에서 다룹니다.</p>
-</div>
-
----
-
-## 2. 준비물 한눈에 보기
+이 setup 카테고리는 5개 문서로 이루어져 있으며, 각 문서는 준비 과정의 서로 다른 단계를 다룹니다. 이 문서(1단계)는 그 중 가장 처음, 포트폴리오 프로젝트를 만들기 전 작업 환경을 준비하는 단계입니다. 필요한 도구를 설치하고 정상 동작을 확인하는 데 집중하며, AI에게 작업을 요청하는 방법이나 GitHub 백업, 보안 관리는 이후 문서에서 다룹니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Git</div><div class="wda-fcard-dsc">코드 변경 이력을 관리하는 버전 관리 도구입니다.</div></div>
@@ -98,7 +91,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. Windows에 설치하기
+## 2. Windows에 설치하기
 
 Windows 10/11에는 `winget`이라는 패키지 관리자가 기본 내장되어 있어, 명령어 한 줄로 프로그램을 설치할 수 있습니다.
 
@@ -121,7 +114,7 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
-## 4. Mac에 설치하기
+## 3. Mac에 설치하기
 
 macOS는 Git이 기본 포함되어 있지만, Node.js 설치를 위해 Homebrew라는 패키지 관리자를 먼저 설치해야 합니다.
 
@@ -139,7 +132,7 @@ sudo npm install -g @anthropic-ai/claude-code
 
 ---
 
-## 5. 설치 확인하기
+## 4. 설치 확인하기
 
 아래 네 명령어로 모든 도구가 정상적으로 설치되었는지 확인합니다.
 
@@ -158,7 +151,7 @@ claude --version
 
 ---
 
-## 6. VS Code에서 작업 폴더 준비하기
+## 5. VS Code에서 작업 폴더 준비하기
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">작업 폴더 생성</div><div class="wda-fcard-dsc">프로젝트를 담을 폴더를 하나 만듭니다.</div></div>
@@ -174,7 +167,7 @@ claude --version
 
 ---
 
-## 7. Claude Code 인증하기
+## 6. Claude Code 인증하기
 
 터미널에서 `claude`를 처음 실행하면 로그인 절차를 안내합니다.
 
@@ -196,7 +189,7 @@ claude --version
 
 ---
 
-## 8. 코드 스타일 도구 소개
+## 7. 코드 스타일 도구 소개
 
 VS Code에 ESLint와 Prettier 확장을 추가하면 코드 품질과 스타일을 자동으로 관리할 수 있습니다.
 
@@ -215,7 +208,7 @@ VS Code에 ESLint와 Prettier 확장을 추가하면 코드 품질과 스타일�
 
 ---
 
-## 9. 다음 단계로
+## 8. 다음 단계로
 
 <div class="wda-check-note">
   <ul>
@@ -226,7 +219,7 @@ VS Code에 ESLint와 Prettier 확장을 추가하면 코드 품질과 스타일�
 
 ---
 
-## 10. ✅ 핵심 요약
+## 9. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 모바일에서 자주 확인하는 항목
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[3-1-web-vs-app|이전 문서]]에서 반응형 사고방식을 이해했다면, 이번에는 responsive-portfolio, 즉 lesson-1에서 만든 포트폴리오 화면을 모바일 기준으로 실제 점검하고 수정을 요청할 차례입니다.</strong></p>
-  <p>새로운 화면을 기획하는 것이 아니라, <strong>이미 있는 화면을 모바일에서도 읽기 좋게 다듬는 것</strong>이 이 문서의 목표입니다.</p>
-</div>
-
----
-
-## 2. 모바일에서 자주 확인하는 항목
+[[3-1-web-vs-app|이전 문서]]에서 반응형 사고방식을 이해했다면, 이번에는 responsive-portfolio, 즉 lesson-1에서 만든 포트폴리오 화면을 모바일 기준으로 실제 점검하고 수정을 요청할 차례입니다. 새로운 화면을 기획하는 것이 아니라, 이미 있는 화면을 모바일에서도 읽기 좋게 다듬는 것이 이 문서의 목표입니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">섹션 순서</div><div class="wda-fcard-dsc">가장 먼저 봐야 할 정보가 화면 위쪽에 오는지 확인합니다.</div></div>
@@ -88,7 +81,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 터치 영역 체크리스트
+## 2. 터치 영역 체크리스트
 
 <table class="wda-mtable">
 <thead><tr><th>확인 항목</th><th>기준</th></tr></thead>
@@ -102,7 +95,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 검토 → 요청 흐름
+## 3. 검토 → 요청 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 기존 화면 확인</div><div class="wda-fnode-dsc">데스크톱 기준으로 만든 화면 확인</div></div>
@@ -118,7 +111,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI에게 모바일 레이아웃 수정 요청하기
+## 4. AI에게 모바일 레이아웃 수정 요청하기
 
 ```
 목표:
@@ -145,7 +138,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 결과는 반드시 실제 크기에서 검토
+## 5. 결과는 반드시 실제 크기에서 검토
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -160,7 +153,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. 반응형 실수 카드
+## 6. 반응형 실수 카드
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">텍스트 겹침</div><div class="wda-fcard-dsc">글자 크기는 그대로인데 영역만 좁아져 줄바꿈이 깨지는 경우입니다.</div></div>

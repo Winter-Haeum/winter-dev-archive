@@ -18,6 +18,7 @@ description: "API가 정확히 무엇을 하는 존재인지, 요청과 응답�
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. API란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-2에서 "프론트엔드와 백엔드는 API라는 약속으로 연결된다"고 했던 그 API를 자세히 들여다봅니다.</strong></p>
-  <p>API가 정확히 무엇을 주고받는 약속인지, 왜 이런 약속이 없으면 곤란한지를 다룹니다. API를 실제 코드로 호출하는 방법(fetch, HTTP 메서드)은 다음 카테고리인 HTTP 문서들에서 이어집니다.</p>
-</div>
-
----
-
-## 2. API란 무엇인가
+1-2에서 "프론트엔드와 백엔드는 API라는 약속으로 연결된다"고 했던 그 API를 자세히 들여다봅니다. API가 정확히 무엇을 주고받는 약속인지, 왜 이런 약속이 없으면 곤란한지를 다룹니다. API를 실제 코드로 호출하는 방법(fetch, HTTP 메서드)은 다음 카테고리인 HTTP 문서들에서 이어집니다.
 
 **API(Application Programming Interface)**는 프로그램끼리 서로 대화하기 위해 미리 정해둔 규칙입니다. 사람 사이의 대화에 언어와 예절이 필요하듯, 프로그램끼리 데이터를 주고받으려면 "어떤 주소로, 어떤 형식으로 요청하면, 어떤 형식으로 응답을 준다"는 약속이 필요합니다.
 
@@ -100,7 +94,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 요청과 응답
+## 2. 요청과 응답
 
 API는 항상 **요청(Request)**과 **응답(Response)** 한 쌍으로 동작합니다.
 
@@ -129,7 +123,7 @@ API는 항상 **요청(Request)**과 **응답(Response)** 한 쌍으로 동작�
 
 ---
 
-## 4. API가 없다면 생기는 문제
+## 3. API가 없다면 생기는 문제
 
 API라는 약속이 없다면 프로그램끼리 데이터를 주고받는 일이 훨씬 번거롭고 위험해집니다.
 
@@ -146,7 +140,7 @@ API라는 약속이 없다면 프로그램끼리 데이터를 주고받는 일�
 
 ---
 
-## 5. 오픈 API — 누구나 쓸 수 있는 API
+## 4. 오픈 API — 누구나 쓸 수 있는 API
 
 모든 API가 회사 내부에서만 쓰이는 건 아닙니다. **오픈 API**는 외부 개발자도 사용할 수 있도록 공개된 API로, 지도, 로그인, 결제, 날씨 정보 등 다양한 분야에서 제공됩니다.
 

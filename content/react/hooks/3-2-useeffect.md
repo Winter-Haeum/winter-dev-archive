@@ -72,16 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Side Effect란
 
-<div class="wda-callout wda-ci">
-  <p><strong>useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다.</strong></p>
-  <p>state를 안전하게 바꾸는 방법은 [[3-1-usestate|3-1 문서]]에서 다뤘습니다. 이 문서는 그 state가 바뀔 때 서버 요청이나 타이머처럼 <strong>화면 그리기 자체가 아닌 작업</strong>을 언제, 어떻게 실행할지를 다룹니다. 실행 순서를 클래스 컴포넌트 생명주기와 비교하는 자세한 내용은 부록 "리액트 라이프사이클" 문서에서 다룹니다.</p>
-</div>
-
----
-
-## 2. Side Effect란
+useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다. state를 안전하게 바꾸는 방법은 [[3-1-usestate|3-1 문서]]에서 다뤘습니다. 이 문서는 그 state가 바뀔 때 서버 요청이나 타이머처럼 화면 그리기 자체가 아닌 작업을 언제, 어떻게 실행할지를 다룹니다. 실행 순서를 클래스 컴포넌트 생명주기와 비교하는 자세한 내용은 부록 "리액트 라이프사이클" 문서에서 다룹니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">순수 함수</div><div class="wda-fcard-dsc">같은 입력이면 항상 같은 결과를 반환하고, 함수 바깥의 상태를 바꾸지 않습니다.</div></div>
@@ -92,7 +85,7 @@ React는 컴포넌트 함수가 렌더링 중에는 순수하게 동작하기를
 
 ---
 
-## 3. useEffect 기본 문법
+## 2. useEffect 기본 문법
 
 ```jsx
 import { useEffect } from 'react';
@@ -110,7 +103,7 @@ function HookDashboard() {
 
 ---
 
-## 4. 의존성 배열 3가지 케이스
+## 3. 의존성 배열 3가지 케이스
 
 <table class="wda-mtable">
 <thead><tr><th>형태</th><th>실행 시점</th></tr></thead>
@@ -137,7 +130,7 @@ function LearningFetcher({ keyword }) {
 
 ---
 
-## 5. Cleanup 함수
+## 4. Cleanup 함수
 
 `useEffect` 콜백이 함수를 **반환**하면, 그 함수는 다음 effect가 실행되기 직전과 컴포넌트가 사라질 때 호출됩니다.
 
@@ -165,7 +158,7 @@ function TimerBox() {
 
 ---
 
-## 6. 데이터 페칭 패턴
+## 5. 데이터 페칭 패턴
 
 ```jsx
 function LearningFetcher({ courseId }) {
@@ -197,7 +190,7 @@ function LearningFetcher({ courseId }) {
 
 ---
 
-## 7. 흔한 실수
+## 6. 흔한 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>의존성 배열에 있는 값을 effect 내부에서 바꾸는 경우</strong></p>
@@ -211,7 +204,7 @@ function LearningFetcher({ courseId }) {
 
 ---
 
-## 8. ✅ 핵심 요약
+## 7. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

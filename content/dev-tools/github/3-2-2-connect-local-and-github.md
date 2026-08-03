@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 로컬 저장소 vs 원격 저장소
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[3-2-1-create-github-account|이전 문서]]에서 GitHub 계정을 만들었다면, 이제는 그 계정을 내 컴퓨터의 로컬 저장소와 연결할 차례입니다.</strong></p>
-  <p>이번 문서는 원격 저장소라는 개념을 이해하고, <code>git remote</code>와 <code>git clone</code>으로 로컬과 GitHub를 연결하는 두 가지 경로, 그리고 HTTPS·SSH 인증 방식을 다룹니다.</p>
-</div>
-
----
-
-## 2. 로컬 저장소 vs 원격 저장소
+[[3-2-1-create-github-account|이전 문서]]에서 GitHub 계정을 만들었다면, 이제는 그 계정을 내 컴퓨터의 로컬 저장소와 연결할 차례입니다. 이번 문서는 원격 저장소라는 개념을 이해하고, <code>git remote</code>와 <code>git clone</code>으로 로컬과 GitHub를 연결하는 두 가지 경로, 그리고 HTTPS·SSH 인증 방식을 다룹니다.
 
 Git을 어느 정도 다뤄본 사람도 로컬 저장소와 원격 저장소의 차이를 헷갈리는 경우가 많다. 이름 그대로 위치가 다르다.
 
@@ -97,7 +90,7 @@ Git을 어느 정도 다뤄본 사람도 로컬 저장소와 원격 저장소의
 
 ---
 
-## 3. git remote 명령어
+## 2. git remote 명령어
 
 `git remote`는 로컬 저장소에 원격 주소를 연결하거나 관리할 때 사용하는 명령어다.
 
@@ -119,7 +112,7 @@ git remote add origin https://github.com/your-username/repo.git
 
 ---
 
-## 4. git clone으로 전체 저장소 복제하기
+## 3. git clone으로 전체 저장소 복제하기
 
 `git clone`은 원격 저장소 전체를 로컬로 복제하는 명령어다. 저장소 내용뿐 아니라 전체 커밋 기록까지 함께 가져오며, 복제와 동시에 원격 주소가 `origin`으로 자동 등록된다. 새로운 프로젝트를 처음 가져올 때 사용한다.
 
@@ -159,7 +152,7 @@ git remote -v
 
 ---
 
-## 5. HTTPS 방식 vs SSH 방식
+## 4. HTTPS 방식 vs SSH 방식
 
 원격 저장소에 접근할 때는 인증 방식을 HTTPS와 SSH 중에서 선택해야 한다.
 
@@ -180,7 +173,7 @@ git remote -v
 
 ---
 
-## 6. SSH 키 생성하기
+## 5. SSH 키 생성하기
 
 SSH 인증은 한 쌍의 키를 기반으로 동작한다.
 
@@ -227,7 +220,7 @@ ls -al ~/.ssh
 
 ---
 
-## 7. SSH 키 권한 설정
+## 6. SSH 키 권한 설정
 
 SSH는 키 파일의 권한이 지나치게 열려 있으면 동작을 거부한다. 권한 숫자는 읽기(4), 쓰기(2), 실행(1)의 합으로 표현된다.
 
@@ -247,7 +240,7 @@ chmod 700 ~/.ssh
 
 ---
 
-## 8. GitHub에 SSH 공개키 등록하기
+## 7. GitHub에 SSH 공개키 등록하기
 
 키 생성이 끝났다면 공개키 내용만 GitHub에 등록한다.
 
@@ -273,7 +266,7 @@ cat ~/.ssh/id_ed25519.pub
 
 ---
 
-## 9. 실습: 오픈소스 저장소 SSH로 clone 해보기
+## 8. 실습: 오픈소스 저장소 SSH로 clone 해보기
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">① SSH URL 복사</div><div class="wda-fnode-dsc">Code 버튼 → SSH 탭</div></div>

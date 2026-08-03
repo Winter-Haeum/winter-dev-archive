@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 신문 레이아웃
 
-<div class="wda-callout wda-ci">
-  <p>[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 <strong>실제 서비스에서 쓰이는 완성형 레이아웃</strong>을 만든다.</p>
-  <p>신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.</p>
-</div>
-
----
-
-## 2. 신문 레이아웃
+[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 실제 서비스에서 쓰이는 완성형 레이아웃을 만든다. 신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Header</div><div class="wda-fcard-dsc">전체 너비를 차지</div></div>
@@ -144,7 +137,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 대시보드 레이아웃
+## 2. 대시보드 레이아웃
 
 `grid-column`으로 영역을 하나씩 지정하면 라인 번호 계산이 복잡해지고 가독성도 떨어진다. 이런 경우 `grid-template-areas`가 해결책이 된다. 레이아웃을 문자열로 그리듯 설계하고, 영역마다 이름을 붙인 뒤 `grid-area`로 연결하면 된다.
 
@@ -211,7 +204,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 이미지 갤러리 — auto-fit / auto-fill
+## 3. 이미지 갤러리 — auto-fit / auto-fill
 
 열 개수를 3개로 고정하면 화면이 커질수록 카드가 불필요하게 커지고, 화면이 작아지면 카드가 너무 작아진다. 화면 크기마다 미디어 쿼리로 열 개수를 새로 지정하는 것도 번거롭다.
 
@@ -248,7 +241,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. auto-fit vs auto-fill
+## 4. auto-fit vs auto-fill
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -308,7 +301,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 반응형 Grid — 미디어 쿼리 결합
+## 5. 반응형 Grid — 미디어 쿼리 결합
 
 PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 화면에 그대로 쓰면 사이드바가 화면을 너무 많이 차지해 좁고 답답해진다. 화면이 좁아지면 가로 2열을 세로 1열로 바꿔야 한다.
 

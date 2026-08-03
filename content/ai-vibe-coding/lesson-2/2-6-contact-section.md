@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. lesson-2 전체 흐름 되짚기
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-2에서는 정적이던 포트폴리오에 실제 데이터를 연결하는 과정을 다뤘습니다.</strong></p>
-  <p>이 문서는 새로운 내용을 배우기보다, 지금까지 만든 것이 제대로 이어져 있는지 점검하고 정리하는 문서입니다.</p>
-</div>
-
----
-
-## 2. lesson-2 전체 흐름 되짚기
+lesson-2에서는 정적이던 포트폴리오에 실제 데이터를 연결하는 과정을 다뤘습니다. 이 문서는 새로운 내용을 배우기보다, 지금까지 만든 것이 제대로 이어져 있는지 점검하고 정리하는 문서입니다.
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">2-1</div><div class="wda-fnode-dsc">데이터 필요성 이해</div></div>
@@ -93,7 +86,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 최종 점검 체크리스트
+## 2. 최종 점검 체크리스트
 
 <div class="wda-check-note">
   <ul>
@@ -106,7 +99,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 보안 점검
+## 3. 보안 점검
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">배포 전 반드시 확인</span>
@@ -121,7 +114,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI가 만든 결과물, 마지막까지 검토하는 습관
+## 4. AI가 만든 결과물, 마지막까지 검토하는 습관
 
 <div class="wda-callout wda-ci">
   <p>lesson-1부터 이어온 원칙은 lesson-2에서도 동일합니다. AI가 만들어 준 데이터 구조, 연결 코드, 입력 검증, 목록 화면 모두 <strong>생성 → 검토 → 필요하면 수정 요청</strong>의 흐름을 거칩니다. 결과물을 그대로 신뢰하기보다, 이 문서들에서 정리한 체크리스트로 한 번씩 확인하는 습관을 들입니다.</p>
@@ -129,7 +122,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 다음 단계 미리보기
+## 5. 다음 단계 미리보기
 
 <div class="wda-callout wda-cs">
   <p>지금까지 만든 화면은 데스크톱 기준으로 확인한 화면입니다. 이후 문서에서는 지금 만든 화면이 다른 환경에서도 잘 보이는지 넓혀가는 내용을 다룰 예정입니다. 구체적인 내용은 해당 문서에서 자세히 안내합니다.</p>

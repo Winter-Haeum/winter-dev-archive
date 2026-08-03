@@ -18,6 +18,7 @@ description: "번들러 설정에서 자주 등장하는 entry·output·loader·
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. entry — 어디서부터 시작할까
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-1에서 번들러가 왜 필요한지 배웠다면, 이 문서에서는 번들러에게 "무엇을, 어떻게 묶을지" 알려주는 설정 개념을 다룹니다.</strong></p>
-  <p>번들러마다 설정 문법은 조금씩 다르지만, entry·output·loader·plugin이라는 핵심 개념은 대부분의 번들러에서 공통으로 등장합니다.</p>
-</div>
-
----
-
-## 2. entry — 어디서부터 시작할까
+1-1에서 번들러가 왜 필요한지 배웠다면, 이 문서에서는 번들러에게 "무엇을, 어떻게 묶을지" 알려주는 설정 개념을 다룹니다. 번들러마다 설정 문법은 조금씩 다르지만, entry·output·loader·plugin이라는 핵심 개념은 대부분의 번들러에서 공통으로 등장합니다.
 
 번들러는 프로젝트의 모든 파일을 무작정 다 읽는 것이 아니라, **entry(진입점)**라고 부르는 파일 하나부터 시작해서 import로 연결된 파일들을 따라가며 필요한 파일만 찾아갑니다.
 
@@ -95,7 +89,7 @@ entry 파일에서 사용하지 않는 파일은 번들 결과물에도 포함�
 
 ---
 
-## 3. output — 결과물을 어디에 만들까
+## 2. output — 결과물을 어디에 만들까
 
 **output**은 번들러가 완성한 결과 파일을 어디에, 어떤 이름으로 저장할지를 정합니다. 보통 `dist`라는 폴더 이름이 관례적으로 많이 쓰입니다.
 
@@ -109,7 +103,7 @@ entry 파일에서 사용하지 않는 파일은 번들 결과물에도 포함�
 
 ---
 
-## 4. loader와 plugin — 번들러의 능력 확장
+## 3. loader와 plugin — 번들러의 능력 확장
 
 번들러는 기본적으로 자바스크립트 파일을 다루는 데 특화되어 있습니다. 하지만 실제 프로젝트에는 CSS, 이미지, TypeScript처럼 자바스크립트가 아닌 파일도 함께 존재합니다. 이런 파일까지 다루려면 번들러의 기능을 확장해야 합니다.
 
@@ -131,7 +125,7 @@ entry 파일에서 사용하지 않는 파일은 번들 결과물에도 포함�
 
 ---
 
-## 5. Vite 기준 기본 설정 살펴보기
+## 4. Vite 기준 기본 설정 살펴보기
 
 실제 설정이 어떻게 생겼는지, Vite를 예로 살펴보겠습니다. Vite는 대부분의 기본값이 이미 정해져 있어서, 설정 파일이 비교적 짧고 단순한 편입니다.
 

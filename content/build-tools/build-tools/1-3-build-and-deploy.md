@@ -18,6 +18,7 @@ description: "개발용 빌드와 배포용 빌드의 차이, dist 폴더에 담
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 개발용 빌드 vs 배포용 빌드
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-2에서 번들러 설정 개념을 배웠다면, 이 문서에서는 그 설정을 이용해 실제로 "완성된 결과물"을 만드는 과정을 다룹니다.</strong></p>
-  <p>개발 중에 보는 화면과, 사용자에게 실제로 전달되는 화면은 만들어지는 방식이 다릅니다. 이 차이를 이해하는 것이 이 문서의 핵심입니다.</p>
-</div>
-
----
-
-## 2. 개발용 빌드 vs 배포용 빌드
+1-2에서 번들러 설정 개념을 배웠다면, 이 문서에서는 그 설정을 이용해 실제로 "완성된 결과물"을 만드는 과정을 다룹니다. 개발 중에 보는 화면과, 사용자에게 실제로 전달되는 화면은 만들어지는 방식이 다릅니다. 이 차이를 이해하는 것이 이 문서의 핵심입니다.
 
 개발할 때 실행하는 개발 서버와, 실제 서비스를 위해 만드는 결과물은 목적 자체가 다릅니다.
 
@@ -104,7 +98,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. dist 폴더란
+## 2. dist 폴더란
 
 `npm run build`를 실행하면 번들러는 배포에 필요한 파일들을 한곳에 모아 저장합니다. 이 폴더는 보통 관례적으로 `dist`(distribution의 줄임말)라는 이름을 사용합니다.
 
@@ -129,7 +123,7 @@ dist/
 
 ---
 
-## 4. 정적 파일을 배포한다는 것
+## 3. 정적 파일을 배포한다는 것
 
 **배포(Deploy)**는 이 `dist` 폴더 안의 파일들을 사용자가 접속할 수 있는 서버에 올려두는 작업입니다. `dist` 폴더 안의 파일들은 서버에서 별도의 처리 없이 그대로 전달만 하면 되는 파일이라는 의미에서 **정적 파일(Static File)**이라고 부릅니다.
 

@@ -18,6 +18,7 @@ description: "브라우저 내장 함수 fetch로 실제 HTTP 요청을 보내�
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. fetch — 브라우저가 기본 제공하는 요청 함수
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-1에서 배운 HTTP 요청/응답을, 실제로 자바스크립트 코드에서 어떻게 보내고 받는지 다룹니다.</strong></p>
-  <p>브라우저는 <code>fetch</code>라는 함수를 기본으로 제공하며, 이 함수가 HTTP 요청을 만들어 서버로 보내고 응답을 돌려줍니다. 이 기본기를 익히고 나면, 다음 문서(1-3 CORS 알아보기)에서 다루는 "왜 어떤 API 요청은 브라우저에서 막히는가"도 훨씬 쉽게 이해할 수 있습니다.</p>
-</div>
-
----
-
-## 2. fetch — 브라우저가 기본 제공하는 요청 함수
+1-1에서 배운 HTTP 요청/응답을, 실제로 자바스크립트 코드에서 어떻게 보내고 받는지 다룹니다. 브라우저는 <code>fetch</code>라는 함수를 기본으로 제공하며, 이 함수가 HTTP 요청을 만들어 서버로 보내고 응답을 돌려줍니다. 이 기본기를 익히고 나면, 다음 문서(1-3 CORS 알아보기)에서 다루는 "왜 어떤 API 요청은 브라우저에서 막히는가"도 훨씬 쉽게 이해할 수 있습니다.
 
 `fetch`는 브라우저에 내장된 함수로, 별도 설치 없이 바로 사용해 서버에 HTTP 요청을 보낼 수 있습니다. `fetch(주소)` 형태로 호출하면 서버와 통신을 시작하고, 결과가 도착하면 이를 활용할 수 있습니다.
 
@@ -109,7 +103,7 @@ async function getUsers() {
 
 ---
 
-## 3. POST 요청 — 데이터 보내기
+## 2. POST 요청 — 데이터 보내기
 
 데이터를 조회하는 게 아니라 새로 만들 때는 `method`, `headers`, `body`를 함께 지정합니다.
 
@@ -135,7 +129,7 @@ async function createUser(userData) {
 
 ---
 
-## 4. JSON — 왜 객체를 그대로 보낼 수 없을까
+## 3. JSON — 왜 객체를 그대로 보낼 수 없을까
 
 자바스크립트 객체는 브라우저 메모리 안에서만 의미가 있는 구조입니다. 네트워크를 통해 서버로 보내려면 **문자열** 형태로 바꿔야 하는데, 이때 쓰는 표준 형식이 **JSON(JavaScript Object Notation)**입니다.
 
@@ -167,7 +161,7 @@ async function createUser(userData) {
 
 ---
 
-## 5. 최소한의 에러 처리
+## 4. 최소한의 에러 처리
 
 `fetch`는 서버가 404나 500을 응답해도 "통신 자체는 성공"했다고 판단하기 때문에, 실패 여부는 직접 확인해야 합니다.
 

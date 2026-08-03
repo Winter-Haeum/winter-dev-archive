@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Component based 방식 이해하기 (Bootstrap의 접근)
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-1-what-is-css-framework|이전 문서]]에서 CSS 프레임워크가 왜 필요한지를 봤다면, 이 문서는 프레임워크들이 실제로 UI를 만드는 두 가지 대표 방식을 비교합니다.</strong></p>
-  <p>여기서 정리하는 두 철학은 이후 다룰 Bootstrap(4.3), TailwindCSS(4.4)를 이해하는 기준이 된다.</p>
-</div>
-
----
-
-## 2. Component based 방식 이해하기 (Bootstrap의 접근)
+[[4-1-what-is-css-framework|이전 문서]]에서 CSS 프레임워크가 왜 필요한지를 봤다면, 이 문서는 프레임워크들이 실제로 UI를 만드는 두 가지 대표 방식을 비교합니다. 여기서 정리하는 두 철학은 이후 다룰 Bootstrap(4.3), TailwindCSS(4.4)를 이해하는 기준이 된다.
 
 Component based 방식은 이미 완성된 UI 구성요소를 클래스 하나로 가져다 쓰는 방식이다. 버튼, 카드, 알림, 폼처럼 디자인·색상·형태가 이미 정해진 상태로 제공되기 때문에, 개발자는 그 컴포넌트를 조립하는 데 집중하면 된다.
 
@@ -128,7 +121,7 @@ Component based 방식은 이미 완성된 UI 구성요소를 클래스 하나�
 
 ---
 
-## 3. Utility first 방식 이해하기 (TailwindCSS의 철학)
+## 2. Utility first 방식 이해하기 (TailwindCSS의 철학)
 
 Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 방식이다. 완성된 버튼을 통째로 가져다 쓰는 대신, `padding`, `color`, `font-size` 같은 작은 유틸리티 클래스를 원하는 만큼 조합해서 직접 디자인을 만든다.
 
@@ -165,7 +158,7 @@ Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 �
 
 ---
 
-## 4. 두 방식 비교하기
+## 3. 두 방식 비교하기
 
 <div class="wda-compare">
   <div class="wda-compare-card">

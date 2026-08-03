@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 로컬 화면과 공개 URL은 다를 수 있다
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-2-about-me-tab|이전 문서]]에서 배포 준비를 마쳤다면, 이제 실제 공개된 public-url-check 단계입니다.</strong></p>
-  <p>로컬 화면과 실제 공개 화면은 다를 수 있습니다. 이 문서는 배포 직후 반드시 확인해야 할 항목과, 문제를 발견했을 때 AI에게 전달하는 방법을 다룹니다.</p>
-</div>
-
----
-
-## 2. 로컬 화면과 공개 URL은 다를 수 있다
+[[4-2-about-me-tab|이전 문서]]에서 배포 준비를 마쳤다면, 이제 실제 공개된 public-url-check 단계입니다. 로컬 화면과 실제 공개 화면은 다를 수 있습니다. 이 문서는 배포 직후 반드시 확인해야 할 항목과, 문제를 발견했을 때 AI에게 전달하는 방법을 다룹니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -92,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 배포 후 확인 항목
+## 2. 배포 후 확인 항목
 
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>확인 방법</th></tr></thead>
@@ -111,7 +104,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 문제 발견 → 수정 흐름
+## 3. 문제 발견 → 수정 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 문제 발견</div><div class="wda-fnode-dsc">공개 URL에서 이상 증상 확인</div></div>
@@ -127,7 +120,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI에게 재현 정보와 함께 요청하기
+## 4. AI에게 재현 정보와 함께 요청하기
 
 ```
 목표:

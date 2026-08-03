@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 가상 요소란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p>[[2-2-pseudo-classes|이전 문서]]에서 콜론 1개짜리 가상 클래스로 요소의 <strong>상태</strong>를 다뤘다면, 이 문서는 콜론 2개짜리 <strong>가상 요소</strong>로 HTML에는 없는 새로운 요소를 CSS만으로 만들어내는 방법을 다룬다.</p>
-  <p>아이콘 추가, 말풍선 툴팁, 배지, 구분선처럼 마크업을 늘리지 않고도 꾸밀 수 있는 실전 패턴 위주로 정리한다.</p>
-</div>
-
----
-
-## 2. 가상 요소란 무엇인가
+[[2-2-pseudo-classes|이전 문서]]에서 콜론 1개짜리 가상 클래스로 요소의 상태를 다뤘다면, 이 문서는 콜론 2개짜리 가상 요소로 HTML에는 없는 새로운 요소를 CSS만으로 만들어내는 방법을 다룬다. 아이콘 추가, 말풍선 툴팁, 배지, 구분선처럼 마크업을 늘리지 않고도 꾸밀 수 있는 실전 패턴 위주로 정리한다.
 
 가상 요소(pseudo-element)는 HTML 문서에는 실제로 존재하지 않지만, CSS가 렌더링 시점에 새로 만들어 화면에 그려 넣는 요소다. 개발자 도구로 확인해보면 실제 DOM 트리 안에는 없고, Elements 패널에 회색 글씨의 `::before`, `::after`처럼 별도로 표시되는 것을 볼 수 있다.
 
@@ -112,7 +105,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. ::before와 ::after
+## 2. ::before와 ::after
 
 ### 3-1. ::before — 요소 앞에 추가하기
 
@@ -183,7 +176,7 @@ a[target="_blank"]::after {
 
 ---
 
-## 4. content 속성 완전정복
+## 3. content 속성 완전정복
 
 <table class="wda-mtable">
 <thead><tr><th>종류</th><th>특징</th><th>예시</th></tr></thead>
@@ -201,7 +194,7 @@ a[target="_blank"]::after {
 
 ---
 
-## 5. 텍스트 전용 가상 요소
+## 4. 텍스트 전용 가상 요소
 
 ### 5-1. ::first-letter — 드롭캡
 
@@ -274,7 +267,7 @@ p.intro::first-line {
 
 ---
 
-## 6. 실전 활용 패턴 모음
+## 5. 실전 활용 패턴 모음
 
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>적용 요소</th></tr></thead>
@@ -290,7 +283,7 @@ p.intro::first-line {
 
 ---
 
-## 7. 실전 1: 아이콘 추가하기 (content + Unicode)
+## 6. 실전 1: 아이콘 추가하기 (content + Unicode)
 
 `content`에 유니코드 문자를 직접 넣으면 이미지 파일 없이도 간단한 아이콘을 표현할 수 있다.
 
@@ -339,7 +332,7 @@ p.intro::first-line {
 
 ---
 
-## 8. 실전 2: 말풍선 만들기 (::after + border)
+## 7. 실전 2: 말풍선 만들기 (::after + border)
 
 버튼에 마우스를 올렸을 때 나타나는 툴팁과, 그 아래 삼각형 꼬리는 `::after`와 `border` 트릭으로 순수 CSS만으로 구현할 수 있다.
 

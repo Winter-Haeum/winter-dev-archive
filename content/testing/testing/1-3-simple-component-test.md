@@ -18,6 +18,7 @@ description: "React Testing Library로 컴포넌트를 화면에 렌더링하고
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 컴포넌트 테스트가 보는 것
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-2에서 배운 test·expect 구조를 그대로 활용해, 이번에는 함수가 아니라 React 컴포넌트를 검증하는 방법을 다룹니다.</strong></p>
-  <p>컴포넌트 테스트에는 React Testing Library(RTL)라는 도구가 흔히 함께 쓰입니다. RTL은 컴포넌트를 실제 브라우저 없이도 가상의 화면에 그려서 검증할 수 있게 도와줍니다.</p>
-</div>
-
----
-
-## 2. 컴포넌트 테스트가 보는 것
+1-2에서 배운 test·expect 구조를 그대로 활용해, 이번에는 함수가 아니라 React 컴포넌트를 검증하는 방법을 다룹니다. 컴포넌트 테스트에는 React Testing Library(RTL)라는 도구가 흔히 함께 쓰입니다. RTL은 컴포넌트를 실제 브라우저 없이도 가상의 화면에 그려서 검증할 수 있게 도와줍니다.
 
 컴포넌트 테스트에서 가장 헷갈리기 쉬운 지점은 "무엇을 검증할 것인가"입니다.
 
@@ -98,7 +92,7 @@ React Testing Library는 의도적으로 후자의 방식을 지향합니다. �
 
 ---
 
-## 3. render와 screen — 화면 그리고 찾기
+## 2. render와 screen — 화면 그리고 찾기
 
 RTL의 기본 흐름은 컴포넌트를 가상 화면에 렌더링하고, 그 화면에서 원하는 요소를 찾는 것입니다.
 
@@ -134,7 +128,7 @@ test('이름을 전달하면 인사말이 보인다', () => {
 
 ---
 
-## 4. 사용자 동작 시뮬레이션
+## 3. 사용자 동작 시뮬레이션
 
 버튼 클릭처럼 사용자의 동작이 필요한 테스트에는 `user-event`라는 도구를 함께 사용합니다.
 
@@ -162,7 +156,7 @@ test('버튼을 클릭하면 숫자가 1 증가한다', async () => {
 
 ---
 
-## 5. 컴포넌트 테스트의 기본 4단계
+## 4. 컴포넌트 테스트의 기본 4단계
 
 지금까지 본 내용을 정리하면, 컴포넌트 테스트는 대체로 아래 네 단계를 따릅니다.
 

@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 정적 화면과 데이터 기반 화면
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에 직접 적혀 있는 정적 화면이었습니다.</strong></p>
-  <p>project-section에 프로젝트를 하나 추가하려면 코드를 열어 직접 고쳐야 했습니다. 이 문서군에서는 project-section과 contact-section에 실제 데이터를 연결해서, 코드를 고치지 않고도 내용을 관리할 수 있는 구조를 만듭니다. 이 문서는 그 첫걸음으로 "왜 데이터가 필요한지"부터 정리합니다.</p>
-</div>
-
----
-
-## 2. 정적 화면과 데이터 기반 화면
+lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에 직접 적혀 있는 정적 화면이었습니다. project-section에 프로젝트를 하나 추가하려면 코드를 열어 직접 고쳐야 했습니다. 이 문서군에서는 project-section과 contact-section에 실제 데이터를 연결해서, 코드를 고치지 않고도 내용을 관리할 수 있는 구조를 만듭니다. 이 문서는 그 첫걸음으로 "왜 데이터가 필요한지"부터 정리합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -92,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 데이터베이스란 무엇인가
+## 2. 데이터베이스란 무엇인가
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">핵심 개념</span>
@@ -114,7 +107,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 테이블 · 행 · 열 용어 정리
+## 3. 테이블 · 행 · 열 용어 정리
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">테이블(Table)</div><div class="wda-fcard-dsc">위 예시 같은 표 전체를 가리킵니다. 포트폴리오라면 "프로젝트 테이블"처럼 부릅니다.</div></div>
@@ -128,7 +121,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 화면에서 저장할 수 있는 정보의 종류
+## 4. 화면에서 저장할 수 있는 정보의 종류
 
 포트폴리오처럼 방문자가 보는 화면 뒤에는 보통 아래와 같은 정보들이 데이터로 저장됩니다.
 
@@ -139,7 +132,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 외부 데이터 저장소, 개념만 먼저
+## 5. 외부 데이터 저장소, 개념만 먼저
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">한 걸음만 미리 보기</span>

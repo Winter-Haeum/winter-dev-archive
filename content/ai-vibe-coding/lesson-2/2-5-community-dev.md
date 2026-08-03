@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 목록 화면에서 고려할 네 가지 상태
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[2-4-db-discovery|이전 문서]]에서 문의 메시지를 저장하는 흐름을 다뤘다면, 이번에는 여러 데이터를 한 번에 나열하는 목록 화면을 다룹니다.</strong></p>
-  <p>project-section처럼 project-table의 여러 행을 화면에 나열할 때, 데이터가 없거나 불러오기에 실패하는 경우까지 고려해서 화면을 준비하는 방법을 정리합니다. 세부 쿼리 문법은 다루지 않고 <strong>화면 상태</strong>에 집중합니다.</p>
-</div>
-
----
-
-## 2. 목록 화면에서 고려할 네 가지 상태
+[[2-4-db-discovery|이전 문서]]에서 문의 메시지를 저장하는 흐름을 다뤘다면, 이번에는 여러 데이터를 한 번에 나열하는 목록 화면을 다룹니다. project-section처럼 project-table의 여러 행을 화면에 나열할 때, 데이터가 없거나 불러오기에 실패하는 경우까지 고려해서 화면을 준비하는 방법을 정리합니다. 세부 쿼리 문법은 다루지 않고 화면 상태에 집중합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">정상 상태</div><div class="wda-fcard-dsc">데이터를 정상적으로 불러와 목록으로 보여주는 상태입니다.</div></div>
@@ -88,7 +81,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 요청부터 화면 표시까지 흐름
+## 2. 요청부터 화면 표시까지 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 요청</div><div class="wda-fnode-dsc">목록 화면 진입 시 데이터 요청</div></div>
@@ -100,7 +93,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 상태별 화면 처리 기준
+## 3. 상태별 화면 처리 기준
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -119,13 +112,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 정렬과 필터, 가볍게 살펴보기
+## 4. 정렬과 필터, 가볍게 살펴보기
 
 목록이 많아지면 최신순으로 정렬하거나, 공개된 항목만 걸러서 보여주는 처리가 필요합니다. 이 문서군에서는 "정렬·필터 기준이 있다"는 개념만 소개하며, 구체적인 조회 문법은 다루지 않습니다.
 
 ---
 
-## 6. 커뮤니티형 목록에도 같은 원리가 적용된다
+## 5. 커뮤니티형 목록에도 같은 원리가 적용된다
 
 <div class="wda-callout wda-ci">
   <span class="wda-clabel">패턴의 확장</span>
@@ -134,7 +127,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. AI에게 목록 화면을 요청하는 예시
+## 6. AI에게 목록 화면을 요청하는 예시
 
 ```
 project-section에 project-table 목록을 보여주는 화면을 만들고 싶습니다.
@@ -148,7 +141,7 @@ project-section에 project-table 목록을 보여주는 화면을 만들고 싶�
 
 ---
 
-## 8. 검토 체크리스트
+## 7. 검토 체크리스트
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">로딩 표시 유무</div><div class="wda-fcard-dsc">데이터를 불러오는 동안 화면이 비어 있지 않은지 확인합니다.</div></div>

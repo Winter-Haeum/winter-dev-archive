@@ -18,6 +18,7 @@ description: "main 브랜치에 바로 작업하지 않는 이유와 feature bra
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. main에 바로 작업하면 안 되는 이유
 
-<div class="wda-callout wda-ci">
-  <p><strong>Git & GitHub 카테고리의 심화 섹션인 "GitHub 중급"의 첫 문서로, 여러 명이 함께 작업할 때 브랜치를 어떻게 나눠야 하는지를 다룹니다.</strong></p>
-  <p>Git 기본 섹션에서 branch의 생성·전환 명령어는 이미 다뤘으므로, 여기서는 "왜 이렇게 브랜치를 나눠 쓰는가"라는 협업 관점에 집중합니다.</p>
-</div>
-
----
-
-## 2. main에 바로 작업하면 안 되는 이유
+Git & GitHub 카테고리의 심화 섹션인 "GitHub 중급"의 첫 문서로, 여러 명이 함께 작업할 때 브랜치를 어떻게 나눠야 하는지를 다룹니다. Git 기본 섹션에서 branch의 생성·전환 명령어는 이미 다뤘으므로, 여기서는 "왜 이렇게 브랜치를 나눠 쓰는가"라는 협업 관점에 집중합니다.
 
 혼자 작업하는 짧은 프로젝트라면 main 브랜치 하나만 써도 크게 문제가 없습니다. 하지만 여러 명이 함께 작업하거나, 실제 사용자가 쓰는 서비스라면 이야기가 달라집니다.
 
@@ -96,7 +90,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. feature branch — 기능 단위로 나누기
+## 2. feature branch — 기능 단위로 나누기
 
 **feature branch**는 기능 하나를 개발할 때마다 main에서 새 브랜치를 따로 만들어 작업하는 방식입니다.
 
@@ -128,7 +122,7 @@ git commit -m "feat: 로그인 기능 구현"
 
 ---
 
-## 4. 브랜치 전략은 상황에 따라 다르다
+## 3. 브랜치 전략은 상황에 따라 다르다
 
 feature branch라는 큰 원칙은 같지만, 실제로 브랜치를 얼마나 세분화하고 어떤 규칙으로 합치는지는 팀과 프로젝트 규모에 따라 달라집니다.
 
@@ -150,7 +144,7 @@ feature branch라는 큰 원칙은 같지만, 실제로 브랜치를 얼마나 �
 
 ---
 
-## 5. 작업이 끝난 브랜치는 정리한다
+## 4. 작업이 끝난 브랜치는 정리한다
 
 feature branch의 작업 내용이 main에 합쳐지고 나면, 그 브랜치는 더 이상 필요하지 않습니다. 그대로 두면 브랜치 목록만 계속 늘어나므로, 병합이 끝난 브랜치는 정리하는 것이 좋습니다.
 

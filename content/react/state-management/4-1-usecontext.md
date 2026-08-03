@@ -72,18 +72,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Props Drilling 문제
 
-<div class="wda-callout wda-ci">
-  <p><strong>useContext는 여러 컴포넌트가 값을 함께 봐야 할 때, props를 거치지 않고 값을 전달하는 Hook입니다.</strong></p>
-  <p>상태 변경 로직이 복잡할 때 쓰는 <strong>useReducer</strong>는 [[4-2-usereducer|4-2 문서]]에서, Redux·Zustand 같은 <strong>전역 상태 관리 라이브러리</strong>는 [[4-3-state-management-libraries|4-3 문서]]에서 다룹니다.</p>
-</div>
+useContext는 여러 컴포넌트가 값을 함께 봐야 할 때, props를 거치지 않고 값을 전달하는 Hook입니다. 상태 변경 로직이 복잡할 때 쓰는 useReducer는 [[4-2-usereducer|4-2 문서]]에서, Redux·Zustand 같은 전역 상태 관리 라이브러리는 [[4-3-state-management-libraries|4-3 문서]]에서 다룹니다.
 
 이후 예시는 학습 플랫폼의 `AppSettingsContext`(다크모드·언어 등 앱 설정)와 `UserContext`(로그인 사용자 정보)를 기준으로 설명합니다.
-
----
-
-## 2. Props Drilling 문제
 
 `AppRouter` → `DashboardPage` → `CourseListPage`처럼 컴포넌트 트리가 깊어지면, 최상위의 값을 맨 아래 컴포넌트까지 props로 계속 전달해야 합니다.
 
@@ -103,7 +96,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. Context 3단계 흐름
+## 2. Context 3단계 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">createContext</div><div class="wda-fnode-dsc">공유 공간 생성</div></div>
@@ -115,7 +108,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. Context 생성하기
+## 3. Context 생성하기
 
 ```jsx
 // contexts/AppSettingsContext.js
@@ -128,7 +121,7 @@ export const AppSettingsContext = createContext(null);
 
 ---
 
-## 5. Provider로 값 제공하기
+## 4. Provider로 값 제공하기
 
 ```jsx
 // App.jsx
@@ -150,7 +143,7 @@ function App() {
 
 ---
 
-## 6. useContext로 값 사용하기
+## 5. useContext로 값 사용하기
 
 ```jsx
 // pages/SettingsPage.jsx
@@ -172,7 +165,7 @@ function SettingsPage() {
 
 ---
 
-## 7. Custom Hook으로 감싸기
+## 6. Custom Hook으로 감싸기
 
 Context를 쓸 때마다 매번 `useContext(AppSettingsContext)`를 반복하는 대신, Custom Hook으로 감싸면 Provider 누락도 함께 방지할 수 있습니다.
 
@@ -214,7 +207,7 @@ function CourseListPage() {
 
 ---
 
-## 8. Context 사용 시 주의사항
+## 7. Context 사용 시 주의사항
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -233,7 +226,7 @@ function CourseListPage() {
 
 ---
 
-## 9. ✅ 핵심 요약
+## 8. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

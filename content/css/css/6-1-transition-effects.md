@@ -69,15 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Transition은 어디에 정의해야 할까
 
-<div class="wda-callout wda-ci">
-  <p>지금까지 Flexbox로 레이아웃을 배치하는 방법을 봤다면, 이 문서부터는 <strong>상태 변화를 부드럽게 이어주는 방법</strong>을 다룬다. 이 문서에서는 transition의 4가지 속성과 트리거 상태를 중심으로 정리하고, 다단계 움직임은 다음 문서인 <code>@keyframes</code>·animation에서 이어간다.</p>
-</div>
-
----
-
-## 2. Transition은 어디에 정의해야 할까
+지금까지 Flexbox로 레이아웃을 배치하는 방법을 봤다면, 이 문서부터는 상태 변화를 부드럽게 이어주는 방법을 다룬다. 이 문서에서는 transition의 4가지 속성과 트리거 상태를 중심으로 정리하고, 다단계 움직임은 다음 문서인 <code>@keyframes</code>·animation에서 이어간다.
 
 transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화를 얼마나 부드럽게 보여줄지"를 설정하는 속성이다. 여기서 가장 많이 헷갈리는 부분은 **transition을 어느 위치에 작성해야 하는가**다.
 
@@ -100,7 +94,7 @@ transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화
 
 ---
 
-## 3. transition의 4가지 속성
+## 2. transition의 4가지 속성
 
 transition은 아래 4가지 속성의 조합으로 동작한다.
 
@@ -198,7 +192,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ---
 
-## 4. transition shorthand — 한 줄로 합치기
+## 3. transition shorthand — 한 줄로 합치기
 
 실무에서는 4가지 속성을 각각 쓰기보다 shorthand 한 줄로 작성하는 경우가 많다.
 
@@ -227,7 +221,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ---
 
-## 5. timing-function 속도 곡선 자세히 보기
+## 4. timing-function 속도 곡선 자세히 보기
 
 같은 duration이라도 timing-function에 따라 체감 속도가 완전히 달라진다.
 
@@ -262,7 +256,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ---
 
-## 6. transition의 트리거(변화 시점)
+## 5. transition의 트리거(변화 시점)
 
 transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸는 이벤트**가 있어야 값이 달라지고, 그 변화가 부드럽게 이어진다.
 
@@ -284,7 +278,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 
 ---
 
-## 7. 실무 예시 3종
+## 6. 실무 예시 3종
 
 ```css
 /* 1. 버튼 색 전환 - 기본 */
@@ -320,7 +314,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 
 ---
 
-## 8. 전환이 부드럽지 않아 보이는 이유
+## 7. 전환이 부드럽지 않아 보이는 이유
 
 같은 transition 코드를 써도 결과가 어색하게 느껴질 때가 있다. 대표적인 원인은 다음과 같다.
 
@@ -336,7 +330,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 
 ---
 
-## 9. Transition vs Animation
+## 8. Transition vs Animation
 
 transition만으로 해결하기 어려운 움직임도 있다. 두 기능의 근본적인 차이는 다음과 같다.
 

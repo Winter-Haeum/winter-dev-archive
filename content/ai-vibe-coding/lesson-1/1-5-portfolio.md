@@ -73,16 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. first-version-check 체크리스트
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 lesson-1을 마무리하며, 지금까지 만든 포트폴리오 첫 버전을 점검하는 단계입니다.</strong></p>
-  <p>데이터베이스 연동, 실제 콘텐츠 채우기, 배포처럼 이후 단계에서 다룰 내용은 여기서 진행하지 않고 방향만 짧게 안내합니다.</p>
-</div>
-
----
-
-## 2. first-version-check 체크리스트
+이 문서는 lesson-1을 마무리하며, 지금까지 만든 포트폴리오 첫 버전을 점검하는 단계입니다. 데이터베이스 연동, 실제 콘텐츠 채우기, 배포처럼 이후 단계에서 다룰 내용은 여기서 진행하지 않고 방향만 짧게 안내합니다.
 
 <div class="wda-check-note">
   <ul>
@@ -99,7 +92,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 지금까지의 흐름 되돌아보기
+## 2. 지금까지의 흐름 되돌아보기
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1-1</div><div class="wda-fnode-dsc">웹 기초 개념</div></div>
@@ -117,7 +110,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 다음 단계 미리 보기
+## 3. 다음 단계 미리 보기
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">데이터 저장</div><div class="wda-fcard-dsc">입력한 정보를 어딘가에 저장하고 불러오는 방법을 다룹니다.</div></div>
@@ -127,7 +120,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. ✅ 핵심 요약
+## 4. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

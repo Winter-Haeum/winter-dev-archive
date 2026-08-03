@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. DevTools란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>DevTools는 이미 만들어진 웹사이트를 뜯어보며 배우는 가장 좋은 도구입니다.</strong></p>
-  <p>이 문서에서는 DevTools를 여는 방법부터 Elements·Styles·Computed·Console 패널의 핵심 기능까지, 화면을 보면서 문제를 찾아가는 흐름에 맞춰 순서대로 정리합니다.</p>
-</div>
-
----
-
-## 2. DevTools란 무엇인가
+DevTools는 이미 만들어진 웹사이트를 뜯어보며 배우는 가장 좋은 도구입니다. 이 문서에서는 DevTools를 여는 방법부터 Elements·Styles·Computed·Console 패널의 핵심 기능까지, 화면을 보면서 문제를 찾아가는 흐름에 맞춰 순서대로 정리합니다.
 
 DevTools(Developer Tools)는 브라우저에 기본으로 내장된 웹 개발 도구 모음이다. 별도의 프로그램을 설치하지 않아도 지금 보고 있는 페이지의 HTML, CSS, JavaScript를 그 자리에서 확인하고, 수정하고, 오류를 추적할 수 있다.
 
@@ -93,7 +86,7 @@ DevTools(Developer Tools)는 브라우저에 기본으로 내장된 웹 개발 �
 
 ---
 
-## 3. DevTools 여는 3가지 방법
+## 2. DevTools 여는 3가지 방법
 
 <table class="wda-mtable">
 <thead><tr><th>방법</th><th>설명</th></tr></thead>
@@ -109,7 +102,7 @@ DevTools(Developer Tools)는 브라우저에 기본으로 내장된 웹 개발 �
 
 ---
 
-## 4. Elements 패널: HTML 구조 확인하기
+## 3. Elements 패널: HTML 구조 확인하기
 
 Elements 패널은 현재 페이지의 HTML을 트리 형태로 보여준다. 페이지에서 JavaScript로 요소가 추가되거나 삭제되면 이 트리도 실시간으로 함께 갱신된다.
 
@@ -126,7 +119,7 @@ Elements 패널은 현재 페이지의 HTML을 트리 형태로 보여준다. �
 
 ---
 
-## 5. 검사 모드(Inspect Mode)로 화면에서 바로 찾기
+## 4. 검사 모드(Inspect Mode)로 화면에서 바로 찾기
 
 트리를 스크롤하며 원하는 요소를 찾는 대신, 화면에서 바로 원하는 요소를 클릭해 찾는 방법도 있다. 이를 검사 모드라고 부른다.
 
@@ -142,7 +135,7 @@ Elements 패널은 현재 페이지의 HTML을 트리 형태로 보여준다. �
 
 ---
 
-## 6. Styles 패널: 적용된 CSS 확인하기
+## 5. Styles 패널: 적용된 CSS 확인하기
 
 Elements 패널에서 요소를 선택하면 옆에 나타나는 Styles 패널에서, 그 요소에 적용된 모든 CSS 규칙을 출처별로 확인할 수 있다.
 
@@ -164,7 +157,7 @@ Elements 패널에서 요소를 선택하면 옆에 나타나는 Styles 패널�
 
 ---
 
-## 7. Styles 패널: CSS 실시간 수정(Live Editing)
+## 6. Styles 패널: CSS 실시간 수정(Live Editing)
 
 Styles 패널의 값은 클릭해서 바로 고칠 수 있다. 수정한 값은 화면에 즉시 반영되지만, 실제 CSS 파일이 저장되는 것은 아니다.
 
@@ -205,7 +198,7 @@ Styles 패널의 값은 클릭해서 바로 고칠 수 있다. 수정한 값은 
 
 ---
 
-## 8. 가상 선택자(:hover 등) 강제 적용하기
+## 7. 가상 선택자(:hover 등) 강제 적용하기
 
 `:hover`, `:focus` 같은 가상 선택자는 마우스를 올리거나 포커스를 줘야만 나타나기 때문에, 평소에는 Styles 패널에서 확인하기 어렵다. DevTools는 이런 상태를 강제로 켜두는 기능을 제공한다.
 
@@ -229,7 +222,7 @@ Styles 패널 상단의 `:hov` 버튼을 누르면 Force element state 패널이
 
 ---
 
-## 9. 스타일 우선순위 이해하기
+## 8. 스타일 우선순위 이해하기
 
 Styles 패널에는 하나의 요소에 적용 가능한 여러 규칙이 동시에 나열된다. 이때 기본 원칙은 "위쪽에 있는 규칙이 이긴다"는 것이다.
 
@@ -247,7 +240,7 @@ Styles 패널에는 하나의 요소에 적용 가능한 여러 규칙이 동시
 
 ---
 
-## 10. Computed 탭: 최종 계산값 보기
+## 9. Computed 탭: 최종 계산값 보기
 
 Styles 탭이 "어떤 규칙들이 경쟁하고 있는가"를 보여준다면, Computed 탭은 그 경쟁 끝에 "최종적으로 결정된 값"만 보여준다.
 
@@ -266,7 +259,7 @@ Computed 탭 위쪽에는 Box Model 다이어그램이 함께 표시된다. 바�
 
 ---
 
-## 11. 레이아웃 탭: Grid와 Flexbox 시각화
+## 10. 레이아웃 탭: Grid와 Flexbox 시각화
 
 요소를 선택했을 때 `display: grid` 또는 `display: flex`가 적용되어 있다면, Elements 패널 안에 레이아웃을 눈으로 확인할 수 있는 시각화 도구가 함께 나타난다.
 
@@ -285,7 +278,7 @@ Computed 탭 위쪽에는 Box Model 다이어그램이 함께 표시된다. 바�
 
 ---
 
-## 12. Console 패널: 에러 확인하기
+## 11. Console 패널: 에러 확인하기
 
 Console 패널은 페이지가 실행되는 동안 발생한 JavaScript 메시지를 모아 보여준다. 빨간색 메시지는 실행을 막는 에러이고, 노란색 메시지는 경고다.
 
@@ -297,7 +290,7 @@ Console 패널은 페이지가 실행되는 동안 발생한 JavaScript 메시�
 
 ---
 
-## 13. 기타 유용한 탭들
+## 12. 기타 유용한 탭들
 
 Elements 패널 안에는 Styles, Computed 외에도 상황에 따라 유용하게 쓰이는 탭들이 더 있다.
 

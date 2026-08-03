@@ -72,16 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. useRef 기본 문법
 
-<div class="wda-callout wda-ci">
-  <p><strong>useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다.</strong></p>
-  <p>화면에 보여줄 값은 [[3-1-usestate|3-1 문서]]에서 다룬 useState로 관리합니다. 이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.</p>
-</div>
-
----
-
-## 2. useRef 기본 문법
+useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다. 화면에 보여줄 값은 [[3-1-usestate|3-1 문서]]에서 다룬 useState로 관리합니다. 이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.
 
 ```jsx
 import { useRef } from 'react';
@@ -102,7 +95,7 @@ function HookDashboard() {
 
 ---
 
-## 3. DOM 요소 접근하기
+## 2. DOM 요소 접근하기
 
 `ref` 속성에 ref 객체를 연결하면, React가 화면에 해당 태그를 그릴 때 실제 DOM 요소를 `.current`에 넣어줍니다.
 
@@ -143,7 +136,7 @@ function FocusInput() {
 
 ---
 
-## 4. 렌더링을 유발하지 않는 값 저장
+## 3. 렌더링을 유발하지 않는 값 저장
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -160,7 +153,7 @@ function FocusInput() {
 
 ---
 
-## 5. 이전 값 보관하기
+## 4. 이전 값 보관하기
 
 `useEffect`가 렌더링이 끝난 뒤 실행된다는 점을 이용하면, 현재 값을 ref에 저장해 "직전 값"을 기억할 수 있습니다.
 
@@ -188,7 +181,7 @@ function SearchPanel() {
 
 ---
 
-## 6. 렌더링과 무관한 변수 저장 — 타이머 ID
+## 5. 렌더링과 무관한 변수 저장 — 타이머 ID
 
 `setInterval`이 반환하는 타이머 ID처럼, 화면에 보여줄 필요는 없지만 나중에 꼭 필요한 값을 저장할 때도 `useRef`를 사용합니다.
 
@@ -225,7 +218,7 @@ function TimerBox() {
 
 ---
 
-## 7. useState vs useRef 선택 기준
+## 6. useState vs useRef 선택 기준
 
 <div class="wda-callout wda-cs">
   <p><strong>결정 기준: "이 값이 바뀌었을 때 화면이 다시 그려져야 하는가?"</strong></p>
@@ -234,7 +227,7 @@ function TimerBox() {
 
 ---
 
-## 8. 초보자 실수
+## 7. 초보자 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>ref.current를 바꾸고 화면이 바로 바뀌길 기대하는 경우</strong></p>
@@ -252,7 +245,7 @@ function TimerBox() {
 
 ---
 
-## 9. ✅ 핵심 요약
+## 8. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

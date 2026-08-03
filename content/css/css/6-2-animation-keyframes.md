@@ -68,15 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Animation vs Transition
 
-<div class="wda-callout wda-ci">
-  <p>[[6-1-transition-effects|이전 문서]]에서 transition으로 A → B 2개 상태만 부드럽게 잇는 방법을 봤다면, 이 문서에서는 트리거 없이 자동 실행되고 여러 단계를 거칠 수 있는 <strong>animation과 @keyframes</strong>를 다룬다.</p>
-</div>
-
----
-
-## 2. Animation vs Transition
+[[6-1-transition-effects|이전 문서]]에서 transition으로 A → B 2개 상태만 부드럽게 잇는 방법을 봤다면, 이 문서에서는 트리거 없이 자동 실행되고 여러 단계를 거칠 수 있는 animation과 @keyframes를 다룬다.
 
 두 기능은 비슷해 보이지만 설계 목적이 다르다.
 
@@ -113,7 +107,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. @keyframes 기본 문법
+## 2. @keyframes 기본 문법
 
 `@keyframes`는 애니메이션의 각 시점에서 요소가 어떤 상태여야 하는지 미리 선언하는 규칙이다. 작성 방식은 크게 두 가지다.
 
@@ -185,7 +179,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. animation의 8가지 속성
+## 3. animation의 8가지 속성
 
 `@keyframes`로 상태를 정의했다면, 이제 그 애니메이션을 요소에 어떻게 적용할지 8가지 속성으로 제어한다.
 
@@ -344,7 +338,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 
 ---
 
-## 5. 실전 예시: 로딩 스피너
+## 4. 실전 예시: 로딩 스피너
 
 ```css
 @keyframes rotate {
@@ -382,7 +376,7 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 
 ---
 
-## 6. 실전 예시: 페이드인
+## 5. 실전 예시: 페이드인
 
 ```css
 @keyframes fadeInUp {
@@ -417,7 +411,7 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 ---
 
-## 7. 실전 예시: 슬라이드 캐러셀
+## 6. 실전 예시: 슬라이드 캐러셀
 
 ```css
 @keyframes slideIn {

@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 색상을 표현하는 4가지 방법
 
-<div class="wda-callout wda-ci">
-  <p>[[1-2-css-selectors|이전 문서]]에서 원하는 요소를 골라내는 방법을 익혔다면, 이제 그 요소에 실제로 색과 글자 스타일을 입혀볼 차례다.</p>
-  <p>이 문서는 색상 표현 문법, 폰트 관련 속성, 텍스트 정렬과 줄바꿈 제어까지 시각적 표현의 핵심 요소를 다룬다. 여백과 크기 같은 박스 관련 속성은 다음 문서(박스 모델)에서 이어서 다룬다.</p>
-</div>
-
----
-
-## 2. 색상을 표현하는 4가지 방법
+[[1-2-css-selectors|이전 문서]]에서 원하는 요소를 골라내는 방법을 익혔다면, 이제 그 요소에 실제로 색과 글자 스타일을 입혀볼 차례다. 이 문서는 색상 표현 문법, 폰트 관련 속성, 텍스트 정렬과 줄바꿈 제어까지 시각적 표현의 핵심 요소를 다룬다. 여백과 크기 같은 박스 관련 속성은 다음 문서(박스 모델)에서 이어서 다룬다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Hex (16진수)</div><div class="wda-fcard-dsc"><code>#RRGGBB</code> 형태. <code>#FFFFFF</code>처럼 겹치는 값은 <code>#FFF</code>로 줄여 쓸 수 있다.</div></div>
@@ -108,7 +101,7 @@ RGBA와 HSLA의 마지막 값(alpha)은 0(완전 투명)부터 1(완전 불투�
 
 ---
 
-## 3. 글꼴 기본 설정
+## 2. 글꼴 기본 설정
 
 ### 3-1. Font Family와 Font Stack
 
@@ -173,7 +166,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 ---
 
-## 4. Google Fonts와 @font-face
+## 3. Google Fonts와 @font-face
 
 ### 4-1. Google Fonts
 
@@ -215,7 +208,7 @@ body {
 
 ---
 
-## 5. 텍스트 스타일링
+## 4. 텍스트 스타일링
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>주요 값</th><th>설명</th></tr></thead>
@@ -258,7 +251,7 @@ a:hover {
 
 ---
 
-## 6. 공백과 줄바꿈 제어
+## 5. 공백과 줄바꿈 제어
 
 한 줄에 다 들어가지 않는 긴 텍스트를 어떻게 처리할지는 `white-space`, `word-break`, `overflow-wrap` 세 속성이 함께 결정한다.
 

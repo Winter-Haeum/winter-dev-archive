@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 공개 전 점검 영역 네 가지
 
-<div class="wda-callout wda-ci">
-  <p><strong>lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 흐름이 모두 준비되었습니다.</strong></p>
-  <p>lesson-4는 이 결과물을 공개 가능한 형태로 정리하는 마지막 단계입니다. 이 문서는 그 시작으로, 새 기능을 추가하기보다 <strong>지금까지 만든 것을 점검하고 다듬는 것</strong>에 집중합니다.</p>
-</div>
-
----
-
-## 2. 공개 전 점검 영역 네 가지
+lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 흐름이 모두 준비되었습니다. lesson-4는 이 결과물을 공개 가능한 형태로 정리하는 마지막 단계입니다. 이 문서는 그 시작으로, 새 기능을 추가하기보다 지금까지 만든 것을 점검하고 다듬는 것에 집중합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">구조·네비게이션</div><div class="wda-fcard-dsc">섹션 순서가 논리적이고 메뉴 이동이 직관적인지 확인합니다.</div></div>
@@ -88,7 +81,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 지금은 기능 추가 단계가 아닙니다
+## 2. 지금은 기능 추가 단계가 아닙니다
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -107,7 +100,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 점검 흐름
+## 3. 점검 흐름
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. 점검 요청</div><div class="wda-fnode-dsc">AI에게 전체 화면 점검 요청</div></div>
@@ -123,7 +116,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. AI에게 전체 점검 요청하기
+## 4. AI에게 전체 점검 요청하기
 
 ```
 목표:

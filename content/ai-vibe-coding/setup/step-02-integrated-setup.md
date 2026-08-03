@@ -73,16 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 왜 맥락이 중요한가
 
-<div class="wda-callout wda-ci">
-  <p><strong>1단계에서 개발 환경을 준비했다면, 이 문서는 그 환경에서 AI에게 실제로 작업을 요청하는 방법을 다룹니다.</strong></p>
-  <p>특히 프로젝트 초기 세팅처럼 <strong>여러 단계가 한 번에 이어지는 큰 작업</strong>을 요청할 때 어떻게 맥락을 주고 결과를 검토하는지에 집중합니다. GitHub 백업이나 보안 관리는 다음 문서에서 다룹니다.</p>
-</div>
-
----
-
-## 2. 왜 맥락이 중요한가
+1단계에서 개발 환경을 준비했다면, 이 문서는 그 환경에서 AI에게 실제로 작업을 요청하는 방법을 다룹니다. 특히 프로젝트 초기 세팅처럼 여러 단계가 한 번에 이어지는 큰 작업을 요청할 때 어떻게 맥락을 주고 결과를 검토하는지에 집중합니다. GitHub 백업이나 보안 관리는 다음 문서에서 다룹니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -97,7 +90,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 요청 전에 확인할 4가지
+## 2. 요청 전에 확인할 4가지
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">목표</div><div class="wda-fcard-dsc">최종적으로 무엇이 만들어져야 하는지 한 문장으로 정리합니다.</div></div>
@@ -108,7 +101,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 여러 단계로 이어지는 작업 요청하기
+## 3. 여러 단계로 이어지는 작업 요청하기
 
 포트폴리오 프로젝트의 초기 환경을 세팅하는 경우처럼, 한 번의 요청이 여러 단계로 이어질 때는 각 단계의 순서와 완료 조건을 함께 제시하는 것이 안전합니다.
 
@@ -139,7 +132,7 @@ project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 
 ---
 
-## 5. 작업 범위를 제한하는 이유
+## 4. 작업 범위를 제한하는 이유
 
 일부 AI 도구는 매 변경마다 승인을 묻지 않고 자동으로 진행하는 옵션을 제공합니다. 이런 옵션은 작업 속도를 높여주지만, 검토 없이 여러 파일이 한 번에 바뀔 수 있다는 위험도 함께 따라옵니다.
 
@@ -151,7 +144,7 @@ project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 
 ---
 
-## 6. 결과를 검토하는 기준
+## 5. 결과를 검토하는 기준
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -170,7 +163,7 @@ project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 
 ---
 
-## 7. 주의사항
+## 6. 주의사항
 
 <div class="wda-callout wda-cw">
   <p>요청문 안에 비밀번호, API 키, 액세스 토큰 같은 민감한 값을 그대로 적지 않습니다. 이런 정보를 다루는 방법은 다음 문서에서 별도로 설명합니다.</p>
@@ -182,7 +175,7 @@ project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 
 ---
 
-## 8. ✅ 핵심 요약
+## 7. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

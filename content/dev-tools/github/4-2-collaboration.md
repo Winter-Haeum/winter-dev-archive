@@ -18,6 +18,7 @@ description: "Pull Request로 변경 사항을 공유하고 코드 리뷰를 받
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Pull Request란
 
-<div class="wda-callout wda-ci">
-  <p><strong>4-1에서 feature branch로 작업을 나누는 이유를 배웠다면, 이 문서에서는 그 브랜치를 다시 main으로 합치는 과정에서 필요한 협업 절차를 다룹니다.</strong></p>
-  <p>Pull Request, 코드 리뷰, conflict라는 세 가지 개념이 이 문서의 핵심입니다.</p>
-</div>
-
----
-
-## 2. Pull Request란
+4-1에서 feature branch로 작업을 나누는 이유를 배웠다면, 이 문서에서는 그 브랜치를 다시 main으로 합치는 과정에서 필요한 협업 절차를 다룹니다. Pull Request, 코드 리뷰, conflict라는 세 가지 개념이 이 문서의 핵심입니다.
 
 **Pull Request(PR)**는 "내 브랜치에서 작업한 내용을 main(또는 다른 브랜치)에 합쳐달라"고 요청하는 절차입니다. 단순히 병합 버튼을 누르는 것이 아니라, 그 전에 변경 사항을 다른 사람에게 보여주고 확인받는 과정이라는 점이 핵심입니다.
 
@@ -100,7 +94,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 코드 리뷰가 하는 일
+## 2. 코드 리뷰가 하는 일
 
 **코드 리뷰(Code Review)**는 PR에 담긴 변경 사항을 다른 사람이 읽고 의견을 남기는 과정입니다.
 
@@ -122,7 +116,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. Conflict는 왜 생길까
+## 3. Conflict는 왜 생길까
 
 **Conflict(충돌)**는 같은 파일의 같은 부분을 서로 다른 브랜치에서 다르게 수정했을 때, Git이 어느 쪽 내용을 남겨야 할지 스스로 판단하지 못해서 발생합니다.
 
@@ -152,7 +146,7 @@ return "손님";
 
 ---
 
-## 5. Conflict를 마주쳤을 때
+## 4. Conflict를 마주쳤을 때
 
 conflict가 발생하면 Git은 파일 안에 두 브랜치의 내용을 모두 표시해줍니다. 개발자는 이 중 어떤 내용을 남길지, 혹은 둘을 합쳐서 새로 작성할지 직접 결정한 뒤 저장하고 다시 커밋하면 됩니다.
 

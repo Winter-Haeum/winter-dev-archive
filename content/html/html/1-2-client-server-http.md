@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. HTTP가 왜 필요했을까
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[1-1-www-and-website|이전 문서]]에서 클라이언트-서버 모델을 큰 그림으로 살펴봤다면, 이 문서는 그 사이의 대화 규칙인 <strong>HTTP</strong>를 자세히 다룹니다.</strong></p>
-  <p>HTML 태그 문법은 아직 다루지 않으며, "브라우저와 서버가 정확히 무엇을 주고받는가"에 집중합니다.</p>
-</div>
-
----
-
-## 2. HTTP가 왜 필요했을까
+[[1-1-www-and-website|이전 문서]]에서 클라이언트-서버 모델을 큰 그림으로 살펴봤다면, 이 문서는 그 사이의 대화 규칙인 HTTP를 자세히 다룹니다. HTML 태그 문법은 아직 다루지 않으며, "브라우저와 서버가 정확히 무엇을 주고받는가"에 집중합니다.
 
 <div class="wda-callout wda-cs">
   <p>초창기 웹은 문서 몇 개를 서로 연결하는 정도로도 충분했습니다. 하지만 문서 수가 폭발적으로 늘어나면서 "브라우저가 서버에게 정확히 어떤 문서를 달라고 요청해야 하는가"라는 문제가 생겼습니다.</p>
@@ -87,7 +80,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. HTTP의 발전 과정
+## 2. HTTP의 발전 과정
 
 웹이 성장하는 동안 HTTP도 함께 발전해 왔습니다.
 
@@ -106,7 +99,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. HTTP는 사람이 읽을 수 있는 대화다
+## 3. HTTP는 사람이 읽을 수 있는 대화다
 
 HTTP 요청과 응답은 사람이 읽을 수 있는 글자로 이루어져 있습니다.
 
@@ -120,7 +113,7 @@ Accept: text/html
 
 ---
 
-## 5. 요청(Request)의 구성
+## 4. 요청(Request)의 구성
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">요청 라인</div><div class="wda-fcard-dsc">어떤 메서드로, 어떤 경로를, 어떤 버전으로 요청하는지 담습니다.</div></div>
@@ -130,7 +123,7 @@ Accept: text/html
 
 ---
 
-## 6. 자주 쓰는 HTTP 메서드
+## 5. 자주 쓰는 HTTP 메서드
 
 <table class="wda-mtable">
 <thead><tr><th>메서드</th><th>역할</th></tr></thead>
@@ -163,7 +156,7 @@ fetch('/articles', {
 
 ---
 
-## 7. 응답(Response)의 구성
+## 6. 응답(Response)의 구성
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">상태 라인</div><div class="wda-fcard-dsc">요청이 성공했는지 실패했는지를 상태 코드로 알려줍니다.</div></div>
@@ -180,7 +173,7 @@ Content-Type: text/html
 
 ---
 
-## 8. HTTP 상태 코드 이해하기
+## 7. HTTP 상태 코드 이해하기
 
 <table class="wda-mtable">
 <thead><tr><th>범위</th><th>의미</th></tr></thead>
@@ -197,7 +190,7 @@ Content-Type: text/html
 
 ---
 
-## 9. 쿠키가 필요한 이유
+## 8. 쿠키가 필요한 이유
 
 <div class="wda-callout wda-cw">
   <span class="wda-clabel">HTTP의 특징</span>
@@ -218,7 +211,7 @@ Content-Type: text/html
 
 ---
 
-## 10. HTTPS — HTTP의 보안 확장
+## 9. HTTPS — HTTP의 보안 확장
 
 <div class="wda-callout wda-cs">
   <p>기본 HTTP는 내용을 그대로(평문으로) 전송하기 때문에, 중간에서 통신을 가로채면 내용이 그대로 노출될 수 있습니다. <strong>HTTPS</strong>는 이 내용을 암호화해 안전하게 전송하는 방식입니다. 브라우저 주소창의 자물쇠 아이콘으로 HTTPS 적용 여부를 확인할 수 있습니다.</p>

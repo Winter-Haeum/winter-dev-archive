@@ -18,6 +18,7 @@ description: "자바스크립트 테스트 프레임워크 Jest의 역할과 tes
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Jest란
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-1에서 배운 TDD의 흐름을 실제 코드로 확인하려면 테스트를 실행하고 통과/실패를 판정해주는 도구가 필요합니다.</strong></p>
-  <p>이 문서에서는 그 역할을 하는 대표적인 도구인 Jest의 기본 문법을 다룹니다. 컴포넌트를 렌더링해서 검증하는 방법은 다음 문서(1-3 간단한 컴포넌트 테스트 작성하기)에서 이어집니다.</p>
-</div>
-
----
-
-## 2. Jest란
+1-1에서 배운 TDD의 흐름을 실제 코드로 확인하려면 테스트를 실행하고 통과/실패를 판정해주는 도구가 필요합니다. 이 문서에서는 그 역할을 하는 대표적인 도구인 Jest의 기본 문법을 다룹니다. 컴포넌트를 렌더링해서 검증하는 방법은 다음 문서(1-3 간단한 컴포넌트 테스트 작성하기)에서 이어집니다.
 
 **Jest**는 자바스크립트 코드를 테스트하기 위한 대표적인 테스트 프레임워크입니다. 테스트 코드를 실행하고, 그 결과가 예상과 맞는지 판정하고, 통과/실패 결과를 화면에 정리해서 보여주는 역할을 합니다.
 
@@ -94,7 +88,7 @@ npm install -D jest
 
 ---
 
-## 3. 가장 작은 테스트 코드
+## 2. 가장 작은 테스트 코드
 
 Jest로 작성하는 테스트는 보통 다음 세 가지 요소로 이루어집니다.
 
@@ -132,7 +126,7 @@ npm test
 
 ---
 
-## 4. describe로 테스트 묶기
+## 3. describe로 테스트 묶기
 
 관련 있는 테스트가 여러 개일 때는 `describe`로 하나의 그룹으로 묶을 수 있습니다.
 
@@ -160,7 +154,7 @@ describe('sum 함수', () => {
 
 ---
 
-## 5. 자주 쓰는 matcher
+## 4. 자주 쓰는 matcher
 
 expect 뒤에 붙는 matcher는 "어떤 방식으로 값을 비교할지"를 결정합니다. 상황에 맞는 matcher를 고르는 것이 중요합니다.
 
@@ -190,7 +184,7 @@ test('객체는 toEqual로 비교한다', () => {
 
 ---
 
-## 6. Jest만 있는 것은 아니다
+## 5. Jest만 있는 것은 아니다
 
 Jest는 오랫동안 자바스크립트 테스트 도구의 표준처럼 쓰여 왔지만, 최근에는 Vite 기반 프로젝트에서 **Vitest**라는 도구도 널리 쓰입니다. Vitest는 Jest와 문법이 매우 비슷해서, Jest 문법을 익혀두면 Vitest로 넘어가는 데도 큰 어려움이 없습니다.
 

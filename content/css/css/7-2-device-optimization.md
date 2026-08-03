@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 디바이스별 특성 이해하기
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[7-1-media-query|Media Query]]로 "언제" 스타일을 바꿀지 정했다면, 이 문서는 "어떤 기기"를 위해 무엇을 바꿔야 하는지에 집중합니다.</strong></p>
-  <p>모바일·태블릿·데스크탑은 화면 크기만 다른 것이 아니라 입력 방식과 사용 패턴 자체가 다르므로, 이를 반영한 설계 기준을 정리합니다.</p>
-</div>
-
----
-
-## 2. 디바이스별 특성 이해하기
+[[7-1-media-query|Media Query]]로 "언제" 스타일을 바꿀지 정했다면, 이 문서는 "어떤 기기"를 위해 무엇을 바꿔야 하는지에 집중합니다. 모바일·태블릿·데스크탑은 화면 크기만 다른 것이 아니라 입력 방식과 사용 패턴 자체가 다르므로, 이를 반영한 설계 기준을 정리합니다.
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>📱 모바일</th><th>📟 태블릿</th><th>🖥 데스크탑</th></tr></thead>
@@ -103,7 +96,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 태블릿과 데스크탑 최적화 포인트
+## 2. 태블릿과 데스크탑 최적화 포인트
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -130,7 +123,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 터치 인터페이스 디자인
+## 3. 터치 인터페이스 디자인
 
 터치 인터페이스에서 가장 중요한 것은 손가락으로 누르기 쉬운 크기와 간격이다.
 
@@ -160,7 +153,7 @@ button {
 
 ---
 
-## 5. 터치 · 마우스 하이브리드 대응
+## 4. 터치 · 마우스 하이브리드 대응
 
 iPad Pro처럼 터치와 마우스(트랙패드)를 함께 지원하는 기기도 늘고 있어, CSS 미디어 기능으로 입력 방식을 감지해 대응한다.
 
@@ -188,7 +181,7 @@ button { min-width: 44px; } /* 기본: 터치 환경 기준 */
 
 ---
 
-## 6. viewport 메타태그
+## 5. viewport 메타태그
 
 반응형 웹이 동작하기 위한 전제 조건이다. `<meta name="viewport">`가 없으면 모바일 브라우저는 기본 너비 980px를 기준으로 페이지를 렌더링한 뒤 축소해서 보여주기 때문에, 글자가 작게 보이고 미디어쿼리도 의도대로 작동하지 않는다.
 
@@ -208,7 +201,7 @@ button { min-width: 44px; } /* 기본: 터치 환경 기준 */
 
 ---
 
-## 7. rem / em 단위
+## 6. rem / em 단위
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -228,7 +221,7 @@ p  { font-size: 1rem; } /* 16px */</code></pre>
 
 ---
 
-## 8. clamp()로 화면 크기에 비례하는 폰트 만들기
+## 7. clamp()로 화면 크기에 비례하는 폰트 만들기
 
 ```css
 font-size: clamp(1rem, 2.5vw, 2rem);

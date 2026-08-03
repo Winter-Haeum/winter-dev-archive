@@ -18,6 +18,7 @@ description: "브라우저와 서버가 대화하는 공용 언어인 HTTP가 �
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. HTTP란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>Web & Network 카테고리에서 배운 "API는 요청과 응답으로 동작한다"는 원리를, 실제 웹에서 가장 널리 쓰이는 방식인 HTTP로 구체화합니다.</strong></p>
-  <p>이 문서에서는 HTTP가 무엇이고 요청/응답이 어떻게 구성되는지에 집중합니다. 이 요청을 자바스크립트 코드로 직접 보내는 방법(fetch)은 다음 문서(1-2 Fetch API와 JSON)에서 다룹니다.</p>
-</div>
-
----
-
-## 2. HTTP란 무엇인가
+Web & Network 카테고리에서 배운 "API는 요청과 응답으로 동작한다"는 원리를, 실제 웹에서 가장 널리 쓰이는 방식인 HTTP로 구체화합니다. 이 문서에서는 HTTP가 무엇이고 요청/응답이 어떻게 구성되는지에 집중합니다. 이 요청을 자바스크립트 코드로 직접 보내는 방법(fetch)은 다음 문서(1-2 Fetch API와 JSON)에서 다룹니다.
 
 **HTTP(HyperText Transfer Protocol)**는 웹 브라우저와 서버가 데이터를 주고받을 때 따르는 공용 규칙입니다. 브라우저 주소창에 입력하는 `https://`의 그 `http`가 바로 이 규칙의 이름입니다.
 
@@ -95,7 +89,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. HTTP 메시지의 구성 — 요청
+## 2. HTTP 메시지의 구성 — 요청
 
 HTTP 요청 메시지는 크게 세 부분으로 이루어집니다.
 
@@ -112,7 +106,7 @@ HTTP 요청 메시지는 크게 세 부분으로 이루어집니다.
 
 ---
 
-## 4. HTTP 메서드 — 무엇을 하고 싶은지 알리기
+## 3. HTTP 메서드 — 무엇을 하고 싶은지 알리기
 
 메서드는 서버에게 "이 요청으로 무엇을 하고 싶은지"를 알리는 동사 역할을 합니다.
 
@@ -135,7 +129,7 @@ HTTP 요청 메시지는 크게 세 부분으로 이루어집니다.
 
 ---
 
-## 5. HTTP 메시지의 구성 — 응답과 상태 코드
+## 4. HTTP 메시지의 구성 — 응답과 상태 코드
 
 서버는 처리 결과를 응답 메시지로 돌려줍니다. 응답도 상태 라인, 헤더, 바디로 구성되며, 상태 라인에 **상태 코드(Status Code)**가 포함됩니다. 상태 코드는 요청이 어떻게 처리됐는지를 3자리 숫자로 알려주는 신호입니다.
 

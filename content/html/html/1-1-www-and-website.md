@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 왜 '연결된 문서'가 필요했을까
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 HTML 코드를 작성하기 전, "웹이란 무엇인가"라는 큰 그림을 잡는 문서입니다.</strong></p>
-  <p>구체적인 태그 문법은 다루지 않으며, 이후 문서들에서 HTML을 배울 때 계속 등장할 URL·HTTP·클라이언트·서버 같은 용어를 먼저 정리합니다.</p>
-</div>
-
----
-
-## 2. 왜 '연결된 문서'가 필요했을까
+이 문서는 HTML 코드를 작성하기 전, "웹이란 무엇인가"라는 큰 그림을 잡는 문서입니다. 구체적인 태그 문법은 다루지 않으며, 이후 문서들에서 HTML을 배울 때 계속 등장할 URL·HTTP·클라이언트·서버 같은 용어를 먼저 정리합니다.
 
 <div class="wda-callout wda-cs">
   <span class="wda-clabel">핵심 아이디어</span>
@@ -90,7 +83,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 웹이 만들어지기까지
+## 2. 웹이 만들어지기까지
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">문제의식</div><div class="wda-fnode-dsc">흩어진 자료를 연결하고 싶다</div></div>
@@ -106,7 +99,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. "World Wide Web"이라는 이름
+## 3. "World Wide Web"이라는 이름
 
 <div class="wda-callout wda-ci">
   <p>World(세계) + Wide(넓게 퍼진) + Web(거미줄)을 합치면 "전 세계에 넓게 퍼진 거미줄"이라는 뜻이 됩니다. 문서들이 링크로 서로 이어지는 모습이 마치 거미줄처럼 사방으로 연결된 구조를 이룬다는 데서 나온 이름입니다.</p>
@@ -117,7 +110,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 5. 인터넷과 웹은 다르다
+## 4. 인터넷과 웹은 다르다
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -136,7 +129,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 6. 웹을 이루는 3가지 기술
+## 5. 웹을 이루는 3가지 기술
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">URL — 주소</div><div class="wda-fcard-dsc">자료가 어디에 있는지 가리키는 주소 체계입니다.</div></div>
@@ -148,7 +141,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 7. URL 구조 뜯어보기
+## 6. URL 구조 뜯어보기
 
 주소창에 입력하는 URL은 몇 가지 부분으로 나뉩니다.
 
@@ -165,7 +158,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 8. 웹사이트 vs 웹페이지
+## 7. 웹사이트 vs 웹페이지
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -180,7 +173,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 9. 클라이언트-서버 모델 맛보기
+## 8. 클라이언트-서버 모델 맛보기
 
 <div class="wda-callout wda-ci">
   <p>웹은 항상 <strong>요청하는 쪽(클라이언트)</strong>과 <strong>응답하는 쪽(서버)</strong> 두 역할로 나뉘어 동작합니다. 우편을 보내고 받는 과정에 비유하면 쉽게 이해할 수 있습니다.</p>
@@ -198,7 +191,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 10. 브라우저와 서버가 하는 일
+## 9. 브라우저와 서버가 하는 일
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">브라우저(클라이언트)</div><div class="wda-fcard-dsc">URL 입력 → 요청 전송 → 응답 수신 → 화면 렌더링 → 클릭·입력 같은 사용자 동작 처리</div></div>

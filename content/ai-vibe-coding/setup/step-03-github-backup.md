@@ -75,16 +75,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Git과 GitHub의 역할 차이
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 프로젝트를 GitHub에 백업하는 준비와, 그 과정에서 반드시 알아야 할 보안 원칙을 함께 다룹니다.</strong></p>
-  <p>Git 명령어 자체를 깊이 다루지는 않으며, AI에게 백업을 요청할 때 필요한 기본 흐름과 <code>.env</code>·토큰 같은 민감 정보를 지키는 방법에 집중합니다.</p>
-</div>
-
----
-
-## 2. Git과 GitHub의 역할 차이
+이 문서는 프로젝트를 GitHub에 백업하는 준비와, 그 과정에서 반드시 알아야 할 보안 원칙을 함께 다룹니다. Git 명령어 자체를 깊이 다루지는 않으며, AI에게 백업을 요청할 때 필요한 기본 흐름과 <code>.env</code>·토큰 같은 민감 정보를 지키는 방법에 집중합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -101,7 +94,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. GitHub CLI로 인증 준비하기
+## 2. GitHub CLI로 인증 준비하기
 
 터미널에서 GitHub 작업을 하려면 `gh`라는 GitHub CLI가 필요합니다.
 
@@ -129,7 +122,7 @@ gh auth status
 
 ---
 
-## 4. AI에게 백업을 요청할 때
+## 3. AI에게 백업을 요청할 때
 
 인증이 준비되면, AI에게 자연어로 백업을 요청할 수 있습니다.
 
@@ -154,7 +147,7 @@ gh auth status
 
 ---
 
-## 5. 민감 정보 보호하기
+## 4. 민감 정보 보호하기
 
 API 키, 비밀번호, 액세스 토큰 같은 값은 코드와 함께 저장소에 올라가면 외부에 노출될 수 있습니다.
 
@@ -176,7 +169,7 @@ VITE_PUBLIC_ANON_KEY=your_anon_key_here
 
 ---
 
-## 6. 배포 방식 개념
+## 5. 배포 방식 개념
 
 프로젝트를 웹에 공개할 때는 GitHub Pages를 함께 쓰는 경우가 많습니다. 배포 방식은 크게 두 갈래로 나뉩니다.
 
@@ -192,7 +185,7 @@ VITE_PUBLIC_ANON_KEY=your_anon_key_here
 
 ---
 
-## 7. ✅ 핵심 요약
+## 6. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

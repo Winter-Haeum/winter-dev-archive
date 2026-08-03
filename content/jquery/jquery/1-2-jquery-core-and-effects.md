@@ -18,6 +18,7 @@ description: "jQuery의 선택자, DOM 조작, 이벤트 처리, 기본 애니�
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 선택자 — $()로 요소 찾기
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-1에서 jQuery가 왜 등장했는지 배웠다면, 이 문서에서는 그 결과물인 실제 문법을 살펴봅니다.</strong></p>
-  <p>선택자, DOM 조작, 이벤트, 기본 효과라는 네 가지 핵심 기능을 순수 자바스크립트와 비교하며 정리합니다. 레거시 코드를 읽거나 간단한 페이지에 효과를 추가할 때 이 정도만 알아도 충분합니다.</p>
-</div>
-
----
-
-## 2. 선택자 — $()로 요소 찾기
+1-1에서 jQuery가 왜 등장했는지 배웠다면, 이 문서에서는 그 결과물인 실제 문법을 살펴봅니다. 선택자, DOM 조작, 이벤트, 기본 효과라는 네 가지 핵심 기능을 순수 자바스크립트와 비교하며 정리합니다. 레거시 코드를 읽거나 간단한 페이지에 효과를 추가할 때 이 정도만 알아도 충분합니다.
 
 jQuery는 `$('선택자')` 형태로 요소를 찾습니다. CSS에서 쓰던 선택자 문법을 그대로 사용할 수 있어 직관적입니다.
 
@@ -106,7 +100,7 @@ $('.item').addClass('active');
 
 ---
 
-## 3. DOM 조작 — 텍스트, 클래스, 스타일 바꾸기
+## 2. DOM 조작 — 텍스트, 클래스, 스타일 바꾸기
 
 <table class="wda-mtable">
 <thead><tr><th>목적</th><th>메서드</th><th>예시</th></tr></thead>
@@ -127,7 +121,7 @@ $('.item').addClass('active');
 
 ---
 
-## 4. 이벤트 처리 — on()으로 사용자 동작에 반응하기
+## 3. 이벤트 처리 — on()으로 사용자 동작에 반응하기
 
 버튼 클릭처럼 사용자의 동작에 반응하려면 `.on()` 메서드를 사용합니다.
 
@@ -151,7 +145,7 @@ $('#btn').on('click', function () {
 
 ---
 
-## 5. 기본 애니메이션 효과
+## 4. 기본 애니메이션 효과
 
 jQuery는 요소를 보이거나 숨기는 동작에 부드러운 전환 효과를 쉽게 넣을 수 있는 메서드를 기본 제공합니다.
 

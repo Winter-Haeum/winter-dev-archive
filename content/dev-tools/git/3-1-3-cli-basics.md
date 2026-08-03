@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. CLI란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p>[[3-1-2-git-structure|이전 문서]]에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다.</p>
-  <p>먼저 CLI 자체에 익숙해지는 기본 명령어를 연습한 다음, git init부터 git diff까지 실전에서 가장 많이 쓰는 명령어를 순서대로 실습한다.</p>
-</div>
-
----
-
-## 2. CLI란 무엇인가
+[[3-1-2-git-structure|이전 문서]]에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다. 먼저 CLI 자체에 익숙해지는 기본 명령어를 연습한 다음, git init부터 git diff까지 실전에서 가장 많이 쓰는 명령어를 순서대로 실습한다.
 
 CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, 텍스트로 된 명령어를 직접 입력해 컴퓨터를 조작하는 방식이다. 우리가 평소 쓰는 GUI(Graphical User Interface)와 비교하면 차이가 뚜렷하다.
 
@@ -102,7 +95,7 @@ CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, �
 
 ---
 
-## 3. 리눅스와 터미널
+## 2. 리눅스와 터미널
 
 터미널에서 쓰는 명령어 상당수는 리눅스(Linux)에서 비롯됐다. 리눅스는 1991년 <strong>Linus Torvalds</strong>가 만든 오픈소스 운영체제(OS)다. 운영체제란 컴퓨터의 하드웨어를 관리하고, 프로그램이 실행될 수 있는 환경을 만들어주는 소프트웨어를 말한다.
 
@@ -125,7 +118,7 @@ CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, �
 
 ---
 
-## 4. 기본 명령어 ① pwd · ls · cd
+## 3. 기본 명령어 ① pwd · ls · cd
 
 터미널을 열었을 때 가장 먼저 익혀야 할 세 명령어다.
 
@@ -148,7 +141,7 @@ cd ~                # 홈 디렉토리로 이동
 
 ---
 
-## 5. 경로의 개념 — 절대경로 vs 상대경로
+## 4. 경로의 개념 — 절대경로 vs 상대경로
 
 폴더를 이동하려면 "어디로 갈 것인가"를 경로로 표현해야 한다. 경로는 크게 두 가지 방식으로 쓸 수 있다.
 
@@ -183,7 +176,7 @@ cd ~                # 홈 디렉토리로 이동
 
 ---
 
-## 6. 기본 명령어 ② mkdir · touch
+## 5. 기본 명령어 ② mkdir · touch
 
 폴더와 파일을 새로 만들 때 쓰는 명령어다.
 
@@ -219,7 +212,7 @@ touch index.html style.css script.js
 
 ---
 
-## 7. 기본 명령어 ③ cat · nano · vim
+## 6. 기본 명령어 ③ cat · nano · vim
 
 ```bash
 cat index.html              # 파일 내용을 터미널에 바로 출력
@@ -248,7 +241,7 @@ cat a.txt > b.txt            # a.txt의 내용을 b.txt로 복사
 
 ---
 
-## 8. git init — 폴더를 Git 프로젝트로 만들기
+## 7. git init — 폴더를 Git 프로젝트로 만들기
 
 <code>git init</code>은 평범한 폴더를 Git이 버전을 관리하는 프로젝트로 바꿔주는 명령어다. 실행하는 즉시 그 폴더 안에 <code>.git</code> 숨김 폴더가 생성된다.
 
@@ -285,7 +278,7 @@ ls -a
 
 ---
 
-## 9. git status — 지금 상태 확인하기
+## 8. git status — 지금 상태 확인하기
 
 <code>git status</code>는 현재 Git 저장소의 상태를 한눈에 보여준다.
 
@@ -324,7 +317,7 @@ Changes to be committed:
 
 ---
 
-## 10. git add — Staging Area로 옮기기
+## 9. git add — Staging Area로 옮기기
 
 <code>git add</code>는 Working Directory의 변경 사항을 Staging Area로 옮기는 명령어다.
 
@@ -351,7 +344,7 @@ git restore --staged 파일명
 
 ---
 
-## 11. git commit — 버전으로 영구 저장하기
+## 10. git commit — 버전으로 영구 저장하기
 
 commit은 그 시점의 파일 상태를 스냅샷처럼 통째로 저장하는 행위다. 커밋마다 고유한 해시 ID가 부여되고, 커밋 메시지와 시간 정보가 함께 기록된다.
 
@@ -392,7 +385,7 @@ git commit -m "index.html 초기 생성"
 
 ---
 
-## 12. git log — 커밋 히스토리 확인하기
+## 11. git log — 커밋 히스토리 확인하기
 
 ```bash
 git log
@@ -412,7 +405,7 @@ git log --oneline -5     # 최근 5개를 한 줄씩 간단히 보기
 
 ---
 
-## 13. git diff — 변경 내용 비교하기
+## 12. git diff — 변경 내용 비교하기
 
 <code>git diff</code>는 파일이 어떻게 달라졌는지 줄 단위로 보여준다. 추가된 줄 앞에는 <code>+</code>, 삭제된 줄 앞에는 <code>-</code> 표시가 붙는다. 화면에서는 보통 추가된 줄은 초록색, 삭제된 줄은 빨간색으로 표시된다.
 
@@ -443,7 +436,7 @@ add하기 전 마지막으로 무엇이 바뀌었는지 확인하거나, 실수�
 
 ---
 
-## 14. 전체 흐름 한눈에 보기
+## 13. 전체 흐름 한눈에 보기
 
 지금까지 배운 명령어를 3영역 흐름에 대응시켜 정리하면 아래와 같다.
 
@@ -460,7 +453,7 @@ add하기 전 마지막으로 무엇이 바뀌었는지 확인하거나, 실수�
 
 ---
 
-## 15. 터미널 사용 시 주의사항
+## 14. 터미널 사용 시 주의사항
 
 <div class="wda-callout wda-cw">
   <p><strong>절대 실행하지 말 것</strong> — <code>rm -rf /</code>는 시스템의 모든 파일을 강제로 삭제하는 명령어이며, 실행하면 복구가 거의 불가능하다. 이 명령어를 어디선가 보게 되더라도 <strong>절대로 Enter를 누르지 말 것</strong>.</p>

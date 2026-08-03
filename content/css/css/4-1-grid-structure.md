@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Flexbox의 한계 — 왜 Grid가 필요한가
 
-<div class="wda-callout wda-ci">
-  <p>지금까지는 <strong>Flexbox</strong>로 한 줄 또는 한 방향으로 흐르는 레이아웃을 다뤘다. 이 문서부터는 <strong>CSS Grid</strong>로 넘어가, 행과 열을 동시에 다루는 2차원 레이아웃의 기초를 세운다.</p>
-  <p>구체적인 배치 함수(<code>repeat()</code>, <code>minmax()</code> 등)는 다음 문서에서 다루고, 이번에는 Grid가 왜 필요한지와 Container·Item의 기본 개념에 집중한다.</p>
-</div>
-
----
-
-## 2. Flexbox의 한계 — 왜 Grid가 필요한가
+지금까지는 Flexbox로 한 줄 또는 한 방향으로 흐르는 레이아웃을 다뤘다. 이 문서부터는 CSS Grid로 넘어가, 행과 열을 동시에 다루는 2차원 레이아웃의 기초를 세운다. 구체적인 배치 함수(<code>repeat()</code>, <code>minmax()</code> 등)는 다음 문서에서 다루고, 이번에는 Grid가 왜 필요한지와 Container·Item의 기본 개념에 집중한다.
 
 카드 4개를 아래처럼 배치하고 싶다고 가정해보자. A는 큰 카드, B와 C는 같은 줄에 나란히, D는 A 옆에 붙어야 한다.
 
@@ -145,7 +138,7 @@ A(66.666%) + B(33.333%)까지는 한 줄(100%)을 채우고 줄바꿈된다. 문
 
 ---
 
-## 3. Grid의 기본 개념 — 행, 열, 셀, 그리드 라인
+## 2. Grid의 기본 개념 — 행, 열, 셀, 그리드 라인
 
 Grid를 이해하는 가장 쉬운 방법은 엑셀 스프레드시트를 떠올리는 것이다.
 
@@ -192,7 +185,7 @@ Grid의 가장 기본적인 문법은 다음과 같다.
 
 ---
 
-## 4. Grid Container 속성 상세
+## 3. Grid Container 속성 상세
 
 `grid-template-columns`와 `grid-template-rows`는 다양한 값을 조합해서 쓸 수 있다.
 
@@ -223,7 +216,7 @@ grid-template-rows: 60px auto 40px;
 
 ---
 
-## 5. 간격 설정 — gap
+## 4. 간격 설정 — gap
 
 Grid는 아이템 사이 간격을 `gap`으로 관리한다. 여백을 위해 `margin`을 따로 계산할 필요가 없다.
 
@@ -256,7 +249,7 @@ Grid는 아이템 사이 간격을 `gap`으로 관리한다. 여백을 위해 `m
 
 ---
 
-## 6. Container 정렬 속성 — justify-items, align-items
+## 5. Container 정렬 속성 — justify-items, align-items
 
 Container에 지정하면 그 안의 모든 Item에 한 번에 적용되는 정렬 속성이다.
 
@@ -282,7 +275,7 @@ Container에 지정하면 그 안의 모든 Item에 한 번에 적용되는 정�
 
 ---
 
-## 7. Grid Item 속성 정리
+## 6. Grid Item 속성 정리
 
 Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬을 지정하는 속성이 있다.
 
@@ -314,7 +307,7 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 
 ---
 
-## 8. 자동 배치 동작과 실전 팁
+## 7. 자동 배치 동작과 실전 팁
 
 `grid-column`, `grid-row`를 지정하지 않은 Item은 순서대로 자동 배치된다. 1행 1열, 1행 2열, 1행 3열... 처럼 왼쪽에서 오른쪽, 위에서 아래로 채워진다.
 
@@ -341,7 +334,7 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 
 ---
 
-## 9. Container vs Item — 역할 정리
+## 8. Container vs Item — 역할 정리
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -380,7 +373,7 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 
 ---
 
-## 10. Flexbox와 동일한 구조 — 중첩도 가능하다
+## 9. Flexbox와 동일한 구조 — 중첩도 가능하다
 
 Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → GridItem 구조를 그대로 따른다. 그리고 하나의 Item이 다른 레이아웃의 Container가 되는 중첩도 자유롭게 가능하다.
 
@@ -412,7 +405,7 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
 
 ---
 
-## 11. place-items — Container 정렬 단축 속성
+## 10. place-items — Container 정렬 단축 속성
 
 `justify-items`와 `align-items`를 한 번에 지정하는 단축 속성이다. 값 순서는 `align → justify` 순이다.
 
@@ -428,7 +421,7 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
 
 ---
 
-## 12. Flexbox vs Grid — 언제 무엇을 쓸까
+## 11. Flexbox vs Grid — 언제 무엇을 쓸까
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>Flexbox</th><th>Grid</th></tr></thead>
@@ -462,7 +455,7 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
 
 ---
 
-## 13. Grid 기본 문법 미리보기 — 3열 카드 그리드
+## 12. Grid 기본 문법 미리보기 — 3열 카드 그리드
 
 Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
@@ -493,7 +486,7 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
 ---
 
-## 14. 실전 예제 — 2열 레이아웃(사이드바 + 메인)
+## 13. 실전 예제 — 2열 레이아웃(사이드바 + 메인)
 
 ```html
 <div class="layout">
@@ -532,7 +525,7 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
 ---
 
-## 15. 실전 예제 — 매거진형 복잡한 격자
+## 14. 실전 예제 — 매거진형 복잡한 격자
 
 ```html
 <div class="magazine-layout">
@@ -571,7 +564,7 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
 ---
 
-## 16. Container / Item 속성 총정리
+## 15. Container / Item 속성 총정리
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>대상</th><th>주요 값</th></tr></thead>

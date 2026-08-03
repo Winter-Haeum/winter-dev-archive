@@ -18,6 +18,7 @@ description: "정적 사이트와 동적 웹서비스의 차이, 그리고 요�
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 정적 웹사이트 vs 동적 웹서비스
 
-<div class="wda-callout wda-ci">
-  <p><strong>Web & Network 카테고리의 첫 문서로, 웹 서비스를 분류하는 두 가지 큰 축을 다룹니다.</strong></p>
-  <p>하나는 "화면이 고정인가, 매번 달라지는가"(정적/동적)이고, 다른 하나는 "소프트웨어를 어떻게 제공받는가"(SaaS)입니다. 프론트엔드 개발자가 만드는 결과물이 결국 어느 쪽에 속하는지 알아야, 다음 문서들에서 배울 클라이언트-서버 구조와 API가 왜 필요한지 자연스럽게 이어집니다.</p>
-</div>
-
----
-
-## 2. 정적 웹사이트 vs 동적 웹서비스
+Web & Network 카테고리의 첫 문서로, 웹 서비스를 분류하는 두 가지 큰 축을 다룹니다. 하나는 "화면이 고정인가, 매번 달라지는가"(정적/동적)이고, 다른 하나는 "소프트웨어를 어떻게 제공받는가"(SaaS)입니다. 프론트엔드 개발자가 만드는 결과물이 결국 어느 쪽에 속하는지 알아야, 다음 문서들에서 배울 클라이언트-서버 구조와 API가 왜 필요한지 자연스럽게 이어집니다.
 
 가장 먼저 구분해야 할 건 "화면에 보이는 내용이 누가 언제 접속하든 항상 같은가"입니다.
 
@@ -115,7 +109,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. SaaS란 무엇인가
+## 2. SaaS란 무엇인가
 
 정적/동적 구분이 "화면이 어떻게 만들어지는가"에 대한 것이라면, **SaaS(Software as a Service)**는 "소프트웨어를 어떤 방식으로 제공받는가"에 대한 이야기입니다.
 
@@ -143,7 +137,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 4. 클라우드 서비스 3단계 — IaaS · PaaS · SaaS
+## 3. 클라우드 서비스 3단계 — IaaS · PaaS · SaaS
 
 SaaS는 사실 클라우드 서비스가 제공하는 편의 수준 중 가장 높은 단계입니다. "얼마나 많은 부분을 서비스 제공자가 대신 해주는가"를 기준으로 세 단계로 나눌 수 있습니다.
 
@@ -163,7 +157,7 @@ SaaS는 사실 클라우드 서비스가 제공하는 편의 수준 중 가장 �
 
 ---
 
-## 5. 우리가 매일 쓰는 SaaS
+## 4. 우리가 매일 쓰는 SaaS
 
 SaaS는 특별한 개념이 아니라 이미 일상 곳곳에 있습니다.
 

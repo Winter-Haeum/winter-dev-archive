@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 박스 모델의 4겹 구조
 
-<div class="wda-callout wda-ci">
-  <p>[[1-3-colors-and-fonts|이전 문서]]에서 색상과 폰트로 요소의 겉모습을 꾸몄다면, 이 문서에서는 그 요소가 화면에서 차지하는 "공간"을 다룬다.</p>
-  <p>CSS에서 모든 요소는 사각형 상자(박스)로 취급된다. 이 박스가 어떤 구조로 이루어지는지, 크기는 어떻게 계산되는지를 정확히 알아야 레이아웃이 예상대로 배치된다.</p>
-</div>
-
----
-
-## 2. 박스 모델의 4겹 구조
+[[1-3-colors-and-fonts|이전 문서]]에서 색상과 폰트로 요소의 겉모습을 꾸몄다면, 이 문서에서는 그 요소가 화면에서 차지하는 "공간"을 다룬다. CSS에서 모든 요소는 사각형 상자(박스)로 취급된다. 이 박스가 어떤 구조로 이루어지는지, 크기는 어떻게 계산되는지를 정확히 알아야 레이아웃이 예상대로 배치된다.
 
 모든 HTML 요소는 안쪽부터 바깥쪽까지 네 겹으로 이루어진 박스로 렌더링된다.
 
@@ -135,7 +128,7 @@ Padding을 둘러싸는 테두리다. 단축 속성으로 두께·스타일·색
 
 ---
 
-## 3. Margin 단축 속성과 display별 동작
+## 2. Margin 단축 속성과 display별 동작
 
 Margin의 단축 속성은 값 개수에 따라 적용 방향이 달라진다.
 
@@ -162,7 +155,7 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 ---
 
-## 4. width, height와 크기 제한 속성
+## 3. width, height와 크기 제한 속성
 
 `width`, `height`는 `px`(절대 픽셀), `%`(부모 요소 대비 비율), `vw`/`vh`(뷰포트 너비·높이 대비 비율) 단위를 사용할 수 있다.
 
@@ -178,7 +171,7 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 ---
 
-## 5. box-sizing: content-box vs border-box
+## 4. box-sizing: content-box vs border-box
 
 `width`, `height`가 정확히 무엇을 기준으로 계산되는지는 `box-sizing` 속성이 결정한다.
 
@@ -221,7 +214,7 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 ---
 
-## 6. Margin Collapse (마진 붕괴)
+## 5. Margin Collapse (마진 붕괴)
 
 세로 방향의 margin이 서로 만나면, 두 값을 더하지 않고 <strong>더 큰 값 하나만</strong> 적용되는 현상이 발생한다. 이를 Margin Collapse라고 부른다.
 
@@ -253,7 +246,7 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 ---
 
-## 7. 고급 주제: BFC(Block Formatting Context)
+## 6. 고급 주제: BFC(Block Formatting Context)
 
 BFC는 블록 요소들이 레이아웃될 때 사용하는 독립적인 영역이다. BFC 안에서는 바깥 요소와 margin이 서로 영향을 주고받지 않고, float 요소도 이 영역 안에서만 배치가 계산된다.
 
@@ -284,7 +277,7 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 
 ---
 
-## 8. Border 세부 옵션
+## 7. Border 세부 옵션
 
 ### 8-1. 방향별 지정
 
@@ -314,7 +307,7 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 
 ---
 
-## 9. Outline
+## 8. Outline
 
 `outline`은 `border`처럼 요소 주변에 선을 그리지만, 박스 모델에 포함되지 않아 <strong>레이아웃에 영향을 주지 않는다</strong>. 주로 키보드로 포커스를 이동했을 때 어떤 요소가 선택되었는지 보여주는 접근성 용도로 쓰인다.
 

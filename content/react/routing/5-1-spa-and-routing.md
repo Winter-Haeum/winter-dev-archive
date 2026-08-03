@@ -72,18 +72,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. SPA란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 React Router의 기본 흐름(BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams)만 다룹니다.</strong></p>
-  <p>로그인 여부에 따라 접근을 제한하는 Protected Route 패턴, 라우트 안에 라우트를 두는 중첩 라우팅, 페이지 진입 전 데이터를 미리 불러오는 로더(loader), 코드 분할을 위한 지연 로딩(lazy loading)은 이 문서에서 다루지 않습니다.</p>
-</div>
+이 문서는 React Router의 기본 흐름(BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams)만 다룹니다. 로그인 여부에 따라 접근을 제한하는 Protected Route 패턴, 라우트 안에 라우트를 두는 중첩 라우팅, 페이지 진입 전 데이터를 미리 불러오는 로더(loader), 코드 분할을 위한 지연 로딩(lazy loading)은 이 문서에서 다루지 않습니다.
 
 이후 예시는 학습 플랫폼의 `AppRouter`, `CourseListPage`, `DashboardPage`, `SettingsPage`를 기준으로 설명합니다.
-
----
-
-## 2. SPA란 무엇인가
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -102,7 +95,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. 설치와 기본 설정
+## 2. 설치와 기본 설정
 
 ```bash
 npm install react-router-dom
@@ -125,7 +118,7 @@ createRoot(document.getElementById('root')).render(
 
 ---
 
-## 4. 라우트 정의하기
+## 3. 라우트 정의하기
 
 `<Routes>` 안에 `<Route>`를 나열해, 경로별로 보여줄 컴포넌트를 매핑합니다.
 
@@ -155,7 +148,7 @@ function AppRouter() {
 
 ---
 
-## 5. 페이지 이동 — Link vs a
+## 4. 페이지 이동 — Link vs a
 
 <div class="wda-compare">
   <div class="wda-compare-card">
@@ -176,7 +169,7 @@ import { Link } from 'react-router-dom';
 
 ---
 
-## 6. NavLink로 현재 위치 표시하기
+## 5. NavLink로 현재 위치 표시하기
 
 `NavLink`는 `Link`와 같지만, 현재 경로와 자신의 `to`가 일치하는지(`isActive`)를 함께 알려줍니다. 네비게이션 메뉴에서 현재 위치를 강조할 때 사용합니다.
 
@@ -193,7 +186,7 @@ import { NavLink } from 'react-router-dom';
 
 ---
 
-## 7. useNavigate로 코드에서 이동하기
+## 6. useNavigate로 코드에서 이동하기
 
 버튼 클릭이 아니라 로그인 성공, 폼 제출 완료처럼 특정 로직이 끝난 뒤 코드로 페이지를 이동시킬 때 사용합니다.
 
@@ -214,7 +207,7 @@ function SettingsPage() {
 
 ---
 
-## 8. useParams로 동적 경로 다루기
+## 7. useParams로 동적 경로 다루기
 
 URL 일부를 변수처럼 사용하고 싶을 때는 경로에 `:id`처럼 콜론을 붙여 정의합니다.
 
@@ -234,7 +227,7 @@ function CourseDetailPage() {
 
 ---
 
-## 9. 초보자 실수
+## 8. 초보자 실수
 
 <div class="wda-callout wda-cw">
   <p><strong>앱 내부 이동에 &lt;a href&gt;를 쓰는 경우</strong></p>
@@ -248,7 +241,7 @@ function CourseDetailPage() {
 
 ---
 
-## 10. ✅ 핵심 요약
+## 9. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. @media 문법 기초
 
-<div class="wda-callout wda-ci">
-  <p>지금까지 <strong>Flexbox</strong>와 <strong>Grid</strong>로 레이아웃을 짜는 법을 배웠다면, 이제는 그 레이아웃을 화면 크기에 따라 다르게 보여주는 방법이 필요하다. 그 시작점이 바로 <strong>Media Query</strong>다.</p>
-  <p>이 문서에서는 @media의 기본 문법, min-width와 max-width의 차이, 논리 연산자, 그리고 Breakpoint를 설계하는 전략까지 다룬다. 디바이스별 세부 최적화는 다음 문서(2-6-2)에서, srcset·picture·Container Query 같은 심화 기법은 그다음 문서(2-6-3)에서 이어간다.</p>
-</div>
-
----
-
-## 2. @media 문법 기초
+지금까지 Flexbox와 Grid로 레이아웃을 짜는 법을 배웠다면, 이제는 그 레이아웃을 화면 크기에 따라 다르게 보여주는 방법이 필요하다. 그 시작점이 바로 Media Query다. 이 문서에서는 @media의 기본 문법, min-width와 max-width의 차이, 논리 연산자, 그리고 Breakpoint를 설계하는 전략까지 다룬다. 디바이스별 세부 최적화는 다음 문서(2-6-2)에서, srcset·picture·Container Query 같은 심화 기법은 그다음 문서(2-6-3)에서 이어간다.
 
 Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만 CSS를 적용하는 문법이다. 미디어 타입과 조건을 함께 지정해서 "이 조건을 만족하는 화면에서만 이 스타일을 적용하라"고 브라우저에 지시한다.
 
@@ -141,7 +134,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 3. min-width vs max-width — 접근 방향이 다르다
+## 2. min-width vs max-width — 접근 방향이 다르다
 
 같은 화면 크기를 다루더라도 min-width와 max-width는 CSS를 쌓아가는 방향이 정반대다.
 
@@ -178,7 +171,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 4. 논리 연산자로 복잡한 조건 만들기
+## 3. 논리 연산자로 복잡한 조건 만들기
 
 <table class="wda-mtable">
 <thead><tr><th>연산자</th><th>의미</th><th>예시</th></tr></thead>
@@ -218,7 +211,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 5. orientation — 화면 방향 대응하기
+## 4. orientation — 화면 방향 대응하기
 
 `orientation`은 화면의 세로(portrait)·가로(landscape) 방향을 감지하는 조건이다.
 
@@ -272,7 +265,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 6. 주요 Breakpoint 전략
+## 5. 주요 Breakpoint 전략
 
 실무에서 자주 쓰이는 대표 Breakpoint는 4단계다.
 
@@ -315,7 +308,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 7. 모바일 퍼스트 접근법 — 4단계 확장 전략
+## 6. 모바일 퍼스트 접근법 — 4단계 확장 전략
 
 모바일 퍼스트는 가장 작은 화면부터 스타일을 정의하고, 화면이 커질 때마다 필요한 스타일을 점진적으로 얹는 방식이다.
 
@@ -369,7 +362,7 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ---
 
-## 8. 데스크탑 퍼스트 접근법과 여전히 유용한 경우
+## 7. 데스크탑 퍼스트 접근법과 여전히 유용한 경우
 
 데스크탑 퍼스트는 반대로 가장 큰 화면부터 시작해서 작아질수록 스타일을 덜어내는 3단계 축소 전략을 쓴다.
 

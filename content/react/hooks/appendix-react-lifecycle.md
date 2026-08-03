@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 3단계 흐름 한눈에 보기
 
-<div class="wda-callout wda-ci">
-  <p><strong>이 문서는 함수형 컴포넌트를 기준으로 생명주기 흐름을 정리합니다.</strong></p>
-  <p>[[3-2-useeffect|3-2 문서]]에서 배운 useEffect가 이 흐름의 어느 시점에 실행되는지를 중심으로 설명합니다. 클래스 컴포넌트의 생명주기 메서드는 오늘날 거의 쓰이지 않지만, 기존 코드를 읽을 때를 대비해 대응 관계만 짧게 비교합니다.</p>
-</div>
-
----
-
-## 2. 3단계 흐름 한눈에 보기
+이 문서는 함수형 컴포넌트를 기준으로 생명주기 흐름을 정리합니다. [[3-2-useeffect|3-2 문서]]에서 배운 useEffect가 이 흐름의 어느 시점에 실행되는지를 중심으로 설명합니다. 클래스 컴포넌트의 생명주기 메서드는 오늘날 거의 쓰이지 않지만, 기존 코드를 읽을 때를 대비해 대응 관계만 짧게 비교합니다.
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">Mount</div><div class="wda-fnode-dsc">처음 화면에 나타남</div></div>
@@ -92,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 3. Render, Commit, Effect
+## 2. Render, Commit, Effect
 
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>내용</th></tr></thead>
@@ -119,7 +112,7 @@ function HookDashboard() {
 
 ---
 
-## 4. Update 시 실행 순서
+## 3. Update 시 실행 순서
 
 props나 state가 바뀌어 다시 렌더링될 때는, 새 effect를 실행하기 전에 **이전 effect의 cleanup**이 먼저 호출됩니다.
 
@@ -142,7 +135,7 @@ useEffect(() => {
 
 ---
 
-## 5. Unmount 시 정리해야 할 것들
+## 4. Unmount 시 정리해야 할 것들
 
 <div class="wda-fgrid">
   <div class="wda-fcard wda-fcard-con"><div class="wda-fcard-ttl">타이머</div><div class="wda-fcard-dsc">setInterval, setTimeout</div></div>
@@ -154,7 +147,7 @@ useEffect(() => {
 
 ---
 
-## 6. (참고) 클래스 생명주기 메서드와의 대응 관계
+## 5. (참고) 클래스 생명주기 메서드와의 대응 관계
 
 <div class="wda-callout wda-cw">
   <p>클래스 컴포넌트는 오늘날 새로 작성하는 코드에서는 거의 쓰이지 않지만, 기존 코드를 읽을 때를 위해 대응 관계만 짧게 정리합니다.</p>
@@ -173,7 +166,7 @@ useEffect(() => {
 
 ---
 
-## 7. Strict Mode에서 두 번 실행되는 이유
+## 6. Strict Mode에서 두 번 실행되는 이유
 
 개발 모드에서 `useEffect` 콘솔 로그가 두 번 찍히는 현상을 발견할 수 있습니다.
 
@@ -185,7 +178,7 @@ useEffect(() => {
 
 ---
 
-## 8. ✅ 핵심 요약
+## 7. ✅ 핵심 요약
 
 **📌 먼저 외울 것**
 

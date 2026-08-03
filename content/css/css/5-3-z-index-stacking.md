@@ -68,16 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. z-index란
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[5-1-position-layout|Position 실전 패턴]]과 [[5-2-transform-effects|Transform]]을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다.</strong></p>
-  <p>단순히 숫자를 크게 주는 것만으로는 해결되지 않는 경우가 많은데, 그 이유가 바로 이 문서의 핵심인 Stacking Context에 있습니다.</p>
-</div>
-
----
-
-## 2. z-index란
+[[5-1-position-layout|Position 실전 패턴]]과 [[5-2-transform-effects|Transform]]을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다. 단순히 숫자를 크게 주는 것만으로는 해결되지 않는 경우가 많은데, 그 이유가 바로 이 문서의 핵심인 Stacking Context에 있습니다.
 
 `z-index`는 요소의 쌓임 순서(깊이)를 정하는 속성이다. 값이 클수록 화면 앞쪽에 보인다.
 
@@ -101,7 +94,7 @@ z-index는 `position`이 `static`(기본값)이 아닌 요소, 즉 `relative`·`
 
 ---
 
-## 3. Stacking Context — 가장 핵심적인 개념
+## 2. Stacking Context — 가장 핵심적인 개념
 
 **Stacking Context(쌓임 맥락)**는 요소들이 쌓이는 독립적인 레이어 그룹이다. 이 그룹 **내부**에서는 z-index 값끼리 비교할 수 있지만, 서로 다른 그룹끼리는 그룹 전체가 하나의 단위로 겹친다.
 
@@ -137,7 +130,7 @@ B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1
 
 ---
 
-## 4. z-index가 안 먹힐 때 확인하는 순서
+## 3. z-index가 안 먹힐 때 확인하는 순서
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1</div><div class="wda-fnode-dsc">position 확인 — static이면 relative 등으로 수정</div></div>
@@ -161,7 +154,7 @@ B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1
 
 ---
 
-## 5. z-index 계층 설계 전략
+## 4. z-index 계층 설계 전략
 
 숫자를 감으로 계속 올리기보다, 역할별로 100 단위 구간을 미리 정해두면 충돌을 크게 줄일 수 있다.
 

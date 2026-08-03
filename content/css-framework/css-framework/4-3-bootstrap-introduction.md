@@ -69,16 +69,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. Bootstrap이란 무엇인가
 
-<div class="wda-callout wda-ci">
-  <p><strong>[[4-2-component-based-vs-utility-first|이전 문서]]에서 Component based 방식의 개념을 봤다면, 이 문서는 그 대표 사례인 Bootstrap을 구체적으로 다룹니다.</strong></p>
-  <p>그리드 시스템과 대표 컴포넌트 몇 가지를 직접 코드로 확인한다.</p>
-</div>
-
----
-
-## 2. Bootstrap이란 무엇인가
+[[4-2-component-based-vs-utility-first|이전 문서]]에서 Component based 방식의 개념을 봤다면, 이 문서는 그 대표 사례인 Bootstrap을 구체적으로 다룹니다. 그리드 시스템과 대표 컴포넌트 몇 가지를 직접 코드로 확인한다.
 
 Bootstrap은 미리 완성된 UI 구성요소를 클래스 기반으로 제공하는 컴포넌트 기반 CSS 프레임워크다. HTML에 정해진 클래스를 추가하는 것만으로 버튼, 카드, 레이아웃을 빠르게 구성할 수 있다.
 
@@ -107,7 +100,7 @@ Bootstrap은 미리 완성된 UI 구성요소를 클래스 기반으로 제공�
 
 ---
 
-## 3. Bootstrap 그리드 시스템
+## 2. Bootstrap 그리드 시스템
 
 Bootstrap 레이아웃의 중심에는 12컬럼 그리드 시스템이 있다. 화면을 12칸으로 나누는 방식으로, 칸의 합은 항상 12가 되며 2, 3, 4, 6처럼 나누기 쉬운 숫자로 분할할 수 있어 반응형 레이아웃에 특히 잘 맞는다.
 
@@ -153,7 +146,7 @@ Bootstrap 레이아웃의 중심에는 12컬럼 그리드 시스템이 있다. �
 
 ---
 
-## 4. Bootstrap 주요 UI 요소
+## 3. Bootstrap 주요 UI 요소
 
 Bootstrap은 자주 쓰는 UI를 미리 만들어 제공한다. 대표적으로 버튼, 카드, Alert 세 가지를 살펴본다.
 
@@ -202,7 +195,7 @@ Alert는 다음과 같이 구성한다.
 
 ---
 
-## 5. Bootstrap 공식 문서 활용하기
+## 4. Bootstrap 공식 문서 활용하기
 
 Bootstrap 공식 문서는 학습 곡선을 낮춰주는 중요한 자원이다.
 

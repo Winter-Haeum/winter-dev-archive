@@ -18,6 +18,7 @@ description: "다른 출처의 API를 호출할 때 마주치는 CORS 에러가 
 .wda-cw .wda-clabel{color:#f59e0b}
 .wda-cs .wda-clabel{color:#22c55e}
 .wda-cb .wda-clabel{color:#3b82f6}
+.wda-goal{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:12px 16px;margin:.8rem 0 1.6rem;font-size:.83rem;line-height:1.75}
 .wda-fgrid{display:flex;flex-wrap:wrap;gap:10px;margin:.8rem 0 1.6rem}
 .wda-fcard{flex:1 1 140px;border:1px solid rgba(128,128,128,.18);border-radius:10px;padding:13px 15px;background:rgba(128,128,128,.03);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .wda-fcard-ttl{font-size:.94rem;font-weight:700;margin-bottom:4px}
@@ -70,16 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
-## 1. 이 문서에서 다루는 것
+## 1. 출처(Origin)란
 
-<div class="wda-callout wda-ci">
-  <p><strong>1-2에서 fetch로 API를 호출하는 방법을 배웠는데, 실제로 다른 도메인의 API를 호출하면 종종 "CORS" 에러를 마주칩니다.</strong></p>
-  <p>이 에러는 서버가 고장 났다는 뜻이 아니라, <strong>브라우저의 보안 정책</strong>이 응답을 가로막았다는 신호입니다. 이 문서에서는 그 이유와 기본적인 대처 방향을 정리합니다.</p>
-</div>
-
----
-
-## 2. 출처(Origin)란
+1-2에서 fetch로 API를 호출하는 방법을 배웠는데, 실제로 다른 도메인의 API를 호출하면 종종 "CORS" 에러를 마주칩니다. 이 에러는 서버가 고장 났다는 뜻이 아니라, 브라우저의 보안 정책이 응답을 가로막았다는 신호입니다. 이 문서에서는 그 이유와 기본적인 대처 방향을 정리합니다.
 
 **출처(Origin)**는 프로토콜, 도메인, 포트 세 가지의 조합으로 결정됩니다. URL 뒤에 붙는 경로나 쿼리스트링은 출처 판단에 영향을 주지 않습니다.
 
@@ -101,7 +95,7 @@ https://example.com:443/products
 
 ---
 
-## 3. 동일 출처 정책(SOP)과 CORS의 관계
+## 2. 동일 출처 정책(SOP)과 CORS의 관계
 
 브라우저는 보안을 위해 기본적으로 **같은 출처끼리만 자바스크립트로 응답을 읽을 수 있도록** 제한합니다. 이를 **동일 출처 정책(Same-Origin Policy, SOP)**이라고 합니다.
 
@@ -126,7 +120,7 @@ https://example.com:443/products
 
 ---
 
-## 4. 서버가 CORS를 허용하는 방법
+## 3. 서버가 CORS를 허용하는 방법
 
 CORS 문제를 해결하는 열쇠는 결국 서버 쪽에 있습니다. 서버는 응답 헤더에 허용 정보를 담아 보내야 합니다.
 
@@ -155,7 +149,7 @@ app.use(cors({
 
 ---
 
-## 5. 프론트엔드에서 할 수 있는 것 — 개발용 프록시
+## 4. 프론트엔드에서 할 수 있는 것 — 개발용 프록시
 
 CORS는 근본적으로 서버가 해결해야 하는 문제지만, 백엔드 코드를 당장 수정할 수 없는 로컬 개발 환경에서는 **개발 서버의 프록시 기능**으로 우회할 수 있습니다.
 
