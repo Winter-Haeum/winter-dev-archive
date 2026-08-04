@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 연결을 위해 준비할 것
 
-[[2-2-db-schema|이전 문서]]에서 설계한 project-table을 실제로 저장할 공간이 필요합니다. 이 문서는 Supabase 같은 외부 데이터 서비스에 연결하는 흐름을 다룹니다. 특정 서비스의 화면 구성은 계속 바뀔 수 있으므로, 이 문서에서는 어떤 도구를 쓰든 공통적으로 거치는 절차와 원칙을 중심으로 정리합니다.
+[[2-2-db-schema|이전 문서]]에서 설계한 project-table을 실제로 저장할 공간이 필요합니다. 이 문서는 Supabase 같은 외부 데이터 서비스에 연결하는 흐름을 다룹니다.
+
+특정 서비스의 화면 구성은 계속 바뀔 수 있으므로, 이 문서에서는 어떤 도구를 쓰든 공통적으로 거치는 절차와 원칙을 중심으로 정리합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">데이터 서비스 계정</div><div class="wda-fcard-dsc">표 형태의 데이터를 저장해 주는 외부 서비스의 계정입니다.</div></div>

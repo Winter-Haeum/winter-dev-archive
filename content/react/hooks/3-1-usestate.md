@@ -74,7 +74,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. useState 다시 보기
 
-core의 state 문서(2-4)에서 useState의 기본 문법과 재렌더링 원리를 이미 다뤘습니다. 이 문서는 그 다음 단계로, useState라는 Hook을 실제 화면에서 어떻게 안전하게 다루는지 패턴 중심으로 정리합니다. 상태 업데이트 로직이 복잡해질 때 쓰는 useReducer, 여러 컴포넌트가 값을 공유하는 Context, 입력 검증이 포함된 form 처리, 서버에서 가져온 데이터 상태, useEffect와의 조합, 상태 관리 라이브러리는 각각 별도 문서에서 다룹니다.
+core의 state 문서(2-4)에서 useState의 기본 문법과 재렌더링 원리를 이미 다뤘습니다. 이 문서는 그 다음 단계로, useState라는 Hook을 실제 화면에서 어떻게 안전하게 다루는지 패턴 중심으로 정리합니다.
+
+상태 업데이트 로직이 복잡해질 때 쓰는 useReducer, 여러 컴포넌트가 값을 공유하는 Context, 입력 검증이 포함된 form 처리, 서버에서 가져온 데이터 상태, useEffect와의 조합, 상태 관리 라이브러리는 각각 별도 문서에서 다룹니다.
 
 이후 예시는 학습 대시보드 컴포넌트 <code>HookDashboard</code>를 기준으로 설명합니다.
 

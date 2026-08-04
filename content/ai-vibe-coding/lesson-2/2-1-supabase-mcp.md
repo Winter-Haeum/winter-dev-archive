@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 정적 화면과 데이터 기반 화면
 
-lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에 직접 적혀 있는 정적 화면이었습니다. project-section에 프로젝트를 하나 추가하려면 코드를 열어 직접 고쳐야 했습니다. 이 문서군에서는 project-section과 contact-section에 실제 데이터를 연결해서, 코드를 고치지 않고도 내용을 관리할 수 있는 구조를 만듭니다. 이 문서는 그 첫걸음으로 "왜 데이터가 필요한지"부터 정리합니다.
+lesson-1에서 만든 포트폴리오는 지금까지 모든 내용이 코드에 직접 적혀 있는 정적 화면이었습니다. project-section에 프로젝트를 하나 추가하려면 코드를 열어 직접 고쳐야 했습니다.
+
+이 문서군에서는 project-section과 contact-section에 실제 데이터를 연결해서, 코드를 고치지 않고도 내용을 관리할 수 있는 구조를 만듭니다. 이 문서는 그 첫걸음으로 "왜 데이터가 필요한지"부터 정리합니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">

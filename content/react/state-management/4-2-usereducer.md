@@ -74,7 +74,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. useState의 한계
 
-useReducer는 상태 변경 로직이 복잡해질 때, 그 로직을 컴포넌트 밖의 함수 하나로 모으는 Hook입니다. 여러 컴포넌트가 값을 공유하는 방법은 [[4-1-usecontext|4-1 문서]]에서 다뤘습니다. Redux 같은 라이브러리 내부 구조는 [[4-3-state-management-libraries|4-3 문서]]에서 개념 수준으로만 다룹니다.
+useReducer는 상태 변경 로직이 복잡해질 때, 그 로직을 컴포넌트 밖의 함수 하나로 모으는 Hook입니다. 여러 컴포넌트가 값을 공유하는 방법은 [[4-1-usecontext|4-1 문서]]에서 다뤘습니다.
+
+Redux 같은 라이브러리 내부 구조는 [[4-3-state-management-libraries|4-3 문서]]에서 개념 수준으로만 다룹니다.
 
 강의 목록처럼 객체 배열을 다루고, 추가·완료 처리·삭제 등 동작이 늘어나면 각 핸들러가 컴포넌트 곳곳에서 `setState`를 각자 호출하게 됩니다.
 

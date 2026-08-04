@@ -74,14 +74,18 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Side Effect란
 
-useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다. state를 안전하게 바꾸는 방법은 [[3-1-usestate|3-1 문서]]에서 다뤘습니다. 이 문서는 그 state가 바뀔 때 서버 요청이나 타이머처럼 화면 그리기 자체가 아닌 작업을 언제, 어떻게 실행할지를 다룹니다. 실행 순서를 클래스 컴포넌트 생명주기와 비교하는 자세한 내용은 부록 "리액트 라이프사이클" 문서에서 다룹니다.
+useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다. state를 안전하게 바꾸는 방법은 [[3-1-usestate|3-1 문서]]에서 다뤘습니다.
+
+이 문서는 그 state가 바뀔 때 서버 요청이나 타이머처럼 화면 그리기 자체가 아닌 작업을 언제, 어떻게 실행할지를 다룹니다. 실행 순서를 클래스 컴포넌트 생명주기와 비교하는 자세한 내용은 부록 "리액트 라이프사이클" 문서에서 다룹니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">순수 함수</div><div class="wda-fcard-dsc">같은 입력이면 항상 같은 결과를 반환하고, 함수 바깥의 상태를 바꾸지 않습니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">Side Effect</div><div class="wda-fcard-dsc">서버 요청, 타이머 등록, 구독처럼 함수 바깥과 상호작용해 결과를 예측하기 어렵게 만드는 작업입니다.</div></div>
 </div>
 
-React는 컴포넌트 함수가 렌더링 중에는 순수하게 동작하기를 기대합니다. 렌더링 로직 안에서 직접 서버 요청을 보내거나 외부 값을 바꾸면 같은 props로도 실행마다 다른 결과가 나올 수 있습니다. 이런 작업은 `useEffect` 안으로 분리합니다.
+React는 컴포넌트 함수가 렌더링 중에는 순수하게 동작하기를 기대합니다. 렌더링 로직 안에서 직접 서버 요청을 보내거나 외부 값을 바꾸면 같은 props로도 실행마다 다른 결과가 나올 수 있습니다.
+
+이런 작업은 `useEffect` 안으로 분리합니다.
 
 ---
 

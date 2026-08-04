@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. TailwindCSS 시작하기
 
-[[4-3-bootstrap-introduction|이전 문서]]에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다. CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와의 관계까지 순서대로 정리한다.
+[[4-3-bootstrap-introduction|이전 문서]]에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다.
+
+CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와의 관계까지 순서대로 정리한다.
 
 TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootstrap처럼 미리 완성된 버튼을 제공하는 대신, CSS 속성 하나당 클래스 하나를 제공해서 HTML에서 직접 스타일을 조합하게 한다.
 
@@ -223,7 +225,9 @@ TailwindCSS가 실제로 어떤 CSS를 대신 작성해주는지는 순수 CSS �
 </button>
 ```
 
-두 코드는 동일한 결과를 만들지만 스타일을 작성하는 위치가 다르다. CSS 파일에 정의하던 스타일이 HTML의 클래스 조합으로 옮겨오면서, 스타일 정의와 사용이 같은 위치에서 이루어진다. 그만큼 스타일을 고치기 위해 다른 파일로 이동할 필요가 없다.
+두 코드는 동일한 결과를 만들지만 스타일을 작성하는 위치가 다르다. CSS 파일에 정의하던 스타일이 HTML의 클래스 조합으로 옮겨오면서, 스타일 정의와 사용이 같은 위치에서 이루어진다.
+
+그만큼 스타일을 고치기 위해 다른 파일로 이동할 필요가 없다.
 
 **✅ 권장 방식**
 

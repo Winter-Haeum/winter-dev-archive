@@ -138,7 +138,9 @@ console.log("복습 제한:", MAX_REVIEW_COUNT);
 
 ## 2. 한 곳에서 관리하기: 변수
 
-위 오른쪽 카드에서 쓴 `todayTopic`, `completedStep`, `MAX_REVIEW_COUNT`가 이 문서에서 계속 사용할 미니 학습 상태판의 값이다. 변수는 이렇게 **반복되는 값을 한 곳에서 관리하기 위해 붙인 이름**이다.
+위 오른쪽 카드에서 쓴 `todayTopic`, `completedStep`, `MAX_REVIEW_COUNT`가 이 문서에서 계속 사용할 미니 학습 상태판의 값이다.
+
+변수는 이렇게 **반복되는 값을 한 곳에서 관리하기 위해 붙인 이름**이다.
 
 **💡 이름 짓는 규칙**
 

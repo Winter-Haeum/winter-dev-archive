@@ -310,7 +310,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 3-3. flex-basis — 아이템의 기본 크기
 
-flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정한다. width 대신 flex 컨테이너 안에서는 flex-basis를 사용하는 것이 일반적이다. `flex-basis: 0%`로 지정하면 원래 콘텐츠 크기를 무시하고 오직 flex-grow 비율로만 공간을 나눈다.
+flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정한다. width 대신 flex 컨테이너 안에서는 flex-basis를 사용하는 것이 일반적이다.
+
+`flex-basis: 0%`로 지정하면 원래 콘텐츠 크기를 무시하고 오직 flex-grow 비율로만 공간을 나눈다.
 
 ```css
 .item { flex-basis: 200px; }

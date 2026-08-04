@@ -70,7 +70,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 웹 페이지를 이루는 세 가지 역할
 
-이 문서는 본격적인 작업에 앞서, 웹 페이지가 어떻게 만들어지고 사용자에게 보이는지 큰 그림을 잡는 문서입니다. HTML/CSS/JavaScript의 세부 문법은 다루지 않으며, 각 언어가 어떤 역할을 맡는지 정도만 정리합니다. 실제로 AI에게 화면을 요청하고 만드는 과정은 이후 문서에서 다룹니다.
+이 문서는 본격적인 작업에 앞서, 웹 페이지가 어떻게 만들어지고 사용자에게 보이는지 큰 그림을 잡는 문서입니다.
+
+HTML/CSS/JavaScript의 세부 문법은 다루지 않으며, 각 언어가 어떤 역할을 맡는지 정도만 정리합니다.
+
+실제로 AI에게 화면을 요청하고 만드는 과정은 이후 문서에서 다룹니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">HTML — 구조</div><div class="wda-fcard-dsc">제목, 문단, 버튼처럼 페이지에 어떤 내용이 있는지를 정의합니다.</div></div>

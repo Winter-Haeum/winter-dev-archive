@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. @media 문법 기초
 
-지금까지 Flexbox와 Grid로 레이아웃을 짜는 법을 배웠다면, 이제는 그 레이아웃을 화면 크기에 따라 다르게 보여주는 방법이 필요하다. 그 시작점이 바로 Media Query다. 이 문서에서는 @media의 기본 문법, min-width와 max-width의 차이, 논리 연산자, 그리고 Breakpoint를 설계하는 전략까지 다룬다. 디바이스별 세부 최적화는 다음 문서(2-6-2)에서, srcset·picture·Container Query 같은 심화 기법은 그다음 문서(2-6-3)에서 이어간다.
+지금까지 Flexbox와 Grid로 레이아웃을 짜는 법을 배웠다면, 이제는 그 레이아웃을 화면 크기에 따라 다르게 보여주는 방법이 필요하다. 그 시작점이 바로 Media Query다.
+
+이 문서에서는 @media의 기본 문법, min-width와 max-width의 차이, 논리 연산자, 그리고 Breakpoint를 설계하는 전략까지 다룬다. 디바이스별 세부 최적화는 다음 문서(2-6-2)에서, srcset·picture·Container Query 같은 심화 기법은 그다음 문서(2-6-3)에서 이어간다.
 
 Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만 CSS를 적용하는 문법이다. 미디어 타입과 조건을 함께 지정해서 "이 조건을 만족하는 화면에서만 이 스타일을 적용하라"고 브라우저에 지시한다.
 

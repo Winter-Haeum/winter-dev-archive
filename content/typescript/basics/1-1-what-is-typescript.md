@@ -73,7 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. TypeScript는 JavaScript의 확장판
 
-TypeScript는 완전히 새로운 언어가 아닙니다. JavaScript 문법을 그대로 쓰면서, 그 위에 **타입을 표시하는 문법**을 얹어놓은 언어입니다. 그래서 기존에 작성해둔 JavaScript 코드는 대부분 그대로 TypeScript 파일로 옮겨도 문제없이 동작합니다.
+TypeScript는 완전히 새로운 언어가 아닙니다. JavaScript 문법을 그대로 쓰면서, 그 위에 **타입을 표시하는 문법**을 얹어놓은 언어입니다.
+
+그래서 기존에 작성해둔 JavaScript 코드는 대부분 그대로 TypeScript 파일로 옮겨도 문제없이 동작합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">기반은 JavaScript</div><div class="wda-fcard-dsc">문법과 실행 방식은 JavaScript와 동일합니다.</div></div>

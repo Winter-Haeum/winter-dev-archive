@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. contact-message 구조
 
-[[2-3-ui-planning|이전 문서]]에서 데이터 저장소 연결을 마쳤다면, 이번에는 contact-section에 실제 입력 기능을 연결할 차례입니다. 방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.
+[[2-3-ui-planning|이전 문서]]에서 데이터 저장소 연결을 마쳤다면, 이번에는 contact-section에 실제 입력 기능을 연결할 차례입니다.
+
+방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.
 
 <table class="wda-mtable">
 <thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>

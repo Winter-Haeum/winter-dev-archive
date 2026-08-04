@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Flexbox의 한계 — 왜 Grid가 필요한가
 
-지금까지는 Flexbox로 한 줄 또는 한 방향으로 흐르는 레이아웃을 다뤘다. 이 문서부터는 CSS Grid로 넘어가, 행과 열을 동시에 다루는 2차원 레이아웃의 기초를 세운다. 구체적인 배치 함수(<code>repeat()</code>, <code>minmax()</code> 등)는 다음 문서에서 다루고, 이번에는 Grid가 왜 필요한지와 Container·Item의 기본 개념에 집중한다.
+지금까지는 Flexbox로 한 줄 또는 한 방향으로 흐르는 레이아웃을 다뤘다. 이 문서부터는 CSS Grid로 넘어가, 행과 열을 동시에 다루는 2차원 레이아웃의 기초를 세운다.
+
+구체적인 배치 함수(<code>repeat()</code>, <code>minmax()</code> 등)는 다음 문서에서 다루고, 이번에는 Grid가 왜 필요한지와 Container·Item의 기본 개념에 집중한다.
 
 카드 4개를 아래처럼 배치하고 싶다고 가정해보자. A는 큰 카드, B와 C는 같은 줄에 나란히, D는 A 옆에 붙어야 한다.
 
@@ -98,7 +100,9 @@ Flexbox로 이 구조를 구현하면 예상과 다른 결과가 나온다.
 .item-d { width: 66.666%; }
 ```
 
-A(66.666%) + B(33.333%)까지는 한 줄(100%)을 채우고 줄바꿈된다. 문제는 다음 줄이다. C(33.333%)가 새 줄에서 시작한 뒤, D(66.666%)를 이어 붙이려 해도 C와 같은 줄에 붙지 않고 또 다른 줄로 넘어가 버린다.
+A(66.666%) + B(33.333%)까지는 한 줄(100%)을 채우고 줄바꿈된다. 문제는 다음 줄이다.
+
+C(33.333%)가 새 줄에서 시작한 뒤, D(66.666%)를 이어 붙이려 해도 C와 같은 줄에 붙지 않고 또 다른 줄로 넘어가 버린다.
 
 **⚠️ 주의사항**
 
@@ -319,7 +323,9 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 
 ## 7. 자동 배치 동작과 실전 팁
 
-`grid-column`, `grid-row`를 지정하지 않은 Item은 순서대로 자동 배치된다. 1행 1열, 1행 2열, 1행 3열... 처럼 왼쪽에서 오른쪽, 위에서 아래로 채워진다.
+`grid-column`, `grid-row`를 지정하지 않은 Item은 순서대로 자동 배치된다.
+
+1행 1열, 1행 2열, 1행 3열... 처럼 왼쪽에서 오른쪽, 위에서 아래로 채워진다.
 
 **⚠️ 주의사항**
 
@@ -387,7 +393,9 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
 
 ## 9. Flexbox와 동일한 구조 — 중첩도 가능하다
 
-Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → GridItem 구조를 그대로 따른다. 그리고 하나의 Item이 다른 레이아웃의 Container가 되는 중첩도 자유롭게 가능하다.
+Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → GridItem 구조를 그대로 따른다.
+
+그리고 하나의 Item이 다른 레이아웃의 Container가 되는 중첩도 자유롭게 가능하다.
 
 ```html
 <body class="page">
@@ -496,7 +504,9 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 }
 ```
 
-`grid-template-rows`를 쓰지 않아도 카드가 4개면 자동으로 2번째 행이 생겨 4번 카드가 다음 줄로 넘어간다. 이 패턴이 실무에서 가장 많이 쓰이는 기본형이다. 여기서 더 나아가면 `fr` 단위를 더 깊이 활용하는 법, `px`와 `fr`을 섞는 법, `repeat()` / `minmax()` 함수, `grid-column` / `grid-row`의 `span` 병합, `grid-area` / `grid-template-areas`처럼 더 정교한 배치 문법으로 이어진다.
+`grid-template-rows`를 쓰지 않아도 카드가 4개면 자동으로 2번째 행이 생겨 4번 카드가 다음 줄로 넘어간다. 이 패턴이 실무에서 가장 많이 쓰이는 기본형이다.
+
+여기서 더 나아가면 `fr` 단위를 더 깊이 활용하는 법, `px`와 `fr`을 섞는 법, `repeat()` / `minmax()` 함수, `grid-column` / `grid-row`의 `span` 병합, `grid-area` / `grid-template-areas`처럼 더 정교한 배치 문법으로 이어진다.
 
 ---
 

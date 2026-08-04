@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 색상을 표현하는 4가지 방법
 
-[[1-2-css-selectors|이전 문서]]에서 원하는 요소를 골라내는 방법을 익혔다면, 이제 그 요소에 실제로 색과 글자 스타일을 입혀볼 차례다. 이 문서는 색상 표현 문법, 폰트 관련 속성, 텍스트 정렬과 줄바꿈 제어까지 시각적 표현의 핵심 요소를 다룬다. 여백과 크기 같은 박스 관련 속성은 다음 문서(박스 모델)에서 이어서 다룬다.
+[[1-2-css-selectors|이전 문서]]에서 원하는 요소를 골라내는 방법을 익혔다면, 이제 그 요소에 실제로 색과 글자 스타일을 입혀볼 차례다.
+
+이 문서는 색상 표현 문법, 폰트 관련 속성, 텍스트 정렬과 줄바꿈 제어까지 시각적 표현의 핵심 요소를 다룬다. 여백과 크기 같은 박스 관련 속성은 다음 문서(박스 모델)에서 이어서 다룬다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Hex (16진수)</div><div class="wda-fcard-dsc"><code>#RRGGBB</code> 형태. <code>#FFFFFF</code>처럼 겹치는 값은 <code>#FFF</code>로 줄여 쓸 수 있다.</div></div>
@@ -164,7 +166,9 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 ```
 
-`font-weight`는 보통 `400`(기본)과 `700`(굵게)을 가장 많이 사용하며, `100`부터 `900`까지 100 단위로 세밀하게 조절할 수도 있다. 다만 너무 얇은 값(100, 200)은 화면에서 잘 보이지 않을 수 있어 본문에는 지양한다. `font-style: italic`은 주로 인용문처럼 제한된 용도에만 사용한다. `font-variant: small-caps`는 소문자를 작은 대문자 모양으로 바꾸는 효과인데, 한글에는 적용되는 개념이 아니라서 한국어 문서에서는 거의 사용하지 않는다.
+`font-weight`는 보통 `400`(기본)과 `700`(굵게)을 가장 많이 사용하며, `100`부터 `900`까지 100 단위로 세밀하게 조절할 수도 있다. 다만 너무 얇은 값(100, 200)은 화면에서 잘 보이지 않을 수 있어 본문에는 지양한다.
+
+`font-style: italic`은 주로 인용문처럼 제한된 용도에만 사용한다. `font-variant: small-caps`는 소문자를 작은 대문자 모양으로 바꾸는 효과인데, 한글에는 적용되는 개념이 아니라서 한국어 문서에서는 거의 사용하지 않는다.
 
 ---
 
@@ -206,7 +210,9 @@ body {
 }
 ```
 
-`font-display: swap`은 폰트가 로딩되는 동안 대체 폰트를 먼저 보여주고, 로딩이 끝나면 지정한 폰트로 자연스럽게 바꿔주는 옵션이다. 여러 굵기를 쓰려면 `font-weight`가 다른 `@font-face` 블록을 굵기별로 각각 선언해야 한다. Google Fonts에 비해 관리는 번거롭지만, 외부 서비스에 의존하지 않고 원하는 폰트를 자유롭게 쓸 수 있다는 장점이 있다.
+`font-display: swap`은 폰트가 로딩되는 동안 대체 폰트를 먼저 보여주고, 로딩이 끝나면 지정한 폰트로 자연스럽게 바꿔주는 옵션이다. 여러 굵기를 쓰려면 `font-weight`가 다른 `@font-face` 블록을 굵기별로 각각 선언해야 한다.
+
+Google Fonts에 비해 관리는 번거롭지만, 외부 서비스에 의존하지 않고 원하는 폰트를 자유롭게 쓸 수 있다는 장점이 있다.
 
 ---
 
@@ -295,7 +301,9 @@ a:hover {
 
 ### 6-3. overflow-wrap
 
-`overflow-wrap`은 `word-break`와 비슷해 보이지만 동작 기준이 다르다. `word-break: break-all`은 정상적인 줄바꿈 지점이 있어도 무시하고 무조건 글자 단위로 끊지만, `overflow-wrap: break-word`는 컨테이너를 벗어날 만큼 긴 단어가 있을 때만 예외적으로 끊는다.
+`overflow-wrap`은 `word-break`와 비슷해 보이지만 동작 기준이 다르다.
+
+`word-break: break-all`은 정상적인 줄바꿈 지점이 있어도 무시하고 무조건 글자 단위로 끊지만, `overflow-wrap: break-word`는 컨테이너를 벗어날 만큼 긴 단어가 있을 때만 예외적으로 끊는다.
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>끊는 기준</th></tr></thead>

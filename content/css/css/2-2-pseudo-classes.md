@@ -75,7 +75,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 가상 클래스는 HTML 코드에 직접 작성되어 있지 않은 <strong>상태, 위치, 인터랙션 조건</strong>을 기준으로 요소를 선택하는 선택자다. 콜론 하나(`:`)로 시작하며, 실제로 클래스를 추가하지 않아도 "지금 이 요소가 어떤 상황에 있는가"를 CSS가 스스로 판단해서 스타일을 적용한다.
 
-가상 클래스와 자주 헷갈리는 개념이 가상 요소(pseudo-element)다. 가상 요소는 콜론 두 개(`::`)를 쓰며 존재하지 않던 요소를 새로 만들어낸다는 점에서 역할이 다르다. 가상 요소는 다음 문서에서 자세히 다룬다.
+가상 클래스와 자주 헷갈리는 개념이 가상 요소(pseudo-element)다. 가상 요소는 콜론 두 개(`::`)를 쓰며 존재하지 않던 요소를 새로 만들어낸다는 점에서 역할이 다르다.
+
+가상 요소는 다음 문서에서 자세히 다룬다.
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>표기</th><th>역할</th></tr></thead>
@@ -390,7 +392,9 @@ input:not(:placeholder-shown):invalid {
 }
 ```
 
-`:placeholder-shown`은 placeholder가 화면에 보이고 있는(=아직 아무것도 입력하지 않은) 상태를 뜻한다. `:not(:placeholder-shown)`을 앞에 붙이면 "사용자가 무언가 입력해서 placeholder가 사라진 뒤"에만 검증 스타일이 적용되므로, 로드 직후의 어색한 오류 표시를 막을 수 있다.
+`:placeholder-shown`은 placeholder가 화면에 보이고 있는(=아직 아무것도 입력하지 않은) 상태를 뜻한다.
+
+`:not(:placeholder-shown)`을 앞에 붙이면 "사용자가 무언가 입력해서 placeholder가 사라진 뒤"에만 검증 스타일이 적용되므로, 로드 직후의 어색한 오류 표시를 막을 수 있다.
 
 <table class="wda-mtable">
 <thead><tr><th>적용 시점</th><th>선택자 패턴</th></tr></thead>
@@ -401,7 +405,9 @@ input:not(:placeholder-shown):invalid {
 </tbody>
 </table>
 
-실시간 검증 예시로는 이메일 형식 검사(`type="email"`), 전화번호 패턴 검사(`pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"`), 비밀번호 길이 검사(`minlength="8"`)가 대표적이며, 모두 위와 같은 `:not(:placeholder-shown)` 패턴과 함께 쓰면 자연스러운 사용자 경험을 만들 수 있다.
+실시간 검증 예시로는 이메일 형식 검사(`type="email"`), 전화번호 패턴 검사(`pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"`), 비밀번호 길이 검사(`minlength="8"`)가 대표적이다.
+
+모두 위와 같은 `:not(:placeholder-shown)` 패턴과 함께 쓰면 자연스러운 사용자 경험을 만들 수 있다.
 
 ---
 

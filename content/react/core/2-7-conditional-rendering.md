@@ -202,7 +202,9 @@ function LearningList({ isLoading, errorMessage, items }) {
 
 ## 8. 조건이 복잡할 때 분리하기
 
-조건 분기가 여러 개로 늘어나면 함수나 별도 컴포넌트로 나누는 것이 좋습니다. 예를 들어 위 `LearningList`의 상태 판단 로직을 `LearningStatus` 같은 별도 컴포넌트로 분리하면 각 조건을 더 명확하게 관리할 수 있습니다.
+조건 분기가 여러 개로 늘어나면 함수나 별도 컴포넌트로 나누는 것이 좋습니다.
+
+예를 들어 위 `LearningList`의 상태 판단 로직을 `LearningStatus` 같은 별도 컴포넌트로 분리하면 각 조건을 더 명확하게 관리할 수 있습니다.
 
 ---
 

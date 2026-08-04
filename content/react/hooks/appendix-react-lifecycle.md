@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 3단계 흐름 한눈에 보기
 
-이 문서는 함수형 컴포넌트를 기준으로 생명주기 흐름을 정리합니다. [[3-2-useeffect|3-2 문서]]에서 배운 useEffect가 이 흐름의 어느 시점에 실행되는지를 중심으로 설명합니다. 클래스 컴포넌트의 생명주기 메서드는 오늘날 거의 쓰이지 않지만, 기존 코드를 읽을 때를 대비해 대응 관계만 짧게 비교합니다.
+이 문서는 함수형 컴포넌트를 기준으로 생명주기 흐름을 정리합니다. [[3-2-useeffect|3-2 문서]]에서 배운 useEffect가 이 흐름의 어느 시점에 실행되는지를 중심으로 설명합니다.
+
+클래스 컴포넌트의 생명주기 메서드는 오늘날 거의 쓰이지 않지만, 기존 코드를 읽을 때를 대비해 대응 관계만 짧게 비교합니다.
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">Mount</div><div class="wda-fnode-dsc">처음 화면에 나타남</div></div>

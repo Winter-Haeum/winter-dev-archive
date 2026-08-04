@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 공개 전 점검 영역 네 가지
 
-lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 흐름이 모두 준비되었습니다. lesson-4는 이 결과물을 공개 가능한 형태로 정리하는 마지막 단계입니다. 이 문서는 그 시작으로, 새 기능을 추가하기보다 지금까지 만든 것을 점검하고 다듬는 것에 집중합니다.
+lesson-1~3을 거치며 portfolio-final-check 대상이 될 화면과 데이터 흐름이 모두 준비되었습니다. lesson-4는 이 결과물을 공개 가능한 형태로 정리하는 마지막 단계입니다.
+
+이 문서는 그 시작으로, 새 기능을 추가하기보다 지금까지 만든 것을 점검하고 다듬는 것에 집중합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">구조·네비게이션</div><div class="wda-fcard-dsc">섹션 순서가 논리적이고 메뉴 이동이 직관적인지 확인합니다.</div></div>

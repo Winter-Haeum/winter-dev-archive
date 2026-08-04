@@ -74,7 +74,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. useRef 기본 문법
 
-useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다. 화면에 보여줄 값은 [[3-1-usestate|3-1 문서]]에서 다룬 useState로 관리합니다. 이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.
+useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다. 화면에 보여줄 값은 [[3-1-usestate|3-1 문서]]에서 다룬 useState로 관리합니다.
+
+이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.
 
 ```jsx
 import { useRef } from 'react';

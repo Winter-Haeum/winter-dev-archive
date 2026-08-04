@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Position 다섯 가지, 실전 감각으로 다시 보기
 
-[[1-5-display-and-position|이전 문서]]에서 position 5가지 값의 기본 개념과 기준점을 익혔다면, 이 문서는 그 지식을 실제 화면에서 자주 마주치는 UI 조각으로 확장한다. 모달, 드롭다운, 툴팁, 사이드바, 토스트처럼 이름만 들어도 익숙한 컴포넌트들이 사실은 position 몇 줄의 조합으로 만들어진다는 것을 확인하고, 겹치는 요소들의 순서를 관리하는 z-index와 Stacking Context 기초까지 함께 정리한다.
+[[1-5-display-and-position|이전 문서]]에서 position 5가지 값의 기본 개념과 기준점을 익혔다면, 이 문서는 그 지식을 실제 화면에서 자주 마주치는 UI 조각으로 확장한다.
+
+모달, 드롭다운, 툴팁, 사이드바, 토스트처럼 이름만 들어도 익숙한 컴포넌트들이 사실은 position 몇 줄의 조합으로 만들어진다는 것을 확인하고, 겹치는 요소들의 순서를 관리하는 z-index와 Stacking Context 기초까지 함께 정리한다.
 
 바로 다음 섹션부터 실전 패턴을 만들기 때문에, 각 값의 기준점만 짧게 다시 짚어본다.
 
@@ -193,7 +195,9 @@ body {
 }
 ```
 
-`.parent`에는 position이 지정되어 있지 않으므로 static이다. `.child`는 `.parent`를 건너뛰고 그 위의 `.grandparent`를 기준으로 배치된다. "가장 가까운 부모"가 아니라 "가장 가까운 **positioned** 부모"라는 점이 핵심이다.
+`.parent`에는 position이 지정되어 있지 않으므로 static이다. `.child`는 `.parent`를 건너뛰고 그 위의 `.grandparent`를 기준으로 배치된다.
+
+"가장 가까운 부모"가 아니라 "가장 가까운 **positioned** 부모"라는 점이 핵심이다.
 
 ---
 
@@ -324,9 +328,13 @@ body {
 }
 ```
 
-`bottom: 100%`는 부모 바로 위쪽에 붙인다는 뜻이고, `left: 50%` + `transform: translateX(-50%)` 조합은 툴팁을 가로로 정중앙에 맞춘다. 평소에는 `opacity: 0`과 `pointer-events: none`으로 완전히 숨겨두고 `:hover`일 때만 `opacity`를 바꿔 부드럽게 나타나게 한다. `display: none` 대신 `opacity`를 쓰는 이유는 트랜지션 애니메이션을 걸 수 있기 때문이다.
+`bottom: 100%`는 부모 바로 위쪽에 붙인다는 뜻이고, `left: 50%` + `transform: translateX(-50%)` 조합은 툴팁을 가로로 정중앙에 맞춘다. 평소에는 `opacity: 0`과 `pointer-events: none`으로 완전히 숨겨두고 `:hover`일 때만 `opacity`를 바꿔 부드럽게 나타나게 한다.
 
-실무에 적용할 때는 텍스트가 길어질 경우 `max-width`와 줄바꿈을 함께 지정하고, 모바일에서는 hover가 없으므로 탭으로 여닫는 대체 동작을 마련해야 한다. 스크린 리더 사용자를 위해 `aria-describedby` 같은 접근성 속성을 추가하는 것이 좋고, 화면 위쪽 끝에서는 `bottom` 대신 `top` 방향으로 전환하는 보정도 고려한다.
+`display: none` 대신 `opacity`를 쓰는 이유는 트랜지션 애니메이션을 걸 수 있기 때문이다.
+
+실무에 적용할 때는 텍스트가 길어질 경우 `max-width`와 줄바꿈을 함께 지정하고, 모바일에서는 hover가 없으므로 탭으로 여닫는 대체 동작을 마련해야 한다.
+
+스크린 리더 사용자를 위해 `aria-describedby` 같은 접근성 속성을 추가하는 것이 좋고, 화면 위쪽 끝에서는 `bottom` 대신 `top` 방향으로 전환하는 보정도 고려한다.
 
 ---
 
@@ -363,7 +371,9 @@ body {
 }
 ```
 
-오버레이와 사이드바 모두 스크롤과 무관하게 항상 같은 자리에 있어야 하므로 둘 다 `fixed`를 쓴다. 사이드바는 평소 화면 밖(`left: -300px`)에 숨겨두었다가 `left: 0`으로 슬라이딩해 들어온다. 오버레이보다 사이드바의 z-index를 더 높게 둬서 사이드바가 항상 위에 보이도록 한다. `opacity`와 `left`처럼 서로 다른 속성의 transition을 분리해두면 애니메이션이 겹쳐도 어색하지 않다.
+오버레이와 사이드바 모두 스크롤과 무관하게 항상 같은 자리에 있어야 하므로 둘 다 `fixed`를 쓴다. 사이드바는 평소 화면 밖(`left: -300px`)에 숨겨두었다가 `left: 0`으로 슬라이딩해 들어온다.
+
+오버레이보다 사이드바의 z-index를 더 높게 둬서 사이드바가 항상 위에 보이도록 한다. `opacity`와 `left`처럼 서로 다른 속성의 transition을 분리해두면 애니메이션이 겹쳐도 어색하지 않다.
 
 <div class="wda-check-note">
   <ul>
@@ -465,7 +475,9 @@ body {
 }
 ```
 
-`scroll-timeline-name`은 스크롤 컨테이너에 이름을 붙여 애니메이션이 참조할 수 있게 하고, `scroll-timeline-axis: y`는 세로 스크롤을 기준으로 삼는다는 뜻이다. 헤더는 `position: sticky`로 기본 위치를 잡고, `animation-timeline`으로 그 스크롤 진행 상황을 애니메이션 진행률과 연결한다. `animation-range: 0 200px`는 스크롤이 0~200px 진행되는 구간에서만 애니메이션이 재생된다는 의미다.
+`scroll-timeline-name`은 스크롤 컨테이너에 이름을 붙여 애니메이션이 참조할 수 있게 하고, `scroll-timeline-axis: y`는 세로 스크롤을 기준으로 삼는다는 뜻이다.
+
+헤더는 `position: sticky`로 기본 위치를 잡고, `animation-timeline`으로 그 스크롤 진행 상황을 애니메이션 진행률과 연결한다. `animation-range: 0 200px`는 스크롤이 0~200px 진행되는 구간에서만 애니메이션이 재생된다는 의미다.
 
 <div class="wda-check-note">
   <ul>
@@ -512,7 +524,9 @@ body {
 }
 ```
 
-구조는 드롭다운 메뉴와 거의 같다. `.custom-select`가 relative로 기준점 역할을 하고, 옵션 목록은 absolute로 그 바로 아래(`top: 100%`)에 붙는다. `open` 클래스를 토글해 `display`를 none과 block으로 전환하는 방식으로 열림·닫힘을 제어한다.
+구조는 드롭다운 메뉴와 거의 같다. `.custom-select`가 relative로 기준점 역할을 하고, 옵션 목록은 absolute로 그 바로 아래(`top: 100%`)에 붙는다.
+
+`open` 클래스를 토글해 `display`를 none과 block으로 전환하는 방식으로 열림·닫힘을 제어한다.
 
 실무에서는 옵션이 많아질 때 `max-height`와 `overflow-y: auto`로 스크롤 영역을 만들고, 화면 하단에서 옵션이 가려지면 위쪽으로 펼쳐지도록 위치를 보정한다. 모바일에서는 터치 영역을 충분히 키우고, 바깥 영역을 클릭했을 때 옵션 목록이 자동으로 닫히도록 이벤트를 연결해야 한다.
 
