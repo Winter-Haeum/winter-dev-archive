@@ -139,7 +139,7 @@ font-family: 'Roboto', Arial, sans-serif;
 font-family: 'JetBrains Mono', 'Fira Code', monospace;
 ```
 
-### 🔤 Font Size
+### 📏 Font Size
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th><th>특징</th></tr></thead>
@@ -157,7 +157,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
   <p>실무에서는 <code>rem</code> 사용을 권장한다. <code>em</code>은 중첩된 요소마다 부모의 크기를 곱해가며 계산되어 실제 크기를 예측하기 어렵지만, <code>rem</code>은 항상 <code>html</code>의 font-size 하나만 기준으로 계산되기 때문에 일관성 있게 관리할 수 있다.</p>
 </div>
 
-### 🔤 Font Weight, Style, Variant
+### 🅱️ Font Weight, Style, Variant
 
 ```css
 .title {
@@ -263,7 +263,7 @@ a:hover {
 
 한 줄에 다 들어가지 않는 긴 텍스트를 어떻게 처리할지는 `white-space`, `word-break`, `overflow-wrap` 세 속성이 함께 결정한다.
 
-### 🎛️ white-space
+### 📏 white-space
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>공백</th><th>줄바꿈 문자</th><th>자동 줄바꿈</th></tr></thead>
@@ -299,7 +299,7 @@ a:hover {
 
 긴 URL처럼 끊어질 지점이 없는 영문 텍스트에는 `break-all`이 유용하고, 한글 문장에는 어절이 임의로 잘리지 않도록 `keep-all`을 사용하는 것이 자연스럽다.
 
-### 🎛️ overflow-wrap
+### ✂️ overflow-wrap
 
 `overflow-wrap`은 `word-break`와 비슷해 보이지만 동작 기준이 다르다.
 

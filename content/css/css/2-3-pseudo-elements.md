@@ -111,7 +111,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. ::before와 ::after
 
-### 🎯 ::before — 요소 앞에 추가하기
+### ✨ ::before — 요소 앞에 추가하기
 
 ```css
 .item::before {
@@ -146,7 +146,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 🎯 ::after — 요소 뒤에 추가하기
+### ✨ ::after — 요소 뒤에 추가하기
 
 `::before`와 문법은 동일하지만 콘텐츠 맨 뒤에 삽입된다는 점만 다르다. 과거에는 float으로 인한 레이아웃 붕괴를 막는 clearfix 패턴에 자주 쓰였다.
 
@@ -202,7 +202,7 @@ a[target="_blank"]::after {
 
 ## 4. 텍스트 전용 가상 요소
 
-### 🎯 ::first-letter — 드롭캡
+### 🔤 ::first-letter — 드롭캡
 
 신문이나 잡지 기사처럼 문단의 첫 글자를 크게 강조하는 드롭캡 효과를 만들 때 사용한다.
 
@@ -219,7 +219,7 @@ p.article::first-letter {
 
 `::first-letter`에는 폰트, 색상, `float`, 여백 관련 속성 정도만 적용할 수 있고, 레이아웃에 큰 영향을 주는 속성은 대부분 무시된다는 점을 기억해두면 좋다.
 
-### 🎯 ::first-line — 첫 줄 스타일링
+### 🔤 ::first-line — 첫 줄 스타일링
 
 문장이 아니라 <strong>브라우저가 계산한 화면상의 첫 줄</strong>을 스타일링한다.
 
@@ -243,7 +243,7 @@ p.intro::first-line {
   </div>
 </div>
 
-### 🎯 ::selection — 드래그 선택 영역
+### 🖱️ ::selection — 드래그 선택 영역
 
 사용자가 마우스로 텍스트를 드래그해서 선택했을 때의 스타일을 바꾼다.
 

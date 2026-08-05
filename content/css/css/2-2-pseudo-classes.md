@@ -135,7 +135,7 @@ li + li {
 }
 ```
 
-### 🖱️ :nth-child()와 :nth-of-type()
+### 🔢 :nth-child()와 :nth-of-type()
 
 `n`번째 요소를 공식으로 선택하는 가상 클래스다.
 

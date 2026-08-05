@@ -114,7 +114,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </tbody>
 </table>
 
-### 🎬 transition-property — 무엇을 전환할지
+### 🎯 transition-property — 무엇을 전환할지
 
 ```css
 .box-a { transition-property: background-color; }              /* 속성 1개 */
@@ -145,7 +145,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
   </div>
 </div>
 
-### 🎬 transition-duration — 얼마나 오래 걸릴지
+### ⏱️ transition-duration — 얼마나 오래 걸릴지
 
 ```css
 .a { transition-duration: 0.3s; }
@@ -179,7 +179,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 값의 종류는 다음 4장에서 자세히 다룬다.
 
-### 🎬 transition-delay — 언제 시작할지
+### ⏱️ transition-delay — 언제 시작할지
 
 ```css
 .a { transition-delay: 0s; }   /* 기본값. 즉시 시작 */

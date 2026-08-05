@@ -99,7 +99,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `div`, `p`, `h1`~`h6`, `ul`, `li`, `section` 등이 대표적인 block 요소다.
 
-### 🧱 display: inline
+### 🧭 display: inline
 
 줄바꿈 없이 다른 요소와 나란히 배치되며, 내용의 크기만큼만 공간을 차지한다. `width`, `height`는 지정해도 적용되지 않고, 상하 `margin`도 거의 효과가 없다(박스 모델 문서에서 다룬 라인 박스 특성 때문이다).
 
@@ -128,7 +128,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 <div><button>A</button><button>B</button></div>
 ```
 
-### 🧱 display: none
+### 🧭 display: none
 
 요소를 화면에서 완전히 숨기고, 차지하던 공간까지 없앤다. 단, HTML 문서(DOM)에는 여전히 존재하기 때문에 자바스크립트로 값을 바꿔 다시 표시할 수 있다.
 
@@ -189,7 +189,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 기본값이다. `top`, `right`, `bottom`, `left`를 지정해도 무시된다.
 
-### 🧱 relative
+### 🧭 relative
 
 원래 자리를 기준으로 위치를 이동시키지만, 이동 후에도 원래 차지하던 공간은 그대로 남는다. 다른 요소는 이 요소가 원래 있던 자리를 그대로 인식한다.
 
@@ -210,7 +210,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 문서 흐름에서 완전히 제거되어 다른 요소의 배치에 영향을 주지 않는다. 가장 가까운 <strong>positioned 조상</strong>(static이 아닌 조상)을 기준으로 위치가 계산되며, 그런 조상이 하나도 없으면 `html`/`body`를 기준으로 삼는다.
 
-### 🧱 fixed
+### 🧭 fixed
 
 뷰포트(브라우저 화면)를 기준으로 고정되어 스크롤을 해도 같은 자리에 머문다.
 
@@ -232,7 +232,7 @@ body {
 
 `fixed` 요소는 문서 흐름에서 빠지기 때문에, 본문 콘텐츠가 그 자리로 올라와 가려질 수 있다. 헤더 높이만큼 본문에 `padding-top`을 주는 보정이 필요하다.
 
-### 🧱 sticky
+### 🧭 sticky
 
 `relative`처럼 원래 자리에 있다가, 스크롤로 지정한 `top` 값에 도달하는 순간 `fixed`처럼 화면에 고정된다. 부모 영역을 벗어나면 고정이 해제되고 다시 원래 흐름으로 돌아간다.
 
@@ -292,7 +292,7 @@ body {
 
 ## 8. 실전 UI 패턴
 
-### 🧩 고정 헤더
+### 📌 고정 헤더
 
 ```css
 .header {
@@ -326,7 +326,7 @@ body {
 
 overlay는 `fixed`로 화면 전체를 덮고, 그 위의 실제 모달 내용물은 `absolute`와 `transform: translate(-50%, -50%)`를 조합해 화면 정중앙에 배치한다.
 
-### 🧩 툴팁
+### 💬 툴팁
 
 ```css
 .tooltip-wrapper {

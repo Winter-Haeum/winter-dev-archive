@@ -84,7 +84,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 🧭 justify-content — 주축 방향 정렬
+### 📐 justify-content — 주축 방향 정렬
 
 아이템들을 주축 방향으로 어떻게 배치할지 결정한다. 값에 따라 정렬 결과가 크게 달라진다.
 
@@ -114,7 +114,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .cards { justify-content: space-evenly; }
 ```
 
-### 🧭 align-items — 교차축 방향 정렬
+### 📐 align-items — 교차축 방향 정렬
 
 아이템들을 교차축 방향으로 어떻게 배치할지 결정한다.
 
@@ -193,7 +193,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
-### 🧭 align-content — 여러 줄 정렬
+### 📐 align-content — 여러 줄 정렬
 
 `flex-wrap`으로 인해 아이템이 여러 줄이 되었을 때, 그 **줄들 사이의 간격**을 정렬한다. 한 줄짜리 레이아웃에서는 아무런 효과가 없다.
 
@@ -215,7 +215,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>align-items와 align-content를 혼동하지 않는 팁:</strong> align-items는 한 줄 안에서 아이템 하나하나를 교차축 방향으로 정렬하고, align-content는 flex-wrap으로 만들어진 <strong>줄 전체</strong>를 정렬한다. 아이템이 한 줄이면 align-content는 아무 효과가 없다.</p>
 </div>
 
-### 🧭 gap — 아이템 간 간격
+### 📏 gap — 아이템 간 간격
 
 아이템 사이의 간격을 지정한다. margin과 달리 컨테이너 바깥쪽에는 여백이 생기지 않는다.
 
@@ -308,7 +308,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .item { flex-shrink: 2; } /* 숫자가 클수록 더 많이 줄어듦 */
 ```
 
-### 🧭 flex-basis — 아이템의 기본 크기
+### 📏 flex-basis — 아이템의 기본 크기
 
 flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정한다. width 대신 flex 컨테이너 안에서는 flex-basis를 사용하는 것이 일반적이다.
 
@@ -350,7 +350,7 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 </tbody>
 </table>
 
-### 🧭 align-self — 개별 아이템 교차축 정렬
+### 📐 align-self — 개별 아이템 교차축 정렬
 
 컨테이너에 지정한 `align-items` 값을, 특정 아이템 하나에서만 다르게 덮어쓰고 싶을 때 사용한다.
 
