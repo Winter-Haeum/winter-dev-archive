@@ -315,6 +315,28 @@ const wdaMinheadGlobalStyles = {
   [WDA_HEADING_BOX_SELECTORS.map((s) => `h2 + ${s}, h3 + ${s}`).join(', ')]: {
     marginTop: '0.75rem !important',
   },
+  // 일반 콘텐츠(p/코드블록/표/박스류) 바로 다음에 도입 문장 없이 곧장 h3가 오는 가장 흔한
+  // 패턴(2026-08 개편 — spacing 실측 분석으로 발견). 위 h2+h3/h2·h3+box 규칙은 "헤딩이나
+  // 박스가 곧장 이어질 때"만 다루고, 정작 가장 많이 쓰이는 "일반 문단/코드블록/표/박스
+  // 뒤에 다음 소단원 h3가 시작되는" 패턴은 지금까지 규칙이 없어 h3 자신의 기본
+  // margin-top(2.6rem=41.6px)이 그대로 노출되고 있었다. 같은 위치에 미니 소제목이 오면
+  // padding-top 1.2rem(19.2px)만 적용돼 두 방식의 체감 간격이 2.17배까지 벌어져 있었다
+  // (실측: 실제 h3를 쓰는 문서는 CSS/HTML/Git 소수에 불과하고 나머지 카테고리는 대부분
+  // 미니 소제목이라, h3를 쓰는 문서만 유독 넓어 보이는 원인이었다). 기존 `h2 + h3` 특수
+  // 규칙과 같은 값(1.1rem=17.6px)으로 맞춰 미니 소제목과의 체감 차이를 줄이되, h3 고유의
+  // 더 큰 폰트·line-height는 그대로 유지해 "새 소단원 시작" 위계 자체는 지우지 않는다.
+  // h2는 대상에서 제외한다 — h2는 여전히 "큰 섹션 전환"으로 기존 2.2rem 간격을 유지해야
+  // 하므로 이번 조정 대상이 아니다. h4/h5는 문서 전체에 실사용 사례가 없어 이번에는 h3만
+  // 다룬다. 박스류는 h2/h3+box 규칙과 동일하게 WDA_HEADING_BOX_SELECTORS를 재사용하고,
+  // 여기에 학습 목표 박스(`.wda-goal`)만 추가한다 — 다른 박스류와 달리 문서 도입부에서만
+  // 쓰여 지금까지 이 상수에 포함될 필요가 없었지만, 이번 방향(콘텐츠 → h3)에서는 학습
+  // 목표 박스 바로 뒤에 h3급 소제목이 오는 경우도 동일하게 다뤄야 한다.
+  [`p:not(.${WDA_MINIHEAD_CLASS}):has(+ h3), :has(> table):has(+ h3), ${[...WDA_HEADING_BOX_SELECTORS, '.wda-goal'].map((s) => `${s}:has(+ h3)`).join(', ')}`]: {
+    marginBottom: '0 !important',
+  },
+  [`p:not(.${WDA_MINIHEAD_CLASS}) + h3, :has(> table) + h3, ${[...WDA_HEADING_BOX_SELECTORS, '.wda-goal'].map((s) => `${s} + h3`).join(', ')}`]: {
+    marginTop: '1.1rem !important',
+  },
   // 박스류(callout/카드/단계형 등) 내부 상단 여백 방어 규칙 3종(2026-07 개편 —
   // 신설, React hooks/3-3-useref.md 재검토로 근본 원인 확정). WdaBoxContext(위 p
   // 컴포넌트 수정)만으로는 실제 화면에서 충분히 해결되지 않았는데, 원인은 따로
