@@ -105,7 +105,7 @@ RGBA와 HSLA의 마지막 값(alpha)은 0(완전 투명)부터 1(완전 불투�
 
 ## 2. 글꼴 기본 설정
 
-### 3-1. Font Family와 Font Stack
+### 🔤 Font Family와 Font Stack
 
 `font-family`는 사용할 서체를 지정한다. 지정한 폰트가 사용자 기기에 없을 경우를 대비해 여러 폰트를 쉼표로 나열하는 것을 Font Stack이라고 부르며, 브라우저는 앞에서부터 순서대로 사용 가능한 폰트를 찾는다.
 
@@ -139,7 +139,7 @@ font-family: 'Roboto', Arial, sans-serif;
 font-family: 'JetBrains Mono', 'Fira Code', monospace;
 ```
 
-### 3-2. Font Size
+### 📏 Font Size
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th><th>특징</th></tr></thead>
@@ -157,7 +157,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
   <p>실무에서는 <code>rem</code> 사용을 권장한다. <code>em</code>은 중첩된 요소마다 부모의 크기를 곱해가며 계산되어 실제 크기를 예측하기 어렵지만, <code>rem</code>은 항상 <code>html</code>의 font-size 하나만 기준으로 계산되기 때문에 일관성 있게 관리할 수 있다.</p>
 </div>
 
-### 3-3. Font Weight, Style, Variant
+### 🅱️ Font Weight, Style, Variant
 
 ```css
 .title {
@@ -174,7 +174,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 ## 3. Google Fonts와 @font-face
 
-### 4-1. Google Fonts
+### 📁 Google Fonts
 
 Google Fonts는 무료로 제공되는 1,600종 이상의 웹 폰트를 CDN 방식으로 손쉽게 불러올 수 있는 서비스다. `Noto Sans KR`, `Noto Serif KR`, `Black Han Sans`, `Jua`, `Gamja Flower` 등 한글 폰트도 다양하게 제공한다.
 
@@ -192,7 +192,7 @@ body {
 
 `preconnect`는 폰트 서버와 미리 연결을 맺어 로딩 속도를 높이는 역할을 한다. URL의 `wght@400;700`처럼 필요한 굵기만 지정하면 불필요한 폰트 파일까지 내려받지 않아 성능에 유리하다.
 
-### 4-2. @font-face
+### 📁 @font-face
 
 직접 보유한 폰트 파일을 서버에 올려 사용하고 싶을 때는 `@font-face`로 폰트를 정의한다.
 
@@ -263,7 +263,7 @@ a:hover {
 
 한 줄에 다 들어가지 않는 긴 텍스트를 어떻게 처리할지는 `white-space`, `word-break`, `overflow-wrap` 세 속성이 함께 결정한다.
 
-### 6-1. white-space
+### 📏 white-space
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>공백</th><th>줄바꿈 문자</th><th>자동 줄바꿈</th></tr></thead>
@@ -286,7 +286,7 @@ a:hover {
 }
 ```
 
-### 6-2. word-break
+### 🎛️ word-break
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>동작</th></tr></thead>
@@ -299,7 +299,7 @@ a:hover {
 
 긴 URL처럼 끊어질 지점이 없는 영문 텍스트에는 `break-all`이 유용하고, 한글 문장에는 어절이 임의로 잘리지 않도록 `keep-all`을 사용하는 것이 자연스럽다.
 
-### 6-3. overflow-wrap
+### ✂️ overflow-wrap
 
 `overflow-wrap`은 `word-break`와 비슷해 보이지만 동작 기준이 다르다.
 

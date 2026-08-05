@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 [[3-1-flexbox-concept|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 하나씩 실전 코드로 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.
 
-### 2-1. flex-direction — 주축 방향 결정
+### 🧭 flex-direction — 주축 방향 결정
 
 컨테이너 안 아이템이 배치될 방향, 즉 주축의 방향을 결정한다.
 
@@ -84,7 +84,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 2-2. justify-content — 주축 방향 정렬
+### 📐 justify-content — 주축 방향 정렬
 
 아이템들을 주축 방향으로 어떻게 배치할지 결정한다. 값에 따라 정렬 결과가 크게 달라진다.
 
@@ -114,7 +114,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .cards { justify-content: space-evenly; }
 ```
 
-### 2-3. align-items — 교차축 방향 정렬
+### 📐 align-items — 교차축 방향 정렬
 
 아이템들을 교차축 방향으로 어떻게 배치할지 결정한다.
 
@@ -146,7 +146,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .form-row { align-items: baseline; }
 ```
 
-### 2-4. flex-wrap — 줄바꿈 제어
+### 🧭 flex-wrap — 줄바꿈 제어
 
 아이템이 한 줄에 다 들어가지 않을 때 줄바꿈할지 여부를 결정한다.
 
@@ -193,7 +193,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
-### 2-5. align-content — 여러 줄 정렬
+### 📐 align-content — 여러 줄 정렬
 
 `flex-wrap`으로 인해 아이템이 여러 줄이 되었을 때, 그 **줄들 사이의 간격**을 정렬한다. 한 줄짜리 레이아웃에서는 아무런 효과가 없다.
 
@@ -215,7 +215,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>align-items와 align-content를 혼동하지 않는 팁:</strong> align-items는 한 줄 안에서 아이템 하나하나를 교차축 방향으로 정렬하고, align-content는 flex-wrap으로 만들어진 <strong>줄 전체</strong>를 정렬한다. 아이템이 한 줄이면 align-content는 아무 효과가 없다.</p>
 </div>
 
-### 2-6. gap — 아이템 간 간격
+### 📏 gap — 아이템 간 간격
 
 아이템 사이의 간격을 지정한다. margin과 달리 컨테이너 바깥쪽에는 여백이 생기지 않는다.
 
@@ -263,7 +263,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. Item 속성 — 개별 요소 6가지 속성
 
-### 3-1. flex-grow — 여유 공간을 차지하는 비율
+### 🧭 flex-grow — 여유 공간을 차지하는 비율
 
 컨테이너에 남는 공간이 있을 때, 그 공간을 얼마나 차지할지 비율로 지정한다.
 
@@ -298,7 +298,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>실무에서는 flex-grow를 단독으로 쓰기보다 <strong><code>flex: 1</code> 단축 속성</strong>으로 함께 지정하는 경우가 훨씬 많다.</p>
 </div>
 
-### 3-2. flex-shrink — 공간이 부족할 때 줄어드는 비율
+### 🧭 flex-shrink — 공간이 부족할 때 줄어드는 비율
 
 컨테이너 공간이 부족할 때, 아이템이 얼마나 줄어들지 비율로 지정한다.
 
@@ -308,7 +308,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .item { flex-shrink: 2; } /* 숫자가 클수록 더 많이 줄어듦 */
 ```
 
-### 3-3. flex-basis — 아이템의 기본 크기
+### 📏 flex-basis — 아이템의 기본 크기
 
 flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정한다. width 대신 flex 컨테이너 안에서는 flex-basis를 사용하는 것이 일반적이다.
 
@@ -319,7 +319,7 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 .item { flex-basis: 0%; } /* 콘텐츠 크기를 무시하고 grow 비율로만 분배 */
 ```
 
-### 3-4. flex — 단축 속성(grow + shrink + basis) ⭐
+### 🧭 flex — 단축 속성(grow + shrink + basis) ⭐
 
 실무에서 가장 많이 사용하는 속성이다. `flex-grow`, `flex-shrink`, `flex-basis`를 한 번에 지정한다.
 
@@ -350,7 +350,7 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 </tbody>
 </table>
 
-### 3-5. align-self — 개별 아이템 교차축 정렬
+### 📐 align-self — 개별 아이템 교차축 정렬
 
 컨테이너에 지정한 `align-items` 값을, 특정 아이템 하나에서만 다르게 덮어쓰고 싶을 때 사용한다.
 
@@ -359,7 +359,7 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 .item-special { align-self: flex-end; } /* 이 아이템만 끝으로 정렬 */
 ```
 
-### 3-6. order — 시각적 순서 변경 ⭐
+### 🧭 order — 시각적 순서 변경 ⭐
 
 HTML 구조는 그대로 유지한 채, 화면에 보이는 순서만 바꾼다.
 
