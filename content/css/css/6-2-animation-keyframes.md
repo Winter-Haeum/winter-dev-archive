@@ -201,6 +201,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `@keyframes`로 상태를 정의했다면, 이제 그 애니메이션을 요소에 어떻게 적용할지 8가지 속성으로 제어한다.
 
+**정리 표: animation 8가지 속성**
+
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>역할</th><th>필수 여부</th></tr></thead>
 <tbody>
@@ -285,6 +287,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 ### 🎞️ animation-direction / fill-mode
+
+**정리 표: animation-direction 값별 동작**
 
 <table class="wda-mtable">
 <thead><tr><th>direction 값</th><th>동작</th></tr></thead>
@@ -390,6 +394,8 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 
 ## 4. 실전 예시: 로딩 스피너
 
+**CSS 예시: 로딩 스피너 기본 회전**
+
 ```css
 @keyframes rotate {
   from { transform: rotate(0deg); }
@@ -406,6 +412,8 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 }
 ```
 
+**CSS 예시: 점 3개 순차 바운스 스피너**
+
 ```css
 /* 변형 - 3개 점이 순차적으로 튀어 오르는 스피너 */
 @keyframes dotBounce {
@@ -418,6 +426,8 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 .dot:nth-child(3) { animation-delay: 0.3s; }
 ```
 
+**JavaScript 예시: 로딩 상태 클래스 토글**
+
 ```js
 // JS로 로딩 상태 제어
 function showLoading(el) { el.classList.add('is-loading'); }
@@ -427,6 +437,8 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 ---
 
 ## 5. 실전 예시: 페이드인
+
+**CSS 예시: 페이드인 업 기본**
 
 ```css
 @keyframes fadeInUp {
@@ -439,6 +451,8 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 }
 ```
 
+**CSS 예시: 목록 아이템 순차 페이드인**
+
 ```css
 /* 목록 아이템 순차 페이드인 - Stagger */
 .list-item { animation: fadeInUp 0.4s ease-out both; }
@@ -446,6 +460,8 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 .list-item:nth-child(2) { animation-delay: 0.08s; }
 .list-item:nth-child(3) { animation-delay: 0.16s; }
 ```
+
+**JavaScript 예시: 스크롤 진입 시 애니메이션 실행**
 
 ```js
 // IntersectionObserver로 스크롤 진입 시 애니메이션 실행
@@ -463,6 +479,8 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 ## 6. 실전 예시: 슬라이드 캐러셀
 
+**CSS 예시: 슬라이드 캐러셀 전환**
+
 ```css
 @keyframes slideIn {
   from { transform: translateX(100%); opacity: 0; }
@@ -473,6 +491,8 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   animation: slideIn 0.5s ease-out both;
 }
 ```
+
+**JavaScript 예시: 캐러셀 자동 재생·hover 정지**
 
 ```js
 // 캐러셀 핵심 로직 - 자동 재생 + hover 정지

@@ -118,6 +118,8 @@ button[type="submit"] {
 
 값과 무관하게 해당 속성이 있기만 하면 선택된다.
 
+**CSS 예시: 속성 존재 선택자**
+
 ```css
 input[disabled] {
   opacity: 0.5;
@@ -135,6 +137,8 @@ input[disabled] {
 
 속성값이 지정한 문자열과 완전히 같을 때만 선택된다.
 
+**CSS 예시: 속성값 정확히 일치**
+
 ```css
 button[type="submit"] {
   background-color: #6c5ce7;
@@ -150,6 +154,8 @@ a[target="_blank"]::after {
 ### 🎛️ `[attr^=value]` — 시작하는 값
 
 속성값이 지정한 문자열로 시작할 때 선택된다. `^`는 정규식에서 "문자열의 시작"을 뜻하는 기호와 같은 의미로 기억하면 된다.
+
+**CSS 예시: 속성값 시작 문자열**
 
 ```css
 a[href^="https"] {
@@ -171,6 +177,8 @@ a[href^="mailto:"]::before {
 
 속성값이 지정한 문자열로 끝날 때 선택된다.
 
+**CSS 예시: 속성값 끝 문자열**
+
 ```css
 a[href$=".pdf"]::after { content: " (PDF)"; color: #d63384; }
 a[href$=".zip"]::after { content: " (ZIP)"; color: #6c757d; }
@@ -182,6 +190,8 @@ a[href$=".xlsx"]::after { content: " (Excel)"; color: #198754; }
 ### 🎛️ `[attr*=value]` — 포함하는 값
 
 속성값 어디에든 지정한 문자열이 포함되어 있으면 선택된다. 위치는 상관없다.
+
+**CSS 예시: 속성값 포함 문자열**
 
 ```css
 [class*="btn"] { padding: 8px 16px; }
@@ -203,7 +213,7 @@ a[href*="youtube"] { color: red; }
 }
 ```
 
-**예시 코드: 적용 대상 HTML**
+**HTML 예시: 단어 단위 선택자 적용 대상**
 
 ```html
 <li class="menu-item active">현재 메뉴</li>
@@ -218,6 +228,8 @@ a[href*="youtube"] { color: red; }
 
 값이 지정한 문자열과 정확히 같거나, 그 뒤에 하이픈(`-`)이 붙어 이어지는 경우까지 선택한다. 주로 언어 코드 표기에 쓰인다.
 
+**CSS 예시: 언어 코드 속성 선택자**
+
 ```css
 [lang|="en"] {
   font-family: "Georgia", serif;
@@ -227,6 +239,8 @@ a[href*="youtube"] { color: red; }
 이 규칙은 `lang="en"`, `lang="en-US"`, `lang="en-GB"`를 모두 선택하지만 `lang="english"`처럼 하이픈 없이 이어지는 값은 선택하지 않는다.
 
 ### 📊 7가지 속성 선택자 한눈에 비교
+
+**정리 표: 속성 선택자 7종 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>의미</th><th>대표 예시</th></tr></thead>
@@ -273,6 +287,8 @@ a[href*="youtube"] { color: red; }
 
 속성 선택자를 이어 붙이면 `data-priority`와 `data-status`가 둘 다 조건에 맞을 때만 선택하는 AND 조건도 만들 수 있다.
 
+**정리 표: data-* 활용 패턴**
+
 <table class="wda-mtable">
 <thead><tr><th>활용 상황</th><th>패턴</th></tr></thead>
 <tbody>
@@ -288,6 +304,8 @@ a[href*="youtube"] { color: red; }
 ## 4. Combinator 선택자로 관계 기반 선택하기
 
 이전 문서에서 자손(공백)과 자식(`>`) 선택자를 다뤘다. 여기에 형제 관계를 표현하는 `+`와 `~`를 더하면 요소들의 위치 관계를 훨씬 정교하게 다룰 수 있다.
+
+**정리 표: Combinator 기호별 선택 범위**
 
 <table class="wda-mtable">
 <thead><tr><th>기호</th><th>이름</th><th>선택 범위</th></tr></thead>
@@ -315,7 +333,7 @@ input:focus + .error-message {
 }
 ```
 
-**예시 코드: 적용 대상 HTML**
+**HTML 예시: 인접 형제 선택자 적용 대상**
 
 ```html
 <label for="email">이메일</label>
@@ -352,7 +370,7 @@ h2 ~ p {
 }
 ```
 
-**예시 코드: 적용 대상 HTML**
+**HTML 예시: 일반 형제 선택자 적용 대상**
 
 ```html
 <h2>FAQ</h2>
@@ -377,6 +395,8 @@ h2 ~ p {
 </div>
 
 핵심은 <strong>속성 선택자도 클래스와 동일하게 10점</strong>이라는 점이다. `[type="text"]`와 `.input`은 점수가 같다. 그리고 `>`, 공백, `+`, `~` 같은 콤비네이터 기호 자체는 <strong>0점</strong>이다. 요소 관계만 지정할 뿐 그 자체로 구체성을 더하지는 않는다.
+
+**CSS 예시: 콤비네이터 점수 계산**
 
 ```css
 div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
@@ -450,6 +470,8 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
   </div>
 </div>
 
+**CSS 예시: 형제 선택자 체이닝으로 범위 제한**
+
 ```css
 /* 해결 방법 2 예시 */
 input:checked + label + .content {
@@ -468,6 +490,8 @@ input:checked + label + .content {
 </table>
 
 이 패턴은 탭 UI 외에도 아코디언, 토글 메뉴, FAQ 펼치기, 사이드 메뉴 펼침 같은 인터랙션에 폭넓게 응용된다.
+
+**정리 표: 체크박스 트릭 패턴별 선택자**
 
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>핵심 선택자</th></tr></thead>

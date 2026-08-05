@@ -185,6 +185,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이미지를 확대할 때 부모 영역 밖으로 넘치지 않도록 부모에 `overflow: hidden`을 반드시 지정한다.
 
+**CSS 예시: 이미지 줌 효과**
+
 ```css
 .thumb {
   overflow: hidden; /* 핵심 - 확대된 이미지가 밖으로 넘치지 않도록 자름 */
@@ -201,6 +203,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ### 🧩 오버레이 효과
 
 hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 수 있는 기반을 만든다.
+
+**CSS 예시: 이미지 오버레이 효과**
 
 ```css
 .thumb {
@@ -230,6 +234,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 ## 4. 텍스트 hover: 언더라인 애니메이션
 
 `text-decoration` 대신 가상 요소로 밑줄을 직접 그리면, 밑줄이 왼쪽에서 오른쪽으로 그려지는 애니메이션을 만들 수 있다.
+
+**CSS 예시: 언더라인 그리기 애니메이션**
 
 ```css
 .link {
@@ -265,6 +271,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 부모에 마우스를 올렸을 때 내부 자식 요소의 스타일을 함께 바꿀 수 있다.
 
+**CSS 예시: 부모 hover로 자식 스타일 제어**
+
 ```css
 .card:hover .icon  { transform: rotate(15deg) scale(1.1); }
 .card:hover .title { color: #4f46e5; }
@@ -272,6 +280,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 ```
 
 ### 🖱️ 형제 요소 제어
+
+**정리 표: 형제 선택자 hover 제어 가능 여부**
 
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>의미</th><th>가능 여부</th></tr></thead>
@@ -281,6 +291,8 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 <tr><td>이전 형제 선택</td><td>hover한 요소보다 앞에 있는 형제 제어</td><td>CSS만으로 불가, JS 필요</td></tr>
 </tbody>
 </table>
+
+**CSS 예시: 형제 요소 hover 제어**
 
 ```css
 /* 다음 형제 하나만 흐리게 */
@@ -324,12 +336,16 @@ li:has(input:checked) {
 
 ### 🔎 :not() — 특정 조건 제외
 
+**CSS 예시: :not()으로 disabled 제외**
+
 ```css
 /* disabled가 아닌 버튼에만 hover 효과 */
 .btn:not(:disabled):hover {
   background-color: #4f46e5;
 }
 ```
+
+**CSS 예시: :not()으로 마지막 아이템 제외**
 
 ```css
 /* 마지막 아이템을 제외한 나머지에만 hover 구분선 표시 */

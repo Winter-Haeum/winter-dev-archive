@@ -97,6 +97,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 음수 값은 사용할 수 없다.
 
+**CSS 예시: Padding 단축 속성**
+
 ```css
 .box {
   padding: 16px;              /* 단축 속성: 4방향 동일 */
@@ -108,6 +110,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ### 🧱 Border
 
 Padding을 둘러싸는 테두리다. 단축 속성으로 두께·스타일·색상을 한 번에 지정할 수 있다.
+
+**CSS 예시: Border 단축 속성**
 
 ```css
 .box {
@@ -124,6 +128,8 @@ Padding을 둘러싸는 테두리다. 단축 속성으로 두께·스타일·색
 
 Padding과 달리 Margin은 음수 값도 사용할 수 있어 요소를 의도적으로 겹치게 만들 때 활용하기도 한다.
 
+**비교 표: Padding과 Margin**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>위치</th><th>배경색 적용</th><th>음수 값</th><th>주 용도</th></tr></thead>
 <tbody>
@@ -138,6 +144,8 @@ Padding과 달리 Margin은 음수 값도 사용할 수 있어 요소를 의도�
 
 Margin의 단축 속성은 값 개수에 따라 적용 방향이 달라진다.
 
+**CSS 예시: Margin 단축 속성**
+
 ```css
 margin: 10px;                 /* 4방향 모두 10px */
 margin: 10px 20px;            /* 상하 10px, 좌우 20px */
@@ -146,6 +154,8 @@ margin: 0 auto;               /* 상하 0, 좌우 자동 정렬 */
 ```
 
 margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따라 달라진다.
+
+**정리 표: display별 margin 동작**
 
 <table class="wda-mtable">
 <thead><tr><th>display 값</th><th>margin 동작</th></tr></thead>
@@ -164,6 +174,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 ## 3. width, height와 크기 제한 속성
 
 `width`, `height`는 `px`(절대 픽셀), `%`(부모 요소 대비 비율), `vw`/`vh`(뷰포트 너비·높이 대비 비율) 단위를 사용할 수 있다.
+
+**CSS 예시: 너비·높이 제한**
 
 ```css
 .box {
@@ -194,6 +206,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
   </div>
 </div>
 
+**CSS 예시: content-box와 border-box 비교**
+
 ```css
 .content-box {
   box-sizing: content-box; /* 기본값 */
@@ -214,6 +228,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 
 실무에서는 다음과 같이 전역으로 `border-box`를 지정해서 크기 계산을 예측 가능하게 만드는 것이 일반적이다.
 
+**CSS 예시: 전역 border-box 설정**
+
 ```css
 * {
   box-sizing: border-box;
@@ -225,6 +241,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 ## 5. Margin Collapse (마진 붕괴)
 
 세로 방향의 margin이 서로 만나면, 두 값을 더하지 않고 <strong>더 큰 값 하나만</strong> 적용되는 현상이 발생한다. 이를 Margin Collapse라고 부른다.
+
+**CSS 예시: Margin Collapse 발생**
 
 ```css
 .box-a { margin-bottom: 30px; }
@@ -241,6 +259,8 @@ margin이 실제로 어떻게 동작하는지는 요소의 `display` 값에 따�
 </div>
 
 반대로 요소에 `padding`, `border`, `overflow`(hidden/auto 등), `display: flex`/`grid`, `float`, `position: absolute` 중 하나라도 있으면 그 경계가 margin이 겹치는 것을 막아 Collapse가 일어나지 않는다.
+
+**정리 표: Margin Collapse 방지 방법**
 
 <table class="wda-mtable">
 <thead><tr><th>해결 방법</th><th>설명</th></tr></thead>
@@ -273,6 +293,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
   <div class="wda-fcard"><div class="wda-fcard-ttl">position</div><div class="wda-fcard-dsc">absolute 또는 fixed</div></div>
 </div>
 
+**CSS 예시: BFC로 마진 붕괴·float 문제 해결**
+
 ```css
 /* 마진 붕괴 방지: 부모를 BFC로 만든다 */
 .parent {
@@ -291,6 +313,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 
 ### 📏 방향별 지정
 
+**CSS 예시: 방향별 Border 지정**
+
 ```css
 .box {
   border-top: 1px solid #333;
@@ -303,6 +327,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 방향별 단축 속성(`border-top`, `border-right`, `border-bottom`, `border-left`)과 속성별 개별 지정(`border-top-width`, `border-top-style`, `border-top-color`) 두 방식을 상황에 맞게 사용할 수 있다.
 
 ### 🎨 Border-radius
+
+**CSS 예시: Border-radius 활용**
 
 ```css
 .box-1 { border-radius: 8px; }                       /* 네 모서리 동일 */
@@ -320,6 +346,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 ## 8. Outline
 
 `outline`은 `border`처럼 요소 주변에 선을 그리지만, 박스 모델에 포함되지 않아 <strong>레이아웃에 영향을 주지 않는다</strong>. 주로 키보드로 포커스를 이동했을 때 어떤 요소가 선택되었는지 보여주는 접근성 용도로 쓰인다.
+
+**CSS 예시: Outline과 Offset**
 
 ```css
 .box {

@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 바로 다음 섹션부터 실전 패턴을 만들기 때문에, 각 값의 기준점만 짧게 다시 짚어본다.
 
+**정리 표: position 값별 기준점 요약**
+
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>기준</th><th>한 줄 요약</th></tr></thead>
 <tbody>
@@ -94,7 +96,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 실무에서 가장 자주 등장하는 조합은 부모에 `relative`, 자식에 `absolute`를 주는 패턴이다. 카드 위에 "NEW" 배지를 올리는 예시로 확인해본다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 배지 카드 구조**
 
 ```html
 <div class="card">
@@ -104,7 +106,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 배지 위치 지정**
 
 ```css
 .card {
@@ -166,6 +168,8 @@ body {
 
 카테고리별 상품 목록에서 흔히 보이는, 스크롤하다가 섹션 제목이 상단에 붙는 패턴이다.
 
+**CSS 예시: Sticky 섹션 헤더 고정**
+
 ```css
 .section-header {
   position: sticky;
@@ -181,7 +185,7 @@ body {
 
 `absolute`는 "부모 전체"가 아니라 **position이 static이 아닌, 가장 가까운 조상**을 기준으로 삼는다. 3단계 중첩 구조로 확인해본다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 3단계 중첩 구조**
 
 ```html
 <div class="grandparent">
@@ -191,7 +195,7 @@ body {
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: positioned 조상 찾기**
 
 ```css
 .grandparent {
@@ -217,7 +221,7 @@ body {
 
 화면을 어둡게 덮는 오버레이와 그 위에 뜨는 본체로 구성된다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 모달 구조**
 
 ```html
 <div class="modal-overlay">
@@ -229,7 +233,7 @@ body {
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 모달 오버레이·본체 스타일**
 
 ```css
 .modal-overlay {
@@ -275,7 +279,7 @@ body {
 
 부모에 마우스를 올렸을 때 하위 메뉴가 나타나는 패턴이다. relative + absolute 조합을 그대로 응용한다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 드롭다운 메뉴 구조**
 
 ```html
 <nav class="dropdown">
@@ -288,7 +292,7 @@ body {
 </nav>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 드롭다운 위치·표시 제어**
 
 ```css
 .dropdown {
@@ -325,7 +329,7 @@ body {
 
 아이콘에 마우스를 올렸을 때 나타나는 말풍선이다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 툴팁 구조**
 
 ```html
 <span class="tooltip-wrapper">
@@ -334,7 +338,7 @@ body {
 </span>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 툴팁 위치·hover 표시**
 
 ```css
 .tooltip-wrapper {
@@ -367,6 +371,8 @@ body {
 ## 9. 실전 패턴: 오버레이 + 사이드바 (모바일 메뉴)
 
 배경을 어둡게 덮는 오버레이와, 옆에서 밀려 들어오는 사이드바를 함께 구현한다.
+
+**CSS 예시: 오버레이·사이드바 모바일 메뉴**
 
 ```css
 .overlay {
@@ -426,6 +432,8 @@ body {
   </div>
 </div>
 
+**CSS 예시: Floating 버튼**
+
 ```css
 .fab {
   position: fixed;
@@ -440,6 +448,8 @@ body {
 ## 11. 실전 패턴: Toast 알림 스택
 
 화면 구석에 알림이 하나씩 쌓이는 패턴이다.
+
+**CSS 예시: Toast 알림 스택**
 
 ```css
 .toast-container {
@@ -479,6 +489,8 @@ body {
 ## 12. 실전 패턴: 스크롤 구동 헤더 (Scroll-driven Header)
 
 자바스크립트 없이 순수 CSS만으로 스크롤 방향에 따라 헤더를 숨기고 보여주는 최신 패턴이다.
+
+**CSS 예시: 스크롤 구동 헤더**
 
 ```css
 .scroll-area {
@@ -522,7 +534,7 @@ body {
 
 기본 `<select>` 대신 자유롭게 디자인한 드롭다운 선택 UI다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 커스텀 셀렉트 구조**
 
 ```html
 <div class="custom-select">
@@ -535,7 +547,7 @@ body {
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 커스텀 셀렉트 옵션 표시**
 
 ```css
 .custom-select {

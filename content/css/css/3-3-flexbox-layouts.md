@@ -96,7 +96,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">유저 프로필</div><div class="wda-fnode-dsc">오른쪽 끝</div></div>
 </div>
 
-**예시 코드: HTML 구조**
+**HTML 예시: 수평 네비게이션 구조**
 
 ```html
 <header class="navbar">
@@ -110,7 +110,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </header>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 수평 네비게이션 스타일**
 
 ```css
 .navbar {
@@ -147,7 +147,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 화면 너비에 따라 3열 → 2열 → 1열로 자연스럽게 전환되는 카드 그리드다.
 
-**예시 코드: HTML 구조**
+**HTML 예시: 카드 그리드 구조**
 
 ```html
 <div class="card-grid">
@@ -202,7 +202,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 모달 중앙 정렬
 
-**예시 코드: HTML 구조**
+**HTML 예시: 모달 구조**
 
 ```html
 <div class="modal-overlay">
@@ -217,7 +217,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 모달 중앙 정렬 스타일**
 
 ```css
 .modal-overlay {
@@ -236,7 +236,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 로딩 스피너 중앙 정렬
 
-**예시 코드: HTML 구조**
+**HTML 예시: 로딩 스피너 구조**
 
 ```html
 <div class="loading-container">
@@ -245,7 +245,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 로딩 스피너 중앙 정렬 스타일**
 
 ```css
 .loading-container {
@@ -285,7 +285,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">Footer</div><div class="wda-fnode-dsc">하단 고정</div></div>
 </div>
 
-**예시 코드: HTML 구조**
+**HTML 예시: 홀리그레일 레이아웃 구조**
 
 ```html
 <div class="container">
@@ -298,7 +298,7 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**CSS 예시: 홀리그레일 레이아웃 스타일**
 
 ```css
 .container {
@@ -330,6 +330,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </div>
 
 반응형 처리는 아래처럼 사이드바를 세로로 내린다.
+
+**CSS 예시: 반응형 사이드바 처리**
 
 ```css
 @media (max-width: 768px) {
@@ -370,6 +372,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 
+**HTML 예시: 로그인 폼 구조**
+
 ```html
 <form class="login-form">
   <div class="form-group">
@@ -406,6 +410,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 
+**CSS 예시: Sticky Footer 구현**
+
 ```css
 body {
   display: flex;
@@ -426,6 +432,8 @@ main {
 
 이미지와 텍스트가 나란히 배치되는 구조로, 댓글이나 알림, 프로필 카드에서 자주 쓰인다.
 
+**CSS 예시: 미디어 오브젝트 기본 구조**
+
 ```css
 .media {
   display: flex;
@@ -445,6 +453,8 @@ main {
 ```
 
 이미지와 텍스트 순서를 반대로 배치하고 싶을 때는 아래처럼 한 줄만 추가하면 된다.
+
+**CSS 예시: 미디어 오브젝트 순서 반전**
 
 ```css
 .media.reverse {
@@ -501,6 +511,8 @@ main {
   <div class="wda-farrow">↓</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">Card Grid</div><div class="wda-fnode-dsc">Main 안에서 wrap + gap</div></div>
 </div>
+
+**CSS 예시: 대시보드 레이아웃 종합**
 
 ```css
 /* 1. 전체 레이아웃 - 홀리그레일 */

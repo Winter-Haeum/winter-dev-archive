@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화를 얼마나 부드럽게 보여줄지"를 설정하는 속성이다. 여기서 가장 많이 헷갈리는 부분은 **transition을 어느 위치에 작성해야 하는가**다.
 
+**CSS 예시: transition 작성 위치**
+
 ```css
 .button {
   width: 100px;
@@ -104,6 +106,8 @@ transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화
 
 transition은 아래 4가지 속성의 조합으로 동작한다.
 
+**정리 표: transition 4가지 속성**
+
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>역할</th></tr></thead>
 <tbody>
@@ -115,6 +119,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </table>
 
 ### 🎯 transition-property — 무엇을 전환할지
+
+**CSS 예시: transition-property 지정**
 
 ```css
 .box-a { transition-property: background-color; }              /* 속성 1개 */
@@ -149,6 +155,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### ⏱️ transition-duration — 얼마나 오래 걸릴지
 
+**CSS 예시: transition-duration 지정**
+
 ```css
 .a { transition-duration: 0.3s; }
 .b { transition-duration: 300ms; }
@@ -174,6 +182,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </div>
 
 ### 🎬 transition-timing-function — 어떤 속도로 변할지
+
+**CSS 예시: transition-timing-function 지정**
 
 ```css
 .a { transition-timing-function: ease; }
@@ -251,6 +261,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 같은 duration이라도 timing-function에 따라 체감 속도가 완전히 달라진다.
 
+**정리 표: timing-function 곡선별 체감**
+
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>속도 곡선</th><th>체감 느낌</th></tr></thead>
 <tbody>
@@ -269,6 +281,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </div>
 
 더 세밀한 곡선이 필요하면 `cubic-bezier()` 함수로 직접 곡선을 그리거나, `steps()`로 프레임 단위 애니메이션을 만들 수 있다.
+
+**CSS 예시: cubic-bezier와 steps 활용**
 
 ```css
 /* cubic-bezier(x1, y1, x2, y2) - 베지어 곡선의 두 제어점을 직접 지정 */
@@ -289,6 +303,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 ## 5. transition의 트리거(변화 시점)
 
 transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸는 이벤트**가 있어야 값이 달라지고, 그 변화가 부드럽게 이어진다.
+
+**정리 표: transition 트리거 종류**
 
 <table class="wda-mtable">
 <thead><tr><th>트리거</th><th>발생 시점</th></tr></thead>
@@ -355,6 +371,8 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 ## 7. 전환이 부드럽지 않아 보이는 이유
 
 같은 transition 코드를 써도 결과가 어색하게 느껴질 때가 있다. 대표적인 원인은 다음과 같다.
+
+**정리 표: 어색한 전환의 원인과 해결**
 
 <table class="wda-mtable">
 <thead><tr><th>원인</th><th>해결 방법</th></tr></thead>
