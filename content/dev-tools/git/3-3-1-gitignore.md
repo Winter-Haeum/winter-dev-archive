@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. .gitignore란
 
-프로젝트 루트에는 소스 코드 말고도 Git이 굳이 몰라도 되는 파일이 많습니다. 이 문서는 그런 파일을 걸러내는 <code>.gitignore</code>를 다룹니다. 이어지는 3-3-2에서는 README.md로 프로젝트를 소개하는 법을, 3-3-3에서는 그 README를 제대로 쓰기 위한 Markdown 문법을 다룹니다.
+프로젝트 루트에는 소스 코드 말고도 Git이 굳이 몰라도 되는 파일이 많습니다. 이 문서는 그런 파일을 걸러내는 <code>.gitignore</code>를 다룹니다.
+
+이어지는 3-3-2에서는 README.md로 프로젝트를 소개하는 법을, 3-3-3에서는 그 README를 제대로 쓰기 위한 Markdown 문법을 다룹니다.
 
 <code>.gitignore</code>는 Git이 <strong>추적하지 않을 파일과 디렉토리</strong>를 지정하는 설정 파일이다. 프로젝트 루트 디렉토리에 두며, 여기에 등록된 파일은 <code>git add</code>나 <code>git status</code> 결과에 나타나지 않는다.
 
@@ -109,7 +111,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 협업 효율성도 올라간다
 
-macOS의 <code>.DS_Store</code>, Windows의 <code>Thumbs.db</code>, IDE 개인 설정인 <code>.idea/</code>, <code>.vscode/</code> 등은 팀원마다 환경이 달라 생기는 파일이다. 이런 파일을 무시 목록에 넣으면 불필요한 충돌을 방지하고, 팀 간 작업 환경 차이로 인한 문제를 줄일 수 있다.
+macOS의 <code>.DS_Store</code>, Windows의 <code>Thumbs.db</code>, IDE 개인 설정인 <code>.idea/</code>, <code>.vscode/</code> 등은 팀원마다 환경이 달라 생기는 파일이다.
+
+이런 파일을 무시 목록에 넣으면 불필요한 충돌을 방지하고, 팀 간 작업 환경 차이로 인한 문제를 줄일 수 있다.
 
 ---
 

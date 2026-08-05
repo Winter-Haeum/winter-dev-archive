@@ -351,6 +351,19 @@ const wdaMinheadGlobalStyles = {
   },
 };
 
+// 일반 본문 문단 첫 줄 들여쓰기(2026-08 개편 — 사용자 요청). `.wda-doc-body`(아래
+// MarkdownRenderer 최상위 wrapper)의 "직계 자식" p만 골라 적용한다 — react-markdown은
+// className을 받지 않는 한 자체 wrapper 없이 최상위 블록 요소를 그대로 부모의 직계
+// 자식으로 렌더링하므로(react-markdown lib/index.js `post()` 참고), 박스/콜아웃/리스트/
+// 표/인용 내부에 중첩된 p는 전부 한 단계 이상 깊이 들어가 있어 `>` 결합자만으로 자동
+// 제외된다 — 별도의 박스 클래스 예외 목록이 필요 없다. 이모지+볼드 단독 문단(미니
+// 소제목, `wda-minihead`)은 본문 문장이 아니므로 `:not()`으로 별도 제외한다.
+const wdaBodyIndentStyles = {
+  '.wda-doc-body > p:not(.wda-minihead)': {
+    textIndent: '0.85em',
+  },
+};
+
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
@@ -805,8 +818,12 @@ function MarkdownRenderer({ content, docId = '' }) {
   }), [docId]);
 
   return (
-    <Box sx={{ width: '100%', minWidth: 0, wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+    <Box
+      className='wda-doc-body'
+      sx={{ width: '100%', minWidth: 0, wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+    >
       <GlobalStyles styles={wdaMinheadGlobalStyles} />
+      <GlobalStyles styles={wdaBodyIndentStyles} />
       <ReactMarkdown
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}

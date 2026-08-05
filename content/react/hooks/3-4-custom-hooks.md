@@ -73,7 +73,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Custom Hook이 필요한 이유
 
-Custom Hook은 useState·useEffect·useRef 같은 기본 Hook을 조합해, 반복되는 로직을 재사용 가능한 함수로 뽑아낸 것입니다. 이 문서는 [[3-1-usestate|3-1]], [[3-2-useeffect|3-2]], [[3-3-useref|3-3]]에서 배운 Hook들을 어떻게 조합해서 나만의 Hook을 만드는지 다룹니다.
+Custom Hook은 useState·useEffect·useRef 같은 기본 Hook을 조합해, 반복되는 로직을 재사용 가능한 함수로 뽑아낸 것입니다.
+
+이 문서는 [[3-1-usestate|3-1]], [[3-2-useeffect|3-2]], [[3-3-useref|3-3]]에서 배운 Hook들을 어떻게 조합해서 나만의 Hook을 만드는지 다룹니다.
 
 `HookDashboard`와 `SearchPanel` 양쪽에서 입력값을 관리하는 로직을 각각 작성한다고 해보겠습니다.
 

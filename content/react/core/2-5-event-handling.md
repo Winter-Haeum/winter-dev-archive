@@ -217,7 +217,9 @@ function LearningItem({ id, isCompleted, onComplete }) {
 
 ## 9. DOM 이벤트 방식과 다른 점
 
-React 이벤트는 카멜케이스(`onClick`)로 작성하며, 함수를 값으로 전달합니다. `addEventListener`로 직접 요소를 찾아 등록하는 방식과는 다릅니다. DOM 이벤트 등록 방식 자체는 JavaScript DOM 문서에서 다뤘으므로 여기서는 반복하지 않습니다.
+React 이벤트는 카멜케이스(`onClick`)로 작성하며, 함수를 값으로 전달합니다. `addEventListener`로 직접 요소를 찾아 등록하는 방식과는 다릅니다.
+
+DOM 이벤트 등록 방식 자체는 JavaScript DOM 문서에서 다뤘으므로 여기서는 반복하지 않습니다.
 
 ---
 

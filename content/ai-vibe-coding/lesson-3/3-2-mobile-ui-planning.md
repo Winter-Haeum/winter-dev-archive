@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 모바일에서 자주 확인하는 항목
 
-[[3-1-web-vs-app|이전 문서]]에서 반응형 사고방식을 이해했다면, 이번에는 responsive-portfolio, 즉 lesson-1에서 만든 포트폴리오 화면을 모바일 기준으로 실제 점검하고 수정을 요청할 차례입니다. 새로운 화면을 기획하는 것이 아니라, 이미 있는 화면을 모바일에서도 읽기 좋게 다듬는 것이 이 문서의 목표입니다.
+[[3-1-web-vs-app|이전 문서]]에서 반응형 사고방식을 이해했다면, 이번에는 responsive-portfolio, 즉 lesson-1에서 만든 포트폴리오 화면을 모바일 기준으로 실제 점검하고 수정을 요청할 차례입니다.
+
+새로운 화면을 기획하는 것이 아니라, 이미 있는 화면을 모바일에서도 읽기 좋게 다듬는 것이 이 문서의 목표입니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">섹션 순서</div><div class="wda-fcard-dsc">가장 먼저 봐야 할 정보가 화면 위쪽에 오는지 확인합니다.</div></div>

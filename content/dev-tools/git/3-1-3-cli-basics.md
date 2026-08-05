@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. CLI란 무엇인가
 
-[[3-1-2-git-structure|이전 문서]]에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다. 먼저 CLI 자체에 익숙해지는 기본 명령어를 연습한 다음, git init부터 git diff까지 실전에서 가장 많이 쓰는 명령어를 순서대로 실습한다.
+[[3-1-2-git-structure|이전 문서]]에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다.
+
+먼저 CLI 자체에 익숙해지는 기본 명령어를 연습한 다음, git init부터 git diff까지 실전에서 가장 많이 쓰는 명령어를 순서대로 실습한다.
 
 CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, 텍스트로 된 명령어를 직접 입력해 컴퓨터를 조작하는 방식이다. 우리가 평소 쓰는 GUI(Graphical User Interface)와 비교하면 차이가 뚜렷하다.
 
@@ -463,7 +465,9 @@ add하기 전 마지막으로 무엇이 바뀌었는지 확인하거나, 실수�
 </tbody>
 </table>
 
-이번 문서에서는 로컬 저장소 안에서의 흐름만 다뤘다. <code>git branch</code>(브랜치 만들기), <code>git switch -c</code>(브랜치 생성 후 이동), <code>git push</code> / <code>git pull origin main</code>(원격 저장소와 동기화)처럼 브랜치와 원격 저장소를 다루는 명령어는 다음 섹션에서 이어서 다룬다.
+이번 문서에서는 로컬 저장소 안에서의 흐름만 다뤘다.
+
+<code>git branch</code>(브랜치 만들기), <code>git switch -c</code>(브랜치 생성 후 이동), <code>git push</code> / <code>git pull origin main</code>(원격 저장소와 동기화)처럼 브랜치와 원격 저장소를 다루는 명령어는 다음 섹션에서 이어서 다룬다.
 
 ---
 

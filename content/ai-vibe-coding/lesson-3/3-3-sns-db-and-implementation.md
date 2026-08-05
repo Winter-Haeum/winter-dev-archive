@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 피드·목록형 화면의 기본 구성 요소
 
-lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다. 데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
+lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다.
+
+데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
 
 <table class="wda-mtable">
 <thead><tr><th>구성 요소</th><th>역할</th></tr></thead>

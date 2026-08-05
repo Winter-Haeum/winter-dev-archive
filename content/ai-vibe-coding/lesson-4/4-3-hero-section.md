@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 로컬 화면과 공개 URL은 다를 수 있다
 
-[[4-2-about-me-tab|이전 문서]]에서 배포 준비를 마쳤다면, 이제 실제 공개된 public-url-check 단계입니다. 로컬 화면과 실제 공개 화면은 다를 수 있습니다. 이 문서는 배포 직후 반드시 확인해야 할 항목과, 문제를 발견했을 때 AI에게 전달하는 방법을 다룹니다.
+[[4-2-about-me-tab|이전 문서]]에서 배포 준비를 마쳤다면, 이제 실제 공개된 public-url-check 단계입니다. 로컬 화면과 실제 공개 화면은 다를 수 있습니다.
+
+이 문서는 배포 직후 반드시 확인해야 할 항목과, 문제를 발견했을 때 AI에게 전달하는 방법을 다룹니다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">

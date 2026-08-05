@@ -236,7 +236,9 @@ emailNotifier();
 
 ## 7. 클로저가 생기는 순간
 
-`createNotifier(...)`는 `emailNotifier`에 저장되는 순간 이미 실행이 끝난다. 그런데도 `emailNotifier()`를 나중에 호출하면 `notificationType`과 `defaultMessage`를 여전히 정확히 기억한다.
+`createNotifier(...)`는 `emailNotifier`에 저장되는 순간 이미 실행이 끝난다.
+
+그런데도 `emailNotifier()`를 나중에 호출하면 `notificationType`과 `defaultMessage`를 여전히 정확히 기억한다.
 
 **📌 개념**
 

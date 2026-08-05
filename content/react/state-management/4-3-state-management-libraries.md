@@ -68,7 +68,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Context API가 부족해지는 시점
 
-이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다. [[4-1-usecontext|4-1]], [[4-2-usereducer|4-2 문서]]에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다. 실제 설치 명령어나 API 사용법은 각 라이브러리의 공식 문서를 참고합니다.
+이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다. [[4-1-usecontext|4-1]], [[4-2-usereducer|4-2 문서]]에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다.
+
+실제 설치 명령어나 API 사용법은 각 라이브러리의 공식 문서를 참고합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Provider 중첩</div><div class="wda-fcard-dsc">공유할 값의 종류가 늘어날수록 Provider를 겹겹이 쌓아야 합니다.</div></div>

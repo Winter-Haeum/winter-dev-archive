@@ -74,7 +74,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. SPA란 무엇인가
 
-이 문서는 React Router의 기본 흐름(BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams)만 다룹니다. 로그인 여부에 따라 접근을 제한하는 Protected Route 패턴, 라우트 안에 라우트를 두는 중첩 라우팅, 페이지 진입 전 데이터를 미리 불러오는 로더(loader), 코드 분할을 위한 지연 로딩(lazy loading)은 이 문서에서 다루지 않습니다.
+이 문서는 React Router의 기본 흐름(BrowserRouter, Routes, Route, Link, NavLink, useNavigate, useParams)만 다룹니다.
+
+로그인 여부에 따라 접근을 제한하는 Protected Route 패턴, 라우트 안에 라우트를 두는 중첩 라우팅, 페이지 진입 전 데이터를 미리 불러오는 로더(loader), 코드 분할을 위한 지연 로딩(lazy loading)은 이 문서에서 다루지 않습니다.
 
 이후 예시는 학습 플랫폼의 `AppRouter`, `CourseListPage`, `DashboardPage`, `SettingsPage`를 기준으로 설명합니다.
 

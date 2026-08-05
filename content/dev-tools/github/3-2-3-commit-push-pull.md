@@ -109,7 +109,9 @@ git commit -m "Add login form validation"
 
 `git push`는 로컬에 쌓인 커밋을 GitHub 원격 저장소로 업로드하는 과정이다.
 
-push가 필요한 이유는 명확하다. commit은 로컬에만 존재하므로, 팀원과 코드를 공유하려면 push가 있어야 하고, GitHub를 통한 백업 효과도 push를 해야 실제로 발생한다. 또한 push를 해두면 다른 컴퓨터에서도 동일한 작업 환경을 이어받을 수 있다.
+push가 필요한 이유는 명확하다. commit은 로컬에만 존재하므로, 팀원과 코드를 공유하려면 push가 있어야 하고, GitHub를 통한 백업 효과도 push를 해야 실제로 발생한다.
+
+또한 push를 해두면 다른 컴퓨터에서도 동일한 작업 환경을 이어받을 수 있다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">

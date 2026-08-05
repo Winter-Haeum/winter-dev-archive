@@ -70,7 +70,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 배포 방식 개념 비교
 
-[[4-1-portfolio-reference-exploration|이전 문서]]에서 화면을 점검했다면, 이제 그 화면을 외부에 공개하는 deployment-plan을 세울 차례입니다. 특정 서비스의 최신 화면이나 요금은 계속 바뀔 수 있으므로, 이 문서에서는 배포 방식의 공통 개념과 준비 항목을 중심으로 다룹니다.
+[[4-1-portfolio-reference-exploration|이전 문서]]에서 화면을 점검했다면, 이제 그 화면을 외부에 공개하는 deployment-plan을 세울 차례입니다.
+
+특정 서비스의 최신 화면이나 요금은 계속 바뀔 수 있으므로, 이 문서에서는 배포 방식의 공통 개념과 준비 항목을 중심으로 다룹니다.
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>공통 개념</th><th>참고</th></tr></thead>

@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 유연한 레이아웃 단위
 
-CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단위·미디어쿼리를 반응형이라는 관점으로 다시 묶어서 정리합니다. 특히 미디어쿼리를 아예 쓰지 않고도 화면 크기에 자동으로 반응하는 기법(유연한 단위, auto-fit, Container Queries)에 집중합니다.
+CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단위·미디어쿼리를 반응형이라는 관점으로 다시 묶어서 정리합니다.
+
+특히 미디어쿼리를 아예 쓰지 않고도 화면 크기에 자동으로 반응하는 기법(유연한 단위, auto-fit, Container Queries)에 집중합니다.
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th></tr></thead>

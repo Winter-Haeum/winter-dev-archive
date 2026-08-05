@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 신문 레이아웃
 
-[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 실제 서비스에서 쓰이는 완성형 레이아웃을 만든다. 신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.
+[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 실제 서비스에서 쓰이는 완성형 레이아웃을 만든다.
+
+신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">Header</div><div class="wda-fcard-dsc">전체 너비를 차지</div></div>
@@ -141,7 +143,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 대시보드 레이아웃
 
-`grid-column`으로 영역을 하나씩 지정하면 라인 번호 계산이 복잡해지고 가독성도 떨어진다. 이런 경우 `grid-template-areas`가 해결책이 된다. 레이아웃을 문자열로 그리듯 설계하고, 영역마다 이름을 붙인 뒤 `grid-area`로 연결하면 된다.
+`grid-column`으로 영역을 하나씩 지정하면 라인 번호 계산이 복잡해지고 가독성도 떨어진다. 이런 경우 `grid-template-areas`가 해결책이 된다.
+
+레이아웃을 문자열로 그리듯 설계하고, 영역마다 이름을 붙인 뒤 `grid-area`로 연결하면 된다.
 
 ```css
 .dashboard {
@@ -307,7 +311,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
-미디어 쿼리를 단 한 줄도 쓰지 않고 이 결과가 나온다. **실무 팁 Q&A.** `object-fit: cover`는 이미지 비율을 유지하면서 지정한 영역을 꽉 채우고 넘치는 부분은 잘라내는 속성이다. 높이를 고정한 이유는 이미지마다 원본 비율이 달라도 카드 높이를 일정하게 맞추기 위해서다. 포트폴리오, 쇼핑몰 상품 목록, SNS 피드에서 실제로 널리 쓰이는 패턴이며, Unsplash나 Pinterest 같은 서비스의 그리드도 같은 원리로 동작한다.
+미디어 쿼리를 단 한 줄도 쓰지 않고 이 결과가 나온다.
+
+**실무 팁 Q&A.** `object-fit: cover`는 이미지 비율을 유지하면서 지정한 영역을 꽉 채우고 넘치는 부분은 잘라내는 속성이다. 높이를 고정한 이유는 이미지마다 원본 비율이 달라도 카드 높이를 일정하게 맞추기 위해서다.
+
+포트폴리오, 쇼핑몰 상품 목록, SNS 피드에서 실제로 널리 쓰이는 패턴이며, Unsplash나 Pinterest 같은 서비스의 그리드도 같은 원리로 동작한다.
 
 ---
 

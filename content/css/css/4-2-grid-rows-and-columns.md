@@ -72,7 +72,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 복습 — 기본 Grid 컨테이너
 
-[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 행과 열을 실제로 어떻게 자유자재로 배치하는지를 다룬다. 단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.
+[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 행과 열을 실제로 어떻게 자유자재로 배치하는지를 다룬다.
+
+단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.
 
 ```css
 .container {
@@ -82,7 +84,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-열은 3개로 명시했지만 행은 따로 지정하지 않았다. 아이템이 늘어나면 필요한 만큼 행이 자동으로 생성된다. 이 문서에서는 이 기본형에서 출발해 다양한 단위, `repeat()`, `minmax()`, 행 정의, `gap` 세분화, `span`을 이용한 아이템 배치까지 확장한다.
+열은 3개로 명시했지만 행은 따로 지정하지 않았다. 아이템이 늘어나면 필요한 만큼 행이 자동으로 생성된다.
+
+이 문서에서는 이 기본형에서 출발해 다양한 단위, `repeat()`, `minmax()`, 행 정의, `gap` 세분화, `span`을 이용한 아이템 배치까지 확장한다.
 
 ---
 

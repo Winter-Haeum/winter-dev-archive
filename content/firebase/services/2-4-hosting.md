@@ -116,7 +116,9 @@ npm run build
 
 ## 3. SPA 라우팅을 위한 설정
 
-React Router를 쓰는 SPA(Single Page Application)는 실제로는 `index.html` 파일 하나만 존재하고, 나머지 경로는 자바스크립트가 화면을 바꿔가며 흉내 내는 방식입니다. 그래서 사용자가 주소창에 `/profile` 같은 경로를 직접 입력하면, 서버 입장에서는 그런 파일이 없어 오류가 날 수 있습니다.
+React Router를 쓰는 SPA(Single Page Application)는 실제로는 `index.html` 파일 하나만 존재하고, 나머지 경로는 자바스크립트가 화면을 바꿔가며 흉내 내는 방식입니다.
+
+그래서 사용자가 주소창에 `/profile` 같은 경로를 직접 입력하면, 서버 입장에서는 그런 파일이 없어 오류가 날 수 있습니다.
 
 ```json
 {

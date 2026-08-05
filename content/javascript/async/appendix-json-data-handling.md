@@ -71,7 +71,9 @@ tags:
 
 ## 1. JSON이 필요한 순간
 
-강의 설정(`lessonSettings`)은 JavaScript 안에서는 객체다. 이 설정을 저장하거나 서버로 보내려면 객체 그대로는 안 되고, 문자열 형태가 필요하다. JSON은 이 객체를 문자열로 바꾸고, 다시 객체로 되돌리는 표준 형식이다.
+강의 설정(`lessonSettings`)은 JavaScript 안에서는 객체다. 이 설정을 저장하거나 서버로 보내려면 객체 그대로는 안 되고, 문자열 형태가 필요하다.
+
+JSON은 이 객체를 문자열로 바꾸고, 다시 객체로 되돌리는 표준 형식이다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard">

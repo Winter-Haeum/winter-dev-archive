@@ -71,9 +71,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Float 기반 레이아웃의 한계 → Flexbox의 등장
 
-이 문서는 Flexbox를 처음 배울 때 반드시 짚고 가야 할 배경과 기본 개념을 다룬다. 개별 속성의 세부 사용법은 다음 문서인 [[3-2-flex-container-and-items|Container와 Item 속성 활용하기]]에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.
+이 문서는 Flexbox를 처음 배울 때 반드시 짚고 가야 할 배경과 기본 개념을 다룬다.
 
-Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 속성을 사용했다. 문제는 float이 원래 "텍스트가 이미지를 감싸고 흐르게 하는" 용도로 설계된 속성이라는 점이다. 이 속성을 레이아웃 도구로 억지로 끌어다 쓰다 보니 아래와 같은 불편이 계속 쌓였다.
+개별 속성의 세부 사용법은 다음 문서인 [[3-2-flex-container-and-items|Container와 Item 속성 활용하기]]에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.
+
+Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 속성을 사용했다. 문제는 float이 원래 "텍스트가 이미지를 감싸고 흐르게 하는" 용도로 설계된 속성이라는 점이다.
+
+이 속성을 레이아웃 도구로 억지로 끌어다 쓰다 보니 아래와 같은 불편이 계속 쌓였다.
 
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>내용</th></tr></thead>
@@ -105,7 +109,9 @@ Flexbox는 이 문제들을 단 몇 줄로 해결한다.
 
 ## 2. Flexbox란 무엇인가 — 1차원 레이아웃 시스템
 
-Flexbox는 가로 또는 세로, **한 방향으로만** 요소를 배치하는 데 특화된 1차원 레이아웃 시스템이다. Grid처럼 행(row)과 열(column)을 동시에 제어하지는 않는다. 이 차이 때문에 실무에서는 상황에 따라 도구를 구분해서 쓴다.
+Flexbox는 가로 또는 세로, **한 방향으로만** 요소를 배치하는 데 특화된 1차원 레이아웃 시스템이다. Grid처럼 행(row)과 열(column)을 동시에 제어하지는 않는다.
+
+이 차이 때문에 실무에서는 상황에 따라 도구를 구분해서 쓴다.
 
 <table class="wda-mtable">
 <thead><tr><th>상황</th><th>선택</th></tr></thead>
@@ -142,7 +148,9 @@ Flexbox를 다루는 내내 가장 먼저 확인해야 하는 것이 바로 **�
 
 ## 4. Container vs Item — 속성 역할 구분
 
-Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에 적용하는 속성과, 자식 요소(Item)에 적용하는 속성이다. 이 둘을 헷갈리면 원하는 스타일이 전혀 다른 곳에 적용되는 실수로 이어진다.
+Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에 적용하는 속성과, 자식 요소(Item)에 적용하는 속성이다.
+
+이 둘을 헷갈리면 원하는 스타일이 전혀 다른 곳에 적용되는 실수로 이어진다.
 
 <div class="wda-compare">
   <div class="wda-compare-card">

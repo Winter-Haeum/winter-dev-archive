@@ -71,7 +71,9 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Branch란 무엇인가
 
-[[3-2-3-commit-push-pull|이전 문서]]에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다. branch를 만들고 전환하고 삭제하고 다시 합치는 과정까지, 협업의 기본 리듬을 익히는 것이 이 문서의 목표다.
+[[3-2-3-commit-push-pull|이전 문서]]에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다.
+
+branch를 만들고 전환하고 삭제하고 다시 합치는 과정까지, 협업의 기본 리듬을 익히는 것이 이 문서의 목표다.
 
 Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버그 수정을 진행할 수 있는 독립적인 작업 공간이다. branch 자체는 커밋이 쌓이는 별도의 타임라인이라서, 같은 프로젝트 안에서도 서로 다른 실험이나 기능을 동시에 안전하게 진행할 수 있다.
 
@@ -228,7 +230,9 @@ branch를 삭제할 때는 안전한 방식과 강제 방식이 나뉜다.
 
 ## 7. Merge란 무엇인가
 
-merge는 branch의 변경 사항을 main에 통합하는 과정이다. 새 기능 개발이 끝나면 feature branch를 main으로 합쳐 배포를 준비한다. merge는 단순히 파일 하나를 옮기는 것이 아니라, branch 전체의 커밋 히스토리를 main에 통째로 통합하는 작업이다.
+merge는 branch의 변경 사항을 main에 통합하는 과정이다. 새 기능 개발이 끝나면 feature branch를 main으로 합쳐 배포를 준비한다.
+
+merge는 단순히 파일 하나를 옮기는 것이 아니라, branch 전체의 커밋 히스토리를 main에 통째로 통합하는 작업이다.
 
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">① main 전환</div><div class="wda-fnode-dsc">git switch main</div></div>
