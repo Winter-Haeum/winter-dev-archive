@@ -92,6 +92,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 버튼 타입에 따라 색을 다르게 주고 싶을 때를 비교해보면 차이가 분명해진다.
 
+**예시 코드: HTML 구조 비교**
+
 ```html
 <!-- 클래스로 구분하려면 HTML 수정이 필요 -->
 <button class="btn btn-submit">제출</button>
@@ -99,6 +101,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <!-- 속성 선택자는 기존 type 속성을 그대로 활용 -->
 <button type="submit">제출</button>
 ```
+
+**예시 코드: 속성 선택자 적용**
 
 ```css
 button[type="submit"] {
@@ -191,11 +195,15 @@ a[href*="youtube"] { color: red; }
 
 공백으로 구분된 여러 값 중 하나가 지정한 단어와 정확히 일치할 때 선택된다.
 
+**예시 코드: CSS 규칙**
+
 ```css
 [class~="active"] {
   font-weight: 700;
 }
 ```
+
+**예시 코드: 적용 대상 HTML**
 
 ```html
 <li class="menu-item active">현재 메뉴</li>
@@ -245,11 +253,15 @@ a[href*="youtube"] { color: red; }
 
 `data-*`는 개발자가 자유롭게 이름을 정해 요소에 추가 정보를 담을 수 있는 속성이다. 속성 선택자와 결합하면 클래스를 늘리지 않고도 상태 기반 스타일링이 가능하다.
 
+**예시 코드: data-\* 속성 마크업**
+
 ```html
 <div data-status="success">저장 완료</div>
 <div data-status="error">저장 실패</div>
 <div data-priority="high">긴급</div>
 ```
+
+**예시 코드: 속성 선택자 스타일링**
 
 ```css
 [data-status="success"] { border-left: 3px solid #22c55e; }
@@ -291,6 +303,8 @@ a[href*="youtube"] { color: red; }
 
 기준 요소 바로 다음에 오는 형제 요소 하나만 선택한다.
 
+**예시 코드: 인접 형제 선택자 CSS**
+
 ```css
 label + input {
   margin-left: 8px;
@@ -300,6 +314,8 @@ input:focus + .error-message {
   display: block;
 }
 ```
+
+**예시 코드: 적용 대상 HTML**
 
 ```html
 <label for="email">이메일</label>
@@ -328,11 +344,15 @@ input:focus + .error-message {
 
 기준 요소 뒤에 나오는 같은 부모의 형제 요소를 전부 선택한다. 순서상 뒤에 있어야 하고, 앞에 있는 형제는 선택되지 않는다.
 
+**예시 코드: 일반 형제 선택자 CSS**
+
 ```css
 h2 ~ p {
   color: #555;
 }
 ```
+
+**예시 코드: 적용 대상 HTML**
 
 ```html
 <h2>FAQ</h2>
@@ -362,6 +382,8 @@ h2 ~ p {
 div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 ```
 
+**정리 표: 선택자별 점수 계산**
+
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>점수 계산</th><th>합계</th></tr></thead>
 <tbody>
@@ -388,6 +410,8 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 
 라디오 버튼과 `~` 선택자를 조합하면 JavaScript 없이 순수 CSS만으로 탭 UI를 만들 수 있다.
 
+**예시 코드: 탭 UI 마크업**
+
 ```html
 <input type="radio" name="tab" id="tab1" checked />
 <label for="tab1">탭 1</label>
@@ -397,6 +421,8 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 <label for="tab2">탭 2</label>
 <div class="content">탭 2 내용</div>
 ```
+
+**예시 코드: 탭 전환 CSS**
 
 ```css
 .content { display: none; }
@@ -430,6 +456,8 @@ input:checked + label + .content {
   display: block;
 }
 ```
+
+**정리 표: 두 해결 방식 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>장점</th><th>단점</th></tr></thead>

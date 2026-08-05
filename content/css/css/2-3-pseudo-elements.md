@@ -99,6 +99,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">CSS로만 접근</div><div class="wda-fcard-dsc">오직 CSS 선택자를 통해서만 존재하고 스타일링된다.</div></div>
 </div>
 
+**비교 표: 가상 클래스와 가상 요소**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>표기</th><th>역할</th></tr></thead>
 <tbody>
@@ -134,9 +136,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `::before`로 생성된 요소는 HTML 수정 없이도 아이콘을 붙일 수 있고, 대상 요소의 <strong>첫 번째 자식</strong>처럼 삽입되며, 기본 `display` 값은 `inline`이다. `position: absolute`를 주면 부모를 기준으로 자유롭게 배치할 수도 있다.
 
+**예시 코드: HTML 속성**
+
 ```html
 <span data-label="필수">이름</span>
 ```
+
+**예시 코드: attr() 값 가져오기**
 
 ```css
 [data-label]::before {
@@ -311,6 +317,8 @@ p.intro::first-line {
   content: " →";
 }
 ```
+
+**정리 표: 유니코드 아이콘 문자**
 
 <table class="wda-mtable">
 <thead><tr><th>문자</th><th>유니코드</th><th>활용</th></tr></thead>

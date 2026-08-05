@@ -96,6 +96,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
+**정리 표: grid-column 값 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>코드</th><th>의미</th></tr></thead>
 <tbody>
@@ -122,6 +124,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .newspaper {
@@ -196,6 +200,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .dashboard {
@@ -282,6 +288,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 ```
 
+**예시 코드: CSS 스타일**
+
 ```css
 .gallery {
   display: grid;
@@ -300,6 +308,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   transform: scale(1.05);
 }
 ```
+
+**정리 표: 화면 크기별 열 개수**
 
 <table class="wda-mtable">
 <thead><tr><th>화면</th><th>결과</th></tr></thead>
@@ -387,6 +397,8 @@ PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 �
   }
 }
 ```
+
+**정리 표: Breakpoint별 레이아웃**
 
 <table class="wda-mtable">
 <thead><tr><th>Breakpoint</th><th>레이아웃</th></tr></thead>

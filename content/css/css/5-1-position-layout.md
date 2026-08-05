@@ -94,6 +94,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 실무에서 가장 자주 등장하는 조합은 부모에 `relative`, 자식에 `absolute`를 주는 패턴이다. 카드 위에 "NEW" 배지를 올리는 예시로 확인해본다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="card">
   <span class="badge">NEW</span>
@@ -101,6 +103,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>무선 이어폰</p>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .card {
@@ -125,6 +129,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `fixed` 요소는 문서 흐름에서 완전히 빠지기 때문에, 아래 콘텐츠가 헤더 자리까지 올라와 가려지는 문제가 흔히 발생한다.
 
+**예시 코드: 문제 코드**
+
 ```css
 /* ❌ 문제 코드: 헤더가 아래 콘텐츠를 덮는다 */
 .header {
@@ -135,6 +141,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   height: 60px;
 }
 ```
+
+**예시 코드: 해결 코드**
 
 ```css
 /* ✅ 해결 코드: 헤더 높이만큼 여백을 확보한다 */
@@ -173,6 +181,8 @@ body {
 
 `absolute`는 "부모 전체"가 아니라 **position이 static이 아닌, 가장 가까운 조상**을 기준으로 삼는다. 3단계 중첩 구조로 확인해본다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="grandparent">
   <div class="parent">
@@ -180,6 +190,8 @@ body {
   </div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .grandparent {
@@ -205,6 +217,8 @@ body {
 
 화면을 어둡게 덮는 오버레이와 그 위에 뜨는 본체로 구성된다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="modal-overlay">
   <div class="modal">
@@ -214,6 +228,8 @@ body {
   </div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .modal-overlay {
@@ -239,6 +255,8 @@ body {
 }
 ```
 
+**정리 표: 모달 요소별 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>역할</th></tr></thead>
 <tbody>
@@ -257,6 +275,8 @@ body {
 
 부모에 마우스를 올렸을 때 하위 메뉴가 나타나는 패턴이다. relative + absolute 조합을 그대로 응용한다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <nav class="dropdown">
   <button>메뉴</button>
@@ -267,6 +287,8 @@ body {
   </ul>
 </nav>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .dropdown {
@@ -303,12 +325,16 @@ body {
 
 아이콘에 마우스를 올렸을 때 나타나는 말풍선이다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <span class="tooltip-wrapper">
   ℹ️
   <span class="tooltip">추가 설명입니다</span>
 </span>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .tooltip-wrapper {
@@ -496,6 +522,8 @@ body {
 
 기본 `<select>` 대신 자유롭게 디자인한 드롭다운 선택 UI다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="custom-select">
   <button class="custom-select-trigger">옵션 선택</button>
@@ -506,6 +534,8 @@ body {
   </ul>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .custom-select {

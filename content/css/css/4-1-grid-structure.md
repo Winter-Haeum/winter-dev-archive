@@ -132,6 +132,8 @@ C(33.333%)가 새 줄에서 시작한 뒤, D(66.666%)를 이어 붙이려 해도
   <div class="wda-fcard"><div class="wda-fcard-ttl">폼 레이아웃</div><div class="wda-fcard-dsc">라벨과 입력창이 열을 맞춰 정렬돼야 한다.</div></div>
 </div>
 
+**비교 표: Flexbox와 Grid**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>Flexbox</th><th>Grid</th></tr></thead>
 <tbody>
@@ -172,6 +174,8 @@ Grid의 가장 기본적인 문법은 다음과 같다.
   gap: 16px;
 }
 ```
+
+**정리 표: Grid 크기 단위**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>설명</th></tr></thead>
@@ -248,6 +252,8 @@ Grid는 아이템 사이 간격을 `gap`으로 관리한다. 여백을 위해 `m
 /* 폼 레이아웃 - 행 간격 좁게, 열 간격 넓게 */
 .form-grid { gap: 8px 16px; }
 ```
+
+**정리 표: gap 단위별 사용 예**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>사용 예</th></tr></thead>
@@ -381,6 +387,8 @@ Item에는 위치를 직접 지정하는 속성과, 셀 안에서 개별 정렬�
   </div>
 </div>
 
+**정리 표: Container와 Item 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>관리 범위</th><th>필수 여부</th><th>대표 속성</th></tr></thead>
 <tbody>
@@ -397,6 +405,8 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
 
 그리고 하나의 Item이 다른 레이아웃의 Container가 되는 중첩도 자유롭게 가능하다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <body class="page">
   <header>헤더</header>
@@ -408,6 +418,8 @@ Flexbox가 FlexContainer → FlexItem 구조였듯, Grid도 GridContainer → Gr
   <footer>푸터</footer>
 </body>
 ```
+
+**예시 코드: CSS 스타일(중첩 Grid)**
 
 ```css
 .page {
@@ -487,6 +499,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
   <div class="wda-fcard"><div class="wda-fcard-ttl">3. gap</div><div class="wda-fcard-dsc">아이템 사이 간격을 지정한다.</div></div>
 </div>
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="card-grid">
   <div class="card">카드 1</div>
@@ -495,6 +509,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
   <div class="card">카드 4</div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .card-grid {
@@ -512,12 +528,16 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
 ## 13. 실전 예제 — 2열 레이아웃(사이드바 + 메인)
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="layout">
   <aside class="sidebar">사이드바</aside>
   <main class="content">메인 콘텐츠</main>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .layout {
@@ -527,6 +547,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
   min-height: 100vh;
 }
 ```
+
+**정리 표: 그리드 값 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>코드</th><th>의미</th></tr></thead>
@@ -551,6 +573,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 
 ## 14. 실전 예제 — 매거진형 복잡한 격자
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="magazine-layout">
   <div class="item-a">큰 이미지</div>
@@ -559,6 +583,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
   <div class="item-d">텍스트</div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .magazine-layout {
@@ -573,6 +599,8 @@ Grid를 처음 쓸 때 꼭 기억해야 할 것은 딱 3가지다.
 .item-c { grid-row: 2 / 3; }
 .item-d { grid-column: 1 / 3; }   /* 가로 전체 폭 차지 */
 ```
+
+**정리 표: 영역별 배치**
 
 <table class="wda-mtable">
 <thead><tr><th>영역</th><th>배치</th></tr></thead>

@@ -163,6 +163,8 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
   </div>
 </div>
 
+**예시 코드: Container 속성**
+
 ```css
 /* Container(부모)에 적용 */
 .container {
@@ -174,6 +176,8 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
   gap: 12px;
 }
 ```
+
+**예시 코드: Item 속성**
 
 ```css
 /* Item(자식)에 적용 */

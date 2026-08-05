@@ -178,11 +178,15 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 Google Fonts는 무료로 제공되는 1,600종 이상의 웹 폰트를 CDN 방식으로 손쉽게 불러올 수 있는 서비스다. `Noto Sans KR`, `Noto Serif KR`, `Black Han Sans`, `Jua`, `Gamja Flower` 등 한글 폰트도 다양하게 제공한다.
 
+**예시 코드: Google Fonts 연결**
+
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 ```
+
+**예시 코드: 폰트 적용**
 
 ```css
 body {

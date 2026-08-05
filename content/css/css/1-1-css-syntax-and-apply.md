@@ -105,11 +105,15 @@ CSS가 없는 HTML 문서는 위에서 아래로 내용이 순서대로 나열�
 
 CSS 코드는 "어떤 요소에(선택자) 어떤 스타일을(속성과 값) 적용할지"를 규칙으로 작성한다.
 
+**예시 코드: 선택자 기본 구조**
+
 ```css
 선택자 {
   속성: 값;
 }
 ```
+
+**예시 코드: 실제 적용 예**
 
 ```css
 p {
@@ -179,11 +183,15 @@ HTML 문서 하나 안에서 여러 요소에 스타일을 재사용할 수 있�
 
 ### 📁 외부 스타일
 
+**예시 코드: HTML에서 외부 CSS 연결**
+
 ```html
 <head>
   <link rel="stylesheet" href="styles.css">
 </head>
 ```
+
+**예시 코드: 연결된 CSS 파일 내용**
 
 ```css
 /* styles.css */
@@ -296,6 +304,8 @@ p {
   </div>
 </div>
 
+**예시 코드: reset.css**
+
 ```css
 /* reset.css 예시 일부 */
 * {
@@ -304,6 +314,8 @@ p {
   box-sizing: border-box;
 }
 ```
+
+**예시 코드: normalize.css**
 
 ```css
 /* normalize.css 예시 일부: 브라우저 간 차이만 보정 */

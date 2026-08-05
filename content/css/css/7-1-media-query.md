@@ -85,6 +85,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 }
 ```
 
+**정리 표: 미디어 타입별 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>미디어 타입</th><th>의미</th></tr></thead>
 <tbody>
@@ -164,6 +166,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 @media (max-width: 1024px) { .box { width: 50%; } }
 @media (max-width: 768px) { .box { width: 100%; } }
 ```
+
+**비교 표: 모바일 퍼스트와 데스크탑 퍼스트**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>기본값</th><th>변화 방향</th><th>적합한 트래픽 환경</th></tr></thead>
@@ -248,6 +252,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 실전 예제로 모바일 네비게이션을 세로·가로·태블릿 이상 3단계로 대응해보자.
 
+**예시 코드: HTML 구조**
+
 ```html
 <nav class="nav">
   <a href="#">홈</a>
@@ -255,6 +261,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   <a href="#">문의</a>
 </nav>
 ```
+
+**예시 코드: CSS 스타일(반응형 3단계)**
 
 ```css
 /* 기본: 모바일 세로 - 메뉴를 세로로 쌓음 */
@@ -390,6 +398,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   .sidebar { width: 100%; }
 }
 ```
+
+**정리 표: 데스크탑 퍼스트를 유지하는 이유**
 
 <table class="wda-mtable">
 <thead><tr><th>데스크탑 퍼스트를 그대로 유지하는 이유</th><th>내용</th></tr></thead>

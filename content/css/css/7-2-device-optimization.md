@@ -191,6 +191,8 @@ button { min-width: 44px; } /* 기본: 터치 환경 기준 */
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
+**정리 표: viewport 옵션별 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>옵션</th><th>의미</th></tr></thead>
 <tbody>

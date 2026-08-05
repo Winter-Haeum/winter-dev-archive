@@ -134,6 +134,8 @@ img { max-width: 100%; height: auto; } /* 부모보다 커지지 않도록 제�
      alt="Photo">
 ```
 
+**정리 표: DPR별 사용 이미지**
+
 <table class="wda-mtable">
 <thead><tr><th>기기</th><th>DPR</th><th>사용 이미지</th></tr></thead>
 <tbody>

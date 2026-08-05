@@ -116,6 +116,8 @@ ID는 문서 안에서 유일해야 하므로 재사용이 불가능하고, 우�
 <div class="card highlight">추천 상품</div>
 ```
 
+**정리 표: 선택자별 우선순위와 재사용성**
+
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>문법</th><th>우선순위 점수</th><th>재사용성</th></tr></thead>
 <tbody>

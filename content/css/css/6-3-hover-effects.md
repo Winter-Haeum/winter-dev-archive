@@ -84,11 +84,15 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">복합 효과</div><div class="wda-fcard-dsc">색상+크기+그림자를 동시에 적용해 존재감을 강조한다.</div></div>
 </div>
 
+**예시 코드: 색상 전환**
+
 ```css
 /* 색상 전환 */
 .btn { background-color: #6366f1; transition: background-color 0.25s ease; }
 .btn:hover { background-color: #4f46e5; }
 ```
+
+**예시 코드: 크기 확대**
 
 ```css
 /* 크기 확대 */
@@ -96,11 +100,15 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .btn:hover { transform: scale(1.05); }
 ```
 
+**예시 코드: 그림자 추가**
+
 ```css
 /* 그림자 추가 */
 .btn { transition: box-shadow 0.25s ease; }
 .btn:hover { box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3); }
 ```
+
+**예시 코드: 복합 효과**
 
 ```css
 /* 복합 효과 - 세 가지를 동시에 */
@@ -135,6 +143,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**예시 코드: Lift Up 효과**
+
 ```css
 /* Lift Up - 위로 떠오르며 그림자가 커짐 */
 .card {
@@ -145,6 +155,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.15);
 }
 ```
+
+**예시 코드: Tilt 효과**
 
 ```css
 /* Tilt - perspective + rotateX/rotateY로 3D 기울임 */
@@ -292,12 +304,16 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 `:has()`는 특정 자식이나 후손이 어떤 상태일 때 그 부모 자체를 선택할 수 있는 비교적 최신 CSS 기능이다.
 
+**예시 코드: form 상태 감지**
+
 ```css
 /* input이 focus 상태일 때 form 전체 스타일 변경 */
 form:has(input:focus) {
   border-color: #6366f1;
 }
 ```
+
+**예시 코드: 목록 항목 강조**
 
 ```css
 /* 체크된 input이 있는 목록 항목 강조 */

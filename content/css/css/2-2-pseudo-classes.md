@@ -172,6 +172,8 @@ p:nth-of-type(2) {
 
 같은 부모 안에서 <strong>같은 태그 종류 중</strong> 첫 번째, 마지막 요소를 선택한다. `:first-child`와 헷갈리기 매우 쉬운 짝이다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="box">
   <h3>제목</h3>
@@ -179,6 +181,8 @@ p:nth-of-type(2) {
   <p>두 번째 문단</p>
 </div>
 ```
+
+**예시 코드: first-child와 first-of-type 비교**
 
 ```css
 p:first-child { color: red; }     /* 선택 안 됨: p가 부모의 첫 자식이 아님 (h3가 첫 자식) */
@@ -221,6 +225,8 @@ li:not(:last-child) {
   border-bottom: 1px solid #eee;
 }
 ```
+
+**비교 표: :not()과 인접 형제 선택자**
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>코드</th><th>특징</th></tr></thead>
@@ -353,6 +359,8 @@ input[type="checkbox"]:checked + label::before {
 
 `required`, `pattern`, `minlength`, `maxlength` 같은 HTML5 검증 속성과 짝을 이루는 가상 클래스들이다.
 
+**예시 코드: 검증 상태 CSS**
+
 ```css
 input:required {
   border-left: 2px solid #f59e0b;
@@ -366,6 +374,8 @@ input:invalid {
   border-color: #ef4444;
 }
 ```
+
+**예시 코드: 적용 대상 HTML**
 
 ```html
 <label>이메일 <span aria-hidden="true">*</span></label>

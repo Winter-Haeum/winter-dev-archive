@@ -122,6 +122,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 .box-c { transition-property: all; }                             /* 변화 가능한 모든 속성 */
 ```
 
+**정리 표: transition-property 대상 카테고리**
+
 <table class="wda-mtable">
 <thead><tr><th>카테고리</th><th>대표 속성</th></tr></thead>
 <tbody>
@@ -153,6 +155,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 .c { transition-property: width, background-color; transition-duration: 0.3s, 0.6s; } /* 속성별로 다르게 */
 ```
 
+**정리 표: UI 요소별 추천 duration**
+
 <table class="wda-mtable">
 <thead><tr><th>UI 요소</th><th>추천 duration</th></tr></thead>
 <tbody>
@@ -181,10 +185,14 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### ⏱️ transition-delay — 언제 시작할지
 
+**예시 코드: 기본 사용**
+
 ```css
 .a { transition-delay: 0s; }   /* 기본값. 즉시 시작 */
 .b { transition-delay: 0.5s; } /* 0.5초 대기 후 시작 */
 ```
+
+**예시 코드: 속성별 다른 delay**
 
 ```css
 /* 여러 속성에 각각 다른 delay 부여 */
@@ -206,6 +214,8 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 실무에서는 4가지 속성을 각각 쓰기보다 shorthand 한 줄로 작성하는 경우가 많다.
 
+**예시 코드: 기본 문법**
+
 ```css
 /* 문법: transition: property duration timing-function delay; */
 .button {
@@ -213,12 +223,16 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 }
 ```
 
+**예시 코드: 여러 속성 함께 쓰기**
+
 ```css
 /* 여러 속성을 콤마로 이어쓰기 */
 .card {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out 0.05s;
 }
 ```
+
+**예시 코드: 최소 형태**
 
 ```css
 /* 최소 형태 - property와 duration만 있어도 동작한다 */
@@ -298,6 +312,8 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 
 ## 6. 실무 예시 3종
 
+**예시 코드: 버튼 색 전환**
+
 ```css
 /* 1. 버튼 색 전환 - 기본 */
 .btn {
@@ -306,6 +322,8 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 }
 .btn:hover { background-color: #4f46e5; }
 ```
+
+**예시 코드: 카드 들어올리기**
 
 ```css
 /* 2. 카드 들어올리기 */
@@ -317,6 +335,8 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 ```
+
+**예시 코드: 입력창 포커스 강조**
 
 ```css
 /* 3. 입력창 포커스 강조 */

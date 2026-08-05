@@ -96,6 +96,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">유저 프로필</div><div class="wda-fnode-dsc">오른쪽 끝</div></div>
 </div>
 
+**예시 코드: HTML 구조**
+
 ```html
 <header class="navbar">
   <div class="logo">MyLogo</div>
@@ -107,6 +109,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="user-profile">프로필</div>
 </header>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .navbar {
@@ -143,6 +147,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 화면 너비에 따라 3열 → 2열 → 1열로 자연스럽게 전환되는 카드 그리드다.
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="card-grid">
   <article class="card"><img src="a.jpg" alt="" /><h3>카드 1</h3></article>
@@ -150,6 +156,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <article class="card"><img src="c.jpg" alt="" /><h3>카드 3</h3></article>
 </div>
 ```
+
+**예시 코드: CSS 스타일(반응형 3단계)**
 
 ```css
 /* 데스크톱 - 3열 */
@@ -194,6 +202,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 모달 중앙 정렬
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="modal-overlay">
   <div class="modal-content">
@@ -206,6 +216,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .modal-overlay {
@@ -224,12 +236,16 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 로딩 스피너 중앙 정렬
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="loading-container">
   <div class="spinner"></div>
   <p>불러오는 중...</p>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .loading-container {
@@ -269,6 +285,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">Footer</div><div class="wda-fnode-dsc">하단 고정</div></div>
 </div>
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="container">
   <header>Header</header>
@@ -279,6 +297,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <footer>Footer</footer>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .container {

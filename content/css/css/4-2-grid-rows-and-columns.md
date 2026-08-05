@@ -172,6 +172,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>핵심 원리</strong>는 항상 같다. 먼저 고정 <code>px</code> 값을 빼고, 다음으로 <code>gap</code>을 빼고, 마지막으로 남은 공간을 <code>fr</code> 합계로 나눈다.</p>
 </div>
 
+**정리 표: 열 크기 패턴**
+
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>용도</th></tr></thead>
 <tbody>
@@ -335,6 +337,8 @@ grid-template-rows: 80px auto 60px;
   </div>
 </div>
 
+**정리 표: 라인 번호 방식과 span 방식**
+
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>장점</th></tr></thead>
 <tbody>
@@ -450,6 +454,8 @@ grid-template-areas:
 
 ## 14. grid-template-areas 실전 — 페이지 전체 레이아웃
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="page">
   <header class="header">헤더</header>
@@ -458,6 +464,8 @@ grid-template-areas:
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .page {

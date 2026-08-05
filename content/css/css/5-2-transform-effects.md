@@ -83,6 +83,8 @@ transform: translateX(20px);      /* X축만 이동 */
 transform: translateY(-10px);     /* Y축만 이동 */
 ```
 
+**정리 표: translate() 단위**
+
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th><th>예시</th></tr></thead>
 <tbody>
@@ -115,6 +117,8 @@ X는 양수면 오른쪽·음수면 왼쪽, Y는 양수면 아래·음수면 위
 ```css
 transform: rotate(90deg);
 ```
+
+**정리 표: rotate() 단위**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>의미</th></tr></thead>
@@ -207,11 +211,15 @@ X축 양수는 위쪽이 오른쪽으로 밀리듯 기울고, Y축 양수는 오
 
 `transform-origin`은 회전·확대·기울이기가 "어디를 축으로" 일어날지 정하는 속성이다. 기본값은 `center`이며, `translate`를 제외한 나머지 세 함수(rotate, scale, skew)에 큰 영향을 준다.
 
+**예시 코드: 값 종류**
+
 ```css
 transform-origin: center;        /* 기본값 */
 transform-origin: top left;      /* 왼쪽 위 모서리 기준 */
 transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 ```
+
+**예시 코드: 드롭다운 적용 예**
 
 ```css
 .dropdown {
@@ -346,6 +354,8 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 .parent { perspective: 1000px; } /* 값이 작을수록 왜곡(입체감)이 강해진다 */
 ```
 
+**정리 표: 3D 회전 함수**
+
 <table class="wda-mtable">
 <thead><tr><th>함수</th><th>의미</th></tr></thead>
 <tbody>
@@ -361,6 +371,8 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ## 11. 실전: 3D 카드 뒤집기
 
+**예시 코드: HTML 구조**
+
 ```html
 <div class="card-container">
   <div class="card">
@@ -369,6 +381,8 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
   </div>
 </div>
 ```
+
+**예시 코드: CSS 스타일**
 
 ```css
 .card-container {

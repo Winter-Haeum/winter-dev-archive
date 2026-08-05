@@ -267,14 +267,20 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 컨테이너에 남는 공간이 있을 때, 그 공간을 얼마나 차지할지 비율로 지정한다.
 
+**예시 코드: 기본값(늘어나지 않음)**
+
 ```css
 .item { flex-grow: 0; } /* 기본값. 늘어나지 않음 */
 ```
+
+**예시 코드: 균등 분배**
 
 ```css
 /* 모든 아이템이 남는 공간을 균등하게 나눠 가짐 */
 .item { flex-grow: 1; }
 ```
+
+**예시 코드: 비율 분배(1:2:1)**
 
 ```css
 /* 1 : 2 : 1 비율로 남는 공간을 분배 */
@@ -282,6 +288,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .item-2 { flex-grow: 2; }
 .item-3 { flex-grow: 1; }
 ```
+
+**정리 표: flex-grow 값별 동작**
 
 <table class="wda-mtable">
 <thead><tr><th>flex-grow 값</th><th>동작</th></tr></thead>
@@ -323,9 +331,13 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 
 실무에서 가장 많이 사용하는 속성이다. `flex-grow`, `flex-shrink`, `flex-basis`를 한 번에 지정한다.
 
+**예시 코드: 기본 패턴**
+
 ```css
 .item { flex: 1; } /* 기본 패턴. flex: 1 1 0%와 동일 */
 ```
+
+**예시 코드: 비율 분배**
 
 ```css
 /* 1:2:1 비율 분배 */
@@ -334,10 +346,14 @@ flex-grow, flex-shrink가 적용되기 전 아이템의 기본 크기를 지정�
 .item-3 { flex: 1; }
 ```
 
+**예시 코드: 고정 크기와 자동 크기**
+
 ```css
 .sidebar { flex: 0 0 200px; } /* 고정 크기 - 늘지도 줄지도 않음 */
 .box { flex: 0 1 auto; }      /* 자동 크기 - 줄어들기만 함 */
 ```
+
+**정리 표: flex 단축 값별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>단축 값</th><th>grow</th><th>shrink</th><th>basis</th><th>의미</th></tr></thead>
@@ -366,6 +382,8 @@ HTML 구조는 그대로 유지한 채, 화면에 보이는 순서만 바꾼다.
 ```css
 .primary-btn { order: -1; } /* 화면에서 맨 앞으로 이동 */
 ```
+
+**정리 표: order 속성 정리**
 
 <table class="wda-mtable">
 <thead><tr><th>특성</th><th>내용</th></tr></thead>

@@ -328,6 +328,8 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 }
 ```
 
+**비교 표: Border와 Outline**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>Border</th><th>Outline</th></tr></thead>
 <tbody>
