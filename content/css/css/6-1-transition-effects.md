@@ -114,7 +114,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 </tbody>
 </table>
 
-### 🧱 transition-property — 무엇을 전환할지
+### 🎬 transition-property — 무엇을 전환할지
 
 ```css
 .box-a { transition-property: background-color; }              /* 속성 1개 */
@@ -145,7 +145,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
   </div>
 </div>
 
-### 🧱 transition-duration — 얼마나 오래 걸릴지
+### 🎬 transition-duration — 얼마나 오래 걸릴지
 
 ```css
 .a { transition-duration: 0.3s; }
@@ -169,7 +169,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
   <p>초보자가 자주 헷갈리는 부분은 <strong>초(s) 단위와 밀리초(ms) 단위 표기</strong>다. <code>0.3s</code>와 <code>300ms</code>는 같은 값이지만, <code>0.3ms</code>처럼 소수점을 잘못 붙이면 거의 0에 가까운 시간이 되어 전환이 눈에 보이지 않는다.</p>
 </div>
 
-### 🧱 transition-timing-function — 어떤 속도로 변할지
+### 🎬 transition-timing-function — 어떤 속도로 변할지
 
 ```css
 .a { transition-timing-function: ease; }
@@ -179,7 +179,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 값의 종류는 다음 4장에서 자세히 다룬다.
 
-### 🧱 transition-delay — 언제 시작할지
+### 🎬 transition-delay — 언제 시작할지
 
 ```css
 .a { transition-delay: 0s; }   /* 기본값. 즉시 시작 */

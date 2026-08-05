@@ -113,7 +113,7 @@ input:focus {
 
 ## 3. 구조적 가상 클래스: 위치로 선택하기
 
-### 🧱 :first-child, :last-child
+### 🖱️ :first-child, :last-child
 
 부모 안에서 순서상 첫 번째, 마지막 요소를 선택한다.
 
@@ -135,7 +135,7 @@ li + li {
 }
 ```
 
-### 🧱 :nth-child()와 :nth-of-type()
+### 🖱️ :nth-child()와 :nth-of-type()
 
 `n`번째 요소를 공식으로 선택하는 가상 클래스다.
 
@@ -168,7 +168,7 @@ p:nth-of-type(2) {
   <p>공식을 외울 때는 <code>n</code>에 0, 1, 2, 3 …을 순서대로 대입해서 결과를 직접 계산해보는 것이 가장 확실하다. <code>3n+1</code>이라면 n=0일 때 1, n=1일 때 4, n=2일 때 7이 되는 식이다.</p>
 </div>
 
-### 🧱 :first-of-type, :last-of-type
+### 🖱️ :first-of-type, :last-of-type
 
 같은 부모 안에서 <strong>같은 태그 종류 중</strong> 첫 번째, 마지막 요소를 선택한다. `:first-child`와 헷갈리기 매우 쉬운 짝이다.
 
