@@ -113,7 +113,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `@keyframes`는 애니메이션의 각 시점에서 요소가 어떤 상태여야 하는지 미리 선언하는 규칙이다. 작성 방식은 크게 두 가지다.
 
-### 3-1. From-to 구문 — 2단계 전환
+### 🧱 From-to 구문 — 2단계 전환
 
 시작과 끝, 딱 2개 상태만 있을 때 사용하는 간단한 구문이다.
 
@@ -139,7 +139,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 3-2. Percentage(%) 구문 — 다단계 전환
+### 🧱 Percentage(%) 구문 — 다단계 전환
 
 0%부터 100% 사이에 원하는 만큼 지점을 나눠 정밀하게 타이밍을 제어할 수 있다.
 
@@ -199,7 +199,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
-### 4-1. animation-name / duration / timing-function
+### 🧱 animation-name / duration / timing-function
 
 ```css
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -229,7 +229,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 4-2. animation-delay / iteration-count
+### 🧱 animation-delay / iteration-count
 
 ```css
 .el { animation-delay: 0s; }    /* 기본값. 즉시 시작 */
@@ -256,7 +256,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">배경 애니메이션</div><div class="wda-fcard-dsc"><code>infinite</code> + 느린 duration으로 은은한 배경 움직임을 만든다.</div></div>
 </div>
 
-### 4-3. animation-direction / fill-mode
+### 🧱 animation-direction / fill-mode
 
 <table class="wda-mtable">
 <thead><tr><th>direction 값</th><th>동작</th></tr></thead>
@@ -292,7 +292,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 4-4. animation-play-state
+### 🧱 animation-play-state
 
 ```css
 .el { animation-play-state: running; } /* 기본값 */
@@ -310,7 +310,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 .marquee:hover { animation-play-state: paused; }
 ```
 
-### 4-5. animation shorthand
+### 🧱 animation shorthand
 
 8가지 속성을 한 줄로 합칠 수 있다. 순서가 중요하며, `name`과 `duration`만은 반드시 있어야 한다.
 

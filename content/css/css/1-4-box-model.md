@@ -87,11 +87,11 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">Margin</div><div class="wda-fnode-dsc">박스 가장 바깥의 외부 여백</div></div>
 </div>
 
-### 2-1. Content
+### 🧱 Content
 
 `width`, `height`는 기본적으로 이 Content 영역만을 대상으로 크기를 계산한다(뒤에서 다룰 `box-sizing`에 따라 달라질 수 있다).
 
-### 2-2. Padding
+### 🧱 Padding
 
 내용과 테두리 사이의 공간이다. 요소의 배경색이나 배경 이미지는 Padding 영역까지 함께 칠해진다.
 
@@ -105,7 +105,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-### 2-3. Border
+### 🧱 Border
 
 Padding을 둘러싸는 테두리다. 단축 속성으로 두께·스타일·색상을 한 번에 지정할 수 있다.
 
@@ -118,7 +118,7 @@ Padding을 둘러싸는 테두리다. 단축 속성으로 두께·스타일·색
 
 `border-style`에는 `solid`(실선), `dashed`(파선), `dotted`(점선), `double`(이중선) 등의 값을 사용할 수 있다.
 
-### 2-4. Margin
+### 🧱 Margin
 
 박스 가장 바깥의 여백으로, 요소와 요소 사이의 거리를 만든다. `margin: 0 auto`는 좌우 마진을 자동으로 맞춰 블록 요소를 가운데 정렬하는 잘 알려진 패턴이다.
 
@@ -289,7 +289,7 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 
 ## 7. Border 세부 옵션
 
-### 8-1. 방향별 지정
+### 🧱 방향별 지정
 
 ```css
 .box {
@@ -302,7 +302,7 @@ BFC는 다음 조건 중 하나만 만족해도 새로 생성된다.
 
 방향별 단축 속성(`border-top`, `border-right`, `border-bottom`, `border-left`)과 속성별 개별 지정(`border-top-width`, `border-top-style`, `border-top-color`) 두 방식을 상황에 맞게 사용할 수 있다.
 
-### 8-2. Border-radius
+### 🧱 Border-radius
 
 ```css
 .box-1 { border-radius: 8px; }                       /* 네 모서리 동일 */
