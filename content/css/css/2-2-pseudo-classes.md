@@ -79,7 +79,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 가상 요소는 다음 문서에서 자세히 다룬다.
 
-**비교 표: 가상 클래스와 가상 요소 표기**
+**▶ 가상 클래스와 가상 요소 표기 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>표기</th><th>역할</th></tr></thead>
@@ -95,7 +95,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 사용자의 마우스·키보드 동작에 반응하는 가장 기본적인 가상 클래스다.
 
-**CSS 예시: hover·active·focus**
+**▶ CSS: hover·active·focus**
 
 ```css
 button:hover {
@@ -121,7 +121,7 @@ input:focus {
 
 부모 안에서 순서상 첫 번째, 마지막 요소를 선택한다.
 
-**CSS 예시: first-child와 last-child**
+**▶ CSS: first-child와 last-child**
 
 ```css
 ul li:first-child {
@@ -135,7 +135,7 @@ ul li:last-child {
 
 실무에서는 반대로 "첫 번째만 제외하고 나머지에 스타일을 주고 싶은" 경우도 많다. 이럴 때는 `li + li`처럼 인접 형제 선택자를 활용하면 첫 번째 요소를 제외한 나머지 전부를 간단히 선택할 수 있다.
 
-**CSS 예시: 첫 요소 제외하고 스타일 주기**
+**▶ CSS: 첫 요소 제외하고 스타일 주기**
 
 ```css
 li + li {
@@ -147,7 +147,7 @@ li + li {
 
 `n`번째 요소를 공식으로 선택하는 가상 클래스다.
 
-**CSS 예시: nth-child와 nth-of-type**
+**▶ CSS: nth-child와 nth-of-type**
 
 ```css
 li:nth-child(3) {
@@ -161,7 +161,7 @@ p:nth-of-type(2) {
 
 `:nth-child(3)`은 부모의 자식 중 <strong>순서상 3번째</strong> 요소가 조건에 맞는 태그일 때만 선택되고, `:nth-of-type(2)`는 <strong>같은 태그 종류 중에서만</strong> 순서를 센다. 다른 태그가 사이에 섞여 있으면 두 선택자의 결과가 달라질 수 있다.
 
-**정리 표: nth-child 공식별 선택 순서**
+**▶ nth-child 공식별 선택 순서**
 
 <table class="wda-mtable">
 <thead><tr><th>공식</th><th>의미</th><th>선택되는 순서</th></tr></thead>
@@ -184,7 +184,7 @@ p:nth-of-type(2) {
 
 같은 부모 안에서 <strong>같은 태그 종류 중</strong> 첫 번째, 마지막 요소를 선택한다. `:first-child`와 헷갈리기 매우 쉬운 짝이다.
 
-**예시 코드: HTML 구조**
+**▶ HTML 구조**
 
 ```html
 <div class="box">
@@ -194,7 +194,7 @@ p:nth-of-type(2) {
 </div>
 ```
 
-**예시 코드: first-child와 first-of-type 비교**
+**▶ first-child와 first-of-type 비교**
 
 ```css
 p:first-child { color: red; }     /* 선택 안 됨: p가 부모의 첫 자식이 아님 (h3가 첫 자식) */
@@ -220,7 +220,7 @@ p:first-of-type { color: blue; }  /* 선택 됨: p 중에서는 첫 번째 */
 
 괄호 안의 조건에 <strong>해당하지 않는</strong> 요소만 선택한다.
 
-**CSS 예시: :not() 부정 선택자**
+**▶ CSS: :not() 부정 선택자**
 
 ```css
 li:not(.active) {
@@ -234,7 +234,7 @@ li:not(.active):not(.disabled) {
 
 `:not()`을 이어 붙이면 여러 조건을 동시에 제외할 수 있다. 구분선을 마지막 요소에는 넣지 않는 패턴에도 자주 쓰인다.
 
-**CSS 예시: 마지막 요소 제외 구분선**
+**▶ CSS: 마지막 요소 제외 구분선**
 
 ```css
 li:not(:last-child) {
@@ -242,7 +242,7 @@ li:not(:last-child) {
 }
 ```
 
-**비교 표: :not()과 인접 형제 선택자**
+**▶ :not()과 인접 형제 선택자 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>코드</th><th>특징</th></tr></thead>
@@ -259,7 +259,7 @@ li:not(:last-child) {
 
 여러 선택자를 그룹으로 묶어 반복을 줄여주는 논리 선택자다. 그룹 선택자(쉼표)와 비슷해 보이지만, 조합 선택자 안에서 그룹을 만들 수 있다는 점이 다르다.
 
-**CSS 예시: :is()로 선택자 그룹화**
+**▶ CSS: :is()로 선택자 그룹화**
 
 ```css
 /* 기존 방식: 세 줄 반복 */
@@ -277,7 +277,7 @@ h3 a:hover {
 
 `:is()`와 `:where()`는 기능은 거의 같지만 <strong>우선순위 점수 계산 방식이 다르다.</strong>
 
-**비교 표: :is()와 :where() 우선순위**
+**▶ :is()와 :where() 우선순위 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>우선순위 반영 방식</th><th>특징</th></tr></thead>
@@ -287,7 +287,7 @@ h3 a:hover {
 </tbody>
 </table>
 
-**CSS 예시: :where()로 우선순위 0점 만들기**
+**▶ CSS: :where()로 우선순위 0점 만들기**
 
 ```css
 /* :where()는 점수가 0이라 나중에 어떤 규칙으로도 쉽게 덮어쓸 수 있다 */
@@ -308,7 +308,7 @@ h3 a:hover {
 
 입력 요소의 상태에 따라 스타일을 다르게 적용하는 가상 클래스 그룹이다.
 
-**정리 표: Form 상태 선택자 목록**
+**▶ Form 상태 선택자 목록**
 
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>의미</th></tr></thead>
@@ -322,7 +322,7 @@ h3 a:hover {
 </tbody>
 </table>
 
-**CSS 예시: 체크박스·비활성화 상태**
+**▶ CSS: 체크박스·비활성화 상태**
 
 ```css
 input[type="checkbox"]:checked + label {
@@ -343,7 +343,7 @@ button:enabled:hover {
 
 커스텀 체크박스를 만들 때는 기본 체크박스를 숨기고 라벨을 꾸민 뒤, `:checked` 상태에 따라 라벨의 스타일을 바꾸는 패턴을 많이 쓴다.
 
-**CSS 예시: 커스텀 체크박스 만들기**
+**▶ CSS: 커스텀 체크박스 만들기**
 
 ```css
 input[type="checkbox"] {
@@ -368,7 +368,7 @@ input[type="checkbox"]:checked + label::before {
 
 다크 모드 토글처럼 체크 여부에 따라 뒤따르는 콘텐츠 영역 전체의 스타일을 바꾸는 조건부 패턴도 가능하다.
 
-**CSS 예시: 다크 모드 토글 연동**
+**▶ CSS: 다크 모드 토글 연동**
 
 ```css
 #dark-toggle:checked ~ .content {
@@ -389,7 +389,7 @@ input[type="checkbox"]:checked + label::before {
 
 `required`, `pattern`, `minlength`, `maxlength` 같은 HTML5 검증 속성과 짝을 이루는 가상 클래스들이다.
 
-**예시 코드: 검증 상태 CSS**
+**▶ 검증 상태 CSS**
 
 ```css
 input:required {
@@ -405,7 +405,7 @@ input:invalid {
 }
 ```
 
-**예시 코드: 적용 대상 HTML**
+**▶ 적용 대상 HTML**
 
 ```html
 <label>이메일 <span aria-hidden="true">*</span></label>
@@ -420,7 +420,7 @@ input:invalid {
   <p>페이지가 막 로드된 시점에는 입력값이 비어 있어도 <code>required</code>가 걸린 필드는 곧바로 <code>:invalid</code> 상태가 된다. 이 상태를 그대로 빨간 테두리로 보여주면 사용자가 아직 아무것도 입력하지 않았는데도 오류처럼 보이는 문제가 생긴다.</p>
 </div>
 
-**CSS 예시: 로드 직후 invalid 표시 방지**
+**▶ CSS: 로드 직후 invalid 표시 방지**
 
 ```css
 /* Bad: 페이지 로드 즉시 빨간 테두리가 보임 */
@@ -438,7 +438,7 @@ input:not(:placeholder-shown):invalid {
 
 `:not(:placeholder-shown)`을 앞에 붙이면 "사용자가 무언가 입력해서 placeholder가 사라진 뒤"에만 검증 스타일이 적용되므로, 로드 직후의 어색한 오류 표시를 막을 수 있다.
 
-**정리 표: 검증 적용 시점별 선택자**
+**▶ 검증 적용 시점별 선택자**
 
 <table class="wda-mtable">
 <thead><tr><th>적용 시점</th><th>선택자 패턴</th></tr></thead>
@@ -459,7 +459,7 @@ input:not(:placeholder-shown):invalid {
 
 가상 클래스는 콜론을 연달아 붙여서 여러 조건을 동시에 만족하는 요소만 선택할 수 있다.
 
-**정리 표: 가상 클래스 조합 패턴**
+**▶ 가상 클래스 조합 패턴**
 
 <table class="wda-mtable">
 <thead><tr><th>조합</th><th>의미</th></tr></thead>
@@ -471,7 +471,7 @@ input:not(:placeholder-shown):invalid {
 </tbody>
 </table>
 
-**CSS 예시: 가상 클래스 조합 적용**
+**▶ CSS: 가상 클래스 조합 적용**
 
 ```css
 a:hover:not(.disabled) {
@@ -488,7 +488,7 @@ input:focus:valid {
 
 ## 9. 브라우저 호환성과 성능 팁
 
-**정리 표: CSS 세대별 가상 클래스**
+**▶ CSS 세대별 가상 클래스**
 
 <table class="wda-mtable">
 <thead><tr><th>세대</th><th>대표 선택자</th></tr></thead>

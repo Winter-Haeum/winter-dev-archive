@@ -79,7 +79,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 브라우저는 태그마다 기본 `display` 값을 미리 정해두고 있다.
 
-**정리 표: 태그별 기본 display 값**
+**▶ 태그별 기본 display 값**
 
 <table class="wda-mtable">
 <thead><tr><th>display 기본값</th><th>대표 태그</th></tr></thead>
@@ -119,7 +119,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
   <p>HTML에서 <code>inline-block</code> 요소들을 줄바꿈하며 나열하면, 그 줄바꿈이 공백 문자로 인식되어 요소 사이에 의도치 않은 <strong>약 4px 간격</strong>이 생긴다. 해결 방법은 세 가지다: HTML에서 태그 사이 공백을 제거하거나, 태그를 한 줄로 이어 쓰거나, 부모 요소에 <code>font-size: 0</code>을 지정한 뒤 자식에서 다시 font-size를 지정하는 것이다.</p>
 </div>
 
-**HTML 예시: inline-block 간격 문제**
+**▶ HTML: inline-block 간격 문제**
 
 ```html
 <!-- 간격이 생기는 경우 -->
@@ -172,7 +172,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 `position`은 요소를 문서의 기본 흐름과 다르게 배치하고 싶을 때 사용하는 속성이다. 다섯 가지 값이 있다.
 
-**비교 표: position 값 5가지**
+**▶ position 값 5가지 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>의미</th><th>기준</th><th>이동 가능</th><th>스크롤 영향</th><th>대표 사용 예</th></tr></thead>
@@ -201,7 +201,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 또한 `relative`는 자식 요소에 `absolute`를 줄 때 기준점을 잡아주는 용도로 매우 자주 사용된다.
 
-**CSS 예시: relative 기준점 만들기**
+**▶ CSS: relative 기준점 만들기**
 
 ```css
 .parent {
@@ -224,7 +224,7 @@ block과 inline의 장점을 합친 하이브리드 방식이다. 다른 요소�
 
 단, 조상 요소 중 하나라도 `transform`, `perspective`, `filter`, `will-change`, `contain` 속성이 지정되어 있으면 그 조상이 새로운 기준점이 되어 화면 전체가 아닌 그 조상 기준으로 고정되는 예외가 발생할 수 있다.
 
-**CSS 예시: fixed 헤더**
+**▶ CSS: fixed 헤더**
 
 ```css
 .header {
@@ -246,7 +246,7 @@ body {
 
 `relative`처럼 원래 자리에 있다가, 스크롤로 지정한 `top` 값에 도달하는 순간 `fixed`처럼 화면에 고정된다. 부모 영역을 벗어나면 고정이 해제되고 다시 원래 흐름으로 돌아간다.
 
-**CSS 예시: sticky 섹션 제목**
+**▶ CSS: sticky 섹션 제목**
 
 ```css
 .section-title {
@@ -272,7 +272,7 @@ body {
 
 이 네 속성은 positioned 요소가 기준점으로부터 얼마나 떨어질지를 지정한다. `static` 요소에서는 아무 효과가 없다.
 
-**CSS 예시: 오프셋 속성 지정**
+**▶ CSS: 오프셋 속성 지정**
 
 ```css
 .box {
@@ -289,7 +289,7 @@ body {
 
 `z-index`는 겹쳐진 요소들 사이의 위아래 순서(쌓임 순서)를 숫자로 지정한다. 숫자가 클수록 위쪽에 놓인다.
 
-**CSS 예시: z-index 쌓임 순서**
+**▶ CSS: z-index 쌓임 순서**
 
 ```css
 .layer-1 { position: relative; z-index: 1; }
@@ -310,7 +310,7 @@ body {
 
 ### 📌 고정 헤더
 
-**CSS 예시: 고정 헤더 패턴**
+**▶ CSS: 고정 헤더 패턴**
 
 ```css
 .header {
@@ -327,7 +327,7 @@ body {
 
 ### 🧩 모달
 
-**CSS 예시: 모달 중앙 배치**
+**▶ CSS: 모달 중앙 배치**
 
 ```css
 .overlay {
@@ -348,7 +348,7 @@ overlay는 `fixed`로 화면 전체를 덮고, 그 위의 실제 모달 내용�
 
 ### 💬 툴팁
 
-**CSS 예시: 툴팁 배치**
+**▶ CSS: 툴팁 배치**
 
 ```css
 .tooltip-wrapper {

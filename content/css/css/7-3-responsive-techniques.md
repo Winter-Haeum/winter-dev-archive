@@ -75,7 +75,7 @@ CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단�
 
 특히 미디어쿼리를 아예 쓰지 않고도 화면 크기에 자동으로 반응하는 기법(유연한 단위, auto-fit, Container Queries)에 집중합니다.
 
-**정리 표: 유연한 레이아웃 단위**
+**▶ 유연한 레이아웃 단위**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th></tr></thead>
@@ -87,7 +87,7 @@ CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단�
 </tbody>
 </table>
 
-**CSS 예시: 고정 px와 유연한 단위 비교**
+**▶ CSS: 고정 px와 유연한 단위 비교**
 
 ```css
 /* ❌ 고정 px — 작은 화면에서 가로 스크롤 발생 */
@@ -105,7 +105,7 @@ CSS 챕터의 마지막 문서입니다. 지금까지 배운 Flexbox·Grid·단�
 
 ## 2. CSS 함수 — minmax / calc / clamp
 
-**CSS 예시: minmax·calc·clamp 함수**
+**▶ CSS: minmax·calc·clamp 함수**
 
 ```css
 /* Grid에서 최소 200px 보장, 남는 공간은 균등 분배 */
@@ -126,7 +126,7 @@ font-size: clamp(1rem, 2.5vw, 2rem);
 
 이미지에 고정 px를 쓰면 화면이 줄어들 때 부모 밖으로 넘치거나 레이아웃이 깨진다.
 
-**CSS 예시: 이미지 최대 너비 제한**
+**▶ CSS: 이미지 최대 너비 제한**
 
 ```css
 img { max-width: 100%; height: auto; } /* 부모보다 커지지 않도록 제한, 비율은 유지 */
@@ -136,7 +136,7 @@ img { max-width: 100%; height: auto; } /* 부모보다 커지지 않도록 제�
 
 동일한 이미지를 고해상도(레티나) 화면에서도 선명하게 보이도록 배율별로 제공한다.
 
-**HTML 예시: srcset 해상도 대응**
+**▶ HTML: srcset 해상도 대응**
 
 ```html
 <img src="photo.jpg"
@@ -144,7 +144,7 @@ img { max-width: 100%; height: auto; } /* 부모보다 커지지 않도록 제�
      alt="Photo">
 ```
 
-**정리 표: DPR별 사용 이미지**
+**▶ DPR별 사용 이미지**
 
 <table class="wda-mtable">
 <thead><tr><th>기기</th><th>DPR</th><th>사용 이미지</th></tr></thead>
@@ -159,7 +159,7 @@ img { max-width: 100%; height: auto; } /* 부모보다 커지지 않도록 제�
 
 srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`는 화면 크기에 따라 **구도 자체가 다른 이미지**를 보여줄 때 쓴다(예: 데스크탑은 가로 풍경, 모바일은 세로 인물 구도).
 
-**HTML 예시: picture 구도 전환**
+**▶ HTML: picture 구도 전환**
 
 ```html
 <picture>
@@ -175,7 +175,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 ## 4. Flexbox 반응형 — flex-wrap + flex-basis
 
-**CSS 예시: flex-wrap과 flex-basis 반응형**
+**▶ CSS: flex-wrap과 flex-basis 반응형**
 
 ```css
 /* ❌ 줄바꿈이 없으면 좁은 화면에서 찌그러진다 */
@@ -192,7 +192,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 ## 5. Grid 반응형 — auto-fit + minmax()
 
-**CSS 예시: auto-fit·minmax 반응형**
+**▶ CSS: auto-fit·minmax 반응형**
 
 ```css
 /* ❌ 열 개수 고정 — 작은 화면에서 넘침 */
@@ -226,7 +226,7 @@ srcset이 "같은 이미지의 해상도 차이"를 해결한다면, `<picture>`
 
 Media Query는 **뷰포트(화면 전체)** 크기를 기준으로 스타일을 바꾼다. 반면 Container Query는 **부모 컨테이너**의 크기를 기준으로 스타일을 바꾼다.
 
-**비교 표: Media Query와 Container Query**
+**▶ Media Query와 Container Query 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>Media Query</th><th>Container Query</th></tr></thead>
@@ -237,7 +237,7 @@ Media Query는 **뷰포트(화면 전체)** 크기를 기준으로 스타일을 
 </tbody>
 </table>
 
-**CSS 예시: Container Query 적용**
+**▶ CSS: Container Query 적용**
 
 ```css
 .card-container {

@@ -79,7 +79,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 개발자 도구로 확인해보면 실제 DOM 트리 안에는 없고, Elements 패널에 회색 글씨의 `::before`, `::after`처럼 별도로 표시되는 것을 볼 수 있다.
 
-**정리 표: 가상 요소 종류와 기능**
+**▶ 가상 요소 종류와 기능**
 
 <table class="wda-mtable">
 <thead><tr><th>가상 요소</th><th>기능</th></tr></thead>
@@ -101,7 +101,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">CSS로만 접근</div><div class="wda-fcard-dsc">오직 CSS 선택자를 통해서만 존재하고 스타일링된다.</div></div>
 </div>
 
-**비교 표: 가상 클래스와 가상 요소**
+**▶ 가상 클래스와 가상 요소 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>표기</th><th>역할</th></tr></thead>
@@ -117,7 +117,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### ✨ ::before — 요소 앞에 추가하기
 
-**CSS 예시: ::before 기본 사용**
+**▶ CSS: ::before 기본 사용**
 
 ```css
 .item::before {
@@ -128,7 +128,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `content` 속성에는 4가지 종류의 값을 넣을 수 있다.
 
-**정리 표: content 속성 값 형태**
+**▶ content 속성 값 형태**
 
 <table class="wda-mtable">
 <thead><tr><th>값 형태</th><th>예시</th><th>결과</th></tr></thead>
@@ -142,13 +142,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `::before`로 생성된 요소는 HTML 수정 없이도 아이콘을 붙일 수 있고, 대상 요소의 <strong>첫 번째 자식</strong>처럼 삽입되며, 기본 `display` 값은 `inline`이다. `position: absolute`를 주면 부모를 기준으로 자유롭게 배치할 수도 있다.
 
-**예시 코드: HTML 속성**
+**▶ HTML 속성**
 
 ```html
 <span data-label="필수">이름</span>
 ```
 
-**예시 코드: attr() 값 가져오기**
+**▶ attr() 값 가져오기**
 
 ```css
 [data-label]::before {
@@ -162,7 +162,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `::before`와 문법은 동일하지만 콘텐츠 맨 뒤에 삽입된다는 점만 다르다. 과거에는 float으로 인한 레이아웃 붕괴를 막는 clearfix 패턴에 자주 쓰였다.
 
-**CSS 예시: clearfix 패턴**
+**▶ CSS: clearfix 패턴**
 
 ```css
 .clearfix::after {
@@ -174,7 +174,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 외부 링크 뒤에 화살표 아이콘을 붙이는 것도 흔한 활용이다.
 
-**CSS 예시: 외부 링크 화살표 추가**
+**▶ CSS: 외부 링크 화살표 추가**
 
 ```css
 a[target="_blank"]::after {
@@ -198,7 +198,7 @@ a[target="_blank"]::after {
 
 ## 3. content 속성 완전정복
 
-**정리 표: content 값 종류별 특징**
+**▶ content 값 종류별 특징**
 
 <table class="wda-mtable">
 <thead><tr><th>종류</th><th>특징</th><th>예시</th></tr></thead>
@@ -224,7 +224,7 @@ a[target="_blank"]::after {
 
 신문이나 잡지 기사처럼 문단의 첫 글자를 크게 강조하는 드롭캡 효과를 만들 때 사용한다.
 
-**CSS 예시: ::first-letter 드롭캡**
+**▶ CSS: ::first-letter 드롭캡**
 
 ```css
 p.article::first-letter {
@@ -243,7 +243,7 @@ p.article::first-letter {
 
 문장이 아니라 <strong>브라우저가 계산한 화면상의 첫 줄</strong>을 스타일링한다.
 
-**CSS 예시: ::first-line 첫 줄 강조**
+**▶ CSS: ::first-line 첫 줄 강조**
 
 ```css
 p.intro::first-line {
@@ -269,7 +269,7 @@ p.intro::first-line {
 
 사용자가 마우스로 텍스트를 드래그해서 선택했을 때의 스타일을 바꾼다.
 
-**CSS 예시: ::selection 색상 변경**
+**▶ CSS: ::selection 색상 변경**
 
 ```css
 ::selection {
@@ -288,7 +288,7 @@ p.intro::first-line {
 
 브랜드 컬러로 선택 영역을 통일하거나, 코드 블록에서 선택 영역만 눈에 띄는 색으로 강조하는 데 자주 활용된다.
 
-**정리 표: 텍스트 가상 요소 요약**
+**▶ 텍스트 가상 요소 요약**
 
 <table class="wda-mtable">
 <thead><tr><th>가상 요소</th><th>한 문장 요약</th></tr></thead>
@@ -303,7 +303,7 @@ p.intro::first-line {
 
 ## 5. 실전 활용 패턴 모음
 
-**정리 표: 가상 요소 실전 활용 패턴**
+**▶ 가상 요소 실전 활용 패턴**
 
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>적용 요소</th></tr></thead>
@@ -323,7 +323,7 @@ p.intro::first-line {
 
 `content`에 유니코드 문자를 직접 넣으면 이미지 파일 없이도 간단한 아이콘을 표현할 수 있다.
 
-**CSS 예시: 유니코드 아이콘 추가**
+**▶ CSS: 유니코드 아이콘 추가**
 
 ```css
 .check-list li::before {
@@ -342,7 +342,7 @@ p.intro::first-line {
 }
 ```
 
-**정리 표: 유니코드 아이콘 문자**
+**▶ 유니코드 아이콘 문자**
 
 <table class="wda-mtable">
 <thead><tr><th>문자</th><th>유니코드</th><th>활용</th></tr></thead>
@@ -378,7 +378,7 @@ p.intro::first-line {
 
 버튼에 마우스를 올렸을 때 나타나는 툴팁과, 그 아래 삼각형 꼬리는 `::after`와 `border` 트릭으로 순수 CSS만으로 구현할 수 있다.
 
-**CSS 예시: 말풍선 툴팁 구현**
+**▶ CSS: 말풍선 툴팁 구현**
 
 ```css
 .tooltip {
@@ -423,7 +423,7 @@ p.intro::first-line {
 
 삼각형 꼬리의 원리는 `border`의 네 방향 중 <strong>세 방향은 투명하게, 한 방향만 색을 채우는</strong> 트릭이다. 위쪽 테두리만 색을 주면 아래를 향하는 삼각형이 만들어지고, 방향을 바꾸면 꼬리 방향도 바뀐다.
 
-**정리 표: 말풍선 꼬리 방향별 테두리**
+**▶ 말풍선 꼬리 방향별 테두리**
 
 <table class="wda-mtable">
 <thead><tr><th>꼬리 방향</th><th>색을 채울 테두리</th></tr></thead>

@@ -76,7 +76,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `z-index`는 요소의 쌓임 순서(깊이)를 정하는 속성이다. 값이 클수록 화면 앞쪽에 보인다.
 
-**CSS 예시: static에서 z-index 무시됨**
+**▶ CSS: static에서 z-index 무시됨**
 
 ```css
 /* ✔ 정상 동작 */
@@ -88,7 +88,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 z-index는 `position`이 `static`(기본값)이 아닌 요소, 즉 `relative`·`absolute`·`fixed`·`sticky` 요소에서만 동작한다.
 
-**CSS 예시: z-index 값 비교**
+**▶ CSS: z-index 값 비교**
 
 ```css
 .box-1 { position: absolute; z-index: 1; }
@@ -104,7 +104,7 @@ z-index는 `position`이 `static`(기본값)이 아닌 요소, 즉 `relative`·`
 
 **Stacking Context(쌓임 맥락)**는 요소들이 쌓이는 독립적인 레이어 그룹이다. 이 그룹 **내부**에서는 z-index 값끼리 비교할 수 있지만, 서로 다른 그룹끼리는 그룹 전체가 하나의 단위로 겹친다.
 
-**예시 코드: Stacking Context 그룹 구조**
+**▶ Stacking Context 그룹 구조**
 
 ```
 [A 그룹] (Stacking Context)
@@ -117,7 +117,7 @@ z-index는 `position`이 `static`(기본값)이 아닌 요소, 즉 `relative`·`
 
 B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1)`도 A 그룹 안의 `Layer 1(z-index:10)`보다 화면 앞에 보일 수 있다. z-index 값이 크다고 항상 이기는 것이 아니라는 뜻이다.
 
-**정리 표: Stacking Context 생성 조건**
+**▶ Stacking Context 생성 조건**
 
 <table class="wda-mtable">
 <thead><tr><th>Stacking Context를 생성하는 조건</th><th>예시</th></tr></thead>
@@ -154,7 +154,7 @@ B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1
   <div class="wda-fnode"><div class="wda-fnode-ttl">4</div><div class="wda-fnode-dsc">z-index가 auto라면 HTML 작성 순서 확인</div></div>
 </div>
 
-**CSS 예시: Stacking Context에 갇힌 z-index**
+**▶ CSS: Stacking Context에 갇힌 z-index**
 
 ```css
 /* 부모 Stacking Context 안에 갇힌 경우 */
@@ -172,7 +172,7 @@ B 그룹 전체가 A 그룹 위에 있다면, B 그룹 안의 `Layer 3(z-index:1
 
 숫자를 감으로 계속 올리기보다, 역할별로 100 단위 구간을 미리 정해두면 충돌을 크게 줄일 수 있다.
 
-**정리 표: z-index 계층 설계 권장값**
+**▶ z-index 계층 설계 권장값**
 
 <table class="wda-mtable">
 <thead><tr><th>UI 컴포넌트</th><th>권장 z-index</th></tr></thead>

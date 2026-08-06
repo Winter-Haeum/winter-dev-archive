@@ -77,7 +77,7 @@ transform은 요소의 실제 레이아웃 위치는 그대로 두고, 화면에
 
 `translate()`는 요소를 가로(X), 세로(Y) 방향으로 이동시키는 함수다. 레이아웃 흐름에는 전혀 영향을 주지 않고, 화면에 그려지는 위치만 옮긴다.
 
-**CSS 예시: translate() 기본 사용**
+**▶ CSS: translate() 기본 사용**
 
 ```css
 transform: translate(20px, 10px); /* X, Y를 한 번에 이동 */
@@ -85,7 +85,7 @@ transform: translateX(20px);      /* X축만 이동 */
 transform: translateY(-10px);     /* Y축만 이동 */
 ```
 
-**정리 표: translate() 단위**
+**▶ translate() 단위**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th><th>예시</th></tr></thead>
@@ -100,7 +100,7 @@ X는 양수면 오른쪽·음수면 왼쪽, Y는 양수면 아래·음수면 위
 
 "내 몸의 절반만큼 옆으로 움직인다"고 기억해두면 된다.
 
-**CSS 예시: translate() 활용 패턴**
+**▶ CSS: translate() 활용 패턴**
 
 ```css
 .box:hover {
@@ -118,13 +118,13 @@ X는 양수면 오른쪽·음수면 왼쪽, Y는 양수면 아래·음수면 위
 
 `rotate()`는 요소를 기준점(기본값은 정중앙)을 축으로 돌리는 함수다.
 
-**CSS 예시: rotate() 기본 사용**
+**▶ CSS: rotate() 기본 사용**
 
 ```css
 transform: rotate(90deg);
 ```
 
-**정리 표: rotate() 단위**
+**▶ rotate() 단위**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>의미</th></tr></thead>
@@ -137,7 +137,7 @@ transform: rotate(90deg);
 
 양수는 시계 방향, 음수는 반시계 방향이다. `90deg`는 직각, `180deg`는 반 바퀴, `360deg`는 한 바퀴라고 기억하면 편하다.
 
-**CSS 예시: rotate() 활용 패턴**
+**▶ CSS: rotate() 활용 패턴**
 
 ```css
 .arrow { transform: rotate(90deg); } /* 오른쪽을 가리키는 화살표 */
@@ -160,7 +160,7 @@ transform: rotate(90deg);
 
 `scale()`은 요소의 크기를 배율로 키우거나 줄인다.
 
-**CSS 예시: scale() 기본 사용**
+**▶ CSS: scale() 기본 사용**
 
 ```css
 transform: scale(1.2, 1.2); /* 또는 그냥 scale(1.2) */
@@ -175,7 +175,7 @@ transform: scaleY(0.5);
   <div class="wda-fcard"><div class="wda-fcard-ttl">0 또는 음수</div><div class="wda-fcard-dsc">0은 완전히 사라짐, 음수는 반전 + 크기 조절.</div></div>
 </div>
 
-**CSS 예시: scale() 활용 패턴**
+**▶ CSS: scale() 활용 패턴**
 
 ```css
 .image:hover { transform: scale(1.2); }   /* 이미지 hover 확대 */
@@ -203,7 +203,7 @@ transform: scaleY(0.5);
 
 `skew()`는 요소를 평행사변형처럼 비스듬히 기울이는 함수다.
 
-**CSS 예시: skew() 기본 사용**
+**▶ CSS: skew() 기본 사용**
 
 ```css
 transform: skew(10deg, 5deg);
@@ -213,7 +213,7 @@ transform: skewY(10deg);
 
 X축 양수는 위쪽이 오른쪽으로 밀리듯 기울고, Y축 양수는 오른쪽이 아래로 기울어진다. `rotate`는 네 변 전체가 통째로 돌지만, `skew`는 사각형이 사다리꼴처럼 찌그러진다는 점이 다르다.
 
-**CSS 예시: skew() 활용 패턴**
+**▶ CSS: skew() 활용 패턴**
 
 ```css
 .skew-x { transform: skewX(15deg); }
@@ -227,7 +227,7 @@ X축 양수는 위쪽이 오른쪽으로 밀리듯 기울고, Y축 양수는 오
 
 `transform-origin`은 회전·확대·기울이기가 "어디를 축으로" 일어날지 정하는 속성이다. 기본값은 `center`이며, `translate`를 제외한 나머지 세 함수(rotate, scale, skew)에 큰 영향을 준다.
 
-**예시 코드: 값 종류**
+**▶ 값 종류**
 
 ```css
 transform-origin: center;        /* 기본값 */
@@ -235,7 +235,7 @@ transform-origin: top left;      /* 왼쪽 위 모서리 기준 */
 transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 ```
 
-**예시 코드: 드롭다운 적용 예**
+**▶ 드롭다운 적용 예**
 
 ```css
 .dropdown {
@@ -273,7 +273,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 모달을 화면 정중앙에 놓는 가장 널리 쓰이는 공식이다.
 
-**CSS 예시: translate로 정중앙 배치**
+**▶ CSS: translate로 정중앙 배치**
 
 ```css
 .modal {
@@ -286,7 +286,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 `top: 50%; left: 50%;`만 쓰면 요소의 **왼쪽 위 모서리**가 화면 중앙에 오게 된다. 그래서 `translate(-50%, -50%)`로 자기 크기의 절반만큼 반대 방향으로 밀어서 정확한 정중앙을 맞춘다.
 
-**CSS 예시: 정중앙 배치 + 등장 애니메이션**
+**▶ CSS: 정중앙 배치 + 등장 애니메이션**
 
 ```css
 .modal-overlay {
@@ -310,7 +310,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 화면 스크롤과 무관하게 항상 같은 자리에 떠 있는 플로팅 버튼, 채팅 버튼 같은 UI는 `position: fixed`와 `transform`을 함께 쓴다.
 
-**CSS 예시: Floating 버튼 회전·확대**
+**▶ CSS: Floating 버튼 회전·확대**
 
 ```css
 .floating-btn {
@@ -340,7 +340,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ## 9. 성능: transform vs top/left
 
-**비교 표: transform과 top/left 성능**
+**▶ transform과 top/left 성능 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>기준</th><th>transform</th><th>top / left</th></tr></thead>
@@ -352,7 +352,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 </tbody>
 </table>
 
-**CSS 예시: transform과 top/left 성능 비교**
+**▶ CSS: transform과 top/left 성능 비교**
 
 ```css
 /* 느린 방식 */
@@ -376,13 +376,13 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 3D 회전을 쓰려면 먼저 부모 요소에 `perspective`로 원근감을 줘야 한다.
 
-**CSS 예시: perspective로 원근감 부여**
+**▶ CSS: perspective로 원근감 부여**
 
 ```css
 .parent { perspective: 1000px; } /* 값이 작을수록 왜곡(입체감)이 강해진다 */
 ```
 
-**정리 표: 3D 회전 함수**
+**▶ 3D 회전 함수**
 
 <table class="wda-mtable">
 <thead><tr><th>함수</th><th>의미</th></tr></thead>
@@ -399,7 +399,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 
 ## 11. 실전: 3D 카드 뒤집기
 
-**예시 코드: HTML 구조**
+**▶ HTML 구조**
 
 ```html
 <div class="card-container">
@@ -410,7 +410,7 @@ transform-origin: 100px 50px;    /* 좌표로 직접 지정 */
 </div>
 ```
 
-**예시 코드: CSS 스타일**
+**▶ CSS 스타일**
 
 ```css
 .card-container {

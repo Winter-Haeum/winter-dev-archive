@@ -82,7 +82,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">HSL / HSLA</div><div class="wda-fcard-dsc">색조(Hue)·채도(Saturation)·명도(Lightness)로 직관적인 톤 조절이 가능하다.</div></div>
 </div>
 
-**CSS 예시: 색상 표현 4가지 비교**
+**▶ CSS: 색상 표현 4가지 비교**
 
 ```css
 .box-hex   { color: #1e88e5; }
@@ -95,7 +95,7 @@ RGBA와 HSLA의 마지막 값(alpha)은 0(완전 투명)부터 1(완전 불투�
 
 색을 반투명하게 만드는 방법에는 `opacity` 속성을 쓰는 방법도 있는데, RGBA/HSLA의 alpha 값과는 적용 범위가 다르다.
 
-**비교 표: opacity와 alpha 채널**
+**▶ opacity와 alpha 채널 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>적용 범위</th><th>자식 요소 영향</th><th>텍스트 영향</th><th>주 사용 목적</th></tr></thead>
@@ -113,7 +113,7 @@ RGBA와 HSLA의 마지막 값(alpha)은 0(완전 투명)부터 1(완전 불투�
 
 `font-family`는 사용할 서체를 지정한다. 지정한 폰트가 사용자 기기에 없을 경우를 대비해 여러 폰트를 쉼표로 나열하는 것을 Font Stack이라고 부르며, 브라우저는 앞에서부터 순서대로 사용 가능한 폰트를 찾는다.
 
-**CSS 예시: Font Stack 지정**
+**▶ CSS: Font Stack 지정**
 
 ```css
 body {
@@ -123,7 +123,7 @@ body {
 
 폰트 이름에 공백이 있으면 따옴표로 감싸야 하며, 목록의 맨 마지막에는 항상 일반적인 계열(fallback)을 지정해서 지정한 폰트가 전혀 없을 때도 비슷한 느낌의 글꼴이 나오도록 한다.
 
-**정리 표: Generic Family 종류**
+**▶ Generic Family 종류**
 
 <table class="wda-mtable">
 <thead><tr><th>Generic Family</th><th>특징</th></tr></thead>
@@ -136,7 +136,7 @@ body {
 </tbody>
 </table>
 
-**CSS 예시: 상황별 폰트 스택**
+**▶ CSS: 상황별 폰트 스택**
 
 ```css
 /* 한국어 본문 */
@@ -151,7 +151,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 ### 📏 Font Size
 
-**비교 표: 폰트 크기 단위(px/em/rem/%)**
+**▶ 폰트 크기 단위(px/em/rem/%) 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>단위</th><th>기준</th><th>특징</th></tr></thead>
@@ -171,7 +171,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 ### 🅱️ Font Weight, Style, Variant
 
-**CSS 예시: Font Weight와 Style**
+**▶ CSS: Font Weight와 Style**
 
 ```css
 .title {
@@ -192,7 +192,7 @@ font-family: 'JetBrains Mono', 'Fira Code', monospace;
 
 Google Fonts는 무료로 제공되는 1,600종 이상의 웹 폰트를 CDN 방식으로 손쉽게 불러올 수 있는 서비스다. `Noto Sans KR`, `Noto Serif KR`, `Black Han Sans`, `Jua`, `Gamja Flower` 등 한글 폰트도 다양하게 제공한다.
 
-**예시 코드: Google Fonts 연결**
+**▶ Google Fonts 연결**
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +200,7 @@ Google Fonts는 무료로 제공되는 1,600종 이상의 웹 폰트를 CDN 방�
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 ```
 
-**예시 코드: 폰트 적용**
+**▶ 폰트 적용**
 
 ```css
 body {
@@ -214,7 +214,7 @@ body {
 
 직접 보유한 폰트 파일을 서버에 올려 사용하고 싶을 때는 `@font-face`로 폰트를 정의한다.
 
-**CSS 예시: @font-face 정의**
+**▶ CSS: @font-face 정의**
 
 ```css
 @font-face {
@@ -238,7 +238,7 @@ Google Fonts에 비해 관리는 번거롭지만, 외부 서비스에 의존하�
 
 ## 4. 텍스트 스타일링
 
-**속성 표: 텍스트 스타일링 속성**
+**▶ 텍스트 스타일링 속성**
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>주요 값</th><th>설명</th></tr></thead>
@@ -251,7 +251,7 @@ Google Fonts에 비해 관리는 번거롭지만, 외부 서비스에 의존하�
 </tbody>
 </table>
 
-**CSS 예시: 링크 밑줄 제어**
+**▶ CSS: 링크 밑줄 제어**
 
 ```css
 a {
@@ -265,7 +265,7 @@ a:hover {
 
 `line-height`는 단위 없는 숫자로 지정하는 것이 권장되며, 본문 텍스트는 `1.6`~`1.8` 정도가 읽기 편하다. `letter-spacing`은 제목처럼 큰 글자에서 자간을 살짝 넓혀 시원한 느낌을 주는 데 자주 쓰이고, 본문에서는 기본값을 유지하는 것이 가독성에 좋다.
 
-**CSS 예시: 자간 조정**
+**▶ CSS: 자간 조정**
 
 ```css
 .title {
@@ -275,7 +275,7 @@ a:hover {
 
 `text-shadow`는 텍스트에 그림자를 넣는 속성으로 `x축 오프셋 y축 오프셋 흐림 정도 색상` 순서로 값을 지정한다.
 
-**CSS 예시: 네온 텍스트 그림자**
+**▶ CSS: 네온 텍스트 그림자**
 
 ```css
 .neon {
@@ -293,7 +293,7 @@ a:hover {
 
 ### 📏 white-space
 
-**비교 표: white-space 값별 동작**
+**▶ white-space 값별 동작 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>공백</th><th>줄바꿈 문자</th><th>자동 줄바꿈</th></tr></thead>
@@ -308,7 +308,7 @@ a:hover {
 
 한 줄로 말줄임표를 만드는 패턴은 `nowrap`으로 줄바꿈을 막고, `overflow: hidden`으로 넘치는 부분을 자르고, `text-overflow: ellipsis`로 잘린 자리에 말줄임 기호를 표시하는 세 속성을 함께 사용해야 완성된다.
 
-**CSS 예시: 말줄임표 처리**
+**▶ CSS: 말줄임표 처리**
 
 ```css
 .ellipsis {
@@ -320,7 +320,7 @@ a:hover {
 
 ### 🎛️ word-break
 
-**비교 표: word-break 값별 동작**
+**▶ word-break 값별 동작 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>동작</th></tr></thead>
@@ -339,7 +339,7 @@ a:hover {
 
 `word-break: break-all`은 정상적인 줄바꿈 지점이 있어도 무시하고 무조건 글자 단위로 끊지만, `overflow-wrap: break-word`는 컨테이너를 벗어날 만큼 긴 단어가 있을 때만 예외적으로 끊는다.
 
-**비교 표: word-break와 overflow-wrap**
+**▶ word-break와 overflow-wrap 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>끊는 기준</th></tr></thead>
@@ -351,7 +351,7 @@ a:hover {
 
 한글과 영문이 섞인 본문에는 `word-break: keep-all`과 `overflow-wrap: break-word`를 함께 쓰는 조합이 널리 권장된다. 한글은 어절 단위를 지키고, 너무 긴 영문 단어나 URL만 예외적으로 끊어준다.
 
-**CSS 예시: 한글·영문 혼용 줄바꿈**
+**▶ CSS: 한글·영문 혼용 줄바꿈**
 
 ```css
 .article {
