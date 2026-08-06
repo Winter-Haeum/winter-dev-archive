@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이 문서는 Flexbox를 처음 배울 때 반드시 짚고 가야 할 배경과 기본 개념을 다룬다.
 
-개별 속성의 세부 사용법은 다음 문서인 [[3-2-flex-container-and-items|Container와 Item 속성 활용하기]]에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.
+개별 속성의 세부 사용법은 다음 문서인 [Container와 Item 속성 활용하기](/css/css/3-2-flex-container-and-items)에서 이어서 정리하고, 여기서는 "왜 Flexbox가 필요한가", "주축·교차축이란 무엇인가", "Container와 Item은 어떻게 다른가"라는 뼈대에 집중한다.
 
 Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 속성을 사용했다. 문제는 float이 원래 "텍스트가 이미지를 감싸고 흐르게 하는" 용도로 설계된 속성이라는 점이다.
 

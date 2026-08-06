@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. TailwindCSS 시작하기
 
-[[4-3-bootstrap-introduction|이전 문서]]에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다.
+[이전 문서](/css-framework/css-framework/4-3-bootstrap-introduction)에서 Component based 방식의 대표 사례로 Bootstrap을 봤다면, 이 문서는 Utility first 방식의 대표 사례인 TailwindCSS를 다룹니다.
 
 CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와의 관계까지 순서대로 정리한다.
 

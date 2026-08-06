@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Bootstrap이란 무엇인가
 
-[[4-2-component-based-vs-utility-first|이전 문서]]에서 Component based 방식의 개념을 봤다면, 이 문서는 그 대표 사례인 Bootstrap을 구체적으로 다룹니다. 그리드 시스템과 대표 컴포넌트 몇 가지를 직접 코드로 확인한다.
+[이전 문서](/css-framework/css-framework/4-2-component-based-vs-utility-first)에서 Component based 방식의 개념을 봤다면, 이 문서는 그 대표 사례인 Bootstrap을 구체적으로 다룹니다. 그리드 시스템과 대표 컴포넌트 몇 가지를 직접 코드로 확인한다.
 
 Bootstrap은 미리 완성된 UI 구성요소를 클래스 기반으로 제공하는 컴포넌트 기반 CSS 프레임워크다. HTML에 정해진 클래스를 추가하는 것만으로 버튼, 카드, 레이아웃을 빠르게 구성할 수 있다.
 

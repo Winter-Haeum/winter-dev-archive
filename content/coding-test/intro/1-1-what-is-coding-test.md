@@ -138,7 +138,7 @@ function solution(numbers) {
 **💡 설명**
 
 <div class="wda-callout wda-ci">
-  <p>제약 조건에 적힌 입력 크기(N)를 보면 어떤 접근이 통할지 미리 가늠할 수 있습니다. N이 100,000을 넘는데 이중 반복문(O(N²))으로 풀면 대부분 시간 초과가 납니다. 시간 복잡도를 다루는 자세한 내용은 [[2-1-array-methods|2-1 문서]]에서 다룹니다.</p>
+  <p>제약 조건에 적힌 입력 크기(N)를 보면 어떤 접근이 통할지 미리 가늠할 수 있습니다. N이 100,000을 넘는데 이중 반복문(O(N²))으로 풀면 대부분 시간 초과가 납니다. 시간 복잡도를 다루는 자세한 내용은 <a href="/coding-test/arrays/2-1-array-methods">2-1 문서</a>에서 다룹니다.</p>
 </div>
 
 ---
@@ -173,7 +173,7 @@ function solution(numbers) {
   <div class="wda-fcard"><div class="wda-fcard-ttl">디버깅</div><div class="wda-fcard-dsc">코드가 왜 원하는 결과를 내지 않는지 원인을 찾아 고치는 능력입니다.</div></div>
 </div>
 
-문제를 실제로 읽고 접근하는 순서는 [[1-3-how-to-solve-problems|1-3 문서]]에서 자세히 다룹니다.
+문제를 실제로 읽고 접근하는 순서는 [1-3 문서](/coding-test/intro/1-3-how-to-solve-problems)에서 자세히 다룹니다.
 
 ---
 

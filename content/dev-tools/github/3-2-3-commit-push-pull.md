@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. git commit 다시 보기
 
-[[3-2-2-connect-local-and-github|이전 문서]]에서 로컬과 GitHub를 연결했다면, 이제 실제로 코드를 주고받을 차례입니다. 이번 문서는 commit으로 기록한 변경 내역을 push로 GitHub에 올리고, pull로 최신 코드를 받아오는 기본 흐름을 다룹니다.
+[이전 문서](/dev-tools/github/3-2-2-connect-local-and-github)에서 로컬과 GitHub를 연결했다면, 이제 실제로 코드를 주고받을 차례입니다. 이번 문서는 commit으로 기록한 변경 내역을 push로 GitHub에 올리고, pull로 최신 코드를 받아오는 기본 흐름을 다룹니다.
 
 commit은 작업 내역을 로컬 저장소에 기록하는 행위다. 특정 시점의 프로젝트 상태를 하나의 스냅샷으로 저장한다고 이해하면 된다.
 

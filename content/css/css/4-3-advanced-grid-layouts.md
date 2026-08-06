@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 신문 레이아웃
 
-[[4-2-grid-rows-and-columns|이전 문서]]에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 실제 서비스에서 쓰이는 완성형 레이아웃을 만든다.
+[이전 문서](/css/css/4-2-grid-rows-and-columns)에서 <code>repeat()</code>, <code>minmax()</code>, <code>grid-template-areas</code> 같은 배치 문법을 익혔다면, 이 문서에서는 그 문법들을 조합해 실제 서비스에서 쓰이는 완성형 레이아웃을 만든다.
 
 신문형 레이아웃, 대시보드, 반응형 이미지 갤러리, 그리고 미디어 쿼리를 결합한 반응형 Grid까지 네 가지 실전 패턴을 다룬다.
 

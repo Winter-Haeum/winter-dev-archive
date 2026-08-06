@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. CLI란 무엇인가
 
-[[3-1-2-git-structure|이전 문서]]에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다.
+[이전 문서](/dev-tools/git/3-1-2-git-structure)에서 Working Directory, Staging Area, Repository라는 3영역의 개념을 배웠다면, 이 문서에서는 실제로 터미널을 열어 그 흐름을 손으로 직접 실행해본다.
 
 먼저 CLI 자체에 익숙해지는 기본 명령어를 연습한 다음, git init부터 git diff까지 실전에서 가장 많이 쓰는 명령어를 순서대로 실습한다.
 

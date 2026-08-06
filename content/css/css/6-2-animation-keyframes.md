@@ -70,7 +70,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Animation vs Transition
 
-[[6-1-transition-effects|이전 문서]]에서 transition으로 A → B 2개 상태만 부드럽게 잇는 방법을 봤다면, 이 문서에서는 트리거 없이 자동 실행되고 여러 단계를 거칠 수 있는 animation과 @keyframes를 다룬다.
+[이전 문서](/css/css/6-1-transition-effects)에서 transition으로 A → B 2개 상태만 부드럽게 잇는 방법을 봤다면, 이 문서에서는 트리거 없이 자동 실행되고 여러 단계를 거칠 수 있는 animation과 @keyframes를 다룬다.
 
 두 기능은 비슷해 보이지만 설계 목적이 다르다.
 

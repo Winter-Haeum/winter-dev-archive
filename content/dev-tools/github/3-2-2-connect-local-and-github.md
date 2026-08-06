@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 로컬 저장소 vs 원격 저장소
 
-[[3-2-1-create-github-account|이전 문서]]에서 GitHub 계정을 만들었다면, 이제는 그 계정을 내 컴퓨터의 로컬 저장소와 연결할 차례입니다.
+[이전 문서](/dev-tools/github/3-2-1-create-github-account)에서 GitHub 계정을 만들었다면, 이제는 그 계정을 내 컴퓨터의 로컬 저장소와 연결할 차례입니다.
 
 이번 문서는 원격 저장소라는 개념을 이해하고, <code>git remote</code>와 <code>git clone</code>으로 로컬과 GitHub를 연결하는 두 가지 경로, 그리고 HTTPS·SSH 인증 방식을 다룹니다.
 

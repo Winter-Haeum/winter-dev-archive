@@ -70,7 +70,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 기본 주소 vs 커스텀 도메인
 
-[[4-3-hero-section|이전 문서]]에서 배포된 화면을 점검했다면, 이번에는 domain-checklist, 즉 방문자에게 보여줄 주소를 정리하는 단계입니다.
+[이전 문서](/ai-vibe-coding/lesson-4/4-3-hero-section)에서 배포된 화면을 점검했다면, 이번에는 domain-checklist, 즉 방문자에게 보여줄 주소를 정리하는 단계입니다.
 
 특정 도메인 판매 업체의 화면 절차는 이 문서에서 다루지 않습니다. 업체 화면은 계속 바뀔 수 있으므로, 연결 개념과 확인 기준을 중심으로 정리합니다.
 

@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Branch란 무엇인가
 
-[[3-2-3-commit-push-pull|이전 문서]]에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다.
+[이전 문서](/dev-tools/github/3-2-3-commit-push-pull)에서 commit·push·pull로 GitHub와 코드를 주고받는 법을 배웠다면, 이번 문서는 여러 작업을 안전하게 나누는 branch 개념을 다룹니다.
 
 branch를 만들고 전환하고 삭제하고 다시 합치는 과정까지, 협업의 기본 리듬을 익히는 것이 이 문서의 목표다.
 

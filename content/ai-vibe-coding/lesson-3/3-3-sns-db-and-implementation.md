@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 방법을 배웠다면, 이 문서는 그 데이터가 화면에 <code>feed-card</code>처럼 반복해서 나타날 때 무엇을 검토해야 하는지를 다룹니다.
 
-데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
+데이터를 어떻게 저장하고 조회하는지는 [lesson-2 문서](/ai-vibe-coding/lesson-2/2-2-db-schema)로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
 
 **▶ 피드 카드 구성 요소**
 
@@ -118,7 +118,7 @@ lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 
 **⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
-  <p>로딩·에러 상태는 [[2-5-community-dev|lesson-2 문서]]에서 다룬 것과 같은 원칙(로딩 표시·빈 상태 안내·에러 시 재시도)을 따르되, 좁은 화면에서는 안내 문구와 버튼이 <strong>충분한 터치 영역</strong>을 갖는지 함께 확인합니다.</p>
+  <p>로딩·에러 상태는 <a href="/ai-vibe-coding/lesson-2/2-5-community-dev">lesson-2 문서</a>에서 다룬 것과 같은 원칙(로딩 표시·빈 상태 안내·에러 시 재시도)을 따르되, 좁은 화면에서는 안내 문구와 버튼이 <strong>충분한 터치 영역</strong>을 갖는지 함께 확인합니다.</p>
 </div>
 
 ---

@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 시맨틱 HTML이란
 
-[[1-4-tags-attributes-elements|이전 문서]]에서 블록·인라인 요소를 다뤘다면, 이 문서는 "어떤 태그를 골라야 하는가"에 대한 기준을 다룹니다.
+[이전 문서](/html/html/1-4-tags-attributes-elements)에서 블록·인라인 요소를 다뤘다면, 이 문서는 "어떤 태그를 골라야 하는가"에 대한 기준을 다룹니다.
 
 같은 화면을 만들더라도 <code>div</code>만으로 채우는 것과, 의미를 가진 태그로 채우는 것은 결과물의 품질이 크게 달라집니다.
 

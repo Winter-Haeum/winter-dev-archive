@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Component based 방식 이해하기 (Bootstrap의 접근)
 
-[[4-1-what-is-css-framework|이전 문서]]에서 CSS 프레임워크가 왜 필요한지를 봤다면, 이 문서는 프레임워크들이 실제로 UI를 만드는 두 가지 대표 방식을 비교합니다.
+[이전 문서](/css-framework/css-framework/4-1-what-is-css-framework)에서 CSS 프레임워크가 왜 필요한지를 봤다면, 이 문서는 프레임워크들이 실제로 UI를 만드는 두 가지 대표 방식을 비교합니다.
 
 여기서 정리하는 두 철학은 이후 다룰 Bootstrap(4.3), TailwindCSS(4.4)를 이해하는 기준이 된다.
 
