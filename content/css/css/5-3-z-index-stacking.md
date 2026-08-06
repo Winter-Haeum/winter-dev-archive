@@ -70,7 +70,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. z-index란
 
-[[5-1-position-layout|Position 실전 패턴]]과 [[5-2-transform-effects|Transform]]을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다.
+[Position 실전 패턴](/css/css/5-1-position-layout)과 [Transform](/css/css/5-2-transform-effects)을 배웠다면, 이제 겹쳐진 요소들 중 무엇이 위에 보일지를 결정하는 z-index 차례입니다.
 
 단순히 숫자를 크게 주는 것만으로는 해결되지 않는 경우가 많은데, 그 이유가 바로 이 문서의 핵심인 Stacking Context에 있습니다.
 

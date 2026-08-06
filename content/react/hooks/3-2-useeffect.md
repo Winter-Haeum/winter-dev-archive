@@ -74,7 +74,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Side Effect란
 
-useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다. state를 안전하게 바꾸는 방법은 [[3-1-usestate|3-1 문서]]에서 다뤘습니다.
+useEffect는 컴포넌트를 리액트 바깥의 외부 시스템과 동기화하는 Hook입니다. state를 안전하게 바꾸는 방법은 [3-1 문서](/react/hooks/3-1-usestate)에서 다뤘습니다.
 
 이 문서는 그 state가 바뀔 때 서버 요청이나 타이머처럼 화면 그리기 자체가 아닌 작업을 언제, 어떻게 실행할지를 다룹니다. 실행 순서를 클래스 컴포넌트 생명주기와 비교하는 자세한 내용은 부록 "리액트 라이프사이클" 문서에서 다룹니다.
 

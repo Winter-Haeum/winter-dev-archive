@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 반응형 모드 활성화하기
 
-[[1-1-inspect-website-with-devtools|이전 문서]]에서 DevTools로 HTML과 CSS를 들여다봤다면, 이 문서는 그 화면이 다양한 기기에서 어떻게 보이는지 확인하는 방법을 다룹니다.
+[이전 문서](/devtools-layout/devtools/1-1-inspect-website-with-devtools)에서 DevTools로 HTML과 CSS를 들여다봤다면, 이 문서는 그 화면이 다양한 기기에서 어떻게 보이는지 확인하는 방법을 다룹니다.
 
 모바일부터 태블릿까지 실제 기기를 하나씩 구해서 테스트할 수는 없다. 반응형 모드는 이 문제를 브라우저 안에서 바로 해결해주는 기능이다.
 

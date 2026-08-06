@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 transform은 요소의 실제 레이아웃 위치는 그대로 두고, 화면에 그려지는 모습만 이동·회전·확대·기울이는 속성입니다.
 
-<code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [[5-1-position-layout|이전 문서]]에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.
+<code>top</code>이나 <code>left</code>와 달리 주변 요소를 밀어내지 않기 때문에, [이전 문서](/css/css/5-1-position-layout)에서 배운 position과 짝을 지어 쓰면 정확한 중앙 정렬이나 부드러운 인터랙션을 매우 쉽게 만들 수 있습니다.
 
 `translate()`는 요소를 가로(X), 세로(Y) 방향으로 이동시키는 함수다. 레이아웃 흐름에는 전혀 영향을 주지 않고, 화면에 그려지는 위치만 옮긴다.
 

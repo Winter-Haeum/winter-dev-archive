@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Container 속성(부모 요소) 정리
 
-[[3-1-flexbox-concept|이전 문서]]에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 하나씩 실전 코드로 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.
+[이전 문서](/css/css/3-1-flexbox-concept)에서 Flexbox의 기본 개념과 Container·Item의 역할 구분을 봤다면, 이 문서에서는 그 속성들을 하나씩 실전 코드로 다룬다. Container 속성 7개, Item 속성 6개를 값 종류와 실무 예시 위주로 정리한다.
 
 ### 🧭 flex-direction — 주축 방향 결정
 

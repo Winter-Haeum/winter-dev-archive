@@ -76,7 +76,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 useContext는 여러 컴포넌트가 값을 함께 봐야 할 때, props를 거치지 않고 값을 전달하는 Hook입니다.
 
-상태 변경 로직이 복잡할 때 쓰는 useReducer는 [[4-2-usereducer|4-2 문서]]에서, Redux·Zustand 같은 전역 상태 관리 라이브러리는 [[4-3-state-management-libraries|4-3 문서]]에서 다룹니다.
+상태 변경 로직이 복잡할 때 쓰는 useReducer는 [4-2 문서](/react/state-management/4-2-usereducer)에서, Redux·Zustand 같은 전역 상태 관리 라이브러리는 [4-3 문서](/react/state-management/4-3-state-management-libraries)에서 다룹니다.
 
 이후 예시는 학습 플랫폼의 `AppSettingsContext`(다크모드·언어 등 앱 설정)와 `UserContext`(로그인 사용자 정보)를 기준으로 설명합니다.
 

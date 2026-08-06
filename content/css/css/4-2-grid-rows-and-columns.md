@@ -72,7 +72,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 복습 — 기본 Grid 컨테이너
 
-[[4-1-grid-structure|이전 문서]]에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 행과 열을 실제로 어떻게 자유자재로 배치하는지를 다룬다.
+[이전 문서](/css/css/4-1-grid-structure)에서 Grid의 기본 개념과 Container·Item 구분을 익혔다면, 이 문서에서는 그 위에서 행과 열을 실제로 어떻게 자유자재로 배치하는지를 다룬다.
 
 단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.
 

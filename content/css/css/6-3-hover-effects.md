@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 버튼 hover 효과
 
-[[6-1-transition-effects|2-5-1]]에서 transition의 기본기를, [[6-2-animation-keyframes|2-5-2]]에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 종합 실습이다.
+[2-5-1](/css/css/6-1-transition-effects)에서 transition의 기본기를, [2-5-2](/css/css/6-2-animation-keyframes)에서 animation과 @keyframes를 배웠다면, 이 문서는 그 둘을 실전 UI 패턴에 적용하는 종합 실습이다.
 
 대부분의 예시는 transition만으로 충분히 구현된다.
 

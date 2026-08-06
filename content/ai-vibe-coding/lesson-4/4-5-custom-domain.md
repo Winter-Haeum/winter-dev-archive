@@ -70,7 +70,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. 제출 전 정리할 항목
 
-[[4-4-portfolio-final-review|이전 문서]]에서 공개 주소를 정리했다면, 이번에는 submission-ready 상태를 만드는 문서 정리 단계입니다. 화면 자체가 아니라 README, 프로젝트 설명, 커밋과 PR 같은 텍스트 자료를 점검합니다.
+[이전 문서](/ai-vibe-coding/lesson-4/4-4-portfolio-final-review)에서 공개 주소를 정리했다면, 이번에는 submission-ready 상태를 만드는 문서 정리 단계입니다. 화면 자체가 아니라 README, 프로젝트 설명, 커밋과 PR 같은 텍스트 자료를 점검합니다.
 
 <div class="wda-fgrid">
   <div class="wda-fcard"><div class="wda-fcard-ttl">README</div><div class="wda-fcard-dsc">프로젝트 목적, 주요 기능, 사용 방법이 빠짐없이 정리되어 있는지 확인합니다.</div></div>

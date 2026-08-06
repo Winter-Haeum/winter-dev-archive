@@ -71,7 +71,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. GitHub란 무엇인가
 
-[[3-1-3-cli-basics|Git 기본 CLI]]에서 로컬 저장소를 다루는 법을 익혔다면, 이 문서부터는 그 저장소를 클라우드와 연결하는 GitHub 3부작이 시작됩니다.
+[Git 기본 CLI](/dev-tools/git/3-1-3-cli-basics)에서 로컬 저장소를 다루는 법을 익혔다면, 이 문서부터는 그 저장소를 클라우드와 연결하는 GitHub 3부작이 시작됩니다.
 
 이번 문서는 GitHub가 정확히 무엇인지 정의하고, 계정을 만들어 기본 화면 구조를 파악하는 데 집중합니다. 실제로 로컬과 연결하는 방법은 다음 문서에서 다룹니다.
 

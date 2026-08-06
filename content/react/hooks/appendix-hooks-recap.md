@@ -73,7 +73,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Hook 4개 한눈에 비교
 
-이 문서는 새로운 개념을 추가하지 않고, [[3-1-usestate|3-1]]~[[3-4-custom-hooks|3-4]]에서 배운 내용을 비교·복습하는 용도입니다.
+이 문서는 새로운 개념을 추가하지 않고, [3-1](/react/hooks/3-1-usestate)~[3-4](/react/hooks/3-4-custom-hooks)에서 배운 내용을 비교·복습하는 용도입니다.
 
 **▶ useState·useEffect·useRef·Custom Hook 비교**
 

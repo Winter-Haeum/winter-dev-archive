@@ -68,7 +68,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. Context API가 부족해지는 시점
 
-이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다. [[4-1-usecontext|4-1]], [[4-2-usereducer|4-2 문서]]에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다.
+이 문서는 전역 상태 관리 라이브러리를 설치·코드 수준이 아니라 개념 수준에서 비교합니다. [4-1](/react/state-management/4-1-usecontext), [4-2 문서](/react/state-management/4-2-usereducer)에서 다룬 Context와 useReducer만으로도 대부분의 소규모 프로젝트는 충분합니다.
 
 실제 설치 명령어나 API 사용법은 각 라이브러리의 공식 문서를 참고합니다.
 
@@ -98,7 +98,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 **💡 설명**
 
 <div class="wda-callout wda-ci">
-  <p>Redux는 <strong>[[4-2-usereducer|4-2 문서]]에서 배운 reducer 패턴</strong>을 앱 전체 단위로 확장한 것과 개념적으로 비슷합니다. action을 dispatch하면 reducer가 새 상태를 계산하고, 그 상태를 구독하는 컴포넌트가 갱신됩니다.</p>
+  <p>Redux는 <strong><a href="/react/state-management/4-2-usereducer">4-2 문서</a>에서 배운 reducer 패턴</strong>을 앱 전체 단위로 확장한 것과 개념적으로 비슷합니다. action을 dispatch하면 reducer가 새 상태를 계산하고, 그 상태를 구독하는 컴포넌트가 갱신됩니다.</p>
 </div>
 
 ---

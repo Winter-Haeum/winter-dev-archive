@@ -74,7 +74,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 1. useRef 기본 문법
 
-useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다. 화면에 보여줄 값은 [[3-1-usestate|3-1 문서]]에서 다룬 useState로 관리합니다.
+useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에 직접 접근할 때 쓰는 Hook입니다. 화면에 보여줄 값은 [3-1 문서](/react/hooks/3-1-usestate)에서 다룬 useState로 관리합니다.
 
 이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.
 
@@ -128,7 +128,7 @@ function SearchPanel() {
   <p><strong>DOM이 아직 연결되기 전에는 <code>ref.current</code>가 <code>null</code>일 수 있습니다.</strong> <code>inputRef.current?.focus()</code>처럼 존재 여부를 확인하는 방식이 안전합니다.</p>
 </div>
 
-마운트되자마자 자동으로 포커스를 주고 싶다면, [[3-2-useeffect|3-2 문서]]에서 다룬 useEffect와 조합합니다.
+마운트되자마자 자동으로 포커스를 주고 싶다면, [3-2 문서](/react/hooks/3-2-useeffect)에서 다룬 useEffect와 조합합니다.
 
 **• React: 마운트 시 자동 focus하기**
 
