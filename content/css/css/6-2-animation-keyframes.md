@@ -85,7 +85,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
-**▶ Animation**
+**• Animation**
 
 ```css
 /* Animation - 다단계, 트리거 없이 자동 실행 */
@@ -97,7 +97,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .box { animation: fadeInSlide 0.6s ease-out; }
 ```
 
-**▶ Transition**
+**• Transition**
 
 ```css
 /* Transition - 2개 상태, hover 트리거 필요 */
@@ -121,7 +121,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 시작과 끝, 딱 2개 상태만 있을 때 사용하는 간단한 구문이다.
 
-**▶ fadeIn**
+**• fadeIn**
 
 ```css
 @keyframes fadeIn {
@@ -131,7 +131,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .el { animation: fadeIn 0.5s ease; }
 ```
 
-**▶ slideIn**
+**• slideIn**
 
 ```css
 @keyframes slideIn {
@@ -140,7 +140,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ rotate**
+**• rotate**
 
 ```css
 @keyframes rotate {
@@ -153,7 +153,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 0%부터 100% 사이에 원하는 만큼 지점을 나눠 정밀하게 타이밍을 제어할 수 있다.
 
-**▶ pulse**
+**• pulse**
 
 ```css
 @keyframes pulse {
@@ -163,7 +163,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ rainbow**
+**• rainbow**
 
 ```css
 @keyframes rainbow {
@@ -175,7 +175,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ bounce**
+**• bounce**
 
 ```css
 @keyframes bounce {
@@ -219,7 +219,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### ⏱️ animation-name / duration / timing-function
 
-**▶ 기본 사용**
+**• 기본 사용**
 
 ```css
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -231,7 +231,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ 로딩 스피너**
+**• 로딩 스피너**
 
 ```css
 /* 로딩 스피너 - linear가 자연스럽다 */
@@ -242,7 +242,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ 탄성 효과**
+**• 탄성 효과**
 
 ```css
 /* cubic-bezier로 탄성 느낌 부여 */
@@ -255,7 +255,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 🔁 animation-delay / iteration-count
 
-**▶ delay 기본값**
+**• delay 기본값**
 
 ```css
 .el { animation-delay: 0s; }    /* 기본값. 즉시 시작 */
@@ -263,7 +263,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .el { animation-delay: -0.5s; } /* 이미 0.5초 진행된 지점부터 시작 */
 ```
 
-**▶ Stagger 효과**
+**• Stagger 효과**
 
 ```css
 /* Stagger - 목록 아이템을 순차적으로 등장시키기 */
@@ -272,7 +272,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .item:nth-child(3) { animation-delay: 0.2s; }
 ```
 
-**▶ 반복 횟수**
+**• 반복 횟수**
 
 ```css
 .el { animation-iteration-count: 1; }        /* 기본값 */
@@ -312,7 +312,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </tbody>
 </table>
 
-**▶ forwards 유지**
+**• forwards 유지**
 
 ```css
 /* 모달 페이드인 후 마지막 상태(opacity:1) 유지 */
@@ -321,7 +321,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ both 적용**
+**• both 적용**
 
 ```css
 /* delay 동안에도 첫 keyframe 상태를 유지 - both */
@@ -332,14 +332,14 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### 🎞️ animation-play-state
 
-**▶ 기본 값**
+**• 기본 값**
 
 ```css
 .el { animation-play-state: running; } /* 기본값 */
 .el { animation-play-state: paused; }
 ```
 
-**▶ JavaScript로 제어**
+**• JavaScript로 제어**
 
 ```js
 // JS로 재생 상태 토글
@@ -347,7 +347,7 @@ const el = document.querySelector('.spinner');
 el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'running' : 'paused';
 ```
 
-**▶ hover로 정지**
+**• hover로 정지**
 
 ```css
 /* hover로 자동 배경 애니메이션 일시정지 */
@@ -358,7 +358,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 
 8가지 속성을 한 줄로 합칠 수 있다. 순서가 중요하며, `name`과 `duration`만은 반드시 있어야 한다.
 
-**▶ 기본 문법**
+**• 기본 문법**
 
 ```css
 /* 문법: animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
@@ -367,7 +367,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 }
 ```
 
-**▶ 모든 값 지정**
+**• 모든 값 지정**
 
 ```css
 .modal {
@@ -375,7 +375,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 }
 ```
 
-**▶ 여러 애니메이션 동시 적용**
+**• 여러 애니메이션 동시 적용**
 
 ```css
 /* 콤마로 여러 애니메이션 동시 적용 */
@@ -394,7 +394,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 
 ## 4. 실전 예시: 로딩 스피너
 
-**▶ CSS: 로딩 스피너 기본 회전**
+**• CSS: 로딩 스피너 기본 회전**
 
 ```css
 @keyframes rotate {
@@ -412,7 +412,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 }
 ```
 
-**▶ CSS: 점 3개 순차 바운스 스피너**
+**• CSS: 점 3개 순차 바운스 스피너**
 
 ```css
 /* 변형 - 3개 점이 순차적으로 튀어 오르는 스피너 */
@@ -426,7 +426,7 @@ el.style.animationPlayState = el.style.animationPlayState === 'paused' ? 'runnin
 .dot:nth-child(3) { animation-delay: 0.3s; }
 ```
 
-**▶ JavaScript: 로딩 상태 클래스 토글**
+**• JavaScript: 로딩 상태 클래스 토글**
 
 ```js
 // JS로 로딩 상태 제어
@@ -438,7 +438,7 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 
 ## 5. 실전 예시: 페이드인
 
-**▶ CSS: 페이드인 업 기본**
+**• CSS: 페이드인 업 기본**
 
 ```css
 @keyframes fadeInUp {
@@ -451,7 +451,7 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 }
 ```
 
-**▶ CSS: 목록 아이템 순차 페이드인**
+**• CSS: 목록 아이템 순차 페이드인**
 
 ```css
 /* 목록 아이템 순차 페이드인 - Stagger */
@@ -461,7 +461,7 @@ function hideLoading(el) { el.classList.remove('is-loading'); }
 .list-item:nth-child(3) { animation-delay: 0.16s; }
 ```
 
-**▶ JavaScript: 스크롤 진입 시 애니메이션 실행**
+**• JavaScript: 스크롤 진입 시 애니메이션 실행**
 
 ```js
 // IntersectionObserver로 스크롤 진입 시 애니메이션 실행
@@ -479,7 +479,7 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 ## 6. 실전 예시: 슬라이드 캐러셀
 
-**▶ CSS: 슬라이드 캐러셀 전환**
+**• CSS: 슬라이드 캐러셀 전환**
 
 ```css
 @keyframes slideIn {
@@ -492,7 +492,7 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 }
 ```
 
-**▶ JavaScript: 캐러셀 자동 재생·hover 정지**
+**• JavaScript: 캐러셀 자동 재생·hover 정지**
 
 ```js
 // 캐러셀 핵심 로직 - 자동 재생 + hover 정지

@@ -84,7 +84,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">복합 효과</div><div class="wda-fcard-dsc">색상+크기+그림자를 동시에 적용해 존재감을 강조한다.</div></div>
 </div>
 
-**▶ 색상 전환**
+**• 색상 전환**
 
 ```css
 /* 색상 전환 */
@@ -92,7 +92,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .btn:hover { background-color: #4f46e5; }
 ```
 
-**▶ 크기 확대**
+**• 크기 확대**
 
 ```css
 /* 크기 확대 */
@@ -100,7 +100,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .btn:hover { transform: scale(1.05); }
 ```
 
-**▶ 그림자 추가**
+**• 그림자 추가**
 
 ```css
 /* 그림자 추가 */
@@ -108,7 +108,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 .btn:hover { box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3); }
 ```
 
-**▶ 복합 효과**
+**• 복합 효과**
 
 ```css
 /* 복합 효과 - 세 가지를 동시에 */
@@ -143,7 +143,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
-**▶ Lift Up 효과**
+**• Lift Up 효과**
 
 ```css
 /* Lift Up - 위로 떠오르며 그림자가 커짐 */
@@ -156,7 +156,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 }
 ```
 
-**▶ Tilt 효과**
+**• Tilt 효과**
 
 ```css
 /* Tilt - perspective + rotateX/rotateY로 3D 기울임 */
@@ -185,7 +185,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이미지를 확대할 때 부모 영역 밖으로 넘치지 않도록 부모에 `overflow: hidden`을 반드시 지정한다.
 
-**▶ CSS: 이미지 줌 효과**
+**• CSS: 이미지 줌 효과**
 
 ```css
 .thumb {
@@ -204,7 +204,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 수 있는 기반을 만든다.
 
-**▶ CSS: 이미지 오버레이 효과**
+**• CSS: 이미지 오버레이 효과**
 
 ```css
 .thumb {
@@ -235,7 +235,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 `text-decoration` 대신 가상 요소로 밑줄을 직접 그리면, 밑줄이 왼쪽에서 오른쪽으로 그려지는 애니메이션을 만들 수 있다.
 
-**▶ CSS: 언더라인 그리기 애니메이션**
+**• CSS: 언더라인 그리기 애니메이션**
 
 ```css
 .link {
@@ -271,7 +271,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 부모에 마우스를 올렸을 때 내부 자식 요소의 스타일을 함께 바꿀 수 있다.
 
-**▶ CSS: 부모 hover로 자식 스타일 제어**
+**• CSS: 부모 hover로 자식 스타일 제어**
 
 ```css
 .card:hover .icon  { transform: rotate(15deg) scale(1.1); }
@@ -292,7 +292,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 </tbody>
 </table>
 
-**▶ CSS: 형제 요소 hover 제어**
+**• CSS: 형제 요소 hover 제어**
 
 ```css
 /* 다음 형제 하나만 흐리게 */
@@ -316,7 +316,7 @@ hover 시 이미지를 어둡게 만들고, 그 위에 캡션·버튼을 올릴 
 
 `:has()`는 특정 자식이나 후손이 어떤 상태일 때 그 부모 자체를 선택할 수 있는 비교적 최신 CSS 기능이다.
 
-**▶ form 상태 감지**
+**• form 상태 감지**
 
 ```css
 /* input이 focus 상태일 때 form 전체 스타일 변경 */
@@ -325,7 +325,7 @@ form:has(input:focus) {
 }
 ```
 
-**▶ 목록 항목 강조**
+**• 목록 항목 강조**
 
 ```css
 /* 체크된 input이 있는 목록 항목 강조 */
@@ -336,7 +336,7 @@ li:has(input:checked) {
 
 ### 🔎 :not() — 특정 조건 제외
 
-**▶ CSS: :not()으로 disabled 제외**
+**• CSS: :not()으로 disabled 제외**
 
 ```css
 /* disabled가 아닌 버튼에만 hover 효과 */
@@ -345,7 +345,7 @@ li:has(input:checked) {
 }
 ```
 
-**▶ CSS: :not()으로 마지막 아이템 제외**
+**• CSS: :not()으로 마지막 아이템 제외**
 
 ```css
 /* 마지막 아이템을 제외한 나머지에만 hover 구분선 표시 */

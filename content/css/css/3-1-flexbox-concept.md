@@ -93,7 +93,7 @@ Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 
 
 Flexbox는 이 문제들을 단 몇 줄로 해결한다.
 
-**▶ CSS: Flexbox 중앙 정렬**
+**• CSS: Flexbox 중앙 정렬**
 
 ```css
 .container {
@@ -171,7 +171,7 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
   </div>
 </div>
 
-**▶ Container 속성**
+**• Container 속성**
 
 ```css
 /* Container(부모)에 적용 */
@@ -185,7 +185,7 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
 }
 ```
 
-**▶ Item 속성**
+**• Item 속성**
 
 ```css
 /* Item(자식)에 적용 */

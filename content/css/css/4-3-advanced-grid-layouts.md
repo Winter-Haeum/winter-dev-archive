@@ -83,7 +83,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">Footer</div><div class="wda-fcard-dsc">전체 너비를 차지</div></div>
 </div>
 
-**▶ CSS: 신문 레이아웃 기본 구조**
+**• CSS: 신문 레이아웃 기본 구조**
 
 ```css
 .newspaper {
@@ -115,7 +115,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>자주 하는 질문.</strong> 왜 <code>1 / 4</code>로 병합할까? 열이 3개면 그리드 라인은 1~4번까지 생기기 때문에, 1번부터 4번까지가 곧 3열 전체다. Sidebar·Main·Ads에는 왜 <code>grid-column</code>을 쓰지 않았을까? 자동 배치에 맡기면 순서대로 각각 1번째, 2번째, 3번째 칸에 알아서 들어가기 때문이다. Sidebar와 Ads의 너비를 고정하는 이유는, 광고와 내비게이션처럼 크기가 일정해야 레이아웃이 흔들리지 않는 영역이기 때문이다.</p>
 </div>
 
-**▶ HTML: 신문 레이아웃 마크업**
+**• HTML: 신문 레이아웃 마크업**
 
 ```html
 <div class="newspaper">
@@ -127,7 +127,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 ```
 
-**▶ CSS: 신문 레이아웃 마크업 스타일**
+**• CSS: 신문 레이아웃 마크업 스타일**
 
 ```css
 .newspaper {
@@ -153,7 +153,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 레이아웃을 문자열로 그리듯 설계하고, 영역마다 이름을 붙인 뒤 `grid-area`로 연결하면 된다.
 
-**▶ CSS: 대시보드 grid-template-areas**
+**• CSS: 대시보드 grid-template-areas**
 
 ```css
 .dashboard {
@@ -190,7 +190,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>자주 하는 질문.</strong> Sidebar가 2행에 걸쳐 있는데 어떻게 병합될까? <code>grid-template-areas</code>에서 같은 이름(<code>sidebar</code>)이 여러 줄에 반복되면 자동으로 하나의 영역으로 합쳐진다. <code>grid-column</code>보다 <code>grid-template-areas</code>가 항상 더 좋은가? 복잡한 레이아웃엔 <code>areas</code>가 유리하지만, 2분할처럼 간단한 구조는 <code>grid-column</code>만으로 충분하다. 실무에서 정말 쓰이는가? 대시보드·관리자 페이지·SaaS 제품 화면에서 실제로 많이 쓰인다.</p>
 </div>
 
-**▶ HTML: 대시보드 마크업**
+**• HTML: 대시보드 마크업**
 
 ```html
 <div class="dashboard">
@@ -205,7 +205,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 ```
 
-**▶ CSS: 대시보드 마크업 스타일**
+**• CSS: 대시보드 마크업 스타일**
 
 ```css
 .dashboard {
@@ -228,7 +228,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 열 개수를 3개로 고정하면 화면이 커질수록 카드가 불필요하게 커지고, 화면이 작아지면 카드가 너무 작아진다. 화면 크기마다 미디어 쿼리로 열 개수를 새로 지정하는 것도 번거롭다.
 
-**▶ CSS: 반응형 갤러리 auto-fit**
+**• CSS: 반응형 갤러리 auto-fit**
 
 ```css
 .gallery {
@@ -286,7 +286,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>실무에서는 대부분의 갤러리·카드 목록에 <strong>auto-fit</strong>이 권장된다. <strong>자주 하는 질문.</strong> 둘의 차이는 빈 칸 유지 여부다. 어떤 게 더 좋은가는 상황에 따라 다르지만 기본값은 <code>auto-fit</code>이다. <code>auto-fill</code>은 아이템 개수가 유동적인 리스트에서 그리드 틀 자체를 유지하고 싶을 때 사용한다.</p>
 </div>
 
-**▶ HTML: 이미지 갤러리 마크업**
+**• HTML: 이미지 갤러리 마크업**
 
 ```html
 <div class="gallery">
@@ -296,7 +296,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 ```
 
-**▶ CSS: 이미지 갤러리 마크업 스타일**
+**• CSS: 이미지 갤러리 마크업 스타일**
 
 ```css
 .gallery {
@@ -341,7 +341,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 화면에 그대로 쓰면 사이드바가 화면을 너무 많이 차지해 좁고 답답해진다. 화면이 좁아지면 가로 2열을 세로 1열로 바꿔야 한다.
 
-**▶ CSS: 미디어 쿼리로 2열→1열 전환**
+**• CSS: 미디어 쿼리로 2열→1열 전환**
 
 ```css
 /* PC 기준 - 2열 */
@@ -374,7 +374,7 @@ PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 �
 
 **반응형 Grid 실전 — 신문형 3열 구조**
 
-**▶ CSS: 신문형 레이아웃 반응형 처리**
+**• CSS: 신문형 레이아웃 반응형 처리**
 
 ```css
 .newspaper {

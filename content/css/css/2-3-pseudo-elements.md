@@ -117,7 +117,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### ✨ ::before — 요소 앞에 추가하기
 
-**▶ CSS: ::before 기본 사용**
+**• CSS: ::before 기본 사용**
 
 ```css
 .item::before {
@@ -142,13 +142,13 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `::before`로 생성된 요소는 HTML 수정 없이도 아이콘을 붙일 수 있고, 대상 요소의 <strong>첫 번째 자식</strong>처럼 삽입되며, 기본 `display` 값은 `inline`이다. `position: absolute`를 주면 부모를 기준으로 자유롭게 배치할 수도 있다.
 
-**▶ HTML 속성**
+**• HTML 속성**
 
 ```html
 <span data-label="필수">이름</span>
 ```
 
-**▶ attr() 값 가져오기**
+**• attr() 값 가져오기**
 
 ```css
 [data-label]::before {
@@ -162,7 +162,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `::before`와 문법은 동일하지만 콘텐츠 맨 뒤에 삽입된다는 점만 다르다. 과거에는 float으로 인한 레이아웃 붕괴를 막는 clearfix 패턴에 자주 쓰였다.
 
-**▶ CSS: clearfix 패턴**
+**• CSS: clearfix 패턴**
 
 ```css
 .clearfix::after {
@@ -174,7 +174,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 외부 링크 뒤에 화살표 아이콘을 붙이는 것도 흔한 활용이다.
 
-**▶ CSS: 외부 링크 화살표 추가**
+**• CSS: 외부 링크 화살표 추가**
 
 ```css
 a[target="_blank"]::after {
@@ -224,7 +224,7 @@ a[target="_blank"]::after {
 
 신문이나 잡지 기사처럼 문단의 첫 글자를 크게 강조하는 드롭캡 효과를 만들 때 사용한다.
 
-**▶ CSS: ::first-letter 드롭캡**
+**• CSS: ::first-letter 드롭캡**
 
 ```css
 p.article::first-letter {
@@ -243,7 +243,7 @@ p.article::first-letter {
 
 문장이 아니라 <strong>브라우저가 계산한 화면상의 첫 줄</strong>을 스타일링한다.
 
-**▶ CSS: ::first-line 첫 줄 강조**
+**• CSS: ::first-line 첫 줄 강조**
 
 ```css
 p.intro::first-line {
@@ -269,7 +269,7 @@ p.intro::first-line {
 
 사용자가 마우스로 텍스트를 드래그해서 선택했을 때의 스타일을 바꾼다.
 
-**▶ CSS: ::selection 색상 변경**
+**• CSS: ::selection 색상 변경**
 
 ```css
 ::selection {
@@ -323,7 +323,7 @@ p.intro::first-line {
 
 `content`에 유니코드 문자를 직접 넣으면 이미지 파일 없이도 간단한 아이콘을 표현할 수 있다.
 
-**▶ CSS: 유니코드 아이콘 추가**
+**• CSS: 유니코드 아이콘 추가**
 
 ```css
 .check-list li::before {
@@ -378,7 +378,7 @@ p.intro::first-line {
 
 버튼에 마우스를 올렸을 때 나타나는 툴팁과, 그 아래 삼각형 꼬리는 `::after`와 `border` 트릭으로 순수 CSS만으로 구현할 수 있다.
 
-**▶ CSS: 말풍선 툴팁 구현**
+**• CSS: 말풍선 툴팁 구현**
 
 ```css
 .tooltip {

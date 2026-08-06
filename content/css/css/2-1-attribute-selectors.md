@@ -92,7 +92,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 버튼 타입에 따라 색을 다르게 주고 싶을 때를 비교해보면 차이가 분명해진다.
 
-**▶ HTML 구조 비교**
+**• HTML 구조 비교**
 
 ```html
 <!-- 클래스로 구분하려면 HTML 수정이 필요 -->
@@ -102,7 +102,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <button type="submit">제출</button>
 ```
 
-**▶ 속성 선택자 적용**
+**• 속성 선택자 적용**
 
 ```css
 button[type="submit"] {
@@ -118,7 +118,7 @@ button[type="submit"] {
 
 값과 무관하게 해당 속성이 있기만 하면 선택된다.
 
-**▶ CSS: 속성 존재 선택자**
+**• CSS: 속성 존재 선택자**
 
 ```css
 input[disabled] {
@@ -137,7 +137,7 @@ input[disabled] {
 
 속성값이 지정한 문자열과 완전히 같을 때만 선택된다.
 
-**▶ CSS: 속성값 정확히 일치**
+**• CSS: 속성값 정확히 일치**
 
 ```css
 button[type="submit"] {
@@ -155,7 +155,7 @@ a[target="_blank"]::after {
 
 속성값이 지정한 문자열로 시작할 때 선택된다. `^`는 정규식에서 "문자열의 시작"을 뜻하는 기호와 같은 의미로 기억하면 된다.
 
-**▶ CSS: 속성값 시작 문자열**
+**• CSS: 속성값 시작 문자열**
 
 ```css
 a[href^="https"] {
@@ -177,7 +177,7 @@ a[href^="mailto:"]::before {
 
 속성값이 지정한 문자열로 끝날 때 선택된다.
 
-**▶ CSS: 속성값 끝 문자열**
+**• CSS: 속성값 끝 문자열**
 
 ```css
 a[href$=".pdf"]::after { content: " (PDF)"; color: #d63384; }
@@ -191,7 +191,7 @@ a[href$=".xlsx"]::after { content: " (Excel)"; color: #198754; }
 
 속성값 어디에든 지정한 문자열이 포함되어 있으면 선택된다. 위치는 상관없다.
 
-**▶ CSS: 속성값 포함 문자열**
+**• CSS: 속성값 포함 문자열**
 
 ```css
 [class*="btn"] { padding: 8px 16px; }
@@ -205,7 +205,7 @@ a[href*="youtube"] { color: red; }
 
 공백으로 구분된 여러 값 중 하나가 지정한 단어와 정확히 일치할 때 선택된다.
 
-**▶ CSS 규칙**
+**• CSS 규칙**
 
 ```css
 [class~="active"] {
@@ -213,7 +213,7 @@ a[href*="youtube"] { color: red; }
 }
 ```
 
-**▶ HTML: 단어 단위 선택자 적용 대상**
+**• HTML: 단어 단위 선택자 적용 대상**
 
 ```html
 <li class="menu-item active">현재 메뉴</li>
@@ -228,7 +228,7 @@ a[href*="youtube"] { color: red; }
 
 값이 지정한 문자열과 정확히 같거나, 그 뒤에 하이픈(`-`)이 붙어 이어지는 경우까지 선택한다. 주로 언어 코드 표기에 쓰인다.
 
-**▶ CSS: 언어 코드 속성 선택자**
+**• CSS: 언어 코드 속성 선택자**
 
 ```css
 [lang|="en"] {
@@ -267,7 +267,7 @@ a[href*="youtube"] { color: red; }
 
 `data-*`는 개발자가 자유롭게 이름을 정해 요소에 추가 정보를 담을 수 있는 속성이다. 속성 선택자와 결합하면 클래스를 늘리지 않고도 상태 기반 스타일링이 가능하다.
 
-**▶ data-\* 속성 마크업**
+**• data-\* 속성 마크업**
 
 ```html
 <div data-status="success">저장 완료</div>
@@ -275,7 +275,7 @@ a[href*="youtube"] { color: red; }
 <div data-priority="high">긴급</div>
 ```
 
-**▶ 속성 선택자 스타일링**
+**• 속성 선택자 스타일링**
 
 ```css
 [data-status="success"] { border-left: 3px solid #22c55e; }
@@ -321,7 +321,7 @@ a[href*="youtube"] { color: red; }
 
 기준 요소 바로 다음에 오는 형제 요소 하나만 선택한다.
 
-**▶ 인접 형제 선택자 CSS**
+**• 인접 형제 선택자 CSS**
 
 ```css
 label + input {
@@ -333,7 +333,7 @@ input:focus + .error-message {
 }
 ```
 
-**▶ HTML: 인접 형제 선택자 적용 대상**
+**• HTML: 인접 형제 선택자 적용 대상**
 
 ```html
 <label for="email">이메일</label>
@@ -362,7 +362,7 @@ input:focus + .error-message {
 
 기준 요소 뒤에 나오는 같은 부모의 형제 요소를 전부 선택한다. 순서상 뒤에 있어야 하고, 앞에 있는 형제는 선택되지 않는다.
 
-**▶ 일반 형제 선택자 CSS**
+**• 일반 형제 선택자 CSS**
 
 ```css
 h2 ~ p {
@@ -370,7 +370,7 @@ h2 ~ p {
 }
 ```
 
-**▶ HTML: 일반 형제 선택자 적용 대상**
+**• HTML: 일반 형제 선택자 적용 대상**
 
 ```html
 <h2>FAQ</h2>
@@ -396,7 +396,7 @@ h2 ~ p {
 
 핵심은 <strong>속성 선택자도 클래스와 동일하게 10점</strong>이라는 점이다. `[type="text"]`와 `.input`은 점수가 같다. 그리고 `>`, 공백, `+`, `~` 같은 콤비네이터 기호 자체는 <strong>0점</strong>이다. 요소 관계만 지정할 뿐 그 자체로 구체성을 더하지는 않는다.
 
-**▶ CSS: 콤비네이터 점수 계산**
+**• CSS: 콤비네이터 점수 계산**
 
 ```css
 div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
@@ -430,7 +430,7 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 
 라디오 버튼과 `~` 선택자를 조합하면 JavaScript 없이 순수 CSS만으로 탭 UI를 만들 수 있다.
 
-**▶ 탭 UI 마크업**
+**• 탭 UI 마크업**
 
 ```html
 <input type="radio" name="tab" id="tab1" checked />
@@ -442,7 +442,7 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
 <div class="content">탭 2 내용</div>
 ```
 
-**▶ 탭 전환 CSS**
+**• 탭 전환 CSS**
 
 ```css
 .content { display: none; }
@@ -470,7 +470,7 @@ div > p { /* 태그 1점 + 태그 1점 + 콤비네이터 0점 = 2점 */ }
   </div>
 </div>
 
-**▶ CSS: 형제 선택자 체이닝으로 범위 제한**
+**• CSS: 형제 선택자 체이닝으로 범위 제한**
 
 ```css
 /* 해결 방법 2 예시 */

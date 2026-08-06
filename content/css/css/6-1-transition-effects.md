@@ -77,7 +77,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 transition은 "지금 상태(A)에서 목표 상태(B)로 변할 때, 그 변화를 얼마나 부드럽게 보여줄지"를 설정하는 속성이다. 여기서 가장 많이 헷갈리는 부분은 **transition을 어느 위치에 작성해야 하는가**다.
 
-**▶ CSS: transition 작성 위치**
+**• CSS: transition 작성 위치**
 
 ```css
 .button {
@@ -120,7 +120,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### 🎯 transition-property — 무엇을 전환할지
 
-**▶ CSS: transition-property 지정**
+**• CSS: transition-property 지정**
 
 ```css
 .box-a { transition-property: background-color; }              /* 속성 1개 */
@@ -155,7 +155,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### ⏱️ transition-duration — 얼마나 오래 걸릴지
 
-**▶ CSS: transition-duration 지정**
+**• CSS: transition-duration 지정**
 
 ```css
 .a { transition-duration: 0.3s; }
@@ -183,7 +183,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### 🎬 transition-timing-function — 어떤 속도로 변할지
 
-**▶ CSS: transition-timing-function 지정**
+**• CSS: transition-timing-function 지정**
 
 ```css
 .a { transition-timing-function: ease; }
@@ -195,14 +195,14 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 ### ⏱️ transition-delay — 언제 시작할지
 
-**▶ 기본 사용**
+**• 기본 사용**
 
 ```css
 .a { transition-delay: 0s; }   /* 기본값. 즉시 시작 */
 .b { transition-delay: 0.5s; } /* 0.5초 대기 후 시작 */
 ```
 
-**▶ 속성별 다른 delay**
+**• 속성별 다른 delay**
 
 ```css
 /* 여러 속성에 각각 다른 delay 부여 */
@@ -224,7 +224,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 실무에서는 4가지 속성을 각각 쓰기보다 shorthand 한 줄로 작성하는 경우가 많다.
 
-**▶ 기본 문법**
+**• 기본 문법**
 
 ```css
 /* 문법: transition: property duration timing-function delay; */
@@ -233,7 +233,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 }
 ```
 
-**▶ 여러 속성 함께 쓰기**
+**• 여러 속성 함께 쓰기**
 
 ```css
 /* 여러 속성을 콤마로 이어쓰기 */
@@ -242,7 +242,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 }
 ```
 
-**▶ 최소 형태**
+**• 최소 형태**
 
 ```css
 /* 최소 형태 - property와 duration만 있어도 동작한다 */
@@ -282,7 +282,7 @@ transition은 아래 4가지 속성의 조합으로 동작한다.
 
 더 세밀한 곡선이 필요하면 `cubic-bezier()` 함수로 직접 곡선을 그리거나, `steps()`로 프레임 단위 애니메이션을 만들 수 있다.
 
-**▶ CSS: cubic-bezier와 steps 활용**
+**• CSS: cubic-bezier와 steps 활용**
 
 ```css
 /* cubic-bezier(x1, y1, x2, y2) - 베지어 곡선의 두 제어점을 직접 지정 */
@@ -328,7 +328,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 
 ## 6. 실무 예시 3종
 
-**▶ 버튼 색 전환**
+**• 버튼 색 전환**
 
 ```css
 /* 1. 버튼 색 전환 - 기본 */
@@ -339,7 +339,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 .btn:hover { background-color: #4f46e5; }
 ```
 
-**▶ 카드 들어올리기**
+**• 카드 들어올리기**
 
 ```css
 /* 2. 카드 들어올리기 */
@@ -352,7 +352,7 @@ transition은 스스로 실행되지 않는다. 아래처럼 **상태를 바꾸�
 }
 ```
 
-**▶ 입력창 포커스 강조**
+**• 입력창 포커스 강조**
 
 ```css
 /* 3. 입력창 포커스 강조 */
