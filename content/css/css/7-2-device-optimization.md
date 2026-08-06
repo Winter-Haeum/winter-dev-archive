@@ -73,6 +73,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 [[7-1-media-query|Media Query]]로 "언제" 스타일을 바꿀지 정했다면, 이 문서는 "어떤 기기"를 위해 무엇을 바꿔야 하는지에 집중합니다. 모바일·태블릿·데스크탑은 화면 크기만 다른 것이 아니라 입력 방식과 사용 패턴 자체가 다르므로, 이를 반영한 설계 기준을 정리합니다.
 
+**▶ 모바일·태블릿·데스크탑 특성 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>📱 모바일</th><th>📟 태블릿</th><th>🖥 데스크탑</th></tr></thead>
 <tbody>
@@ -86,6 +88,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </table>
 
 모바일 트래픽 비중이 가장 크기 때문에, 모바일을 기본으로 두고 화면이 커질수록 스타일을 추가하는 모바일 우선 전략이 실무 표준으로 자리잡았다.
+
+**• CSS: 모바일 우선 기본 전략**
 
 ```css
 .container { width: 100%; } /* 기본 = 모바일 */
@@ -127,6 +131,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 터치 인터페이스에서 가장 중요한 것은 손가락으로 누르기 쉬운 크기와 간격이다.
 
+**▶ 터치 타겟 크기 기준**
+
 <table class="wda-mtable">
 <thead><tr><th>기준</th><th>값</th></tr></thead>
 <tbody>
@@ -135,6 +141,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <tr><td>터치 타겟 최소 간격</td><td>8px, 권장 12px 이상</td></tr>
 </tbody>
 </table>
+
+**• CSS: 터치 타겟 크기 비교**
 
 ```css
 /* ❌ Bad — 32px는 손가락 기준으로 너무 좁아 오클릭이 자주 발생한다 */
@@ -157,6 +165,8 @@ button {
 
 iPad Pro처럼 터치와 마우스(트랙패드)를 함께 지원하는 기기도 늘고 있어, CSS 미디어 기능으로 입력 방식을 감지해 대응한다.
 
+**▶ hover·pointer 미디어 기능**
+
 <table class="wda-mtable">
 <thead><tr><th>미디어 기능</th><th>의미</th><th>예시</th></tr></thead>
 <tbody>
@@ -165,6 +175,8 @@ iPad Pro처럼 터치와 마우스(트랙패드)를 함께 지원하는 기기�
 <tr><td><code>pointer: coarse</code></td><td>정밀하지 않은 포인터(터치)</td><td>버튼을 더 넉넉하게</td></tr>
 </tbody>
 </table>
+
+**• CSS: 마우스 전용 hover 감지**
 
 ```css
 button { min-width: 44px; } /* 기본: 터치 환경 기준 */
@@ -187,9 +199,13 @@ button { min-width: 44px; } /* 기본: 터치 환경 기준 */
 
 반응형 웹이 동작하기 위한 전제 조건이다. `<meta name="viewport">`가 없으면 모바일 브라우저는 기본 너비 980px를 기준으로 페이지를 렌더링한 뒤 축소해서 보여주기 때문에, 글자가 작게 보이고 미디어쿼리도 의도대로 작동하지 않는다.
 
+**• HTML: viewport 메타태그**
+
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
+
+**▶ viewport 옵션별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>옵션</th><th>의미</th></tr></thead>
@@ -225,11 +241,15 @@ p  { font-size: 1rem; } /* 16px */</code></pre>
 
 ## 7. clamp()로 화면 크기에 비례하는 폰트 만들기
 
+**• CSS: clamp()로 반응형 폰트**
+
 ```css
 font-size: clamp(1rem, 2.5vw, 2rem);
 ```
 
 `clamp(최소값, 선호값, 최대값)`은 화면 너비에 비례하는 `vw` 기반 선호값을 계산하되, 그 값이 최소값보다 작아지면 최소값을, 최대값보다 커지면 최대값을 사용한다.
+
+**• clamp() 계산 과정**
 
 ```text
 375px 화면 → 2.5vw = 9.375px → 최소값(16px) 미만이므로 16px 적용

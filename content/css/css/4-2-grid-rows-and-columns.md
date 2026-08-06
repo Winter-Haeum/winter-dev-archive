@@ -76,6 +76,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 단위 계산, <code>repeat()</code>/<code>minmax()</code> 함수, <code>span</code>을 이용한 칸 병합, 그리고 <code>grid-template-areas</code>까지 Grid 배치 문법의 핵심을 모두 정리한다.
 
+**• CSS: 기본 Grid 컨테이너 복습**
+
 ```css
 .container {
   display: grid;
@@ -113,6 +115,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 컨테이너 폭 1000px, `gap: 16px`, 열 3개라면 gap은 사이사이 2개(16px × 2 = 32px)가 들어간다.
 
+**• 균등 분배 fr 계산**
+
 ```text
 남은 공간 = 1000px − 32px = 968px
 1fr = 968px ÷ 3 ≒ 322.67px
@@ -121,6 +125,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 **1fr 2fr — 1:2 비율**
 
 컨테이너 폭 1000px, 열 2개라면 gap은 1개(16px)만 들어간다.
+
+**• 1:2 비율 fr 계산**
 
 ```text
 남은 공간 = 1000px − 16px = 984px
@@ -131,6 +137,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 **1fr 2fr 3fr — 1:2:3 비율**
 
 같은 컨테이너 폭 968px(위 균등 분배 예시의 남은 공간 재사용)을 3개 열에 1:2:3 비율로 나눈다.
+
+**• 1:2:3 비율 fr 계산**
 
 ```text
 총 fr = 1 + 2 + 3 = 6
@@ -151,6 +159,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 **250px 1fr 1fr — 사이드바 + 메인 2분할**
 
+**• 사이드바+메인 2분할 계산**
+
 ```text
 컨테이너 1000px, gap 16px × 2개 = 32px
 남은 공간 = 1000px − 250px − 32px = 718px
@@ -158,6 +168,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 **200px 1fr 2fr — 고정 + 1:2 비율**
+
+**• 고정+1:2 비율 계산**
 
 ```text
 컨테이너 1000px, gap 16px × 2개 = 32px
@@ -171,6 +183,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <div class="wda-callout wda-ci">
   <p><strong>핵심 원리</strong>는 항상 같다. 먼저 고정 <code>px</code> 값을 빼고, 다음으로 <code>gap</code>을 빼고, 마지막으로 남은 공간을 <code>fr</code> 합계로 나눈다.</p>
 </div>
+
+**▶ 열 크기 패턴**
 
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>용도</th></tr></thead>
@@ -191,12 +205,16 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">Before — 반복 작성</div>
 
+**• CSS: repeat() 적용 전**
+
 ```css
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 ```
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">After — repeat() 사용</div>
+
+**• CSS: repeat() 적용 후**
 
 ```css
 grid-template-columns: repeat(5, 1fr);
@@ -205,6 +223,8 @@ grid-template-columns: repeat(5, 1fr);
 </div>
 
 `repeat()`는 열 개수를 바꾸고 싶을 때 숫자 하나만 고치면 되고, 코드도 한눈에 읽힌다.
+
+**• CSS: repeat() 활용 패턴**
 
 ```css
 /* 3개 균등 */
@@ -226,6 +246,8 @@ grid-template-columns: 200px repeat(3, 1fr) 100px;
 
 `minmax(최소값, 최대값)`은 셀 크기가 특정 범위 안에서만 움직이도록 제한한다.
 
+**• CSS: minmax()로 크기 제한**
+
 ```css
 /* 카드 3개 - 최소 200px, 남는 공간은 균등 분배 */
 .card-grid {
@@ -246,6 +268,8 @@ grid-template-columns: minmax(100px, 300px) 1fr;
 
 ## 7. grid-template-rows — 행 높이 정의
 
+**▶ grid-template-rows 값별 특징**
+
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>특징</th></tr></thead>
 <tbody>
@@ -254,6 +278,8 @@ grid-template-columns: minmax(100px, 300px) 1fr;
 <tr><td><code>fr</code></td><td>행을 비율로 나눈다. 단, 컨테이너에 <strong>명시적인 height가 있어야</strong> fr이 의미를 가진다.</td></tr>
 </tbody>
 </table>
+
+**• CSS: 행 높이 지정**
 
 ```css
 /* 헤더 고정, 본문 가변, 푸터 고정 */
@@ -269,6 +295,8 @@ grid-template-rows: 80px auto 60px;
 ---
 
 ## 8. gap 세분화 패턴
+
+**• CSS: gap 세분화 패턴**
 
 ```css
 /* 패턴 1 - 통합, 가장 많이 쓰는 형태 */
@@ -296,6 +324,8 @@ grid-template-rows: 80px auto 60px;
 
 시작 라인과 끝 라인을 `/`로 구분해서 지정한다. `1 / 3`은 1번 라인부터 3번 라인까지, 즉 2칸을 차지한다는 뜻이다.
 
+**• CSS: grid-column 라인 번호 배치**
+
 ```css
 .container { grid-template-columns: repeat(3, 1fr); }
 
@@ -320,6 +350,8 @@ grid-template-rows: 80px auto 60px;
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">Before — 라인 번호 방식</div>
 
+**• CSS: span 적용 전(라인 번호)**
+
 ```css
 .header { grid-column: 1 / 5; }
 .item-b { grid-column: 2 / 4; }
@@ -328,12 +360,16 @@ grid-template-rows: 80px auto 60px;
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">After — span 방식</div>
 
+**• CSS: span 적용 후**
+
 ```css
 .header { grid-column: span 4; }
 .item-b { grid-column: span 2; }
 ```
   </div>
 </div>
+
+**▶ 라인 번호 방식과 span 방식**
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>장점</th></tr></thead>
@@ -348,6 +384,8 @@ grid-template-rows: 80px auto 60px;
 ## 11. grid-row — 행 방향 배치
 
 `grid-column`과 동일한 문법을 행에 적용한다.
+
+**• CSS: grid-row 배치**
 
 ```css
 .container {
@@ -371,6 +409,8 @@ grid-template-rows: 80px auto 60px;
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">Before — 분리 작성</div>
 
+**• CSS: grid-area 적용 전(분리 작성)**
+
 ```css
 .card {
   grid-row: 1 / 3;
@@ -381,6 +421,8 @@ grid-template-rows: 80px auto 60px;
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">After — grid-area 통합</div>
 
+**• CSS: grid-area 통합**
+
 ```css
 .card {
   grid-area: 1 / 2 / 3 / 4;
@@ -390,6 +432,8 @@ grid-template-rows: 80px auto 60px;
 </div>
 
 `span`과 함께 쓸 수도 있다.
+
+**• CSS: grid-area와 span 함께 쓰기**
 
 ```css
 .card {
@@ -408,6 +452,8 @@ grid-template-rows: 80px auto 60px;
 ## 13. grid-template-areas — 영역 이름으로 설계하기
 
 라인 번호 방식은 구조가 복잡해질수록 숫자만 보고 전체 배치를 떠올리기 어려워진다. `grid-template-areas`는 레이아웃을 문자열로 그림처럼 표현할 수 있게 해준다.
+
+**• CSS: grid-template-areas 기본 문법**
 
 ```css
 .layout {
@@ -434,6 +480,8 @@ grid-template-rows: 80px auto 60px;
   </ul>
 </div>
 
+**• CSS: grid-template-areas 오류·정상 비교**
+
 ```css
 /* 잘못된 예시 - L자 모양은 허용되지 않는다 */
 grid-template-areas:
@@ -450,6 +498,8 @@ grid-template-areas:
 
 ## 14. grid-template-areas 실전 — 페이지 전체 레이아웃
 
+**• HTML 구조**
+
 ```html
 <div class="page">
   <header class="header">헤더</header>
@@ -458,6 +508,8 @@ grid-template-areas:
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**• CSS 스타일**
 
 ```css
 .page {
@@ -481,6 +533,8 @@ grid-template-areas:
 ---
 
 ## 15. 핵심 개념 총정리
+
+**▶ Grid 핵심 개념 총정리**
 
 <table class="wda-mtable">
 <thead><tr><th>개념</th><th>핵심 내용</th></tr></thead>

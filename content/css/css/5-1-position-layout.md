@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 바로 다음 섹션부터 실전 패턴을 만들기 때문에, 각 값의 기준점만 짧게 다시 짚어본다.
 
+**▶ position 값별 기준점 요약**
+
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>기준</th><th>한 줄 요약</th></tr></thead>
 <tbody>
@@ -94,6 +96,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 실무에서 가장 자주 등장하는 조합은 부모에 `relative`, 자식에 `absolute`를 주는 패턴이다. 카드 위에 "NEW" 배지를 올리는 예시로 확인해본다.
 
+**• HTML: 배지 카드 구조**
+
 ```html
 <div class="card">
   <span class="badge">NEW</span>
@@ -101,6 +105,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>무선 이어폰</p>
 </div>
 ```
+
+**• CSS: 배지 위치 지정**
 
 ```css
 .card {
@@ -125,6 +131,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `fixed` 요소는 문서 흐름에서 완전히 빠지기 때문에, 아래 콘텐츠가 헤더 자리까지 올라와 가려지는 문제가 흔히 발생한다.
 
+**• 문제 코드**
+
 ```css
 /* ❌ 문제 코드: 헤더가 아래 콘텐츠를 덮는다 */
 .header {
@@ -135,6 +143,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   height: 60px;
 }
 ```
+
+**• 해결 코드**
 
 ```css
 /* ✅ 해결 코드: 헤더 높이만큼 여백을 확보한다 */
@@ -158,6 +168,8 @@ body {
 
 카테고리별 상품 목록에서 흔히 보이는, 스크롤하다가 섹션 제목이 상단에 붙는 패턴이다.
 
+**• CSS: Sticky 섹션 헤더 고정**
+
 ```css
 .section-header {
   position: sticky;
@@ -173,6 +185,8 @@ body {
 
 `absolute`는 "부모 전체"가 아니라 **position이 static이 아닌, 가장 가까운 조상**을 기준으로 삼는다. 3단계 중첩 구조로 확인해본다.
 
+**• HTML: 3단계 중첩 구조**
+
 ```html
 <div class="grandparent">
   <div class="parent">
@@ -180,6 +194,8 @@ body {
   </div>
 </div>
 ```
+
+**• CSS: positioned 조상 찾기**
 
 ```css
 .grandparent {
@@ -205,6 +221,8 @@ body {
 
 화면을 어둡게 덮는 오버레이와 그 위에 뜨는 본체로 구성된다.
 
+**• HTML: 모달 구조**
+
 ```html
 <div class="modal-overlay">
   <div class="modal">
@@ -214,6 +232,8 @@ body {
   </div>
 </div>
 ```
+
+**• CSS: 모달 오버레이·본체 스타일**
 
 ```css
 .modal-overlay {
@@ -239,6 +259,8 @@ body {
 }
 ```
 
+**▶ 모달 요소별 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>역할</th></tr></thead>
 <tbody>
@@ -257,6 +279,8 @@ body {
 
 부모에 마우스를 올렸을 때 하위 메뉴가 나타나는 패턴이다. relative + absolute 조합을 그대로 응용한다.
 
+**• HTML: 드롭다운 메뉴 구조**
+
 ```html
 <nav class="dropdown">
   <button>메뉴</button>
@@ -267,6 +291,8 @@ body {
   </ul>
 </nav>
 ```
+
+**• CSS: 드롭다운 위치·표시 제어**
 
 ```css
 .dropdown {
@@ -303,12 +329,16 @@ body {
 
 아이콘에 마우스를 올렸을 때 나타나는 말풍선이다.
 
+**• HTML: 툴팁 구조**
+
 ```html
 <span class="tooltip-wrapper">
   ℹ️
   <span class="tooltip">추가 설명입니다</span>
 </span>
 ```
+
+**• CSS: 툴팁 위치·hover 표시**
 
 ```css
 .tooltip-wrapper {
@@ -341,6 +371,8 @@ body {
 ## 9. 실전 패턴: 오버레이 + 사이드바 (모바일 메뉴)
 
 배경을 어둡게 덮는 오버레이와, 옆에서 밀려 들어오는 사이드바를 함께 구현한다.
+
+**• CSS: 오버레이·사이드바 모바일 메뉴**
 
 ```css
 .overlay {
@@ -400,6 +432,8 @@ body {
   </div>
 </div>
 
+**• CSS: Floating 버튼**
+
 ```css
 .fab {
   position: fixed;
@@ -414,6 +448,8 @@ body {
 ## 11. 실전 패턴: Toast 알림 스택
 
 화면 구석에 알림이 하나씩 쌓이는 패턴이다.
+
+**• CSS: Toast 알림 스택**
 
 ```css
 .toast-container {
@@ -453,6 +489,8 @@ body {
 ## 12. 실전 패턴: 스크롤 구동 헤더 (Scroll-driven Header)
 
 자바스크립트 없이 순수 CSS만으로 스크롤 방향에 따라 헤더를 숨기고 보여주는 최신 패턴이다.
+
+**• CSS: 스크롤 구동 헤더**
 
 ```css
 .scroll-area {
@@ -496,6 +534,8 @@ body {
 
 기본 `<select>` 대신 자유롭게 디자인한 드롭다운 선택 UI다.
 
+**• HTML: 커스텀 셀렉트 구조**
+
 ```html
 <div class="custom-select">
   <button class="custom-select-trigger">옵션 선택</button>
@@ -506,6 +546,8 @@ body {
   </ul>
 </div>
 ```
+
+**• CSS: 커스텀 셀렉트 옵션 표시**
 
 ```css
 .custom-select {

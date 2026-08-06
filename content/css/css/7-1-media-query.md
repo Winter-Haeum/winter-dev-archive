@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만 CSS를 적용하는 문법이다. 미디어 타입과 조건을 함께 지정해서 "이 조건을 만족하는 화면에서만 이 스타일을 적용하라"고 브라우저에 지시한다.
 
+**• CSS: @media 기본 문법**
+
 ```css
 @media screen and (max-width: 768px) {
   .container {
@@ -84,6 +86,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   }
 }
 ```
+
+**▶ 미디어 타입별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>미디어 타입</th><th>의미</th></tr></thead>
@@ -97,6 +101,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 조건은 괄호 안에 작성하며, 대표적으로 다음과 같은 형태를 쓴다.
 
+**• CSS: 미디어 조건 작성 형태**
+
 ```css
 @media (max-width: 768px) { /* 768px 이하일 때 */ }
 @media (min-width: 1024px) { /* 1024px 이상일 때 */ }
@@ -104,6 +110,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 ```
 
 실무에서는 공통 스타일을 먼저 작성하고, 이후 상황별로 @media를 덮어쓰는 구조를 표준으로 쓴다.
+
+**• CSS: 공통 스타일과 미디어 오버라이드**
 
 ```css
 /* 1. 기본 스타일 (모든 화면 공통) */
@@ -153,6 +161,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   </div>
 </div>
 
+**• CSS: 모바일 퍼스트와 데스크탑 퍼스트 비교**
+
 ```css
 /* 모바일 퍼스트 (min-width) */
 .box { width: 100%; }
@@ -164,6 +174,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 @media (max-width: 1024px) { .box { width: 50%; } }
 @media (max-width: 768px) { .box { width: 100%; } }
 ```
+
+**▶ 모바일 퍼스트와 데스크탑 퍼스트 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>기본값</th><th>변화 방향</th><th>적합한 트래픽 환경</th></tr></thead>
@@ -177,6 +189,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 ## 3. 논리 연산자로 복잡한 조건 만들기
 
+**▶ 미디어 쿼리 논리 연산자**
+
 <table class="wda-mtable">
 <thead><tr><th>연산자</th><th>의미</th><th>예시</th></tr></thead>
 <tbody>
@@ -186,6 +200,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 <tr><td><code>only</code></td><td>조건을 지원하지 않는 구형 브라우저가 스타일 전체를 무시하게 함</td><td><code>only screen and (min-width: 768px)</code></td></tr>
 </tbody>
 </table>
+
+**• CSS: 논리 연산자 활용**
 
 ```css
 /* and - 태블릿 범위(768px ~ 1024px)에만 적용 */
@@ -221,6 +237,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 `orientation`은 화면의 세로(portrait)·가로(landscape) 방향을 감지하는 조건이다.
 
+**• CSS: orientation 감지**
+
 ```css
 @media (orientation: portrait) {
   .layout { flex-direction: column; }
@@ -236,6 +254,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   <p><code>orientation</code>을 <strong>단독으로</strong> 쓰면 가로로 넓은 데스크탑 화면도 landscape 조건에 함께 걸려버리는 실수를 하기 쉽다. 모바일·태블릿의 방향 전환만 다루고 싶다면 반드시 <code>width</code> 조건과 함께 묶어야 한다.</p>
 </div>
 
+**• CSS: orientation과 width 조건 결합**
+
 ```css
 /* 잘못된 예 - 데스크탑도 이 조건에 포함된다 */
 @media (orientation: landscape) { .nav { flex-direction: row; } }
@@ -248,6 +268,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 실전 예제로 모바일 네비게이션을 세로·가로·태블릿 이상 3단계로 대응해보자.
 
+**• HTML 구조**
+
 ```html
 <nav class="nav">
   <a href="#">홈</a>
@@ -255,6 +277,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   <a href="#">문의</a>
 </nav>
 ```
+
+**• CSS 스타일(반응형 3단계)**
 
 ```css
 /* 기본: 모바일 세로 - 메뉴를 세로로 쌓음 */
@@ -284,6 +308,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   <div class="wda-fcard"><div class="wda-fcard-ttl">1440px</div><div class="wda-fcard-dsc">대형 모니터 기준선</div></div>
 </div>
 
+**• CSS: Breakpoint 단계별 적용**
+
 ```css
 /* 모바일 퍼스트 기본 */
 .container { width: 100%; padding: 0 16px; }
@@ -300,6 +326,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 ```
 
 주요 프레임워크도 대체로 이와 비슷한 체계를 쓰지만, 각 지점의 이름과 세부 값은 조금씩 다르다.
+
+**▶ 프레임워크별 Breakpoint 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>프레임워크</th><th>xs</th><th>sm</th><th>md</th><th>lg</th><th>xl</th><th>xxl</th></tr></thead>
@@ -321,6 +349,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 ## 6. 모바일 퍼스트 접근법 — 4단계 확장 전략
 
 모바일 퍼스트는 가장 작은 화면부터 스타일을 정의하고, 화면이 커질 때마다 필요한 스타일을 점진적으로 얹는 방식이다.
+
+**• CSS: 모바일 퍼스트 4단계 확장**
 
 ```css
 /* 1단계: 모바일(320px~) - 기본 */
@@ -351,6 +381,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 화면 크기가 커질 때마다 이전 단계의 스타일 위에 새로운 규칙이 누적되는 구조다.
 
+**▶ 모바일 퍼스트 스타일 누적**
+
 <table class="wda-mtable">
 <thead><tr><th>화면 크기</th><th>적용되는 스타일</th></tr></thead>
 <tbody>
@@ -376,6 +408,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
 
 데스크탑 퍼스트는 반대로 가장 큰 화면부터 시작해서 작아질수록 스타일을 덜어내는 3단계 축소 전략을 쓴다.
 
+**• CSS: 데스크탑 퍼스트 3단계 축소**
+
 ```css
 /* 1단계: 데스크탑(1920px~) - 기본 */
 .sidebar { width: 280px; }
@@ -390,6 +424,8 @@ Media Query는 화면의 너비, 방향 같은 특정 조건을 만족할 때만
   .sidebar { width: 100%; }
 }
 ```
+
+**▶ 데스크탑 퍼스트를 유지하는 이유**
 
 <table class="wda-mtable">
 <thead><tr><th>데스크탑 퍼스트를 그대로 유지하는 이유</th><th>내용</th></tr></thead>

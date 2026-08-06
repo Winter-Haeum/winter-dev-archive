@@ -96,6 +96,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">유저 프로필</div><div class="wda-fnode-dsc">오른쪽 끝</div></div>
 </div>
 
+**• HTML: 수평 네비게이션 구조**
+
 ```html
 <header class="navbar">
   <div class="logo">MyLogo</div>
@@ -107,6 +109,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="user-profile">프로필</div>
 </header>
 ```
+
+**• CSS: 수평 네비게이션 스타일**
 
 ```css
 .navbar {
@@ -143,6 +147,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 화면 너비에 따라 3열 → 2열 → 1열로 자연스럽게 전환되는 카드 그리드다.
 
+**• HTML: 카드 그리드 구조**
+
 ```html
 <div class="card-grid">
   <article class="card"><img src="a.jpg" alt="" /><h3>카드 1</h3></article>
@@ -150,6 +156,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <article class="card"><img src="c.jpg" alt="" /><h3>카드 3</h3></article>
 </div>
 ```
+
+**• CSS 스타일(반응형 3단계)**
 
 ```css
 /* 데스크톱 - 3열 */
@@ -194,6 +202,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 모달 중앙 정렬
 
+**• HTML: 모달 구조**
+
 ```html
 <div class="modal-overlay">
   <div class="modal-content">
@@ -206,6 +216,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 ```
+
+**• CSS: 모달 중앙 정렬 스타일**
 
 ```css
 .modal-overlay {
@@ -224,12 +236,16 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 
 ### 로딩 스피너 중앙 정렬
 
+**• HTML: 로딩 스피너 구조**
+
 ```html
 <div class="loading-container">
   <div class="spinner"></div>
   <p>불러오는 중...</p>
 </div>
 ```
+
+**• CSS: 로딩 스피너 중앙 정렬 스타일**
 
 ```css
 .loading-container {
@@ -269,6 +285,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <div class="wda-fnode"><div class="wda-fnode-ttl">Footer</div><div class="wda-fnode-dsc">하단 고정</div></div>
 </div>
 
+**• HTML: 홀리그레일 레이아웃 구조**
+
 ```html
 <div class="container">
   <header>Header</header>
@@ -279,6 +297,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   <footer>Footer</footer>
 </div>
 ```
+
+**• CSS: 홀리그레일 레이아웃 스타일**
 
 ```css
 .container {
@@ -310,6 +330,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
 </div>
 
 반응형 처리는 아래처럼 사이드바를 세로로 내린다.
+
+**• CSS: 반응형 사이드바 처리**
 
 ```css
 @media (max-width: 768px) {
@@ -350,6 +372,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 
+**• HTML: 로그인 폼 구조**
+
 ```html
 <form class="login-form">
   <div class="form-group">
@@ -386,6 +410,8 @@ Flexbox로 실무에서 가장 자주 만드는 레이아웃은 아래 8가지�
   </div>
 </div>
 
+**• CSS: Sticky Footer 구현**
+
 ```css
 body {
   display: flex;
@@ -406,6 +432,8 @@ main {
 
 이미지와 텍스트가 나란히 배치되는 구조로, 댓글이나 알림, 프로필 카드에서 자주 쓰인다.
 
+**• CSS: 미디어 오브젝트 기본 구조**
+
 ```css
 .media {
   display: flex;
@@ -425,6 +453,8 @@ main {
 ```
 
 이미지와 텍스트 순서를 반대로 배치하고 싶을 때는 아래처럼 한 줄만 추가하면 된다.
+
+**• CSS: 미디어 오브젝트 순서 반전**
 
 ```css
 .media.reverse {
@@ -481,6 +511,8 @@ main {
   <div class="wda-farrow">↓</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">Card Grid</div><div class="wda-fnode-dsc">Main 안에서 wrap + gap</div></div>
 </div>
+
+**• CSS: 대시보드 레이아웃 종합**
 
 ```css
 /* 1. 전체 레이아웃 - 홀리그레일 */

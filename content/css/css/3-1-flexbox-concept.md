@@ -79,6 +79,8 @@ Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 
 
 이 속성을 레이아웃 도구로 억지로 끌어다 쓰다 보니 아래와 같은 불편이 계속 쌓였다.
 
+**▶ Float 레이아웃의 한계**
+
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>내용</th></tr></thead>
 <tbody>
@@ -90,6 +92,8 @@ Flexbox가 나오기 전에는 요소를 가로로 배치할 때 주로 `float` 
 </table>
 
 Flexbox는 이 문제들을 단 몇 줄로 해결한다.
+
+**• CSS: Flexbox 중앙 정렬**
 
 ```css
 .container {
@@ -113,6 +117,8 @@ Flexbox는 가로 또는 세로, **한 방향으로만** 요소를 배치하는 
 
 이 차이 때문에 실무에서는 상황에 따라 도구를 구분해서 쓴다.
 
+**▶ Flexbox와 Grid 선택 기준**
+
 <table class="wda-mtable">
 <thead><tr><th>상황</th><th>선택</th></tr></thead>
 <tbody>
@@ -127,6 +133,8 @@ Flexbox는 가로 또는 세로, **한 방향으로만** 요소를 배치하는 
 ## 3. 주축(Main Axis)과 교차축(Cross Axis)
 
 Flexbox를 다루는 내내 가장 먼저 확인해야 하는 것이 바로 **주축**과 **교차축**이다. 두 축은 고정된 것이 아니라 `flex-direction` 값에 따라 방향이 바뀐다.
+
+**▶ flex-direction별 주축·교차축**
 
 <table class="wda-mtable">
 <thead><tr><th>flex-direction</th><th>주축(Main Axis)</th><th>교차축(Cross Axis)</th></tr></thead>
@@ -163,6 +171,8 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
   </div>
 </div>
 
+**• Container 속성**
+
 ```css
 /* Container(부모)에 적용 */
 .container {
@@ -174,6 +184,8 @@ Flexbox 속성은 크게 두 그룹으로 나뉜다. 부모 요소(Container)에
   gap: 12px;
 }
 ```
+
+**• Item 속성**
 
 ```css
 /* Item(자식)에 적용 */

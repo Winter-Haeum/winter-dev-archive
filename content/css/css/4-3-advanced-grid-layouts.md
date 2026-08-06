@@ -83,6 +83,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">Footer</div><div class="wda-fcard-dsc">전체 너비를 차지</div></div>
 </div>
 
+**• CSS: 신문 레이아웃 기본 구조**
+
 ```css
 .newspaper {
   display: grid;
@@ -95,6 +97,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   grid-column: 1 / 4;
 }
 ```
+
+**▶ grid-column 값 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>코드</th><th>의미</th></tr></thead>
@@ -111,7 +115,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>자주 하는 질문.</strong> 왜 <code>1 / 4</code>로 병합할까? 열이 3개면 그리드 라인은 1~4번까지 생기기 때문에, 1번부터 4번까지가 곧 3열 전체다. Sidebar·Main·Ads에는 왜 <code>grid-column</code>을 쓰지 않았을까? 자동 배치에 맡기면 순서대로 각각 1번째, 2번째, 3번째 칸에 알아서 들어가기 때문이다. Sidebar와 Ads의 너비를 고정하는 이유는, 광고와 내비게이션처럼 크기가 일정해야 레이아웃이 흔들리지 않는 영역이기 때문이다.</p>
 </div>
 
-**신문 레이아웃 실전 코드**
+**• HTML: 신문 레이아웃 마크업**
 
 ```html
 <div class="newspaper">
@@ -122,6 +126,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**• CSS: 신문 레이아웃 마크업 스타일**
 
 ```css
 .newspaper {
@@ -146,6 +152,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 `grid-column`으로 영역을 하나씩 지정하면 라인 번호 계산이 복잡해지고 가독성도 떨어진다. 이런 경우 `grid-template-areas`가 해결책이 된다.
 
 레이아웃을 문자열로 그리듯 설계하고, 영역마다 이름을 붙인 뒤 `grid-area`로 연결하면 된다.
+
+**• CSS: 대시보드 grid-template-areas**
 
 ```css
 .dashboard {
@@ -182,7 +190,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p><strong>자주 하는 질문.</strong> Sidebar가 2행에 걸쳐 있는데 어떻게 병합될까? <code>grid-template-areas</code>에서 같은 이름(<code>sidebar</code>)이 여러 줄에 반복되면 자동으로 하나의 영역으로 합쳐진다. <code>grid-column</code>보다 <code>grid-template-areas</code>가 항상 더 좋은가? 복잡한 레이아웃엔 <code>areas</code>가 유리하지만, 2분할처럼 간단한 구조는 <code>grid-column</code>만으로 충분하다. 실무에서 정말 쓰이는가? 대시보드·관리자 페이지·SaaS 제품 화면에서 실제로 많이 쓰인다.</p>
 </div>
 
-**대시보드 실전 코드**
+**• HTML: 대시보드 마크업**
 
 ```html
 <div class="dashboard">
@@ -196,6 +204,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <footer class="footer">푸터</footer>
 </div>
 ```
+
+**• CSS: 대시보드 마크업 스타일**
 
 ```css
 .dashboard {
@@ -218,6 +228,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 열 개수를 3개로 고정하면 화면이 커질수록 카드가 불필요하게 커지고, 화면이 작아지면 카드가 너무 작아진다. 화면 크기마다 미디어 쿼리로 열 개수를 새로 지정하는 것도 번거롭다.
 
+**• CSS: 반응형 갤러리 auto-fit**
+
 ```css
 .gallery {
   display: grid;
@@ -227,6 +239,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 `auto-fit`은 "최소 200px 이상인 칸을 화면에 들어가는 만큼 최대한 많이 만들고, 남는 공간은 1fr로 균등 분배한다"는 뜻이다. 화면 폭에 따라 열 개수가 이렇게 자동으로 계산된다.
+
+**▶ auto-fit 화면 폭별 열 개수 계산**
 
 <table class="wda-mtable">
 <thead><tr><th>화면 폭</th><th>열 개수(대략)</th></tr></thead>
@@ -272,7 +286,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>실무에서는 대부분의 갤러리·카드 목록에 <strong>auto-fit</strong>이 권장된다. <strong>자주 하는 질문.</strong> 둘의 차이는 빈 칸 유지 여부다. 어떤 게 더 좋은가는 상황에 따라 다르지만 기본값은 <code>auto-fit</code>이다. <code>auto-fill</code>은 아이템 개수가 유동적인 리스트에서 그리드 틀 자체를 유지하고 싶을 때 사용한다.</p>
 </div>
 
-**이미지 갤러리 실전 코드**
+**• HTML: 이미지 갤러리 마크업**
 
 ```html
 <div class="gallery">
@@ -281,6 +295,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <!-- ... 총 12장 ... -->
 </div>
 ```
+
+**• CSS: 이미지 갤러리 마크업 스타일**
 
 ```css
 .gallery {
@@ -300,6 +316,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   transform: scale(1.05);
 }
 ```
+
+**▶ 화면 크기별 열 개수**
 
 <table class="wda-mtable">
 <thead><tr><th>화면</th><th>결과</th></tr></thead>
@@ -322,6 +340,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 5. 반응형 Grid — 미디어 쿼리 결합
 
 PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 화면에 그대로 쓰면 사이드바가 화면을 너무 많이 차지해 좁고 답답해진다. 화면이 좁아지면 가로 2열을 세로 1열로 바꿔야 한다.
+
+**• CSS: 미디어 쿼리로 2열→1열 전환**
 
 ```css
 /* PC 기준 - 2열 */
@@ -353,6 +373,8 @@ PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 �
 </div>
 
 **반응형 Grid 실전 — 신문형 3열 구조**
+
+**• CSS: 신문형 레이아웃 반응형 처리**
 
 ```css
 .newspaper {
@@ -387,6 +409,8 @@ PC 기준으로 짠 `250px 1fr` 같은 고정 사이드바 구조를 모바일 �
   }
 }
 ```
+
+**▶ Breakpoint별 레이아웃**
 
 <table class="wda-mtable">
 <thead><tr><th>Breakpoint</th><th>레이아웃</th></tr></thead>

@@ -79,6 +79,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 HTML 태그 이름을 그대로 사용해 같은 종류의 요소 전체를 선택한다.
 
+**• CSS: 태그 선택자**
+
 ```css
 p {
   line-height: 1.6;
@@ -90,6 +92,8 @@ p {
 ### 🆔 ID 선택자
 
 `#id`처럼 샵 기호를 붙여 사용하며, 문서 안에서 단 하나뿐인 요소를 가리킬 때 쓴다.
+
+**• CSS: ID 선택자**
 
 ```css
 #header {
@@ -103,6 +107,8 @@ ID는 문서 안에서 유일해야 하므로 재사용이 불가능하고, 우�
 
 `.class`처럼 마침표를 붙여 사용하며, 여러 요소에 같은 스타일을 반복해서 적용할 수 있다.
 
+**• CSS: 클래스 선택자**
+
 ```css
 .card {
   border-radius: 8px;
@@ -112,9 +118,13 @@ ID는 문서 안에서 유일해야 하므로 재사용이 불가능하고, 우�
 
 하나의 요소에 클래스를 여러 개 동시에 지정하는 것도 가능하다.
 
+**• HTML: 클래스 여러 개 지정**
+
 ```html
 <div class="card highlight">추천 상품</div>
 ```
+
+**▶ 선택자별 우선순위와 재사용성**
 
 <table class="wda-mtable">
 <thead><tr><th>선택자</th><th>문법</th><th>우선순위 점수</th><th>재사용성</th></tr></thead>
@@ -139,6 +149,8 @@ ID는 문서 안에서 유일해야 하므로 재사용이 불가능하고, 우�
 
 선택자 사이에 공백을 넣으면, 앞 선택자 안에 있는 모든 하위 요소(자식, 손자, 증손자 …)를 선택한다.
 
+**• CSS: 자손 선택자**
+
 ```css
 nav a {
   color: white;
@@ -150,6 +162,8 @@ nav a {
 ### 🪜 자식 선택자
 
 `>` 기호를 사용하면 바로 한 단계 아래의 직계 자식만 선택한다.
+
+**• CSS: 자식 선택자**
 
 ```css
 nav > a {
@@ -172,6 +186,8 @@ nav > a {
 
 쉼표로 여러 선택자를 나열하면, 각 선택자에 동일한 스타일을 한 번에 적용할 수 있어 중복 코드를 줄인다.
 
+**• CSS: 그룹 선택자**
+
 ```css
 h1, h2, h3 {
   font-weight: 700;
@@ -187,6 +203,8 @@ h1, h2, h3 {
 ### 🔲 전체 선택자
 
 `*`는 문서 안의 모든 요소를 선택한다.
+
+**• CSS: 전체 선택자**
 
 ```css
 * {
@@ -210,6 +228,8 @@ h1, h2, h3 {
   <div class="wda-fcard"><div class="wda-fcard-ttl">:active</div><div class="wda-fcard-dsc">마우스 버튼을 누르고 있는 클릭 순간. 눌림 효과를 표현한다.</div></div>
 </div>
 
+**• CSS: hover·focus 동시 지정**
+
 ```css
 .nav-link:hover,
 .nav-link:focus {
@@ -229,6 +249,8 @@ h1, h2, h3 {
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">:active</div><div class="wda-fnode-dsc">클릭하는 순간 살짝 눌린 효과</div></div>
 </div>
+
+**• CSS: 버튼 상태별 스타일**
 
 ```css
 .btn {
@@ -253,6 +275,8 @@ h1, h2, h3 {
 ## 4. 브라우저가 선택자를 읽는 순서
 
 브라우저는 HTML을 분석해 만든 DOM 트리와, CSS를 분석해 만든 CSSOM 트리를 결합해서 각 요소에 어떤 스타일이 적용될지 계산한다. 이 계산 과정에서 선택자는 <strong>오른쪽에서 왼쪽</strong>으로 매칭된다.
+
+**• CSS: 중첩 선택자 매칭 순서**
 
 ```css
 .container .list li a {
