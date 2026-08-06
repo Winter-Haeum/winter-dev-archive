@@ -86,6 +86,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 웹이 성장하는 동안 HTTP도 함께 발전해 왔습니다.
 
+**▶ HTTP 버전별 특징**
+
 <table class="wda-mtable">
 <thead><tr><th>버전</th><th>특징</th></tr></thead>
 <tbody>
@@ -104,6 +106,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 3. HTTP는 사람이 읽을 수 있는 대화다
 
 HTTP 요청과 응답은 사람이 읽을 수 있는 글자로 이루어져 있습니다.
+
+**• HTTP 요청 메시지 예시**
 
 ```
 GET /articles/10 HTTP/1.1
@@ -127,6 +131,8 @@ Accept: text/html
 
 ## 5. 자주 쓰는 HTTP 메서드
 
+**▶ HTTP 메서드별 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>메서드</th><th>역할</th></tr></thead>
 <tbody>
@@ -143,6 +149,8 @@ Accept: text/html
 <div class="wda-callout wda-ci">
   <p>실무에서 가장 자주 보이는 조합은 <strong>GET + POST</strong>입니다. 목록을 불러올 때는 GET, 새로운 글을 등록하거나 로그인 정보를 제출할 때는 POST를 사용합니다.</p>
 </div>
+
+**• JavaScript: GET·POST 요청 예시**
 
 ```js
 // 게시글 목록 읽어오기 (GET)
@@ -168,6 +176,8 @@ fetch('/articles', {
   <div class="wda-fcard"><div class="wda-fcard-ttl">본문(Body)</div><div class="wda-fcard-dsc">실제로 전달되는 HTML, JSON, 이미지 같은 콘텐츠입니다.</div></div>
 </div>
 
+**• HTTP 응답 메시지 예시**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: text/html
@@ -178,6 +188,8 @@ Content-Type: text/html
 ---
 
 ## 7. HTTP 상태 코드 이해하기
+
+**▶ HTTP 상태 코드 범위별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>범위</th><th>의미</th></tr></thead>

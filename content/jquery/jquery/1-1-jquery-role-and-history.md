@@ -97,6 +97,8 @@ jQuery는 순수 자바스크립트로 화면을 다루는 방법을 익히기 �
 
 ## 3. jQuery가 해결한 것
 
+**▶ jQuery가 해결한 문제 3가지**
+
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>순수 자바스크립트(과거)</th><th>jQuery</th></tr></thead>
 <tbody>

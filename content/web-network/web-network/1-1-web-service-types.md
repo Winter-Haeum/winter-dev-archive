@@ -94,6 +94,8 @@ Web & Network 카테고리의 첫 문서로, 웹 서비스를 분류하는 두 �
   </div>
 </div>
 
+**▶ 정적 사이트와 동적 웹서비스 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>기준</th><th>정적 사이트</th><th>동적 웹서비스</th></tr></thead>
 <tbody>
@@ -147,6 +149,8 @@ SaaS도 마찬가지로 **소프트웨어를 소유하는 것이 아니라 구�
 ## 3. 클라우드 서비스 3단계 — IaaS · PaaS · SaaS
 
 SaaS는 사실 클라우드 서비스가 제공하는 편의 수준 중 가장 높은 단계입니다. "얼마나 많은 부분을 서비스 제공자가 대신 해주는가"를 기준으로 세 단계로 나눌 수 있습니다.
+
+**▶ IaaS·PaaS·SaaS 단계 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>풀네임</th><th>피자 비유</th><th>사용자가 직접 할 일</th><th>대표 예시</th></tr></thead>

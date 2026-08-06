@@ -79,6 +79,8 @@ tags:
 
 ## 2. 타입 변환이 필요한 순간
 
+**• JavaScript: 문자열과 숫자가 만나 이어붙는 경우**
+
 ```javascript
 let inputAge = "25";
 
@@ -91,6 +93,8 @@ console.log(inputAge + 1);
 ---
 
 ## 3. JavaScript가 자동으로 바꾸는 경우: 암묵적 변환
+
+**• JavaScript: 암묵적 변환 확인하기**
 
 ```javascript
 let notificationCount = 3;
@@ -126,6 +130,8 @@ console.log(notificationCount + "개");
 
 ## 5. 문자열로 바꾸기: String()
 
+**• JavaScript: String()으로 문자열 변환하기**
+
 ```javascript
 let notificationCount = 3;
 
@@ -137,12 +143,16 @@ console.log(String(notificationCount));
 
 ## 6. 숫자로 바꾸기: Number() / parseInt() / parseFloat()
 
+**▶ Number·parseInt·parseFloat 비교**
+
 | 함수 | 특징 | 예시 | 결과 |
 |---|---|---|---|
 | `Number()` | 문자열 전체가 숫자여야 변환된다 | `Number("25")` | `25` |
 | `Number()` | 숫자가 아닌 문자가 섞이면 `NaN` | `Number("25세")` | `NaN` |
 | `parseInt()` | 앞부분만 정수로 읽고 나머지는 무시한다 | `parseInt("25세")` | `25` |
 | `parseFloat()` | 앞부분을 소수까지 포함해 읽는다 | `parseFloat("3.5cm")` | `3.5` |
+
+**• JavaScript: Number()로 숫자 변환하기**
 
 ```javascript
 let inputAge = "25";
@@ -155,6 +165,8 @@ console.log(Number(inputAge));
 
 ## 7. 참/거짓으로 바꾸기: Boolean()
 
+**• JavaScript: Boolean()으로 참/거짓 변환하기**
+
 ```javascript
 let profileName = "";
 
@@ -165,6 +177,8 @@ console.log(Boolean(profileName));
 ---
 
 ## 8. 조건문에서 값이 참/거짓처럼 쓰이는 방식
+
+**• JavaScript: 조건문에서 falsy 값 확인하기**
 
 ```javascript
 let profileName = "";
@@ -178,6 +192,8 @@ if (!profileName) {
 ---
 
 ## 9. falsy 값 목록
+
+**▶ falsy 값 목록**
 
 | 값 | 설명 |
 |---|---|
@@ -201,6 +217,8 @@ if (!profileName) {
 
 `&&`/`||`는 왼쪽 값만으로 결과가 이미 정해지면, 오른쪽은 아예 평가하지 않는다. 오른쪽에 함수 호출이 있어도 그 함수는 실행되지 않는다.
 
+**• JavaScript: 단축 평가로 함수 호출 건너뛰기**
+
 ```javascript
 function logCall() {
   console.log("호출됨");
@@ -215,6 +233,8 @@ false && logCall();
 
 ## 11. &&로 조건부 실행하기
 
+**• JavaScript: &&로 조건부 실행하기**
+
 ```javascript
 let notificationCount = 3;
 
@@ -225,6 +245,8 @@ notificationCount > 0 && console.log("새 알림이 있습니다.");
 ---
 
 ## 12. ||로 기본값 넣기
+
+**• JavaScript: ||로 기본값 넣기**
 
 ```javascript
 let profileName = "";
@@ -244,6 +266,8 @@ console.log(fallbackName);
 
 <div class="wda-compare-ttl">❌ ?. 없이 접근</div>
 
+**• JavaScript: ?. 없이 접근 — 에러 확인용**
+
 ```javascript
 let notificationSettings = null;
 console.log(notificationSettings.email);
@@ -256,6 +280,8 @@ console.log(notificationSettings.email);
 
 <div class="wda-compare-ttl">✅ ?. 로 접근</div>
 
+**• JavaScript: ?.로 안전하게 접근하기**
+
 ```javascript
 let notificationSettings = null;
 console.log(notificationSettings?.email);
@@ -267,6 +293,8 @@ console.log(notificationSettings?.email);
 </div>
 
 `?.`는 중첩된 속성에도 이어서 쓸 수 있어, 중간 단계가 없어도 에러 없이 통과한다.
+
+**• JavaScript: 중첩 속성에 ?. 이어 쓰기**
 
 ```javascript
 let userSettings = { profile: null };
@@ -284,6 +312,8 @@ console.log(userSettings.profile?.theme);
 ---
 
 ## 14. null과 undefined만 따로 처리하기: null 병합
+
+**• JavaScript: ??로 null 병합하기**
 
 ```javascript
 let savedTheme = null;
@@ -307,6 +337,8 @@ console.log(selectedTheme);
     <code>null</code>/<code>undefined</code>일 때만 기본값을 쓴다.
   </div>
 </div>
+
+**• JavaScript: ||와 ?? 결과 비교하기**
 
 ```javascript
 let notificationCount = 0;
@@ -334,6 +366,8 @@ console.log(notificationCount ?? 5);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · Number()로 섞인 값 변환</div>
 
+**• JavaScript: Number()로 섞인 값 변환하는 실수**
+
 ```javascript
 let inputAge = "25세";
 console.log(Number(inputAge));
@@ -351,6 +385,8 @@ console.log(Number(inputAge));
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 문자열 "false"를 falsy로 착각</div>
 
+**• JavaScript: 문자열 "false"를 falsy로 착각하는 실수**
+
 ```javascript
 console.log(Boolean("false"));
 // true
@@ -366,6 +402,8 @@ console.log(Boolean("false"));
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · ||로 0을 지키려다 실패</div>
+
+**• JavaScript: ||로 0을 지키려다 실패하는 실수**
 
 ```javascript
 let displayCount = 0;
@@ -397,11 +435,15 @@ console.log(displayCount || 10);
 • `userSettings.profile?.theme`로 테마 값을 안전하게 읽는다.<br>
 • `notificationCount`가 0이어도 그대로 표시한다(`??`).
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 나이 변환 / 기본 이름 처리 / 안전한 테마 읽기 / 0 유지
 ```
 
 **💡 힌트 1 — 나이 변환**
+
+**• JavaScript: 힌트 1 — 나이 변환**
 
 ```javascript
 let inputAge = "25";
@@ -413,6 +455,8 @@ console.log(age);
 
 **💡 힌트 2 — 기본 이름 처리**
 
+**• JavaScript: 힌트 2 — 기본 이름 처리**
+
 ```javascript
 let profileName = "";
 let fallbackName = profileName || "손님";
@@ -422,6 +466,8 @@ console.log(fallbackName);
 ```
 
 **💡 힌트 3 — 안전한 테마 읽기**
+
+**• JavaScript: 힌트 3 — 안전한 테마 읽기**
 
 ```javascript
 let userSettings = { profile: null };

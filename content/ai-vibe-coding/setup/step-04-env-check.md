@@ -90,6 +90,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 여러 항목을 하나씩 따로 묻기보다, 점검할 목록을 한 번에 제시하고 결과를 정해진 형식으로 받는 것이 효율적입니다.
 
+**• 환경 점검 요청 프롬프트**
+
 ```
 지금까지 준비한 setup-checklist 항목들이 정상인지 점검해줘.
 
@@ -107,6 +109,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 3. 점검 결과를 읽는 법
+
+**▶ 점검 결과 표시 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>표시</th><th>의미</th><th>다음 행동</th></tr></thead>

@@ -105,6 +105,8 @@ Git 기본 섹션에서 branch의 생성·전환 명령어는 이미 다뤘으�
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. 병합</div><div class="wda-fnode-dsc">완성되면 main으로 합치기</div></div>
 </div>
 
+**• 터미널: feature branch 분기하고 커밋하기**
+
 ```bash
 git switch main
 git switch -c feature/login   # main에서 분기해 새 브랜치 생성
@@ -112,6 +114,8 @@ git switch -c feature/login   # main에서 분기해 새 브랜치 생성
 git add .
 git commit -m "feat: 로그인 기능 구현"
 ```
+
+**▶ 브랜치 이름 예시와 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>브랜치 이름 예시</th><th>의미</th></tr></thead>
@@ -151,6 +155,8 @@ feature branch라는 큰 원칙은 같지만, 실제로 브랜치를 얼마나 �
 ## 4. 작업이 끝난 브랜치는 정리한다
 
 feature branch의 작업 내용이 main에 합쳐지고 나면, 그 브랜치는 더 이상 필요하지 않습니다. 그대로 두면 브랜치 목록만 계속 늘어나므로, 병합이 끝난 브랜치는 정리하는 것이 좋습니다.
+
+**• 터미널: 병합 완료된 브랜치 삭제하기**
 
 ```bash
 git branch -d feature/login   # 로컬 브랜치 삭제

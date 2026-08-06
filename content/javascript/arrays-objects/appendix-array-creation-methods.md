@@ -72,6 +72,8 @@ tags:
 
 ## 1. 배열 리터럴이 기본이다
 
+**• JavaScript: 배열 리터럴로 만들기**
+
 ```javascript
 const fruits = ["사과", "바나나"];
 const empty = [];
@@ -100,6 +102,8 @@ console.log(fruits);
 
 값이 아니라 <strong>길이</strong>로 해석된다.
 
+**• JavaScript: new Array(숫자 1개) — 길이로 해석**
+
 ```javascript
 const sparseList = new Array(3);
 
@@ -117,6 +121,8 @@ console.log(sparseList.length);
 <div class="wda-compare-ttl">숫자 여러 개</div>
 
 각 값을 <strong>요소</strong>로 담는다.
+
+**• JavaScript: new Array(숫자 여러 개) — 요소로 해석**
 
 ```javascript
 const filledList = new Array(1, 2, 3);
@@ -152,12 +158,16 @@ console.log(filledList);
   </div>
 </div>
 
+**• JavaScript: 희소 배열의 빈 슬롯 확인하기**
+
 ```javascript
 const listWithHole = [1, , 3];
 
 console.log(listWithHole[1]);
 // undefined
 ```
+
+**• JavaScript: 희소 배열 forEach 순회하기**
 
 ```javascript
 listWithHole.forEach((v) => console.log(v));
@@ -194,6 +204,8 @@ listWithHole.forEach((v) => console.log(v));
 
 ## 4. Array.of(): 항상 요소로 취급한다
 
+**• JavaScript: Array.of로 요소 만들기**
+
 ```javascript
 console.log(Array.of(3));
 // [3]
@@ -211,6 +223,8 @@ console.log(Array.of(1, 2, 3));
 ---
 
 ## 5. Array.from(): 유사 배열/반복 가능한 값을 배열로
+
+**• JavaScript: Array.from으로 문자열을 배열로 바꾸기**
 
 ```javascript
 const charList = Array.from("Hello");
@@ -231,6 +245,8 @@ console.log(charList);
 
 `Array.from()`은 두 번째 인자로 매핑 함수를 받아, 변환과 가공을 한 번에 처리한다.
 
+**• JavaScript: Array.from 매핑 함수로 값 채우기**
+
 ```javascript
 const numberList = Array.from({ length: 5 }, (_, i) => i + 1);
 
@@ -248,6 +264,8 @@ console.log(numberList);
 
 ## 7. 생성 방식 비교표
 
+**▶ 배열 생성 방식 비교**
+
 | 방식 | 숫자 1개를 넣으면 | 특징 |
 |---|---|---|
 | `[]` 리터럴 | 해당 없음 | 가장 기본적이고 안전한 방식 |
@@ -264,6 +282,8 @@ console.log(numberList);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 1 · new Array(3)이 [3]이라는 착각</div>
+
+**• JavaScript: new Array(3)이 [3]이라는 착각**
 
 ```javascript
 const list = new Array(3);
@@ -284,6 +304,8 @@ console.log(list[0]);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 희소 배열을 일반 배열처럼 순회</div>
 
+**• JavaScript: 희소 배열을 일반 배열처럼 순회하는 실수**
+
 ```javascript
 const list = [1, , 3];
 let count = 0;
@@ -302,6 +324,8 @@ console.log(count);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 유사 배열에 배열 메서드 바로 사용</div>
+
+**• JavaScript: 유사 배열에 배열 메서드 바로 쓰는 실수**
 
 ```javascript
 const arrayLike = { 0: "a", 1: "b", length: 2 };

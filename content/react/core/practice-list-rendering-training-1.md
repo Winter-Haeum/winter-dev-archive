@@ -73,6 +73,8 @@ tags:
 
 ## 1단계: map으로 기본 목록 만들기
 
+**• React: map으로 기본 목록 만들기**
+
 ```jsx
 function LearningList({ items }) {
   return (
@@ -88,6 +90,8 @@ function LearningList({ items }) {
 ---
 
 ## 2단계: filter로 공개된 항목만 남기기
+
+**• React: filter로 공개된 항목만 남기기**
 
 ```jsx
 const visibleItems = items.filter((item) => item.isVisible);
@@ -108,6 +112,8 @@ const visibleItems = items.filter((item) => item.isVisible);
 
 ## 3단계: sort로 제목순 정렬하기
 
+**• React: sort로 제목순 정렬하기**
+
 ```jsx
 const sortedItems = [...visibleItems].sort((a, b) => a.title.localeCompare(b.title));
 ```
@@ -118,6 +124,8 @@ const sortedItems = [...visibleItems].sort((a, b) => a.title.localeCompare(b.tit
 
 ## 4단계: 빈 목록 처리하기
 
+**• React: 빈 목록 처리하기**
+
 ```jsx
 if (sortedItems.length === 0) {
   return <p>표시할 학습 항목이 없습니다.</p>;
@@ -127,6 +135,8 @@ if (sortedItems.length === 0) {
 ---
 
 ## 5단계: 항목 컴포넌트로 분리하기
+
+**• React: 항목 컴포넌트로 분리하기**
 
 ```jsx
 function LearningListItem({ item }) {
@@ -147,6 +157,8 @@ function LearningListItem({ item }) {
 ---
 
 ## 완성 코드
+
+**• React: LearningList 완성 코드**
 
 ```jsx
 function LearningListItem({ item }) {

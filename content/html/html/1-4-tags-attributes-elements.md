@@ -81,6 +81,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">요소(Element)</div><div class="wda-fcard-dsc">태그 + 속성 + 내용을 모두 합친 완전한 구조입니다.</div></div>
 </div>
 
+**• HTML: 태그·속성·요소 예시**
+
 ```html
 <p class="intro">안녕하세요</p>
 ```
@@ -93,6 +95,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 서로 다음과 같은 관계를 가집니다.
 
+**▶ 부모·자식·형제 관계**
+
 <table class="wda-mtable">
 <thead><tr><th>관계</th><th>의미</th></tr></thead>
 <tbody>
@@ -103,6 +107,8 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
 <tr><td>자손(Descendant)</td><td>아래쪽에 있는 모든 요소</td></tr>
 </tbody>
 </table>
+
+**• HTML: 부모·자식·형제 구조 예시**
 
 ```html
 <nav>
@@ -130,6 +136,8 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
   </div>
 </div>
 
+**▶ 블록·인라인 요소 대표 태그**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>대표 태그</th></tr></thead>
 <tbody>
@@ -149,6 +157,8 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
 ## 4. 글로벌 속성
 
 모든 HTML 요소에서 공통으로 사용할 수 있는 속성들입니다.
+
+**▶ 글로벌 속성 역할**
 
 <table class="wda-mtable">
 <thead><tr><th>속성</th><th>역할</th></tr></thead>
@@ -174,9 +184,13 @@ HTML 문서는 트리 구조로 표현됩니다. 이 트리에서 요소들은 �
 
 `data-*`는 화면에는 보이지 않지만 요소에 붙여두고 싶은 추가 정보를 저장할 때 사용합니다.
 
+**• HTML: data-* 속성 지정**
+
 ```html
 <li data-product-id="7">무선 이어폰</li>
 ```
+
+**• JavaScript: dataset으로 data-* 값 읽기**
 
 ```js
 const item = document.querySelector('li');

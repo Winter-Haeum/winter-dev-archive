@@ -104,6 +104,8 @@ React는 라우팅, 상태 관리, 서버 통신 같은 기능을 기본으로 �
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">DOM 직접 조작</div>
 
+**• JavaScript: DOM 직접 조작으로 목록 그리기**
+
 ```javascript
 const list = document.getElementById("course-list");
 list.innerHTML = "";
@@ -116,6 +118,8 @@ courseList.forEach(course => {
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">React (JSX)</div>
+
+**• React: JSX로 같은 목록 그리기**
 
 ```jsx
 function CourseList({ courseList }) {
@@ -174,6 +178,8 @@ React는 화면을 하나의 큰 덩어리로 만들지 않고, 역할이 분명
 
 컴포넌트는 데이터를 받아서 그 데이터에 맞는 화면을 반환합니다. `courseList`가 비어 있으면 빈 목록이, 항목이 있으면 그만큼의 카드가 그려집니다.
 
+**• React: 데이터를 받아 화면을 반환하는 컴포넌트**
+
 ```jsx
 function CourseDashboard({ courseList }) {
   return (
@@ -215,6 +221,8 @@ function CourseDashboard({ courseList }) {
 
 JSX는 JavaScript 안에서 HTML과 비슷한 문법으로 화면 구조를 표현하는 문법입니다.
 
+**• React: JSX 기본 형태**
+
 ```jsx
 function CourseCard({ courseTitle }) {
   return <li>{courseTitle}</li>;
@@ -232,6 +240,8 @@ function CourseCard({ courseTitle }) {
 ## 8. component 맛보기
 
 컴포넌트는 데이터를 받아 JSX를 반환하는 함수입니다.
+
+**• React: 컴포넌트를 태그처럼 조합하기**
 
 ```jsx
 function CourseDashboard() {
@@ -253,6 +263,8 @@ function CourseDashboard() {
 
 컴포넌트는 `props`라는 형태로 값을 전달받습니다.
 
+**• React: props로 값 전달하기**
+
 ```jsx
 function CourseCard({ courseTitle }) {
   return <li>{courseTitle}</li>;
@@ -272,6 +284,8 @@ function CourseCard({ courseTitle }) {
 ## 10. state 맛보기
 
 컴포넌트가 스스로 기억하고 바꿀 수 있는 값을 `state`라고 합니다.
+
+**• React: state로 값 기억하기**
 
 ```jsx
 function FilterButton() {
@@ -356,6 +370,8 @@ React 초기에는 클래스(class) 문법으로 컴포넌트를 만들었습니
 ---
 
 ## 14. 앞으로의 학습 흐름
+
+**▶ 용어별 자세히 다루는 문서**
 
 <table class="wda-mtable">
   <tr>

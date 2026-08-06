@@ -151,6 +151,8 @@ GitHub가 제공하는 기능은 크게 네 가지로 정리할 수 있다.
 
 계정 생성이 끝나면 프로필을 꾸밀 수 있다. 필수는 아니지만 아래 항목을 채워두면 도움이 된다.
 
+**▶ 프로필 설정 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>설명</th></tr></thead>
 <tbody>
@@ -181,6 +183,8 @@ GitHub가 제공하는 기능은 크게 네 가지로 정리할 수 있다.
 </div>
 
 저장소(Repository) 화면으로 들어가면 다시 여러 개의 탭이 보이는데, 초반에는 아래 표의 상단 세 가지(Code, Issues, Pull Requests)만 익숙해져도 충분하다.
+
+**▶ 저장소 화면 탭별 역할**
 
 <table class="wda-mtable">
 <thead><tr><th>탭</th><th>역할</th></tr></thead>

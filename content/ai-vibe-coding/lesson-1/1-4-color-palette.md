@@ -107,6 +107,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 문제를 발견했다면, "이상해요"처럼 막연하게 말하기보다 **어디가, 어떻게** 문제인지 구체적으로 설명합니다.
 
+**• 레이아웃 수정 요청 프롬프트**
+
 ```
 방금 만든 portfolio-draft를 확인했는데 layout-feedback을 드리고 싶습니다.
 

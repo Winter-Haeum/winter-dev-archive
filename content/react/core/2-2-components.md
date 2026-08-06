@@ -90,6 +90,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**• React: 컴포넌트 함수 기본형**
+
 ```jsx
 function StudyHeader() {
   return <h2>오늘의 학습</h2>;
@@ -117,6 +119,8 @@ function StudyHeader() {
 
 컴포넌트 함수는 `return` 뒤에 JSX를 작성해서 화면에 그릴 내용을 돌려줍니다.
 
+**• React: return으로 JSX 돌려주기**
+
 ```jsx
 function StudyCard() {
   return <article>학습 카드</article>;
@@ -128,6 +132,8 @@ function StudyCard() {
 ## 5. 컴포넌트를 태그처럼 사용한다
 
 만든 컴포넌트는 HTML 태그처럼 꺾쇠 괄호로 사용합니다.
+
+**• React: 컴포넌트를 태그처럼 사용하기**
 
 ```jsx
 <StudyHeader />
@@ -148,6 +154,8 @@ function StudyCard() {
   </div>
 </div>
 
+**• React: 여러 컴포넌트를 조합하기**
+
 ```jsx
 function StudyDashboard() {
   return (
@@ -163,6 +171,8 @@ function StudyDashboard() {
 ---
 
 ## 7. 같은 컴포넌트 재사용하기
+
+**• React: 같은 컴포넌트 반복 사용하기**
 
 ```jsx
 <StudyCard />
@@ -193,6 +203,8 @@ function StudyDashboard() {
 
 컴포넌트가 많아지면 파일별로 나눠서 관리합니다.
 
+**• React: 컴포넌트 파일로 분리하기**
+
 ```jsx
 // StudyCard.jsx
 function StudyCard() {
@@ -213,6 +225,8 @@ export default StudyCard;
 <div class="wda-callout wda-ci">
   컴포넌트에 값을 전달하는 방법(props)과 컴포넌트가 스스로 값을 바꾸는 방법(state)은 각각 <strong>2-3, 2-4</strong>에서 자세히 다룹니다.
 </div>
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

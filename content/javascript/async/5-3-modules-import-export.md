@@ -105,6 +105,8 @@ tags:
 
 <div class="wda-compare-ttl">📝 분리 전 (main.js)</div>
 
+**• JavaScript: 파일 분리 전 코드**
+
 ```javascript
 const lessonList = ["모듈"];
 
@@ -118,6 +120,8 @@ function formatLessonTitle(title) {
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 분리 후 (main.js)</div>
+
+**• JavaScript: 파일 분리 후 import**
 
 ```javascript
 import {
@@ -144,6 +148,8 @@ import {
 
 ## 3. named export
 
+**• JavaScript: named export 하기**
+
 ```javascript
 // lessons.js
 export const lessonList = ["비동기 프로그래밍", "이벤트 처리", "모듈"];
@@ -163,6 +169,8 @@ export function formatLessonTitle(title) {
 
 ## 4. named import
 
+**• JavaScript: named import 하기**
+
 ```javascript
 // main.js
 import { lessonList } from "./lessons.js";
@@ -180,6 +188,8 @@ console.log(lessonList);
 
 ## 5. 여러 값을 export/import하기
 
+**• JavaScript: 여러 값 한꺼번에 export 하기**
+
 ```javascript
 // lessons.js
 export const lessonList = ["비동기 프로그래밍", "이벤트 처리", "모듈"];
@@ -189,6 +199,8 @@ const MAX_LESSON_COUNT = 10;
 // 나중에 한꺼번에 내보내는 방식도 가능하다
 export { MAX_LESSON_COUNT };
 ```
+
+**• JavaScript: 여러 값 한꺼번에 import 하기**
 
 ```javascript
 // main.js
@@ -207,12 +219,16 @@ console.log(lessonList.length <= MAX_LESSON_COUNT);
 
 ## 6. default export
 
+**• JavaScript: default export 하기**
+
 ```javascript
 // lessonView.js
 export default function renderLessonList(lessonList) {
   lessonList.forEach(title => console.log(title));
 }
 ```
+
+**• JavaScript: default import 하기**
 
 ```javascript
 // main.js
@@ -231,6 +247,8 @@ renderLessonList(["비동기 프로그래밍", "이벤트 처리"]);
 
 ## 7. named export와 default export 비교
 
+**▶ named export vs default export**
+
 | 구분 | named export | default export |
 |---|---|---|
 | 파일당 개수 | 여러 개 가능 | 하나만 가능 |
@@ -246,6 +264,8 @@ renderLessonList(["비동기 프로그래밍", "이벤트 처리"]);
 ---
 
 ## 8. import 이름 바꾸기
+
+**• JavaScript: as로 import 이름 바꾸기**
 
 ```javascript
 import { formatLessonTitle as formatTitle } from "./lessons.js";
@@ -269,6 +289,8 @@ console.log(formatTitle("모듈"));
 
 <div class="wda-compare-ttl">📝 named import</div>
 
+**• JavaScript: named import 방식**
+
 ```javascript
 import {
   lessonList,
@@ -281,6 +303,8 @@ import {
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 namespace import</div>
+
+**• JavaScript: namespace import 방식**
 
 ```javascript
 import * as lessonModule from "./lessons.js";
@@ -303,6 +327,8 @@ lessonModule.formatLessonTitle("모듈");
 
 ## 10. side-effect import 짧게 보기
 
+**• JavaScript: side-effect import 하기**
+
 ```javascript
 import "./lessonConfig.js";
 ```
@@ -312,6 +338,8 @@ import "./lessonConfig.js";
 <div class="wda-callout wda-ci">
   값을 가져오지 않고 파일만 실행하고 싶을 때 이렇게 쓴다. <code>lessonConfig.js</code> 안에서 실행되는 초기화 코드만 필요할 때 사용하며, 자주 쓰는 패턴은 아니다.
 </div>
+
+**▶ import 형태별 문법 정리**
 
 | 형태 | 문법 | 예시 |
 |---|---|---|
@@ -323,6 +351,8 @@ import "./lessonConfig.js";
 ---
 
 ## 11. import 경로 작성하기
+
+**• JavaScript: 상대 경로로 import 하기**
 
 ```javascript
 // 같은 폴더의 파일
@@ -348,6 +378,8 @@ import { lessonList } from "../lessons.js";
 
 <div class="wda-compare-ttl">⚠️ 일반 script</div>
 
+**• HTML: 일반 script 태그 — 에러 확인용**
+
 ```html
 <script src="./main.js"></script>
 ```
@@ -359,6 +391,8 @@ import { lessonList } from "../lessons.js";
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">✅ type="module"</div>
+
+**• HTML: type="module" script 태그**
 
 ```html
 <script type="module" src="./main.js"></script>
@@ -388,10 +422,14 @@ import { lessonList } from "../lessons.js";
 
 ## 13. 모듈 스코프와 strict mode
 
+**• JavaScript: lessons.js의 독립 스코프**
+
 ```javascript
 // lessons.js
 const lessonList = ["비동기 프로그래밍"];
 ```
+
+**• JavaScript: main.js의 독립 스코프**
 
 ```javascript
 // main.js
@@ -408,11 +446,15 @@ const lessonList = ["다른 목록"];
 
 ## 14. 순환 참조는 왜 조심해야 하나
 
+**• JavaScript: a.js — b.js를 가져오는 순환 참조**
+
 ```javascript
 // a.js
 import { b } from "./b.js";
 export const a = "A";
 ```
+
+**• JavaScript: b.js — a.js를 가져오는 순환 참조**
 
 ```javascript
 // b.js
@@ -436,6 +478,8 @@ export const b = "B";
 
 <div class="wda-fcard-ttl">🔹 실수 1 · named export를 괄호 없이</div>
 
+**• JavaScript: named export를 괄호 없이 가져오는 실수**
+
 ```javascript
 // import lessonList from "./lessons.js";
 // ❌ named export는 중괄호가 필요하다
@@ -456,6 +500,8 @@ import { lessonList } from "./lessons.js";
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 상대경로 ./ 생략</div>
 
+**• JavaScript: 상대경로 ./ 생략하는 실수**
+
 ```javascript
 // import { lessonList } from "lessons.js";
 // ❌ 패키지 이름으로 오해되어 찾지 못한다
@@ -475,6 +521,8 @@ import { lessonList } from "./lessons.js";
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · default export를 두 번 사용</div>
+
+**• JavaScript: default export를 두 번 쓰는 실수**
 
 ```javascript
 // export default function renderLessonList() {}
@@ -507,11 +555,15 @@ import { lessonList } from "./lessons.js";
 • `lessonView.js`에서 `renderLessonList`를 default export한다.<br>
 • `main.js`에서 필요한 값을 모두 import해 `renderLessonList`를 호출한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: lessons.js(named) / lessonConfig.js(named) / lessonView.js(default) / main.js(조립)
 ```
 
 **💡 힌트 1 — lessons.js**
+
+**• JavaScript: 힌트 1 — lessons.js**
 
 ```javascript
 // lessons.js
@@ -524,10 +576,14 @@ export function formatLessonTitle(title) {
 
 **💡 힌트 2 — lessonConfig.js / lessonView.js**
 
+**• JavaScript: 힌트 2 — lessonConfig.js**
+
 ```javascript
 // lessonConfig.js
 export const defaultLevel = "beginner";
 ```
+
+**• JavaScript: 힌트 2 — lessonView.js**
 
 ```javascript
 // lessonView.js
@@ -537,6 +593,8 @@ export default function renderLessonList(lessonList) {
 ```
 
 **💡 힌트 3 — main.js**
+
+**• JavaScript: 힌트 3 — main.js**
 
 ```javascript
 // main.js

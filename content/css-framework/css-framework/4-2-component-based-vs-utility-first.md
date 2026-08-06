@@ -86,6 +86,8 @@ Component based 방식은 이미 완성된 UI 구성요소를 클래스 하나�
 
 버튼 하나를 만든다면 이렇게 작성한다.
 
+**• HTML: Component based 버튼**
+
 ```html
 <button class="btn btn-primary">클릭하세요</button>
 <button class="btn btn-success">저장</button>
@@ -95,6 +97,8 @@ Component based 방식은 이미 완성된 UI 구성요소를 클래스 하나�
 `btn`은 버튼의 기본 형태를 잡아주고, `btn-primary`, `btn-success`, `btn-danger`는 각각 주요·성공·위험 상황에 맞는 색상 스타일을 적용한다. 패딩, hover 효과 같은 세부 스타일은 클래스 하나로 이미 자동 적용된다.
 
 카드 UI도 같은 방식으로 구성한다.
+
+**• HTML: Component based 카드**
 
 ```html
 <div class="card">
@@ -108,6 +112,8 @@ Component based 방식은 이미 완성된 UI 구성요소를 클래스 하나�
 `card`가 카드 전체 틀을 잡고, `card-body`가 내부 여백을 담당하며, `card-title`과 `card-text`가 각각 제목과 설명 텍스트의 스타일을 맡는다.
 
 반응형 레이아웃도 클래스 조합만으로 완성된다.
+
+**• HTML: Component based 반응형 그리드**
 
 ```html
 <div class="container">
@@ -136,6 +142,8 @@ Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 �
 
 같은 버튼을 TailwindCSS로 만들면 이렇게 작성한다.
 
+**• HTML: Utility first 버튼**
+
 ```html
 <button class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
   클릭하세요
@@ -147,6 +155,8 @@ Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 �
 `rounded-lg`는 모서리를 둥글게, `hover:bg-blue-600`은 hover 시 더 진한 파랑, `transition`은 상태 변화가 부드럽게 이어지도록 만든다.
 
 반응형 그리드도 유틸리티 클래스 조합으로 만든다.
+
+**• HTML: Utility first 반응형 그리드**
 
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -177,6 +187,8 @@ Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 �
 
 두 방식을 몇 가지 기준으로 정리하면 다음과 같다.
 
+**▶ Component based와 Utility first 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>기준</th><th>Component based</th><th>Utility first</th></tr></thead>
 <tbody>
@@ -188,6 +200,8 @@ Utility first 방식은 CSS 속성 하나당 클래스 하나를 사용하는 �
 </table>
 
 장단점을 조금 더 자세히 보면 다음과 같다.
+
+**▶ 프레임워크별 장단점**
 
 <table class="wda-mtable">
 <thead><tr><th>프레임워크</th><th>장점</th><th>단점</th></tr></thead>

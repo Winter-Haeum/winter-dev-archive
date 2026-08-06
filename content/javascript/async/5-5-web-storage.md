@@ -103,6 +103,8 @@ tags:
 
 <div class="wda-compare-ttl">📝 localStorage</div>
 
+**• JavaScript: localStorage에 값 저장하기**
+
 ```javascript
 localStorage.setItem(
   "lesson:viewMode",
@@ -116,6 +118,8 @@ localStorage.setItem(
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 sessionStorage</div>
+
+**• JavaScript: sessionStorage에 값 저장하기**
 
 ```javascript
 sessionStorage.setItem(
@@ -139,6 +143,8 @@ sessionStorage.setItem(
 
 ## 3. 저장하기: setItem
 
+**• JavaScript: setItem으로 값 저장하기**
+
 ```javascript
 const storageKey = "lesson:viewMode";
 const selectedViewMode = "grid";
@@ -155,6 +161,8 @@ localStorage.setItem(storageKey, selectedViewMode);
 ---
 
 ## 4. 읽기: getItem
+
+**• JavaScript: getItem으로 값 읽기**
 
 ```javascript
 const savedViewMode = localStorage.getItem("lesson:viewMode");
@@ -177,6 +185,8 @@ console.log(savedViewMode);
 
 <div class="wda-compare-ttl">📝 removeItem</div>
 
+**• JavaScript: removeItem으로 특정 key 삭제하기**
+
 ```javascript
 localStorage.removeItem("lesson:viewMode");
 // 지정한 key 하나만 삭제된다
@@ -188,6 +198,8 @@ localStorage.removeItem("lesson:viewMode");
 
 <div class="wda-compare-ttl">📝 clear</div>
 
+**• JavaScript: clear로 전체 삭제하기**
+
 ```javascript
 localStorage.clear();
 // 이 도메인에 저장된 모든 값이
@@ -197,6 +209,8 @@ localStorage.clear();
 </div>
 
 </div>
+
+**▶ Web Storage 메서드 요약**
 
 | 메서드 | 역할 |
 |---|---|
@@ -217,6 +231,8 @@ localStorage.clear();
 
 ## 6. key 이름을 관리하는 방법
 
+**• JavaScript: 접두사로 key 이름 관리하기**
+
 ```javascript
 const storageKey = "lesson:viewMode";
 ```
@@ -230,6 +246,8 @@ const storageKey = "lesson:viewMode";
 ---
 
 ## 7. 저장되는 값은 문자열이다
+
+**• JavaScript: 저장된 값이 문자열로 바뀌는 것 확인하기**
 
 ```javascript
 localStorage.setItem("lesson:count", 3);
@@ -255,6 +273,8 @@ console.log(savedCount);        // "3"
 
 <div class="wda-compare-ttl">📝 문자열만 저장</div>
 
+**• JavaScript: 문자열만 저장하는 경우**
+
 ```javascript
 localStorage.setItem(
   "lesson:viewMode",
@@ -268,6 +288,8 @@ localStorage.setItem(
 
 <div class="wda-compare-ttl">📝 객체는 JSON으로 변환</div>
 
+**• JavaScript: 객체를 JSON으로 변환해 저장하기**
+
 ```javascript
 localStorage.setItem(
   "lesson:settings",
@@ -278,6 +300,8 @@ localStorage.setItem(
 </div>
 
 </div>
+
+**• JavaScript: JSON.stringify·JSON.parse로 저장·복원하기**
 
 ```javascript
 const lessonSettings = { viewMode: "grid", showSubtitles: true };
@@ -305,6 +329,8 @@ console.log(savedSettings.viewMode); // grid
 ---
 
 ## 9. 저장된 값이 없을 때 기본값 처리
+
+**• JavaScript: 저장된 값이 없을 때 기본값 처리하기**
 
 ```javascript
 const defaultSettings = { viewMode: "list", showSubtitles: false };
@@ -340,6 +366,8 @@ function loadLessonSettings() {
 
 ## 10. JSON parse 실패 대비
 
+**• JavaScript: try/catch로 JSON parse 실패 대비하기**
+
 ```javascript
 function loadLessonSettings() {
   const savedSettings = localStorage.getItem("lesson:settings");
@@ -366,6 +394,8 @@ function loadLessonSettings() {
 ---
 
 ## 11. 쿠키와 짧게 비교하기
+
+**▶ Web Storage vs Cookie**
 
 | 구분 | localStorage / sessionStorage | Cookie |
 |---|---|---|
@@ -421,6 +451,8 @@ function loadLessonSettings() {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · getItem 결과를 바로 parse</div>
 
+**• JavaScript: getItem 결과를 바로 parse하는 실수**
+
 ```javascript
 const savedSettings =
   JSON.parse(localStorage.getItem("lesson:settings"));
@@ -439,6 +471,8 @@ const savedSettings =
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 객체를 그대로 setItem</div>
 
+**• JavaScript: 객체를 그대로 setItem하는 실수**
+
 ```javascript
 localStorage.setItem("lesson:settings", lessonSettings);
 console.log(localStorage.getItem("lesson:settings"));
@@ -455,6 +489,8 @@ console.log(localStorage.getItem("lesson:settings"));
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · clear()로 전체 삭제</div>
+
+**• JavaScript: clear()로 전체 삭제하는 실수**
 
 ```javascript
 localStorage.clear();
@@ -485,11 +521,15 @@ localStorage.clear();
 • `loadLessonSettings()`로 저장된 설정을 읽되, 없거나 손상됐으면 `defaultSettings`를 반환한다.<br>
 • `clearLessonSettings()`로 저장된 설정을 삭제한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 저장 함수 / 기본값과 try-catch를 포함한 불러오기 함수 / 삭제 함수
 ```
 
 **💡 힌트 1 — 저장 함수**
+
+**• JavaScript: 힌트 1 — 저장 함수**
 
 ```javascript
 function saveLessonSettings(lessonSettings) {
@@ -498,6 +538,8 @@ function saveLessonSettings(lessonSettings) {
 ```
 
 **💡 힌트 2 — 불러오기 함수**
+
+**• JavaScript: 힌트 2 — 불러오기 함수**
 
 ```javascript
 function loadLessonSettings() {
@@ -516,6 +558,8 @@ function loadLessonSettings() {
 ```
 
 **💡 힌트 3 — 초기화 함수**
+
+**• JavaScript: 힌트 3 — 초기화 함수**
 
 ```javascript
 function clearLessonSettings() {

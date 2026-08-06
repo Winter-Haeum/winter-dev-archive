@@ -98,6 +98,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 터미널에서 GitHub 작업을 하려면 `gh`라는 GitHub CLI가 필요합니다.
 
+**• 터미널: GitHub CLI 버전 확인**
+
 ```bash
 gh --version
 ```
@@ -105,6 +107,8 @@ gh --version
 설치되어 있지 않다면 Windows는 `winget install GitHub.cli`로 설치할 수 있습니다. 설치 후에는 터미널을 완전히 재시작해야 인식됩니다.
 
 인증은 브라우저 로그인 한 번으로 끝납니다.
+
+**• 터미널: GitHub CLI 인증**
 
 ```bash
 gh auth login
@@ -118,6 +122,8 @@ gh auth login
 
 인증이 끝났는지는 아래로 확인합니다.
 
+**• 터미널: 인증 상태 확인**
+
 ```bash
 gh auth status
 ```
@@ -127,6 +133,8 @@ gh auth status
 ## 3. AI에게 백업을 요청할 때
 
 인증이 준비되면, AI에게 자연어로 백업을 요청할 수 있습니다.
+
+**• 백업 요청 프롬프트**
 
 ```
 현재 project-workspace 폴더의 내용을 git-repository로 백업하고 싶습니다.
@@ -162,6 +170,8 @@ API 키, 비밀번호, 액세스 토큰 같은 값은 코드와 함께 저장소
 
 `.env.example` 파일은 실제 키 없이 어떤 값이 필요한지만 보여줍니다.
 
+**• 설정: .env.example 예시**
+
 ```bash
 VITE_PUBLIC_PROJECT_URL=your_project_url_here
 VITE_PUBLIC_ANON_KEY=your_anon_key_here
@@ -178,6 +188,8 @@ VITE_PUBLIC_ANON_KEY=your_anon_key_here
 ## 5. 배포 방식 개념
 
 프로젝트를 웹에 공개할 때는 GitHub Pages를 함께 쓰는 경우가 많습니다. 배포 방식은 크게 두 갈래로 나뉩니다.
+
+**▶ 배포 방식 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>특징</th></tr></thead>

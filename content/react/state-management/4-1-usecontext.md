@@ -82,6 +82,8 @@ useContext는 여러 컴포넌트가 값을 함께 봐야 할 때, props를 거�
 
 `AppRouter` → `DashboardPage` → `CourseListPage`처럼 컴포넌트 트리가 깊어지면, 최상위의 값을 맨 아래 컴포넌트까지 props로 계속 전달해야 합니다.
 
+**• React: Props Drilling 예시**
+
 ```jsx
 // user 데이터는 CourseListPage에서만 필요한데...
 <AppRouter user={user}>
@@ -112,6 +114,8 @@ useContext는 여러 컴포넌트가 값을 함께 봐야 할 때, props를 거�
 
 ## 3. Context 생성하기
 
+**• React: createContext로 공유 공간 만들기**
+
 ```jsx
 // contexts/AppSettingsContext.js
 import { createContext } from 'react';
@@ -124,6 +128,8 @@ export const AppSettingsContext = createContext(null);
 ---
 
 ## 4. Provider로 값 제공하기
+
+**• React: Provider로 theme 값 제공하기**
 
 ```jsx
 // App.jsx
@@ -146,6 +152,8 @@ function App() {
 ---
 
 ## 5. useContext로 값 사용하기
+
+**• React: useContext로 theme 값 꺼내 쓰기**
 
 ```jsx
 // pages/SettingsPage.jsx
@@ -170,6 +178,8 @@ function SettingsPage() {
 ## 6. Custom Hook으로 감싸기
 
 Context를 쓸 때마다 매번 `useContext(AppSettingsContext)`를 반복하는 대신, Custom Hook으로 감싸면 Provider 누락도 함께 방지할 수 있습니다.
+
+**• React: useUser Custom Hook으로 Context 감싸기**
 
 ```jsx
 // contexts/UserContext.js
@@ -198,6 +208,8 @@ export function useUser() {
   return context;
 }
 ```
+
+**• React: useUser 사용 예시**
 
 ```jsx
 function CourseListPage() {

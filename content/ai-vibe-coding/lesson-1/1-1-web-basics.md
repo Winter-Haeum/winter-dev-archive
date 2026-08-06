@@ -104,6 +104,8 @@ HTML/CSS/JavaScript의 세부 문법은 다루지 않으며, 각 언어가 어�
 
 목적에 따라 웹사이트는 여러 형태로 나뉩니다. 앞으로 만들 포트폴리오는 이 중 **랜딩페이지**에 가깝습니다.
 
+**▶ 웹사이트 유형별 목적**
+
 <table class="wda-mtable">
 <thead><tr><th>유형</th><th>목적</th></tr></thead>
 <tbody>

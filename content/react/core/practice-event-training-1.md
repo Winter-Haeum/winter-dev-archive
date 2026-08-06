@@ -73,6 +73,8 @@ tags:
 
 ## 1단계: onClick 기본 연결
 
+**• React: onClick 기본 연결하기**
+
 ```jsx
 function handleClick() {
   console.log("클릭됨");
@@ -84,6 +86,8 @@ function handleClick() {
 ---
 
 ## 2단계: 인자를 전달하는 핸들러 분리
+
+**• React: 인자를 전달하는 핸들러 분리하기**
 
 ```jsx
 function handleClick(label) {
@@ -112,6 +116,8 @@ function handleClick(label) {
 
 ## 4단계: 이벤트 객체로 입력값 읽기
 
+**• React: 이벤트 객체로 입력값 읽기**
+
 ```jsx
 function handleFilterChange(event) {
   console.log(event.target.value);
@@ -123,6 +129,8 @@ function handleFilterChange(event) {
 ---
 
 ## 5단계: state 변경과 연결하기
+
+**• React: 이벤트를 state 변경과 연결하기**
 
 ```jsx
 const [selectedStatus, setSelectedStatus] = useState("progress");
@@ -145,6 +153,8 @@ function handleClick(label) {
 ---
 
 ## 완성 코드
+
+**• React: ActionButton 완성 코드**
 
 ```jsx
 import { useState } from "react";

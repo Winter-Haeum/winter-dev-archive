@@ -87,6 +87,8 @@ Firebase의 어떤 서비스를 쓰더라도 시작은 항상 같습니다. Fire
 
 앱을 등록하면 발급되는 설정값(firebaseConfig)을 초기화 코드에 전달해야, 이후 배울 Firestore·Authentication 같은 서비스를 코드에서 사용할 수 있습니다.
 
+**• JavaScript: firebaseConfig로 앱 초기화**
+
 ```js
 import { initializeApp } from 'firebase/app';
 
@@ -121,6 +123,8 @@ Firebase는 수십 가지 기능을 제공하지만, 처음 배울 때는 목적
 ## 3. 서비스는 따로, 하지만 함께 쓰인다
 
 각 서비스는 독립적으로 배우지만, 실제 서비스에서는 여러 개를 조합해서 사용하는 경우가 대부분입니다.
+
+**▶ 서비스 조합 시나리오**
 
 <table class="wda-mtable">
 <thead><tr><th>시나리오</th><th>함께 쓰이는 서비스</th></tr></thead>

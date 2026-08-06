@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 문자열은 한 번 만들어지면 내용을 직접 바꿀 수 없습니다. 모든 메서드는 항상 **새 문자열**을 반환합니다.
 
+**• JavaScript: 문자열의 불변성**
+
 ```js
 const str = "Hello";
 
@@ -101,6 +103,8 @@ const upper = str.toUpperCase(); // 새 문자열을 만들어 반환
   </div>
 </div>
 
+**• JavaScript: 문자열 탐색 메서드**
+
 ```js
 const str = "Hello World";
 
@@ -123,6 +127,8 @@ str.endsWith("d");        // 끝 부분 확인
 
 `slice(시작, 끝)`은 시작 인덱스부터 끝 인덱스 **직전**까지 잘라냅니다. 음수를 넣으면 뒤에서부터 셉니다.
 
+**• JavaScript: slice로 문자열 추출**
+
 ```js
 const str = "Hello World";
 
@@ -140,6 +146,8 @@ str.slice(-5);     // "World" (뒤에서 5글자)
 ---
 
 ## 4. 변환 패턴: 대소문자와 공백
+
+**• JavaScript: 대소문자·공백 변환**
 
 ```js
 const input = "  Hello World  ";
@@ -160,6 +168,8 @@ input.trim();        // "Hello World" (양쪽 공백 제거)
 
 문자열과 배열을 오가는 이 조합은 코딩테스트에서 가장 자주 쓰이는 패턴입니다.
 
+**• JavaScript: split과 join으로 변환**
+
 ```js
 // 문자열 → 배열
 "a,b,c".split(",");   // ["a", "b", "c"]
@@ -178,6 +188,8 @@ input.trim();        // "Hello World" (양쪽 공백 제거)
 
 문자열 뒤집기처럼 문자열 자체에는 없는 기능도 이 조합으로 해결합니다.
 
+**• JavaScript: split·join으로 문자열 뒤집기**
+
 ```js
 const reversed = "Hello".split("").reverse().join(""); // "olleh"
 ```
@@ -185,6 +197,8 @@ const reversed = "Hello".split("").reverse().join(""); // "olleh"
 ---
 
 ## 6. 치환 패턴: replace와 replaceAll
+
+**• JavaScript: replace와 replaceAll 비교**
 
 ```js
 "Hello World".replace("o", "0");     // "Hell0 World" (첫 번째만)
@@ -206,6 +220,8 @@ const reversed = "Hello".split("").reverse().join(""); // "olleh"
 
 알파벳 순서를 계산하거나 문자를 이동시켜야 하는 문제에서 사용합니다.
 
+**• JavaScript: 문자 코드 변환**
+
 ```js
 "c".charCodeAt(0) - "a".charCodeAt(0); // 2 (a 기준 c는 두 칸 뒤)
 
@@ -215,6 +231,8 @@ String.fromCharCode(65); // "A" (코드 → 문자)
 ---
 
 ## 8. 메서드 한눈에 보기
+
+**▶ 문자열 메서드 총정리**
 
 <table class="wda-mtable">
 <thead><tr><th>분류</th><th>메서드</th><th>주의할 점</th></tr></thead>

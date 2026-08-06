@@ -79,6 +79,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 제목 태그는 문서의 계층 구조를 나타냅니다. `h1`은 페이지에서 가장 중요한 제목이며 보통 한 페이지에 하나만 사용합니다.
 
+**• HTML: 제목 태그 계층**
+
 ```html
 <h1>가장 중요한 제목</h1>
 <h2>다음 단계 제목</h2>
@@ -92,6 +94,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 ### 강조 태그
+
+**▶ 강조 태그별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>태그</th><th>의미</th></tr></thead>
@@ -107,6 +111,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 링크 태그
 
+**• HTML: 링크 태그 종류**
+
 ```html
 <a href="https://example.com">외부 사이트로 이동</a>
 <a href="/about">내부 페이지로 이동</a>
@@ -115,6 +121,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 새 탭에서 외부 링크를 열 때는 보안을 위해 `rel="noopener noreferrer"`를 함께 사용합니다.
+
+**• HTML: 안전하게 새 탭에서 열기**
 
 ```html
 <a href="https://example.com" target="_blank" rel="noopener noreferrer">
@@ -132,6 +140,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 3. 이미지 태그
 
+**• HTML: 이미지 태그 기본**
+
 ```html
 <img src="cat.jpg" alt="창가에 앉아 있는 하얀 고양이" width="300" height="200" />
 ```
@@ -142,6 +152,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 이미지 설명과 캡션을 함께 묶고 싶을 때는 `figure`와 `figcaption`을 사용합니다.
+
+**• HTML: figure와 figcaption**
 
 ```html
 <figure>
@@ -165,6 +177,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**• HTML: ul과 ol 목록**
+
 ```html
 <ul>
   <li>HTML</li>
@@ -185,6 +199,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 용어와 설명을 짝지어 정리할 때는 `dl`(정의 목록)을 사용합니다.
 
+**• HTML: dl 정의 목록**
+
 ```html
 <dl>
   <dt>HTML</dt>
@@ -195,6 +211,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 5. 표(table) 태그
+
+**• HTML: table 기본 구조**
 
 ```html
 <table>
@@ -213,6 +231,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </table>
 ```
 
+**▶ 표 구성 태그 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>태그</th><th>역할</th></tr></thead>
 <tbody>
@@ -225,6 +245,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </table>
 
 셀을 합칠 때는 `colspan`(가로 병합), `rowspan`(세로 병합)을 사용합니다.
+
+**• HTML: colspan으로 셀 합치기**
 
 ```html
 <tr>
@@ -241,6 +263,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `label`의 `for` 속성과 `input`의 `id` 속성을 같은 값으로 맞추면, 라벨을 클릭했을 때 입력창이 바로 활성화됩니다.
 
+**• HTML: label과 input 연결**
+
 ```html
 <form action="/submit" method="post">
   <label for="username">이름:</label>
@@ -256,6 +280,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <p>체크박스나 라디오 버튼처럼 선택형 입력은 <code>input</code>을 <code>label</code> 안에 직접 넣는 방식도 자주 사용합니다. 별도로 <code>id</code>/<code>for</code>를 맞추지 않아도 자동으로 연결됩니다.</p>
 </div>
 
+**• HTML: label로 checkbox 감싸기**
+
 ```html
 <label>
   <input type="checkbox" name="agree" />
@@ -264,6 +290,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 ### 자주 쓰는 input type
+
+**▶ input type별 용도**
 
 <table class="wda-mtable">
 <thead><tr><th>type</th><th>용도</th></tr></thead>
@@ -280,6 +308,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ### select와 textarea
 
+**• HTML: select와 textarea**
+
 ```html
 <select name="city">
   <option value="seoul">서울</option>
@@ -290,6 +320,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ```
 
 ### button 종류
+
+**▶ button type별 동작**
 
 <table class="wda-mtable">
 <thead><tr><th>type</th><th>동작</th></tr></thead>
@@ -307,6 +339,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 ### 입력 항목 그룹으로 묶기
+
+**• HTML: fieldset과 legend**
 
 ```html
 <fieldset>

@@ -85,6 +85,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 터치 영역 체크리스트
 
+**▶ 터치 영역 확인 기준**
+
 <table class="wda-mtable">
 <thead><tr><th>확인 항목</th><th>기준</th></tr></thead>
 <tbody>
@@ -114,6 +116,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 4. AI에게 모바일 레이아웃 수정 요청하기
+
+**• 모바일 레이아웃 수정 요청 프롬프트**
 
 ```
 목표:

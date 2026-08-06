@@ -183,6 +183,8 @@ Netflix의 메인 화면을 예로 들면, Main 내부가 아래처럼 순서대
 
 중간 영역까지 나눴다면, 이제 그 안의 콘텐츠 하나를 골라 내부 구성 요소를 뜯어본다. 예를 들어 Netflix의 카드 하나를 열어보면 아래처럼 작은 요소들이 조합되어 있다.
 
+**• HTML: 카드 내부 구성 요소**
+
 ```html
 <div class="card">
   <img class="card-thumbnail" src="..." alt="작품 썸네일">
@@ -215,6 +217,8 @@ Netflix의 메인 화면을 예로 들면, Main 내부가 아래처럼 순서대
 </div>
 
 각 요소를 실제로 구분할 때는 아래 표를 기준으로 확인한다.
+
+**▶ 시맨틱 요소 식별 기준**
 
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>위치</th><th>특징</th><th>식별 포인트</th><th>대표 구성 요소</th></tr></thead>
@@ -250,6 +254,8 @@ Netflix의 메인 화면을 예로 들면, Main 내부가 아래처럼 순서대
 </div>
 
 세 패턴을 실제로 발견하는 방법과 예시는 아래와 같다.
+
+**▶ 반복 UI 패턴 발견 방법**
 
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>구성</th><th>발견 방법</th><th>대표 예시</th></tr></thead>

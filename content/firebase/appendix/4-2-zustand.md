@@ -104,6 +104,8 @@ Zustand는 이런 전역 상태를 아주 간단한 문법으로 만들 수 있�
 
 ## 3. Zustand로 store 만들기
 
+**• JavaScript: Zustand store 생성**
+
 ```js
 import { create } from 'zustand';
 
@@ -119,6 +121,8 @@ const useCartStore = create((set) => ({
 ---
 
 ## 4. 컴포넌트에서 store 사용하기
+
+**• React: 컴포넌트에서 Zustand store 사용**
 
 ```jsx
 function CartBadge() {

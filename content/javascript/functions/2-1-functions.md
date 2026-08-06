@@ -77,6 +77,8 @@ tags:
 
 <div class="wda-compare-ttl">❌ 매번 다시 쓰면</div>
 
+**• JavaScript: 매번 다시 쓰는 경우**
+
 ```javascript
 console.log("아메리카노 주문 접수");
 console.log("라떼 주문 접수");
@@ -90,6 +92,8 @@ console.log("카푸치노 주문 접수");
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ 함수로 묶으면</div>
+
+**• JavaScript: 함수로 묶기**
 
 ```javascript
 function makeOrder(menuName) {
@@ -134,6 +138,8 @@ makeOrder("카푸치노");
   <div class="wda-fnode"><div class="wda-fnode-ttl">출력</div><div class="wda-fnode-dsc">return으로 결과를 돌려준다.</div></div>
 </div>
 
+**• JavaScript: 입력 → 처리 → 출력 예시**
+
 ```javascript
 function calculateTotal(price1, price2) {
   return price1 + price2;
@@ -147,17 +153,23 @@ console.log(calculateTotal(4500, 5000));
 
 ## 3. 함수를 만드는 두 가지 방법: 선언문과 표현식
 
+**• JavaScript: 함수 선언문**
+
 ```javascript
 function makeOrder(menuName) {
   return `${menuName} 주문 완료`;
 }
 ```
 
+**• JavaScript: 함수 표현식**
+
 ```javascript
 const makeOrder = function (menuName) {
   return `${menuName} 주문 완료`;
 };
 ```
+
+**▶ 함수 선언문 vs 함수 표현식**
 
 | 구분 | 함수 선언문 | 함수 표현식 |
 |---|---|---|
@@ -179,6 +191,8 @@ const makeOrder = function (menuName) {
     실행하지 않고 함수 자체를 가리킨다.
   </div>
 </div>
+
+**• JavaScript: 호출과 참조 비교**
 
 ```javascript
 function makeOrder(menuName) {
@@ -202,6 +216,8 @@ makeOrder;
 
 ## 5. 결과값을 돌려주기: return
 
+**• JavaScript: return으로 결과 돌려받기**
+
 ```javascript
 function calculateTotal(price1, price2) {
   return price1 + price2;
@@ -211,6 +227,8 @@ const total = calculateTotal(4500, 5000);
 console.log(total);
 // 9500
 ```
+
+**• JavaScript: return 없는 함수의 반환값**
 
 ```javascript
 function logOrder(menuName) {
@@ -232,6 +250,8 @@ console.log(result);
 
 <div class="wda-compare-ttl">❌ 중첩된 if</div>
 
+**• JavaScript: 중첩된 if로 조건 처리하기**
+
 ```javascript
 function processOrder(menuName, menuStock) {
   if (menuName) {
@@ -252,6 +272,8 @@ function processOrder(menuName, menuStock) {
 
 <div class="wda-compare-ttl">✅ 조기 반환</div>
 
+**• JavaScript: 조기 반환으로 조건 처리하기**
+
 ```javascript
 function processOrder(menuName, menuStock) {
   if (!menuName) return "메뉴를 선택하세요";
@@ -271,10 +293,14 @@ function processOrder(menuName, menuStock) {
 
 ## 7. 매개변수와 인자는 다른 말이다
 
+**▶ 매개변수 vs 인자**
+
 | 구분 | 의미 | 시점 |
 |---|---|---|
 | 매개변수 (Parameter) | 함수를 정의할 때 쓰는 변수 이름 | 정의 시점 |
 | 인자 (Argument) | 함수를 호출할 때 실제로 넣는 값 | 호출 시점 |
+
+**• JavaScript: 매개변수와 인자 확인하기**
 
 ```javascript
 function makeOrder(menuName, size) {
@@ -286,6 +312,8 @@ makeOrder("라떼", "톨");
 ```
 
 인자 개수가 맞지 않아도 JavaScript는 에러를 내지 않는다.
+
+**• JavaScript: 인자 개수가 맞지 않는 경우**
 
 ```javascript
 function makeOrder(menuName, size) {
@@ -299,6 +327,8 @@ makeOrder("라떼");
 ---
 
 ## 8. 값이 없을 때 대신 쓸 값: 기본값 매개변수
+
+**• JavaScript: 기본값 매개변수 사용하기**
 
 ```javascript
 function makeOrder(menuName, size = "톨") {
@@ -321,6 +351,8 @@ makeOrder("라떼");
 ---
 
 ## 9. 나머지 값을 한 번에 받기: 나머지 매개변수
+
+**• JavaScript: 나머지 매개변수로 값 모으기**
 
 ```javascript
 function calculateTotal(...prices) {
@@ -347,6 +379,8 @@ console.log(calculateTotal(4500, 5000, 3800));
 
 ## 10. 매개변수도 지역 변수다
 
+**• JavaScript: 매개변수 스코프 확인하기**
+
 ```javascript
 function makeOrder(menuName) {
   console.log(menuName);
@@ -365,6 +399,8 @@ console.log(menuName);
 
 ## 11. 선언문과 표현식은 시작 시점이 다르다
 
+**• JavaScript: 함수 선언문은 정의 전에도 호출 가능**
+
 ```javascript
 console.log(calculateTotal(3000, 2000));
 // 5000
@@ -373,6 +409,8 @@ function calculateTotal(a, b) {
   return a + b;
 }
 ```
+
+**• JavaScript: 함수 표현식은 정의 전 호출 불가**
 
 ```javascript
 console.log(calculateTotal(3000, 2000));
@@ -408,6 +446,8 @@ const calculateTotal = function (a, b) {
   </div>
 </div>
 
+**• JavaScript: 함수를 배열에 담기**
+
 ```javascript
 const orderFns = [makeOrder, calculateTotal];
 
@@ -418,6 +458,8 @@ console.log(typeof orderFns[0]);
 ---
 
 ## 13. 함수를 나중에 실행시키기: 콜백
+
+**• JavaScript: 콜백 함수 전달하기**
 
 ```javascript
 function makeOrder(menuName) {
@@ -441,6 +483,8 @@ notifyWhenReady("라떼", makeOrder);
 ---
 
 ## 14. 자기 자신을 다시 부르기: 재귀 함수
+
+**• JavaScript: 재귀 함수로 손님 호출하기**
 
 ```javascript
 function callNextTicket(remaining) {
@@ -470,6 +514,8 @@ callNextTicket(3);
 
 ## 15. 정의하자마자 실행하기: IIFE
 
+**• JavaScript: IIFE로 즉시 실행하기**
+
 ```javascript
 const storeConfig = (function () {
   const openHour = 9;
@@ -498,6 +544,8 @@ console.log(storeConfig);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · return 없이 값 기대</div>
 
+**• JavaScript: return 없이 값을 기대하는 실수**
+
 ```javascript
 function makeOrder(menuName) {
   console.log(`${menuName} 접수`);
@@ -519,6 +567,8 @@ console.log(result);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 콜백에 괄호 붙이기</div>
 
+**• JavaScript: 콜백에 괄호를 붙이는 실수**
+
 ```javascript
 function makeOrder(menuName) {
   console.log(`${menuName} 준비 완료`);
@@ -538,6 +588,8 @@ notifyWhenReady("라떼", makeOrder());
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 표현식을 정의 전에 호출</div>
+
+**• JavaScript: 함수 표현식을 정의 전에 호출하는 실수**
 
 ```javascript
 console.log(calculateTotal(1000, 2000));
@@ -574,11 +626,15 @@ const calculateTotal = function (a, b) {
 • `processOrder(menuName, menuStock)` — 조기 반환으로 예외 상황을 먼저 처리한다.<br>
 • `notifyWhenReady(menuName, callback)` — 콜백을 실행한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 주문 생성 / 합계 계산 / 재고 확인 / 준비 완료 알림
 ```
 
 **💡 힌트 1 — 기본값 매개변수**
+
+**• JavaScript: 힌트 1 — 기본값 매개변수**
 
 ```javascript
 function makeOrder(menuName, size = "톨") {
@@ -590,6 +646,8 @@ console.log(makeOrder("아메리카노"));
 ```
 
 **💡 힌트 2 — 나머지 매개변수**
+
+**• JavaScript: 힌트 2 — 나머지 매개변수**
 
 ```javascript
 function calculateTotal(...prices) {
@@ -607,6 +665,8 @@ console.log(calculateTotal(4500, 3800));
 ```
 
 **💡 힌트 3 — 조기 반환**
+
+**• JavaScript: 힌트 3 — 조기 반환**
 
 ```javascript
 function processOrder(menuName, menuStock) {

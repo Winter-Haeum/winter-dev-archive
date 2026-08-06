@@ -85,6 +85,8 @@ commit은 작업 내역을 로컬 저장소에 기록하는 행위다. 특정 �
 
 변경한 파일을 먼저 Staging Area에 올리는 것이 `git add`이고, Staging Area에 올라온 파일을 하나의 기록으로 남기는 것이 `git commit`이다. 이 과정에서 남기는 커밋 메시지는 무엇을 바꿨는지 설명하는 역할을 하며, 커밋은 이후 프로젝트 히스토리에 그대로 남는다.
 
+**• 터미널: status→add→commit 기본 흐름**
+
 ```bash
 git status
 git add .
@@ -136,11 +138,15 @@ push가 필요한 이유는 명확하다. commit은 로컬에만 존재하므로
 
 기본 문법은 다음과 같다.
 
+**• 터미널: git push 기본 문법**
+
 ```bash
 git push origin main
 ```
 
 `origin`은 관례적으로 사용하는 원격 저장소 이름이고, `main`은 업로드할 브랜치다. 처음 push할 때는 `-u` 옵션을 붙여 브랜치를 연결해두면, 이후부터는 `git push`만 입력해도 자동으로 같은 브랜치에 업로드된다.
+
+**• 터미널: -u 옵션으로 브랜치 연결하기**
 
 ```bash
 git push -u origin main
@@ -177,11 +183,15 @@ pull이 필요한 이유도 push와 짝을 이룬다. 팀원이 push한 코드�
 
 ### git pull 명령어
 
+**• 터미널: git pull 기본 문법**
+
 ```bash
 git pull origin main
 ```
 
 브랜치를 생략한 간단한 버전도 자주 사용한다.
+
+**• 터미널: 브랜치 생략한 git pull**
 
 ```bash
 git pull
@@ -218,6 +228,8 @@ git pull
 
 ### 혼자 실습하기 (로컬 → GitHub)
 
+**• 터미널: 혼자 작업 시 커밋·push 실습**
+
 ```bash
 echo "hello wda" >> README.md
 git add README.md
@@ -230,6 +242,8 @@ push가 끝나면 GitHub 저장소 페이지에서 방금 반영된 변경 사�
 ### 팀 협업 시뮬레이션하기 (GitHub → 로컬)
 
 GitHub 웹 화면에서 `README.md`를 열고 연필 아이콘을 눌러 내용을 수정한 뒤 커밋한다. 그다음 로컬 터미널로 돌아와 아래를 실행한다.
+
+**• 터미널: 팀원이 수정한 내용 pull로 받기**
 
 ```bash
 git pull

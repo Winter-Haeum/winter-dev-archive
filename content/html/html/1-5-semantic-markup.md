@@ -115,6 +115,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">footer</div><div class="wda-fcard-dsc">바닥글 영역입니다. 저작권, 링크 등 마무리 정보가 들어갑니다.</div></div>
 </div>
 
+**• HTML: 레이아웃 시맨틱 태그**
+
 ```html
 <header>
   <h1>사이트 제목</h1>
@@ -140,6 +142,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**• HTML: article 콘텐츠 구분**
+
 ```html
 <article>
   <h2>글 제목</h2>
@@ -155,6 +159,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 5. div/span은 언제 사용할까
+
+**▶ div·span과 시맨틱 태그 사용 시점**
 
 <table class="wda-mtable">
 <thead><tr><th>태그</th><th>의미</th><th>사용 시점</th></tr></thead>
@@ -176,6 +182,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 6. 실전 예제: 블로그 레이아웃
 
 실무에서 자주 쓰이는 시맨틱 레이아웃 패턴은 header → nav → main(article + aside) → footer 흐름을 따릅니다.
+
+**• HTML: 블로그 레이아웃 실전 예제**
 
 ```html
 <body>

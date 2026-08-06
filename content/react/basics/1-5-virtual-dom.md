@@ -108,6 +108,8 @@ state가 바뀌면 컴포넌트 함수가 다시 실행되어 **새로운 UI 구
 
 이것이 Virtual DOM입니다.
 
+**• JavaScript: Virtual DOM 객체 형태**
+
 ```javascript
 // <li>변수와 자료형 - 완료</li>를 표현한 모습
 const virtualElement = {
@@ -139,6 +141,8 @@ state가 바뀔 때마다 React는 **이전에 계산했던 결과**와 **새로
 
 비교 결과 실제로 달라진 부분만 실제 화면(DOM)에 반영합니다. 나머지 부분은 그대로 둡니다.
 
+**• 바뀐 부분만 반영되는 예시**
+
 ```javascript
 // 강의 목록 5개 중 1개만 상태가 바뀌었다면
 // 실제로 반영되는 것은 그 1개 항목뿐이다
@@ -147,6 +151,8 @@ state가 바뀔 때마다 React는 **이전에 계산했던 결과**와 **새로
 ---
 
 ## 6. state 변경과 re-render
+
+**• React: state 변경으로 re-render 유발하기**
 
 ```jsx
 function toggleComplete(courseId) {
@@ -215,6 +221,8 @@ function toggleComplete(courseId) {
 ---
 
 ## 9. 다음 학습 흐름
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

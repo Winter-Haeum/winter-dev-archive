@@ -98,6 +98,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**▶ 전통적인 서버와 서버리스 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>전통적인 서버</th><th>서버리스</th></tr></thead>
 <tbody>
@@ -128,6 +130,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 4. Firebase는 왜 서버리스로 분류될까
 
 Firebase의 Firestore, Authentication, Storage, Hosting 같은 서비스는 모두 서버리스 방식으로 동작합니다. 개발자는 서버를 따로 준비하지 않고, Firebase SDK를 통해 필요한 기능을 호출하기만 하면 됩니다.
+
+**• JavaScript: 서버 관리 없이 Firestore 사용**
 
 ```js
 // 데이터를 저장할 때도 서버를 직접 관리할 필요가 없습니다

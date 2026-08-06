@@ -99,12 +99,16 @@ React Portal은 컴포넌트의 **React 트리상 위치는 그대로 유지**�
   </div>
 </div>
 
+**• HTML: Portal 대상 루트 요소**
+
 ```html
 <body>
   <div id="root"></div>
   <div id="modal-root"></div>
 </body>
 ```
+
+**• React: createPortal로 모달 렌더링**
 
 ```jsx
 import { createPortal } from 'react-dom';

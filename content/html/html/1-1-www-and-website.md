@@ -158,6 +158,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 주소창에 입력하는 URL은 몇 가지 부분으로 나뉩니다.
 
+**▶ URL 구성 요소**
+
 <table class="wda-mtable">
 <thead><tr><th>구성 요소</th><th>예시</th><th>의미</th></tr></thead>
 <tbody>

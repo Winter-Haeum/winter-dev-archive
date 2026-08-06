@@ -98,6 +98,8 @@ tags:
 
 <div class="wda-compare-ttl">📝 현재 날짜</div>
 
+**• JavaScript: 현재 날짜 만들기**
+
 ```javascript
 const today = new Date();
 ```
@@ -109,6 +111,8 @@ const today = new Date();
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 특정 날짜</div>
+
+**• JavaScript: 특정 날짜 만들기**
 
 ```javascript
 const lessonStartDate =
@@ -137,6 +141,8 @@ const lessonStartDate =
 
 <div class="wda-compare-ttl">📝 문자열로 생성</div>
 
+**• JavaScript: 문자열로 Date 생성하기**
+
 ```javascript
 const lessonStartDate =
   new Date("2026-03-10");
@@ -147,6 +153,8 @@ const lessonStartDate =
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 숫자로 생성</div>
+
+**• JavaScript: 숫자로 Date 생성하기**
 
 ```javascript
 const lessonStartDate =
@@ -167,6 +175,8 @@ const lessonStartDate =
 
 ## 4. 년/월/일 읽기
 
+**• JavaScript: 년/월/일 읽기**
+
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
 
@@ -185,6 +195,8 @@ console.log(lessonStartDate.getDate());     // 10
 
 ## 5. 시/분/초 읽기
 
+**• JavaScript: 시/분/초 읽기**
+
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10, 9, 30, 0);
 
@@ -192,6 +204,8 @@ console.log(lessonStartDate.getHours());   // 9
 console.log(lessonStartDate.getMinutes()); // 30
 console.log(lessonStartDate.getSeconds()); // 0
 ```
+
+**▶ Date 읽기 메서드 정리**
 
 | 메서드 | 반환값 |
 |---|---|
@@ -212,6 +226,8 @@ console.log(lessonStartDate.getSeconds()); // 0
 
 ## 6. 월이 0부터 시작하는 이유를 주의하기
 
+**• JavaScript: 월이 0부터 시작하는 것 확인하기**
+
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
 
@@ -229,6 +245,8 @@ console.log(lessonStartDate.getMonth() + 1); // 3 (화면에 보여줄 때)
 
 ## 7. 날짜 수정하기
 
+**• JavaScript: setDate로 날짜 수정하기**
+
 ```javascript
 const lessonEndDate = new Date(2026, 2, 10);
 
@@ -236,6 +254,8 @@ lessonEndDate.setDate(lessonEndDate.getDate() + 14);
 
 console.log(lessonEndDate.getDate()); // 24
 ```
+
+**▶ Date 수정 메서드 정리**
 
 | 메서드 | 역할 |
 |---|---|
@@ -252,6 +272,8 @@ console.log(lessonEndDate.getDate()); // 24
 ---
 
 ## 8. 날짜 비교하기
+
+**• JavaScript: 날짜 비교하기**
 
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
@@ -280,6 +302,8 @@ console.log(today > lessonStartDate);
 
 ## 9. 시간 차이 계산하기
 
+**• JavaScript: 시간 차이 계산하기**
+
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
 const lessonEndDate = new Date(2026, 2, 24);
@@ -300,6 +324,8 @@ console.log(remainingDays); // 14
 ---
 
 ## 10. timestamp와 getTime
+
+**• JavaScript: getTime으로 타임스탬프 얻기**
 
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
@@ -324,6 +350,8 @@ console.log(typeof lessonStartDate.getTime()); // number
 ---
 
 ## 11. 날짜를 화면에 보여주기
+
+**• JavaScript: 날짜를 문자열로 조립하기**
 
 ```javascript
 function formatLessonDate(date) {
@@ -354,6 +382,8 @@ console.log(formatLessonDate(lessonStartDate)); // 2026-03-10
 
 <div class="wda-compare-ttl">📝 toISOString</div>
 
+**• JavaScript: toISOString으로 표준 문자열 만들기**
+
 ```javascript
 const lessonStartDate =
   new Date(2026, 2, 10);
@@ -369,6 +399,8 @@ lessonStartDate.toISOString();
 
 <div class="wda-compare-ttl">📝 toLocaleDateString</div>
 
+**• JavaScript: toLocaleDateString으로 지역 형식 만들기**
+
 ```javascript
 const lessonStartDate =
   new Date(2026, 2, 10);
@@ -381,6 +413,8 @@ lessonStartDate.toLocaleDateString();
 </div>
 
 </div>
+
+**▶ 날짜 문자열 변환 메서드**
 
 | 메서드 | 반환 형식 |
 |---|---|
@@ -404,6 +438,8 @@ lessonStartDate.toLocaleDateString();
 
 <div class="wda-compare-ttl">⚠️ 원본 직접 수정</div>
 
+**• JavaScript: 원본을 직접 수정하는 경우**
+
 ```javascript
 lessonStartDate.setDate(
   lessonStartDate.getDate() + 14
@@ -416,6 +452,8 @@ lessonStartDate.setDate(
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">✅ 복사 후 수정</div>
+
+**• JavaScript: 복사 후 수정하는 경우**
 
 ```javascript
 const lessonEndDate =
@@ -430,6 +468,8 @@ lessonEndDate.setDate(
 </div>
 
 </div>
+
+**• JavaScript: 원본 유지 확인하기**
 
 ```javascript
 const lessonStartDate = new Date(2026, 2, 10);
@@ -457,6 +497,8 @@ console.log(lessonEndDate.getDate());   // 24 (복사본만 변경)
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 월 인자를 실제 월 그대로</div>
 
+**• JavaScript: 월 인자를 실제 월 그대로 넣는 실수**
+
 ```javascript
 const lessonStartDate = new Date(2026, 3, 10);
 console.log(lessonStartDate.getMonth()); // 3
@@ -475,6 +517,8 @@ console.log(lessonStartDate.getMonth()); // 3
 
 <div class="wda-fcard-ttl">🔹 실수 2 · setDate 결과를 새 변수에 저장</div>
 
+**• JavaScript: setDate 결과를 새 변수에 저장하는 실수**
+
 ```javascript
 const lessonEndDate = lessonStartDate.setDate(
   lessonStartDate.getDate() + 14
@@ -492,6 +536,8 @@ console.log(typeof lessonEndDate); // number
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 범위를 벗어난 날짜 문자열</div>
+
+**• JavaScript: 범위를 벗어난 날짜 문자열의 결과**
 
 ```javascript
 const invalidDate = new Date("2026-13-10");
@@ -522,11 +568,15 @@ console.log(invalidDate.toString());
 • `isExpired(deadline)`으로 오늘이 마감일을 지났는지 판단한다.<br>
 • `formatLessonDate(date)`로 날짜를 `"YYYY-MM-DD"` 형식 문자열로 만든다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: addDays(복사 후 수정) / isExpired(오늘과 비교) / formatLessonDate(문자열 조립)
 ```
 
 **💡 힌트 1 — addDays (원본 유지)**
+
+**• JavaScript: 힌트 1 — addDays (원본 유지)**
 
 ```javascript
 function addDays(date, days) {
@@ -544,6 +594,8 @@ console.log(reviewDeadline.getDate());  // 24
 
 **💡 힌트 2 — isExpired**
 
+**• JavaScript: 힌트 2 — isExpired**
+
 ```javascript
 function isExpired(deadline) {
   const today = new Date();
@@ -552,6 +604,8 @@ function isExpired(deadline) {
 ```
 
 **💡 힌트 3 — formatLessonDate**
+
+**• JavaScript: 힌트 3 — formatLessonDate**
 
 ```javascript
 function formatLessonDate(date) {

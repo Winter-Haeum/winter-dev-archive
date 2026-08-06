@@ -79,6 +79,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 **Jest**는 자바스크립트 코드를 테스트하기 위한 대표적인 테스트 프레임워크입니다. 테스트 코드를 실행하고, 그 결과가 예상과 맞는지 판정하고, 통과/실패 결과를 화면에 정리해서 보여주는 역할을 합니다.
 
+**• 터미널: Jest 설치**
+
 ```bash
 npm install -D jest
 ```
@@ -95,6 +97,8 @@ npm install -D jest
 
 Jest로 작성하는 테스트는 보통 다음 세 가지 요소로 이루어집니다.
 
+**• 테스트 대상 함수 정의**
+
 ```js
 // sum.js
 function sum(a, b) {
@@ -102,6 +106,8 @@ function sum(a, b) {
 }
 module.exports = sum;
 ```
+
+**• 테스트 코드 작성**
 
 ```js
 // sum.test.js
@@ -111,6 +117,8 @@ test('1 더하기 2는 3이다', () => {
   expect(sum(1, 2)).toBe(3);
 });
 ```
+
+**▶ 테스트 코드 구성 요소**
 
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>역할</th></tr></thead>
@@ -123,6 +131,8 @@ test('1 더하기 2는 3이다', () => {
 
 파일 이름을 `sum.test.js`처럼 `.test.js`로 끝나게 지으면, Jest가 별도 설정 없이도 이 파일을 테스트 파일로 자동 인식합니다.
 
+**• 터미널: 테스트 실행**
+
 ```bash
 npm test
 ```
@@ -132,6 +142,8 @@ npm test
 ## 3. describe로 테스트 묶기
 
 관련 있는 테스트가 여러 개일 때는 `describe`로 하나의 그룹으로 묶을 수 있습니다.
+
+**• describe로 테스트 그룹화**
 
 ```js
 describe('sum 함수', () => {
@@ -161,6 +173,8 @@ describe('sum 함수', () => {
 
 expect 뒤에 붙는 matcher는 "어떤 방식으로 값을 비교할지"를 결정합니다. 상황에 맞는 matcher를 고르는 것이 중요합니다.
 
+**▶ 자주 쓰는 matcher**
+
 <table class="wda-mtable">
 <thead><tr><th>matcher</th><th>용도</th></tr></thead>
 <tbody>
@@ -171,6 +185,8 @@ expect 뒤에 붙는 matcher는 "어떤 방식으로 값을 비교할지"를 결
 <tr><td>toThrow()</td><td>함수 실행 시 에러가 발생하는지 확인합니다.</td></tr>
 </tbody>
 </table>
+
+**• toEqual로 객체 비교**
 
 ```js
 test('객체는 toEqual로 비교한다', () => {

@@ -84,6 +84,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 주요 라이브러리 핵심 아이디어 비교
 
+**▶ Redux·Zustand·Recoil/Jotai 핵심 아이디어**
+
 <table class="wda-mtable">
 <thead><tr><th>라이브러리</th><th>핵심 아이디어</th></tr></thead>
 <tbody>

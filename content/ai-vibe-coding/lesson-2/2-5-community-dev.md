@@ -134,6 +134,8 @@ project-section처럼 project-table의 여러 행을 화면에 나열할 때, �
 
 ## 6. AI에게 목록 화면을 요청하는 예시
 
+**• 목록 화면 요청 프롬프트**
+
 ```
 project-section에 project-table 목록을 보여주는 화면을 만들고 싶습니다.
 

@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이럴 때 타입 하나를 고정하는 대신, **사용하는 시점에 타입을 채워 넣을 수 있는 자리**를 만들어두는 것이 제네릭입니다.
 
+**• TypeScript: 제네릭 함수 기본**
+
 ```ts
 function identity<T>(value: T): T {
   return value;
@@ -98,6 +100,8 @@ identity<number>(123);     // T가 number로 채워짐
 
 문자열 목록도, 사용자 목록도 형태만 다를 뿐 "배열을 받아서 하나씩 화면에 그린다"는 동작 자체는 같습니다. 이럴 때 제네릭을 사용하면 하나의 컴포넌트로 여러 타입의 데이터를 다룰 수 있습니다.
 
+**• React: 제네릭 리스트 컴포넌트 정의**
+
 ```tsx
 interface ListProps<T> {
   items: T[];
@@ -114,6 +118,8 @@ function List<T>({ items, renderItem }: ListProps<T>) {
   );
 }
 ```
+
+**• React: 제네릭 리스트 컴포넌트 사용**
 
 ```tsx
 const users = [{ name: "Alice" }, { name: "Bob" }];
@@ -135,6 +141,8 @@ const tags = ["React", "TypeScript"];
 ## 3. 특정 조건을 만족하는 타입만 허용하기
 
 가끔은 "아무 타입이나"가 아니라 "최소한 이런 속성은 가진 타입"만 받고 싶을 수 있습니다. 이럴 때는 `extends`로 조건을 걸 수 있습니다.
+
+**• React: extends로 제네릭 타입 제한**
 
 ```tsx
 interface HasId {

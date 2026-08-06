@@ -99,6 +99,8 @@ lesson-3에서는 데스크톱 기준으로 만들어진 포트폴리오를 모�
 
 ## 3. 자주 나오는 반응형 문제와 수정 요청
 
+**▶ 반응형 문제와 수정 요청 방향**
+
 <table class="wda-mtable">
 <thead><tr><th>문제</th><th>확인 방법</th><th>요청 예시 방향</th></tr></thead>
 <tbody>

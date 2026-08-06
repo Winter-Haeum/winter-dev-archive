@@ -79,6 +79,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 jQuery는 `$('선택자')` 형태로 요소를 찾습니다. CSS에서 쓰던 선택자 문법을 그대로 사용할 수 있어 직관적입니다.
 
+**▶ 선택자 방식 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>기능</th><th>순수 자바스크립트</th><th>jQuery</th></tr></thead>
 <tbody>
@@ -89,6 +91,8 @@ jQuery는 `$('선택자')` 형태로 요소를 찾습니다. CSS에서 쓰던 �
 </table>
 
 jQuery의 가장 큰 특징은 **묵시적 반복**입니다. 클래스가 같은 요소가 여러 개 있어도 반복문 없이 한 줄로 전부 처리할 수 있습니다.
+
+**• 묵시적 반복 비교**
 
 ```js
 // 순수 자바스크립트: 여러 요소를 반복문으로 처리해야 함
@@ -103,6 +107,8 @@ $('.item').addClass('active');
 ---
 
 ## 2. DOM 조작 — 텍스트, 클래스, 스타일 바꾸기
+
+**▶ DOM 조작 메서드 정리**
 
 <table class="wda-mtable">
 <thead><tr><th>목적</th><th>메서드</th><th>예시</th></tr></thead>
@@ -128,11 +134,15 @@ $('.item').addClass('active');
 
 버튼 클릭처럼 사용자의 동작에 반응하려면 `.on()` 메서드를 사용합니다.
 
+**• 클릭 이벤트 등록**
+
 ```js
 $('#btn').on('click', function () {
   alert('클릭됨!');
 });
 ```
+
+**▶ 주요 이벤트 종류**
 
 <table class="wda-mtable">
 <thead><tr><th>이벤트</th><th>발생 시점</th></tr></thead>
@@ -157,6 +167,8 @@ jQuery는 요소를 보이거나 숨기는 동작에 부드러운 전환 효과�
   <div class="wda-fcard"><div class="wda-fcard-ttl">fadeIn() / fadeOut()</div><div class="wda-fcard-dsc">투명도를 조절해 서서히 나타나거나 사라지게 합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">slideDown() / slideUp()</div><div class="wda-fcard-dsc">높이를 조절해 위아래로 펼치거나 접습니다. 아코디언 메뉴에 자주 쓰입니다.</div></div>
 </div>
+
+**• 아코디언 토글 구현**
 
 ```js
 // 클릭할 때마다 내용이 접혔다 펼쳐지는 아코디언 패턴

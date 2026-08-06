@@ -96,6 +96,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 링크가 보여야 한다고 가정하면 아래와 같은 구조가 나옵니다.
 
+**▶ project-table 필드 설계**
+
 <table class="wda-mtable">
 <thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>
 <tbody>
@@ -143,6 +145,8 @@ project-section에는 프로젝트 제목, 설명, 기술 스택, 바로가기 �
 ## 5. AI에게 데이터 구조 초안 요청하기
 
 설계 방향이 어느 정도 잡히면, 아래처럼 화면 요구사항을 기준으로 초안을 요청할 수 있습니다.
+
+**• 데이터 구조 초안 요청 프롬프트**
 
 ```
 project-table 구조를 설계하고 싶습니다.

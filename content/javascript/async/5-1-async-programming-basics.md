@@ -90,6 +90,8 @@ JavaScript는 오래 걸리는 작업을 기다리지 않고, 그 작업을 맡�
 
 앞 작업이 끝나야 다음 작업이 실행된다.
 
+**• JavaScript: 동기 코드 실행 순서**
+
 ```javascript
 console.log("1. 강의 제목 표시");
 console.log("2. 강의 설명 표시");
@@ -104,6 +106,8 @@ console.log("3. 목차 표시");
 <div class="wda-compare-ttl">📝 비동기(Asynchronous)</div>
 
 오래 걸리는 작업을 기다리지 않고 다음 코드를 먼저 실행한다.
+
+**• JavaScript: 비동기 처리 실행 순서**
 
 ```javascript
 console.log("1. 강의 제목 표시");
@@ -153,6 +157,8 @@ console.log("2. 다음 화면 요소 표시");
 
 ## 4. JavaScript는 한 번에 하나씩 실행된다
 
+**• JavaScript: 콜 스택 순차 실행**
+
 ```javascript
 function showTitle() {
   console.log("강의 제목 표시");
@@ -176,6 +182,8 @@ showDescription();
 ---
 
 ## 5. call stack과 브라우저 작업 흐름
+
+**▶ 콜 스택·Web API·태스크 큐 역할**
 
 | 영역 | 역할 |
 |---|---|
@@ -213,6 +221,8 @@ showDescription();
 
 ## 7. setTimeout으로 실행 순서 확인하기
 
+**• JavaScript: setTimeout 실행 순서 확인**
+
 ```javascript
 console.log("1. 강의 제목 표시");
 
@@ -234,6 +244,8 @@ console.log("2. 다음 화면 요소 표시");
 ---
 
 ## 8. 콜백 함수로 완료 후 처리하기
+
+**• JavaScript: 콜백으로 완료 후 처리하기**
 
 ```javascript
 function fetchLessonReviews(callback) {
@@ -263,6 +275,8 @@ console.log("리뷰 요청을 보냈습니다");
 
 ## 9. 콜백이 많아질 때 생기는 문제
 
+**• JavaScript: 콜백 중첩(콜백 지옥) 예시**
+
 ```javascript
 fetchLessonReviews(function (reviewList) {
   console.log("리뷰:", reviewList);
@@ -290,6 +304,8 @@ fetchLessonReviews(function (reviewList) {
 
 <div class="wda-compare-ttl">📝 콜백 방식</div>
 
+**• JavaScript: 콜백 방식 코드**
+
 ```javascript
 fetchLessonReviews(function (reviewList) {
   console.log(reviewList);
@@ -301,6 +317,8 @@ fetchLessonReviews(function (reviewList) {
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 Promise로 넘어가는 흐름</div>
+
+**• JavaScript: Promise로 전환한 코드**
 
 ```javascript
 fetchLessonReviews()
@@ -329,6 +347,8 @@ fetchLessonReviews()
 
 <div class="wda-compare-ttl">📝 바로 실행되는 코드</div>
 
+**• JavaScript: 동기 코드 실행 순서**
+
 ```javascript
 console.log("A");
 console.log("B");
@@ -340,6 +360,8 @@ console.log("B");
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 나중에 실행되는 코드</div>
+
+**• JavaScript: setTimeout 지연 실행 순서**
 
 ```javascript
 console.log("A");
@@ -368,6 +390,8 @@ console.log("C");
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 콜백 결과를 바로 사용</div>
 
+**• JavaScript: 콜백 결과를 밖에서 사용한 실수**
+
 ```javascript
 let reviewList;
 
@@ -390,6 +414,8 @@ console.log(reviewList);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · setTimeout(fn, 0)을 즉시 실행으로 착각</div>
 
+**• JavaScript: setTimeout(fn, 0) 오해 예시**
+
 ```javascript
 console.log("A");
 setTimeout(() => console.log("B"), 0);
@@ -407,6 +433,8 @@ console.log("C");
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 콜백을 실행하며 전달</div>
+
+**• JavaScript: 콜백을 실행하며 전달한 실수**
 
 ```javascript
 // fetchLessonReviews(handleComplete());
@@ -440,11 +468,15 @@ fetchLessonReviews(handleComplete);
 • `fetchLessonReviews(callback)`로 1초 뒤 리뷰 목록을 받는다.<br>
 • 리뷰가 도착하면 `showReviews(reviewList)`로 결과를 출력한다.
 
+**• JavaScript: 실습 과제 구성 예시**
+
 ```javascript
 // 구성 예시: 로딩 메시지 출력 / 콜백으로 리뷰 요청 / 완료 후 결과 출력
 ```
 
 **💡 힌트 1 — 로딩 메시지 먼저 출력**
+
+**• JavaScript: 로딩 메시지 출력 힌트**
 
 ```javascript
 function showLoading() {
@@ -456,6 +488,8 @@ showLoading();
 
 **💡 힌트 2 — 콜백으로 리뷰 받기**
 
+**• JavaScript: 콜백으로 리뷰 받기 힌트**
+
 ```javascript
 function fetchLessonReviews(callback) {
   setTimeout(() => {
@@ -465,6 +499,8 @@ function fetchLessonReviews(callback) {
 ```
 
 **💡 힌트 3 — 완료 후 결과 표시**
+
+**• JavaScript: 완료 후 결과 표시 힌트**
 
 ```javascript
 function showReviews(reviewList) {

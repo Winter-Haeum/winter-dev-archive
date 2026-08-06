@@ -77,6 +77,8 @@ tags:
 
 <div class="wda-compare-ttl">❌ 변수를 따로따로 만들면</div>
 
+**• JavaScript: 변수를 따로따로 만드는 경우**
+
 ```javascript
 const userName = "지수";
 const userLevel = "골드";
@@ -90,6 +92,8 @@ const userJoinedYear = 2023;
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ 객체 하나로 묶으면</div>
+
+**• JavaScript: 객체 하나로 묶기**
 
 ```javascript
 const userProfile = {
@@ -110,6 +114,8 @@ const userProfile = {
 ## 2. 객체는 이름이 붙은 값 묶음이다
 
 배열이 순서가 있는 값 목록이라면, 객체는 각 값에 <strong>이름(key)</strong>이 붙은 값 묶음이다.
+
+**• JavaScript: 객체 값 확인하기**
 
 ```javascript
 console.log(userProfile);
@@ -145,6 +151,8 @@ console.log(userProfile);
 
 중괄호 `{}`로 만들며, 값이 없으면 빈 객체를 만들 수도 있다.
 
+**• JavaScript: 객체 리터럴로 객체 만들기**
+
 ```javascript
 const userProfile = {
   name: "지수",
@@ -172,6 +180,8 @@ console.log(userProfile);
   </div>
 </div>
 
+**• JavaScript: 점 표기법·대괄호 표기법으로 값 읽기**
+
 ```javascript
 console.log(userProfile.name);
 // "지수"
@@ -179,6 +189,8 @@ console.log(userProfile.name);
 console.log(userProfile["level"]);
 // "골드"
 ```
+
+**• JavaScript: 변수로 property 이름 고르기**
 
 ```javascript
 const profileKey = "level";
@@ -198,6 +210,8 @@ console.log(userProfile[profileKey]);
 
 ## 6. 값 수정하기
 
+**• JavaScript: property 값 수정하기**
+
 ```javascript
 userProfile.level = "플래티넘";
 
@@ -208,6 +222,8 @@ console.log(userProfile.level);
 ---
 
 ## 7. 새 property 추가하기
+
+**• JavaScript: 새 property 추가하기**
 
 ```javascript
 userProfile.contactInfo = "jisoo@example.com";
@@ -222,6 +238,8 @@ console.log(userProfile);
   대괄호 안에 변수를 넣으면 그 변수의 값이 property 이름이 된다(computed property).
 </div>
 
+**• JavaScript: computed property로 이름 정하기**
+
 ```javascript
 const profileKey = "badge";
 
@@ -234,6 +252,8 @@ console.log(userProfile.badge);
 ---
 
 ## 8. property 삭제하기
+
+**• JavaScript: delete로 property 삭제하기**
 
 ```javascript
 delete userProfile.contactInfo;
@@ -252,6 +272,8 @@ console.log(userProfile);
 
 ## 9. 중첩 객체 다루기
 
+**• JavaScript: 중첩 객체 값 읽기**
+
 ```javascript
 const userProfile = {
   name: "지수",
@@ -265,6 +287,8 @@ console.log(userProfile.settings.theme);
 // "dark"
 ```
 
+**• JavaScript: 중첩 객체 값 수정하기**
+
 ```javascript
 userProfile.settings.theme = "light";
 
@@ -274,10 +298,14 @@ console.log(userProfile.settings.theme);
 
 없는 중간 경로에 접근하면 에러가 난다.
 
+**• JavaScript: 없는 중간 경로 접근 — 에러 예시**
+
 ```javascript
 console.log(userProfile.address.city);
 // ❌ TypeError (일부러 에러 확인용)
 ```
+
+**• JavaScript: 옵셔널 체이닝으로 안전하게 접근하기**
 
 ```javascript
 console.log(userProfile.address?.city);
@@ -296,6 +324,8 @@ console.log(userProfile.address?.city);
 
 한 사용자가 여러 값을 목록으로 가질 때.
 
+**• JavaScript: 객체 안 배열 다루기**
+
 ```javascript
 const userProfile = {
   name: "지수",
@@ -313,6 +343,8 @@ console.log(userProfile.badges[0]);
 <div class="wda-compare-ttl">배열 안 객체</div>
 
 여러 사용자를 목록으로 관리할 때.
+
+**• JavaScript: 배열 안 객체 다루기**
 
 ```javascript
 const profileList = [
@@ -333,6 +365,8 @@ console.log(profileList[0].name);
 ## 11. 객체 안 함수: 메서드
 
 객체의 property 값이 함수이면 이를 <strong>메서드</strong>라고 부른다.
+
+**• JavaScript: 객체 메서드 정의하기**
 
 ```javascript
 const userProfile = {
@@ -356,6 +390,8 @@ userProfile.greet();
   <code>this</code>는 <strong>메서드를 호출한 객체</strong>와 연결된다. <code>userProfile.showLevel()</code>처럼 호출하면, 메서드 안의 <code>this</code>는 <code>userProfile</code>을 가리킨다.
 </div>
 
+**• JavaScript: 메서드 안에서 this로 값 읽기**
+
 ```javascript
 const userProfile = {
   name: "지수",
@@ -373,6 +409,8 @@ userProfile.showLevel();
 <div class="wda-callout wda-cw">
   메서드를 화살표 함수로 정의하면 <code>this</code>가 기대와 다르게 동작한다. 화살표 함수는 자신만의 <code>this</code>를 만들지 않기 때문이다.
 </div>
+
+**• JavaScript: 화살표 함수 메서드의 this 문제**
 
 ```javascript
 const userProfile = {
@@ -398,6 +436,8 @@ userProfile.showLevel();
   <div class="wda-fnode"><div class="wda-fnode-ttl">반복</div><div class="wda-fnode-dsc">모든 key를 다 돌 때까지 반복한다.</div></div>
 </div>
 
+**• JavaScript: for...in으로 객체 순회하기**
+
 ```javascript
 const userProfile = { name: "지수", level: "골드" };
 
@@ -412,11 +452,15 @@ for (const key in userProfile) {
 
 ## 14. Object.keys / Object.values / Object.entries
 
+**▶ Object.keys·values·entries 반환값**
+
 | 메서드 | 반환값 |
 |---|---|
 | `Object.keys()` | key로 이루어진 배열 |
 | `Object.values()` | value로 이루어진 배열 |
 | `Object.entries()` | `[key, value]` 쌍으로 이루어진 배열 |
+
+**• JavaScript: Object.keys·values·entries 사용하기**
 
 ```javascript
 const userProfile = { name: "지수", level: "골드" };
@@ -436,6 +480,8 @@ console.log(profileEntries);
 
 ## 15. property 존재 여부 확인하기: in
 
+**• JavaScript: in으로 property 존재 확인하기**
+
 ```javascript
 const userProfile = { name: "지수", level: "골드" };
 
@@ -450,6 +496,8 @@ console.log("email" in userProfile);
 
 ## 16. 객체 복사와 spread 문법
 
+**• JavaScript: 객체 대입 — 참조 공유**
+
 ```javascript
 const userProfile = { name: "지수", level: "골드" };
 const copiedProfile = userProfile;
@@ -459,6 +507,8 @@ copiedProfile.level = "플래티넘";
 console.log(userProfile.level);
 // "플래티넘" — 같은 객체를 가리켜 원본도 바뀐다
 ```
+
+**• JavaScript: spread로 객체 복사하기**
 
 ```javascript
 const userProfile = { name: "지수", level: "골드" };
@@ -474,6 +524,8 @@ console.log(updatedProfile.level);
 ---
 
 ## 17. 얕은 복사 주의
+
+**• JavaScript: spread 얕은 복사의 함정**
 
 ```javascript
 const userProfile = {
@@ -505,6 +557,8 @@ console.log(userProfile.settings.theme);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 변수를 점 표기법에 사용</div>
 
+**• JavaScript: 변수를 점 표기법에 사용하는 실수**
+
 ```javascript
 const userProfile = { name: "지수" };
 const profileKey = "name";
@@ -523,6 +577,8 @@ console.log(userProfile.profileKey);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 화살표 함수를 메서드로 사용</div>
+
+**• JavaScript: 화살표 함수를 메서드로 사용하는 실수**
 
 ```javascript
 const userProfile = {
@@ -544,6 +600,8 @@ userProfile.greet();
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · spread 복사가 완전 분리라는 착각</div>
+
+**• JavaScript: spread 복사가 완전 분리라는 착각**
 
 ```javascript
 const userProfile = { settings: { theme: "dark" } };
@@ -580,11 +638,15 @@ console.log(userProfile.settings.theme);
 • 새 property를 추가하고 `delete`로 삭제한다.<br>
 • `Object.keys`로 key 목록을 확인한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 객체 생성 / 값 읽기 / property 추가·삭제 / key 목록 확인
 ```
 
 **💡 힌트 1 — 객체 만들고 읽기**
+
+**• JavaScript: 힌트 1 — 객체 만들고 읽기**
 
 ```javascript
 const userProfile = {
@@ -598,6 +660,8 @@ console.log(userProfile.name);
 
 **💡 힌트 2 — property 추가와 삭제**
 
+**• JavaScript: 힌트 2 — property 추가와 삭제**
+
 ```javascript
 userProfile.badge = "신규가입";
 console.log(userProfile);
@@ -609,6 +673,8 @@ console.log(userProfile);
 ```
 
 **💡 힌트 3 — key 목록 확인**
+
+**• JavaScript: 힌트 3 — key 목록 확인**
 
 ```javascript
 console.log(Object.keys(userProfile));

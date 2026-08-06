@@ -93,6 +93,8 @@ tags:
 
 ## 2. 에러와 예외 이해하기
 
+**• JavaScript: Error 객체 만들기**
+
 ```javascript
 const error = new Error("강의 정보를 찾을 수 없습니다.");
 
@@ -116,6 +118,8 @@ console.log(error.message); // 강의 정보를 찾을 수 없습니다.
 
 <div class="wda-compare-ttl">⚠️ try/catch 없이 실행</div>
 
+**• JavaScript: try/catch 없이 실행 — 에러로 중단**
+
 ```javascript
 // JSON.parse("잘못된 형식");
 // ❌ SyntaxError로 프로그램이 멈추고,
@@ -127,6 +131,8 @@ console.log(error.message); // 강의 정보를 찾을 수 없습니다.
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">✅ try/catch로 감싸기</div>
+
+**• JavaScript: try/catch로 감싸 계속 실행하기**
 
 ```javascript
 try {
@@ -155,6 +161,8 @@ console.log("다음 코드도 계속 실행된다");
 ---
 
 ## 4. finally는 언제 쓰는가
+
+**• JavaScript: finally로 항상 정리 작업하기**
 
 ```javascript
 function validateLessonId(lessonId) {
@@ -186,6 +194,8 @@ try {
 
 ## 5. throw로 직접 에러 만들기
 
+**• JavaScript: throw로 직접 에러 던지기**
+
 ```javascript
 function validateLessonId(lessonId) {
   if (!lessonId) {
@@ -212,10 +222,14 @@ try {
 
 ## 6. Error 객체와 메시지 읽기
 
+**▶ Error 객체 프로퍼티**
+
 | 프로퍼티 | 설명 |
 |---|---|
 | `name` | 에러 종류 (예: `Error`, `TypeError`) |
 | `message` | 에러가 발생한 이유 |
+
+**• JavaScript: Error 객체 프로퍼티 읽기**
 
 ```javascript
 try {
@@ -243,6 +257,8 @@ try {
 
 <div class="wda-compare-ttl">✅ 동기 코드</div>
 
+**• JavaScript: 동기 코드 에러 처리**
+
 ```javascript
 function loadLessonSync(lessonId) {
   try {
@@ -266,6 +282,8 @@ loadLessonSync(null);
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">⚠️ 비동기 콜백</div>
+
+**• JavaScript: 비동기 콜백은 try/catch로 못 잡음**
 
 ```javascript
 try {
@@ -295,6 +313,8 @@ try {
 
 ## 8. Promise에서 실패 처리하기
 
+**• JavaScript: Promise reject와 catch로 실패 처리하기**
+
 ```javascript
 function fetchLessonDetail(lessonId) {
   return new Promise((resolve, reject) => {
@@ -323,6 +343,8 @@ fetchLessonDetail(null)
 
 ## 9. async/await에서 try/catch 쓰기
 
+**• JavaScript: async/await에서 try/catch로 실패 처리하기**
+
 ```javascript
 async function loadLessonDetail(lessonId) {
   try {
@@ -343,6 +365,8 @@ loadLessonDetail(null);
 
 <div class="wda-compare-ttl">📝 Promise catch</div>
 
+**• JavaScript: Promise catch 방식**
+
 ```javascript
 fetchLessonDetail(null)
   .catch(error =>
@@ -355,6 +379,8 @@ fetchLessonDetail(null)
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 async/await try/catch</div>
+
+**• JavaScript: async/await try/catch 방식**
 
 ```javascript
 try {
@@ -377,6 +403,8 @@ try {
 ---
 
 ## 10. 네트워크 요청 실패 처리 기본
+
+**• JavaScript: 네트워크 요청 실패 기본 처리하기**
 
 ```javascript
 async function loadLessonDetail(lessonId) {
@@ -406,6 +434,8 @@ async function loadLessonDetail(lessonId) {
 
 <div class="wda-compare-ttl">🙂 사용자 메시지</div>
 
+**• JavaScript: 사용자용 안내 메시지 함수**
+
 ```javascript
 function renderErrorMessage(userMessage) {
   console.log("[화면 안내]", userMessage);
@@ -417,6 +447,8 @@ function renderErrorMessage(userMessage) {
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">🛠️ 개발자 로그</div>
+
+**• JavaScript: 개발자용 로그 함수**
 
 ```javascript
 function logError(error) {
@@ -431,6 +463,8 @@ function logError(error) {
 </div>
 
 </div>
+
+**• JavaScript: 로그와 사용자 메시지를 함께 처리하기**
 
 ```javascript
 async function loadLessonDetail(lessonId) {
@@ -465,6 +499,8 @@ async function loadLessonDetail(lessonId) {
 
 ## 12. custom error 기본
 
+**• JavaScript: Error를 상속한 custom error 클래스**
+
 ```javascript
 class LessonLoadError extends Error {
   constructor(message) {
@@ -483,6 +519,8 @@ function fetchLessonDetail(lessonId) {
   });
 }
 ```
+
+**• JavaScript: instanceof로 custom error 구분하기**
 
 ```javascript
 async function run() {
@@ -517,6 +555,8 @@ run();
 
 <div class="wda-fcard-ttl">🔹 실수 1 · catch를 비워두기</div>
 
+**• JavaScript: catch를 비워두는 실수**
+
 ```javascript
 try {
   validateLessonId(null);
@@ -535,6 +575,8 @@ try {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 비동기 콜백 밖에서 감싸기</div>
+
+**• JavaScript: 비동기 콜백 밖에서 감싸는 실수**
 
 ```javascript
 try {
@@ -558,6 +600,8 @@ try {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 내부 메시지를 그대로 노출</div>
+
+**• JavaScript: 내부 메시지를 그대로 노출하는 실수**
 
 ```javascript
 catch (error) {
@@ -590,11 +634,15 @@ catch (error) {
 • `fetchLessonDetail(lessonId)`를 async/await로 호출하고, 실패하면 catch로 처리한다.<br>
 • 실패 시 `logError(error)`로 로그를 남기고, `renderErrorMessage(userMessage)`로 사용자에게 안내한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 유효성 검사 / async-await 요청 / 실패 시 로그와 안내 메시지 분리
 ```
 
 **💡 힌트 1 — 유효성 검사**
+
+**• JavaScript: 힌트 1 — 유효성 검사**
 
 ```javascript
 function validateLessonId(lessonId) {
@@ -605,6 +653,8 @@ function validateLessonId(lessonId) {
 ```
 
 **💡 힌트 2 — async/await로 요청과 실패 처리**
+
+**• JavaScript: 힌트 2 — async/await로 요청과 실패 처리**
 
 ```javascript
 async function loadLessonDetail(lessonId) {
@@ -621,6 +671,8 @@ async function loadLessonDetail(lessonId) {
 ```
 
 **💡 힌트 3 — 로그와 사용자 메시지 함수**
+
+**• JavaScript: 힌트 3 — 로그와 사용자 메시지 함수**
 
 ```javascript
 function logError(error) {

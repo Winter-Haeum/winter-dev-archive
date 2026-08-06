@@ -74,6 +74,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 특정 서비스의 최신 화면이나 요금은 계속 바뀔 수 있으므로, 이 문서에서는 배포 방식의 공통 개념과 준비 항목을 중심으로 다룹니다.
 
+**▶ 배포 방식별 공통 개념**
+
 <table class="wda-mtable">
 <thead><tr><th>방식</th><th>공통 개념</th><th>참고</th></tr></thead>
 <tbody>
@@ -117,6 +119,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 4. AI에게 배포 준비 점검 요청하기
+
+**• 배포 준비 점검 요청 프롬프트**
 
 ```
 목표:

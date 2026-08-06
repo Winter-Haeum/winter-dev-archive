@@ -93,6 +93,8 @@ entry 파일에서 사용하지 않는 파일은 번들 결과물에도 포함�
 
 **output**은 번들러가 완성한 결과 파일을 어디에, 어떤 이름으로 저장할지를 정합니다. 보통 `dist`라는 폴더 이름이 관례적으로 많이 쓰입니다.
 
+**▶ entry와 output 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>설정</th><th>의미</th></tr></thead>
 <tbody>
@@ -132,6 +134,8 @@ entry 파일에서 사용하지 않는 파일은 번들 결과물에도 포함�
 
 실제 설정이 어떻게 생겼는지, Vite를 예로 살펴보겠습니다. Vite는 대부분의 기본값이 이미 정해져 있어서, 설정 파일이 비교적 짧고 단순한 편입니다.
 
+**• Vite 기본 설정 파일**
+
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
@@ -144,6 +148,8 @@ export default defineConfig({
   },
 });
 ```
+
+**▶ Vite 설정 항목 역할**
 
 <table class="wda-mtable">
 <thead><tr><th>설정 항목</th><th>역할</th></tr></thead>

@@ -114,6 +114,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 가장 먼저 화면 전체를 상단 · 중앙 · 하단 · 좌우로 크게 나눈다.
 
+**▶ 큰 블록 위치와 내용**
+
 <table class="wda-mtable">
 <thead><tr><th>블록</th><th>위치</th><th>보통 담는 내용</th></tr></thead>
 <tbody>
@@ -177,6 +179,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 블록 분석이 끝났다면, 분석 결과를 그대로 HTML 태그로 옮기면 된다. 아래처럼 Header / Main > Section > CardGroup > Card / Footer로 나눈 블록 분석 결과가 있다고 하자.
 
+**• 블록 분석 결과 트리**
+
 ```
 1단계 블록 분석
 Header
@@ -188,6 +192,8 @@ Footer
 ```
 
 이 구조를 그대로 HTML로 옮기면 아래와 같은 코드가 된다.
+
+**• HTML: 블록 구조를 태그로 변환**
 
 ```html
 <body>
@@ -246,6 +252,8 @@ Footer
 
 블록을 태그로 옮기면 자연스럽게 부모-자식 관계가 생긴다. 이 중첩은 <strong>3~4단계 이내</strong>로 정리하는 것을 권장한다.
 
+**• HTML: 중첩 단계 예시**
+
 ```html
 <main>            <!-- 1단계 -->
   <section>       <!-- 2단계 -->
@@ -261,6 +269,8 @@ Footer
 ## 9. 설계 시 고려해야 할 4가지
 
 블록을 태그로 옮기는 과정에서는 아래 네 가지를 항상 함께 고려해야 한다.
+
+**▶ 설계 시 고려 항목 4가지**
 
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>설명</th></tr></thead>
@@ -304,6 +314,8 @@ Footer
     Header → (Sidebar + Main이 가로로 나란히) → Footer 순서로 배치된다. Sidebar는 모바일에서 숨겨지거나 하단으로 이동한다.
   </div>
 </div>
+
+**• CSS: 모바일·데스크톱 배치 전환**
 
 ```css
 .layout {
@@ -350,6 +362,8 @@ Footer
 - 작은 블록: Card(이미지·제목·설명·버튼)
 
 **3) HTML 구조 설계**
+
+**• HTML: 실전 시안 구조 설계**
 
 ```html
 <header>

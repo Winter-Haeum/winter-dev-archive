@@ -95,6 +95,8 @@ TypeScript는 완전히 새로운 언어가 아닙니다. JavaScript 문법을 �
 
 JavaScript는 변수에 어떤 값이든 자유롭게 담을 수 있습니다. 이 자유로움 덕분에 빠르게 코드를 작성할 수 있지만, 동시에 실수를 발견하기 어렵다는 단점도 있습니다.
 
+**• JavaScript: 타입 없이 함수 작성**
+
 ```js
 function getLength(str) {
   return str.length;
@@ -117,6 +119,8 @@ getLength(123); // 실행해봐야 문제를 알 수 있음 (undefined 접근 �
 </div>
 
 TypeScript를 쓰면 어떤 값이 들어올지 미리 약속해두기 때문에, 약속과 다른 값을 넣으려는 순간 편집기가 즉시 알려줍니다.
+
+**• TypeScript: 타입 주석 작성**
 
 ```ts
 function getLength(str: string): number {
@@ -151,6 +155,8 @@ TypeScript 코드는 그 자체로 브라우저에서 실행되지 않습니다.
 ---
 
 ## 4. 파일 확장자 구분하기
+
+**▶ .ts와 .tsx 확장자 구분**
 
 <table class="wda-mtable">
 <thead><tr><th>확장자</th><th>용도</th></tr></thead>

@@ -127,6 +127,8 @@ Firebase의 모든 서비스는 웹 브라우저에서 접속하는 **Firebase C
 
 프로젝트를 생성하면 내 앱과 Firebase 서버를 연결하는 설정값이 발급됩니다. 이 값을 React 프로젝트의 초기화 코드에 전달해야 Firestore나 Authentication 같은 서비스를 코드에서 사용할 수 있습니다.
 
+**• JavaScript: Firebase 앱 초기화**
+
 ```js
 // firebase.js
 import { initializeApp } from 'firebase/app';
@@ -151,6 +153,8 @@ const app = initializeApp(firebaseConfig);
 ## 4. 앞으로 배울 서비스 큰 그림
 
 이 섹션에서는 Firebase가 제공하는 여러 서비스 중, 웹 프론트엔드 개발자가 가장 자주 마주치는 네 가지를 순서대로 살펴봅니다.
+
+**▶ 앞으로 배울 Firebase 서비스**
 
 <table class="wda-mtable">
 <thead><tr><th>서비스</th><th>역할</th></tr></thead>

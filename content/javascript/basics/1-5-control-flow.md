@@ -88,6 +88,8 @@ tags:
   <div class="wda-fnode"><div class="wda-fnode-ttl">복습 진행</div><div class="wda-fnode-dsc">+5점</div></div>
 </div>
 
+**• JavaScript: 순차 실행 확인하기**
+
 ```javascript
 let studyScore = 0;
 
@@ -110,6 +112,8 @@ console.log(studyScore);
 
 조건이 참(true)일 때만 코드 블록을 실행한다.
 
+**• JavaScript: if로 조건 분기하기**
+
 ```javascript
 let studyScore = 85;
 
@@ -130,6 +134,8 @@ if (studyScore >= 80) {
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">그 외</div><div class="wda-fnode-dsc">studyLevel = "하"</div></div>
 </div>
+
+**• JavaScript: else if로 여러 조건 확인하기**
 
 ```javascript
 let studyScore = 65;
@@ -156,6 +162,8 @@ console.log(studyLevel);
 ---
 
 ## 4. 정해진 값별로 나누기: switch
+
+**• JavaScript: switch로 값별로 분기하기**
 
 ```javascript
 let notificationType = "경고";
@@ -196,6 +204,8 @@ switch (notificationType) {
 ---
 
 ## 5. 정해진 횟수만큼 반복하기: for
+
+**• JavaScript: for로 정해진 횟수만큼 반복하기**
 
 ```javascript
 let todayTasks = ["복습", "문제풀이", "정리"];
@@ -261,6 +271,8 @@ for (let i = 0; i < todayTasks.length; i++) {
   </div>
 </div>
 
+**• JavaScript: while로 조건이 참인 동안 반복하기**
+
 ```javascript
 let retryCount = 0;
 const maxRetryCount = 3;
@@ -275,6 +287,8 @@ while (retryCount < maxRetryCount) {
 ```
 
 `do...while`은 조건과 상관없이 코드 블록을 최소 한 번은 실행한 뒤 조건을 검사한다.
+
+**• JavaScript: do...while로 최소 한 번 실행하기**
 
 ```javascript
 let currentTask = "복습";
@@ -293,6 +307,8 @@ do {
   반복 안에서 조건에 쓰인 변수를 갱신하지 않으면 무한 루프에 빠진다.
 </div>
 
+**• JavaScript: 무한 루프 예시 — 실행 금지**
+
 ```javascript
 // ⚠️ retryCount를 증가시키지 않으면 무한 루프에 빠진다 (실행 금지 예시)
 // while (retryCount < maxRetryCount) {
@@ -303,6 +319,8 @@ do {
 ---
 
 ## 7. 목록을 하나씩 꺼내기: for...of
+
+**• JavaScript: for...of로 배열 값 순회하기**
 
 ```javascript
 let todayTasks = ["복습", "문제풀이", "정리"];
@@ -318,6 +336,8 @@ for (let task of todayTasks) {
 ---
 
 ## 8. 객체의 키를 확인하기: for...in
+
+**• JavaScript: for...in으로 객체 key 순회하기**
 
 ```javascript
 let settings = {
@@ -363,6 +383,8 @@ for (let key in settings) {
 
 반복문을 완전히 종료하고 밖으로 나간다.
 
+**• JavaScript: break로 반복 종료하기**
+
 ```javascript
 let todayTasks = [
   "복습",
@@ -391,6 +413,8 @@ console.log(completedTasks);
 
 이번 회차만 건너뛰고 다음 반복을 계속한다.
 
+**• JavaScript: continue로 회차 건너뛰기**
+
 ```javascript
 let todayTasks = [
   "복습",
@@ -418,6 +442,8 @@ for (let task of todayTasks) {
 
 ## 10. 조건문과 반복문을 함께 쓰기
 
+**▶ 반복문 선택 기준**
+
 | 반복문 | 선택 기준 |
 |---|---|
 | `for` | 반복 횟수가 명확할 때 |
@@ -426,6 +452,8 @@ for (let task of todayTasks) {
 | `for...in` | 객체의 key(속성 이름)가 필요할 때 |
 
 반복문 안에서 조건문을 함께 사용하면 목록의 각 항목을 조건에 따라 다르게 처리할 수 있다.
+
+**• JavaScript: 반복문과 조건문 함께 쓰기**
 
 ```javascript
 let todayTasks = ["복습", "문제풀이", "정리"];
@@ -453,6 +481,8 @@ for (let task of todayTasks) {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · switch의 break 누락</div>
 
+**• JavaScript: switch의 break 누락하는 실수**
+
 ```javascript
 let notificationType = "리마인더";
 
@@ -477,6 +507,8 @@ switch (notificationType) {
 
 <div class="wda-fcard-ttl">🔹 실수 2 · for...in을 배열에 사용</div>
 
+**• JavaScript: for...in을 배열에 사용하는 실수**
+
 ```javascript
 let todayTasks = ["복습", "문제풀이"];
 
@@ -497,6 +529,8 @@ for (let index in todayTasks) {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · while 조건 변수 갱신 누락</div>
+
+**• JavaScript: while 조건 변수 갱신 누락하는 실수**
 
 ```javascript
 // ⚠️ retryCount를 증가시키지 않으면 무한 루프에 빠진다 (실행 금지 예시)
@@ -531,11 +565,15 @@ for (let index in todayTasks) {
 • `notificationType`에 따라 switch로 다른 메시지를 출력한다.<br>
 • `retryCount`/`maxRetryCount`로 while 반복을 연습한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 작업 상태 출력 / 알림 메시지 분기 / 재시도 반복
 ```
 
 **💡 힌트 1 — 작업 상태 출력**
+
+**• JavaScript: 힌트 1 — 작업 상태 출력**
 
 ```javascript
 let todayTasks = ["복습", "문제풀이", "정리"];
@@ -552,6 +590,8 @@ for (let task of todayTasks) {
 
 **💡 힌트 2 — 알림 메시지 분기**
 
+**• JavaScript: 힌트 2 — 알림 메시지 분기**
+
 ```javascript
 let notificationType = "완료";
 
@@ -566,6 +606,8 @@ switch (notificationType) {
 ```
 
 **💡 힌트 3 — 재시도 반복**
+
+**• JavaScript: 힌트 3 — 재시도 반복**
 
 ```javascript
 let retryCount = 0;

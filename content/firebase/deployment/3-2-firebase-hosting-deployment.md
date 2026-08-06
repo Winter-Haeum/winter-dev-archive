@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Firebase Hosting에 배포하려면 터미널에서 Firebase 명령어를 사용할 수 있는 CLI 도구가 필요합니다.
 
+**• 터미널: Firebase CLI 설치·로그인**
+
 ```bash
 npm install -g firebase-tools
 
@@ -99,9 +101,13 @@ firebase login
   <div class="wda-fnode"><div class="wda-fnode-ttl">SPA 설정</div><div class="wda-fnode-dsc">모든 경로를 index.html로 연결할지 선택</div></div>
 </div>
 
+**• 터미널: Firebase Hosting 초기화**
+
 ```bash
 firebase init hosting
 ```
+
+**▶ firebase init hosting 질문별 권장 답변**
 
 <table class="wda-mtable">
 <thead><tr><th>질문</th><th>권장 답변</th></tr></thead>
@@ -118,6 +124,8 @@ firebase init hosting
 ## 3. 빌드하고 배포하기
 
 배포는 항상 다음 순서를 따릅니다.
+
+**• 터미널: 빌드 후 배포**
 
 ```bash
 npm run build

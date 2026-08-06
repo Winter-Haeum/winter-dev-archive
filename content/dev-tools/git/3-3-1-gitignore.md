@@ -121,12 +121,16 @@ macOS의 <code>.DS_Store</code>, Windows의 <code>Thumbs.db</code>, IDE 개인 �
 
 프로젝트 루트에서 파일을 하나 만들고 편집기로 연다.
 
+**• 터미널: .gitignore 파일 생성하기**
+
 ```bash
 touch .gitignore
 code .gitignore
 ```
 
 기본적인 예시는 다음과 같다.
+
+**• 기본 .gitignore 예시**
 
 ```text
 node_modules/
@@ -154,6 +158,8 @@ Thumbs.db
 
 ## 4. 기본 패턴 작성법
 
+**▶ .gitignore 패턴별 작성법**
+
 <table class="wda-mtable">
 <thead><tr><th>패턴 종류</th><th>작성 예시</th><th>의미</th></tr></thead>
 <tbody>
@@ -165,6 +171,8 @@ Thumbs.db
 <tr><td>예외 처리 !</td><td><code>!important.log</code></td><td>앞선 규칙으로 제외된 파일을 다시 추적 대상으로 되돌림</td></tr>
 </tbody>
 </table>
+
+**• 예외 처리(!)로 특정 파일만 추적하기**
 
 ```text
 # 로그 파일은 모두 무시하되 error.log만 예외로 추적
@@ -184,6 +192,8 @@ Thumbs.db
 
 프레임워크·언어별로 자주 쓰이는 패턴을 미리 알아두면 새 프로젝트마다 빠르게 적용할 수 있다.
 
+**• Node.js 프로젝트 .gitignore 패턴**
+
 ```text
 # Node.js 프로젝트
 node_modules/
@@ -197,6 +207,8 @@ out/
 .env.local
 .env.*.local
 ```
+
+**• Python 프로젝트 .gitignore 패턴**
 
 ```text
 # Python 프로젝트
@@ -225,6 +237,8 @@ build/
 
 이럴 때는 <code>git rm --cached</code>로 복구한다.
 
+**▶ git rm과 git rm --cached 차이**
+
 <div class="wda-compare">
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">git rm 파일명</div>
@@ -243,6 +257,8 @@ build/
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. 커밋</div><div class="wda-fnode-dsc">변경된 <code>.gitignore</code>를 커밋해 팀과 공유</div></div>
 </div>
+
+**• 터미널: 이미 추적 중인 .env 제거하기**
 
 ```bash
 git rm --cached .env

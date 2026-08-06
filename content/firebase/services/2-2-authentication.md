@@ -91,6 +91,8 @@ Authentication은 "이 사용자가 누구인지"를 확인하는 Firebase의 �
   <div class="wda-fcard"><div class="wda-fcard-ttl">기타 방식</div><div class="wda-fcard-dsc">전화번호 인증, 익명 로그인 등도 지원됩니다.</div></div>
 </div>
 
+**• JavaScript: 이메일·비밀번호 회원가입**
+
 ```js
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -102,6 +104,8 @@ async function signUp(email, password) {
   return result.user;
 }
 ```
+
+**• JavaScript: Google 소셜 로그인**
 
 ```js
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -121,6 +125,8 @@ async function signInWithGoogle() {
 ## 3. 지금 로그인한 사용자 확인하기
 
 로그인 상태는 새로고침해도 유지되어야 하므로, `onAuthStateChanged`를 사용해 로그인 상태 변화를 실시간으로 감지합니다.
+
+**• JavaScript: 로그인 상태 실시간 감지**
 
 ```js
 import { onAuthStateChanged } from 'firebase/auth';

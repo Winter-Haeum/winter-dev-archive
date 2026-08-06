@@ -79,11 +79,15 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 **출처(Origin)**는 프로토콜, 도메인, 포트 세 가지의 조합으로 결정됩니다. URL 뒤에 붙는 경로나 쿼리스트링은 출처 판단에 영향을 주지 않습니다.
 
+**• 출처를 구성하는 세 요소**
+
 ```
 https://example.com:443/products
 └──┬──┘└────┬────┘└┬┘└────┬────┘
  프로토콜    도메인   포트     경로(무관)
 ```
+
+**▶ 출처 비교 예시**
 
 <table class="wda-mtable">
 <thead><tr><th>비교 대상</th><th>기준 출처: https://example.com</th><th>같은 출처?</th></tr></thead>
@@ -127,6 +131,8 @@ https://example.com:443/products
 
 CORS 문제를 해결하는 열쇠는 결국 서버 쪽에 있습니다. 서버는 응답 헤더에 허용 정보를 담아 보내야 합니다.
 
+**▶ CORS 허용 헤더 종류**
+
 <table class="wda-mtable">
 <thead><tr><th>헤더</th><th>의미</th><th>예시</th></tr></thead>
 <tbody>
@@ -135,6 +141,8 @@ CORS 문제를 해결하는 열쇠는 결국 서버 쪽에 있습니다. 서버�
 <tr><td>Access-Control-Allow-Headers</td><td>어떤 커스텀 헤더를 허용할지</td><td><code>Content-Type, Authorization</code></td></tr>
 </tbody>
 </table>
+
+**• Express 서버 CORS 허용 설정**
 
 ```js
 // Node.js(Express) 서버에서 CORS 허용 예시
@@ -156,6 +164,8 @@ app.use(cors({
 ## 4. 프론트엔드에서 할 수 있는 것 — 개발용 프록시
 
 CORS는 근본적으로 서버가 해결해야 하는 문제지만, 백엔드 코드를 당장 수정할 수 없는 로컬 개발 환경에서는 **개발 서버의 프록시 기능**으로 우회할 수 있습니다.
+
+**• Vite 개발 서버 프록시 설정**
 
 ```js
 // vite.config.js

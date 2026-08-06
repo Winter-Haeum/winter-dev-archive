@@ -103,6 +103,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 실제 풀이는 대부분 `solution`이라는 이름의 함수를 채워 넣는 방식입니다.
 
+**• JavaScript: solution 함수 기본 구조**
+
 ```js
 function solution(numbers) {
   let sum = 0;
@@ -142,6 +144,8 @@ function solution(numbers) {
 ---
 
 ## 4. 문제 유형 세 갈래
+
+**▶ 문제 유형별 핵심 내용**
 
 <table class="wda-mtable">
 <thead><tr><th>유형</th><th>핵심 내용</th></tr></thead>

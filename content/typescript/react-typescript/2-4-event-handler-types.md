@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 React에서 이벤트 핸들러 함수를 인라인으로 작성하면 TypeScript가 이벤트 객체의 타입을 자동으로 추론해줍니다. 하지만 핸들러를 컴포넌트 밖으로 분리해서 작성할 때는, 매개변수의 타입을 직접 지정해줘야 합니다.
 
+**• React: 인라인·분리 이벤트 핸들러 비교**
+
 ```tsx
 // 인라인 방식: 타입이 자동으로 추론됨
 <input onChange={(e) => console.log(e.target.value)} />
@@ -90,6 +92,8 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 ## 2. input 변경 이벤트 — ChangeEvent
 
 input, textarea, select처럼 사용자가 값을 입력하는 요소에서 값이 바뀔 때는 `ChangeEvent`를 사용합니다. 제네릭으로 어떤 HTML 요소에서 발생하는 이벤트인지 함께 표시합니다.
+
+**• React: ChangeEvent로 input 값 다루기**
 
 ```tsx
 import { ChangeEvent, useState } from 'react';
@@ -117,6 +121,8 @@ function SearchInput() {
 
 버튼 클릭처럼 마우스 이벤트가 발생하는 요소에는 `MouseEvent`를 사용합니다.
 
+**• React: MouseEvent로 버튼 클릭 처리**
+
 ```tsx
 import { MouseEvent } from 'react';
 
@@ -132,6 +138,8 @@ function SubmitButton() {
 
 폼(form) 제출처럼 조금 더 넓은 범위의 이벤트를 다룰 때는 `FormEvent<HTMLFormElement>`를 사용합니다.
 
+**• React: FormEvent로 폼 제출 처리**
+
 ```tsx
 import { FormEvent } from 'react';
 
@@ -145,6 +153,8 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 ## 4. React.FC — 쓸지 말지는 프로젝트마다 다르다
 
 컴포넌트 타입을 지정하는 또 다른 방법으로 `React.FC`가 있습니다.
+
+**• React: React.FC로 컴포넌트 타입 지정**
 
 ```tsx
 const Button: React.FC<ButtonProps> = ({ label, onClick }) => {

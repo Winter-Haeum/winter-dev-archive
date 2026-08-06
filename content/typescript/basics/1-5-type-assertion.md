@@ -77,6 +77,8 @@ TypeScript 컴파일러는 대부분의 상황에서 값의 타입을 스스로 
 
 이럴 때 `as` 문법을 사용해 "이 값은 이 타입이다"라고 컴파일러에게 알려줄 수 있는데, 이를 **타입 단언**이라고 부릅니다.
 
+**• TypeScript: as로 타입 단언**
+
 ```ts
 let someValue: unknown = "this is a string";
 
@@ -100,6 +102,8 @@ let len: number = (someValue as string).length; // OK
   <div class="wda-fcard"><div class="wda-fcard-ttl">외부 데이터 다룰 때</div><div class="wda-fcard-dsc">API 응답처럼 정확한 타입을 모를 때, 구조를 알고 있다면 단언으로 타입을 지정합니다.</div></div>
 </div>
 
+**• TypeScript: DOM 요소 타입 단언**
+
 ```ts
 const input = document.getElementById("email") as HTMLInputElement;
 console.log(input.value); // input이 HTMLInputElement라고 알려줬기 때문에 value 접근 가능
@@ -110,6 +114,8 @@ console.log(input.value); // input이 HTMLInputElement라고 알려줬기 때문
 ## 3. any — 모든 타입 허용
 
 `any`는 타입 검사를 사실상 꺼버리는 특수한 타입입니다. 어떤 값이든 담을 수 있고, 어떤 방식으로 사용해도 컴파일러가 막지 않습니다.
+
+**• TypeScript: any 타입 사용**
 
 ```ts
 let anything: any = "hello";
@@ -128,6 +134,8 @@ anything.foo(); // 컴파일은 통과하지만, 실행 시 오류가 날 수 �
 ## 4. unknown — 더 안전한 any
 
 `unknown`도 any처럼 어떤 값이든 담을 수 있지만, 실제로 사용하기 전에 타입을 먼저 확인하도록 강제한다는 점이 다릅니다.
+
+**• TypeScript: unknown 타입 좁히기**
 
 ```ts
 let value: unknown = "hello";

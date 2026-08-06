@@ -96,6 +96,8 @@ props는 부모가 전달하는 읽기 전용 값이라, 컴포넌트 스스로 
 
 ## 3. useState 기본 형태
 
+**• React: useState 기본 형태**
+
 ```jsx
 import { useState } from "react";
 
@@ -114,6 +116,8 @@ const [isCompleted, setIsCompleted] = useState(false);
 ---
 
 ## 5. state가 바뀌면 다시 렌더링된다
+
+**• React: state 변경으로 다시 렌더링하기**
 
 ```jsx
 function StudyCard() {
@@ -170,6 +174,8 @@ function StudyCard() {
 
 새 값이 이전 값에 의존할 때는 setter에 함수를 전달하는 방식이 더 안전합니다.
 
+**• React: 이전 state 기준으로 업데이트하기**
+
 ```jsx
 setIsCompleted(prev => !prev);
 ```
@@ -177,6 +183,8 @@ setIsCompleted(prev => !prev);
 ---
 
 ## 8. 배열 state 업데이트 맛보기
+
+**• React: 배열 state 업데이트하기**
 
 ```jsx
 const [completedCourseIds, setCompletedCourseIds] = useState([]);
@@ -196,6 +204,8 @@ function markCompleted(courseId) {
 
 ## 9. 객체 state 업데이트 맛보기
 
+**• React: 객체 state 업데이트하기**
+
 ```jsx
 const [selectedCourse, setSelectedCourse] = useState({ title: "JSX 기초", level: "입문" });
 
@@ -209,6 +219,8 @@ function updateLevel(nextLevel) {
 ---
 
 ## 10. 여러 state 사용하기
+
+**• React: 여러 state 함께 사용하기**
 
 ```jsx
 const [selectedCourse, setSelectedCourse] = useState(null);
@@ -226,6 +238,8 @@ const [completedCourseIds, setCompletedCourseIds] = useState([]);
 ---
 
 ## 11. props와 state 비교
+
+**▶ props와 state 비교**
 
 <table class="wda-mtable">
   <tr>
@@ -259,6 +273,8 @@ const [completedCourseIds, setCompletedCourseIds] = useState([]);
 <div class="wda-callout wda-ci">
   복잡한 상태 로직(useReducer)과 전역 상태(Context)는 각각 <strong>4-2, 4-1</strong>에서 다룹니다. 이벤트 처리 상세는 <strong>2-5</strong>에서 다룹니다.
 </div>
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

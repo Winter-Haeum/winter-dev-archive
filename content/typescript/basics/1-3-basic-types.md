@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 TypeScript에서 가장 기본이 되는 문법은 변수나 매개변수 뒤에 콜론(:)을 붙이고 타입을 적는 것입니다.
 
+**• TypeScript: 기본 타입 주석**
+
 ```ts
 let username: string = "홍길동";
 let age: number = 25;
@@ -95,6 +97,8 @@ let isStudent: boolean = true;
 
 같은 타입의 값을 여러 개 담을 때는 배열 타입을 사용합니다. 가장 많이 쓰는 방식은 `타입[]` 형태입니다.
 
+**• TypeScript: 배열 타입 지정**
+
 ```ts
 let fruits: string[] = ["apple", "banana", "orange"];
 let scores: number[] = [95, 87, 92];
@@ -109,6 +113,8 @@ let scores: number[] = [95, 87, 92];
 ## 3. 객체 타입
 
 객체의 구조를 표현할 때는 각 속성의 이름과 타입을 중괄호 안에 나열합니다.
+
+**• TypeScript: 객체 타입 지정**
 
 ```ts
 let user: {
@@ -127,6 +133,8 @@ let user: {
 ## 4. Union 타입 — 여러 타입 중 하나
 
 하나의 값이 여러 타입 중 하나일 수 있을 때는 `|`(파이프) 기호로 타입을 연결합니다.
+
+**• TypeScript: Union 타입 지정**
 
 ```ts
 let id: string | number;

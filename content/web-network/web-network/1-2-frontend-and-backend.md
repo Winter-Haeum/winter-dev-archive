@@ -117,6 +117,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 프론트엔드는 보통 세 가지 기술을 기본으로 조합합니다.
 
+**▶ 프론트엔드 기본 기술 3종**
+
 <table class="wda-mtable">
 <thead><tr><th>기술</th><th>역할</th><th>비유</th></tr></thead>
 <tbody>
@@ -152,6 +154,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 4. 프론트엔드와 백엔드는 어떻게 만나는가
 
 두 역할은 완전히 독립적으로 일하는 것이 아니라, **API라는 약속을 기준으로 서로 연결**됩니다. 백엔드가 "이런 주소로 요청하면 이런 형식의 데이터를 돌려주겠다"라고 정해두면, 프론트엔드는 그 약속만 믿고 화면을 만들면 됩니다.
+
+**▶ 프론트엔드와 백엔드 역할 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>프론트엔드</th><th>백엔드</th></tr></thead>

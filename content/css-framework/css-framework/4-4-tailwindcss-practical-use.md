@@ -77,6 +77,8 @@ CDN으로 빠르게 시작하는 방법부터 반응형 클래스, 순수 CSS와
 
 TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootstrap처럼 미리 완성된 버튼을 제공하는 대신, CSS 속성 하나당 클래스 하나를 제공해서 HTML에서 직접 스타일을 조합하게 한다.
 
+**▶ TailwindCSS의 목적**
+
 <table class="wda-mtable">
 <thead><tr><th>목적</th><th>설명</th></tr></thead>
 <tbody>
@@ -87,6 +89,8 @@ TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootst
 </table>
 
 가장 간단하게 시작하는 방법은 CDN 스크립트를 붙이는 것이다.
+
+**• HTML: CDN으로 TailwindCSS 시작**
 
 ```html
 <script src="https://cdn.tailwindcss.com"></script>
@@ -110,6 +114,8 @@ TailwindCSS는 유틸리티 우선(Utility First) CSS 프레임워크다. Bootst
 
 Utility first 방식의 핵심은 CSS 속성을 클래스 이름으로 그대로 표현하는 것이다. 버튼 하나를 만들어보면 이 감각을 바로 확인할 수 있다.
 
+**• HTML: 유틸리티 클래스로 버튼 만들기**
+
 ```html
 <button class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
   클릭하세요
@@ -129,6 +135,8 @@ Utility first 방식의 핵심은 CSS 속성을 클래스 이름으로 그대로
 
 클래스 이름에는 아래와 같은 일정한 패턴이 있다.
 
+**▶ 유틸리티 클래스 이름 패턴**
+
 <table class="wda-mtable">
 <thead><tr><th>패턴</th><th>예시</th><th>의미</th></tr></thead>
 <tbody>
@@ -146,6 +154,8 @@ Utility first 방식의 핵심은 CSS 속성을 클래스 이름으로 그대로
 ## 3. 반응형 디자인 만들기
 
 TailwindCSS의 반응형은 미디어 쿼리를 직접 작성하는 대신, 브레이크포인트 접두어를 클래스 앞에 붙이는 방식으로 동작한다.
+
+**• HTML: 반응형 브레이크포인트 클래스**
 
 ```html
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -176,6 +186,8 @@ TailwindCSS의 반응형은 미디어 쿼리를 직접 작성하는 대신, 브�
 
 레이아웃 정렬도 클래스 조합만으로 구현할 수 있다.
 
+**• HTML: 유틸리티 클래스로 정렬**
+
 ```html
 <nav class="flex justify-between items-center">
   <div>로고</div>
@@ -202,6 +214,8 @@ TailwindCSS가 실제로 어떤 CSS를 대신 작성해주는지는 순수 CSS �
   </div>
 </div>
 
+**• CSS: 순수 CSS 버튼 정의**
+
 ```css
 .primary-button {
   padding: 8px 16px;
@@ -218,6 +232,8 @@ TailwindCSS가 실제로 어떤 CSS를 대신 작성해주는지는 순수 CSS �
   transform: translateY(-2px);
 }
 ```
+
+**• HTML: TailwindCSS로 같은 버튼 구현**
 
 ```html
 <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:-translate-y-0.5 transition cursor-pointer">

@@ -138,6 +138,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 5. 3대 플랫폼 비교
 
+**▶ 프로그래머스·백준·LeetCode 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>프로그래머스</th><th>백준</th><th>LeetCode</th></tr></thead>
 <tbody>

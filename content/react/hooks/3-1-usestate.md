@@ -80,6 +80,8 @@ core의 state 문서(2-4)에서 useState의 기본 문법과 재렌더링 원리
 
 이후 예시는 학습 대시보드 컴포넌트 <code>HookDashboard</code>를 기준으로 설명합니다.
 
+**• React: HookDashboard 기본 예시**
+
 ```jsx
 import { useState } from 'react';
 
@@ -101,6 +103,8 @@ function HookDashboard() {
 
 setter에 새 값을 직접 넣는 대신, **이전 값을 인자로 받는 함수**를 넘기면 항상 최신 state를 기준으로 값을 바꿀 수 있습니다.
 
+**• React: 직접 값 vs 함수형 업데이트**
+
 ```jsx
 // 직접 값을 넣는 방식 — 짧은 시간에 여러 번 호출하면 이전 호출 결과를 놓칠 수 있음
 setCount(count + 1);
@@ -120,6 +124,8 @@ setCount(prev => prev + 1);
 ## 3. boolean·string·number state
 
 `HookDashboard`에는 선택된 필터(문자열), 상세 보기 여부(불리언) 같은 단순 값 state가 여러 개 있을 수 있습니다.
+
+**• React: 문자열·불리언 state 다루기**
 
 ```jsx
 const [selectedFilter, setSelectedFilter] = useState('all'); // 'all' | 'inProgress' | 'done'
@@ -141,6 +147,8 @@ function handleDetailToggle() {
 ## 4. 배열 state 업데이트
 
 `HookDashboard`에서 사용자가 체크한 강의 id 목록을 배열 state로 관리한다고 해보겠습니다.
+
+**• React: 배열 state 추가·제거하기**
 
 ```jsx
 const [checkedIds, setCheckedIds] = useState([]);
@@ -172,6 +180,8 @@ function handleUncheck(id) {
 ## 5. 객체 state 업데이트
 
 `viewOption`처럼 여러 속성을 가진 객체를 state로 둘 때는, 바뀌지 않는 속성까지 함께 복사해야 합니다.
+
+**• React: 객체 state 스프레드로 업데이트하기**
 
 ```jsx
 const [viewOption, setViewOption] = useState({ showCompleted: true, sortBy: 'title' });
@@ -210,6 +220,8 @@ function handleSortChange(nextSortBy) {
 <div class="wda-callout wda-ci">
   <p><strong>다른 state나 props로부터 계산할 수 있는 값은 state로 만들지 않습니다.</strong></p>
 </div>
+
+**• React: state로 두지 않고 계산하기**
 
 ```jsx
 // ❌ checkedCount를 별도 state로 관리 — checkedIds와 따로 움직여 어긋날 위험이 있음

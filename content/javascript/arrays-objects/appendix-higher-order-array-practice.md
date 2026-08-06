@@ -92,6 +92,8 @@ tags:
 
 모든 문제는 아래 강의 수강 기록 하나를 재사용한다.
 
+**• JavaScript: 실습에 재사용할 강의 수강 기록**
+
 ```javascript
 const lessonRecords = [
   { title: "변수와 스코프", level: "입문", minutes: 40, score: 92, completed: true },
@@ -101,6 +103,8 @@ const lessonRecords = [
   { title: "타입스크립트 기초", level: "입문", minutes: 45, score: 0, completed: false },
 ];
 ```
+
+**▶ lessonRecords 필드 설명**
 
 | 필드 | 의미 |
 |---|---|
@@ -140,11 +144,15 @@ map으로 배열의 각 항목에서 필요한 값 하나만 뽑아 새 배열�
 - 결과: 강의 제목만 담은 배열 `lessonTitles`
 - 사용 메서드: `map`
 
+**• JavaScript: 문제 1 — 요구사항 코드**
+
 ```javascript
 const lessonTitles = lessonRecords.map(/* ... */);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 1 — 확인할 결과**
 
 ```javascript
 console.log(lessonTitles);
@@ -158,6 +166,8 @@ console.log(lessonTitles);
 </div>
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 1 — 정답 예시**
 
 ```javascript
 const lessonTitles = lessonRecords.map((lesson) => lesson.title);
@@ -179,6 +189,8 @@ map으로 여러 필드를 조합해 화면에 보여줄 문자열을 만드는 
 - 사용 메서드: `map`
 - 주의할 점: 콜백을 중괄호 블록으로 쓸 경우 `return`을 꼭 써야 한다
 
+**• JavaScript: 문제 2 — 요구사항 코드**
+
 ```javascript
 const displayList = lessonRecords.map((lesson) => {
   // 여기에 코드를 작성하세요
@@ -186,6 +198,8 @@ const displayList = lessonRecords.map((lesson) => {
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 2 — 확인할 결과**
 
 ```javascript
 console.log(displayList);
@@ -199,6 +213,8 @@ console.log(displayList);
 ```
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 2 — 정답 예시**
 
 ```javascript
 const displayList = lessonRecords.map((lesson) => {
@@ -223,11 +239,15 @@ filter로 조건에 맞는 항목만 남기는 연습이다.
 - 사용 메서드: `filter`
 - 주의할 점: 원본 `lessonRecords`는 바뀌지 않는다
 
+**• JavaScript: 문제 3 — 요구사항 코드**
+
 ```javascript
 const completedLessons = lessonRecords.filter(/* ... */);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 3 — 확인할 결과**
 
 ```javascript
 console.log(completedLessons.length);
@@ -238,6 +258,8 @@ console.log(lessonRecords.length);
 ```
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 3 — 정답 예시**
 
 ```javascript
 const completedLessons = lessonRecords.filter((lesson) => lesson.completed);
@@ -258,11 +280,15 @@ filter 콜백 안에서 조건을 &&로 조합하는 연습이다.
 - 결과: 입문 레벨이면서 점수가 80점 이상인 강의 `highScoreLessons`
 - 사용 메서드: `filter`
 
+**• JavaScript: 문제 4 — 요구사항 코드**
+
 ```javascript
 const highScoreLessons = lessonRecords.filter(/* ... */);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 4 — 확인할 결과**
 
 ```javascript
 console.log(highScoreLessons.map((lesson) => lesson.title));
@@ -276,6 +302,8 @@ console.log(highScoreLessons.map((lesson) => lesson.title));
 </div>
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 4 — 정답 예시**
 
 ```javascript
 const highScoreLessons = lessonRecords.filter(
@@ -298,11 +326,15 @@ find로 조건에 맞는 첫 번째 항목 하나만 찾는 연습이다.
 - 결과: 아직 완료하지 않은 첫 번째 강의 `targetLesson`
 - 사용 메서드: `find`
 
+**• JavaScript: 문제 5 — 요구사항 코드**
+
 ```javascript
 const targetLesson = lessonRecords.find(/* ... */);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 5 — 확인할 결과**
 
 ```javascript
 console.log(targetLesson.title);
@@ -310,6 +342,8 @@ console.log(targetLesson.title);
 ```
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 5 — 정답 예시**
 
 ```javascript
 const targetLesson = lessonRecords.find((lesson) => !lesson.completed);
@@ -331,12 +365,16 @@ some과 every로 배열 전체에 대한 참/거짓을 판단하는 연습이다
 - 결과 2: 모든 강의가 점수를 받았는지(0점 초과) `allLessonsReviewed`
 - 사용 메서드: `some`, `every`
 
+**• JavaScript: 문제 6 — 요구사항 코드**
+
 ```javascript
 const hasUnfinishedLesson = lessonRecords.some(/* ... */);
 const allLessonsReviewed = lessonRecords.every(/* ... */);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 6 — 확인할 결과**
 
 ```javascript
 console.log(hasUnfinishedLesson);
@@ -347,6 +385,8 @@ console.log(allLessonsReviewed);
 ```
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 6 — 정답 예시**
 
 ```javascript
 const hasUnfinishedLesson = lessonRecords.some((lesson) => !lesson.completed);
@@ -369,11 +409,15 @@ reduce로 배열의 숫자 값을 하나로 합산하는 연습이다.
 - 사용 메서드: `reduce`
 - 주의할 점: 초기값 `0`을 반드시 지정한다
 
+**• JavaScript: 문제 7 — 요구사항 코드**
+
 ```javascript
 const totalStudyMinutes = lessonRecords.reduce(/* ... */, 0);
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 7 — 확인할 결과**
 
 ```javascript
 console.log(totalStudyMinutes);
@@ -387,6 +431,8 @@ reduce의 두 번째 인자(초기값)를 빠뜨리면, 배열이 비어 있을 
 </div>
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 7 — 정답 예시**
 
 ```javascript
 const totalStudyMinutes = lessonRecords.reduce(
@@ -410,11 +456,15 @@ reduce로 배열을 누적 객체 하나로 모으는 연습이다.
 - 결과: `{ 입문: 3, 심화: 2 }` 형태의 객체 `levelCounts`
 - 사용 메서드: `reduce`
 
+**• JavaScript: 문제 8 — 요구사항 코드**
+
 ```javascript
 const levelCounts = lessonRecords.reduce(/* ... */, {});
 ```
 
 **✅ 확인할 결과**
+
+**• JavaScript: 문제 8 — 확인할 결과**
 
 ```javascript
 console.log(levelCounts);
@@ -429,6 +479,8 @@ console.log(levelCounts);
 
 **📝 정답 예시**
 
+**• JavaScript: 문제 8 — 정답 예시**
+
 ```javascript
 const levelCounts = lessonRecords.reduce((counts, lesson) => {
   counts[lesson.level] = (counts[lesson.level] || 0) + 1;
@@ -439,6 +491,8 @@ const levelCounts = lessonRecords.reduce((counts, lesson) => {
 ---
 
 ## 12. 메서드 선택 기준 정리
+
+**▶ 상황별 메서드 선택 기준**
 
 | 상황 | 메서드 |
 |---|---|
@@ -492,6 +546,8 @@ const levelCounts = lessonRecords.reduce((counts, lesson) => {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · map 콜백에서 return 누락</div>
 
+**• JavaScript: map 콜백에서 return 누락하는 실수**
+
 ```javascript
 const titles = lessonRecords.map((lesson) => {
   lesson.title;
@@ -512,6 +568,8 @@ console.log(titles);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · reduce 초기값 누락</div>
 
+**• JavaScript: reduce 초기값 누락하는 실수**
+
 ```javascript
 const total = [].reduce((sum, lesson) => sum + lesson.minutes);
 // ❌ TypeError (일부러 에러 확인용)
@@ -527,6 +585,8 @@ const total = [].reduce((sum, lesson) => sum + lesson.minutes);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · filter가 원본을 바꾼다는 착각</div>
+
+**• JavaScript: filter가 원본을 바꾼다는 착각**
 
 ```javascript
 const completedLessons = lessonRecords.filter((lesson) => lesson.completed);
@@ -561,6 +621,8 @@ filter와 map을 이어 써서(chaining) 조건에 맞는 값을 걸러낸 뒤 �
 - 결과: 제목에 "배열"이 포함되고 완료된 강의의 제목만 담은 배열 `keywordLessons`
 - 사용 메서드: `filter` → `map`
 
+**• JavaScript: 문제 9 — 요구사항 코드**
+
 ```javascript
 const keywordLessons = lessonRecords
   .filter(/* ... */)
@@ -569,12 +631,16 @@ const keywordLessons = lessonRecords
 
 **✅ 확인할 결과**
 
+**• JavaScript: 문제 9 — 확인할 결과**
+
 ```javascript
 console.log(keywordLessons);
 // ["배열 다루기"]
 ```
 
 **📝 정답 예시**
+
+**• JavaScript: 문제 9 — 정답 예시**
 
 ```javascript
 const keywordLessons = lessonRecords

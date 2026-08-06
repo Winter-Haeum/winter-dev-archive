@@ -71,6 +71,8 @@ tags:
 
 <div class="wda-compare-ttl">❌ 변수를 따로따로 만들면</div>
 
+**• JavaScript: 변수를 따로따로 만드는 경우**
+
 ```javascript
 const task1 = "보고서 작성";
 const task2 = "회의 준비";
@@ -84,6 +86,8 @@ const task3 = "이메일 회신";
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ 배열 하나로 묶으면</div>
+
+**• JavaScript: 배열 하나로 묶기**
 
 ```javascript
 const taskList = [
@@ -104,6 +108,8 @@ const taskList = [
 ## 2. 배열은 순서가 있는 값 목록이다
 
 대괄호 `[]`로 만들며, 담은 순서 그대로 유지된다.
+
+**• JavaScript: 배열 만들기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
@@ -133,6 +139,8 @@ console.log(taskList);
   </div>
 </div>
 
+**• JavaScript: 인덱스로 값 읽기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
 
@@ -149,6 +157,8 @@ console.log(taskList.length);
   <code>length</code>는 마지막 인덱스가 아니라 <strong>개수</strong>다. 마지막 값은 <code>taskList[taskList.length - 1]</code>로 접근한다.
 </div>
 
+**• JavaScript: length로 마지막 값 접근하기**
+
 ```javascript
 console.log(taskList[taskList.length - 1]);
 // "이메일 회신"
@@ -158,6 +168,8 @@ console.log(taskList[taskList.length - 1]);
 
 ## 4. 배열 값 읽기와 수정하기
 
+**• JavaScript: 배열 값 수정하기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
 
@@ -166,6 +178,8 @@ taskList[1] = "회의 진행";
 console.log(taskList);
 // ["보고서 작성", "회의 진행", "이메일 회신"]
 ```
+
+**• JavaScript: 존재하지 않는 인덱스 접근하기**
 
 ```javascript
 console.log(taskList[10]);
@@ -184,6 +198,8 @@ console.log(taskList[10]);
 
 배열 끝에 값을 추가한다.
 
+**• JavaScript: push로 값 추가하기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
 
@@ -200,6 +216,8 @@ console.log(taskList);
 <div class="wda-compare-ttl">pop()</div>
 
 배열 끝의 값을 꺼내며 제거한다.
+
+**• JavaScript: pop으로 값 제거하기**
 
 ```javascript
 const taskList = [
@@ -233,6 +251,8 @@ console.log(taskList);
 
 배열 맨 앞에 값을 추가한다.
 
+**• JavaScript: unshift로 값 추가하기**
+
 ```javascript
 const taskList = ["회의 준비", "이메일 회신"];
 
@@ -249,6 +269,8 @@ console.log(taskList);
 <div class="wda-compare-ttl">shift()</div>
 
 배열 맨 앞의 값을 꺼내며 제거한다.
+
+**• JavaScript: shift로 값 제거하기**
 
 ```javascript
 const taskList = [
@@ -277,6 +299,8 @@ console.log(removedTask);
 
 ## 7. 원하는 위치를 다루기: splice
 
+**• JavaScript: splice로 값 끼워넣기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
 
@@ -285,6 +309,8 @@ taskList.splice(1, 0, "자료 조사");
 console.log(taskList);
 // ["보고서 작성", "자료 조사", "회의 준비", "이메일 회신"]
 ```
+
+**• JavaScript: splice로 값 삭제하기**
 
 ```javascript
 const taskList = ["보고서 작성", "자료 조사", "회의 준비", "이메일 회신"];
@@ -319,6 +345,8 @@ console.log(taskList);
   </div>
 </div>
 
+**• JavaScript: for로 배열 순회하기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
 
@@ -329,6 +357,8 @@ for (let i = 0; i < taskList.length; i++) {
 // 회의 준비
 // 이메일 회신
 ```
+
+**• JavaScript: for...of로 배열 순회하기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
@@ -344,6 +374,8 @@ for (const task of taskList) {
 ---
 
 ## 9. 배열 메서드로 새 목록 만들기: map
+
+**• JavaScript: map으로 새 배열 만들기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "이메일 회신"];
@@ -364,6 +396,8 @@ console.log(taskLabels);
 
 ## 10. 조건에 맞는 값만 고르기: filter
 
+**• JavaScript: filter로 조건에 맞는 값 고르기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "긴급 문의 응답"];
 
@@ -376,6 +410,8 @@ console.log(urgentTasks);
 ---
 
 ## 11. 하나만 찾기: find
+
+**• JavaScript: find로 값 하나 찾기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "긴급 문의 응답"];
@@ -395,6 +431,8 @@ console.log(selectedTask);
 ---
 
 ## 12. 포함 여부 확인하기: includes
+
+**• JavaScript: includes로 포함 여부 확인하기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
@@ -421,12 +459,16 @@ console.log(taskList.includes("이메일 회신"));
   </div>
 </div>
 
+**• JavaScript: some으로 조건 검사하기**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "긴급 문의 응답"];
 
 console.log(taskList.some((task) => task.includes("긴급")));
 // true
 ```
+
+**• JavaScript: every로 조건 검사하기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비", "긴급 문의 응답"];
@@ -438,6 +480,8 @@ console.log(taskList.every((task) => task.includes("긴급")));
 ---
 
 ## 14. 값을 하나로 모으기: reduce
+
+**• JavaScript: reduce로 값 합산하기**
 
 ```javascript
 const taskCounts = [3, 5, 2];
@@ -458,6 +502,8 @@ console.log(totalCount);
 
 ## 15. 원본을 바꾸는 메서드 vs 새 배열을 만드는 메서드
 
+**▶ 원본 변경 메서드 vs 새 배열 반환 메서드**
+
 | 구분 | 메서드 |
 |---|---|
 | 원본을 바꾼다 | `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` |
@@ -469,12 +515,16 @@ console.log(totalCount);
   <code>sort()</code>는 기본적으로 값을 <strong>문자열 기준</strong>으로 비교해 정렬한다. 숫자를 그대로 정렬하면 크기 순서와 다르게 나올 수 있다.
 </div>
 
+**• JavaScript: sort 기본 동작 — 문자열 기준 정렬**
+
 ```javascript
 const taskDays = [10, 1, 2, 20];
 
 console.log(taskDays.sort());
 // [1, 10, 2, 20] — 문자열 기준으로 정렬되어 크기 순서와 다르다
 ```
+
+**• JavaScript: 비교 함수로 숫자 정렬하기**
 
 ```javascript
 const taskDays = [10, 1, 2, 20];
@@ -487,6 +537,8 @@ console.log(taskDays.sort((a, b) => a - b));
 
 ## 16. 배열 복사와 spread 문법
 
+**• JavaScript: 배열 대입 — 참조 공유**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
 const copiedList = taskList;
@@ -496,6 +548,8 @@ copiedList.push("이메일 회신");
 console.log(taskList);
 // ["보고서 작성", "회의 준비", "이메일 회신"] — 같은 배열을 가리켜 원본도 바뀐다
 ```
+
+**• JavaScript: spread로 배열 복사하기**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
@@ -523,6 +577,8 @@ console.log(taskList);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 인덱스를 1부터 세기</div>
 
+**• JavaScript: 인덱스를 1부터 세는 실수**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
 console.log(taskList[1]);
@@ -540,6 +596,8 @@ console.log(taskList[1]);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · length를 마지막 인덱스로 착각</div>
 
+**• JavaScript: length를 마지막 인덱스로 착각하는 실수**
+
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
 console.log(taskList[taskList.length]);
@@ -556,6 +614,8 @@ console.log(taskList[taskList.length]);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · sort()가 숫자도 정렬해줄 거라는 착각</div>
+
+**• JavaScript: sort()가 숫자도 정렬해줄 거라는 착각**
 
 ```javascript
 const taskDays = [10, 1, 2];
@@ -589,11 +649,15 @@ console.log(taskDays.sort());
 • `filter`로 특정 조건에 맞는 할일만 골라낸다.<br>
 • `reduce`로 할일 개수의 합계를 구한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 할일 추가/제거 / 중간 삽입 / 조건별 필터 / 합계 계산
 ```
 
 **💡 힌트 1 — 추가와 제거**
+
+**• JavaScript: 힌트 1 — 추가와 제거**
 
 ```javascript
 const taskList = ["보고서 작성", "회의 준비"];
@@ -606,6 +670,8 @@ console.log(taskList);
 
 **💡 힌트 2 — 조건에 맞는 값 고르기**
 
+**• JavaScript: 힌트 2 — 조건에 맞는 값 고르기**
+
 ```javascript
 const taskList = ["보고서 작성", "긴급 문의 응답", "회의 준비"];
 
@@ -616,6 +682,8 @@ console.log(urgentTasks);
 ```
 
 **💡 힌트 3 — 값 하나로 모으기**
+
+**• JavaScript: 힌트 3 — 값 하나로 모으기**
 
 ```javascript
 const taskCounts = [2, 4, 1];

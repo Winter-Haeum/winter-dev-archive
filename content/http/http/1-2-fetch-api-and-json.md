@@ -79,6 +79,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `fetch`는 브라우저에 내장된 함수로, 별도 설치 없이 바로 사용해 서버에 HTTP 요청을 보낼 수 있습니다. `fetch(주소)` 형태로 호출하면 서버와 통신을 시작하고, 결과가 도착하면 이를 활용할 수 있습니다.
 
+**• fetch로 GET 요청 보내기**
+
 ```js
 async function getUsers() {
   const response = await fetch('/api/users'); // 1. 요청 보내기
@@ -110,6 +112,8 @@ async function getUsers() {
 
 데이터를 조회하는 게 아니라 새로 만들 때는 `method`, `headers`, `body`를 함께 지정합니다.
 
+**• fetch로 POST 요청 보내기**
+
 ```js
 async function createUser(userData) {
   const response = await fetch('/api/users', {
@@ -120,6 +124,8 @@ async function createUser(userData) {
   return response.json();
 }
 ```
+
+**▶ fetch 옵션 역할**
 
 <table class="wda-mtable">
 <thead><tr><th>옵션</th><th>역할</th></tr></thead>
@@ -149,6 +155,8 @@ async function createUser(userData) {
 
 이 둘을 오가는 두 개의 짝 메서드가 있습니다.
 
+**▶ 객체·문자열 변환 메서드**
+
 <table class="wda-mtable">
 <thead><tr><th>메서드</th><th>역할</th></tr></thead>
 <tbody>
@@ -168,6 +176,8 @@ async function createUser(userData) {
 ## 4. 최소한의 에러 처리
 
 `fetch`는 서버가 404나 500을 응답해도 "통신 자체는 성공"했다고 판단하기 때문에, 실패 여부는 직접 확인해야 합니다.
+
+**• fetch 에러 처리**
 
 ```js
 async function safeFetch(url) {

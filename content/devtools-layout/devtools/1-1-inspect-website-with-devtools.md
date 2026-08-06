@@ -88,6 +88,8 @@ DevTools(Developer Tools)는 브라우저에 기본으로 내장된 웹 개발 �
 
 ## 2. DevTools 여는 3가지 방법
 
+**▶ DevTools 실행 방법**
+
 <table class="wda-mtable">
 <thead><tr><th>방법</th><th>설명</th></tr></thead>
 <tbody>
@@ -141,6 +143,8 @@ Elements 패널은 현재 페이지의 HTML을 트리 형태로 보여준다. �
 
 Elements 패널에서 요소를 선택하면 옆에 나타나는 Styles 패널에서, 그 요소에 적용된 모든 CSS 규칙을 출처별로 확인할 수 있다.
 
+**▶ CSS 규칙 출처별 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>출처</th><th>의미</th></tr></thead>
 <tbody>
@@ -165,6 +169,8 @@ Elements 패널에서 요소를 선택하면 옆에 나타나는 Styles 패널�
 
 Styles 패널의 값은 클릭해서 바로 고칠 수 있다. 수정한 값은 화면에 즉시 반영되지만, 실제 CSS 파일이 저장되는 것은 아니다.
 
+**▶ Live Editing 조작 방법**
+
 <table class="wda-mtable">
 <thead><tr><th>조작</th><th>효과</th></tr></thead>
 <tbody>
@@ -175,6 +181,8 @@ Styles 패널의 값은 클릭해서 바로 고칠 수 있다. 수정한 값은 
 <tr><td>+ 버튼 / 빈 줄 클릭</td><td>새로운 CSS 속성을 직접 추가</td></tr>
 </tbody>
 </table>
+
+**• CSS: font-size 실시간 조정**
 
 ```css
 /* 예: font-size 값을 클릭한 뒤 방향키로 조정 */
@@ -209,6 +217,8 @@ Styles 패널의 값은 클릭해서 바로 고칠 수 있다. 수정한 값은 
 ## 7. 가상 선택자(:hover 등) 강제 적용하기
 
 `:hover`, `:focus` 같은 가상 선택자는 마우스를 올리거나 포커스를 줘야만 나타나기 때문에, 평소에는 Styles 패널에서 확인하기 어렵다. DevTools는 이런 상태를 강제로 켜두는 기능을 제공한다.
+
+**▶ 강제 적용 가능한 가상 상태**
 
 <table class="wda-mtable">
 <thead><tr><th>가상 상태</th><th>의미</th></tr></thead>

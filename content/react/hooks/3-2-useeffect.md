@@ -91,6 +91,8 @@ React는 컴포넌트 함수가 렌더링 중에는 순수하게 동작하기를
 
 ## 2. useEffect 기본 문법
 
+**• React: useEffect 기본 문법**
+
 ```jsx
 import { useEffect } from 'react';
 
@@ -109,6 +111,8 @@ function HookDashboard() {
 
 ## 3. 의존성 배열 3가지 케이스
 
+**▶ 의존성 배열 3가지 케이스**
+
 <table class="wda-mtable">
 <thead><tr><th>형태</th><th>실행 시점</th></tr></thead>
 <tbody>
@@ -117,6 +121,8 @@ function HookDashboard() {
 <tr><td>생략</td><td>매 렌더링마다 실행 (의도적인 경우가 아니면 피함)</td></tr>
 </tbody>
 </table>
+
+**• React: keyword 의존성으로 effect 실행하기**
 
 ```jsx
 function LearningFetcher({ keyword }) {
@@ -139,6 +145,8 @@ function LearningFetcher({ keyword }) {
 ## 4. Cleanup 함수
 
 `useEffect` 콜백이 함수를 **반환**하면, 그 함수는 다음 effect가 실행되기 직전과 컴포넌트가 사라질 때 호출됩니다.
+
+**• React: setInterval과 cleanup 함수**
 
 ```jsx
 function TimerBox() {
@@ -167,6 +175,8 @@ function TimerBox() {
 ---
 
 ## 5. 데이터 페칭 패턴
+
+**• React: courseId로 데이터 페칭하기**
 
 ```jsx
 function LearningFetcher({ courseId }) {

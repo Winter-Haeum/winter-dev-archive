@@ -85,6 +85,8 @@ Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버�
 
 실무에서는 목적에 따라 branch 종류를 구분해서 사용한다.
 
+**▶ 목적별 branch 종류**
+
 <table class="wda-mtable">
 <thead><tr><th>종류</th><th>역할</th></tr></thead>
 <tbody>
@@ -107,11 +109,15 @@ Branch는 main 코드에 영향을 주지 않으면서 기능 개발이나 버�
 
 새 branch는 `git branch` 명령어로 만든다.
 
+**• 터미널: 새 branch 생성하기**
+
 ```bash
 git branch feature-login
 ```
 
 현재 위치한 branch(main 등)를 기준으로 새 branch가 만들어진다. 만든 branch 목록과 현재 위치는 아래 명령어로 확인한다.
+
+**• 터미널: branch 목록과 현재 위치 확인하기**
 
 ```bash
 git branch
@@ -151,6 +157,8 @@ branch를 전환하는 명령어는 두 가지가 있는데, 최근에는 용도
 
 branch를 새로 만들면서 바로 이동하고 싶을 때도 두 방식 모두 사용할 수 있다.
 
+**• 터미널: branch 생성과 동시에 전환하기**
+
 ```bash
 # 레거시 방식
 git checkout -b feature-new
@@ -165,6 +173,8 @@ git switch -c feature-new
 
 branch를 전환하면 작업 디렉토리의 파일 내용 전체가 그 branch 기준으로 바뀐다. 각 branch는 서로 다른 커밋 히스토리를 가지기 때문이다.
 
+**• 터미널: feature branch에서 커밋하기**
+
 ```bash
 git switch feature-login
 # login.html 파일 생성 및 수정
@@ -173,6 +183,8 @@ git commit -m "Add login page"
 ```
 
 이렇게 `feature-login` branch에서 커밋한 `login.html`은 이 branch에만 존재한다. main에는 영향을 주지 않는다.
+
+**• 터미널: main branch로 돌아가기**
 
 ```bash
 git switch main
@@ -190,6 +202,8 @@ main으로 돌아가면 `login.html`이 화면에서 사라진 것처럼 보인�
 ---
 
 ## 5. Branch 목록 확인하기
+
+**▶ branch 목록 확인 명령어**
 
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>설명</th></tr></thead>
@@ -241,6 +255,8 @@ merge는 단순히 파일 하나를 옮기는 것이 아니라, branch 전체의
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">③ Fast-forward</div><div class="wda-fnode-dsc">충돌 없이 통합 완료</div></div>
 </div>
+
+**• 터미널: feature branch를 main에 merge하기**
 
 ```bash
 git switch main

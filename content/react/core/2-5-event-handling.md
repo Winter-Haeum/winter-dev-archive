@@ -94,6 +94,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 3. onClick 기본
 
+**• React: onClick 기본 사용법**
+
 ```jsx
 function LearningItem() {
   function handleComplete() {
@@ -110,6 +112,8 @@ function LearningItem() {
 
 버튼 안에 로직을 바로 적을 수도 있지만, 로직이 길어지면 함수로 분리하는 것이 읽기 좋습니다.
 
+**• React: 인라인 핸들러와 분리된 핸들러 비교**
+
 ```jsx
 // 인라인
 <button onClick={() => console.log("완료 처리")}>완료</button>
@@ -125,6 +129,8 @@ function handleComplete() {
 ---
 
 ## 5. 인자를 전달하는 방법
+
+**• React: 핸들러에 인자 전달하기**
 
 ```jsx
 function handleComplete(itemId) {
@@ -157,6 +163,8 @@ function handleComplete(itemId) {
 
 이벤트가 발생하면 React가 이벤트 정보를 담은 객체를 핸들러에 전달합니다.
 
+**• React: 이벤트 객체 사용하기**
+
 ```jsx
 function handleFilterChange(event) {
   console.log(event.target.value);
@@ -178,6 +186,8 @@ function handleFilterChange(event) {
 
 ## 7. onChange와 onSubmit 맛보기
 
+**• React: onChange와 onSubmit 맛보기**
+
 ```jsx
 <input onChange={handleFilterChange} />
 <form onSubmit={handleSubmit}>...</form>
@@ -192,6 +202,8 @@ function handleFilterChange(event) {
 ---
 
 ## 8. 이벤트와 state 변경 연결
+
+**• React: 이벤트로 state 변경 연결하기**
 
 ```jsx
 function LearningItem({ id, isCompleted, onComplete }) {
@@ -224,6 +236,8 @@ DOM 이벤트 등록 방식 자체는 JavaScript DOM 문서에서 다뤘으므�
 ---
 
 ## 10. 다음 학습 흐름
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>
