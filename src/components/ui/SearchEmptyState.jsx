@@ -63,8 +63,8 @@ function SearchEmptyState({ query }) {
 
       <Typography variant='body2' sx={{ color: 'text.secondary', mb: 5 }}>
         {isEmptyQuery
-          ? '제목, 내용, 태그로 검색할 수 있습니다. 태그는 #태그명 형식으로 입력하세요.'
-          : '다른 키워드로 검색하거나 태그(#태그명)를 사용해보세요.'}
+          ? '제목과 내용으로 검색할 수 있습니다.'
+          : '다른 키워드로 검색해보세요.'}
       </Typography>
 
       {/* 자주 찾는 카테고리 */}

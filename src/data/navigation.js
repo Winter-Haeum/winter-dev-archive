@@ -364,14 +364,6 @@ export const categories = [
     },
   },
   {
-    id: 'database',
-    name: 'Database & Backend',
-    emoji: '🗄',
-    slug: 'database',
-    description: '백엔드 없이도 데이터를 저장하고 관리하는 법. Firebase와 Supabase로 실시간 데이터베이스와 인증 기능을 빠르게 구축합니다.',
-    sections: ['Firebase', 'Supabase'],
-  },
-  {
     id: 'firebase',
     name: 'Firebase',
     emoji: '🔥',

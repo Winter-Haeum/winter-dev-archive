@@ -56,7 +56,7 @@ function Footer() {
               variant='caption'
               sx={{ color: 'text.disabled', display: 'block', mt: 0.5 }}
             >
-              학습 시작: 2025년 11월
+              프론트엔드 학습 시작: 2025년 11월
             </Typography>
           </Grid>
 

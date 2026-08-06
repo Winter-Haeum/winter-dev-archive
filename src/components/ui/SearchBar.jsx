@@ -78,7 +78,7 @@ function SearchBar({ value, onChange, onClear, isLoading = false, autoFocus = tr
         value={value}
         onChange={(e) => onChange(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder='문서 제목, 태그(#tag), 내용 검색...'
+        placeholder='문서 제목, 내용 검색...'
         autoFocus={autoFocus}
         inputProps={{
           type: 'search',
