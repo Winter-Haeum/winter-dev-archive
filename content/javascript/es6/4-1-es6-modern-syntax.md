@@ -109,6 +109,8 @@ ES2016부터는 매년 조금씩 새 버전이 발표된다. 한 번에 많이 �
 
 ## 3. 템플릿 리터럴로 문자열 만들기
 
+**• JavaScript: 템플릿 리터럴로 문자열 만들기**
+
 ```javascript
 const dashboardTitle = "겨울 스터디";
 const lessonCount = 12;
@@ -122,6 +124,8 @@ console.log(`${dashboardTitle} 대시보드 (${lessonCount}개 강의)`);
 ---
 
 ## 4. 태그드 템플릿: 문자열을 함수로 가공하기
+
+**• JavaScript: 태그드 템플릿으로 문자열 가공하기**
 
 ```javascript
 function shout(strings, ...values) {
@@ -148,6 +152,8 @@ console.log(shout`선택한 레벨: ${selectedLevel}`);
 
 ## 5. for...of로 순회 가능한 값 다루기
 
+**• JavaScript: for...of로 문자열 순회하기**
+
 ```javascript
 const dashboardTitle = "ES6";
 
@@ -169,10 +175,14 @@ for (const char of dashboardTitle) {
 
 ## 6. Map: 어떤 값이든 키로 쓸 수 있는 저장소
 
+**▶ 객체 vs Map**
+
 | 구분 | 객체(Object) | Map |
 |---|---|---|
 | 키로 쓸 수 있는 타입 | 문자열/Symbol만 | 모든 타입 |
 | 순서 보장 | 옛 스펙 기준으로는 보장 안 됨 | set한 순서 그대로 유지 |
+
+**• JavaScript: Map으로 설정값 저장하기**
 
 ```javascript
 const dashboardOptions = new Map();
@@ -187,6 +197,8 @@ console.log(dashboardOptions.get("defaultView"));
 ---
 
 ## 7. Set: 중복을 허용하지 않는 값 모음
+
+**• JavaScript: Set으로 중복 제거하기**
 
 ```javascript
 const lessonTags = ["기초", "심화", "기초", "실습"];
@@ -207,6 +219,8 @@ console.log(uniqueTags);
 
 ## 8. Symbol: 고유한 값 만들기
 
+**• JavaScript: Symbol로 고유값 만들기**
+
 ```javascript
 const idA = Symbol("lesson-id");
 const idB = Symbol("lesson-id");
@@ -225,6 +239,8 @@ console.log(idA === idB);
 
 ## 9. ES2020 이후 주요 문법 훑어보기
 
+**▶ ES2020 이후 주요 문법**
+
 | 문법 | 한 줄 설명 |
 |---|---|
 | `??` / `?.` | 값이 없을 때를 안전하게 처리하는 연산자 |
@@ -242,6 +258,8 @@ console.log(idA === idB);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 1 · Map 키를 새 객체로 조회</div>
+
+**• JavaScript: Map 키를 새 객체로 조회하는 실수**
 
 ```javascript
 const dashboardOptions = new Map();
@@ -263,6 +281,8 @@ console.log(dashboardOptions.get({ id: 1 }));
 
 <div class="wda-fcard-ttl">🔹 실수 2 · Set을 배열처럼 인덱스로 접근</div>
 
+**• JavaScript: Set을 인덱스로 접근하는 실수**
+
 ```javascript
 const uniqueTags = new Set(["기초", "심화"]);
 console.log(uniqueTags[0]);
@@ -279,6 +299,8 @@ console.log(uniqueTags[0]);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · Symbol을 문자열처럼 연결</div>
+
+**• JavaScript: Symbol을 문자열처럼 연결하는 실수**
 
 ```javascript
 const idA = Symbol("lesson-id");
@@ -311,11 +333,15 @@ console.log("id: " + idA);
 • `lessonTags` 배열의 중복을 Set으로 제거해 `uniqueTags`를 만든다.<br>
 • 템플릿 리터럴로 대시보드 요약 문장을 만든다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: Map으로 설정 저장 / Set으로 중복 제거 / 템플릿 리터럴로 요약 문장 만들기
 ```
 
 **💡 힌트 1 — Map으로 설정 저장**
+
+**• JavaScript: 힌트 1 — Map으로 설정 저장**
 
 ```javascript
 const dashboardOptions = new Map();
@@ -327,6 +353,8 @@ console.log(dashboardOptions.get("defaultView"));
 
 **💡 힌트 2 — Set으로 중복 제거**
 
+**• JavaScript: 힌트 2 — Set으로 중복 제거**
+
 ```javascript
 const lessonTags = ["기초", "기초", "실습"];
 const uniqueTags = [...new Set(lessonTags)];
@@ -336,6 +364,8 @@ console.log(uniqueTags);
 ```
 
 **💡 힌트 3 — 요약 문장 만들기**
+
+**• JavaScript: 힌트 3 — 요약 문장 만들기**
 
 ```javascript
 const dashboardTitle = "겨울 스터디";

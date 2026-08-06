@@ -89,6 +89,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. Render, Commit, Effect
 
+**▶ Render·Commit·Effect 단계별 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>내용</th></tr></thead>
 <tbody>
@@ -97,6 +99,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 <tr><td>Effect</td><td>DOM 반영이 끝난 뒤 useEffect 콜백이 실행된다.</td></tr>
 </tbody>
 </table>
+
+**• React: Render·Commit·Effect 실행 순서 확인**
 
 ```jsx
 function HookDashboard() {
@@ -117,6 +121,8 @@ function HookDashboard() {
 ## 3. Update 시 실행 순서
 
 props나 state가 바뀌어 다시 렌더링될 때는, 새 effect를 실행하기 전에 **이전 effect의 cleanup**이 먼저 호출됩니다.
+
+**• React: courseId 변경 시 cleanup·effect 실행**
 
 ```jsx
 useEffect(() => {
@@ -156,6 +162,8 @@ useEffect(() => {
 <div class="wda-callout wda-cw">
   <p>클래스 컴포넌트는 오늘날 새로 작성하는 코드에서는 거의 쓰이지 않지만, 기존 코드를 읽을 때를 위해 대응 관계만 짧게 정리합니다.</p>
 </div>
+
+**▶ 클래스 생명주기 메서드와 Hooks 대응 관계**
 
 <table class="wda-mtable">
 <thead><tr><th>클래스 메서드</th><th>Hooks 대응</th></tr></thead>

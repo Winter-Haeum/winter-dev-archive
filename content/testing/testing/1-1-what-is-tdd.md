@@ -128,6 +128,8 @@ TDD는 아래 세 단계를 짧은 주기로 계속 반복하는 방식으로 �
   <div class="wda-fnode"><div class="wda-fnode-ttl">🔵 Refactor</div><div class="wda-fnode-dsc">동작을 유지한 채 코드 정리</div></div>
 </div>
 
+**▶ Red-Green-Refactor 단계별 목표**
+
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>목표</th><th>이 단계에서 하는 일</th></tr></thead>
 <tbody>
@@ -136,6 +138,8 @@ TDD는 아래 세 단계를 짧은 주기로 계속 반복하는 방식으로 �
 <tr><td>Refactor</td><td>품질 개선</td><td>테스트가 통과하는 상태를 유지하면서 중복을 줄이고 이름을 다듬는 등 코드를 정리합니다.</td></tr>
 </tbody>
 </table>
+
+**• TDD 3단계 사이클 예시**
 
 ```js
 // 1. Red: 아직 없는 add 함수에 대한 테스트를 먼저 작성
@@ -162,6 +166,8 @@ function add(a, b) {
 ## 4. 단위 테스트란
 
 TDD에서 다루는 테스트는 대부분 **단위 테스트(Unit Test)**입니다. 단위 테스트는 함수 하나, 컴포넌트 하나처럼 프로그램에서 더 이상 쪼개기 어려운 가장 작은 단위를 검증하는 테스트입니다.
+
+**▶ 테스트 종류별 검증 대상**
 
 <table class="wda-mtable">
 <thead><tr><th>테스트 종류</th><th>검증 대상</th><th>예시</th></tr></thead>

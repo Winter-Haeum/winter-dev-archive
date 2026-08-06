@@ -140,6 +140,8 @@ Node.js 설치 파일 안에는 npm도 함께 들어 있습니다. Node.js를 �
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">node -v</div>
 
+**• 터미널: Node.js 버전 확인하기**
+
 ```bash
 node -v
 ```
@@ -148,6 +150,8 @@ node -v
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">npm -v</div>
+
+**• 터미널: npm 버전 확인하기**
 
 ```bash
 npm -v
@@ -162,6 +166,8 @@ npm -v
 <div class="wda-callout wda-ci">
   버전 출력은 사람마다 다를 수 있습니다. 설치 시점이나 선택한 LTS 버전에 따라 숫자가 다르게 나오는 것이 정상이므로, 특정 숫자를 정답처럼 외울 필요는 없습니다.
 </div>
+
+**▶ 설치 전후 터미널 반응 비교**
 
 <table class="wda-mtable">
   <tr>
@@ -228,6 +234,8 @@ npm -v
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">버전 확인</div><div class="wda-fnode-dsc">node -v, npm -v</div></div>
 </div>
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

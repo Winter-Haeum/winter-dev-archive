@@ -89,6 +89,8 @@ React 컴포넌트는 다른 컴포넌트로부터 props라는 데이터를 전�
 
 React + TypeScript 프로젝트를 새로 시작할 때는 Vite를 사용하는 것이 널리 쓰이는 방법 중 하나입니다.
 
+**• 터미널: Vite로 React+TypeScript 프로젝트 생성**
+
 ```bash
 npm create vite@latest my-app -- --template react-ts
 
@@ -111,6 +113,8 @@ react-ts 템플릿을 사용하면 TypeScript 컴파일 설정, React 타입 정
 
 ## 3. 파일 확장자 구분
 
+**▶ .tsx와 .ts 확장자 구분**
+
 <table class="wda-mtable">
 <thead><tr><th>확장자</th><th>용도</th></tr></thead>
 <tbody>
@@ -128,6 +132,8 @@ react-ts 템플릿을 사용하면 TypeScript 컴파일 설정, React 타입 정
 ---
 
 ## 4. 기본 폴더 구조 살펴보기
+
+**• 기본 폴더 구조**
 
 ```
 src/

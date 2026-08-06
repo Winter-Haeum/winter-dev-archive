@@ -79,6 +79,8 @@ tags:
 
 ## 2. 화살표 함수 기본 문법
 
+**• JavaScript: 일반 함수로 작성하기**
+
 ```javascript
 function formatLessonTitleOld(title) {
   return `[강의] ${title}`;
@@ -89,6 +91,8 @@ console.log(formatLessonTitleOld("배열 구조분해"));
 ```
 
 `function` 키워드 대신 `=>`를 쓰면 같은 동작을 더 짧게 쓸 수 있다.
+
+**• JavaScript: 화살표 함수로 바꾸기**
 
 ```javascript
 const formatLessonTitle = (title) => {
@@ -112,6 +116,8 @@ console.log(formatLessonTitle("배열 구조분해"));
     <li>매개변수 <strong>2개 이상</strong>: 괄호가 필수다. <code>(a, b) =&gt; ...</code></li>
   </ul>
 </div>
+
+**• JavaScript: 매개변수 개수별 괄호 규칙**
 
 ```javascript
 // 매개변수 0개 → 괄호 필수
@@ -143,6 +149,8 @@ console.log(combineTitle("배열 구조분해", "민지"));
 
 본문이 여러 줄이거나 로직이 있을 때는 중괄호와 return을 그대로 쓴다.
 
+**• JavaScript: 명시적 return 사용하기**
+
 ```javascript
 const formatLessonTitleBlock = title => {
   return `[강의] ${title}`;
@@ -157,6 +165,8 @@ const formatLessonTitleBlock = title => {
 
 본문이 표현식 한 줄이면 중괄호와 return을 생략할 수 있다.
 
+**• JavaScript: 암묵적 return 사용하기**
+
 ```javascript
 const formatLessonTitleShort = title => `[강의] ${title}`;
 ```
@@ -168,6 +178,8 @@ const formatLessonTitleShort = title => `[강의] ${title}`;
 ---
 
 ## 4. 객체를 바로 반환할 때 주의
+
+**• JavaScript: 객체 반환 시 소괄호로 감싸기**
 
 ```javascript
 // [주의] 중괄호를 함수 본문(블록)으로 해석해 undefined를 반환한다
@@ -193,6 +205,8 @@ console.log(createLessonSummary("배열 구조분해"));
 
 ## 5. 화살표 함수와 this — 주의사항
 
+**• JavaScript: 화살표 함수의 this 확인하기**
+
 ```javascript
 const lessonBoard = {
   lessonTitle: "배열 구조분해",
@@ -215,12 +229,16 @@ lessonBoard.logTitle();
 
 ## 6. 일반 함수 vs 화살표 함수
 
+**▶ 일반 함수 vs 화살표 함수**
+
 | 구분 | 일반 함수 | 화살표 함수 |
 |---|---|---|
 | this | 호출 방식에 따라 결정 | 정의된 위치의 상위 this를 그대로 사용 |
 | new로 호출 | 가능 | 불가능 (TypeError) |
 | arguments 객체 | 있음 | 없음 (rest parameter로 대체) |
 | 주 용도 | 객체 메서드, 생성자 함수 | 콜백, 짧은 유틸리티 함수 |
+
+**• JavaScript: 화살표 함수를 new로 호출하는 에러 확인용**
 
 ```javascript
 const LessonTimer = (durationMinutes) => {
@@ -235,6 +253,8 @@ const LessonTimer = (durationMinutes) => {
 
 ## 7. 배열 구조분해
 
+**• JavaScript: 배열 구조분해로 값 꺼내기**
+
 ```javascript
 const lessonTags = ["ES6", "구조분해", "spread"];
 
@@ -245,6 +265,8 @@ console.log(firstTag, secondTag);
 ```
 
 첫 값과 나머지 값을 분리할 수도 있다.
+
+**• JavaScript: 배열 구조분해로 첫 값과 나머지 분리하기**
 
 ```javascript
 const [mainTag, ...restTags] = lessonTags;
@@ -263,6 +285,8 @@ console.log(mainTag, restTags);
 
 ## 8. 객체 구조분해
 
+**• JavaScript: 객체 구조분해로 값 꺼내기**
+
 ```javascript
 const lessonCard = {
   lessonTitle: "배열 구조분해",
@@ -279,6 +303,8 @@ console.log(lessonTitle, teacherName);
 
 필요한 값 하나만 꺼내는 것도 가능하다.
 
+**• JavaScript: 필요한 값 하나만 꺼내기**
+
 ```javascript
 const { durationMinutes } = lessonCard;
 
@@ -292,6 +318,8 @@ console.log(durationMinutes);
 
 <div class="wda-compare-ttl">🔢 배열 구조분해 (순서 기준)</div>
 
+**• JavaScript: 배열 구조분해 — 순서 기준**
+
 ```javascript
 const [firstTag, secondTag] = lessonTags;
 ```
@@ -301,6 +329,8 @@ const [firstTag, secondTag] = lessonTags;
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">🔤 객체 구조분해 (이름 기준)</div>
+
+**• JavaScript: 객체 구조분해 — 이름 기준**
 
 ```javascript
 const { lessonTitle, teacherName } = lessonCard;
@@ -322,6 +352,8 @@ const { lessonTitle, teacherName } = lessonCard;
 
 값이 없을 때 쓸 기본값을 지정할 수 있다.
 
+**• JavaScript: 구조분해 기본값 지정하기**
+
 ```javascript
 const { teacherName, level = "입문" } = lessonCard;
 
@@ -331,6 +363,8 @@ console.log(level);
 
 `:`으로 다른 변수 이름을 지정할 수도 있다.
 
+**• JavaScript: 구조분해 이름 바꾸기**
+
 ```javascript
 const { teacherName: teacher } = lessonCard;
 
@@ -339,6 +373,8 @@ console.log(teacher);
 ```
 
 이름 변경과 기본값을 함께 쓸 수도 있다.
+
+**• JavaScript: 이름 변경과 기본값 함께 쓰기**
 
 ```javascript
 const { teacherName: teacher, level: lessonLevel = "입문" } = lessonCard;
@@ -350,6 +386,8 @@ console.log(teacher, lessonLevel);
 ---
 
 ## 10. 중첩 구조분해는 짧게
+
+**• JavaScript: 중첩 구조분해하기**
 
 ```javascript
 const lessonCardDetail = {
@@ -376,6 +414,8 @@ console.log(lessonTitle, day);
 
 ## 11. 함수 매개변수에서 구조분해하기
 
+**• JavaScript: 함수 매개변수에서 구조분해하기**
+
 ```javascript
 function printLessonCard({ lessonTitle, teacherName }) {
   console.log(`${lessonTitle} - ${teacherName}`);
@@ -386,6 +426,8 @@ printLessonCard(lessonCard);
 ```
 
 매개변수 구조분해에도 기본값을 함께 쓸 수 있다.
+
+**• JavaScript: 매개변수 구조분해에 기본값 쓰기**
 
 ```javascript
 function printLessonCardWithLevel({ lessonTitle, level = "입문" }) {
@@ -399,6 +441,8 @@ printLessonCardWithLevel(lessonCard);
 ---
 
 ## 12. spread로 배열 다루기
+
+**• JavaScript: spread로 배열 복사·확장하기**
 
 ```javascript
 const lessonTags = ["ES6", "구조분해"];
@@ -422,6 +466,8 @@ console.log(extendedTags);
 ---
 
 ## 13. spread로 객체 다루기
+
+**• JavaScript: spread로 객체 복사·확장하기**
 
 ```javascript
 const copiedLesson = { ...lessonCard };
@@ -449,6 +495,8 @@ console.log(updatedLesson);
 
 ## 14. 함수 호출에서 spread 쓰기
 
+**• JavaScript: 함수 호출에서 spread로 인자 펼치기**
+
 ```javascript
 function createLessonSummary(title, teacher, minutes) {
   return `${title} · ${teacher} · ${minutes}분`;
@@ -459,6 +507,8 @@ const lessonInfo = ["배열 구조분해", "민지", 45];
 console.log(createLessonSummary(...lessonInfo));
 // 배열 구조분해 · 민지 · 45분
 ```
+
+**• JavaScript: Math.max에 spread로 배열 넘기기**
 
 ```javascript
 const lessonDurations = [45, 30, 50];
@@ -472,6 +522,8 @@ console.log(Math.max(...lessonDurations));
 ## 15. rest로 남은 값 모으기
 
 객체 구조분해에서도 나머지 속성을 한 번에 모을 수 있다.
+
+**• JavaScript: 객체 구조분해에서 rest로 나머지 모으기**
 
 ```javascript
 const { lessonTitle, ...restInfo } = lessonCard;
@@ -489,6 +541,8 @@ console.log(restInfo);
 ---
 
 ## 16. rest parameter
+
+**• JavaScript: rest parameter로 나머지 인자 모으기**
 
 ```javascript
 function collectLessonTags(mainTag, ...restTags) {
@@ -517,6 +571,8 @@ collectLessonTags("ES6", "구조분해", "spread");
 
 값을 받는 쪽(매개변수, 구조분해 왼쪽)에 쓰면 여러 값을 하나로 모은다.
 
+**• JavaScript: rest — 값 모으기**
+
 ```javascript
 function sumDurations(...durations) {
   return durations.reduce((total, m) => total + m, 0);
@@ -533,6 +589,8 @@ sumDurations(45, 30, 50);
 <div class="wda-compare-ttl">📤 Spread — 펼치기</div>
 
 값을 펼치는 쪽(함수 호출, 배열/객체 리터럴)에 쓰면 하나를 낱개로 펼친다.
+
+**• JavaScript: spread — 값 펼치기**
 
 ```javascript
 const durations = [45, 30, 50];
@@ -561,6 +619,8 @@ Math.max(...durations);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 객체 반환 시 괄호 생략</div>
 
+**• JavaScript: 객체 반환 시 괄호 생략하는 실수**
+
 ```javascript
 const createLessonSummaryBad = title => { title: title };
 
@@ -579,6 +639,8 @@ console.log(createLessonSummaryBad("배열 구조분해"));
 
 <div class="wda-fcard-ttl">🔹 실수 2 · rest parameter 위치</div>
 
+**• JavaScript: rest parameter 위치를 잘못 두는 실수**
+
 ```javascript
 // function badCollect(...restTags, mainTag) {}
 // ❌ SyntaxError (일부러 에러 확인용)
@@ -594,6 +656,8 @@ console.log(createLessonSummaryBad("배열 구조분해"));
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · spread 순서 착각</div>
+
+**• JavaScript: spread 순서를 착각하는 실수**
 
 ```javascript
 const defaultLesson = { level: "입문", durationMinutes: 30 };
@@ -628,11 +692,15 @@ console.log(wrongMerge.durationMinutes);
 • 화살표 함수 `formatLessonTitle`을 만들어 `"[강의] 제목"` 형태의 문자열을 반환한다.<br>
 • spread로 `lessonCard`를 복사한 뒤 `durationMinutes`만 다른 값으로 덮어쓴 `updatedLesson`을 만든다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 구조분해로 값 꺼내기 / 화살표 함수로 제목 포맷 / spread로 값 덮어쓰기
 ```
 
 **💡 힌트 1 — 구조분해로 값 꺼내기**
+
+**• JavaScript: 힌트 1 — 구조분해로 값 꺼내기**
 
 ```javascript
 const { lessonTitle, teacherName } = lessonCard;
@@ -643,6 +711,8 @@ console.log(lessonTitle, teacherName);
 
 **💡 힌트 2 — 화살표 함수로 제목 포맷**
 
+**• JavaScript: 힌트 2 — 화살표 함수로 제목 포맷**
+
 ```javascript
 const formatLessonTitle = title => `[강의] ${title}`;
 
@@ -651,6 +721,8 @@ console.log(formatLessonTitle(lessonTitle));
 ```
 
 **💡 힌트 3 — spread로 값 덮어쓰기**
+
+**• JavaScript: 힌트 3 — spread로 값 덮어쓰기**
 
 ```javascript
 const updatedLesson = { ...lessonCard, durationMinutes: 60 };

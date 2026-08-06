@@ -81,6 +81,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 if문은 JSX 중괄호 안에서 쓸 수 없습니다. 대신 컴포넌트 함수 안, return 이전에서 조건을 검사합니다.
 
+**• React: if문으로 먼저 분기하기**
+
 ```jsx
 function LearningStatus({ isLoading, errorMessage }) {
   if (isLoading) {
@@ -110,6 +112,8 @@ function LearningStatus({ isLoading, errorMessage }) {
 
 ## 3. 삼항 연산자
 
+**• React: 삼항 연산자로 조건부 렌더링하기**
+
 ```jsx
 <span>{isCompleted ? "완료" : "진행 중"}</span>
 ```
@@ -117,6 +121,8 @@ function LearningStatus({ isLoading, errorMessage }) {
 ---
 
 ## 4. && 연산자
+
+**• React: && 연산자로 조건부 렌더링하기**
 
 ```jsx
 {errorMessage && <p className="error">{errorMessage}</p>}
@@ -149,6 +155,8 @@ function LearningStatus({ isLoading, errorMessage }) {
 
 ## 6. className을 조건에 따라 바꾸기
 
+**• React: 조건에 따라 className 바꾸기**
+
 ```jsx
 <li className={isCompleted ? "completed" : "pending"}>
   {title}
@@ -158,6 +166,8 @@ function LearningStatus({ isLoading, errorMessage }) {
 ---
 
 ## 7. loading/error/empty 상태
+
+**• React: loading·error·empty 상태 분기하기**
 
 ```jsx
 function LearningList({ isLoading, errorMessage, items }) {
@@ -209,6 +219,8 @@ function LearningList({ isLoading, errorMessage, items }) {
 ---
 
 ## 9. 다음 학습 흐름
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

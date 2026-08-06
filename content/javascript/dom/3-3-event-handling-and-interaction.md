@@ -76,6 +76,8 @@ tags:
 
 이 문서에서는 강의 목록 버튼, 강의 검색 입력창, 신청 폼으로 구성된 화면을 예제로 삼아 이벤트를 연결하고 처리하는 방법을 다룬다.
 
+**• HTML: 예제로 쓸 강의 목록·검색·신청 폼**
+
 ```html
 <ul id="lesson-container">
   <li><button class="lesson-btn" data-lesson-id="101">비동기 프로그래밍</button></li>
@@ -105,6 +107,8 @@ tags:
 
 이벤트는 브라우저가 감지해서 JavaScript에 전달해주는 사건이다. 이벤트는 항상 발생하지만, **리스너를 등록한 이벤트만** 처리할 수 있다.
 
+**▶ 자주 쓰는 이벤트 종류**
+
 | 이벤트 | 발생 시점 |
 |---|---|
 | `click` | 요소를 클릭했을 때 |
@@ -124,6 +128,8 @@ tags:
 
 ## 3. addEventListener로 이벤트 연결하기
 
+**• JavaScript: addEventListener 기본 문법**
+
 ```javascript
 element.addEventListener(type, handler);
 ```
@@ -139,6 +145,8 @@ element.addEventListener(type, handler);
 
 HTML과 JS가 섞이고, 하나의 이벤트에 핸들러를 하나만 연결할 수 있다.
 
+**• HTML: onclick 속성 방식 — 비권장**
+
 ```html
 <button onclick="handleLessonClick()">
   강의 보기
@@ -152,6 +160,8 @@ HTML과 JS가 섞이고, 하나의 이벤트에 핸들러를 하나만 연결할
 <div class="wda-compare-ttl">📝 addEventListener (권장)</div>
 
 같은 이벤트에 여러 핸들러를 등록할 수 있고, 나중에 제거할 수도 있다.
+
+**• JavaScript: addEventListener 방식 — 권장**
 
 ```javascript
 const applyForm =
@@ -171,6 +181,8 @@ applyForm.addEventListener(
 
 ## 4. 클릭 이벤트 처리하기
 
+**• JavaScript: 클릭 이벤트 처리하기**
+
 ```javascript
 const lessonButton = document.querySelector(".lesson-btn");
 
@@ -189,6 +201,8 @@ lessonButton.addEventListener("click", function () {
 
 ## 5. 입력 이벤트 처리하기
 
+**• JavaScript: 입력 이벤트 처리하기**
+
 ```javascript
 const filterInput = document.getElementById("filter-input");
 
@@ -206,6 +220,8 @@ filterInput.addEventListener("input", function (event) {
 ---
 
 ## 6. 폼 제출 이벤트와 preventDefault
+
+**• JavaScript: preventDefault로 기본 동작 막기**
 
 ```javascript
 const applyForm = document.getElementById("apply-form");
@@ -228,6 +244,8 @@ applyForm.addEventListener("submit", function (event) {
 
 이벤트가 발생하면 브라우저는 상세 정보를 담은 객체를 만들어 핸들러의 첫 번째 인자로 전달한다.
 
+**▶ event 객체 프로퍼티·메서드**
+
 | 프로퍼티/메서드 | 설명 |
 |---|---|
 | `type` | 이벤트 종류 (예: `"submit"`) |
@@ -235,6 +253,8 @@ applyForm.addEventListener("submit", function (event) {
 | `currentTarget` | 리스너가 등록된 요소 |
 | `preventDefault()` | 기본 동작 막기 |
 | `stopPropagation()` | 이벤트 전파 중단 |
+
+**• JavaScript: event 객체 확인하기**
 
 ```javascript
 applyForm.addEventListener("submit", function (event) {
@@ -260,6 +280,8 @@ applyForm.addEventListener("submit", function (event) {
 
 실제로 이벤트를 발생시킨 요소.
 
+**• JavaScript: event.target 확인하기**
+
 ```javascript
 lessonContainer.addEventListener(
   "click",
@@ -276,6 +298,8 @@ lessonContainer.addEventListener(
 <div class="wda-compare-ttl">📍 currentTarget</div>
 
 리스너가 등록된 요소. 항상 lessonContainer다.
+
+**• JavaScript: event.currentTarget 확인하기**
 
 ```javascript
 lessonContainer.addEventListener(
@@ -300,12 +324,16 @@ lessonContainer.addEventListener(
 
 ## 9. 이벤트 핸들러 함수 분리하기
 
+**• JavaScript: 익명 함수로 등록하기**
+
 ```javascript
 // 익명 함수 — 나중에 이 리스너만 골라 제거할 수 없다
 applyForm.addEventListener("submit", function (event) {
   event.preventDefault();
 });
 ```
+
+**• JavaScript: 이름 붙인 함수로 분리하기**
 
 ```javascript
 // 이름 붙인 함수로 분리 — 재사용과 제거가 쉬워진다
@@ -327,6 +355,8 @@ applyForm.addEventListener("submit", handleFormSubmit);
 
 ## 10. 이벤트 리스너 제거하기
 
+**• JavaScript: removeEventListener로 리스너 제거하기**
+
 ```javascript
 function handleFilterInput(event) {
   console.log(event.target.value);
@@ -338,6 +368,8 @@ filterInput.addEventListener("input", handleFilterInput);
 filterInput.removeEventListener("input", handleFilterInput);
 ```
 
+**• JavaScript: once 옵션으로 한 번만 실행하기**
+
 ```javascript
 submitButton.addEventListener(
   "click",
@@ -347,6 +379,8 @@ submitButton.addEventListener(
   { once: true }
 );
 ```
+
+**▶ addEventListener 옵션**
 
 | 옵션 | 효과 |
 |---|---|
@@ -364,6 +398,8 @@ submitButton.addEventListener(
 ## 11. 이벤트 전파: bubbling과 capturing
 
 버튼을 클릭하면 이벤트는 버튼(target)에서 시작해 부모 요소를 거쳐 위로 전달된다. 이를 **버블링(bubbling)**이라 부른다.
+
+**• JavaScript: 버블링으로 부모까지 전달 확인하기**
 
 ```javascript
 lessonContainer.addEventListener("click", function () {
@@ -399,6 +435,8 @@ lessonContainer.addEventListener("click", function () {
 
 <div class="wda-compare-ttl">🔁 개별 등록 (비효율)</div>
 
+**• JavaScript: 버튼마다 개별 등록하기 — 비효율**
+
 ```javascript
 const lessonButtons =
   document.querySelectorAll(".lesson-btn");
@@ -417,6 +455,8 @@ lessonButtons.forEach(function (button) {
 
 <div class="wda-compare-ttl">✅ 이벤트 위임 (권장)</div>
 
+**• JavaScript: 이벤트 위임으로 등록하기 — 권장**
+
 ```javascript
 lessonContainer.addEventListener(
   "click",
@@ -427,6 +467,8 @@ lessonContainer.addEventListener(
 </div>
 
 </div>
+
+**• JavaScript: 이벤트 위임 핸들러 함수**
 
 ```javascript
 function handleLessonClick(event) {
@@ -454,9 +496,13 @@ function handleLessonClick(event) {
 
 ## 13. dataset으로 정보 구분하기
 
+**• HTML: data-lesson-id 속성이 있는 버튼**
+
 ```html
 <button class="lesson-btn" data-lesson-id="101">비동기 프로그래밍</button>
 ```
+
+**• JavaScript: dataset으로 정보 구분하기**
 
 ```javascript
 function handleLessonClick(event) {
@@ -477,6 +523,8 @@ function handleLessonClick(event) {
 
 ## 14. 키보드 이벤트와 마우스 이벤트 기본
 
+**• JavaScript: 키보드 이벤트 처리하기**
+
 ```javascript
 filterInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -485,11 +533,15 @@ filterInput.addEventListener("keydown", function (event) {
 });
 ```
 
+**• JavaScript: 마우스 이벤트 처리하기**
+
 ```javascript
 lessonButton.addEventListener("mouseover", function () {
   console.log("버튼 위에 마우스가 올라옴");
 });
 ```
+
+**▶ 키보드·마우스 이벤트 정리**
 
 | 분류 | 자주 쓰는 이벤트 | 설명 |
 |---|---|---|
@@ -506,6 +558,8 @@ lessonButton.addEventListener("mouseover", function () {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 괄호를 붙여 즉시 실행</div>
+
+**• JavaScript: 괄호를 붙여 즉시 실행하는 실수**
 
 ```javascript
 // applyForm.addEventListener(
@@ -525,6 +579,8 @@ lessonButton.addEventListener("mouseover", function () {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 요소를 찾지 못함</div>
+
+**• JavaScript: 요소를 찾지 못하는 실수**
 
 ```javascript
 const missingButton =
@@ -546,6 +602,8 @@ missingButton.addEventListener("click", handleLessonClick);
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 익명 함수는 제거 불가</div>
 
+**• JavaScript: 익명 함수는 제거 불가한 실수**
+
 ```javascript
 lessonButton.addEventListener("click", function () {
   console.log("클릭");
@@ -564,6 +622,8 @@ lessonButton.addEventListener("click", function () {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 4 · 위임에서 target 확인 누락</div>
+
+**• JavaScript: 위임에서 target 확인 누락하는 실수**
 
 ```javascript
 lessonContainer.addEventListener("click", function (event) {
@@ -596,11 +656,15 @@ lessonContainer.addEventListener("click", function (event) {
 • `filterInput`에 `input` 이벤트를 등록해 입력값을 콘솔에 출력한다.<br>
 • `applyForm`에 `submit` 이벤트를 등록해 기본 동작을 막고 `"신청 완료"`를 출력한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 이벤트 위임으로 클릭 처리 / input 이벤트 등록 / submit에서 preventDefault
 ```
 
 **💡 힌트 1 — 이벤트 위임으로 클릭 처리**
+
+**• JavaScript: 힌트 1 — 이벤트 위임으로 클릭 처리**
 
 ```javascript
 lessonContainer.addEventListener("click", function (event) {
@@ -613,6 +677,8 @@ lessonContainer.addEventListener("click", function (event) {
 
 **💡 힌트 2 — 입력 이벤트**
 
+**• JavaScript: 힌트 2 — 입력 이벤트**
+
 ```javascript
 filterInput.addEventListener("input", function (event) {
   console.log(event.target.value);
@@ -620,6 +686,8 @@ filterInput.addEventListener("input", function (event) {
 ```
 
 **💡 힌트 3 — 폼 제출 막기**
+
+**• JavaScript: 힌트 3 — 폼 제출 막기**
 
 ```javascript
 applyForm.addEventListener("submit", function (event) {

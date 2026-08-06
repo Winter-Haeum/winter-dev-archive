@@ -88,6 +88,8 @@ React 프로젝트에는 React 자체뿐 아니라 빌드 도구, 코드 검사 
 
 `package.json`에는 프로젝트 이름, 실행 가능한 명령(scripts), 필요한 패키지 목록(dependencies)이 기록됩니다.
 
+**• 설정: package.json 예시**
+
 ```json
 {
   "name": "my-app",
@@ -146,6 +148,8 @@ React 프로젝트에는 React 자체뿐 아니라 빌드 도구, 코드 검사 
 
 ## 5. npm install
 
+**• 터미널: 패키지 설치하기**
+
 ```bash
 npm install react
 ```
@@ -161,6 +165,8 @@ npm install react
 ---
 
 ## 6. npm uninstall
+
+**• 터미널: 패키지 제거하기**
 
 ```bash
 npm uninstall react
@@ -180,6 +186,8 @@ npm uninstall react
 ---
 
 ## 7. npm run
+
+**• 터미널: scripts 명령 실행하기**
 
 ```bash
 npm run dev
@@ -224,6 +232,8 @@ npm run build
 ## 9. 버전 표기 맛보기
 
 `package.json`의 버전 앞에 붙는 기호는 업데이트 허용 범위를 나타냅니다.
+
+**▶ 버전 기호별 업데이트 허용 범위**
 
 <table class="wda-mtable">
   <tr>

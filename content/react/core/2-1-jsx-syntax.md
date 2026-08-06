@@ -81,6 +81,8 @@ JSX는 이 둘을 한 곳에서 표현할 수 있게 해주는 문법입니다.
 
 ## 2. JSX는 JavaScript 안의 UI 표현이다
 
+**• React: JSX로 UI 값 반환하기**
+
 ```jsx
 const courseTitle = "React 기초";
 
@@ -116,6 +118,8 @@ function StudyCard() {
 
 컴포넌트 함수는 **하나의 최상위 요소**만 반환해야 합니다. 여러 요소를 나란히 반환하면 에러가 납니다.
 
+**• React: 최상위 요소가 여러 개인 에러 예시**
+
 ```jsx
 // 에러: 최상위 요소가 h3, p 두 개다
 function StudyCard() {
@@ -143,6 +147,8 @@ function StudyCard() {
   </div>
 </div>
 
+**• React: Fragment로 여러 요소 묶기**
+
 ```jsx
 function StudyCard() {
   return (
@@ -159,6 +165,8 @@ function StudyCard() {
 ## 6. 중괄호로 값 넣기
 
 중괄호 `{ }` 안에는 값으로 평가되는 JavaScript 표현식을 넣을 수 있습니다.
+
+**• React: 중괄호로 JavaScript 값 넣기**
 
 ```jsx
 function StudyCard() {
@@ -195,6 +203,8 @@ function StudyCard() {
 
 ## 7. className과 htmlFor
 
+**▶ HTML 속성과 JSX 속성 대응표**
+
 <table class="wda-mtable">
   <tr>
     <th>HTML 속성</th>
@@ -214,6 +224,8 @@ function StudyCard() {
   </tr>
 </table>
 
+**• React: className과 htmlFor 사용 예시**
+
 ```jsx
 <div className="study-card">
   <label htmlFor="course-title">강의 제목</label>
@@ -232,6 +244,8 @@ function StudyCard() {
 
 인라인 스타일은 문자열이 아니라 JavaScript 객체로 전달합니다.
 
+**• React: style 객체로 인라인 스타일 지정하기**
+
 ```jsx
 <p style={{ color: "blue" }}>진행 중</p>
 ```
@@ -248,9 +262,13 @@ CSS 속성명은 `backgroundColor`처럼 camelCase로 씁니다.
   조건부 렌더링은 <strong>2-7</strong>에서, 리스트 렌더링은 <strong>2-8</strong>에서 자세히 다룹니다. 여기서는 중괄호 안에서 어떻게 쓰이는지만 살짝 확인합니다.
 </div>
 
+**• React: 삼항 연산자로 조건부 렌더링 맛보기**
+
 ```jsx
 {courseStatus === "완료" ? "완료" : "진행 중"}
 ```
+
+**• React: map으로 리스트 렌더링 맛보기**
 
 ```jsx
 {courseList.map(course => <li key={course.id}>{course.title}</li>)}
@@ -290,6 +308,8 @@ CSS 속성명은 `backgroundColor`처럼 camelCase로 씁니다.
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">React가 UI로 해석</div><div class="wda-fnode-dsc">실제 화면 표시</div></div>
 </div>
+
+**▶ 주제별 다음 학습 문서**
 
 <table class="wda-mtable">
   <tr>

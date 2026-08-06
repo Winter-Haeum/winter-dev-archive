@@ -96,11 +96,15 @@ Git을 어느 정도 다뤄본 사람도 로컬 저장소와 원격 저장소의
 
 `git remote`는 로컬 저장소에 원격 주소를 연결하거나 관리할 때 사용하는 명령어다.
 
+**• 터미널: git remote add로 원격 주소 등록하기**
+
 ```bash
 git remote add origin https://github.com/your-username/repo.git
 ```
 
 `add`는 새 원격 저장소를 추가한다는 뜻이고, `origin`은 관례적으로 붙이는 기본 별칭이며, 그 뒤는 GitHub 저장소 주소다.
+
+**▶ git remote 하위 명령어 역할**
 
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>역할</th></tr></thead>
@@ -142,6 +146,8 @@ git remote add origin https://github.com/your-username/repo.git
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">③ 결과 확인</div><div class="wda-fnode-dsc">cd 폴더 → ls → git remote -v</div></div>
 </div>
+
+**• 터미널: git clone으로 저장소 복제하기**
 
 ```bash
 git clone https://github.com/your-username/repo.git
@@ -185,6 +191,8 @@ git remote -v
 
 SSH 인증은 한 쌍의 키를 기반으로 동작한다.
 
+**▶ 공개키와 비밀키의 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>역할</th></tr></thead>
 <tbody>
@@ -201,6 +209,8 @@ SSH 인증은 한 쌍의 키를 기반으로 동작한다.
 
 키 생성은 `ssh-keygen` 명령어로 진행한다.
 
+**• 터미널: ssh-keygen으로 SSH 키 생성하기**
+
 ```bash
 # RSA 방식
 ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
@@ -215,11 +225,15 @@ ssh-keygen -t ed25519 -C "your-email@example.com"
 
 키 생성이 끝나면 아래 명령으로 결과를 확인할 수 있다.
 
+**• 터미널: 생성된 SSH 키 확인하기**
+
 ```bash
 ls -al ~/.ssh
 ```
 
 세 가지 알고리즘 중 어떤 것을 선택할지는 아래 기준을 참고한다.
+
+**▶ SSH 키 알고리즘 비교**
 
 <table class="wda-mtable">
 <thead><tr><th>알고리즘</th><th>보안</th><th>성능</th><th>비고</th></tr></thead>
@@ -236,6 +250,8 @@ ls -al ~/.ssh
 
 SSH는 키 파일의 권한이 지나치게 열려 있으면 동작을 거부한다. 권한 숫자는 읽기(4), 쓰기(2), 실행(1)의 합으로 표현된다.
 
+**▶ SSH 키 권한 값 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>권한</th><th>대상</th><th>의미</th></tr></thead>
 <tbody>
@@ -244,6 +260,8 @@ SSH는 키 파일의 권한이 지나치게 열려 있으면 동작을 거부한
 <tr><td>644</td><td>(위험한 예)</td><td>다른 사용자도 읽을 수 있어 비밀키에는 사용하면 안 되는 권한입니다.</td></tr>
 </tbody>
 </table>
+
+**• 터미널: SSH 키 권한 설정하기**
 
 ```bash
 chmod 600 ~/.ssh/id_ed25519
@@ -255,6 +273,8 @@ chmod 700 ~/.ssh
 ## 7. GitHub에 SSH 공개키 등록하기
 
 키 생성이 끝났다면 공개키 내용만 GitHub에 등록한다.
+
+**• 터미널: 공개키 내용 출력하기**
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
@@ -291,6 +311,8 @@ cat ~/.ssh/id_ed25519.pub
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">④ 상태 점검</div><div class="wda-fnode-dsc">git remote -v → git log --oneline -5</div></div>
 </div>
+
+**• 터미널: SSH로 오픈소스 저장소 clone하기**
 
 ```bash
 git clone git@github.com:your-username/repo.git

@@ -107,6 +107,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 포트폴리오 프로젝트의 초기 환경을 세팅하는 경우처럼, 한 번의 요청이 여러 단계로 이어질 때는 각 단계의 순서와 완료 조건을 함께 제시하는 것이 안전합니다.
 
+**• 여러 단계 작업 요청 프롬프트**
+
 ```
 project-workspace 폴더에 React 프로젝트의 초기 환경을 준비해줘.
 

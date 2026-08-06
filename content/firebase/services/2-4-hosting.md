@@ -96,6 +96,8 @@ Firebase Hosting은 React 앱을 실행해주는 서버가 아닙니다. 정확�
 
 ## 2. build 결과물이 곧 배포 대상이다
 
+**• 터미널: 배포용 빌드 생성**
+
 ```bash
 npm run build
 ```
@@ -120,6 +122,8 @@ React Router를 쓰는 SPA(Single Page Application)는 실제로는 `index.html`
 
 그래서 사용자가 주소창에 `/profile` 같은 경로를 직접 입력하면, 서버 입장에서는 그런 파일이 없어 오류가 날 수 있습니다.
 
+**• 설정: SPA 라우팅을 위한 rewrites 설정**
+
 ```json
 {
   "hosting": {
@@ -136,6 +140,8 @@ React Router를 쓰는 SPA(Single Page Application)는 실제로는 `index.html`
 ---
 
 ## 4. 정적 호스팅의 장점
+
+**▶ 정적 호스팅 장점**
 
 <table class="wda-mtable">
 <thead><tr><th>특징</th><th>설명</th></tr></thead>

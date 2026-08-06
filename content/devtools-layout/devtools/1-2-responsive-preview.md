@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 반응형 모드는 브라우저 창 자체를 다양한 화면 크기의 기기처럼 흉내 내는 기능이다. DevTools가 이미 열려 있다면 별도로 다시 열 필요 없이 바로 전환할 수 있다.
 
+**▶ 반응형 모드 단축키**
+
 <table class="wda-mtable">
 <thead><tr><th>운영체제</th><th>단축키</th></tr></thead>
 <tbody>
@@ -100,6 +102,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 </div>
 
 자주 사용하는 프리셋의 해상도는 다음과 같다.
+
+**▶ 기기별 프리셋 해상도**
 
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>기기</th><th>해상도 (width × height)</th></tr></thead>
@@ -177,6 +181,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. 다시 확인</div><div class="wda-fnode-dsc">Console에서 <code>navigator.userAgent</code>를 다시 입력해 값 비교</div></div>
 </div>
 
+**• JavaScript: User Agent 값 확인**
+
 ```js
 navigator.userAgent
 ```
@@ -193,6 +199,8 @@ navigator.userAgent
 </div>
 
 이 문자열을 부분별로 뜯어보면 다음과 같은 정보를 담고 있다.
+
+**▶ User Agent 문자열 구성 요소**
 
 <table class="wda-mtable">
 <thead><tr><th>구성 요소</th><th>의미</th></tr></thead>

@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Bootstrap은 미리 완성된 UI 구성요소를 클래스 기반으로 제공하는 컴포넌트 기반 CSS 프레임워크다. HTML에 정해진 클래스를 추가하는 것만으로 버튼, 카드, 레이아웃을 빠르게 구성할 수 있다.
 
+**▶ Bootstrap 탄생 배경**
+
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>내용</th></tr></thead>
 <tbody>
@@ -86,6 +88,8 @@ Bootstrap은 미리 완성된 UI 구성요소를 클래스 기반으로 제공�
 </table>
 
 지금도 Bootstrap은 활발히 쓰이는 프레임워크다.
+
+**▶ Bootstrap 사용 현황**
 
 <table class="wda-mtable">
 <thead><tr><th>지표</th><th>내용</th></tr></thead>
@@ -106,6 +110,8 @@ Bootstrap 레이아웃의 중심에는 12컬럼 그리드 시스템이 있다. �
 
 기본 그리드 구조는 다음과 같다.
 
+**• HTML: 기본 그리드 구조**
+
 ```html
 <div class="container">
   <div class="row">
@@ -119,6 +125,8 @@ Bootstrap 레이아웃의 중심에는 12컬럼 그리드 시스템이 있다. �
 
 화면 크기별 기준(브레이크포인트)은 다음과 같이 정의되어 있다.
 
+**▶ Bootstrap 브레이크포인트 기준**
+
 <table class="wda-mtable">
 <thead><tr><th>브레이크포인트</th><th>기준</th></tr></thead>
 <tbody>
@@ -131,6 +139,8 @@ Bootstrap 레이아웃의 중심에는 12컬럼 그리드 시스템이 있다. �
 </table>
 
 이 브레이크포인트를 컬럼 클래스와 조합하면 반응형 레이아웃을 완성할 수 있다.
+
+**• HTML: 반응형 그리드 조합**
 
 ```html
 <div class="row">
@@ -160,6 +170,8 @@ Bootstrap은 자주 쓰는 UI를 미리 만들어 제공한다. 대표적으로 
 
 버튼은 다음과 같이 구성한다.
 
+**• HTML: Bootstrap 버튼**
+
 ```html
 <button class="btn btn-primary">확인</button>
 <button class="btn btn-success">성공</button>
@@ -169,6 +181,8 @@ Bootstrap은 자주 쓰는 UI를 미리 만들어 제공한다. 대표적으로 
 `btn`이 버튼의 기본 형태를 잡고, `btn-primary`가 주요 버튼 스타일을 적용한다. 색상, 패딩, hover 효과가 클래스 하나로 자동 적용된다.
 
 카드는 다음과 같이 구성한다.
+
+**• HTML: Bootstrap 카드**
 
 ```html
 <div class="card">
@@ -182,6 +196,8 @@ Bootstrap은 자주 쓰는 UI를 미리 만들어 제공한다. 대표적으로 
 `card`는 카드 전체 틀, `card-body`는 카드 내용 영역, `card-title`은 제목 스타일, `card-text`는 설명 텍스트를 담당한다.
 
 Alert는 다음과 같이 구성한다.
+
+**• HTML: Bootstrap Alert**
 
 ```html
 <div class="alert alert-warning alert-dismissible fade show">
@@ -202,6 +218,8 @@ Alert는 다음과 같이 구성한다.
 ## 4. Bootstrap 공식 문서 활용하기
 
 Bootstrap 공식 문서는 학습 곡선을 낮춰주는 중요한 자원이다.
+
+**▶ Bootstrap 공식 문서 특징**
 
 <table class="wda-mtable">
 <thead><tr><th>특징</th><th>내용</th></tr></thead>

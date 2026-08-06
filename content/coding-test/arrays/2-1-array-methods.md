@@ -87,6 +87,8 @@ push·map·filter 같은 배열 메서드의 기본 문법은 JavaScript 문서(
   </div>
 </div>
 
+**• JavaScript: 반복문과 map 비교**
+
 ```js
 // 값만 필요할 때 — 굳이 새 배열을 만들 필요가 없음
 function solution(numbers) {
@@ -108,6 +110,8 @@ function solution(numbers) {
 ## 2. 카운팅 패턴: 조건에 맞는 개수 세기
 
 "조건을 만족하는 것이 몇 개인가"를 묻는 문제는 두 가지 방식으로 풀 수 있습니다.
+
+**• JavaScript: 카운팅 패턴**
 
 ```js
 const scores = [88, 92, 55, 76, 60];
@@ -131,6 +135,8 @@ const passCount2 = scores.reduce((count, s) => s >= 60 ? count + 1 : count, 0);
 
 `reduce`는 배열을 하나의 값으로 압축할 때 쓰는 패턴입니다.
 
+**• JavaScript: reduce로 누적값 구하기**
+
 ```js
 const prices = [1200, 3400, 800, 5600];
 
@@ -153,6 +159,8 @@ const maxPrice = prices.reduce((acc, price) => price > acc ? price : acc, prices
 
 값뿐 아니라 위치 정보도 필요할 때는 인덱스를 함께 받습니다.
 
+**• JavaScript: map으로 인덱스 함께 활용**
+
 ```js
 const items = ['a', 'b', 'c'];
 
@@ -167,6 +175,8 @@ const labeled = items.map((value, index) => `${index}: ${value}`);
 
 ## 5. push·pop·shift·unshift로 스택·큐 만들기
 
+**▶ 스택·큐 조합과 시간 복잡도**
+
 <table class="wda-mtable">
 <thead><tr><th>조합</th><th>동작</th><th>시간 복잡도</th></tr></thead>
 <tbody>
@@ -174,6 +184,8 @@ const labeled = items.map((value, index) => `${index}: ${value}`);
 <tr><td>push + shift</td><td>큐(FIFO) — 먼저 넣은 것이 먼저 나옴</td><td>shift는 O(n)</td></tr>
 </tbody>
 </table>
+
+**• JavaScript: 스택과 큐 구현**
 
 ```js
 // 스택: 최근 방문 경로를 기록했다가 되짚어 나올 때
@@ -201,6 +213,8 @@ queue.shift(); // 'A' — 먼저 들어온 것부터 꺼냄
 
 `sort()`는 기본적으로 요소를 **문자열**로 바꿔 비교합니다. 숫자를 크기순으로 정렬하려면 비교 함수가 필요합니다.
 
+**• JavaScript: 숫자 정렬 비교 함수**
+
 ```js
 const nums = [10, 2, 30, 4];
 
@@ -218,6 +232,8 @@ nums.sort((a, b) => b - a);     // [30, 10, 4, 2] — 내림차순
 ---
 
 ## 7. 중복 제거와 존재 확인
+
+**• JavaScript: Set으로 중복 제거**
 
 ```js
 const arr = [1, 2, 2, 3, 3, 3];

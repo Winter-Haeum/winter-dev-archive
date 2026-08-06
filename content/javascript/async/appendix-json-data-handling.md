@@ -106,6 +106,8 @@ JSON은 이 객체를 문자열로 바꾸고, 다시 객체로 되돌리는 표�
 
 <div class="wda-compare-ttl">📝 JavaScript 객체</div>
 
+**• JavaScript: 객체 리터럴**
+
 ```javascript
 const lessonSettings = {
   viewMode: "compact",
@@ -118,6 +120,8 @@ const lessonSettings = {
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">📝 JSON 문자열</div>
+
+**• JavaScript: JSON 문자열**
 
 ```javascript
 const lessonJson =
@@ -137,6 +141,8 @@ const lessonJson =
 ---
 
 ## 3. JSON.stringify 기본
+
+**• JavaScript: JSON.stringify로 객체를 문자열로 바꾸기**
 
 ```javascript
 const lessonSettings = { viewMode: "compact", fontSize: 16 };
@@ -159,6 +165,8 @@ console.log(typeof lessonJson);
 
 ## 4. JSON.parse 기본
 
+**• JavaScript: JSON.parse로 문자열을 객체로 바꾸기**
+
 ```javascript
 const lessonJson = '{"viewMode":"compact","fontSize":16}';
 
@@ -176,6 +184,8 @@ console.log(typeof parsedSettings);   // object
 
 객체 → 문자열
 
+**• JavaScript: stringify 방향**
+
 ```javascript
 JSON.stringify(lessonSettings);
 ```
@@ -187,6 +197,8 @@ JSON.stringify(lessonSettings);
 <div class="wda-compare-ttl">📥 parse</div>
 
 문자열 → 객체
+
+**• JavaScript: parse 방향**
 
 ```javascript
 JSON.parse(lessonJson);
@@ -210,6 +222,8 @@ JSON.parse(lessonJson);
 
 ## 5. 배열과 중첩 객체 다루기
 
+**• JavaScript: 배열을 JSON으로 다루기**
+
 ```javascript
 const lessonList = [
   { id: 1, title: "비동기 프로그래밍" },
@@ -223,6 +237,8 @@ console.log(lessonListJson);
 const parsedList = JSON.parse(lessonListJson);
 console.log(parsedList[0].title); // 비동기 프로그래밍
 ```
+
+**• JavaScript: 중첩 객체를 JSON으로 다루기**
 
 ```javascript
 const lessonData = {
@@ -246,6 +262,8 @@ console.log(parsedData.settings.viewMode); // compact
 
 ## 6. JSON에서 사용할 수 있는 값
 
+**▶ JSON이 표현할 수 있는 값**
+
 | 값 종류 | 예시 |
 |---|---|
 | 문자열 | `"compact"` |
@@ -265,6 +283,8 @@ console.log(parsedData.settings.viewMode); // compact
 
 ## 7. JSON에서 사라지거나 바뀌는 값
 
+**• JavaScript: 함수·undefined가 사라지는 것 확인하기**
+
 ```javascript
 const lessonSettings = {
   viewMode: "compact",
@@ -279,6 +299,8 @@ const lessonJson = JSON.stringify(lessonSettings);
 console.log(lessonJson);
 // {"viewMode":"compact","fontSize":16}
 ```
+
+**▶ stringify 시 값의 변화**
 
 | 원래 값 | stringify 후 |
 |---|---|
@@ -295,6 +317,8 @@ console.log(lessonJson);
 ---
 
 ## 8. Date 객체는 문자열로 바뀐다
+
+**• JavaScript: Date가 문자열로 바뀌는 것 확인하기**
 
 ```javascript
 const lessonData = { createdAt: new Date(2026, 2, 10) };
@@ -324,6 +348,8 @@ console.log(typeof parsedData.createdAt); // string
 
 <div class="wda-compare-ttl">✅ 정상 JSON</div>
 
+**• JavaScript: 정상 JSON 파싱하기**
+
 ```javascript
 const jsonText =
   '{"viewMode":"compact"}';
@@ -337,6 +363,8 @@ JSON.parse(jsonText);
 
 <div class="wda-compare-ttl">⚠️ 깨진 JSON</div>
 
+**• JavaScript: 깨진 JSON — 에러 확인용**
+
 ```javascript
 const brokenJsonText =
   "{ viewMode: 'compact' }";
@@ -349,11 +377,15 @@ const brokenJsonText =
 
 </div>
 
+**▶ 흔한 JSON 형식 실수**
+
 | 실수 | 예시 |
 |---|---|
 | 작은따옴표 사용 | `{ 'viewMode': 'compact' }` |
 | key에 큰따옴표 누락 | `{ viewMode: "compact" }` |
 | 마지막 값 뒤 쉼표(trailing comma) | `{"viewMode":"compact",}` |
+
+**• JavaScript: try/catch로 파싱 실패 잡기**
 
 ```javascript
 const brokenJsonText = "{ viewMode: 'compact' }";
@@ -365,6 +397,8 @@ try {
 }
 // JSON 형식이 아닙니다.
 ```
+
+**• JavaScript: 기본값과 함께 parse 함수 만들기**
 
 ```javascript
 const defaultSettings = { viewMode: "list", fontSize: 14 };
@@ -406,6 +440,8 @@ console.log(parseLessonSettings(brokenJsonText));
   </div>
 </div>
 
+**• JavaScript: 순환 참조 객체 stringify 시도하기**
+
 ```javascript
 const lessonNode = { title: "모듈" };
 lessonNode.self = lessonNode;
@@ -427,6 +463,8 @@ try {
 ---
 
 ## 10. 보기 좋은 JSON 출력
+
+**• JavaScript: 들여쓰기로 보기 좋게 출력하기**
 
 ```javascript
 const lessonSettings = { viewMode: "compact", fontSize: 16 };
@@ -454,6 +492,8 @@ console.log(JSON.stringify(lessonSettings, null, 2));
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 작은따옴표로 JSON 작성</div>
 
+**• JavaScript: 작은따옴표로 JSON 작성하는 실수**
+
 ```javascript
 const brokenJsonText = "{ 'viewMode': 'compact' }";
 // JSON.parse(brokenJsonText);
@@ -471,6 +511,8 @@ const brokenJsonText = "{ 'viewMode': 'compact' }";
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 마지막 값 뒤에 쉼표</div>
 
+**• JavaScript: 마지막 값 뒤에 쉼표를 남기는 실수**
+
 ```javascript
 const brokenJsonText = '{"viewMode":"compact",}';
 // JSON.parse(brokenJsonText);
@@ -487,6 +529,8 @@ const brokenJsonText = '{"viewMode":"compact",}';
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · parse 결과를 확인 없이 사용</div>
+
+**• JavaScript: parse 결과를 확인 없이 사용하는 실수**
 
 ```javascript
 function loadSettings(jsonText) {
@@ -519,11 +563,15 @@ function loadSettings(jsonText) {
 • `parseLessonSettings(jsonText)`로 문자열을 객체로 되돌리되, 실패하면 `defaultSettings`를 반환한다.<br>
 • `JSON.stringify(value, null, 2)`로 보기 좋은 형태의 출력도 만들어본다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: stringify 함수 / try-catch와 기본값을 포함한 parse 함수 / 보기 좋은 출력
 ```
 
 **💡 힌트 1 — stringifyLessonSettings**
+
+**• JavaScript: 힌트 1 — stringifyLessonSettings**
 
 ```javascript
 function stringifyLessonSettings(lessonSettings) {
@@ -532,6 +580,8 @@ function stringifyLessonSettings(lessonSettings) {
 ```
 
 **💡 힌트 2 — parseLessonSettings**
+
+**• JavaScript: 힌트 2 — parseLessonSettings**
 
 ```javascript
 const defaultSettings = { viewMode: "list", fontSize: 14 };
@@ -546,6 +596,8 @@ function parseLessonSettings(jsonText) {
 ```
 
 **💡 힌트 3 — 보기 좋은 출력**
+
+**• JavaScript: 힌트 3 — 보기 좋은 출력**
 
 ```javascript
 const lessonSettings = { viewMode: "compact", fontSize: 16 };

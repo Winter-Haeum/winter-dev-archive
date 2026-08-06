@@ -83,6 +83,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   <div class="wda-fcard"><div class="wda-fcard-ttl">실행 vs 제출</div><div class="wda-fcard-dsc">실행은 기본 케이스만 확인(채점 미반영), 제출은 전체 케이스를 채점합니다.</div></div>
 </div>
 
+**• JavaScript: 프로그래머스 기본 함수 형태**
+
 ```js
 /**
  * 프로그래머스 기본 함수 형태
@@ -103,6 +105,8 @@ function solution(num1, num2) {
 ---
 
 ## 2. 흔한 실수
+
+**▶ 흔한 실수와 해결 방법**
 
 <table class="wda-mtable">
 <thead><tr><th>실수</th><th>내용</th><th>해결</th></tr></thead>

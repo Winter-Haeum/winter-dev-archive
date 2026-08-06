@@ -88,6 +88,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 <code>#</code> 개수로 제목 레벨을 표현하며, h1부터 h6까지 총 6단계를 지원한다.
 
+**▶ 제목 레벨별 문법**
+
 <table class="wda-mtable">
 <thead><tr><th>문법</th><th>레벨</th></tr></thead>
 <tbody>
@@ -99,6 +101,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 <tr><td><code>###### 제목</code></td><td>h6</td></tr>
 </tbody>
 </table>
+
+**• 제목 레벨 작성 예시**
 
 ```markdown
 # 문서 대표 제목
@@ -116,6 +120,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ## 3. 텍스트 서식
 
+**▶ 텍스트 서식 문법**
+
 <table class="wda-mtable">
 <thead><tr><th>서식</th><th>문법</th></tr></thead>
 <tbody>
@@ -126,6 +132,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 <tr><td>인용구</td><td><code>&gt; 문장</code></td></tr>
 </tbody>
 </table>
+
+**• 텍스트 서식 작성 예시**
 
 ```markdown
 **중요한 내용은 굵게 강조합니다**
@@ -141,6 +149,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 ## 4. 목록 만들기
 
 순서가 없는 목록은 <code>-</code> 또는 <code>*</code>로, 순서가 있는 목록은 숫자와 마침표로 만든다.
+
+**• 순서 없는·있는 목록 작성 예시**
 
 ```markdown
 - 순서 없는 목록 항목
@@ -160,6 +170,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 체크리스트는 대괄호로 완료 여부를 표현한다.
 
+**• 체크리스트 작성 예시**
+
 ```markdown
 - [ ] 아직 하지 않은 일
 - [x] 완료한 일
@@ -175,6 +187,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 
 ## 5. 링크 만들기
 
+**▶ 링크 종류별 설명**
+
 <table class="wda-mtable">
 <thead><tr><th>종류</th><th>설명</th></tr></thead>
 <tbody>
@@ -185,6 +199,8 @@ Markdown은 2004년 John Gruber가 만든 <strong>경량 마크업 언어</stron
 <tr><td>문서 내 링크</td><td>같은 문서 안의 특정 제목으로 바로 이동한다</td></tr>
 </tbody>
 </table>
+
+**• 링크 종류별 작성 예시**
 
 ```markdown
 [구글로 이동](https://www.google.com)
@@ -210,6 +226,8 @@ https://www.google.com
 
 기본 문법은 링크 앞에 느낌표를 붙인 형태다.
 
+**• 이미지 삽입 기본 문법**
+
 ```markdown
 ![대체 텍스트](이미지URL)
 ```
@@ -228,6 +246,8 @@ https://www.google.com
   <p>Markdown 문법만으로는 이미지 크기나 정렬을 조절할 수 없다. 크기를 지정하려면 <code>img</code> 태그를, 가운데 정렬을 하려면 <code>div align="center"</code>처럼 HTML을 함께 사용해야 한다.</p>
 </div>
 
+**• HTML로 이미지 크기·정렬 지정하기**
+
 ```markdown
 <img src="이미지URL" width="400" alt="대체 텍스트">
 
@@ -242,11 +262,15 @@ https://www.google.com
 
 문장 중간에 짧은 코드를 표시할 때는 백틱 하나로 감싸고, 여러 줄의 코드는 백틱 세 개로 감싼 코드블록을 사용한다. 코드블록을 여는 첫 백틱 뒤에 언어 이름을 붙이면 그 언어에 맞춰 문법 강조가 적용되고, GitHub에서는 줄 번호도 함께 표시된다.
 
+**• JavaScript: 언어 지정 코드블록 예시**
+
 ```javascript
 // index.js
 const message = 'hello world';
 console.log(message);
 ```
+
+**• Python: 언어 지정 코드블록 예시**
 
 ```python
 # main.py
@@ -266,6 +290,8 @@ def greet():
 
 파이프(<code>|</code>)로 열을 구분하고, 헤더 아래에 구분선을 넣으면 표가 만들어진다.
 
+**• 표 기본 작성 예시**
+
 ```markdown
 | 이름   | 역할       |
 | ------ | ---------- |
@@ -274,6 +300,8 @@ def greet():
 ```
 
 정렬은 구분선에 콜론을 붙여 지정한다.
+
+**• 표 정렬 지정 예시**
 
 ```markdown
 | 왼쪽 정렬 | 가운데 정렬 | 오른쪽 정렬 |
@@ -290,6 +318,8 @@ def greet():
 ---
 
 ## 9. 기타 유용한 문법
+
+**• 수평선·이스케이프·줄바꿈·주석 문법**
 
 ```markdown
 ---
@@ -309,6 +339,8 @@ def greet():
 ---
 
 ## 10. Markdown 문법 한눈에 정리
+
+**▶ Markdown 문법 전체 정리**
 
 <table class="wda-mtable">
 <thead><tr><th>요소</th><th>문법</th></tr></thead>

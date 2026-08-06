@@ -93,6 +93,8 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 
 ## 2. 왜 중요한가
 
+**▶ README가 중요한 이유**
+
 <table class="wda-mtable">
 <thead><tr><th>이유</th><th>내용</th></tr></thead>
 <tbody>
@@ -107,6 +109,8 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 ## 3. README.md 기본 구조
 
 잘 정리된 README는 대체로 다음 순서를 따른다.
+
+**▶ README 기본 구성 섹션**
 
 <table class="wda-mtable">
 <thead><tr><th>섹션</th><th>담을 내용</th></tr></thead>
@@ -129,6 +133,8 @@ README.md는 <strong>프로젝트의 공식 소개 문서</strong>다. GitHub �
 ## 4. 좋은 README.md 예시 분석
 
 간단한 Todo 앱을 예로 들면, 아래와 같은 흐름으로 작성할 수 있다.
+
+**• Todo 앱 README 작성 예시**
 
 ````markdown
 # Todo App
@@ -177,6 +183,8 @@ MIT
 
 **Step 1. 파일 생성**
 
+**• 터미널: README.md 파일 생성하기**
+
 ```bash
 touch README.md
 ```
@@ -184,6 +192,8 @@ touch README.md
 VS Code처럼 에디터에서 새 파일을 만들어도 된다.
 
 **Step 2. 기본 문서 작성**
+
+**• README 기본 뼈대 작성 예시**
 
 ```markdown
 # 프로젝트 이름
@@ -208,6 +218,8 @@ VS Code처럼 에디터에서 새 파일을 만들어도 된다.
 ```
 
 **Step 3. GitHub에 업로드**
+
+**• 터미널: README 커밋하고 push하기**
 
 ```bash
 git add README.md

@@ -74,6 +74,8 @@ lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 
 
 데이터를 어떻게 저장하고 조회하는지는 [[2-2-db-schema|lesson-2 문서]]로 위임하고, 여기서는 화면에 카드가 여러 개 반복될 때의 구성과 상태에 집중합니다.
 
+**▶ 피드 카드 구성 요소**
+
 <table class="wda-mtable">
 <thead><tr><th>구성 요소</th><th>역할</th></tr></thead>
 <tbody>
@@ -132,6 +134,8 @@ lesson-2에서 project-table이나 community-post 같은 데이터를 다루는 
 ---
 
 ## 5. AI에게 피드 화면 검토를 요청하는 예시
+
+**• 피드 화면 검토 요청 프롬프트**
 
 ```
 목표:

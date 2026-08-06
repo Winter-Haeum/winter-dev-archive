@@ -135,6 +135,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 5. AI에게 README 정리 요청하기
 
+**• README 점검 요청 프롬프트**
+
 ```
 목표:
 - 포트폴리오 프로젝트 README 초안을 점검하고 싶습니다.

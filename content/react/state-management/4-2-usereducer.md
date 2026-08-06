@@ -80,6 +80,8 @@ Redux 같은 라이브러리 내부 구조는 [[4-3-state-management-libraries|4
 
 강의 목록처럼 객체 배열을 다루고, 추가·완료 처리·삭제 등 동작이 늘어나면 각 핸들러가 컴포넌트 곳곳에서 `setState`를 각자 호출하게 됩니다.
 
+**• React: 흩어진 setState 호출 예시**
+
 ```jsx
 const [courses, setCourses] = useState([]);
 
@@ -120,6 +122,8 @@ const toggleCourse = (id) => {
 ---
 
 ## 3. 기본 문법
+
+**• React: useReducer 기본 문법**
 
 ```jsx
 import { useReducer } from 'react';
@@ -164,6 +168,8 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
   <div class="wda-fcard"><div class="wda-fcard-ttl">payload (선택)</div><div class="wda-fcard-dsc">작업에 필요한 실제 데이터.</div></div>
 </div>
 
+**• React: Action 객체 예시**
+
 ```jsx
 { type: 'ADD', payload: 'React 기초' }
 { type: 'DELETE', payload: 3 }
@@ -173,6 +179,8 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
 ---
 
 ## 5. dispatch 사용법
+
+**• React: dispatch로 action 요청하기**
 
 ```jsx
 <button type="button" onClick={() => dispatch({ type: 'ADD', payload: 'CSS 기초' })}>
@@ -198,6 +206,8 @@ Reducer 함수는 컴포넌트 밖에 두어도 됩니다. 리액트 상태에 �
   <div class="wda-fcard"><div class="wda-fcard-ttl">순수 함수 유지</div><div class="wda-fcard-dsc">API 호출 같은 side effect를 넣지 않고, 같은 입력이면 항상 같은 결과를 반환해야 합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">default 처리</div><div class="wda-fcard-dsc">알 수 없는 action.type이 들어오면 기존 state를 그대로 반환합니다.</div></div>
 </div>
+
+**• React: 불변성 위반 vs 올바른 반환**
 
 ```jsx
 // ❌ 원본을 직접 수정

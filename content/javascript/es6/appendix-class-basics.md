@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 생성자 함수 부록에서는 `function`과 `this`로 이런 객체를 만드는 방법을 다뤘습니다. class는 **같은 목적을 더 읽기 쉬운 문법으로 표현**합니다.
 
+**• JavaScript: class로 강의 카드 만들기**
+
 ```js
 class CourseCard {
   constructor(courseTitle, instructorName, totalMinutes) {
@@ -122,6 +124,8 @@ class 자체는 값이 아니라 **객체를 찍어내는 틀**입니다. class�
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">생성자 함수</div>
 
+**• JavaScript: 생성자 함수 방식**
+
 ```js
 function CourseCard(courseTitle) {
   this.courseTitle = courseTitle;
@@ -134,6 +138,8 @@ CourseCard.prototype.getSummary = function () {
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">class</div>
+
+**• JavaScript: class 방식**
 
 ```js
 class CourseCard {
@@ -159,6 +165,8 @@ class CourseCard {
 
 ## 4. class 선언하기
 
+**• JavaScript: class 선언하기**
+
 ```js
 class CourseCard {
   // constructor와 method는 이 블록 안에 작성한다
@@ -176,6 +184,8 @@ class CourseCard {
 ## 5. constructor로 초기값 받기
 
 `constructor`는 `new`로 인스턴스를 만들 때 자동으로 실행되는 메서드입니다. 이름은 항상 `constructor`로 고정입니다.
+
+**• JavaScript: constructor로 초기값 받기**
 
 ```js
 class CourseCard {
@@ -199,6 +209,8 @@ class CourseCard {
 
 `new CourseCard(...)`를 호출하면 constructor가 실행되면서 새 객체(instance)가 만들어집니다.
 
+**• JavaScript: new로 instance 만들기**
+
 ```js
 const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
 const secondCourse = new CourseCard('배열과 객체', '민호', 50);
@@ -219,6 +231,8 @@ console.log(firstCourse instanceof CourseCard); // true
   <div class="wda-fnode"><div class="wda-fnode-ttl">instance 생성</div><div class="wda-fnode-dsc">firstCourse 완성</div></div>
 </div>
 
+**• JavaScript: new 없이 class 호출 — 에러 확인용**
+
 ```js
 // 일부러 에러 확인용: new 없이 class를 호출하면 에러가 난다
 try {
@@ -233,6 +247,8 @@ try {
 ## 7. this로 instance 값 사용하기
 
 class 안에서 `this`는 **new로 만들어지는 바로 그 instance**를 가리킵니다.
+
+**• JavaScript: class 안의 this 확인하기**
 
 ```js
 class CourseCard {
@@ -258,6 +274,8 @@ console.log(firstCourse.courseTitle); // '변수와 자료형'
 ## 8. class method 만들기
 
 method는 `function` 키워드 없이 constructor 아래에 바로 작성합니다.
+
+**• JavaScript: class method 만들기**
 
 ```js
 class CourseCard {
@@ -293,6 +311,8 @@ console.log(firstCourse.getSummary());
 
 같은 class로 만든 instance라도 서로 다른 값을 따로 가지며, 한쪽을 바꿔도 다른 쪽에는 영향이 없습니다.
 
+**• JavaScript: instance 독립성 확인하기**
+
 ```js
 const firstCourse = new CourseCard('변수와 자료형', '지수', 30);
 const secondCourse = new CourseCard('배열과 객체', '민호', 50);
@@ -320,10 +340,14 @@ console.log(secondCourse.totalMinutes); // 50 (영향 없음)
 
 `courseTitle`, `totalMinutes`처럼 instance가 가진 **값**은 property, `getSummary`, `updateDuration`처럼 instance가 가진 **동작**은 method입니다.
 
+**• JavaScript: property와 method 구분하기**
+
 ```js
 console.log(typeof firstCourse.courseTitle);  // 'string'  (property)
 console.log(typeof firstCourse.getSummary);   // 'function' (method)
 ```
+
+**▶ property vs method**
 
 <table class="wda-mtable">
   <tr>
@@ -348,6 +372,8 @@ console.log(typeof firstCourse.getSummary);   // 'function' (method)
 ## 11. extends와 super 짧게 보기
 
 `extends`로 기존 class를 물려받고, `super(...)`로 부모의 constructor를 실행할 수 있습니다.
+
+**• JavaScript: extends와 super로 상속하기**
 
 ```js
 class FeaturedCourseCard extends CourseCard {
@@ -389,6 +415,8 @@ console.log(featured instanceof CourseCard); // true
 ## 12. static method 짧게 보기
 
 `static`이 붙은 메서드는 instance가 아니라 **class 이름으로 직접** 호출합니다.
+
+**• JavaScript: static method 만들기**
 
 ```js
 class CourseCard {
@@ -441,6 +469,8 @@ console.log(emptyCourse.getSummary());
   </div>
 </div>
 
+**▶ class 실수와 발생 결과**
+
 <table class="wda-mtable">
   <tr>
     <th>실수</th>
@@ -481,6 +511,8 @@ console.log(emptyCourse.getSummary());
 - 세 값을 한 문장으로 반환하는 `getSummary()` method를 작성하세요.
 - `totalMinutes`를 바꾸는 `updateDuration(nextMinutes)` method를 작성하세요.
 - `firstCourse`, `secondCourse` 두 instance를 만들고, 한쪽만 시간을 바꿔 서로 영향이 없는지 확인하세요.
+
+**• JavaScript: 실습 구성 예시**
 
 ```js
 class CourseCard {

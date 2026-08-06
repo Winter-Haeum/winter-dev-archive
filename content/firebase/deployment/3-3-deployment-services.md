@@ -85,6 +85,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 서비스별 특징 비교
 
+**▶ 배포 서비스별 특징 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>서비스</th><th>특징</th><th>이런 프로젝트에 어울림</th></tr></thead>
 <tbody>

@@ -101,11 +101,15 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 설치와 기본 설정
 
+**• 터미널: react-router-dom 설치하기**
+
 ```bash
 npm install react-router-dom
 ```
 
 앱 전체가 라우팅 기능을 쓸 수 있도록 최상위 파일에서 `BrowserRouter`로 감쌉니다.
+
+**• React: BrowserRouter로 앱 감싸기**
 
 ```jsx
 // main.jsx
@@ -125,6 +129,8 @@ createRoot(document.getElementById('root')).render(
 ## 3. 라우트 정의하기
 
 `<Routes>` 안에 `<Route>`를 나열해, 경로별로 보여줄 컴포넌트를 매핑합니다.
+
+**• React: Routes·Route로 경로 매핑하기**
 
 ```jsx
 // AppRouter.jsx
@@ -165,6 +171,8 @@ function AppRouter() {
   </div>
 </div>
 
+**• React: Link로 강의 목록 이동하기**
+
 ```jsx
 import { Link } from 'react-router-dom';
 
@@ -176,6 +184,8 @@ import { Link } from 'react-router-dom';
 ## 5. NavLink로 현재 위치 표시하기
 
 `NavLink`는 `Link`와 같지만, 현재 경로와 자신의 `to`가 일치하는지(`isActive`)를 함께 알려줍니다. 네비게이션 메뉴에서 현재 위치를 강조할 때 사용합니다.
+
+**• React: NavLink로 현재 메뉴 강조하기**
 
 ```jsx
 import { NavLink } from 'react-router-dom';
@@ -193,6 +203,8 @@ import { NavLink } from 'react-router-dom';
 ## 6. useNavigate로 코드에서 이동하기
 
 버튼 클릭이 아니라 로그인 성공, 폼 제출 완료처럼 특정 로직이 끝난 뒤 코드로 페이지를 이동시킬 때 사용합니다.
+
+**• React: useNavigate로 저장 후 이동하기**
 
 ```jsx
 import { useNavigate } from 'react-router-dom';
@@ -215,9 +227,13 @@ function SettingsPage() {
 
 URL 일부를 변수처럼 사용하고 싶을 때는 경로에 `:id`처럼 콜론을 붙여 정의합니다.
 
+**• React: 동적 경로 파라미터 정의하기**
+
 ```jsx
 <Route path="/courses/:courseId" element={<CourseDetailPage />} />
 ```
+
+**• React: useParams로 courseId 꺼내기**
 
 ```jsx
 import { useParams } from 'react-router-dom';

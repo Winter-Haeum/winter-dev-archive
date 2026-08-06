@@ -89,6 +89,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 도메인 연결 관련 용어 맛보기
 
+**▶ 도메인 연결 관련 용어**
+
 <table class="wda-mtable">
 <thead><tr><th>용어</th><th>개념</th></tr></thead>
 <tbody>

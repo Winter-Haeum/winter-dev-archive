@@ -74,6 +74,8 @@ tags:
 
 이미 화면에 있는 요소를 고르는 것(3-1에서 다룬 querySelector)과 달리, 새 강의가 등록될 때는 화면에 아직 없는 요소를 직접 만들어야 한다. 이 문서에서는 강의 목록에 새 강의 카드를 추가하는 과정을 통해 요소를 만들고, 붙이고, 지우는 방법을 다룬다.
 
+**• HTML: 빈 강의 목록**
+
 ```html
 <ul id="lesson-list"></ul>
 ```
@@ -103,6 +105,8 @@ tags:
 
 ## 2. createElement로 요소 만들기
 
+**• JavaScript: createElement로 요소 생성하기**
+
 ```javascript
 const lessonItem = document.createElement("li");
 console.log(lessonItem);
@@ -117,6 +121,8 @@ console.log(lessonItem);
 ---
 
 ## 3. textContent로 내용 넣기
+
+**• JavaScript: 새 요소에 textContent로 내용 넣기**
 
 ```javascript
 const lessonItem = document.createElement("li");
@@ -133,6 +139,8 @@ lessonItem.textContent = "비동기 프로그래밍";
 
 ## 4. classList로 상태 클래스 붙이기
 
+**• JavaScript: 새 요소에 classList로 클래스 붙이기**
+
 ```javascript
 const lessonItem = document.createElement("li");
 lessonItem.classList.add("lesson-item");
@@ -148,6 +156,8 @@ lessonItem.classList.add("lesson-item");
 
 ## 5. setAttribute와 dataset
 
+**• JavaScript: setAttribute·dataset으로 속성 다루기**
+
 ```javascript
 const lessonItem = document.createElement("li");
 
@@ -156,6 +166,8 @@ lessonItem.dataset.lessonId = "lesson-1";
 
 console.log(lessonItem.dataset.lessonId); // lesson-1
 ```
+
+**▶ setAttribute vs dataset**
 
 | 방법 | 용도 |
 |---|---|
@@ -182,6 +194,8 @@ console.log(lessonItem.dataset.lessonId); // lesson-1
 
 ## 6. append / appendChild
 
+**• JavaScript: append로 요소 추가하기**
+
 ```javascript
 const lessonList = document.querySelector("#lesson-list");
 const lessonItem = document.createElement("li");
@@ -198,6 +212,8 @@ lessonList.append(lessonItem);
 
 요소와 문자열을 여러 개 한 번에 넣을 수 있다.
 
+**• JavaScript: append 사용 예시**
+
 ```javascript
 lessonList.append(lessonItem);
 ```
@@ -209,6 +225,8 @@ lessonList.append(lessonItem);
 <div class="wda-compare-ttl">📝 appendChild</div>
 
 요소 하나만 넣을 수 있는 예전 방식이다.
+
+**• JavaScript: appendChild 사용 예시**
 
 ```javascript
 lessonList.appendChild(lessonItem);
@@ -228,6 +246,8 @@ lessonList.appendChild(lessonItem);
 
 ## 7. prepend / before / after
 
+**• JavaScript: prepend로 맨 앞에 추가하기**
+
 ```javascript
 lessonList.prepend(lessonItem);
 ```
@@ -239,6 +259,8 @@ lessonList.prepend(lessonItem);
 <div class="wda-compare-ttl">📥 append</div>
 
 목록의 맨 뒤에 추가한다.
+
+**• JavaScript: append — 맨 뒤 추가**
 
 ```javascript
 lessonList.append(lessonItem);
@@ -252,6 +274,8 @@ lessonList.append(lessonItem);
 
 목록의 맨 앞에 추가한다.
 
+**• JavaScript: prepend — 맨 앞 추가**
+
 ```javascript
 lessonList.prepend(lessonItem);
 ```
@@ -260,6 +284,8 @@ lessonList.prepend(lessonItem);
 
 </div>
 
+**• JavaScript: before로 형제 앞에 추가하기**
+
 ```javascript
 const lessonItem = document.querySelector(".lesson-item");
 const newLessonItem = document.createElement("li");
@@ -267,6 +293,8 @@ newLessonItem.textContent = "이벤트 처리";
 
 lessonItem.before(newLessonItem);
 ```
+
+**▶ append·prepend·before·after 삽입 위치**
 
 | 메서드 | 기준 | 삽입 위치 |
 |---|---|---|
@@ -285,6 +313,8 @@ lessonItem.before(newLessonItem);
 
 ## 8. remove / replaceWith
 
+**• JavaScript: remove로 요소 제거하기**
+
 ```javascript
 const lessonItem = document.querySelector(".lesson-item");
 lessonItem.remove();
@@ -298,6 +328,8 @@ lessonItem.remove();
 
 요소를 그대로 제거한다.
 
+**• JavaScript: remove 사용 예시**
+
 ```javascript
 lessonItem.remove();
 ```
@@ -310,6 +342,8 @@ lessonItem.remove();
 
 다른 요소로 통째로 바꿔 끼운다.
 
+**• JavaScript: replaceWith 사용 예시**
+
 ```javascript
 oldLessonCard.replaceWith(newLessonCard);
 ```
@@ -317,6 +351,8 @@ oldLessonCard.replaceWith(newLessonCard);
 </div>
 
 </div>
+
+**• JavaScript: replaceWith로 요소 교체하기**
 
 ```javascript
 const oldLessonCard = document.querySelector(".lesson-card");
@@ -326,6 +362,8 @@ newLessonCard.classList.add("lesson-card");
 
 oldLessonCard.replaceWith(newLessonCard);
 ```
+
+**▶ remove·replaceWith·replaceChildren 동작**
 
 | 메서드 | 동작 |
 |---|---|
@@ -342,6 +380,8 @@ oldLessonCard.replaceWith(newLessonCard);
 ---
 
 ## 9. innerHTML로 요소 만들기
+
+**• JavaScript: innerHTML로 요소 만들기**
 
 ```javascript
 const lessonList = document.querySelector("#lesson-list");
@@ -366,6 +406,8 @@ lessonList.innerHTML = '<li class="lesson-item">모듈</li>';
 
 한 조각씩 안전하게 조립한다.
 
+**• JavaScript: createElement로 안전하게 조립하기**
+
 ```javascript
 const lessonItem = document.createElement("li");
 lessonItem.textContent = lessonData.title;
@@ -379,6 +421,8 @@ lessonList.append(lessonItem);
 <div class="wda-compare-ttl">📝 innerHTML</div>
 
 문자열을 통째로 HTML로 해석한다.
+
+**• JavaScript: innerHTML로 문자열 통째로 넣기**
 
 ```javascript
 lessonList.innerHTML +=
@@ -398,6 +442,8 @@ lessonList.innerHTML +=
 ---
 
 ## 11. DocumentFragment 짧게 보기
+
+**• JavaScript: DocumentFragment로 한 번에 붙이기**
 
 ```javascript
 const fragment = document.createDocumentFragment();
@@ -421,6 +467,8 @@ lessonList.append(fragment);
 ---
 
 ## 12. 여러 강의 카드를 반복해서 추가하기
+
+**• JavaScript: 반복문으로 여러 카드 추가하기**
 
 ```javascript
 const lessonList = document.querySelector("#lesson-list");
@@ -484,6 +532,8 @@ lessons.forEach(lessonData => {
   </div>
 </div>
 
+**• JavaScript: replaceChildren으로 목록 비우기**
+
 ```javascript
 const lessonList = document.querySelector("#lesson-list");
 
@@ -495,6 +545,8 @@ lessonList.replaceChildren();
 <div class="wda-callout wda-ci">
   <code>replaceChildren()</code>을 인자 없이 호출하면 자식 요소를 모두 비운다. 목록을 새 데이터로 통째로 다시 그려야 할 때, 먼저 비우고 다시 append하는 방식으로 사용한다.
 </div>
+
+**• JavaScript: 목록 비우고 다시 그리는 함수**
 
 ```javascript
 function renderLessonList(lessonDataList) {
@@ -523,6 +575,8 @@ function renderLessonList(lessonDataList) {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · append 전에 사용</div>
 
+**• JavaScript: append 전에 사용하는 실수**
+
 ```javascript
 const lessonItem = document.createElement("li");
 lessonItem.textContent = "모듈";
@@ -541,6 +595,8 @@ console.log(document.querySelector(".lesson-item"));
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 외부 데이터를 innerHTML에 그대로</div>
 
+**• JavaScript: 외부 데이터를 innerHTML에 그대로 넣는 실수**
+
 ```javascript
 const lessonData = { title: "<img src=x onerror=alert(1)>" };
 lessonList.innerHTML += `<li>${lessonData.title}</li>`;
@@ -557,6 +613,8 @@ lessonList.innerHTML += `<li>${lessonData.title}</li>`;
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · appendChild에 문자열 전달</div>
+
+**• JavaScript: appendChild에 문자열 전달하는 실수**
 
 ```javascript
 // lessonList.appendChild("새 강의");
@@ -589,11 +647,15 @@ lessonList.append("새 강의"); // ✅ append는 문자열도 가능
 • `appendLessonCard(lessonData)`로 만든 카드를 `lessonList`에 추가한다.<br>
 • `removeLessonCard(lessonId)`로 특정 `data-lesson-id`를 가진 카드를 찾아 제거한다(선택 방법은 3-1 참고).
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 카드 생성 함수 / 추가 함수 / data-lesson-id로 찾아 제거하는 함수
 ```
 
 **💡 힌트 1 — createLessonCard**
+
+**• JavaScript: 힌트 1 — createLessonCard**
 
 ```javascript
 function createLessonCard(lessonData) {
@@ -607,6 +669,8 @@ function createLessonCard(lessonData) {
 
 **💡 힌트 2 — appendLessonCard**
 
+**• JavaScript: 힌트 2 — appendLessonCard**
+
 ```javascript
 function appendLessonCard(lessonData) {
   const lessonItem = createLessonCard(lessonData);
@@ -615,6 +679,8 @@ function appendLessonCard(lessonData) {
 ```
 
 **💡 힌트 3 — removeLessonCard**
+
+**• JavaScript: 힌트 3 — removeLessonCard**
 
 ```javascript
 function removeLessonCard(lessonId) {

@@ -122,6 +122,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 4. 배포 전 최소한의 확인 사항
 
+**▶ 배포 전 점검 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>점검 항목</th><th>확인 내용</th></tr></thead>
 <tbody>

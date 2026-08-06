@@ -100,6 +100,8 @@ React Testing Library는 의도적으로 후자의 방식을 지향합니다. �
 
 RTL의 기본 흐름은 컴포넌트를 가상 화면에 렌더링하고, 그 화면에서 원하는 요소를 찾는 것입니다.
 
+**• React: render와 screen 기본 사용**
+
 ```jsx
 import { render, screen } from '@testing-library/react';
 import Greeting from './Greeting';
@@ -120,6 +122,8 @@ test('이름을 전달하면 인사말이 보인다', () => {
   <div class="wda-fnode"><div class="wda-fnode-ttl">expect</div><div class="wda-fnode-dsc">찾은 요소가 조건에 맞는지 확인</div></div>
 </div>
 
+**▶ RTL 함수·메서드 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>함수/메서드</th><th>역할</th></tr></thead>
 <tbody>
@@ -135,6 +139,8 @@ test('이름을 전달하면 인사말이 보인다', () => {
 ## 3. 사용자 동작 시뮬레이션
 
 버튼 클릭처럼 사용자의 동작이 필요한 테스트에는 `user-event`라는 도구를 함께 사용합니다.
+
+**• React: 버튼 클릭 시뮬레이션**
 
 ```jsx
 import { render, screen } from '@testing-library/react';

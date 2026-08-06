@@ -71,6 +71,8 @@ tags:
 
 ## 1. this를 알아야 하는 이유
 
+**• JavaScript: 호출 방식에 따라 달라지는 this 확인하기**
+
 ```javascript
 const lessonPlayer = {
   playerName: "기초 강의 플레이어",
@@ -118,6 +120,8 @@ detachedShowStatus();
 
 ## 4. 일반 함수 호출과 strict mode
 
+**• JavaScript: 일반 함수 호출 시 this 확인하기**
+
 ```javascript
 function checkThis() {
   console.log(this);
@@ -126,6 +130,8 @@ function checkThis() {
 checkThis();
 // 전역 객체 (브라우저는 window)
 ```
+
+**• JavaScript: strict mode에서 this 확인하기**
 
 ```javascript
 "use strict";
@@ -147,6 +153,8 @@ checkThisStrict();
 ---
 
 ## 5. 객체 메서드 호출
+
+**• JavaScript: 객체 메서드 호출 시 this 확인하기**
 
 ```javascript
 const lessonPlayer = {
@@ -179,6 +187,8 @@ lessonPlayer.showStatus();
 
 점 표기법으로 호출하면 this가 유지된다.
 
+**• JavaScript: 메서드로 호출 — this 유지**
+
 ```javascript
 lessonPlayer.showStatus();
 // 기초 강의 플레이어: 변수와 스코프
@@ -191,6 +201,8 @@ lessonPlayer.showStatus();
 <div class="wda-compare-ttl">❌ 떼어내서 호출</div>
 
 변수에 담아 따로 호출하면 this를 잃는다.
+
+**• JavaScript: 떼어내서 호출 — this 손실**
 
 ```javascript
 const detachedShowStatus =
@@ -213,6 +225,8 @@ detachedShowStatus();
 ---
 
 ## 7. 중첩 함수 안의 this
+
+**• JavaScript: 중첩된 일반 함수의 this 확인하기**
 
 ```javascript
 const lessonPlayer = {
@@ -239,6 +253,8 @@ lessonPlayer.playLesson();
 
 ## 8. 화살표 함수는 this를 새로 만들지 않는다
 
+**• JavaScript: 화살표 함수가 바깥 this를 이어받는 것 확인하기**
+
 ```javascript
 const lessonPlayer = {
   playerName: "기초 강의 플레이어",
@@ -264,6 +280,8 @@ lessonPlayer.playLesson();
 
 ## 9. 일반 함수와 화살표 함수 비교
 
+**▶ 일반 함수 vs 화살표 함수의 this**
+
 | 구분 | 일반 함수 | 화살표 함수 |
 |---|---|---|
 | this 결정 시점 | 호출될 때마다 다시 결정 | 만들어질 때 바깥 this로 고정 |
@@ -279,6 +297,8 @@ lessonPlayer.playLesson();
 ---
 
 ## 10. 생성자 함수에서의 this
+
+**• JavaScript: 생성자 함수의 this 확인하기**
 
 ```javascript
 function LessonPlayer(playerName) {
@@ -301,6 +321,8 @@ console.log(myPlayer.playerName);
 
 ## 11. 이벤트 핸들러와 this
 
+**• JavaScript: 이벤트 핸들러의 this**
+
 ```javascript
 // button.addEventListener("click", function () {
 //   console.log(this); // 클릭된 button 요소
@@ -316,6 +338,8 @@ console.log(myPlayer.playerName);
 ---
 
 ## 12. call/apply/bind는 언제 필요한가
+
+**▶ this를 직접 지정하는 상황별 방법**
 
 | 상황 | 방법 |
 |---|---|
@@ -338,6 +362,8 @@ console.log(myPlayer.playerName);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 메서드를 콜백으로 그냥 전달</div>
 
+**• JavaScript: 메서드를 콜백으로 그냥 전달하는 실수**
+
 ```javascript
 function runLater(callback) {
   callback();
@@ -357,6 +383,8 @@ runLater(lessonPlayer.showStatus);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 메서드를 화살표 함수로 정의</div>
+
+**• JavaScript: 메서드를 화살표 함수로 정의하는 실수**
 
 ```javascript
 const lessonPlayer2 = {
@@ -378,6 +406,8 @@ lessonPlayer2.showStatus();
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 중첩 함수도 메서드처럼 취급</div>
+
+**• JavaScript: 중첩 함수도 메서드처럼 취급하는 실수**
 
 ```javascript
 const lessonPlayer3 = {
@@ -419,11 +449,15 @@ lessonPlayer3.playLesson();
 • `showStatus`를 메서드로 호출한 결과와, 변수에 담아 따로 호출한 결과를 비교한다.<br>
 • `playLesson()` 안에 화살표 함수로 중첩 함수를 만들어 this가 유지되는지 확인한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 메서드 정의 / 메서드 vs 분리 호출 비교 / 화살표 함수로 중첩 함수 작성
 ```
 
 **💡 힌트 1 — 메서드 호출**
+
+**• JavaScript: 힌트 1 — 메서드 호출**
 
 ```javascript
 const lessonPlayer = {
@@ -439,6 +473,8 @@ lessonPlayer.showStatus();
 
 **💡 힌트 2 — 분리해서 호출**
 
+**• JavaScript: 힌트 2 — 분리해서 호출**
+
 ```javascript
 const detachedShowStatus = lessonPlayer.showStatus;
 
@@ -447,6 +483,8 @@ detachedShowStatus();
 ```
 
 **💡 힌트 3 — 화살표 함수로 유지**
+
+**• JavaScript: 힌트 3 — 화살표 함수로 유지**
 
 ```javascript
 const lessonPlayer2 = {

@@ -73,6 +73,8 @@ tags:
 
 ## 1단계: 숫자 state로 완료 개수 세기
 
+**• React: 숫자 state로 count 증가시키기**
+
 ```jsx
 const [count, setCount] = useState(0);
 
@@ -84,6 +86,8 @@ function handleAddCount() {
 ---
 
 ## 2단계: 불리언 state로 진행 상태 전환하기
+
+**• React: 불리언 state로 완료 상태 토글하기**
 
 ```jsx
 const [isCompleted, setIsCompleted] = useState(false);
@@ -97,6 +101,8 @@ function handleToggleCompleted() {
 
 ## 3단계: 문자열 state로 입력값 연결하기
 
+**• React: 문자열 state를 input과 연결하기**
+
 ```jsx
 const [title, setTitle] = useState("");
 
@@ -106,6 +112,8 @@ const [title, setTitle] = useState("");
 ---
 
 ## 4단계: 배열 state에 항목 추가/삭제하기
+
+**• React: 배열 state에 항목 추가·삭제하기**
 
 ```jsx
 const [completedTitles, setCompletedTitles] = useState([]);
@@ -138,6 +146,8 @@ function handleRemoveTitle(id) {
 
 ## 5단계: 객체 state 업데이트하기
 
+**• React: 객체 state 업데이트하기**
+
 ```jsx
 const [summary, setSummary] = useState({ total: 0, lastTitle: "" });
 
@@ -155,6 +165,8 @@ function handleUpdateSummary(newTitle) {
 ---
 
 ## 완성 코드
+
+**• React: ProgressCard 완성 코드**
 
 ```jsx
 import { useState } from "react";

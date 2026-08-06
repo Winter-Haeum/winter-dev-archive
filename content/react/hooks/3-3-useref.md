@@ -78,6 +78,8 @@ useRef는 렌더링을 유발하지 않고 값을 저장하거나, DOM 요소에
 
 이 문서는 화면에는 안 보여줘도 되지만 컴포넌트가 계속 기억해야 하는 값, 그리고 DOM 요소를 직접 다뤄야 하는 상황을 다룹니다.
 
+**• React: useRef 기본 문법**
+
 ```jsx
 import { useRef } from 'react';
 
@@ -100,6 +102,8 @@ function HookDashboard() {
 ## 2. DOM 요소 접근하기
 
 `ref` 속성에 ref 객체를 연결하면, React가 화면에 해당 태그를 그릴 때 실제 DOM 요소를 `.current`에 넣어줍니다.
+
+**• React: ref로 DOM input에 focus하기**
 
 ```jsx
 function SearchPanel() {
@@ -125,6 +129,8 @@ function SearchPanel() {
 </div>
 
 마운트되자마자 자동으로 포커스를 주고 싶다면, [[3-2-useeffect|3-2 문서]]에서 다룬 useEffect와 조합합니다.
+
+**• React: 마운트 시 자동 focus하기**
 
 ```jsx
 function FocusInput() {
@@ -161,6 +167,8 @@ function FocusInput() {
 
 `useEffect`가 렌더링이 끝난 뒤 실행된다는 점을 이용하면, 현재 값을 ref에 저장해 "직전 값"을 기억할 수 있습니다.
 
+**• React: useRef로 이전 값 기억하기**
+
 ```jsx
 function SearchPanel() {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -188,6 +196,8 @@ function SearchPanel() {
 ## 5. 렌더링과 무관한 변수 저장 — 타이머 ID
 
 `setInterval`이 반환하는 타이머 ID처럼, 화면에 보여줄 필요는 없지만 나중에 꼭 필요한 값을 저장할 때도 `useRef`를 사용합니다.
+
+**• React: useRef로 타이머 ID 저장하기**
 
 ```jsx
 function TimerBox() {

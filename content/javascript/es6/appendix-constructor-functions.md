@@ -92,6 +92,8 @@ tags:
 
 구조가 같아도 매번 전부 다시 적어야 한다.
 
+**• JavaScript: 객체 리터럴 반복하기**
+
 ```javascript
 const firstLesson = {
   lessonTitle: "변수와 스코프",
@@ -108,6 +110,8 @@ const secondLesson = {
 <div class="wda-compare-ttl">✅ 생성자 함수 사용</div>
 
 구조는 함수 하나로 정의하고, 값만 바꿔 넣는다.
+
+**• JavaScript: 생성자 함수 사용하기**
 
 ```javascript
 function LessonCard(lessonTitle) {
@@ -130,6 +134,8 @@ const secondLesson = new LessonCard(
 
 ## 3. 생성자 함수는 같은 구조의 객체를 만드는 함수다
 
+**• JavaScript: 생성자 함수 정의하기**
+
 ```javascript
 function LessonCard(lessonTitle, teacherName, durationMinutes) {
   this.lessonTitle = lessonTitle;
@@ -143,6 +149,8 @@ function LessonCard(lessonTitle, teacherName, durationMinutes) {
 ---
 
 ## 4. 생성자 함수 이름과 new
+
+**• JavaScript: new로 생성자 함수 호출하기**
 
 ```javascript
 const firstLesson = new LessonCard("변수와 스코프", "지수", 40);
@@ -164,6 +172,8 @@ console.log(firstLesson);
 ---
 
 ## 5. 생성자 함수 안의 this
+
+**• JavaScript: 생성자 함수 안의 this**
 
 ```javascript
 function LessonCard(lessonTitle) {
@@ -187,6 +197,8 @@ function LessonCard(lessonTitle) {
   <div class="wda-fnode"><div class="wda-fnode-ttl">객체 반환</div><div class="wda-fnode-dsc">채워진 객체가 자동으로 반환된다.</div></div>
 </div>
 
+**• JavaScript: new 호출 흐름 확인하기**
+
 ```javascript
 function LessonCard(lessonTitle) {
   this.lessonTitle = lessonTitle;
@@ -201,6 +213,8 @@ console.log(firstLesson.lessonTitle);
 ---
 
 ## 7. 생성자 함수로 만든 객체는 서로 독립된 값을 가진다
+
+**• JavaScript: 생성자 함수로 만든 객체 독립성 확인하기**
 
 ```javascript
 const firstLesson = new LessonCard("변수와 스코프", "지수", 40);
@@ -218,6 +232,8 @@ console.log(secondLesson.durationMinutes);
 ---
 
 ## 8. new를 빼먹으면 생기는 문제
+
+**• JavaScript: new 없이 호출하는 경우**
 
 ```javascript
 function LessonCard(lessonTitle) {
@@ -248,6 +264,8 @@ console.log(brokenLesson);
 
 객체를 만들어 직접 반환한다.
 
+**• JavaScript: 팩토리 함수 방식**
+
 ```javascript
 function createLessonCard(lessonTitle) {
   return { lessonTitle };
@@ -268,6 +286,8 @@ console.log(firstLesson);
 
 new가 객체 생성과 반환을 대신 처리한다.
 
+**• JavaScript: 생성자 함수 방식**
+
 ```javascript
 function LessonCard(lessonTitle) {
   this.lessonTitle = lessonTitle;
@@ -284,6 +304,8 @@ console.log(secondLesson);
 
 </div>
 
+**▶ 일반 함수(팩토리 함수) vs 생성자 함수**
+
 | 구분 | 일반 함수(팩토리 함수) | 생성자 함수 |
 |---|---|---|
 | 호출 방식 | 그냥 호출한다 | `new`로 호출한다 |
@@ -293,6 +315,8 @@ console.log(secondLesson);
 ---
 
 ## 10. 메서드를 생성자 함수 안에 넣을 때의 주의
+
+**• JavaScript: 생성자 함수 안에 메서드 넣기**
 
 ```javascript
 function LessonCard(lessonTitle) {
@@ -313,6 +337,8 @@ function LessonCard(lessonTitle) {
 
 ## 11. instanceof로 확인하기
 
+**• JavaScript: instanceof로 생성자 확인하기**
+
 ```javascript
 const firstLesson = new LessonCard("변수와 스코프");
 
@@ -325,6 +351,8 @@ console.log(firstLesson instanceof LessonCard);
 ---
 
 ## 12. class와의 관계 짧게 보기
+
+**• JavaScript: class로 같은 결과 만들기**
 
 ```javascript
 class LessonCardClass {
@@ -355,6 +383,8 @@ console.log(firstLesson.lessonTitle);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · new를 빼먹기</div>
 
+**• JavaScript: new를 빼먹는 실수**
+
 ```javascript
 const brokenLesson = LessonCard("변수와 스코프");
 console.log(brokenLesson);
@@ -372,6 +402,8 @@ console.log(brokenLesson);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 소문자로 시작하는 이름</div>
 
+**• JavaScript: 소문자로 시작하는 이름 사용하는 실수**
+
 ```javascript
 function lessonCard(lessonTitle) {
   this.lessonTitle = lessonTitle;
@@ -388,6 +420,8 @@ function lessonCard(lessonTitle) {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 화살표 함수로 생성자 만들기</div>
+
+**• JavaScript: 화살표 함수로 생성자 만드는 실수**
 
 ```javascript
 const LessonCardArrow = (lessonTitle) => {
@@ -422,11 +456,15 @@ new LessonCardArrow("변수와 스코프");
 • 한쪽 값을 바꿔도 다른 쪽에 영향이 없는지 확인한다.<br>
 • `instanceof`로 만들어진 객체가 맞는지 확인한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 생성자 함수 정의 / new로 두 객체 생성 / 값 변경 후 독립성 확인 / instanceof 확인
 ```
 
 **💡 힌트 1 — 생성자 함수 정의**
+
+**• JavaScript: 힌트 1 — 생성자 함수 정의**
 
 ```javascript
 function LessonCard(lessonTitle, teacherName) {
@@ -442,6 +480,8 @@ console.log(firstLesson.lessonTitle);
 
 **💡 힌트 2 — 독립성 확인**
 
+**• JavaScript: 힌트 2 — 독립성 확인**
+
 ```javascript
 const secondLesson = new LessonCard("배열 다루기", "민호");
 
@@ -455,6 +495,8 @@ console.log(secondLesson.teacherName);
 ```
 
 **💡 힌트 3 — instanceof 확인**
+
+**• JavaScript: 힌트 3 — instanceof 확인**
 
 ```javascript
 console.log(firstLesson instanceof LessonCard);

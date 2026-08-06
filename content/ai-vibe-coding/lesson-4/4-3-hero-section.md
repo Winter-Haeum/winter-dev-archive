@@ -89,6 +89,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ## 2. 배포 후 확인 항목
 
+**▶ 배포 후 확인 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>항목</th><th>확인 방법</th></tr></thead>
 <tbody>
@@ -125,6 +127,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 4. AI에게 재현 정보와 함께 요청하기
+
+**• 재현 정보 포함 요청 프롬프트**
 
 ```
 목표:

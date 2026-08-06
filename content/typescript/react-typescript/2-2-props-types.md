@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 컴포넌트는 부모로부터 props라는 데이터를 전달받아 동작합니다. props 타입을 정의해두면, 이 컴포넌트를 사용할 때 어떤 데이터를 넘겨야 하는지 명확해지고 잘못된 값을 넘기는 실수도 미리 막을 수 있습니다.
 
+**• React: Props 인터페이스 정의**
+
 ```tsx
 interface WelcomeProps {
   name: string;
@@ -90,6 +92,8 @@ function Welcome({ name, age }: WelcomeProps) {
   );
 }
 ```
+
+**• React: Props 타입 검사 예시**
 
 ```tsx
 <Welcome name="홍길동" age={25} />  // OK
@@ -112,6 +116,8 @@ function Welcome({ name, age }: WelcomeProps) {
   </div>
 </div>
 
+**• React: 필수·선택적 props 정의**
+
 ```tsx
 interface ButtonProps {
   label: string;         // 필수
@@ -131,6 +137,8 @@ interface ButtonProps {
 
 태그 사이에 다른 요소를 감싸는 컴포넌트를 만들 때는, 그 내용을 받는 `children` 속성의 타입을 지정해야 합니다. React에서는 `ReactNode` 타입을 가장 널리 사용합니다.
 
+**• React: children 타입 지정**
+
 ```tsx
 import { ReactNode } from 'react';
 
@@ -143,6 +151,8 @@ function Container({ children, padding = 16 }: ContainerProps) {
   return <div style={{ padding }}>{children}</div>;
 }
 ```
+
+**• React: children 컴포넌트 사용**
 
 ```tsx
 <Container>

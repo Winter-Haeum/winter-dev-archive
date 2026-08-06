@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, 텍스트로 된 명령어를 직접 입력해 컴퓨터를 조작하는 방식이다. 우리가 평소 쓰는 GUI(Graphical User Interface)와 비교하면 차이가 뚜렷하다.
 
+**▶ GUI와 CLI 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>GUI</th><th>CLI</th></tr></thead>
 <tbody>
@@ -101,6 +103,8 @@ CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, �
 
 터미널에서 쓰는 명령어 상당수는 리눅스(Linux)에서 비롯됐다. 리눅스는 1991년 <strong>Linus Torvalds</strong>가 만든 오픈소스 운영체제(OS)다. 운영체제란 컴퓨터의 하드웨어를 관리하고, 프로그램이 실행될 수 있는 환경을 만들어주는 소프트웨어를 말한다.
 
+**▶ 리눅스의 특징**
+
 <table class="wda-mtable">
 <thead><tr><th>리눅스의 특징</th><th>내용</th></tr></thead>
 <tbody>
@@ -124,6 +128,8 @@ CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, �
 
 터미널을 열었을 때 가장 먼저 익혀야 할 세 명령어다.
 
+**▶ pwd·ls·cd 명령어 정리**
+
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>의미</th><th>기능</th></tr></thead>
 <tbody>
@@ -132,6 +138,8 @@ CLI(Command Line Interface)는 마우스로 아이콘을 클릭하는 대신, �
 <tr><td><code>cd</code></td><td>Change Directory</td><td>다른 폴더로 이동한다.</td></tr>
 </tbody>
 </table>
+
+**• 터미널: pwd·ls·cd로 위치 이동하기**
 
 ```bash
 pwd                # 현재 위치 확인
@@ -158,6 +166,8 @@ cd ~                # 홈 디렉토리로 이동
   </div>
 </div>
 
+**▶ 경로 기호 의미**
+
 <table class="wda-mtable">
 <thead><tr><th>기호</th><th>의미</th></tr></thead>
 <tbody>
@@ -182,11 +192,15 @@ cd ~                # 홈 디렉토리로 이동
 
 폴더와 파일을 새로 만들 때 쓰는 명령어다.
 
+**• 터미널: mkdir로 폴더 생성하기**
+
 ```bash
 mkdir new-folder                  # 폴더 1개 생성
 mkdir folder-a folder-b folder-c  # 여러 폴더 한번에 생성
 mkdir -p parent/child/grandchild  # 중간 폴더까지 한 번에 생성
 ```
+
+**• 터미널: touch로 파일 생성하기**
 
 ```bash
 touch index.html                   # 파일 1개 생성
@@ -197,6 +211,8 @@ touch src/index.html               # 특정 폴더 안에 파일 생성
 <code>touch</code>는 원래 파일의 수정 시간을 갱신하는 명령어지만, 대상 파일이 존재하지 않으면 내용이 빈 새 파일을 만들어준다는 특성 덕분에 파일 생성용으로 자주 쓰인다.
 
 프로젝트 폴더의 뼈대를 한 번에 만들 때는 두 명령어를 조합한다.
+
+**• 터미널: 프로젝트 폴더 뼈대 만들기**
 
 ```bash
 mkdir my-project
@@ -219,6 +235,8 @@ touch index.html style.css script.js
 ---
 
 ## 6. 기본 명령어 ③ cat · nano · vim
+
+**• 터미널: cat으로 파일 내용 출력하기**
 
 ```bash
 cat index.html              # 파일 내용을 터미널에 바로 출력
@@ -253,6 +271,8 @@ cat a.txt > b.txt            # a.txt의 내용을 b.txt로 복사
 
 <code>git init</code>은 평범한 폴더를 Git이 버전을 관리하는 프로젝트로 바꿔주는 명령어다. 실행하는 즉시 그 폴더 안에 <code>.git</code> 숨김 폴더가 생성된다.
 
+**• 터미널: git init 실습 흐름 미리보기**
+
 <div class="wda-flow">
   <div class="wda-fnode"><div class="wda-fnode-ttl">1. cd ~</div><div class="wda-fnode-dsc">홈으로 이동</div></div>
   <div class="wda-farrow">→</div>
@@ -264,6 +284,8 @@ cat a.txt > b.txt            # a.txt의 내용을 b.txt로 복사
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">5. ls -a</div><div class="wda-fnode-dsc">.git 폴더 확인</div></div>
 </div>
+
+**• 터미널: git init으로 저장소 만들기**
 
 ```bash
 cd ~
@@ -294,6 +316,8 @@ ls -a
 
 <code>git status</code>는 현재 Git 저장소의 상태를 한눈에 보여준다.
 
+**▶ git status가 알려주는 정보**
+
 <table class="wda-mtable">
 <thead><tr><th>git status가 알려주는 것</th><th>내용</th></tr></thead>
 <tbody>
@@ -306,6 +330,8 @@ ls -a
 
 <code>git status</code>는 add하기 전, commit하기 전, 파일을 수정한 직후 등 거의 모든 순간에 확인하는 습관을 들이면 좋다.
 
+**• 커밋이 하나도 없을 때 git status 출력**
+
 ```text
 # 커밋이 하나도 없을 때
 On branch main
@@ -313,12 +339,16 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
+**• 새 파일 생성 직후 git status 출력**
+
 ```text
 # 새 파일을 만든 직후
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
         index.html
 ```
+
+**• git add 실행 후 git status 출력**
 
 ```text
 # git add 실행 후
@@ -332,6 +362,8 @@ Changes to be committed:
 ## 9. git add — Staging Area로 옮기기
 
 <code>git add</code>는 Working Directory의 변경 사항을 Staging Area로 옮기는 명령어다.
+
+**• 터미널: git add 사용 패턴**
 
 ```bash
 git add index.html          # 파일 1개만 추가
@@ -348,6 +380,8 @@ git add *.js                # 특정 확장자만 추가
 
 실수로 Staging Area에 올린 파일을 다시 빼고 싶다면 아래 명령어를 사용한다. 파일 자체가 삭제되는 것은 아니며, Working Directory로 되돌아갈 뿐이다.
 
+**• 터미널: Staging Area에서 파일 빼기**
+
 ```bash
 git reset HEAD 파일명
 # 또는
@@ -359,6 +393,8 @@ git restore --staged 파일명
 ## 10. git commit — 버전으로 영구 저장하기
 
 commit은 그 시점의 파일 상태를 스냅샷처럼 통째로 저장하는 행위다. 커밋마다 고유한 해시 ID가 부여되고, 커밋 메시지와 시간 정보가 함께 기록된다.
+
+**• 터미널: git commit으로 버전 저장하기**
 
 ```bash
 git commit -m "로그인 기능 추가"
@@ -379,11 +415,15 @@ git commit -m "로그인 기능 추가"
 
 메시지가 길어질 때는 제목과 본문을 나눠 여러 줄로 작성할 수도 있다.
 
+**• 터미널: 제목과 본문을 나눈 커밋 메시지**
+
 ```bash
 git commit -m "로그인 기능 추가" -m "이메일/비밀번호 검증 로직과 에러 메시지 처리를 포함"
 ```
 
 새 파일을 만들고 커밋까지 이어지는 전체 흐름은 다음과 같다.
+
+**• 터미널: 파일 생성부터 커밋까지 전체 흐름**
 
 ```bash
 touch index.html
@@ -401,11 +441,15 @@ git commit -m "index.html 초기 생성"
 
 ## 11. git log — 커밋 히스토리 확인하기
 
+**• 터미널: git log로 히스토리 보기**
+
 ```bash
 git log
 ```
 
 <code>git log</code>는 지금까지의 커밋 기록을 최신순으로 보여준다. 각 커밋마다 커밋 ID, 작성자(Author), 날짜(Date), 커밋 메시지가 함께 표시되며, 목록이 길면 <code>q</code>를 눌러 빠져나온다.
+
+**• 터미널: git log 옵션 활용**
 
 ```bash
 git log --oneline       # 커밋마다 한 줄로 간단히 보기
@@ -426,6 +470,8 @@ git log --oneline -5     # 최근 5개를 한 줄씩 간단히 보기
 <code>git diff</code>는 파일이 어떻게 달라졌는지 줄 단위로 보여준다. 추가된 줄 앞에는 <code>+</code>, 삭제된 줄 앞에는 <code>-</code> 표시가 붙는다. 화면에서는 보통 추가된 줄은 초록색, 삭제된 줄은 빨간색으로 표시된다.
 
 <code>git diff</code>는 비교하는 대상에 따라 세 가지로 나뉜다.
+
+**▶ git diff 비교 대상별 명령어**
 
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>비교 대상</th></tr></thead>
@@ -455,6 +501,8 @@ add하기 전 마지막으로 무엇이 바뀌었는지 확인하거나, 실수�
 ## 13. 전체 흐름 한눈에 보기
 
 지금까지 배운 명령어를 3영역 흐름에 대응시켜 정리하면 아래와 같다.
+
+**▶ 3영역 흐름별 상태 확인 명령어**
 
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>상태 확인 명령어</th></tr></thead>

@@ -79,6 +79,8 @@ Custom Hook은 useState·useEffect·useRef 같은 기본 Hook을 조합해, 반�
 
 `HookDashboard`와 `SearchPanel` 양쪽에서 입력값을 관리하는 로직을 각각 작성한다고 해보겠습니다.
 
+**• React: 중복되는 useState 로직**
+
 ```jsx
 // HookDashboard에서
 const [titleValue, setTitleValue] = useState('');
@@ -94,6 +96,8 @@ const handleSearchChange = (e) => setSearchValue(e.target.value);
 ---
 
 ## 2. use 접두사 규칙과 기본 구조
+
+**• React: use 접두사 기본 구조**
 
 ```jsx
 function useInput(initialValue) {
@@ -116,6 +120,8 @@ function useInput(initialValue) {
 
 모달을 열고 닫거나 상세 영역을 펼치고 접는 것처럼, 불리언 값을 뒤집는 로직을 뽑아냅니다.
 
+**• React: useToggle Hook 만들기**
+
 ```jsx
 function useToggle(initialValue = false) {
   const [isOpen, setIsOpen] = useState(initialValue);
@@ -125,6 +131,8 @@ function useToggle(initialValue = false) {
   return [isOpen, toggle];
 }
 ```
+
+**• React: useToggle 사용 예시**
 
 ```jsx
 function HookDashboard() {
@@ -145,6 +153,8 @@ function HookDashboard() {
 
 ## 4. useInput 만들기
 
+**• React: useInput Hook 만들기**
+
 ```jsx
 function useInput(initialValue = '') {
   const [value, setValue] = useState(initialValue);
@@ -155,6 +165,8 @@ function useInput(initialValue = '') {
   return { value, onChange, reset };
 }
 ```
+
+**• React: useInput 사용 예시**
 
 ```jsx
 function SearchPanel() {
@@ -177,6 +189,8 @@ function SearchPanel() {
 
 [[3-2-useeffect|3-2 문서]]에서 다룬 데이터 페칭 패턴을 Custom Hook으로 뽑아내면, 여러 컴포넌트에서 같은 로직을 재사용할 수 있습니다.
 
+**• React: useLearningData Hook 만들기**
+
 ```jsx
 function useLearningData(url) {
   const [data, setData] = useState(null);
@@ -194,6 +208,8 @@ function useLearningData(url) {
   return { data, isLoading };
 }
 ```
+
+**• React: useLearningData 사용 예시**
 
 ```jsx
 function HookDashboard() {
@@ -215,6 +231,8 @@ function HookDashboard() {
   <div class="wda-fcard"><div class="wda-fcard-ttl">React 함수 안에서만 호출</div><div class="wda-fcard-dsc">함수형 컴포넌트나 다른 Custom Hook 내부에서만 호출해야 합니다.</div></div>
 </div>
 
+**• React: 조건문 안에서 Hook 호출 — 금지 예시**
+
 ```jsx
 function Bad() {
   if (someCondition) {
@@ -228,6 +246,8 @@ function Bad() {
 ## 7. 로직은 공유, 상태는 독립
 
 같은 Custom Hook을 여러 컴포넌트에서 호출해도, 각 호출은 서로 다른 state를 가집니다.
+
+**• React: Custom Hook의 독립적인 state**
 
 ```jsx
 function PanelA() {

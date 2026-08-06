@@ -75,6 +75,8 @@ tags:
 
 강의 정보를 가져온 뒤 그 강의의 리뷰까지 이어서 요청하는 상황을 콜백으로 작성하면 콜백 안에 콜백이 중첩된다.
 
+**• JavaScript: 콜백 중첩 예시**
+
 ```javascript
 // 콜백 방식 — 중첩이 깊어질수록 읽기 어려워진다
 fetchLesson(101, (err, lesson) => {
@@ -87,6 +89,8 @@ fetchLesson(101, (err, lesson) => {
 ```
 
 Promise를 쓰면 같은 흐름을 중첩 없이 나열할 수 있다.
+
+**• JavaScript: Promise 체이닝으로 중첩 없애기**
 
 ```javascript
 fetchLesson(101)
@@ -107,6 +111,8 @@ fetchLesson(101)
 
 Promise는 비동기 작업의 진행 상태와 결과를 담는 객체다. 생명 주기 동안 다음 3가지 중 하나의 상태를 가진다.
 
+**▶ Promise 상태 3가지**
+
 | 상태 | 의미 | 호출 함수 |
 |---|---|---|
 | pending | 아직 결과가 정해지지 않음 | - |
@@ -123,6 +129,8 @@ Promise는 비동기 작업의 진행 상태와 결과를 담는 객체다. 생�
 
 ## 3. Promise 생성하기
 
+**• JavaScript: new Promise로 비동기 작업 만들기**
+
 ```javascript
 function fetchLesson(lessonId) {
   return new Promise((resolve, reject) => {
@@ -136,6 +144,8 @@ function fetchLesson(lessonId) {
   });
 }
 ```
+
+**• JavaScript: executor 함수 즉시 실행 확인하기**
 
 ```javascript
 console.log("요청 시작");
@@ -155,6 +165,8 @@ console.log("요청 이후 코드");
 
 ## 4. Promise 소비하기 — then / catch / finally
 
+**• JavaScript: then·catch·finally로 결과 처리하기**
+
 ```javascript
 const request = fetchLesson(101);
 
@@ -171,6 +183,8 @@ request.finally(() => {
 });
 ```
 
+**▶ then·catch·finally 실행 시점**
+
 | 메서드 | 실행 시점 | 전달받는 값 |
 |---|---|---|
 | `then` | 성공(fulfilled)했을 때 | 결과값 |
@@ -180,6 +194,8 @@ request.finally(() => {
 ---
 
 ## 5. 체이닝으로 순차 처리하기
+
+**• JavaScript: then 체이닝으로 순차 처리하기**
 
 ```javascript
 fetchLesson(101)
@@ -207,6 +223,8 @@ fetchLesson(101)
 
 catch가 없으면 뒤의 then들은 모두 건너뛰고 catch로 이동한다.
 
+**• JavaScript: 체이닝에서 에러 전파되기**
+
 ```javascript
 fetchLesson(101)
   .then(lesson => fetchReviews(lesson.id))
@@ -222,6 +240,8 @@ fetchLesson(101)
 <div class="wda-compare-ttl">🔄 에러 복구</div>
 
 catch에서 기본값을 반환하면 이후 then이 다시 이어진다.
+
+**• JavaScript: catch에서 기본값으로 복구하기**
 
 ```javascript
 fetchLesson(-1)
@@ -246,6 +266,8 @@ fetchLesson(-1)
 
 ## 7. Promise 정적 메서드 — resolve / reject
 
+**• JavaScript: Promise.resolve로 캐시값 감싸기**
+
 ```javascript
 function getLessonProgress(lessonId, cachedProgress) {
   if (cachedProgress) {
@@ -268,6 +290,8 @@ getLessonProgress(101, { percent: 80 }).then(p => console.log(p.percent));
 
 ## 8. Promise.all — 모두 성공해야 할 때
 
+**• JavaScript: Promise.all로 여러 요청 동시 처리하기**
+
 ```javascript
 Promise.all([fetchLesson(101), fetchReviews(101), fetchInstructor(5)])
   .then(([lesson, reviews, instructor]) => {
@@ -285,6 +309,8 @@ Promise.all([fetchLesson(101), fetchReviews(101), fetchInstructor(5)])
 ---
 
 ## 9. Promise.race — 가장 먼저 끝난 것
+
+**• JavaScript: Promise.race로 타임아웃 구현하기**
 
 ```javascript
 function fetchWithTimeout(lessonId, ms) {
@@ -325,6 +351,8 @@ function fetchWithTimeout(lessonId, ms) {
   </div>
 </div>
 
+**• JavaScript: Promise.allSettled로 전체 결과 확인하기**
+
 ```javascript
 Promise.allSettled([fetchLesson(101), fetchLesson(-1)]).then(results => {
   results.forEach(r => {
@@ -339,6 +367,8 @@ Promise.allSettled([fetchLesson(101), fetchLesson(-1)]).then(results => {
 ---
 
 ## 11. async 함수
+
+**• JavaScript: async 함수 선언하기**
 
 ```javascript
 async function loadLesson(lessonId) {
@@ -358,6 +388,8 @@ loadLesson(101).then(lesson => console.log(lesson.title));
 ---
 
 ## 12. await
+
+**• JavaScript: await로 순차 요청하기**
 
 ```javascript
 async function loadLessonWithReviews(lessonId) {
@@ -385,6 +417,8 @@ async function loadLessonWithReviews(lessonId) {
 
 ## 13. fetch로 실제 데이터 가져오기
 
+**• JavaScript: fetch와 await로 데이터 가져오기**
+
 ```javascript
 // 브라우저 환경 코드 — fetch는 Promise를 반환하는 내장 함수다
 async function loadLessonFromServer(lessonId) {
@@ -410,6 +444,8 @@ async function loadLessonFromServer(lessonId) {
 
 <div class="wda-compare-ttl">📝 Promise 체이닝</div>
 
+**• JavaScript: Promise 체이닝 방식**
+
 ```javascript
 function loadLessonPage(lessonId) {
   return fetchLesson(lessonId)
@@ -426,6 +462,8 @@ function loadLessonPage(lessonId) {
 
 <div class="wda-compare-ttl">📝 async/await</div>
 
+**• JavaScript: async/await 방식**
+
 ```javascript
 async function loadLessonPage(lessonId) {
   const lesson = await fetchLesson(lessonId);
@@ -441,6 +479,8 @@ async function loadLessonPage(lessonId) {
 ---
 
 ## 15. try/catch로 에러 처리하기
+
+**• JavaScript: try/catch로 async 에러 처리하기**
 
 ```javascript
 async function loadLessonPage(lessonId) {
@@ -471,6 +511,8 @@ async function loadLessonPage(lessonId) {
 
 <div class="wda-compare-ttl">🔗 순차 실행 (의존성 있음)</div>
 
+**• JavaScript: 순차 실행 — 의존성 있는 요청**
+
 ```javascript
 const lesson = await fetchLesson(101);
 const reviews = await fetchReviews(lesson.id);
@@ -482,6 +524,8 @@ const reviews = await fetchReviews(lesson.id);
 <div class="wda-compare-card">
 
 <div class="wda-compare-ttl">⚡ 병렬 실행 (의존성 없음)</div>
+
+**• JavaScript: 병렬 실행 — 의존성 없는 요청**
 
 ```javascript
 const [lesson, notice] = await Promise.all([
@@ -505,6 +549,8 @@ const [lesson, notice] = await Promise.all([
 
 ## 17. 반복문 안에서 await 쓸 때 주의
 
+**• JavaScript: for...of로 순차 대기하기 — 느림**
+
 ```javascript
 // 느림 — 강의를 하나씩 순서대로 기다린다
 async function loadAllLessons(lessonIds) {
@@ -515,6 +561,8 @@ async function loadAllLessons(lessonIds) {
   return lessons;
 }
 ```
+
+**• JavaScript: map과 Promise.all로 동시 요청하기 — 빠름**
 
 ```javascript
 // 빠름 — 모든 요청을 동시에 시작하고 한 번에 기다린다
@@ -533,6 +581,8 @@ async function loadAllLessonsFast(lessonIds) {
 ---
 
 ## 18. Promise vs async/await — 언제 무엇을 쓰나
+
+**▶ 상황별 추천 방식**
 
 | 상황 | 추천 |
 |---|---|
@@ -556,6 +606,8 @@ async function loadAllLessonsFast(lessonIds) {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · catch 없이 사용</div>
 
+**• JavaScript: catch 없이 사용하는 실수**
+
 ```javascript
 fetchLesson(-1).then(lesson =>
   console.log(lesson.title)
@@ -574,6 +626,8 @@ fetchLesson(-1).then(lesson =>
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · forEach 안에서 await</div>
+
+**• JavaScript: forEach 안에서 await 쓰는 실수**
 
 ```javascript
 lessonIds.forEach(async (id) => {
@@ -594,6 +648,8 @@ console.log("완료");
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · async 밖에서 await</div>
+
+**• JavaScript: async 밖에서 await 쓰는 실수**
 
 ```javascript
 // function loadLesson() {
@@ -625,11 +681,15 @@ console.log("완료");
 • 실패할 경우 try/catch로 잡아 `"로딩 실패"`를 출력한다.<br>
 • 강의와 공지사항처럼 서로 의존하지 않는 두 요청은 `Promise.all`로 동시에 가져온다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: async 함수 선언 / await로 순차 요청 / try-catch 에러 처리 / Promise.all 병렬 요청
 ```
 
 **💡 힌트 1 — async 함수 만들기**
+
+**• JavaScript: 힌트 1 — async 함수 만들기**
 
 ```javascript
 async function loadLessonPage(lessonId) {
@@ -639,6 +699,8 @@ async function loadLessonPage(lessonId) {
 ```
 
 **💡 힌트 2 — try/catch 추가**
+
+**• JavaScript: 힌트 2 — try/catch 추가**
 
 ```javascript
 async function loadLessonPage(lessonId) {
@@ -652,6 +714,8 @@ async function loadLessonPage(lessonId) {
 ```
 
 **💡 힌트 3 — Promise.all로 동시 요청**
+
+**• JavaScript: 힌트 3 — Promise.all로 동시 요청**
 
 ```javascript
 async function loadDashboard() {

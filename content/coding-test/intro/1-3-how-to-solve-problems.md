@@ -98,6 +98,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 문제를 읽으면서 아래 네 가지를 확인합니다.
 
+**▶ 문제 이해 확인 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>확인 항목</th><th>질문</th><th>예시 (두 수의 합)</th></tr></thead>
 <tbody>
@@ -133,6 +135,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 4. 3단계: 코드로 옮기기
 
 의사코드 한 줄이 코드 몇 줄로 바뀌는 과정입니다.
+
+**• JavaScript: 의사코드를 실제 코드로 변환**
 
 ```js
 function solution(numbers) {

@@ -73,6 +73,8 @@ tags:
 
 ## 1단계: 제목 입력을 state로 관리하기
 
+**• React: 제목 입력을 state로 관리하기**
+
 ```jsx
 const [title, setTitle] = useState("");
 
@@ -89,6 +91,8 @@ const [title, setTitle] = useState("");
 
 비밀번호는 입력 필드의 한 종류로 다루며, 다른 입력과 마찬가지로 value/onChange로 state와 연결합니다.
 
+**• React: 비밀번호 입력 필드 추가하기**
+
 ```jsx
 const [password, setPassword] = useState("");
 
@@ -103,6 +107,8 @@ const [password, setPassword] = useState("");
 ---
 
 ## 3단계: submit 처리와 preventDefault
+
+**• React: submit 처리와 preventDefault**
 
 ```jsx
 function handleSubmit(event) {
@@ -128,6 +134,8 @@ function handleSubmit(event) {
 
 ## 4단계: 간단한 검증 추가하기
 
+**• React: 빈 값 검증 추가하기**
+
 ```jsx
 function handleSubmit(event) {
   event.preventDefault();
@@ -141,6 +149,8 @@ function handleSubmit(event) {
 ---
 
 ## 5단계: 제출 결과 표시와 초기화
+
+**• React: 제출 결과 표시와 입력값 초기화**
 
 ```jsx
 function handleSubmit(event) {
@@ -170,6 +180,8 @@ function handleSubmit(event) {
 ---
 
 ## 완성 코드
+
+**• React: LearningForm 완성 코드**
 
 ```jsx
 import { useState } from "react";

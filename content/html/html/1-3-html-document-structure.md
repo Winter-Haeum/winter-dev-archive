@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 모든 HTML 문서는 아래와 같은 기본 구조를 따릅니다.
 
+**• HTML: 문서 기본 구조**
+
 ```html
 <!DOCTYPE html>
 <html lang="ko">
@@ -123,6 +125,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 규칙을 거쳐 지금의 모습이 되었습니다.
 
+**▶ HTML 표준 발전 과정**
+
 <table class="wda-mtable">
 <thead><tr><th>시기</th><th>표준</th><th>특징</th></tr></thead>
 <tbody>
@@ -143,6 +147,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 
 ## 4. 필수 meta 태그 정리
 
+**▶ 필수 meta 태그 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>meta 태그</th><th>역할</th></tr></thead>
 <tbody>
@@ -151,6 +157,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
 <tr><td><code>name="description"</code></td><td>검색 결과에 표시될 페이지 설명입니다.</td></tr>
 </tbody>
 </table>
+
+**• HTML: 필수 meta 태그 작성**
 
 ```html
 <meta charset="UTF-8" />
@@ -173,6 +181,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
   <div class="wda-fcard"><div class="wda-fcard-ttl">link</div><div class="wda-fcard-dsc">외부 CSS 파일이나 파비콘처럼, 문서 밖의 파일을 연결할 때 사용합니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">script</div><div class="wda-fcard-dsc">JavaScript 파일을 불러오거나 코드를 직접 작성할 때 사용합니다.</div></div>
 </div>
+
+**• HTML: link와 script로 외부 파일 연결**
 
 ```html
 <link rel="stylesheet" href="main.css" />
@@ -199,6 +209,8 @@ HTML은 처음부터 지금 형태였던 것이 아니라, 시대마다 다른 �
     <code>./css/style.css</code>처럼 현재 파일 위치를 기준으로 해석됩니다. 프로젝트를 통째로 옮겨도 경로가 잘 유지됩니다.
   </div>
 </div>
+
+**▶ 경로 표기 기호별 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>표기</th><th>의미</th></tr></thead>

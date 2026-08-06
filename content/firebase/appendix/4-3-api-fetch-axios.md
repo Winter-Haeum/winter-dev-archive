@@ -86,6 +86,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**• JavaScript: fetch와 axios 비교**
+
 ```js
 // fetch
 const res = await fetch('/api/posts');
@@ -108,6 +110,8 @@ const data = res.data;
 
 컴포넌트 안에 통신 코드를 직접 작성하면 코드가 지저분해지고, 같은 요청을 여러 컴포넌트에서 반복해서 작성하게 됩니다. API 요청을 별도의 함수로 분리해두면 이런 문제를 줄일 수 있습니다.
 
+**• JavaScript: API 요청 함수 분리**
+
 ```js
 // api/postApi.js
 export async function getPosts() {
@@ -116,6 +120,8 @@ export async function getPosts() {
   return res.json();
 }
 ```
+
+**• React: 분리한 API 함수 사용**
 
 ```jsx
 // PostList.jsx
@@ -135,6 +141,8 @@ import { getPosts } from './api/postApi';
   <div class="wda-fcard"><div class="wda-fcard-ttl">error</div><div class="wda-fcard-dsc">요청이 실패했을 때의 상태입니다.</div></div>
   <div class="wda-fcard"><div class="wda-fcard-ttl">data</div><div class="wda-fcard-dsc">요청이 성공했을 때 받은 실제 데이터입니다.</div></div>
 </div>
+
+**• React: loading·error·data 상태 관리**
 
 ```jsx
 function PostList() {

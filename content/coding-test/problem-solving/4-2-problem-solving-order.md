@@ -82,6 +82,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 문제: 배열의 합을 구하라. 입력 `[1, 2, 3, 4, 5]` → 출력 `15`
 
+**▶ Dry Run으로 변수 추적**
+
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>처리</th><th>sum</th></tr></thead>
 <tbody>
@@ -106,6 +108,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 예시가 여러 개 주어진다면, 공통된 규칙을 찾는 데 활용합니다.
 
+**▶ 여러 예시 비교로 패턴 찾기**
+
 <table class="wda-mtable">
 <thead><tr><th>입력</th><th>출력</th><th>패턴 분석</th></tr></thead>
 <tbody>
@@ -122,6 +126,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 3. 의사코드를 코드로 변환하기
 
 의사코드 한 줄과 실제 코드 한 줄이 어떻게 대응되는지 살펴보겠습니다. 문제: 배열에서 짝수만 골라 합 구하기.
+
+**▶ 의사코드와 JavaScript 대응**
 
 <table class="wda-mtable">
 <thead><tr><th>의사코드</th><th>JavaScript</th></tr></thead>
@@ -146,6 +152,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 한 번에 전체를 완성하려 하지 말고, 작은 단위로 나누어 중간 결과를 확인합니다.
 
+**• JavaScript: console.log로 중간 결과 확인**
+
 ```js
 // 중간 결과를 눈으로 확인하며 진행
 console.log("현재 sum:", sum);
@@ -164,6 +172,8 @@ console.log("현재 num:", num);
 ## 5. 검증 체크리스트
 
 제출 버튼을 누르기 전 마지막으로 점검하는 목록입니다.
+
+**• JavaScript: 경계값 검증 케이스**
 
 ```js
 console.log(solution([1, 2, 3, 4, 5])); // 예시 케이스

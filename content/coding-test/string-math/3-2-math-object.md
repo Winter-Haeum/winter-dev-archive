@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `Math`는 인스턴스를 만들지 않고 이름에 바로 마침표를 찍어 사용하는 내장 객체입니다.
 
+**• JavaScript: Math 정적 객체 사용**
+
 ```js
 Math.max(1, 5, 3); // 5 — new Math() 없이 바로 사용
 ```
@@ -84,6 +86,8 @@ Math.max(1, 5, 3); // 5 — new Math() 없이 바로 사용
 ## 2. 최댓값·최솟값
 
 배열을 그대로 넘길 수 없으므로, 스프레드 연산자로 풀어서 넣습니다.
+
+**• JavaScript: 배열 최댓값·최솟값**
 
 ```js
 const arr = [1, 5, 3, 9, 2];
@@ -105,6 +109,8 @@ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 ## 3. 반올림, 올림, 내림
 
+**▶ round·ceil·floor 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>값</th><th>round(반올림)</th><th>ceil(올림)</th><th>floor(내림)</th></tr></thead>
 <tbody>
@@ -121,6 +127,8 @@ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 소수점 특정 자리에서 반올림하려면 `toFixed`를 쓰되, 반환값이 **문자열**이라는 점에 주의합니다.
 
+**• JavaScript: toFixed로 소수점 자리 반올림**
+
 ```js
 (3.14159).toFixed(2);       // "3.14" (문자열)
 Number((3.14159).toFixed(2)); // 3.14 (다시 숫자로)
@@ -129,6 +137,8 @@ Number((3.14159).toFixed(2)); // 3.14 (다시 숫자로)
 ---
 
 ## 4. 절댓값과 거듭제곱
+
+**• JavaScript: 절댓값과 거듭제곱**
 
 ```js
 Math.abs(-5);        // 5 — 부호 없이 크기만 필요할 때
@@ -144,6 +154,8 @@ Math.sqrt(dx ** 2 + dy ** 2); // 두 점 사이 거리(피타고라스 정리)
 
 `Math.random()`은 0 이상 1 미만의 실수를 반환합니다. 정수 범위가 필요하면 `Math.floor`와 함께 씁니다.
 
+**▶ 랜덤 정수 범위 공식**
+
 <table class="wda-mtable">
 <thead><tr><th>원하는 범위</th><th>공식</th></tr></thead>
 <tbody>
@@ -151,6 +163,8 @@ Math.sqrt(dx ** 2 + dy ** 2); // 두 점 사이 거리(피타고라스 정리)
 <tr><td>min ~ max (max 포함)</td><td><code>Math.floor(Math.random() * (max - min + 1)) + min</code></td></tr>
 </tbody>
 </table>
+
+**• JavaScript: 배열에서 무작위 요소 뽑기**
 
 ```js
 // 배열에서 무작위 요소 하나 뽑기
@@ -170,6 +184,8 @@ const picked = arr[Math.floor(Math.random() * arr.length)];
 
 JS는 모든 숫자가 실수로 취급되어, `7 / 3`은 `2`가 아니라 `2.333...`이 나옵니다.
 
+**• JavaScript: 몫과 나머지 구하기**
+
 ```js
 const quotient = Math.floor(7 / 3); // 2 (몫)
 const remainder = 7 % 3;            // 1 (나머지)
@@ -183,6 +199,8 @@ const remainder = 7 % 3;            // 1 (나머지)
 
 격자(그리드) 문제에서 2차원 좌표를 1차원 배열 인덱스로 오갈 때 쓰는 공식입니다.
 
+**• JavaScript: 2D 좌표를 1D 인덱스로 변환**
+
 ```js
 // (row, col) → 1차원 인덱스 (가로 길이 width 기준)
 const row = 2;
@@ -192,6 +210,8 @@ const width = 5;
 const index = row * width + col;
 console.log(index); // 13
 ```
+
+**• JavaScript: 1D 인덱스를 2D 좌표로 복구**
 
 ```js
 // 1차원 인덱스 → (row, col) 복구
@@ -208,6 +228,8 @@ console.log(targetRow, targetCol); // 2 3
 ## 8. 코테 패턴 ③ 소수 판별
 
 1부터 N까지 전부 나눠보면 N이 클 때 너무 느립니다. 약수는 항상 짝을 이루므로, **제곱근까지만** 확인해도 충분합니다.
+
+**• JavaScript: 소수 판별 함수**
 
 ```js
 const isPrime = (n) => {

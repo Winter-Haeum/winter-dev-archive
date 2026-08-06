@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 `useState`는 넘겨준 초깃값을 보고 state의 타입을 자동으로 추론합니다. 초깃값이 문자열이면 string으로, 숫자면 number로 정해지는 식입니다.
 
+**• React: useState 타입 추론**
+
 ```tsx
 const [count, setCount] = useState(0);        // number로 추론
 const [text, setText] = useState("안녕");      // string으로 추론
@@ -90,6 +92,8 @@ const [isOpen, setIsOpen] = useState(false);   // boolean으로 추론
 ## 2. 제네릭으로 타입 명시하기
 
 초깃값만으로는 원하는 타입을 정확히 표현하기 어려운 경우, `useState<T>`처럼 꺾쇠괄호 안에 타입을 직접 지정할 수 있습니다.
+
+**• React: useState 제네릭으로 타입 명시**
 
 ```tsx
 // 특정 문자열 리터럴 중 하나만 허용하고 싶을 때
@@ -110,6 +114,8 @@ const [list, setList] = useState<string[]>([]);
 ## 3. null이 될 수 있는 state 다루기
 
 아직 데이터를 불러오지 않은 초기 상태처럼, 값이 없을 수도 있는 state는 `null`과의 union 타입으로 표현합니다.
+
+**• React: null 가능한 state 다루기**
 
 ```tsx
 interface User {
@@ -142,6 +148,8 @@ if (user) {
 ## 4. 객체·배열 형태의 state
 
 여러 속성을 가진 데이터를 state로 다룰 때는 interface로 구조를 먼저 정의하고, 이를 state의 타입으로 사용합니다.
+
+**• React: 객체·배열 state 타입 지정**
 
 ```tsx
 interface Todo {

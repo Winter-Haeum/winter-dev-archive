@@ -73,6 +73,8 @@ tags:
 
 ## 1단계: if로 로딩/에러 상태 분기하기
 
+**• React: if로 로딩·에러 상태 분기하기**
+
 ```jsx
 function LearningMessage({ isLoading, errorMessage, items }) {
   if (isLoading) {
@@ -88,6 +90,8 @@ function LearningMessage({ isLoading, errorMessage, items }) {
 ---
 
 ## 2단계: 빈 목록 상태 추가하기 (early return)
+
+**• React: early return으로 빈 목록 처리하기**
 
 ```jsx
 if (items.length === 0) {
@@ -110,6 +114,8 @@ if (items.length === 0) {
 
 ## 3단계: 삼항 연산자로 상태 뱃지 표시하기
 
+**• React: 삼항 연산자로 상태 뱃지 표시하기**
+
 ```jsx
 <span>{isLoading ? "로딩 중" : "준비 완료"}</span>
 ```
@@ -117,6 +123,8 @@ if (items.length === 0) {
 ---
 
 ## 4단계: &&로 안내 문구 표시하기
+
+**• React: &&로 안내 문구 표시하기**
 
 ```jsx
 {errorMessage && <p className="error">{errorMessage}</p>}
@@ -127,6 +135,8 @@ if (items.length === 0) {
 ## 5단계: 상태를 바꿔가며 확인하기
 
 버튼으로 상태를 바꿔가며 LearningMessage가 어떻게 달라지는지 확인합니다.
+
+**• React: 상태를 바꿔가며 확인하기**
 
 ```jsx
 const [status, setStatus] = useState("loading");
@@ -139,6 +149,8 @@ const items = status === "empty" ? [] : [{ id: 1, title: "JSX 기초" }];
 ---
 
 ## 완성 코드
+
+**• React: LearningMessage 완성 코드**
 
 ```jsx
 import { useState } from "react";

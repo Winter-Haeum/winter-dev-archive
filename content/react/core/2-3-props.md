@@ -88,6 +88,8 @@ tags:
   </div>
 </div>
 
+**• React: 부모가 자식에게 props 전달하기**
+
 ```jsx
 function StudyCard({ title, level }) {
   return (
@@ -118,6 +120,8 @@ function StudyDashboard() {
   </div>
 </div>
 
+**• React: props를 객체로 받기**
+
 ```jsx
 function StudyCard(props) {
   return <h3>{props.title}</h3>;
@@ -130,6 +134,8 @@ function StudyCard(props) {
 
 ## 4. 문자열/숫자/불리언 전달
 
+**• React: 문자열·숫자·불리언 props 전달하기**
+
 ```jsx
 <StudyCard title="JSX 기초" durationMinutes={30} isCompleted={false} />
 ```
@@ -139,6 +145,8 @@ function StudyCard(props) {
 ---
 
 ## 5. 배열/객체/function 전달 맛보기
+
+**• React: 배열·객체·함수 props 전달하기**
 
 ```jsx
 <StudyCard
@@ -156,6 +164,8 @@ function StudyCard(props) {
 
 `props.title`처럼 매번 점을 찍는 대신, 구조분해로 필요한 값만 바로 꺼내 받을 수 있습니다.
 
+**• React: 구조분해로 props 받기**
+
 ```jsx
 function StudyCard({ title, level }) {
   return (
@@ -170,6 +180,8 @@ function StudyCard({ title, level }) {
 ---
 
 ## 7. 기본값 사용하기
+
+**• React: props 기본값 설정하기**
 
 ```jsx
 function StudyCard({ title, level = "입문" }) {
@@ -189,6 +201,8 @@ function StudyCard({ title, level = "입문" }) {
 ## 8. children
 
 태그와 태그 사이에 넣은 내용은 `children`이라는 이름의 props로 전달됩니다.
+
+**• React: children props 사용하기**
 
 ```jsx
 function StudySummary({ children }) {

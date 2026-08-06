@@ -90,6 +90,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
   </div>
 </div>
 
+**▶ 개발·배포 명령어 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>용도</th></tr></thead>
 <tbody>
@@ -103,6 +105,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 2. dist 폴더란
 
 `npm run build`를 실행하면 번들러는 배포에 필요한 파일들을 한곳에 모아 저장합니다. 이 폴더는 보통 관례적으로 `dist`(distribution의 줄임말)라는 이름을 사용합니다.
+
+**• dist 폴더 구조**
 
 ```
 dist/

@@ -99,6 +99,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 **코드 리뷰(Code Review)**는 PR에 담긴 변경 사항을 다른 사람이 읽고 의견을 남기는 과정입니다.
 
+**▶ 코드 리뷰에서 확인하는 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>리뷰에서 확인하는 것</th><th>예시</th></tr></thead>
 <tbody>
@@ -121,6 +123,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ## 3. Conflict는 왜 생길까
 
 **Conflict(충돌)**는 같은 파일의 같은 부분을 서로 다른 브랜치에서 다르게 수정했을 때, Git이 어느 쪽 내용을 남겨야 할지 스스로 판단하지 못해서 발생합니다.
+
+**• Conflict 표시 예시**
 
 ```
 <<<<<<< HEAD
@@ -152,6 +156,8 @@ return "손님";
 ## 4. Conflict를 마주쳤을 때
 
 conflict가 발생하면 Git은 파일 안에 두 브랜치의 내용을 모두 표시해줍니다. 개발자는 이 중 어떤 내용을 남길지, 혹은 둘을 합쳐서 새로 작성할지 직접 결정한 뒤 저장하고 다시 커밋하면 됩니다.
+
+**▶ Conflict 해결 단계**
 
 <table class="wda-mtable">
 <thead><tr><th>단계</th><th>설명</th></tr></thead>

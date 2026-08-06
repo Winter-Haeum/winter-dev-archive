@@ -71,6 +71,8 @@ tags:
 
 ## 1. this를 고정해야 하는 이유
 
+**• JavaScript: 메서드를 떼어내면 this를 잃는 경우**
+
 ```javascript
 const speaker = {
   name: "서연",
@@ -90,6 +92,8 @@ greetFn();
 ---
 
 ## 2. call: 즉시 실행하며 this 지정하기
+
+**• JavaScript: call로 this 지정하기**
 
 ```javascript
 function introduce(age, city) {
@@ -112,6 +116,8 @@ introduce.call(speaker, 28, "서울");
 
 ## 3. apply: 인자를 배열로 묶어서 전달하기
 
+**• JavaScript: apply로 인자 배열 전달하기**
+
 ```javascript
 introduce.apply(speaker, [28, "서울"]);
 // 서연는 28살, 서울 거주
@@ -132,6 +138,8 @@ introduce.apply(speaker, [28, "서울"]);
 
 ## 4. bind: this가 고정된 새 함수 만들기
 
+**• JavaScript: bind로 this 고정된 함수 만들기**
+
 ```javascript
 const introduceSpeaker = introduce.bind(speaker);
 
@@ -149,6 +157,8 @@ introduceSpeaker(28, "서울");
 
 ## 5. call / apply / bind 비교
 
+**▶ call·apply·bind 비교**
+
 | 메서드 | 실행 시점 | 인자 전달 방식 | 반환값 |
 |---|---|---|---|
 | `call()` | 즉시 실행 | 쉼표로 나열 | 함수의 실행 결과 |
@@ -165,6 +175,8 @@ introduceSpeaker(28, "서울");
 
 <div class="wda-fcard-ttl">🔹 실수 1 · apply에 배열 대신 나열</div>
 
+**• JavaScript: apply에 배열 대신 나열하는 실수**
+
 ```javascript
 introduce.apply(speaker, 28, "서울");
 // ❌ TypeError (일부러 에러 확인용)
@@ -180,6 +192,8 @@ introduce.apply(speaker, 28, "서울");
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 2 · bind가 즉시 실행된다는 착각</div>
+
+**• JavaScript: bind가 즉시 실행된다는 착각**
 
 ```javascript
 const introduceSpeaker = introduce.bind(speaker);
@@ -198,6 +212,8 @@ introduceSpeaker(28, "서울");
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 화살표 함수에 bind 사용</div>
+
+**• JavaScript: 화살표 함수에 bind 사용하는 실수**
 
 ```javascript
 const speaker = {
@@ -233,11 +249,15 @@ call/apply/bind로 함수의 this를 원하는 객체로 지정해본다.
 • 같은 함수를 `apply`로 실행한다.<br>
 • `bind`로 새 함수를 만들어 나중에 실행한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: call 실행 / apply 실행 / bind로 새 함수 만들기
 ```
 
 **💡 힌트 1 — call**
+
+**• JavaScript: 힌트 1 — call**
 
 ```javascript
 function introduce(age) {
@@ -252,12 +272,16 @@ introduce.call(speaker, 31);
 
 **💡 힌트 2 — apply**
 
+**• JavaScript: 힌트 2 — apply**
+
 ```javascript
 introduce.apply(speaker, [31]);
 // 도윤는 31살
 ```
 
 **💡 힌트 3 — bind**
+
+**• JavaScript: 힌트 3 — bind**
 
 ```javascript
 const introduceSpeaker = introduce.bind(speaker);

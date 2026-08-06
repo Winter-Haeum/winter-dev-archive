@@ -87,6 +87,8 @@ tags:
 
 ## 2. 주문 금액을 계산하기: 산술 연산자
 
+**▶ 산술 연산자 정리**
+
 | 연산자 | 의미 | 예시 | 결과 |
 |---|---|---|---|
 | `+` | 더하기 | `10 + 3` | `13` |
@@ -96,6 +98,8 @@ tags:
 | `%` | 나머지 | `10 % 3` | `1` |
 | `**` | 거듭제곱 | `10 ** 3` | `1000` |
 
+**• JavaScript: 산술 연산자로 금액 계산하기**
+
 ```javascript
 const orderAmount = 32000;
 const shippingFee = 3000;
@@ -103,6 +107,8 @@ const shippingFee = 3000;
 console.log(orderAmount + shippingFee);
 // 35000
 ```
+
+**• JavaScript: 나머지 연산자로 남는 개수 구하기**
 
 ```javascript
 const stockCount = 23;
@@ -121,6 +127,8 @@ console.log(stockCount % 10);
 
 <div class="wda-compare-ttl">❌ 문자열이 섞이면</div>
 
+**• JavaScript: 문자열이 섞여 이어붙는 경우**
+
 ```javascript
 const orderAmount = "32000";
 const shippingFee = 3000;
@@ -135,6 +143,8 @@ console.log(orderAmount + shippingFee);
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ 숫자로 맞추면</div>
+
+**• JavaScript: 숫자로 맞춰 정상 계산하기**
 
 ```javascript
 const orderAmount = 32000;
@@ -163,6 +173,8 @@ console.log(orderAmount + shippingFee);
 
 현재 값을 먼저 반환하고, 그 다음에 값을 바꾼다.
 
+**• JavaScript: 후위 증감 연산자 확인하기**
+
 ```javascript
 let stockCount = 5;
 
@@ -180,6 +192,8 @@ console.log(stockCount);
 <div class="wda-compare-ttl">전위 — --stockCount</div>
 
 값을 먼저 바꾸고, 바뀐 값을 반환한다.
+
+**• JavaScript: 전위 증감 연산자 확인하기**
 
 ```javascript
 let stockCount = 5;
@@ -204,6 +218,8 @@ console.log(--stockCount);
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>%=</code></div><div class="wda-fcard-dsc">나머지를 저장 — <code>x = x % n</code></div></div>
 </div>
 
+**• JavaScript: 복합 할당 연산자로 금액 갱신하기**
+
 ```javascript
 let finalAmount = 32000;
 
@@ -220,12 +236,16 @@ console.log(finalAmount);
 
 ## 6. 두 값을 비교하기
 
+**▶ 비교 연산자 정리**
+
 | 연산자 | 의미 | 예시 | 결과 |
 |---|---|---|---|
 | `>` | 초과 | `5 > 3` | `true` |
 | `>=` | 이상 | `5 >= 5` | `true` |
 | `<` | 미만 | `3 < 5` | `true` |
 | `<=` | 이하 | `3 <= 3` | `true` |
+
+**• JavaScript: 비교 연산자로 재고 확인하기**
 
 ```javascript
 const stockCount = 0;
@@ -246,6 +266,8 @@ console.log(stockCount > 0);
 
 타입이 달라도 값을 맞춰서 비교한다.
 
+**• JavaScript: == 동등 비교하기**
+
 ```javascript
 const stockCount = 0;
 
@@ -260,6 +282,8 @@ console.log(stockCount == "0");
 <div class="wda-compare-ttl">=== (일치 비교)</div>
 
 값과 타입이 모두 같아야 참이다.
+
+**• JavaScript: === 일치 비교하기**
 
 ```javascript
 const stockCount = 0;
@@ -288,6 +312,8 @@ console.log(stockCount === "0");
   <div class="wda-fcard"><div class="wda-fcard-ttl"><code>!</code> (NOT)</div><div class="wda-fcard-dsc">참/거짓을 반대로 뒤집는다</div></div>
 </div>
 
+**• JavaScript: && AND 연산자 사용하기**
+
 ```javascript
 const isMember = true;
 const stockCount = 3;
@@ -296,6 +322,8 @@ console.log(isMember && stockCount > 0);
 // true — 회원이면서 재고도 있다
 ```
 
+**• JavaScript: || OR 연산자 사용하기**
+
 ```javascript
 const isMember = false;
 const stockCount = 3;
@@ -303,6 +331,8 @@ const stockCount = 3;
 console.log(isMember || stockCount > 0);
 // true — 둘 중 하나만 참이어도 된다
 ```
+
+**• JavaScript: ! NOT 연산자 사용하기**
 
 ```javascript
 const isMember = false;
@@ -316,6 +346,8 @@ console.log(!isMember);
 ## 9. true/false가 아니어도 조건처럼 쓰이는 값
 
 boolean이 아닌 값도 조건문 안에서는 참(truthy) 또는 거짓(falsy)으로 평가된다.
+
+**• JavaScript: falsy 값 조건문으로 확인하기**
 
 ```javascript
 const selectedCoupon = "";
@@ -347,12 +379,16 @@ if (!selectedCoupon) {
   </div>
 </div>
 
+**• JavaScript: &&로 단축 평가하기**
+
 ```javascript
 const isMember = true;
 
 isMember && console.log("회원 할인 적용 대상입니다.");
 // 회원 할인 적용 대상입니다.
 ```
+
+**• JavaScript: ||로 기본값 채우기**
 
 ```javascript
 const userProfile = { nickname: "" };
@@ -374,6 +410,8 @@ console.log(displayName);
 
 `조건 ? 참일 때 값 : 거짓일 때 값` 형태로 if-else를 한 줄로 줄일 수 있다.
 
+**• JavaScript: 삼항 연산자로 재고 라벨 만들기**
+
 ```javascript
 const stockCount = 0;
 const stockLabel = stockCount > 0 ? "구매 가능" : "품절";
@@ -385,6 +423,8 @@ console.log(stockLabel);
 ---
 
 ## 12. 함수 호출과 속성 접근
+
+**• JavaScript: 함수 호출과 참조 구분하기**
 
 ```javascript
 function calculateShippingFee() {
@@ -409,6 +449,8 @@ console.log(calculateShippingFee());
   </div>
 </div>
 
+**• JavaScript: 점·대괄호 표기법으로 속성 접근하기**
+
 ```javascript
 const userProfile = { grade: "GOLD" };
 
@@ -429,6 +471,8 @@ console.log(userProfile["grade"]);
 
 <div class="wda-compare-ttl">❌ ?. 없이 접근</div>
 
+**• JavaScript: ?. 없이 접근 — 에러 확인용**
+
 ```javascript
 const userProfile = null;
 console.log(userProfile.grade);
@@ -440,6 +484,8 @@ console.log(userProfile.grade);
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ ?. 로 접근</div>
+
+**• JavaScript: ?.로 안전하게 접근하기**
 
 ```javascript
 const userProfile = null;
@@ -461,6 +507,8 @@ console.log(userProfile?.grade);
     <code>null</code>/<code>undefined</code>일 때만 기본값을 쓴다.
   </div>
 </div>
+
+**• JavaScript: ||와 ??의 falsy 처리 차이 확인하기**
 
 ```javascript
 const couponAmount = 0;
@@ -488,6 +536,8 @@ console.log(couponAmount ?? 500);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · ==로 값 비교</div>
 
+**• JavaScript: ==로 값 비교하는 실수**
+
 ```javascript
 const orderCount = "1";
 console.log(orderCount == 1);
@@ -505,6 +555,8 @@ console.log(orderCount == 1);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 0에 || 사용</div>
 
+**• JavaScript: 0에 || 사용하는 실수**
+
 ```javascript
 const couponAmount = 0;
 console.log(couponAmount || 100);
@@ -521,6 +573,8 @@ console.log(couponAmount || 100);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · null에 바로 접근</div>
+
+**• JavaScript: null에 바로 접근하는 실수**
 
 ```javascript
 const userProfile = null;
@@ -554,11 +608,15 @@ console.log(userProfile.grade);
 • 삼항 연산자로 **재고 라벨**("구매 가능"/"품절")을 만든다.<br>
 • `??`로 쿠폰 금액의 기본값을 안전하게 처리한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 결제 금액 계산 / 구매 가능 여부 / 재고 라벨 / 쿠폰 기본값
 ```
 
 **💡 힌트 1 — 금액 계산**
+
+**• JavaScript: 힌트 1 — 금액 계산**
 
 ```javascript
 const orderAmount = 45000;
@@ -571,6 +629,8 @@ console.log(finalAmount);
 ```
 
 **💡 힌트 2 — 조건 조합**
+
+**• JavaScript: 힌트 2 — 조건 조합**
 
 ```javascript
 const isMember = true;
@@ -585,6 +645,8 @@ console.log(stockLabel);
 ```
 
 **💡 힌트 3 — 안전한 기본값**
+
+**• JavaScript: 힌트 3 — 안전한 기본값**
 
 ```javascript
 const couponAmount = 0;

@@ -75,6 +75,8 @@ tags:
 
 DOM은 이 과정을 가능하게 해주는 구조다.
 
+**• HTML: 강의 상세 화면 예시**
+
 ```html
 <h1 class="lesson-title">DOM 기본</h1>
 <span class="lesson-level">초급</span>
@@ -113,6 +115,8 @@ DOM은 이 과정을 가능하게 해주는 구조다.
 
 ## 2. DOM은 HTML을 JavaScript가 다룰 수 있게 만든 구조다
 
+**• HTML: DOM으로 변환될 요소**
+
 ```html
 <h1 class="lesson-title">DOM 기본</h1>
 ```
@@ -127,6 +131,8 @@ DOM은 이 과정을 가능하게 해주는 구조다.
 
 ## 3. document 객체
 
+**• JavaScript: document 객체 확인하기**
+
 ```javascript
 console.log(document.title);
 ```
@@ -140,6 +146,8 @@ console.log(document.title);
 ---
 
 ## 4. element와 node
+
+**▶ node·element·document 용어 정리**
 
 | 용어 | 의미 |
 |---|---|
@@ -156,6 +164,8 @@ console.log(document.title);
 ---
 
 ## 5. DOM tree 기본
+
+**• HTML: DOM tree로 변환될 목록**
 
 ```html
 <ul id="lesson-list">
@@ -184,6 +194,8 @@ console.log(document.title);
 
 ## 6. querySelector로 하나 선택하기
 
+**• JavaScript: querySelector로 요소 하나 선택하기**
+
 ```javascript
 const lessonTitle = document.querySelector(".lesson-title");
 console.log(lessonTitle);
@@ -199,6 +211,8 @@ console.log(lessonTitle);
 
 ## 7. querySelectorAll로 여러 개 선택하기
 
+**• JavaScript: querySelectorAll로 여러 요소 선택하기**
+
 ```javascript
 const lessonItems = document.querySelectorAll(".lesson-item");
 console.log(lessonItems.length); // 3
@@ -212,6 +226,8 @@ console.log(lessonItems.length); // 3
 
 첫 번째 요소 하나만 반환한다.
 
+**• JavaScript: querySelector 결과**
+
 ```javascript
 document.querySelector(".lesson-item");
 ```
@@ -223,6 +239,8 @@ document.querySelector(".lesson-item");
 <div class="wda-compare-ttl">📋 querySelectorAll</div>
 
 조건에 맞는 모든 요소를 반환한다.
+
+**• JavaScript: querySelectorAll 결과**
 
 ```javascript
 document.querySelectorAll(".lesson-item");
@@ -242,6 +260,8 @@ document.querySelectorAll(".lesson-item");
 
 ## 8. 선택 결과가 없을 때
 
+**• JavaScript: 선택 결과 없을 때 null 확인하기**
+
 ```javascript
 const selectedLesson = document.querySelector(".not-exist");
 console.log(selectedLesson); // null
@@ -250,6 +270,8 @@ if (selectedLesson !== null) {
   selectedLesson.textContent = "선택됨";
 }
 ```
+
+**▶ querySelector·querySelectorAll 결과 없을 때**
 
 | 메서드 | 결과가 없을 때 | 결과가 있을 때 |
 |---|---|---|
@@ -266,6 +288,8 @@ if (selectedLesson !== null) {
 
 ## 9. NodeList와 배열의 차이
 
+**• JavaScript: NodeList에 forEach 사용하기**
+
 ```javascript
 const lessonItems = document.querySelectorAll(".lesson-item");
 
@@ -281,6 +305,8 @@ lessonItems.forEach(item => console.log(item.textContent));
 
 length와 forEach만 바로 쓸 수 있다.
 
+**• JavaScript: NodeList — length·forEach만 사용**
+
 ```javascript
 lessonItems.forEach(item =>
   console.log(item.textContent)
@@ -294,6 +320,8 @@ lessonItems.forEach(item =>
 <div class="wda-compare-ttl">🔁 Array.from 변환 후</div>
 
 map, filter 같은 배열 메서드를 쓸 수 있다.
+
+**• JavaScript: Array.from으로 배열 메서드 사용하기**
 
 ```javascript
 const lessonItemArray =
@@ -326,6 +354,8 @@ lessonItemArray.map(item =>
   <div class="wda-fnode"><div class="wda-fnode-ttl">변경</div><div class="wda-fnode-dsc">새 값 대입</div></div>
 </div>
 
+**• JavaScript: textContent로 읽고 바꾸기**
+
 ```javascript
 const lessonTitle = document.querySelector(".lesson-title");
 
@@ -344,6 +374,8 @@ lessonTitle.textContent = "DOM 기본 다시 보기";
 
 ## 11. innerHTML과 사용 시 주의
 
+**• JavaScript: innerHTML로 태그 삽입하기**
+
 ```javascript
 const lessonMessage = document.querySelector(".lesson-message");
 
@@ -358,6 +390,8 @@ lessonMessage.innerHTML = "<strong>수강 가능</strong>";
 
 태그를 문자 그대로 표시한다.
 
+**• JavaScript: textContent — 태그를 문자 그대로 표시**
+
 ```javascript
 lessonMessage.textContent =
   "<strong>수강 가능</strong>";
@@ -371,6 +405,8 @@ lessonMessage.textContent =
 <div class="wda-compare-ttl">📝 innerHTML</div>
 
 태그를 실제 요소로 해석한다.
+
+**• JavaScript: innerHTML — 태그를 요소로 해석**
 
 ```javascript
 lessonMessage.innerHTML =
@@ -392,6 +428,8 @@ lessonMessage.innerHTML =
 
 ## 12. classList로 상태 바꾸기
 
+**• JavaScript: classList로 클래스 추가·삭제하기**
+
 ```javascript
 const lessonStatus = document.querySelector(".lesson-status");
 
@@ -410,6 +448,8 @@ console.log(lessonStatus.classList.contains("is-complete")); // true
 
 ## 13. style 직접 변경은 제한적으로 사용하기
 
+**• JavaScript: style로 속성 직접 바꾸기**
+
 ```javascript
 const noticeText = document.querySelector(".lesson-message");
 
@@ -424,6 +464,8 @@ noticeText.style.display = "none";
 
 정의된 상태 클래스를 붙이고 뗀다.
 
+**• JavaScript: classList로 상태 클래스 관리**
+
 ```javascript
 lessonStatus.classList.add("is-complete");
 ```
@@ -435,6 +477,8 @@ lessonStatus.classList.add("is-complete");
 <div class="wda-compare-ttl">🎨 style</div>
 
 속성 하나하나를 직접 지정한다.
+
+**• JavaScript: style로 속성 하나씩 지정**
 
 ```javascript
 noticeText.style.display = "none";
@@ -454,9 +498,13 @@ noticeText.style.display = "none";
 
 ## 14. 오래된 선택 메서드와 DOMContentLoaded 짧게 보기
 
+**• JavaScript: getElementById로 요소 선택하기**
+
 ```javascript
 const lessonCard = document.getElementById("lesson-list");
 ```
+
+**▶ 요소 선택 메서드 비교**
 
 | 메서드 | 선택 기준 | 특징 |
 |---|---|---|
@@ -469,6 +517,8 @@ const lessonCard = document.getElementById("lesson-list");
 <div class="wda-callout wda-ci">
   <code>getElementById</code>, <code>getElementsByClassName</code> 같은 예전 방식도 여전히 동작한다. 다만 선택자 문법이 각각 달라 외울 것이 많다. 새로 작성하는 코드에서는 querySelector 계열을 우선 사용한다.
 </div>
+
+**• JavaScript: DOMContentLoaded 이벤트 등록하기**
 
 ```javascript
 document.addEventListener("DOMContentLoaded", () => {
@@ -492,6 +542,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div class="wda-fcard-ttl">🔹 실수 1 · null 확인 없이 사용</div>
 
+**• JavaScript: null 확인 없이 사용하는 실수**
+
 ```javascript
 const selectedLesson =
   document.querySelector(".not-exist");
@@ -511,6 +563,8 @@ selectedLesson.textContent = "선택됨";
 
 <div class="wda-fcard-ttl">🔹 실수 2 · NodeList에 배열 메서드 바로 사용</div>
 
+**• JavaScript: NodeList에 배열 메서드 바로 쓰는 실수**
+
 ```javascript
 const lessonItems =
   document.querySelectorAll(".lesson-item");
@@ -529,6 +583,8 @@ const lessonItems =
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 신뢰할 수 없는 값을 innerHTML에</div>
+
+**• JavaScript: 신뢰할 수 없는 값을 innerHTML에 넣는 실수**
 
 ```javascript
 const userInput = "<img src=x onerror=alert(1)>";
@@ -560,11 +616,15 @@ lessonMessage.innerHTML = userInput;
 • `.lesson-status` 요소에 classList로 `"is-complete"` 클래스를 추가한다.<br>
 • `.lesson-item` 요소들을 모두 선택해 개수를 출력한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 제목 선택 후 텍스트 변경 / 상태 클래스 추가 / 전체 항목 개수 확인
 ```
 
 **💡 힌트 1 — 제목 바꾸기**
+
+**• JavaScript: 힌트 1 — 제목 바꾸기**
 
 ```javascript
 const lessonTitle = document.querySelector(".lesson-title");
@@ -573,12 +633,16 @@ lessonTitle.textContent = "DOM 기본";
 
 **💡 힌트 2 — 상태 클래스 추가**
 
+**• JavaScript: 힌트 2 — 상태 클래스 추가**
+
 ```javascript
 const lessonStatus = document.querySelector(".lesson-status");
 lessonStatus.classList.add("is-complete");
 ```
 
 **💡 힌트 3 — 전체 항목 개수 확인**
+
+**• JavaScript: 힌트 3 — 전체 항목 개수 확인**
 
 ```javascript
 const lessonItems = document.querySelectorAll(".lesson-item");

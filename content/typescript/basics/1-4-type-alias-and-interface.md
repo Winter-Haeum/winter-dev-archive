@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 앞서 본 것처럼 객체 타입을 변수 선언 자리에 바로 적을 수도 있지만, 같은 구조를 여러 곳에서 반복해서 쓴다면 매번 다시 적기 번거롭습니다. `type` 키워드를 쓰면 타입에 이름을 붙여 재사용할 수 있습니다.
 
+**• TypeScript: type으로 타입 이름 붙이기**
+
 ```ts
 type ID = string | number;
 
@@ -103,6 +105,8 @@ const admin: User = {
 
 `interface`는 주로 객체의 구조(속성과 메서드)를 정의할 때 사용하는 문법입니다. type과 비슷해 보이지만, `=` 없이 바로 중괄호를 씁니다.
 
+**• TypeScript: interface로 객체 구조 정의**
+
 ```ts
 interface Product {
   id: number;
@@ -120,6 +124,8 @@ interface는 "이 객체는 최소한 이런 형태의 데이터를 가지고 �
 
 ## 3. type과 interface, 무엇이 다를까
 
+**▶ type과 interface 차이**
+
 <table class="wda-mtable">
 <thead><tr><th>구분</th><th>type</th><th>interface</th></tr></thead>
 <tbody>
@@ -129,6 +135,8 @@ interface는 "이 객체는 최소한 이런 형태의 데이터를 가지고 �
 <tr><td>같은 이름 재선언</td><td>불가능(오류)</td><td>가능(자동으로 합쳐짐)</td></tr>
 </tbody>
 </table>
+
+**• TypeScript: type과 interface 확장 방식**
 
 ```ts
 // type: & 연산자로 합치기

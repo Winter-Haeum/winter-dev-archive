@@ -75,6 +75,8 @@ tags:
 
 ## 2. input 값을 state로 관리한다
 
+**• React: input 값을 state로 관리하기**
+
 ```jsx
 const [newTitle, setNewTitle] = useState("");
 ```
@@ -115,6 +117,8 @@ const [newTitle, setNewTitle] = useState("");
   </div>
 </div>
 
+**• React: value와 onChange로 controlled input 만들기**
+
 ```jsx
 <input
   value={newTitle}
@@ -125,6 +129,8 @@ const [newTitle, setNewTitle] = useState("");
 ---
 
 ## 5. textarea와 select
+
+**• React: textarea와 select 다루기**
 
 ```jsx
 <textarea
@@ -144,6 +150,8 @@ textarea와 select도 input과 같은 방식으로 value와 onChange를 사용�
 
 ## 6. checkbox 맛보기
 
+**• React: checkbox 다루기**
+
 ```jsx
 <input
   type="checkbox"
@@ -158,6 +166,8 @@ checkbox는 `value`가 아니라 `checked` 속성으로 상태를 표시하며, 
 
 ## 7. 여러 input 관리하기
 
+**• React: 여러 input을 각각 state로 관리하기**
+
 ```jsx
 const [newTitle, setNewTitle] = useState("");
 const [category, setCategory] = useState("study");
@@ -168,6 +178,8 @@ const [category, setCategory] = useState("study");
 ---
 
 ## 8. submit 처리와 preventDefault
+
+**• React: submit 처리와 preventDefault**
 
 ```jsx
 function handleSubmit(event) {
@@ -206,6 +218,8 @@ function handleSubmit(event) {
 
 ## 9. 간단한 검증
 
+**• React: 빈 값 검증하기**
+
 ```jsx
 function handleSubmit(event) {
   event.preventDefault();
@@ -223,6 +237,8 @@ function handleSubmit(event) {
 ---
 
 ## 10. 입력값 초기화
+
+**• React: 제출 후 입력값 초기화하기**
 
 ```jsx
 function handleSubmit(event) {

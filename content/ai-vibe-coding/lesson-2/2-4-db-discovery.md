@@ -74,6 +74,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 방문자가 남기는 문의 메시지를 저장하는 contact-message의 구조와, 입력값을 검증하고 저장하는 흐름을 다룹니다. 화면에서 여러 문의 목록을 나열하는 방법은 [[2-5-community-dev|다음 문서]]에서 다룹니다.
 
+**▶ contact-message 필드 설계**
+
 <table class="wda-mtable">
 <thead><tr><th>필드명</th><th>타입</th><th>필수</th><th>공개</th><th>설명</th></tr></thead>
 <tbody>
@@ -138,6 +140,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 ---
 
 ## 6. AI에게 요청하는 예시
+
+**• 문의 기능 요청 프롬프트**
 
 ```
 contact-section에 문의 메시지 입력 기능을 추가하고 싶습니다.

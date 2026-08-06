@@ -107,6 +107,8 @@ Working Directory는 특별할 것 없는 평범한 폴더다. 파일을 만들�
 
 안에는 아래와 같은 정보가 들어 있다.
 
+**▶ .git 폴더에 담기는 정보**
+
 <table class="wda-mtable">
 <thead><tr><th>.git 폴더 안에 있는 것</th><th>내용</th></tr></thead>
 <tbody>
@@ -155,6 +157,8 @@ Staging Area에 담아둔 내용을 <code>git commit</code>으로 확정하면, 
 
 Repository의 실체는 프로젝트 폴더 안의 <code>.git/</code> 폴더다. 그 안에서도 핵심 역할을 하는 하위 폴더는 다음 두 가지다.
 
+**▶ .git 핵심 하위 폴더**
+
 <table class="wda-mtable">
 <thead><tr><th>하위 폴더</th><th>역할</th></tr></thead>
 <tbody>
@@ -178,6 +182,8 @@ Repository에는 결과적으로 아래 정보들이 함께 쌓인다.
 
 지금까지 본 3영역 구조에서 실제로 손을 대는 명령어는 두 개뿐이다. 이 두 명령어의 역할을 정확히 구분하는 것이 Git을 이해하는 핵심이다.
 
+**▶ git add와 git commit의 역할**
+
 <table class="wda-mtable">
 <thead><tr><th>명령어</th><th>역할</th><th>예시</th></tr></thead>
 <tbody>
@@ -186,6 +192,8 @@ Repository에는 결과적으로 아래 정보들이 함께 쌓인다.
 </tbody>
 </table>
 
+**• 터미널: git add로 변경 사항 올리기**
+
 ```bash
 git add index.html
 git add style.css script.js
@@ -193,6 +201,8 @@ git add .
 ```
 
 <code>git add</code>는 파일 하나만 지정할 수도, 여러 파일을 한 번에 지정할 수도, <code>.</code>으로 변경된 파일 전체를 한 번에 올릴 수도 있다. 커밋 전까지는 몇 번을 다시 실행해도 문제가 없으므로, 준비 단계로 편하게 사용하면 된다.
+
+**• 터미널: git commit으로 버전 확정하기**
 
 ```bash
 git commit -m "로그인 기능 추가"
@@ -234,6 +244,8 @@ Git 이전에 널리 쓰이던 SVN 같은 도구는 변경된 부분(차이, dif
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">4. 설치 확인</div><div class="wda-fnode-dsc">버전 번호 확인</div></div>
 </div>
+
+**• 터미널: Git 설치 확인**
 
 ```bash
 git --version

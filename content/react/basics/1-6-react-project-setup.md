@@ -91,6 +91,8 @@ Vite는 개발 서버 실행이 빠르고 설정이 간단해, 많은 현대 Rea
 
 ## 3. 프로젝트 생성 명령
 
+**• 터미널: Vite로 프로젝트 생성하기**
+
 ```bash
 npm create vite@latest
 ```
@@ -120,6 +122,8 @@ npm create vite@latest
 
 ## 5. 프로젝트 폴더로 이동하기
 
+**• 터미널: 프로젝트 폴더로 이동하기**
+
 ```bash
 cd course-dashboard
 ```
@@ -127,6 +131,8 @@ cd course-dashboard
 ---
 
 ## 6. package 설치하기
+
+**• 터미널: package 설치하기**
 
 ```bash
 npm install
@@ -141,6 +147,8 @@ npm install
 ---
 
 ## 7. 개발 서버 실행하기
+
+**• 터미널: 개발 서버 실행하기**
 
 ```bash
 npm run dev
@@ -184,6 +192,8 @@ npm run dev
 ---
 
 ## 9. 기본 폴더 구조 맛보기
+
+**• Vite 프로젝트 기본 폴더 구조**
 
 ```text
 course-dashboard/
@@ -229,6 +239,8 @@ course-dashboard/
 
 ## 11. npm scripts 맛보기
 
+**• 설정: package.json scripts 예시**
+
 ```json
 {
   "scripts": {
@@ -237,6 +249,8 @@ course-dashboard/
   }
 }
 ```
+
+**▶ npm scripts 명령어별 역할**
 
 <table class="wda-mtable">
   <tr>
@@ -256,6 +270,8 @@ course-dashboard/
 ---
 
 ## 12. 빌드 명령 맛보기
+
+**• 터미널: 배포용 빌드 실행하기**
 
 ```bash
 npm run build

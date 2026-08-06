@@ -91,6 +91,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 각 섹션을 만들기 전에, "이 섹션에 어떤 정보가 들어가는가"를 먼저 표로 정리해두면 이후 AI에게 요청할 때 훨씬 명확해집니다.
 
+**▶ 섹션별 담을 정보**
+
 <table class="wda-mtable">
 <thead><tr><th>섹션</th><th>담을 정보</th></tr></thead>
 <tbody>

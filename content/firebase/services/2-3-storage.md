@@ -91,6 +91,8 @@ Firestore가 텍스트 위주의 데이터를 저장하는 데 특화되어 있�
 
 ## 2. 파일 업로드와 다운로드 URL
 
+**• JavaScript: 파일 업로드와 다운로드 URL 발급**
+
 ```js
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -123,6 +125,8 @@ Storage에 저장된 파일은 기본적으로 내부 전용 경로에 있기 �
 
 ## 3. 발급받은 URL은 Firestore와 함께 쓰인다
 
+**• JavaScript: 다운로드 URL을 Firestore에 저장**
+
 ```js
 import { addDoc, collection } from 'firebase/firestore';
 
@@ -145,6 +149,8 @@ async function savePost(title, imageUrl) {
 <div class="wda-callout wda-cw">
   <p>Firebase 콘솔에서 Storage를 처음 켤 때 "테스트 모드"를 선택하면, 일정 기간 동안 누구나 파일을 읽고 쓸 수 있는 상태가 됩니다. 이는 개발 편의를 위한 임시 설정일 뿐, 실제 서비스에서는 로그인한 사용자만 자신의 파일을 올리고, 필요한 범위에서만 파일을 읽을 수 있도록 보안 규칙을 반드시 설정해야 합니다.</p>
 </div>
+
+**• 설정: Storage 보안 규칙 예시**
 
 ```
 // 보안 규칙 예시: 로그인한 사용자만 업로드 허용

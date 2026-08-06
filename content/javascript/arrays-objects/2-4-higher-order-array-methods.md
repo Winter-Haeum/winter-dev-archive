@@ -76,6 +76,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이 문서는 강의 목록 배열 하나를 계속 사용합니다.
 
+**• JavaScript: 예제로 쓸 강의 목록 배열**
+
 ```jsx
 const lessonList = [
   { id: 1, title: '변수와 자료형', minutes: 30, completed: true },
@@ -88,6 +90,8 @@ const lessonList = [
 
 화면에는 제목만 보여주고 싶다고 해봅시다. `for` 반복문으로도 할 수 있습니다.
 
+**• JavaScript: for 반복문으로 제목만 추출하기**
+
 ```jsx
 const titles = [];
 for (let i = 0; i < lessonList.length; i++) {
@@ -98,6 +102,8 @@ console.log(titles);
 ```
 
 완료된 강의만 골라내려면 또 비슷한 반복문을 새로 써야 합니다.
+
+**• JavaScript: for 반복문으로 완료된 강의 골라내기**
 
 ```jsx
 const done = [];
@@ -116,6 +122,8 @@ for (let i = 0; i < lessonList.length; i++) {
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">for 반복문</div>
 
+**• JavaScript: for로 제목 추출하기**
+
 ```jsx
 const titles = [];
 for (let i = 0; i < lessonList.length; i++) {
@@ -127,6 +135,8 @@ for (let i = 0; i < lessonList.length; i++) {
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">고차 배열 메서드</div>
+
+**• JavaScript: map으로 제목 추출하기**
 
 ```jsx
 const titles = lessonList.map(
@@ -143,6 +153,8 @@ const titles = lessonList.map(
 ## 2. 콜백 함수를 받는 배열 메서드
 
 `map`, `filter`, `find`, `some`, `every`, `reduce`, `forEach`는 모두 **콜백 함수를 인자로 받는 배열 메서드**입니다. 배열의 요소 하나마다 이 콜백을 실행하고, 콜백이 반환한 값을 이용해 결과를 만듭니다.
+
+**• JavaScript: map에 콜백 함수 전달하기**
 
 ```jsx
 lessonList.map(function (lesson) {
@@ -201,6 +213,8 @@ lessonList.map(lesson => lesson.title);
 
 `map`은 배열의 모든 요소를 변환해서, **원본과 같은 개수의 새 배열**을 반환합니다.
 
+**• JavaScript: map으로 새 배열 만들기**
+
 ```jsx
 const lessonTitles = lessonList.map(lesson => lesson.title);
 
@@ -211,6 +225,8 @@ console.log(lessonTitles.length === lessonList.length); // true
 ```
 
 문자열이 아니라 화면에 바로 쓸 문장을 만들 수도 있습니다.
+
+**• JavaScript: map으로 화면용 문장 만들기**
 
 ```jsx
 const lessonLabels = lessonList.map(
@@ -231,6 +247,8 @@ console.log(lessonLabels[0]); // '변수와 자료형 (30분)'
 ## 5. filter: 조건을 통과한 항목만 남기기
 
 `filter`는 콜백이 `true`를 반환한 요소만 모아 **새 배열**로 돌려줍니다. 원본과 개수가 같을 수도, 더 적을 수도 있습니다.
+
+**• JavaScript: filter로 완료된 강의만 남기기**
 
 ```jsx
 const completedLessons = lessonList.filter(lesson => lesson.completed);
@@ -256,6 +274,8 @@ console.log(completedLessons.map(lesson => lesson.title));
 ## 6. find: 첫 번째 항목 하나 찾기
 
 `find`는 조건을 만족하는 **첫 번째 요소 하나**를 반환합니다. 찾으면 그 즉시 나머지 요소는 더 이상 검사하지 않습니다.
+
+**• JavaScript: find로 요소 하나 찾기**
 
 ```jsx
 const targetLesson = lessonList.find(lesson => lesson.id === 3);
@@ -288,6 +308,8 @@ console.log(missingLesson); // undefined
 ## 7. some / every: 조건을 만족하는지 확인하기
 
 `some`은 **하나라도** 조건을 만족하면, `every`는 **모두** 조건을 만족해야 `true`를 반환합니다. 둘 다 결과가 정해지는 순간 검사를 멈춥니다.
+
+**• JavaScript: some·every로 조건 검사하기**
 
 ```jsx
 const hasUnfinishedLesson = lessonList.some(lesson => !lesson.completed);
@@ -325,6 +347,8 @@ console.log(allLessonsCompleted); // false (미완료 강의가 있음)
 
 `reduce`는 배열의 모든 요소를 순서대로 돌면서 **누적값 하나**를 만들어 반환합니다.
 
+**• JavaScript: reduce로 학습 시간 합산하기**
+
 ```jsx
 const totalStudyMinutes = lessonList.reduce(
   (total, lesson) => total + lesson.minutes,
@@ -341,6 +365,8 @@ console.log(totalStudyMinutes); // 215
 <div class="wda-callout wda-cw">
   초기값을 생략하면 배열의 첫 번째 요소가 초기값으로 쓰입니다. 이때 배열이 <strong>비어 있으면 에러</strong>가 발생하므로, 초기값은 항상 명시하는 습관을 들이세요.
 </div>
+
+**• JavaScript: 초기값 없는 reduce — 에러 확인용**
 
 ```jsx
 // 일부러 에러 확인용: 빈 배열 + 초기값 없음
@@ -362,6 +388,8 @@ try {
 ## 9. forEach: 반복 실행만 할 때 사용하기
 
 `forEach`는 배열의 요소마다 콜백을 실행하지만, **결과를 모으지 않고 항상 `undefined`를 반환**합니다.
+
+**• JavaScript: forEach로 반복 실행하기**
 
 ```jsx
 lessonList.forEach(lesson => console.log(lesson.title));
@@ -398,6 +426,8 @@ console.log(result); // undefined
 
 `sort`는 지금까지 살펴본 메서드와 다르게 **원본 배열을 직접 바꿉니다.**
 
+**• JavaScript: sort 기본 동작 확인하기**
+
 ```jsx
 const numbers = [10, 5, 20, 1];
 
@@ -410,6 +440,8 @@ console.log(numbers); // [1, 5, 10, 20]
 ```
 
 강의 목록을 학습 시간이 짧은 순서로 정렬하고 싶다면, 원본을 그대로 두기 위해 **복사본을 만든 뒤 정렬**합니다.
+
+**• JavaScript: 복사본을 만들어 정렬하기**
 
 ```jsx
 const sortedLessons = [...lessonList].sort((a, b) => a.minutes - b.minutes);
@@ -432,6 +464,8 @@ console.log(lessonList.map(lesson => lesson.title));
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">sort 직접 사용</div>
 
+**• JavaScript: sort로 원본 직접 정렬하기**
+
 ```jsx
 lessonList.sort(
   (a, b) => a.minutes - b.minutes
@@ -442,6 +476,8 @@ lessonList 자체의 순서가 바뀜
   </div>
   <div class="wda-compare-card">
     <div class="wda-compare-ttl">복사 후 sort</div>
+
+**• JavaScript: 복사 후 sort로 원본 보호하기**
 
 ```jsx
 const sortedLessons = [...lessonList].sort(
@@ -462,6 +498,8 @@ lessonList는 그대로, 새 배열만 정렬됨
 ---
 
 ## 11. 메서드 선택 기준
+
+**▶ 메서드별 반환값·원본 변경 여부**
 
 <table class="wda-mtable">
   <tr>
@@ -539,6 +577,8 @@ lessonList는 그대로, 새 배열만 정렬됨
 
 앞의 메서드들은 각자 값을 반환하므로, 그 반환값에 다시 메서드를 이어 붙일 수 있습니다.
 
+**• JavaScript: filter·map·reduce 체이닝하기**
+
 ```jsx
 const completedTitles = lessonList
   .filter(lesson => lesson.completed) // 완료된 강의만 (새 배열)
@@ -571,6 +611,8 @@ console.log(completedMinutes); // 120
 ## 13. 원본 배열을 지키는 습관
 
 `map`, `filter`, `find`, `some`, `every`, `reduce`는 원본을 바꾸지 않지만, `sort`나 `push`, `splice` 같은 메서드는 원본을 직접 바꿉니다.
+
+**• JavaScript: 원본을 바꾸는 방식 vs 지키는 방식**
 
 ```jsx
 // 원본을 바꾸는 방식
@@ -630,6 +672,8 @@ console.log(nextLessonList.length); // 6 (새 배열에만 추가됨)
 - 완료된 강의 개수를 구하세요.
 - 전체 학습 시간(분)의 합계를 구하세요.
 - 위 세 값을 담은 `lessonSummary` 객체를 만드세요.
+
+**• JavaScript: 실습 구성 예시 — lessonSummary**
 
 ```jsx
 const lessonList = [

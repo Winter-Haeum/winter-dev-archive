@@ -76,6 +76,8 @@ tags:
 
 <div class="wda-compare-ttl">❌ 타입을 확인하지 않으면</div>
 
+**• JavaScript: 문자열과 숫자를 잘못 더하는 경우**
+
 ```javascript
 let productPrice = "10000";
 // 문자열로 잘못 들어온 상황
@@ -90,6 +92,8 @@ console.log(productPrice + 1000);
 <div class="wda-compare-card wda-modern">
 
 <div class="wda-compare-ttl">✅ 타입에 맞게 다루면</div>
+
+**• JavaScript: 숫자 타입으로 정확히 계산하기**
 
 ```javascript
 let productPrice = 10000;
@@ -123,6 +127,8 @@ console.log(productPrice + 1000);
   </div>
 </div>
 
+**• JavaScript: 주문 정보 카드 값 선언하기**
+
 ```javascript
 const productName = "무선 이어폰";
 let productPrice = 39000;
@@ -144,6 +150,8 @@ function showOrderSummary() {
 
 JavaScript의 원시 타입은 정확히 7가지다.
 
+**▶ 원시 타입 7가지**
+
 | 타입 | 설명 | 예시 |
 |---|---|---|
 | `string` | 문자열 | `productName` → `"무선 이어폰"` |
@@ -164,11 +172,15 @@ JavaScript의 원시 타입은 정확히 7가지다.
 
 ## 4. 문자열과 숫자 다루기
 
+**• JavaScript: 문자열 다루기**
+
 ```javascript
 const productName = "무선 이어폰";
 console.log(`상품명: ${productName}`);
 // 상품명: 무선 이어폰
 ```
+
+**• JavaScript: 숫자 다루기**
 
 ```javascript
 const productPrice = 39000;
@@ -194,6 +206,8 @@ console.log(productPrice);
 
 변수를 선언만 하고 값을 넣지 않았을 때, 아직 값이 들어오지 않은 상태를 나타낸다.
 
+**• JavaScript: undefined 확인하기**
+
 ```javascript
 let deliveryMemo;
 console.log(deliveryMemo);
@@ -207,6 +221,8 @@ console.log(deliveryMemo);
 <div class="wda-compare-ttl">🚫 null</div>
 
 개발자가 "지금은 값이 없다"는 것을 직접 표시하려고 넣는 값이다.
+
+**• JavaScript: null 확인하기**
 
 ```javascript
 let selectedOption = null;
@@ -222,6 +238,8 @@ console.log(selectedOption);
 
 ## 6. 숫자인데 숫자가 아니다: NaN
 
+**• JavaScript: 잘못된 계산으로 NaN 만들기**
+
 ```javascript
 const productPrice = 39000;
 let quantity = "두 개"; // 숫자가 아닌 값이 들어온 상황
@@ -229,6 +247,8 @@ let quantity = "두 개"; // 숫자가 아닌 값이 들어온 상황
 console.log(productPrice * quantity);
 // NaN — 숫자가 아닌 값끼리 계산해 결과를 만들 수 없다
 ```
+
+**• JavaScript: NaN 자기 자신과 비교하기**
 
 ```javascript
 console.log(NaN === NaN);
@@ -240,6 +260,8 @@ console.log(NaN === NaN);
 <div class="wda-callout wda-cw">
   소수 계산에서도 예상과 다른 값이 나올 수 있다. <code>0.1 + 0.2</code>를 계산하면 <code>0.3</code>이 아니라 <code>0.30000000000000004</code>가 나온다. 컴퓨터가 소수를 저장하는 방식 때문에 생기는 오차이며, 자세한 원리는 이 문서에서 다루지 않는다.
 </div>
+
+**• JavaScript: 소수 계산 오차 확인하기**
 
 ```javascript
 console.log(0.1 + 0.2);
@@ -268,17 +290,23 @@ console.log(0.1 + 0.2);
   </div>
 </div>
 
+**• JavaScript: 객체 타입 확인하기**
+
 ```javascript
 const orderInfo = { productName: "무선 이어폰", productPrice: 39000 };
 console.log(orderInfo);
 // { productName: "무선 이어폰", productPrice: 39000 }
 ```
 
+**• JavaScript: 배열 타입 확인하기**
+
 ```javascript
 const cartItems = ["무선 이어폰"];
 console.log(cartItems);
 // ["무선 이어폰"]
 ```
+
+**• JavaScript: 함수 타입 확인하기**
 
 ```javascript
 function showOrderSummary() {
@@ -293,6 +321,8 @@ showOrderSummary();
 
 ## 8. 원시 타입과 참조 타입은 왜 다르게 비교될까
 
+**• JavaScript: 원시 타입 값 복사 확인하기**
+
 ```javascript
 let priceA = 39000;
 let priceB = priceA;
@@ -302,6 +332,8 @@ console.log(priceA);
 // 39000 — priceA는 그대로다 (값 자체가 복사됐다)
 ```
 
+**• JavaScript: 참조 타입 값 공유 확인하기**
+
 ```javascript
 let orderInfoA = { productName: "무선 이어폰", productPrice: 39000 };
 let orderInfoB = orderInfoA;
@@ -310,6 +342,8 @@ orderInfoB.productPrice = 50000;
 console.log(orderInfoA.productPrice);
 // 50000 — orderInfoA도 함께 바뀐다 (같은 대상을 가리키고 있었다)
 ```
+
+**• JavaScript: 빈 배열끼리 비교하기**
 
 ```javascript
 console.log([] === []);
@@ -325,6 +359,8 @@ console.log([] === []);
 ---
 
 ## 9. typeof로 타입 확인하기 (+ Array.isArray)
+
+**• JavaScript: typeof로 여러 값 타입 확인하기**
 
 ```javascript
 const productName = "무선 이어폰";
@@ -346,6 +382,8 @@ console.log(typeof deliveryMemo);   // "undefined"
   <code>selectedOption</code>은 <code>null</code>인데 <code>typeof</code> 결과는 <code>"object"</code>로 나온다. null인지 정확히 확인하려면 <code>typeof</code> 대신 <code>selectedOption === null</code>처럼 직접 비교한다.
 </div>
 
+**• JavaScript: Array.isArray로 배열 정확히 확인하기**
+
 ```javascript
 const cartItems = ["무선 이어폰"];
 
@@ -366,6 +404,8 @@ console.log(Array.isArray(cartItems));
 
 <div class="wda-compare-ttl">✅ String()</div>
 
+**• JavaScript: String()으로 안전하게 변환하기**
+
 ```javascript
 const selectedOption = null;
 console.log(String(selectedOption));
@@ -377,6 +417,8 @@ console.log(String(selectedOption));
 <div class="wda-compare-card wda-legacy">
 
 <div class="wda-compare-ttl">⚠️ .toString()</div>
+
+**• JavaScript: .toString()의 에러 — 에러 확인용**
 
 ```javascript
 const selectedOption = null;
@@ -397,6 +439,8 @@ console.log(selectedOption.toString());
 ---
 
 ## 11. 동적 타이핑이란?
+
+**• JavaScript: 동적 타이핑 확인하기**
 
 ```javascript
 let selectedOption = null;
@@ -424,6 +468,8 @@ console.log(typeof selectedOption);
 
 <div class="wda-fcard-ttl">🔹 실수 1 · null을 object로 착각</div>
 
+**• JavaScript: null을 object로 착각하는 실수**
+
 ```javascript
 const selectedOption = null;
 console.log(typeof selectedOption);
@@ -441,6 +487,8 @@ console.log(typeof selectedOption);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 배열을 typeof로만 확인</div>
 
+**• JavaScript: 배열을 typeof로만 확인하는 실수**
+
 ```javascript
 const cartItems = ["무선 이어폰"];
 console.log(typeof cartItems);
@@ -457,6 +505,8 @@ console.log(typeof cartItems);
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · 빈 값에 .toString() 사용</div>
+
+**• JavaScript: 빈 값에 .toString() 사용하는 실수**
 
 ```javascript
 let deliveryMemo;
@@ -491,11 +541,15 @@ console.log(deliveryMemo.toString());
 • 위 값들을 묶은 **주문 정보 객체**를 만든다.<br>
 • `typeof`와 `Array.isArray`로 값들의 타입을 확인한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 상품명(const) / 가격·품절여부(let) / 미선택옵션(null) / 주문정보(object)
 ```
 
 **💡 힌트 1 — 변수 선언**
+
+**• JavaScript: 힌트 1 — 변수 선언**
 
 ```javascript
 const productName = "블루투스 키보드";
@@ -509,6 +563,8 @@ console.log(productName, productPrice, isSoldOut, selectedOption);
 
 **💡 힌트 2 — 참조 타입으로 묶기**
 
+**• JavaScript: 힌트 2 — 참조 타입으로 묶기**
+
 ```javascript
 const orderInfo = { productName, productPrice, isSoldOut };
 console.log(orderInfo);
@@ -516,6 +572,8 @@ console.log(orderInfo);
 ```
 
 **💡 힌트 3 — 타입 확인**
+
+**• JavaScript: 힌트 3 — 타입 확인**
 
 ```javascript
 console.log(typeof productName);        // "string"

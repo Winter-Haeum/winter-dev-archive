@@ -115,6 +115,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 Preview 환경에 접속했을 때는 아래와 같은 관점으로 확인하면 도움이 됩니다.
 
+**▶ Preview 환경 확인 항목**
+
 <table class="wda-mtable">
 <thead><tr><th>확인 항목</th><th>설명</th></tr></thead>
 <tbody>

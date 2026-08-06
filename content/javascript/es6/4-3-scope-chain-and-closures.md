@@ -72,6 +72,8 @@ tags:
 
 ## 1. 스코프를 알아야 하는 이유
 
+**• JavaScript: 같은 이름 변수의 독립성 확인하기**
+
 ```javascript
 let notificationType = "이메일";
 
@@ -97,6 +99,8 @@ console.log(notificationType);
 
 ## 2. 스코프 종류 빠르게 정리
 
+**▶ 스코프 종류**
+
 | 스코프 | 범위 |
 |---|---|
 | 전역 스코프 | 코드 어디서든 접근 가능 |
@@ -108,6 +112,8 @@ console.log(notificationType);
 ---
 
 ## 3. 안쪽에서 바깥쪽으로 찾는 흐름
+
+**• JavaScript: 안쪽에서 바깥쪽으로 값 찾기**
 
 ```javascript
 const defaultMessage = "새 알림이 도착했습니다";
@@ -134,6 +140,8 @@ createNotifier();
   방향은 <strong>한쪽으로만</strong> 열려 있다. 안쪽은 바깥쪽을 볼 수 있지만, 바깥쪽은 안쪽을 볼 수 없다.
 </div>
 
+**• JavaScript: 바깥에서 안쪽 변수 접근 — 에러 확인용**
+
 ```javascript
 function createNotifier() {
   const notificationType = "이메일";
@@ -148,6 +156,8 @@ console.log(notificationType);
 ---
 
 ## 4. 스코프 체인
+
+**• JavaScript: 스코프 체인으로 값 찾기**
 
 ```javascript
 const level = "전역";
@@ -187,6 +197,8 @@ outerScope();
   </div>
 </div>
 
+**• JavaScript: 렉시컬 스코프 확인하기**
+
 ```javascript
 const notificationType = "이메일";
 
@@ -212,6 +224,8 @@ runElsewhere();
 ---
 
 ## 6. 중첩 함수에서 값 찾기
+
+**• JavaScript: 중첩 함수에서 값 찾기**
 
 ```javascript
 function createNotifier(notificationType) {
@@ -250,6 +264,8 @@ emailNotifier();
 
 ## 8. 실행이 끝난 함수의 변수가 남아 보이는 이유
 
+**• JavaScript: 클로저로 값 유지되는 것 확인하기**
+
 ```javascript
 function createCounter() {
   let savedCount = 0;
@@ -283,6 +299,8 @@ counter();
 ---
 
 ## 9. 클로저로 상태 숨기기
+
+**• JavaScript: 클로저로 상태 숨기기**
 
 ```javascript
 function createCounter() {
@@ -321,6 +339,8 @@ console.log(counter.savedCount);
 
 ## 10. 클로저로 독립 상태 만들기
 
+**• JavaScript: 클로저로 독립 상태 만들기**
+
 ```javascript
 function createUserCounter(userName) {
   let savedCount = 0;
@@ -350,6 +370,8 @@ countForMinho();
 
 ## 11. 반복문과 클로저 주의
 
+**• JavaScript: var 반복문에서 클로저 문제 확인하기**
+
 ```javascript
 const notificationQueue = ["이메일", "SMS", "푸시"];
 
@@ -364,6 +386,8 @@ for (var i = 0; i < notificationQueue.length; i++) {
 ```
 
 `var`는 함수 스코프라서 반복문 전체가 `i` 하나를 공유한다. `setTimeout` 콜백이 실행될 때는 이미 반복문이 끝나 `i`가 3이 되어 있어, `notificationQueue[3]`(존재하지 않는 인덱스)을 읽게 된다.
+
+**• JavaScript: let 반복문으로 클로저 문제 해결하기**
 
 ```javascript
 for (let i = 0; i < notificationQueue.length; i++) {
@@ -386,6 +410,8 @@ for (let i = 0; i < notificationQueue.length; i++) {
 
 ## 12. var와 let 차이
 
+**▶ var vs let**
+
 | 구분 | var | let |
 |---|---|---|
 | 스코프 | 함수 스코프 | 블록 스코프 |
@@ -401,6 +427,8 @@ for (let i = 0; i < notificationQueue.length; i++) {
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 1 · 블록 밖에서 안쪽 변수 접근</div>
+
+**• JavaScript: 블록 밖에서 안쪽 변수 접근하는 실수**
 
 ```javascript
 if (true) {
@@ -422,6 +450,8 @@ console.log(notificationType);
 
 <div class="wda-fcard-ttl">🔹 실수 2 · 함수가 끝나면 변수도 사라진다는 착각</div>
 
+**• JavaScript: 함수 종료 시 변수도 사라진다는 착각**
+
 ```javascript
 const counter = createCounter();
 counter();
@@ -438,6 +468,8 @@ counter();
 <div class="wda-fcard">
 
 <div class="wda-fcard-ttl">🔹 실수 3 · var 반복문에서 다른 값을 기대</div>
+
+**• JavaScript: var 반복문에서 다른 값을 기대하는 실수**
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -473,11 +505,15 @@ for (var i = 0; i < 3; i++) {
 • `createUserCounter(userName)`가 사용자별로 독립된 `savedCount`를 기억하게 한다.<br>
 • 서로 다른 사용자로 카운터를 두 개 만들어 값이 섞이지 않는지 확인한다.
 
+**• JavaScript: 실습 구성 예시**
+
 ```javascript
 // 구성 예시: 알림 발신기 만들기 / 사용자별 카운터 만들기 / 독립성 확인
 ```
 
 **💡 힌트 1 — 알림 발신기**
+
+**• JavaScript: 힌트 1 — 알림 발신기**
 
 ```javascript
 function createNotifier(notificationType) {
@@ -493,6 +529,8 @@ smsNotifier("결제가 완료되었습니다");
 ```
 
 **💡 힌트 2 — 사용자별 카운터**
+
+**• JavaScript: 힌트 2 — 사용자별 카운터**
 
 ```javascript
 function createUserCounter(userName) {
@@ -511,6 +549,8 @@ console.log(countForDoyun());
 ```
 
 **💡 힌트 3 — 독립성 확인**
+
+**• JavaScript: 힌트 3 — 독립성 확인**
 
 ```javascript
 const countA = createUserCounter("A");

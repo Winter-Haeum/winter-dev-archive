@@ -77,6 +77,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 예를 들어 "입력값이 이메일 형식인지 확인해줘"라는 조건은 `if`문만으로 구현하려면 매우 길고 복잡한 코드가 필요합니다. 정규표현식을 쓰면 이런 규칙을 한 줄의 패턴으로 표현할 수 있습니다.
 
+**• 이메일 형식 검사**
+
 ```js
 const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 isEmail.test('test@gmail.com'); // true
@@ -95,11 +97,15 @@ isEmail.test('잘못된값');        // false
 
 자바스크립트에서는 슬래시(`/`)로 패턴을 감싸서 정규식을 만듭니다.
 
+**• 정규식 리터럴 구조**
+
 ```js
 const regex = /abc/gi;
 //            └┬┘└┬┘
 //           패턴  플래그
 ```
+
+**▶ 정규식 플래그 의미**
 
 <table class="wda-mtable">
 <thead><tr><th>플래그</th><th>의미</th></tr></thead>
@@ -111,6 +117,8 @@ const regex = /abc/gi;
 
 패턴이 일치하는지 확인할 때는 `test()`를, 문자열에서 일치하는 부분을 뽑아낼 때는 `match()`를 사용합니다.
 
+**• test()와 match() 비교**
+
 ```js
 /\d+/.test('전화번호 010');      // true — 숫자가 있는지 확인
 '전화번호 010-1234'.match(/\d+/g); // ['010', '1234'] — 숫자 덩어리 추출
@@ -121,6 +129,8 @@ const regex = /abc/gi;
 ## 3. 자주 쓰는 기호
 
 정규식의 기호는 크게 "어떤 문자인지"를 나타내는 것과 "몇 번 반복되는지"를 나타내는 것으로 나뉩니다.
+
+**▶ 자주 쓰는 정규식 기호**
 
 <table class="wda-mtable">
 <thead><tr><th>기호</th><th>의미</th><th>예시</th></tr></thead>
@@ -157,6 +167,8 @@ const regex = /abc/gi;
 
 앞서 배운 기호를 조합하면 실제로 자주 쓰이는 검증 패턴을 만들 수 있습니다.
 
+**▶ 실전 검증 패턴 예시**
+
 <table class="wda-mtable">
 <thead><tr><th>용도</th><th>패턴</th><th>해석</th></tr></thead>
 <tbody>
@@ -166,6 +178,8 @@ const regex = /abc/gi;
 </table>
 
 이메일 패턴에서 `\.`은 마침표 하나를 문자 그대로 찾으라는 뜻입니다. `.`은 원래 "아무 문자 1개"를 뜻하는 특별한 기호이므로, 진짜 마침표를 찾고 싶다면 앞에 역슬래시(`\`)를 붙여 이스케이프해야 합니다.
+
+**• 전화번호 형식 검사**
 
 ```js
 const phoneRegex = /^\d{2,3}-\d{3,4}-\d{4}$/;

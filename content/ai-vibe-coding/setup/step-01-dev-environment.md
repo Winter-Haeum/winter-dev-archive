@@ -99,6 +99,8 @@ Windows 10/11에는 `winget`이라는 패키지 관리자가 기본 내장되어
 
 Windows 키를 누르고 "PowerShell"을 검색해 **관리자 권한으로 실행**한 뒤 아래 명령을 차례로 입력합니다.
 
+**• 터미널: Windows Git·Node.js 설치**
+
 ```powershell
 winget install Git.Git
 winget install OpenJS.NodeJS
@@ -112,6 +114,8 @@ winget install OpenJS.NodeJS
 
 새 PowerShell에서 Claude Code를 설치합니다.
 
+**• 터미널: Windows Claude Code 설치**
+
 ```powershell
 npm install -g @anthropic-ai/claude-code
 ```
@@ -123,6 +127,8 @@ npm install -g @anthropic-ai/claude-code
 macOS는 Git이 기본 포함되어 있지만, Node.js 설치를 위해 Homebrew라는 패키지 관리자를 먼저 설치해야 합니다.
 
 Finder에서 "터미널"을 검색해 실행한 뒤 아래 명령을 차례로 입력합니다.
+
+**• 터미널: Mac Homebrew·Node.js·Claude Code 설치**
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -141,6 +147,8 @@ sudo npm install -g @anthropic-ai/claude-code
 ## 4. 설치 확인하기
 
 아래 네 명령어로 모든 도구가 정상적으로 설치되었는지 확인합니다.
+
+**• 터미널: 설치 버전 확인**
 
 ```bash
 git --version
@@ -168,6 +176,8 @@ claude --version
 </div>
 
 터미널에서 Claude Code가 정상 인식되는지 다시 확인합니다.
+
+**• 터미널: VS Code 내장 터미널에서 확인**
 
 ```bash
 claude --version

@@ -104,6 +104,8 @@ Firestore의 데이터는 **collection**과 **document**라는 두 가지 단위
   <div class="wda-fcard"><div class="wda-fcard-ttl">Field</div><div class="wda-fcard-dsc">문서 안에 담기는 개별 데이터 항목입니다.</div></div>
 </div>
 
+**• Collection과 Document 구조 예시**
+
 ```
 users (collection)
  ├─ doc_1 { name: "김철수", age: 25 }
@@ -117,6 +119,8 @@ collection 안에는 여러 document가 들어있고, 각 document 안에는 필
 ## 3. Firestore 초기화하기
 
 React 프로젝트에서 Firestore를 사용하려면 먼저 SDK를 초기화해야 합니다.
+
+**• JavaScript: Firestore SDK 초기화**
 
 ```js
 // firebase.js
@@ -133,6 +137,8 @@ export const db = getFirestore(app);
 ---
 
 ## 4. 데이터 쓰기와 읽기 기본 흐름
+
+**• JavaScript: Firestore 데이터 쓰기·읽기**
 
 ```js
 import { collection, addDoc, getDocs } from 'firebase/firestore';
@@ -166,6 +172,8 @@ async function getUsers() {
 ---
 
 ## 5. 언제 SQL, 언제 Firestore를 선택할까
+
+**▶ SQL과 Firestore 선택 기준**
 
 <table class="wda-mtable">
 <thead><tr><th>상황</th><th>적합한 선택</th></tr></thead>

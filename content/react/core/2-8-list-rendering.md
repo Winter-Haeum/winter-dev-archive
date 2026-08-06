@@ -85,6 +85,8 @@ tags:
 
 ## 3. map 기본
 
+**• React: map으로 배열을 목록으로 렌더링하기**
+
 ```jsx
 function LearningList({ items }) {
   return (
@@ -133,6 +135,8 @@ function LearningList({ items }) {
   </div>
 </div>
 
+**• React: id key와 index key 비교**
+
 ```jsx
 // 권장
 {items.map((item) => (
@@ -148,6 +152,8 @@ function LearningList({ items }) {
 ---
 
 ## 6. filter와 조합하기
+
+**• React: filter로 걸러낸 목록 렌더링하기**
 
 ```jsx
 const completedItems = learningItems.filter((item) => item.isCompleted);
@@ -168,6 +174,8 @@ const completedItems = learningItems.filter((item) => item.isCompleted);
 
 ## 7. sort와 조합하기
 
+**• React: sort로 정렬된 목록 렌더링하기**
+
 ```jsx
 const sortedItems = [...learningItems].sort((a, b) => a.title.localeCompare(b.title));
 ```
@@ -177,6 +185,8 @@ const sortedItems = [...learningItems].sort((a, b) => a.title.localeCompare(b.ti
 ---
 
 ## 8. 빈 목록 처리
+
+**• React: 빈 목록 처리하기**
 
 ```jsx
 if (learningItems.length === 0) {
@@ -189,6 +199,8 @@ if (learningItems.length === 0) {
 ---
 
 ## 9. 컴포넌트로 분리하기
+
+**• React: 목록 항목을 컴포넌트로 분리하기**
 
 ```jsx
 function LearningList({ items }) {

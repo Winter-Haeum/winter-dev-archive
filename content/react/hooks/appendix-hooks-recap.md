@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 이 문서는 새로운 개념을 추가하지 않고, [[3-1-usestate|3-1]]~[[3-4-custom-hooks|3-4]]에서 배운 내용을 비교·복습하는 용도입니다.
 
+**▶ useState·useEffect·useRef·Custom Hook 비교**
+
 <table class="wda-mtable">
 <thead><tr><th>Hook</th><th>역할</th><th>화면 갱신 여부</th><th>배운 문서</th></tr></thead>
 <tbody>

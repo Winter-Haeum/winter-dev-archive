@@ -75,6 +75,8 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 커스텀 훅은 컴포넌트 사이에서 반복되는 로직을 함수 하나로 묶어낸 것입니다. 훅을 사용하는 쪽에서는 이 훅이 무엇을 돌려주는지 알아야 하므로, 반환값의 타입을 명확히 하는 것이 중요합니다.
 
+**• TypeScript: 반환 타입이 추론되는 커스텀 훅**
+
 ```ts
 function useToggle(initial: boolean = false) {
   const [value, setValue] = useState(initial);
@@ -91,6 +93,8 @@ function useToggle(initial: boolean = false) {
 ## 2. API 상태를 다루는 훅 — data, loading, error
 
 API 요청처럼 여러 단계를 거치는 로직은 데이터, 로딩 여부, 에러 메시지를 함께 관리하는 경우가 많습니다. 이런 상태를 제네릭과 함께 정의하면 다양한 데이터 타입에 재사용할 수 있는 훅을 만들 수 있습니다.
+
+**• TypeScript: 제네릭 API 상태 훅**
 
 ```ts
 interface FetchState<T> {
@@ -116,6 +120,8 @@ function useFetch<T>(url: string): FetchState<T> {
   return state;
 }
 ```
+
+**• React: useFetch 훅 사용**
 
 ```tsx
 interface User {
