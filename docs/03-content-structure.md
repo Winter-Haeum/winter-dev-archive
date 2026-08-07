@@ -2,30 +2,35 @@
 
 ## 디렉토리 구조
 
+> 아래 트리는 실제 카테고리(최상위 폴더) 구조 기준이다(2026-08 개편 — `src/data/navigation.js`/[01-information-architecture.md](01-information-architecture.md)와 함께 정리). 각 카테고리 하위 파일명은 실제 파일명 예시가 아니라 구조를 보여주기 위한 예시다 — 실제 파일명은 해당 카테고리의 기존 문서를 따른다.
+
 ```
 content/
-├── frontend/
-│   ├── html/
-│   │   ├── index.md
-│   │   ├── html-basics.md
-│   │   ├── semantic-markup.md
-│   │   └── html-tags.md
-│   ├── css/
-│   │   ├── index.md
-│   │   ├── css-basics.md
-│   │   ├── box-model.md
-│   │   ├── flexbox.md
-│   │   ├── grid.md
-│   │   ├── animation.md
-│   │   └── responsive.md
-│   ├── layout/
-│   │   ├── index.md
-│   │   └── layout-thinking.md
-│   └── devtools/
-│       ├── index.md
-│       └── devtools-basics.md
+├── html/                     ← 독립 카테고리, 하위 섹션 없이 flat
+│   ├── index.md
+│   ├── html-basics.md
+│   ├── semantic-markup.md
+│   └── html-tags.md
 │
-├── javascript/
+├── css/
+│   └── css/                  ← 7개 단원이 모두 이 폴더 하나에 있다
+│       ├── index.md
+│       ├── css-basics.md
+│       ├── box-model.md
+│       ├── flexbox.md
+│       ├── grid.md
+│       ├── animation.md
+│       └── responsive.md
+│
+├── devtools-layout/          ← "DevTools & Layout" 카테고리
+│   ├── devtools/
+│   │   ├── index.md
+│   │   └── devtools-basics.md
+│   └── layout/
+│       ├── index.md
+│       └── layout-thinking.md
+│
+├── javascript/                ← jQuery/Regular Expression은 포함하지 않음(각각 독립 카테고리)
 │   ├── basics/
 │   │   ├── index.md
 │   │   ├── variables-scope.md
@@ -35,14 +40,12 @@ content/
 │   ├── arrays-objects/
 │   ├── dom/
 │   ├── es6/
-│   ├── async/
-│   ├── browser-apis/
-│   ├── jquery/
-│   └── regular-expression/
+│   └── async/
 │
 ├── typescript/
 │   ├── basics/
-│   └── react-typescript/
+│   ├── react-typescript/
+│   └── patterns/
 │
 ├── react/
 │   ├── basics/
@@ -51,34 +54,35 @@ content/
 │   ├── state-management/
 │   └── routing/
 │
-├── dev-tools/
+├── dev-tools/                ← 카테고리 표시명은 "Git & GitHub" (Webpack/Vite는 build-tools로 분리)
 │   ├── git/
-│   ├── github/
-│   ├── webpack/
-│   └── vite/
+│   └── github/
 │
-├── web-network/
-│   ├── http/
-│   ├── fetch/
-│   ├── cors/
-│   ├── api/
-│   └── saas/
+├── web-network/              ← 하위 섹션 없이 flat (HTTP/Fetch/CORS는 http/로 분리)
 │
-├── firebase/                ← 독립 카테고리 (2026-08 개편 — Database & Backend > Supabase 빈 목차 제거하며 분리)
+├── http/                     ← 독립 카테고리, 하위 섹션 없이 flat
 │
-├── css-framework/
-│   ├── bootstrap/
-│   └── tailwind/
+├── jquery/                   ← 독립 카테고리, 하위 섹션 없이 flat
 │
-├── testing/
-│   └── tdd/
+├── regular-expression/       ← 독립 카테고리, 문서 1개
+│
+├── firebase/                 ← 독립 카테고리
+│   ├── basics/
+│   ├── services/
+│   ├── deployment/
+│   └── appendix/
+│
+├── css-framework/            ← 하위 섹션 없이 flat
+│
+├── testing/                  ← 하위 섹션 없이 flat
+│
+├── build-tools/              ← 하위 섹션 없이 flat (초기 기획에는 없던 카테고리)
 │
 ├── coding-test/
-│   ├── index.md
-│   ├── strategy.md
-│   ├── array-methods.md
-│   ├── string-math.md
-│   └── programmers-level0.md
+│   ├── intro/
+│   ├── arrays/
+│   ├── string-math/
+│   └── problem-solving/
 │
 └── ai-vibe-coding/
     ├── setup/
@@ -124,15 +128,16 @@ content/
 
 ## 프론트매터 스펙
 
-모든 MD 파일은 파일 상단에 다음 프론트매터를 포함해야 한다.
+모든 MD 파일은 파일 상단에 다음 프론트매터를 포함한다(2026-08 개편 — `date` 필드는 v1에서 필수로 요구하지 않는다. 문서 정렬·라우팅은 `navigation.js`의 등록 순서와 파일 경로를 기준으로 관리하며, `date`는 향후 메타데이터 확장 후보로만 둔다. `wda-document-policy.md`의 "date frontmatter는 넣지 않는다" 기준과 통일했다).
 
 ```yaml
 ---
 title: "문서 제목"
+status: "completed"
+description: "문서 내용에 맞는 한 줄 설명"
 category: "카테고리 슬러그"
 section: "섹션 슬러그"
 tags: ["태그1", "태그2"]
-date: "YYYY-MM-DD"
 ---
 ```
 
@@ -141,24 +146,32 @@ date: "YYYY-MM-DD"
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
 | `title` | string | ✅ | 문서 제목. 사이드바와 검색 결과에 표시됨 |
-| `category` | string | ✅ | 최상위 카테고리 슬러그 (예: `frontend`, `javascript`) |
+| `status` | string | ✅ | 문서 상태 (`draft` / `in-progress` / `review` / `completed`) |
+| `description` | string | ✅ | 검색 결과·카드에 표시되는 한 줄 설명 |
+| `category` | string | ✅ | 최상위 카테고리 슬러그 (예: `html`, `javascript`) |
 | `section` | string | ✅ | 하위 섹션 슬러그 (예: `css`, `basics`) |
-| `tags` | string[] | ✅ | 검색 및 관련 문서 연결에 사용 |
-| `date` | string | ✅ | 최초 작성일 (학습일 기준). `YYYY-MM-DD` 형식 |
+| `tags` | string[] | 권장 | 검색 인덱스에 사용. 모든 문서에 필수는 아니며, 없어도 오류로 보지 않는다 |
+| `date` | string | ❌ | 필수 아님. 넣지 않는 것을 기본으로 한다(위 안내 참고) |
 
 ### 카테고리 슬러그 목록
 
 | 카테고리 | 슬러그 |
 |---|---|
-| Frontend Fundamentals | `frontend` |
+| HTML | `html` |
+| CSS | `css` |
+| DevTools & Layout | `devtools-layout` |
 | JavaScript | `javascript` |
 | TypeScript | `typescript` |
 | React | `react` |
-| Development Tools | `dev-tools` |
+| Git & GitHub | `dev-tools` |
 | Web & Network | `web-network` |
+| HTTP | `http` |
+| jQuery | `jquery` |
+| Regular Expression | `regular-expression` |
 | Firebase | `firebase` |
 | CSS Framework | `css-framework` |
 | Testing | `testing` |
+| Build Tools | `build-tools` |
 | Coding Test | `coding-test` |
 | AI & Vibe Coding | `ai-vibe-coding` |
 
@@ -244,10 +257,11 @@ function App() { return <div />; }
 ```md
 ---
 title: "CSS"
-category: "frontend"
+status: "completed"
+description: "선택자, 박스 모델, Flexbox, Grid, 반응형까지 CSS 전 범위"
+category: "css"
 section: "css"
 tags: ["css", "styling"]
-date: "2025-11-24"
 ---
 
 # CSS
@@ -271,10 +285,11 @@ CSS는 HTML 요소에 스타일을 적용하는 언어다.
 ```md
 ---
 title: "Flexbox 완전 이해"
-category: "frontend"
+status: "completed"
+description: "Container와 Item, 주요 속성까지 Flexbox 핵심 정리"
+category: "css"
 section: "css"
 tags: ["css", "flexbox", "layout"]
-date: "2025-11-28"
 ---
 
 # Flexbox 완전 이해

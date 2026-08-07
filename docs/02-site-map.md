@@ -2,15 +2,20 @@
 
 ## URL 구조 개요
 
+> 아래 URL 구조는 `src/data/navigation.js` 기준 실제 운영 구조다(2026-08 개편 — 카테고리 taxonomy를 [01-information-architecture.md](01-information-architecture.md)와 함께 실제 구현 기준으로 정리했다).
+
 ```
 /                             ← Home (대시보드)
 /search                       ← 전체 검색
 
-/frontend/                    ← Frontend Fundamentals 목차
-/frontend/html
-/frontend/css
-/frontend/layout
-/frontend/devtools
+/html/                        ← HTML 목차 (독립 카테고리, 하위 섹션 없이 flat)
+
+/css/                         ← CSS 목차
+/css/css                      ← 7개 단원(기본 문법~반응형 웹)이 모두 이 폴더 하나에 있다
+
+/devtools-layout/             ← DevTools & Layout 목차
+/devtools-layout/devtools
+/devtools-layout/layout
 
 /javascript/                  ← JavaScript 목차
 /javascript/basics
@@ -19,13 +24,11 @@
 /javascript/dom
 /javascript/es6
 /javascript/async
-/javascript/browser-apis
-/javascript/jquery
-/javascript/regular-expression
 
 /typescript/                  ← TypeScript 목차
 /typescript/basics
 /typescript/react-typescript
+/typescript/patterns
 
 /react/                       ← React 목차
 /react/basics
@@ -34,29 +37,35 @@
 /react/state-management
 /react/routing
 
-/dev-tools/                   ← Development Tools 목차
+/dev-tools/                   ← Git & GitHub 목차 (카테고리 slug는 dev-tools 유지, 표시명은 "Git & GitHub")
 /dev-tools/git
 /dev-tools/github
-/dev-tools/webpack
-/dev-tools/vite
 
-/web-network/                 ← Web & Network 목차
-/web-network/http
-/web-network/fetch
-/web-network/cors
-/web-network/api
-/web-network/saas
+/web-network/                 ← Web & Network 목차 (하위 섹션 없이 flat)
 
-/firebase/                    ← Firebase 목차 (독립 카테고리, 2026-08 개편 — Database & Backend > Supabase 빈 목차 제거하며 분리)
+/http/                        ← HTTP 목차 (독립 카테고리, 하위 섹션 없이 flat)
 
-/css-framework/               ← CSS Framework 목차
-/css-framework/bootstrap
-/css-framework/tailwind
+/jquery/                      ← jQuery 목차 (독립 카테고리, 하위 섹션 없이 flat)
 
-/testing/                     ← Testing 목차
-/testing/tdd
+/regular-expression/          ← Regular Expression 목차 (독립 카테고리, 문서 1개)
+
+/firebase/                    ← Firebase 목차 (독립 카테고리)
+/firebase/basics
+/firebase/services
+/firebase/deployment
+/firebase/appendix
+
+/css-framework/               ← CSS Framework 목차 (하위 섹션 없이 flat)
+
+/testing/                     ← Testing 목차 (하위 섹션 없이 flat)
+
+/build-tools/                 ← Build Tools 목차 (하위 섹션 없이 flat, 초기 기획에는 없던 카테고리)
 
 /coding-test/                 ← Coding Test 목차
+/coding-test/intro
+/coding-test/arrays
+/coding-test/string-math
+/coding-test/problem-solving
 
 /ai-vibe-coding/              ← AI & Vibe Coding 목차
 /ai-vibe-coding/setup
@@ -83,7 +92,7 @@ MD 파일 한 개를 렌더링하는 콘텐츠 페이지.
 좌측 사이드바에 섹션 내 문서 목록을 표시한다.
 
 ### 4. 검색 `/search`
-프론트매터의 `title`, `tags`, `category` 기준으로 전체 문서를 검색한다.
+문서 제목과 본문 내용을 기준으로 전체 문서를 검색한다. placeholder와 안내 문구도 제목/내용 중심으로 표시하며, 태그는 검색 UI 안내에서 강조하지 않는다.
 
 ---
 
@@ -91,10 +100,10 @@ MD 파일 한 개를 렌더링하는 콘텐츠 페이지.
 
 | 파일 경로 | URL |
 |---|---|
-| `content/frontend/html/index.md` | `/frontend/html` |
-| `content/frontend/css/css-basics.md` | `/frontend/css/css-basics` |
-| `content/javascript/basics/variables.md` | `/javascript/basics/variables` |
-| `content/ai-vibe-coding/lesson-1/index.md` | `/ai-vibe-coding/lesson-1` |
+| `content/html/html/1-3-html-document-structure.md` | `/html/html/1-3-html-document-structure` |
+| `content/css/css/1-1-css-syntax-and-apply.md` | `/css/css/1-1-css-syntax-and-apply` |
+| `content/javascript/basics/1-2-variables-and-scope.md` | `/javascript/basics/1-2-variables-and-scope` |
+| `content/ai-vibe-coding/lesson-1/1-1-web-basics.md` | `/ai-vibe-coding/lesson-1/1-1-web-basics` |
 
 - `index.md` → 섹션 목차 페이지 (`/섹션/토픽`)
 - 일반 `.md` 파일 → 개별 문서 페이지 (`/섹션/토픽/파일명`)
@@ -112,11 +121,14 @@ MD 파일 한 개를 렌더링하는 콘텐츠 페이지.
 현재 문서는 활성화(active) 표시.
 
 ```
-📚 Frontend Fundamentals
-  ├ HTML           ← 현재 위치 표시
-  ├ CSS
-  ├ Layout
-  └ DevTools
+🖍 CSS
+  ├ 1. CSS 기본 문법   ← 현재 위치 표시
+  ├ 2. 선택자 심화
+  ├ 3. Flexbox
+  ├ 4. Grid
+  ├ 5. 위치와 변형
+  ├ 6. 전환과 애니메이션
+  └ 7. 반응형 웹
 ```
 
 ### 이전 / 다음 (문서 페이지 하단)
