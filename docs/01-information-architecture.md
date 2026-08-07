@@ -57,9 +57,11 @@
  ├ API
  └ SaaS
 
-🗄 Database & Backend
- ├ Firebase
- └ Supabase
+🔥 Firebase
+ ├ Firebase 기본
+ ├ Firebase 주요 서비스
+ ├ Firebase 배포
+ └ 부록
 
 🎨 CSS Framework
  ├ Bootstrap
@@ -167,13 +169,17 @@ UI를 만드는 JavaScript 라이브러리.
 
 ---
 
-### 🗄 Database & Backend
-데이터를 저장하고 서버 기능을 제공하는 서비스.
+### 🔥 Firebase
+Google이 제공하는 BaaS 플랫폼. 독립 카테고리로 운영한다(2026-08 개편 — 실제 문서 없는 Database & Backend > Supabase 빈 목차 항목을 제거하면서, Firebase를 상위 카테고리에서 분리해 독립 카테고리로 승격했다).
 
 | 섹션 | 포함 내용 |
 |---|---|
-| Firebase | 서버리스 아키텍처, Firestore, Auth, Storage, Hosting |
-| Supabase | Supabase 설정, DB 연동, Auth |
+| Firebase 기본 | 서버리스 아키텍처, 서비스 둘러보기 |
+| Firebase 주요 서비스 | Firestore, Authentication, Storage, Hosting |
+| Firebase 배포 | 배포 개념, Firebase Hosting 배포, 다양한 배포 서비스 비교 |
+| 부록 | React Portal, Zustand, API 연동(fetch & axios) |
+
+> Supabase는 현재 콘텐츠가 없어 카테고리로 노출하지 않는다. 향후 실제 문서가 작성되면 별도 카테고리로 추가한다.
 
 ---
 

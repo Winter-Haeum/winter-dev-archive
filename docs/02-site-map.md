@@ -47,9 +47,7 @@
 /web-network/api
 /web-network/saas
 
-/database/                    ← Database & Backend 목차
-/database/firebase
-/database/supabase
+/firebase/                    ← Firebase 목차 (독립 카테고리, 2026-08 개편 — Database & Backend > Supabase 빈 목차 제거하며 분리)
 
 /css-framework/               ← CSS Framework 목차
 /css-framework/bootstrap

@@ -80,20 +80,22 @@
 
 - 13개 카테고리, 각 카테고리별 섹션 문서
 - Markdown 기반 콘텐츠 렌더링
-- 프론트매터 기반 전문 검색
+- 제목/내용 기반 검색 (search UI 안내는 태그를 강조하지 않음 — [정보 구조 요약](#정보-구조-요약) 및 아래 참고)
 - 문서 상태 표시 (Draft / In Progress / Review / Completed)
 - 라이트 모드 / 다크 모드
 - 반응형 (모바일 대응)
 - 6가지 학습용 Callout 유형
 - 사이드바 accordion 탐색
+- 방문자 수 카운터 (Supabase 기반, Header 노출)
+- 댓글(Giscus, GitHub Discussions 기반) — 챕터별 스레드 분리, 다크모드 연동
+- GitHub Actions 기반 자동 빌드·배포 (main push 시 GitHub Pages로 자동 배포)
 
 ### 제외 (v1 기준)
 
-- 댓글 / 좋아요 / 소셜 기능
+- 좋아요 / 팔로우 등 소셜 피드형 기능 (댓글 자체는 위 "포함" 항목으로 구현됨)
 - 사용자 계정 / 로그인
 - 진도 저장 / 학습 기록 서버
 - 다국어 지원
-- 자동 빌드 CI/CD (수동 배포로 시작)
 
 ---
 
@@ -109,7 +111,7 @@
 ⚛ React                  (Basics · Core · Hooks · State Management · Routing)
 🛠 Development Tools      (Git · GitHub · Webpack · Vite)
 🌐 Web & Network          (HTTP · Fetch · CORS · API · SaaS)
-🗄 Database & Backend     (Firebase · Supabase)
+🔥 Firebase               (독립 카테고리 — Firebase 기본 · 주요 서비스 · 배포 · 부록. 2026-08 개편으로 Database & Backend에서 분리, Supabase는 문서 없어 미노출)
 🎨 CSS Framework          (Bootstrap · Tailwind)
 🧪 Testing                (TDD)
 🏆 Coding Test
@@ -355,7 +357,7 @@ winter-dev-archive/
 
 ### 확장 금지 항목 (정체성 유지)
 
-- 댓글 / 소셜 기능 — 참고서에 댓글란은 없다
+- 좋아요 / 팔로우 등 소셜 피드형 기능 — 댓글(Giscus)은 조용한 보조 기능으로 이미 구현했지만, 그 이상의 소셜 기능은 확장하지 않는다(→ [wda-document-policy.md > 부가 기능(방문자 수 / 댓글) 정책](wda-document-policy.md#부가-기능방문자-수--댓글-정책-★))
 - 광고 / 애드센스 — 개인 학습 노트에 광고는 어울리지 않는다
 - 다른 사람이 콘텐츠를 올리는 구조 — 이건 Winter의 아카이브다
 
