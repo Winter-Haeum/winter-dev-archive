@@ -13,29 +13,38 @@
 
 ## IA 전체 구조
 
+> 아래 트리는 `src/data/navigation.js` 기준 실제 운영 구조다(2026-08 개편 — 초기 기획 당시의 "Frontend Fundamentals" 상위 그룹, JavaScript 하위 jQuery/Regular Expression, Development Tools 하위 Webpack/Vite 구조를 실제 구현 기준으로 정리했다). 카테고리 추가·이름 변경 시 이 파일과 `navigation.js`를 함께 업데이트한다.
+
 ```
 🏠 Home
 
-📚 Frontend Fundamentals
- ├ HTML
- ├ CSS
- ├ Layout
- └ DevTools
+📄 HTML
+ (하위 섹션 없이 6개 문서 flat 구성)
+
+🖍 CSS
+ ├ 1. CSS 기본 문법
+ ├ 2. 선택자 심화
+ ├ 3. Flexbox
+ ├ 4. Grid
+ ├ 5. 위치와 변형
+ ├ 6. 전환과 애니메이션
+ └ 7. 반응형 웹
+
+🔍 DevTools & Layout
+ ├ DevTools
+ └ Layout
 
 💛 JavaScript
- ├ Basics
- ├ Functions
- ├ Arrays & Objects
- ├ DOM
- ├ ES6+
- ├ Async
- ├ Browser APIs
- ├ jQuery
- └ Regular Expression
+ ├ 1. JavaScript 기본 문법
+ ├ 2. 함수 · 배열 · 객체
+ ├ 3. DOM
+ ├ 4. ES6+ 심화 문법
+ └ 5. 비동기 · 모듈 · 저장소
 
 🔷 TypeScript
- ├ Basics
- └ React + TypeScript
+ ├ TypeScript 기본
+ ├ React + TypeScript
+ └ TypeScript 실전 패턴
 
 ⚛ React
  ├ Basics
@@ -44,18 +53,23 @@
  ├ State Management
  └ Routing
 
-🛠 Development Tools
- ├ Git
- ├ GitHub
- ├ Webpack
- └ Vite
+🐙 Git & GitHub
+ ├ Git 기본
+ ├ GitHub 연결과 협업 기본
+ ├ Git 프로젝트 관리 문서
+ └ GitHub 중급
 
 🌐 Web & Network
- ├ HTTP
- ├ Fetch
- ├ CORS
- ├ API
- └ SaaS
+ (하위 섹션 없이 3개 문서 flat 구성 — 웹 서비스 종류 · 프론트엔드/백엔드 · API)
+
+📡 HTTP
+ (하위 섹션 없이 3개 문서 flat 구성 — HTTP 통신 기초 · Fetch API/JSON · CORS)
+
+💠 jQuery
+ (하위 섹션 없이 2개 문서 flat 구성)
+
+🔎 Regular Expression
+ (하위 섹션 없이 1개 문서)
 
 🔥 Firebase
  ├ Firebase 기본
@@ -64,11 +78,13 @@
  └ 부록
 
 🎨 CSS Framework
- ├ Bootstrap
- └ Tailwind
+ (하위 섹션 없이 4개 문서 flat 구성 — 프레임워크 개념 · Component vs Utility · Bootstrap · TailwindCSS)
 
 🧪 Testing
- └ TDD
+ (하위 섹션 없이 3개 문서 flat 구성 — TDD · Jest · 컴포넌트 테스트)
+
+📦 Build Tools
+ (하위 섹션 없이 3개 문서 flat 구성 — 번들러 이해 · 번들러 설정 · 빌드와 배포)
 
 🏆 Coding Test
 
@@ -92,32 +108,50 @@
 
 ---
 
-### 📚 Frontend Fundamentals
-웹 페이지를 만드는 데 필요한 기초 기술. JavaScript 이전 단계.
+### 📄 HTML
+웹 문서의 뼈대를 이루는 마크업 언어. 독립 카테고리로 운영한다(하위 섹션 없이 문서 6개를 순서대로 노출).
+
+| 내용 |
+|---|
+| 월드 와이드 웹과 인터넷, 클라이언트/서버/HTTP, 문서 기본 구조, 태그·속성·요소, 시맨틱 마크업, 실전 태그 활용 |
+
+---
+
+### 🖍 CSS
+웹페이지를 꾸미는 스타일 언어. 독립 카테고리로 운영한다.
 
 | 섹션 | 포함 내용 |
 |---|---|
-| HTML | 문서 구조, 시맨틱 마크업, 태그 속성 |
-| CSS | 선택자, 박스모델, Flexbox, Grid, Animation, 반응형 |
-| Layout | 실전 레이아웃 분석, 블록 구조 사고법 |
+| 1. CSS 기본 문법 | 문법과 적용, 선택자, 색상/폰트, 박스 모델, Display/Position |
+| 2. 선택자 심화 | 속성 선택자, 가상 클래스, 가상 요소 |
+| 3. Flexbox | 개념, Container/Item 속성, 레이아웃 패턴 |
+| 4. Grid | 구조, 행/열 배치, 고급 레이아웃 |
+| 5. 위치와 변형 | Position, Transform, z-index |
+| 6. 전환과 애니메이션 | Transition, Animation, Hover 효과 |
+| 7. 반응형 웹 | Media Query, 기기별 최적화, 반응형 기법 |
+
+---
+
+### 🔍 DevTools & Layout
+브라우저 개발자 도구 활용과 레이아웃 분석. 독립 카테고리로 운영한다(초기 기획의 Frontend Fundamentals > Layout/DevTools를 이 카테고리로 통합).
+
+| 섹션 | 포함 내용 |
+|---|---|
 | DevTools | 브라우저 개발자 도구 활용, 반응형 미리보기 |
+| Layout | 실전 웹페이지 구조 분석, 블록 단위 사고법 |
 
 ---
 
 ### 💛 JavaScript
-브라우저와 Node.js 환경에서 동작하는 프로그래밍 언어. 가장 많은 문서가 있는 섹션.
+브라우저와 Node.js 환경에서 동작하는 프로그래밍 언어. 가장 많은 문서가 있는 섹션. jQuery/Regular Expression은 이 카테고리에 속하지 않고 각각 독립 카테고리로 운영한다.
 
 | 섹션 | 포함 내용 |
 |---|---|
-| Basics | 실행환경, 변수/스코프, 데이터 타입, 조건문/반복문 |
-| Functions | 함수 선언, 화살표 함수, 스코프 체인, 클로저, this |
-| Arrays & Objects | 배열 메서드, 객체 구조, call/apply/bind |
-| DOM | DOM 개념, 요소 생성/조작, 이벤트 처리 |
-| ES6+ | 구조분해, 스프레드, 모듈, 최신 문법 |
-| Async | 비동기 개념, Promise, async/await |
-| Browser APIs | localStorage, Date, JSON |
-| jQuery | jQuery 역할, 핵심 기능 및 기본 효과 |
-| Regular Expression | 정규표현식 문법과 활용 |
+| 1. JavaScript 기본 문법 | 실행환경, 변수/스코프, 데이터 타입, 연산자, 조건문/반복문 |
+| 2. 함수 · 배열 · 객체 | 함수 선언, 배열/객체, 고차 함수 |
+| 3. DOM | DOM 개념, 요소 생성/조작, 이벤트 처리 |
+| 4. ES6+ 심화 문법 | 구조분해, 스프레드, 스코프 체인/클로저, this, 클래스 |
+| 5. 비동기 · 모듈 · 저장소 | Promise, async/await, 모듈, 에러 핸들링, localStorage, JSON, Date |
 
 ---
 
@@ -126,8 +160,9 @@ JavaScript에 정적 타입을 추가한 언어. JavaScript 섹션과 React 섹�
 
 | 섹션 | 포함 내용 |
 |---|---|
-| Basics | 타입 기초, 타입 별칭, 인터페이스, 타입 단언 |
-| React + TypeScript | Props/State 타입, 이벤트 핸들러 타입, 제네릭, 커스텀 훅 타입 |
+| TypeScript 기본 | 타입 기초, 왜 사용하는가, 기본 타입, 타입 별칭/인터페이스, 타입 단언 |
+| React + TypeScript | 프로젝트 시작, Props/State 타입, 이벤트 핸들러 타입 |
+| TypeScript 실전 패턴 | 제네릭 재사용 컴포넌트, 커스텀 훅 타입 |
 
 ---
 
@@ -144,28 +179,51 @@ UI를 만드는 JavaScript 라이브러리.
 
 ---
 
-### 🛠 Development Tools
-개발 환경을 구성하고 협업하는 데 필요한 도구들.
+### 🐙 Git & GitHub
+버전 관리와 협업의 기본기. 카테고리명은 초기 기획의 "Development Tools"에서 실제 다루는 주제(Git/GitHub)를 그대로 반영해 변경했다. 번들러 주제는 별도 [Build Tools](#-build-tools) 카테고리에서 다룬다.
 
 | 섹션 | 포함 내용 |
 |---|---|
-| Git | Git 개념, CLI 명령어, gitignore, branch |
-| GitHub | 계정 연결, commit/push/pull, 브랜치 전략, 협업 |
-| Webpack | 번들러 개념, 설정 방법 |
-| Vite | 빌드 도구, 프로젝트 세팅, 배포 |
+| Git 기본 | Git이 필요한 이유, Git 구조, CLI 명령어 |
+| GitHub 연결과 협업 기본 | 계정 생성, 로컬 연결, commit/push/pull, branch |
+| Git 프로젝트 관리 문서 | gitignore, README, Markdown 문법 |
+| GitHub 중급 | 브랜치 전략, 협업, Preview 프로젝트 관리 |
 
 ---
 
 ### 🌐 Web & Network
-웹이 동작하는 방식과 서버-클라이언트 통신 개념.
+웹 서비스의 종류와 SaaS 개념부터 프론트엔드·백엔드 역할, API까지 웹 생태계의 기본 구조. 독립 카테고리로 운영하며 하위 섹션 없이 문서 3개를 flat 구성으로 노출한다. HTTP/Fetch/CORS는 이 카테고리가 아니라 [HTTP](#-http) 카테고리에서 다룬다.
 
-| 섹션 | 포함 내용 |
-|---|---|
-| HTTP | HTTP 통신 기초, 요청/응답 구조 |
-| Fetch | Fetch API, JSON 다루기 |
-| CORS | CORS 개념과 해결 방법 |
-| API | API 개념과 활용 방식 |
-| SaaS | 웹 서비스 종류, 프론트엔드와 백엔드 구분, API의 세계 |
+| 내용 |
+|---|
+| 웹 서비스의 종류, 프론트엔드와 백엔드, API의 세계 |
+
+---
+
+### 📡 HTTP
+HTTP 요청/응답 구조, Fetch API와 JSON, CORS. 독립 카테고리로 운영한다(초기 기획에서는 Web & Network 하위였다).
+
+| 내용 |
+|---|
+| HTTP 통신의 기초, Fetch API와 JSON, CORS 알아보기 |
+
+---
+
+### 💠 jQuery
+jQuery 등장 배경과 핵심 기능. 독립 카테고리로 운영한다(초기 기획에서는 JavaScript 하위였다).
+
+| 내용 |
+|---|
+| jQuery의 역할과 역사, jQuery 핵심 기능 및 기본 효과 |
+
+---
+
+### 🔎 Regular Expression
+정규표현식 문법과 활용. 독립 카테고리로 운영한다(초기 기획에서는 JavaScript 하위였다).
+
+| 내용 |
+|---|
+| 정규표현식 |
 
 ---
 
@@ -184,21 +242,29 @@ Google이 제공하는 BaaS 플랫폼. 독립 카테고리로 운영한다(2026-
 ---
 
 ### 🎨 CSS Framework
-CSS를 빠르게 작성할 수 있도록 도와주는 프레임워크.
+CSS를 빠르게 작성할 수 있도록 도와주는 프레임워크. 하위 섹션 없이 문서 4개를 flat 구성으로 노출한다.
 
-| 섹션 | 포함 내용 |
-|---|---|
-| Bootstrap | Bootstrap 개요, 컴포넌트 기반 스타일링 |
-| Tailwind | Tailwind CSS, Utility-first 방식 |
+| 내용 |
+|---|
+| CSS 프레임워크란 무엇인가, Component based vs Utility first, Bootstrap 소개, TailwindCSS 실전 활용 |
 
 ---
 
 ### 🧪 Testing
-코드의 동작을 검증하는 방법.
+코드의 동작을 검증하는 방법. 하위 섹션 없이 문서 3개를 flat 구성으로 노출한다.
 
-| 섹션 | 포함 내용 |
-|---|---|
-| TDD | TDD 개념, Jest 사용법, 컴포넌트 테스트 |
+| 내용 |
+|---|
+| TDD가 뭔가요, Jest 시작하기, 간단한 컴포넌트 테스트 작성하기 |
+
+---
+
+### 📦 Build Tools
+번들러가 필요한 이유부터 entry·output·loader·plugin 개념, 개발용/배포용 빌드 차이까지 다룬다. 초기 기획에는 없던 카테고리로, Development Tools 하위 "Webpack · Vite" 계획이 실제로는 특정 도구가 아닌 번들러 개념 중심의 독립 카테고리로 구현됐다. 하위 섹션 없이 문서 3개를 flat 구성으로 노출한다.
+
+| 내용 |
+|---|
+| 번들러 이해하기, 번들러 설정하기, 빌드와 배포 |
 
 ---
 
@@ -230,5 +296,5 @@ Claude Code와 AI를 활용한 실전 프로젝트 제작 커리큘럼.
 
 1. **주제 기반** — 날짜나 작성 순서가 아닌 내용으로 분류한다
 2. **2단계 깊이 유지** — 카테고리 > 섹션으로 탐색이 단순해야 한다
-3. **섹션 간 중복 최소화** — TypeScript는 Dev Tools가 아닌 독립 섹션, SaaS는 Web & Network에 위치
+3. **섹션 간 중복 최소화** — TypeScript는 Git & GitHub가 아닌 독립 카테고리, 웹 서비스 종류/SaaS 개념은 Web & Network에 위치
 4. **AI & Vibe Coding은 독립 커리큘럼** — 단순 목록이 아닌 레슨 단위 구조를 유지한다

@@ -258,20 +258,26 @@ Winter Dev Archive는 기술 블로그가 아닌 **두고두고 꺼내보는 학
 | **본문 텍스트** | 사용 금지 |
 | **버튼** | 사용 금지 |
 
-### 카테고리 이모지 (IA 정의 기준)
+### 카테고리 이모지 (실제 `navigation.js` 기준, 2026-08 개편 — [01-information-architecture.md](01-information-architecture.md) 참고)
 
 | 카테고리 | 이모지 |
 |---|---|
 | Home | 🏠 |
-| Frontend Fundamentals | 📚 |
+| HTML | 📄 |
+| CSS | 🖍 |
+| DevTools & Layout | 🔍 |
 | JavaScript | 💛 |
 | TypeScript | 🔷 |
 | React | ⚛ |
-| Development Tools | 🛠 |
+| Git & GitHub | 🐙 |
 | Web & Network | 🌐 |
+| HTTP | 📡 |
+| jQuery | 💠 |
+| Regular Expression | 🔎 |
 | Firebase | 🔥 |
 | CSS Framework | 🎨 |
 | Testing | 🧪 |
+| Build Tools | 📦 |
 | Coding Test | 🏆 |
 | AI & Vibe Coding | 🤖 |
 | Search | 🔍 |
@@ -596,7 +602,7 @@ Dark Mode
 ```yaml
 ---
 title: "Flexbox 완전 이해"
-category: "frontend"
+category: "css"
 section: "css"
 status: "completed"   ← draft | in-progress | review | completed
 ---

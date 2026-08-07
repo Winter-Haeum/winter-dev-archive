@@ -78,7 +78,7 @@
 
 ### 포함
 
-- 13개 카테고리, 각 카테고리별 섹션 문서
+- 17개 카테고리, 각 카테고리별 섹션 문서(정보 구조 요약 참고)
 - Markdown 기반 콘텐츠 렌더링
 - 제목/내용 기반 검색 (search UI 안내는 태그를 강조하지 않음 — [정보 구조 요약](#정보-구조-요약) 및 아래 참고)
 - 문서 상태 표시 (Draft / In Progress / Review / Completed)
@@ -101,19 +101,25 @@
 
 ## 정보 구조 요약
 
-`01-information-architecture.md` 기준. 총 13개 카테고리.
+`01-information-architecture.md` 기준. 총 17개 카테고리(2026-08 개편 — 초기 기획 당시 13개에서, jQuery/Regular Expression/HTTP/Build Tools 분리와 Database & Backend 제거를 거쳐 실제 운영 중인 개수로 갱신했다. 상세 내역은 `01-information-architecture.md` 참고).
 
 ```
 🏠 Home
-📚 Frontend Fundamentals  (HTML · CSS · Layout · DevTools)
-💛 JavaScript             (Basics · Functions · Arrays & Objects · DOM · ES6+ · Async · Browser APIs · jQuery · Regular Expression)
-🔷 TypeScript             (Basics · React + TypeScript)
+📄 HTML
+🖍 CSS                    (1. 기본 문법 · 2. 선택자 심화 · 3. Flexbox · 4. Grid · 5. 위치와 변형 · 6. 전환과 애니메이션 · 7. 반응형 웹)
+🔍 DevTools & Layout      (DevTools · Layout)
+💛 JavaScript             (1. 기본 문법 · 2. 함수·배열·객체 · 3. DOM · 4. ES6+ 심화 문법 · 5. 비동기·모듈·저장소)
+🔷 TypeScript             (TypeScript 기본 · React + TypeScript · TypeScript 실전 패턴)
 ⚛ React                  (Basics · Core · Hooks · State Management · Routing)
-🛠 Development Tools      (Git · GitHub · Webpack · Vite)
-🌐 Web & Network          (HTTP · Fetch · CORS · API · SaaS)
-🔥 Firebase               (독립 카테고리 — Firebase 기본 · 주요 서비스 · 배포 · 부록. 2026-08 개편으로 Database & Backend에서 분리, Supabase는 문서 없어 미노출)
-🎨 CSS Framework          (Bootstrap · Tailwind)
-🧪 Testing                (TDD)
+🐙 Git & GitHub           (Git 기본 · GitHub 연결과 협업 기본 · Git 프로젝트 관리 문서 · GitHub 중급)
+🌐 Web & Network          (웹 서비스 종류 · 프론트엔드와 백엔드 · API의 세계)
+📡 HTTP                   (HTTP 통신의 기초 · Fetch API와 JSON · CORS)
+💠 jQuery                 (jQuery의 역할과 역사 · jQuery 핵심 기능 및 기본 효과)
+🔎 Regular Expression
+🔥 Firebase               (Firebase 기본 · 주요 서비스 · 배포 · 부록. Database & Backend에서 분리, Supabase는 문서 없어 미노출)
+🎨 CSS Framework          (프레임워크 개념 · Component vs Utility · Bootstrap · TailwindCSS)
+🧪 Testing                (TDD · Jest · 컴포넌트 테스트)
+📦 Build Tools            (번들러 이해 · 번들러 설정 · 빌드와 배포. 초기 기획에는 없던 카테고리)
 🏆 Coding Test
 🤖 AI & Vibe Coding       (Setup · Lesson 1 · Lesson 2 · Lesson 3 · Lesson 4)
 🔍 Search
@@ -139,16 +145,16 @@ content/
 
 ### 프론트매터 표준
 
-모든 MD 파일은 다음 프론트매터를 포함한다.
+모든 MD 파일은 다음 프론트매터를 포함한다. `date`는 v1에서 필수로 요구하지 않는다(2026-08 개편 — `wda-document-policy.md`의 "date frontmatter는 넣지 않는다" 기준과 통일. 상세 근거는 `03-content-structure.md` 프론트매터 스펙 참고).
 
 ```yaml
 ---
 title: "문서 제목"
+status: "draft"   # draft | in-progress | review | completed
+description: "문서 내용에 맞는 한 줄 설명"
 category: "카테고리 슬러그"
 section: "섹션 슬러그"
 tags: ["태그1", "태그2"]
-date: "YYYY-MM-DD"
-status: "draft"   # draft | in-progress | review | completed
 ---
 ```
 
@@ -165,7 +171,7 @@ status: "draft"   # draft | in-progress | review | completed
 
 - 새 학습 내용은 기존 문서에 추가하거나 새 파일로 생성한다
 - 이미 작성된 문서는 삭제하지 않고 개정한다
-- `date`는 최초 작성일 기준, 대규모 개정 시 별도 메모 추가
+- 문서 정렬·순서는 `date`가 아니라 `navigation.js`의 등록 순서와 파일 경로 기준으로 관리한다
 
 ---
 
@@ -252,16 +258,22 @@ winter-dev-archive/
 │   ├── 06-reference-analysis.md
 │   └── 07-project-plan.md
 │
-├── content/                       ← 학습 콘텐츠 MD 파일
-│   ├── frontend/
+├── content/                       ← 학습 콘텐츠 MD 파일 (실제 카테고리 폴더는 03-content-structure.md 참고)
+│   ├── html/
+│   ├── css/
+│   ├── devtools-layout/
 │   ├── javascript/
 │   ├── typescript/
 │   ├── react/
-│   ├── dev-tools/
+│   ├── dev-tools/                 ← Git & GitHub
 │   ├── web-network/
-│   ├── database/
+│   ├── http/
+│   ├── jquery/
+│   ├── regular-expression/
+│   ├── firebase/
 │   ├── css-framework/
 │   ├── testing/
+│   ├── build-tools/
 │   ├── coding-test/
 │   └── ai-vibe-coding/
 │
@@ -369,7 +381,7 @@ winter-dev-archive/
 
 다음 항목이 모두 충족되면 v1.0으로 본다.
 
-- [ ] 전체 13개 카테고리 페이지 구성 완료
+- [ ] 전체 17개 카테고리 페이지 구성 완료
 - [ ] 각 카테고리당 최소 1개 이상 문서 존재
 - [ ] AI & Vibe Coding 섹션 (Setup + Lesson 1–4) 전체 문서 완료
 - [ ] 검색 기능 동작
