@@ -269,7 +269,7 @@ Winter Dev Archive는 기술 블로그가 아닌 **두고두고 꺼내보는 학
 | React | ⚛ |
 | Development Tools | 🛠 |
 | Web & Network | 🌐 |
-| Database & Backend | 🗄 |
+| Firebase | 🔥 |
 | CSS Framework | 🎨 |
 | Testing | 🧪 |
 | Coding Test | 🏆 |

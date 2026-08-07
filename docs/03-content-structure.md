@@ -64,9 +64,7 @@ content/
 │   ├── api/
 │   └── saas/
 │
-├── database/
-│   ├── firebase/
-│   └── supabase/
+├── firebase/                ← 독립 카테고리 (2026-08 개편 — Database & Backend > Supabase 빈 목차 제거하며 분리)
 │
 ├── css-framework/
 │   ├── bootstrap/
@@ -158,7 +156,7 @@ date: "YYYY-MM-DD"
 | React | `react` |
 | Development Tools | `dev-tools` |
 | Web & Network | `web-network` |
-| Database & Backend | `database` |
+| Firebase | `firebase` |
 | CSS Framework | `css-framework` |
 | Testing | `testing` |
 | Coding Test | `coding-test` |
