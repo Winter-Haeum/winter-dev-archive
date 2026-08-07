@@ -343,6 +343,8 @@ input:focus + .error-message {
 
 자주 하는 실수 세 가지를 짚어두면 실무에서 시간을 아낄 수 있다.
 
+**🧠 헷갈리기 쉬운 것**
+
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
     <div class="wda-mistake-wrong">실수 1: input과 .error-message 사이에 다른 요소가 끼어 있는데도 선택될 거라 기대한다.</div>

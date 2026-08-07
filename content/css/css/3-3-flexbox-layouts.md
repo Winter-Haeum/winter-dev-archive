@@ -545,6 +545,8 @@ main {
 
 ## 10. 주의사항 및 함정 — Flexbox에서 자주 헷갈리는 부분
 
+**🧠 헷갈리기 쉬운 것**
+
 <div class="wda-mistake-notes">
   <div class="wda-mistake-note">
     <div class="wda-mistake-wrong">함정 1 · calc() 계산 오류: calc(33.333% - 16px)처럼 gap 전체 값을 그대로 빼버린다</div>
