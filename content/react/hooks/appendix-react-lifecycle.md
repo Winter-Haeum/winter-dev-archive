@@ -141,6 +141,10 @@ useEffect(() => {
   <div class="wda-fnode"><div class="wda-fnode-ttl">3. 새 Effect</div><div class="wda-fnode-dsc">"구독 시작: 2"</div></div>
 </div>
 
+![Updating 흐름: Props/State 변경 → DOM 업데이트(Re-render) → Cleanup 실행(이전) → Effect 실행(새것)](/images/content/react/appendix-lifecycle/react-appendix-lifecycle-updating-flow.png)
+
+*[그림] Updating(변화) 단계의 실행 순서*
+
 ---
 
 ## 4. Unmount 시 정리해야 할 것들

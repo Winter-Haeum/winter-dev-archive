@@ -125,6 +125,10 @@ Promise는 비동기 작업의 진행 상태와 결과를 담는 객체다. 생�
   한 번 <strong>fulfilled</strong>나 <strong>rejected</strong>가 되면(이를 settled라고 부른다) 다시 다른 상태로 바뀌지 않는다.
 </div>
 
+![new Promise() → Pending → resolve(val)이면 Fulfilled(.then()), reject(err)이면 Rejected(.catch())](/images/content/javascript/5-2/javascript-5-2-promise-state-flow.png)
+
+*[그림] Promise 상태 흐름*
+
 ---
 
 ## 3. Promise 생성하기
@@ -412,6 +416,10 @@ async function loadLessonWithReviews(lessonId) {
 <div class="wda-callout wda-cw">
   <code>await</code>는 <strong>async 함수 내부</strong>(또는 모듈 최상위 top-level await)에서만 쓸 수 있다.
 </div>
+
+![Main Thread가 Async Fn을 호출하면 동기 실행 후 await로 Promise를 기다리는 동안 Main에 제어권을 반환(일시정지)하고, Promise가 settled되면 Async Fn이 재개됨](/images/content/javascript/5-2/javascript-5-2-async-await-flow.png)
+
+*[그림] Async/Await 흐름*
 
 ---
 

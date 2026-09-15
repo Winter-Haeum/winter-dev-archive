@@ -144,6 +144,10 @@ function FocusInput() {
 }
 ```
 
+![비디오 테이프 아이콘과 Play(초록), Pause(빨강) 버튼, 현재 상태 Paused 표시](/images/content/react/3-3/react-3-3-media-control-demo.png)
+
+*[그림] 비디오 Play/Pause 제어 데모 화면*
+
 ---
 
 ## 3. 렌더링을 유발하지 않는 값 저장

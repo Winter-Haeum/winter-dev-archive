@@ -122,6 +122,10 @@ function HookDashboard() {
 </tbody>
 </table>
 
+![빈 의존성 배열 실행 흐름: 컴포넌트 렌더링 → Effect 실행! → 이후 재렌더링 시 무시됨](/images/content/react/3-2/react-3-2-mount-once-flow.png)
+
+*[그림] 빈 배열 의존성 — 마운트 시 1회만 실행*
+
 **• React: keyword 의존성으로 effect 실행하기**
 
 ```jsx
@@ -133,6 +137,10 @@ function LearningFetcher({ keyword }) {
   return null;
 }
 ```
+
+![렌더링 회차별 count 값과 Effect 실행 여부: Render 1(count 0, Effect 실행 초기) → Render 2(count 0, 건너뜀 값 동일) → Render 3(count 1, Effect 실행 변경됨)](/images/content/react/3-2/react-3-2-dependency-render-sequence.png)
+
+*[그림] 의존성 값 변경에 따른 렌더링 회차별 실행 여부*
 
 **⚠️ 주의사항**
 

@@ -190,6 +190,10 @@ try {
   <code>finally</code>는 성공/실패와 관계없이 항상 실행된다. 로딩 표시를 끄는 것처럼, 결과와 상관없이 반드시 해야 하는 정리 작업에 사용한다.
 </div>
 
+![Try(곡예 시도) → Catch(안전 그물, 프로그램이 죽지 않게 받아줌) → Finally(공연 종료)로 이어지는 try-catch-finally 흐름 비유](/images/content/javascript/5-4/javascript-5-4-error-handling-image.png)
+
+*[그림] 에러 처리의 이미지*
+
 ---
 
 ## 5. throw로 직접 에러 만들기
@@ -246,6 +250,83 @@ try {
 <div class="wda-callout wda-ci">
   <code>instanceof Error</code>로 잡힌 값이 실제 에러 객체인지 확인할 수 있다. 여러 에러 종류를 구분해서 다르게 처리하는 방법은 12번(custom error)에서 다룬다.
 </div>
+
+---
+
+## 2. 에러 객체 (Error Object)
+
+**에러 정보를 담는 객체**입니다.
+
+### 1) 주요 프로퍼티 (Key Properties)
+
+에러 객체를 열어보면 들어있는 3가지 핵심 정보입니다.
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">name</div>
+    <div class="wda-fcard-dsc">에러의 이름 (예: <code>Error</code>, <code>TypeError</code>, <code>ReferenceError</code>)</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">message</div>
+    <div class="wda-fcard-dsc">에러가 발생한 이유를 적은 상세 메시지</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">stack</div>
+    <div class="wda-fcard-dsc">에러가 발생한 위치를 추적하는 <strong>호출 스택 (Stack Trace)</strong></div>
+  </div>
+</div>
+
+### 2) Stack (탐정의 단서)
+
+**"범인(버그)을 잡는 가장 중요한 지도입니다."**
+
+<div class="wda-fgrid">
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">발자국 추적</div>
+    <div class="wda-fcard-dsc">에러가 터진 지점까지 함수가 어떤 순서로 호출되었는지 기록합니다.</div>
+  </div>
+  <div class="wda-fcard">
+    <div class="wda-fcard-ttl">흐름 파악</div>
+    <div class="wda-fcard-dsc">"A 함수가 B를 부르고, B가 C를 불렀는데 C에서 터졌네!"라는 흐름을 한눈에 알 수 있습니다.</div>
+  </div>
+</div>
+
+### 3) 코드 예제
+
+```js
+// 1. 에러 객체 직접 생성해보기
+const error = new Error('문제가 발생했습니다!');
+
+console.log(error.name);    // "Error" (이름)
+console.log(error.message); // "문제가 발생했습니다!" (내용)
+// console.log(error.stack); // 호출 경로가 주르륵 출력됨
+
+// 2. 에러 타입 확인하기 (instanceof)
+try {
+  // 일부러 타입 에러를 발생시킴
+  throw new TypeError('타입 에러!');
+} catch (e) {
+  // 이 에러가 TypeError가 맞는지 검사
+  console.log(e instanceof TypeError); // true
+  console.log(e.name); // "TypeError"
+}
+```
+
+**💡 보충 설명**
+
+<div class="wda-callout wda-ci">
+  <strong>throw가 뭔가요?</strong> — <code>new Error()</code>로 에러 객체를 만드는 건 그냥 '폭탄'을 조립만 한 상태입니다. 실제로 이 폭탄을 터뜨려서 프로그램에 알리는 명령어가 바로 <strong>throw</strong>입니다. (<code>throw error;</code>)<br><br>
+  <strong>다양한 에러 종류</strong> — 자바스크립트에는 Error 외에도 상황에 맞는 다양한 에러들이 있습니다.<br>
+  • <code>SyntaxError</code> : 오타, 문법 실수<br>
+  • <code>ReferenceError</code> : 없는 변수를 쓸 때<br>
+  • <code>TypeError</code> : 숫자를 함수처럼 실행하려 할 때 등
+</div>
+
+---
+
+!['범인은 발자국을 남긴다...' Error Report Case #1024: TypeError: Cannot read properties of null. at validateUser(user.js:42) → 여기서 user가 null이었음(결정적 단서), at loginProcess(auth.js:15), at onClickButton(main.js:10) → 범죄의 시작점(사용자 클릭). 참고: stack은 비표준이지만 모든 브라우저가 지원합니다.](/images/content/javascript/5-4/javascript-5-4-stack-trace-detective-notebook.png)
+
+*[그림] 탐정의 수첩 - Stack Trace*
 
 ---
 
@@ -308,6 +389,10 @@ try {
 <div class="wda-callout wda-cw">
   비동기 콜백 내부에서 발생한 에러는 바깥의 try/catch로 바로 잡히지 않을 수 있다. 콜백이 실행되는 시점과 이벤트 루프의 관계는 <strong>5-1 비동기 기초</strong> 문서에서 이미 다뤘다. 이 문제는 다음 두 섹션의 Promise/async-await 방식으로 해결한다.
 </div>
+
+![Main Thread(동기): 경찰(Try-Catch)이 '여기 지나가는 건 다 감시한다!'라고 지키는 중. Callback Queue(비동기): setTimeout Bus에서 ERROR! 발생. 엇갈린 운명: 경찰(Try-Catch)은 메인 도로만 지키는데, 버스(비동기)는 이미 다른 차선으로 떠나서 사고가 났고 경찰은 사고 사실조차 모름](/images/content/javascript/5-4/javascript-5-4-async-error-missed-bus.png)
+
+*[그림] 비동기 에러의 시각화 (The Missed Bus)*
 
 ---
 

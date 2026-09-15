@@ -71,6 +71,45 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 ---
 
+## 1. 렌더링 파이프라인
+
+### 1) 브라우저가 화면을 그리는 과정
+
+브라우저는 우리가 짠 코드를 화면에 보여주기 위해 총 5단계를 거칩니다.
+
+![렌더링 파이프라인: Parse(HTML/CSS 파싱) → Style(스타일 계산) → Layout(위치/크기 계산, Heavy) → Paint(픽셀 그리기, Heavy) → Composite(레이어 합성)](/images/content/react/1-5/react-1-5-rendering-pipeline.png)
+
+*[그림] 렌더링 파이프라인*
+
+1. **Parse:** HTML과 CSS를 읽어서 해석합니다.
+2. **Style:** 어떤 스타일을 입힐지 계산합니다.
+3. **Layout (Heavy):** 요소의 **위치와 크기**를 계산합니다. (가장 힘든 작업)
+4. **Paint (Heavy):** 계산된 면적에 **색깔과 그림자**를 칠해서 픽셀로 만듭니다.
+5. **Composite:** 만들어진 여러 층(Layer)을 하나로 **합칩니다.**
+
+### 2) 핵심 단계 분석 (비용 차이)
+
+위 이미지의 색깔별 박스는 각 단계가 컴퓨터에게 얼마나 부담을 주는지를 보여줍니다.
+
+| **단계 (Phase)** | **설명 (Description)** | **비용 (Cost)** |
+| --- | --- | --- |
+| **Layout**(레이아웃) | **위치와 크기 계산**<br>화면의 구조를 잡는 공사 단계입니다. 하나가 움직이면 주변 요소들도 다 다시 계산해야 해서 **가장 비용이 큽니다.** | **매우 높음**(Heavy) |
+| **Paint**(페인트) | **픽셀로 변환**<br>레이아웃이 잡힌 곳에 색을 칠하는 단계입니다. 여전히 컴퓨터가 할 일이 많습니다. | **높음**(Heavy) |
+| **Composite**(컴포지트) | **레이어 합성**<br>이미 그려진 판들을 겹치기만 하면 되는 단계입니다. | **낮음**(Light) |
+
+**⚠️ 주의사항**
+
+<div class="wda-callout wda-cw">
+  <strong>Reflow(리플로우)를 조심하세요!</strong>
+  <ul>
+    <li><strong>Reflow:</strong> <code>Layout</code> 단계가 다시 발생하는 현상입니다. (요소의 크기나 위치를 바꿀 때) → 가장 느림</li>
+    <li><strong>Repaint:</strong> <code>Layout</code>은 건너뛰고 <code>Paint</code>만 다시 하는 현상입니다. (색상만 바꿀 때) → 조금 덜 느림</li>
+  </ul>
+  <p>결론: 우리가 자바스크립트로 DOM을 직접 막 건드리면, 브라우저는 툭하면 Layout(가장 비싼 작업)을 처음부터 다시 해야 합니다. 이게 쌓이면 화면이 버벅거리게 됩니다.</p>
+</div>
+
+---
+
 ## 1. Virtual DOM이 필요한 순간
 
 강의 대시보드에서 강의 하나의 수강 상태를 "진행 중"에서 "완료"로 바꾼다고 해봅시다. 화면에서 바뀌어야 하는 부분은 그 강의 카드 하나뿐입니다.
@@ -175,6 +214,10 @@ function toggleComplete(courseId) {
   <div class="wda-farrow">→</div>
   <div class="wda-fnode"><div class="wda-fnode-ttl">실제 DOM 반영</div><div class="wda-fnode-dsc">바뀐 부분만 갱신</div></div>
 </div>
+
+![가상 DOM 업데이트 흐름: Old VDOM(A, p) → State Change → New VDOM(B, p) → Diff & Patch → Real DOM(B, p)](/images/content/react/1-5/react-1-5-virtual-dom-update-flow.png)
+
+*[그림] React 가상 DOM 업데이트 흐름*
 
 ---
 

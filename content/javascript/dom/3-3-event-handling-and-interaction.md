@@ -124,6 +124,14 @@ tags:
   이벤트(사건) · 리스너(이벤트를 기다리는 등록 정보) · 핸들러(이벤트 발생 시 실행되는 함수), 이 세 가지가 이벤트 처리의 기본 구성 요소다.
 </div>
 
+이벤트 처리 흐름은 다음과 같다.
+
+이벤트 발생 → 리스너 등록 여부 확인? → (Yes) 핸들러 실행 → 결과 반영
+
+![이벤트 기반 프로그래밍 다이어그램](/images/content/javascript/3-3/javascript-3-3-event-driven-programming.png)
+
+*[그림] 이벤트 기반 프로그래밍 흐름 (이벤트 발생 → 상태 검사 → 동작 수행/대기)*
+
 ---
 
 ## 3. addEventListener로 이벤트 연결하기
@@ -270,6 +278,60 @@ applyForm.addEventListener("submit", function (event) {
 
 ---
 
+## 12. 마우스 이벤트 객체: 좌표 프로퍼티 완벽 정리
+
+### 1) 좌표 관련 프로퍼티 비교
+
+마우스 이벤트가 발생했을 때, 클릭한 지점의 위치를 알 수 있는 다양한 좌표값들입니다.
+
+| **프로퍼티** | **설명** | **기준점** |
+| --- | --- | --- |
+| **`clientX`, `clientY`** | **뷰포트(Viewport)** 기준 | 브라우저 화면 좌상단 |
+| **`pageX`, `pageY`** | **문서 전체(Document)** 기준 | 전체 문서(스크롤 포함) 좌상단 |
+| **`offsetX`, `offsetY`** | **이벤트 대상(Target)** 기준 | 이벤트가 발생한 요소의 좌상단 |
+| **`screenX`, `screenY`** | **모니터(Screen)** 기준 | 모니터 화면 전체의 좌상단 |
+
+> 💡 Tip: 페이지에 스크롤이 없다면 client 값과 page 값은 동일합니다.
+
+### 2) 좌표 차이 시각화 이해
+
+이벤트 발생 시 각 기준점이 어떻게 다른지 이해하는 것이 중요합니다.
+
+- **Monitor (`screenX/Y`)**: 전체 모니터 화면 기준
+- **Viewport (`clientX/Y`)**: 현재 눈에 보이는 브라우저 창 내부 기준
+- **Target (`offsetX/Y`)**: 클릭된 특정 HTML 박스 내부 기준
+
+![좌표 시스템 UI 다이어그램](/images/content/javascript/3-3/javascript-3-3-coordinate-system-diagram.png)
+
+*[그림] 마우스 이벤트 좌표 기준점 비교 (Monitor/Viewport/Target)*
+
+### 3) 🧮 pageY 계산 공식 (스크롤 발생 시)
+
+문서 전체에서의 위치를 구하고 싶을 때 브라우저가 내부적으로 계산하는 방식입니다.
+
+> clientX/Y + scrollY(스크롤된 양) = pageX/Y
+
+현재 화면상의 위치(`clientY`)에 스크롤로 인해 위로 올라가 가려진 부분(`scrollY`)을 더하면 문서 전체 기준의 위치(`pageY`)가 됩니다.
+
+### 4) 실습 코드 활용 예시
+
+```jsx
+const target = document.querySelector('.box');
+
+target.addEventListener('click', function(e) {
+  // 브라우저 화면 기준 (자주 사용)
+  console.log('브라우저 창 기준:', e.clientX, e.clientY); // 현재 보이는 창 안에서의 위치입니다.
+
+  // 실제 문서 전체 기준 (스크롤 포함)
+  console.log('전체 문서 기준:', e.pageX, e.pageY); // 스크롤을 내려도 문서 맨 위 기준 위치를 알려줍니다.
+
+  // 클릭한 박스 안에서의 좌표
+  console.log('해당 박스 내 기준:', e.offsetX, e.offsetY); // 박스의 왼쪽 위 모서리가 0, 0이 됩니다.
+});
+```
+
+---
+
 ## 8. target과 currentTarget
 
 <div class="wda-compare">
@@ -319,6 +381,10 @@ lessonContainer.addEventListener(
 <div class="wda-callout wda-ci">
   자식 요소를 클릭해도 이벤트가 부모로 전달되기 때문에 <code>target</code>과 <code>currentTarget</code>이 다를 수 있다. 핸들러 안에서 <code>this</code> 대신 <strong>event.currentTarget</strong>을 쓰면, 화살표 함수로 핸들러를 작성할 때도 같은 값을 안정적으로 얻을 수 있다.
 </div>
+
+![target과 currentTarget UI 이벤트 모델 다이어그램](/images/content/javascript/3-3/javascript-3-3-ui-event-model-diagram.png)
+
+*[그림] target과 currentTarget 비교 (버튼 클릭 시 target=button, currentTarget=parent)*
 
 ---
 
@@ -415,11 +481,19 @@ lessonContainer.addEventListener("click", function () {
   <div class="wda-fnode"><div class="wda-fnode-ttl">lessonContainer</div><div class="wda-fnode-dsc">등록된 리스너 실행</div></div>
 </div>
 
+![이벤트 전파 흐름도](/images/content/javascript/3-3/javascript-3-3-event-propagation-flow.png)
+
+*[그림] 이벤트 전파 3단계 (캡처링 → 타겟 → 버블링)*
+
 **📌 개념**
 
 <div class="wda-callout wda-ci">
   addEventListener는 기본적으로 <strong>버블링 단계</strong>에서 실행된다. 반대로 위에서 아래로 내려가며 먼저 실행되는 <strong>캡처링(capturing)</strong> 단계도 있는데, 세 번째 인자로 <code>{ capture: true }</code>를 전달하면 캡처링 단계에서 실행할 수 있다. 실무에서는 대부분 기본값(버블링)만으로 충분하다.
 </div>
+
+![웹 이벤트 전파 다이어그램](/images/content/javascript/3-3/javascript-3-3-web-event-propagation-diagram.png)
+
+*[그림] window~button DOM 트리에서의 캡처링(하강)·버블링(상승) 경로*
 
 전파를 멈춰야 한다면 `event.stopPropagation()`을 쓸 수 있지만, 뒤에서 배울 이벤트 위임을 방해할 수 있으므로 꼭 필요할 때만 사용한다.
 

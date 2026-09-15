@@ -182,6 +182,10 @@ outerScope();
   <code>innerScope</code>는 자기 자신 → <code>outerScope</code> → 전역 순서로 <code>level</code>을 찾다가, <code>outerScope</code>에서 찾은 순간 멈춘다. 이렇게 스코프가 바깥으로 연결된 순서를 <strong>스코프 체인</strong>이라고 한다.
 </div>
 
+![스코프 체인 시각화 다이어그램](/images/content/javascript/4-3/javascript-4-3-scope-diagram.png)
+
+*[그림] 스코프 체인 구조 (전역 → outer 함수 → inner 함수 중첩 범위)*
+
 ---
 
 ## 5. 렉시컬 스코프: 어디서 호출했는지가 아니라 어디서 만들었는가
@@ -248,6 +252,57 @@ emailNotifier();
 
 ---
 
+## 6. 실행 컨텍스트 기초
+
+### 1) 콜 스택 (Call Stack)
+
+함수가 호출되면 스택(Stack)이라는 통에 차곡차곡 쌓이고, 실행이 끝나면 위에서부터 하나씩 제거됩니다.
+
+```jsx
+function first() {
+  console.log('first 시작');
+  second(); // first 실행 중에 second를 호출 (first는 잠시 대기)
+  console.log('first 끝'); // second가 완전히 끝나야 실행됨
+}
+
+function second() {
+  console.log('second 시작');
+  third(); // second 실행 중에 third를 호출 (second는 잠시 대기)
+  console.log('second 끝'); // third가 완전히 끝나야 실행됨
+}
+
+function third() {
+  console.log('third'); // 더 이상 호출할 게 없음 (실행 후 즉시 종료)
+}
+
+first(); // 가장 먼저 first 함수를 호출
+```
+
+### 2) 스택 동작 시각화
+
+자바스크립트 엔진은 **LIFO (Last In, First Out)**, 즉 **"나중에 들어온 녀석이 먼저 나가는"** 구조로 동작합니다.
+
+![콜 스택 동작 시각화](/images/content/javascript/4-3/javascript-4-3-function-call-return-order.png)
+
+*[그림] 콜 스택 쌓임과 제거 순서 (first → second → third 호출, third 종료 후 제거)*
+
+- **1. first() 호출**: `[first, global]` (first가 스택에 쌓임)
+- **2. second() 호출**: `[second, first, global]` (first 위에 second가 쌓임)
+- **3. third() 호출**: `[third, second, first, global]` (가장 위에 third가 쌓임)
+- **4. third() 종료 후**: `[second, first, global]` (할 일을 마친 third가 스택에서 빠져나감. 다시 second 차례)
+
+**💡 보충 설명**
+
+<div class="wda-callout wda-ci">
+  <ul>
+    <li><strong>콜 스택</strong>은 설거지 그릇 쌓기나 프링글스 통을 상상하면 이해하기 쉽습니다.</li>
+    <li>맨 밑에 있는 그릇(<code>first</code>)을 꺼내려면 그 위에 쌓인 그릇들(<code>second</code>, <code>third</code>)을 위에서부터 차례대로 치워야 합니다.</li>
+    <li>프로그래밍에서 "에러가 났다"며 보여주는 빨간 글씨들(<strong>Stack Trace</strong>)이 바로 이 콜 스택의 기록("third 하다가... second 하다가... first에서 터졌어!")을 보여주는 것입니다.</li>
+  </ul>
+</div>
+
+---
+
 ## 7. 클로저가 생기는 순간
 
 `createNotifier(...)`는 `emailNotifier`에 저장되는 순간 이미 실행이 끝난다.
@@ -290,11 +345,19 @@ counter();
 
 `createCounter()`는 한 번 실행되고 끝나지만, 반환된 `increaseCount`가 `savedCount`를 계속 참조하고 있어 그 값이 사라지지 않고 유지된다.
 
+![함수와 렉시컬 환경 생명 연결 다이어그램](/images/content/javascript/4-3/javascript-4-3-function-lifetime-diagram.png)
+
+*[그림] 내부 함수의 참조로 살아있는 렉시컬 환경 (count: 0)*
+
 **⚠️ 주의사항**
 
 <div class="wda-callout wda-cw">
   참조가 남아있는 동안에는 그 변수가 메모리에서 정리되지 않는다. 클로저를 꼭 필요한 곳에만 사용해야 하는 이유다.
 </div>
+
+![가비지 컬렉터의 데이터 생존 여부 시각화](/images/content/javascript/4-3/javascript-4-3-surviving-vs-deleted-data.png)
+
+*[그림] Root 연결 여부에 따른 데이터 생존/삭제 비교 (도달 가능성)*
 
 ---
 
