@@ -222,7 +222,7 @@ function HookDashboard() {
 
 `useLearningData`는 내부에서 `useState`와 `useEffect`를 함께 사용합니다. 이렇게 작은 Hook을 조합해 더 큰 기능의 Hook을 만드는 것을 **Hook 합성**이라고 합니다.
 
-![useFetch, useState, useEffect가 합쳐져 useUser가 되는 블록 다이어그램](/images/content/react/3-4/react-3-4-hook-composition-lego.png)
+![useFetch, useState, useEffect가 합쳐져 useUser가 되는 블록 다이어그램](/images/content/react/3-4/react-3-4-hook-composition-lego.webp)
 
 *마치 레고 블록처럼 작은 Hook들을 모아 큰 기능을 만듭니다.*
 

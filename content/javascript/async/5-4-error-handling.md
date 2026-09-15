@@ -190,7 +190,7 @@ try {
   <code>finally</code>는 성공/실패와 관계없이 항상 실행된다. 로딩 표시를 끄는 것처럼, 결과와 상관없이 반드시 해야 하는 정리 작업에 사용한다.
 </div>
 
-![Try(곡예 시도) → Catch(안전 그물, 프로그램이 죽지 않게 받아줌) → Finally(공연 종료)로 이어지는 try-catch-finally 흐름 비유](/images/content/javascript/5-4/javascript-5-4-error-handling-image.png)
+![Try(곡예 시도) → Catch(안전 그물, 프로그램이 죽지 않게 받아줌) → Finally(공연 종료)로 이어지는 try-catch-finally 흐름 비유](/images/content/javascript/5-4/javascript-5-4-error-handling-image.webp)
 
 *[그림] 에러 처리의 이미지*
 
@@ -324,7 +324,7 @@ try {
 
 ---
 
-!['범인은 발자국을 남긴다...' Error Report Case #1024: TypeError: Cannot read properties of null. at validateUser(user.js:42) → 여기서 user가 null이었음(결정적 단서), at loginProcess(auth.js:15), at onClickButton(main.js:10) → 범죄의 시작점(사용자 클릭). 참고: stack은 비표준이지만 모든 브라우저가 지원합니다.](/images/content/javascript/5-4/javascript-5-4-stack-trace-detective-notebook.png)
+!['범인은 발자국을 남긴다...' Error Report Case #1024: TypeError: Cannot read properties of null. at validateUser(user.js:42) → 여기서 user가 null이었음(결정적 단서), at loginProcess(auth.js:15), at onClickButton(main.js:10) → 범죄의 시작점(사용자 클릭). 참고: stack은 비표준이지만 모든 브라우저가 지원합니다.](/images/content/javascript/5-4/javascript-5-4-stack-trace-detective-notebook.webp)
 
 *[그림] 탐정의 수첩 - Stack Trace*
 
@@ -390,7 +390,7 @@ try {
   비동기 콜백 내부에서 발생한 에러는 바깥의 try/catch로 바로 잡히지 않을 수 있다. 콜백이 실행되는 시점과 이벤트 루프의 관계는 <strong>5-1 비동기 기초</strong> 문서에서 이미 다뤘다. 이 문제는 다음 두 섹션의 Promise/async-await 방식으로 해결한다.
 </div>
 
-![Main Thread(동기): 경찰(Try-Catch)이 '여기 지나가는 건 다 감시한다!'라고 지키는 중. Callback Queue(비동기): setTimeout Bus에서 ERROR! 발생. 엇갈린 운명: 경찰(Try-Catch)은 메인 도로만 지키는데, 버스(비동기)는 이미 다른 차선으로 떠나서 사고가 났고 경찰은 사고 사실조차 모름](/images/content/javascript/5-4/javascript-5-4-async-error-missed-bus.png)
+![Main Thread(동기): 경찰(Try-Catch)이 '여기 지나가는 건 다 감시한다!'라고 지키는 중. Callback Queue(비동기): setTimeout Bus에서 ERROR! 발생. 엇갈린 운명: 경찰(Try-Catch)은 메인 도로만 지키는데, 버스(비동기)는 이미 다른 차선으로 떠나서 사고가 났고 경찰은 사고 사실조차 모름](/images/content/javascript/5-4/javascript-5-4-async-error-missed-bus.webp)
 
 *[그림] 비동기 에러의 시각화 (The Missed Bus)*
 

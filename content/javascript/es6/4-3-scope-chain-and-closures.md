@@ -182,7 +182,7 @@ outerScope();
   <code>innerScope</code>는 자기 자신 → <code>outerScope</code> → 전역 순서로 <code>level</code>을 찾다가, <code>outerScope</code>에서 찾은 순간 멈춘다. 이렇게 스코프가 바깥으로 연결된 순서를 <strong>스코프 체인</strong>이라고 한다.
 </div>
 
-![스코프 체인 시각화 다이어그램](/images/content/javascript/4-3/javascript-4-3-scope-diagram.png)
+![스코프 체인 시각화 다이어그램](/images/content/javascript/4-3/javascript-4-3-scope-diagram.webp)
 
 *[그림] 스코프 체인 구조 (전역 → outer 함수 → inner 함수 중첩 범위)*
 
@@ -282,7 +282,7 @@ first(); // 가장 먼저 first 함수를 호출
 
 자바스크립트 엔진은 **LIFO (Last In, First Out)**, 즉 **"나중에 들어온 녀석이 먼저 나가는"** 구조로 동작합니다.
 
-![콜 스택 동작 시각화](/images/content/javascript/4-3/javascript-4-3-function-call-return-order.png)
+![콜 스택 동작 시각화](/images/content/javascript/4-3/javascript-4-3-function-call-return-order.webp)
 
 *[그림] 콜 스택 쌓임과 제거 순서 (first → second → third 호출, third 종료 후 제거)*
 
@@ -345,7 +345,7 @@ counter();
 
 `createCounter()`는 한 번 실행되고 끝나지만, 반환된 `increaseCount`가 `savedCount`를 계속 참조하고 있어 그 값이 사라지지 않고 유지된다.
 
-![함수와 렉시컬 환경 생명 연결 다이어그램](/images/content/javascript/4-3/javascript-4-3-function-lifetime-diagram.png)
+![함수와 렉시컬 환경 생명 연결 다이어그램](/images/content/javascript/4-3/javascript-4-3-function-lifetime-diagram.webp)
 
 *[그림] 내부 함수의 참조로 살아있는 렉시컬 환경 (count: 0)*
 
@@ -355,7 +355,7 @@ counter();
   참조가 남아있는 동안에는 그 변수가 메모리에서 정리되지 않는다. 클로저를 꼭 필요한 곳에만 사용해야 하는 이유다.
 </div>
 
-![가비지 컬렉터의 데이터 생존 여부 시각화](/images/content/javascript/4-3/javascript-4-3-surviving-vs-deleted-data.png)
+![가비지 컬렉터의 데이터 생존 여부 시각화](/images/content/javascript/4-3/javascript-4-3-surviving-vs-deleted-data.webp)
 
 *[그림] Root 연결 여부에 따른 데이터 생존/삭제 비교 (도달 가능성)*
 

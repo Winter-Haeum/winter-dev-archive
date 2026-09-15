@@ -144,7 +144,7 @@ function FocusInput() {
 }
 ```
 
-![비디오 테이프 아이콘과 Play(초록), Pause(빨강) 버튼, 현재 상태 Paused 표시](/images/content/react/3-3/react-3-3-media-control-demo.png)
+![비디오 테이프 아이콘과 Play(초록), Pause(빨강) 버튼, 현재 상태 Paused 표시](/images/content/react/3-3/react-3-3-media-control-demo.webp)
 
 *[그림] 비디오 Play/Pause 제어 데모 화면*
 

@@ -128,7 +128,7 @@ tags:
 
 이벤트 발생 → 리스너 등록 여부 확인? → (Yes) 핸들러 실행 → 결과 반영
 
-![이벤트 기반 프로그래밍 다이어그램](/images/content/javascript/3-3/javascript-3-3-event-driven-programming.png)
+![이벤트 기반 프로그래밍 다이어그램](/images/content/javascript/3-3/javascript-3-3-event-driven-programming.webp)
 
 *[그림] 이벤트 기반 프로그래밍 흐름 (이벤트 발생 → 상태 검사 → 동작 수행/대기)*
 
@@ -301,7 +301,7 @@ applyForm.addEventListener("submit", function (event) {
 - **Viewport (`clientX/Y`)**: 현재 눈에 보이는 브라우저 창 내부 기준
 - **Target (`offsetX/Y`)**: 클릭된 특정 HTML 박스 내부 기준
 
-![좌표 시스템 UI 다이어그램](/images/content/javascript/3-3/javascript-3-3-coordinate-system-diagram.png)
+![좌표 시스템 UI 다이어그램](/images/content/javascript/3-3/javascript-3-3-coordinate-system-diagram.webp)
 
 *[그림] 마우스 이벤트 좌표 기준점 비교 (Monitor/Viewport/Target)*
 
@@ -382,7 +382,7 @@ lessonContainer.addEventListener(
   자식 요소를 클릭해도 이벤트가 부모로 전달되기 때문에 <code>target</code>과 <code>currentTarget</code>이 다를 수 있다. 핸들러 안에서 <code>this</code> 대신 <strong>event.currentTarget</strong>을 쓰면, 화살표 함수로 핸들러를 작성할 때도 같은 값을 안정적으로 얻을 수 있다.
 </div>
 
-![target과 currentTarget UI 이벤트 모델 다이어그램](/images/content/javascript/3-3/javascript-3-3-ui-event-model-diagram.png)
+![target과 currentTarget UI 이벤트 모델 다이어그램](/images/content/javascript/3-3/javascript-3-3-ui-event-model-diagram.webp)
 
 *[그림] target과 currentTarget 비교 (버튼 클릭 시 target=button, currentTarget=parent)*
 
@@ -481,7 +481,7 @@ lessonContainer.addEventListener("click", function () {
   <div class="wda-fnode"><div class="wda-fnode-ttl">lessonContainer</div><div class="wda-fnode-dsc">등록된 리스너 실행</div></div>
 </div>
 
-![이벤트 전파 흐름도](/images/content/javascript/3-3/javascript-3-3-event-propagation-flow.png)
+![이벤트 전파 흐름도](/images/content/javascript/3-3/javascript-3-3-event-propagation-flow.webp)
 
 *[그림] 이벤트 전파 3단계 (캡처링 → 타겟 → 버블링)*
 
@@ -491,7 +491,7 @@ lessonContainer.addEventListener("click", function () {
   addEventListener는 기본적으로 <strong>버블링 단계</strong>에서 실행된다. 반대로 위에서 아래로 내려가며 먼저 실행되는 <strong>캡처링(capturing)</strong> 단계도 있는데, 세 번째 인자로 <code>{ capture: true }</code>를 전달하면 캡처링 단계에서 실행할 수 있다. 실무에서는 대부분 기본값(버블링)만으로 충분하다.
 </div>
 
-![웹 이벤트 전파 다이어그램](/images/content/javascript/3-3/javascript-3-3-web-event-propagation-diagram.png)
+![웹 이벤트 전파 다이어그램](/images/content/javascript/3-3/javascript-3-3-web-event-propagation-diagram.webp)
 
 *[그림] window~button DOM 트리에서의 캡처링(하강)·버블링(상승) 경로*
 

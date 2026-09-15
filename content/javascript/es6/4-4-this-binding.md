@@ -317,7 +317,7 @@ console.log(myPlayer.playerName);
   <code>new</code>로 함수를 호출하면 <strong>새 객체가 만들어지고</strong>, 함수 안의 this는 그 새 객체를 가리킨다. <code>this.playerName = playerName</code>은 새로 만들어진 객체에 property를 채우는 것이다.
 </div>
 
-![new Robot() 호출 시 this가 새로 생성된 객체 인스턴스가 되는 과정](/images/content/javascript/4-4/javascript-4-4-object-creation-tutorial-diagram.png)
+![new Robot() 호출 시 this가 새로 생성된 객체 인스턴스가 되는 과정](/images/content/javascript/4-4/javascript-4-4-object-creation-tutorial-diagram.webp)
 
 *[그림] new Robot() 호출 시 this가 새 객체 인스턴스가 되는 과정*
 

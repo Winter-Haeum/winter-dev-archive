@@ -153,7 +153,7 @@ console.log("2. 다음 화면 요소 표시");
   이런 작업은 얼마나 걸릴지 코드 실행 시점에는 알 수 없다. JavaScript는 이 작업을 실행 환경(브라우저 등)에 맡겨두고, 결과가 오면 처리할 함수(콜백)만 미리 등록해둔다.
 </div>
 
-![네트워크 요청(100ms~수 초), 타이머(ms~분 단위), 사용자 입력(언제 발생할지 모름) 비교](/images/content/javascript/5-1/javascript-5-1-async-processing.png)
+![네트워크 요청(100ms~수 초), 타이머(ms~분 단위), 사용자 입력(언제 발생할지 모름) 비교](/images/content/javascript/5-1/javascript-5-1-async-processing.webp)
 
 *[그림] 비동기 처리가 필요한 3가지 상황 (네트워크 요청·타이머·사용자 입력)*
 
@@ -221,7 +221,7 @@ showDescription();
   이벤트 루프는 <strong>call stack이 완전히 비어 있을 때만</strong> task queue의 콜백을 call stack으로 옮긴다. 내부 동작을 깊게 파고들기보다, 이 순서만 기억해도 충분하다.
 </div>
 
-![JavaScript 엔진(콜 스택) → Web APIs(setTimeout/fetch/DOM Events) → Task Queue → 이벤트 루프가 콜 스택으로 콜백을 옮기는 과정](/images/content/javascript/5-1/javascript-5-1-event-loop-concept.png)
+![JavaScript 엔진(콜 스택) → Web APIs(setTimeout/fetch/DOM Events) → Task Queue → 이벤트 루프가 콜 스택으로 콜백을 옮기는 과정](/images/content/javascript/5-1/javascript-5-1-event-loop-concept.webp)
 
 *[그림] 이벤트 루프 개념*
 
@@ -345,7 +345,7 @@ fetchLessonReviews()
   Promise와 async/await는 콜백 중첩 문제를 해결하기 위해 나온 문법이다. 구체적인 사용법은 <strong>5-2 Promise와 async/await</strong> 문서에서 이어서 다룬다.
 </div>
 
-![시간(setTimeout, setInterval)은 지금 배우고, 약속하다(Promise)와 비동기/await는 다음 시간에 배웁니다](/images/content/javascript/5-1/javascript-5-1-key-principle.png)
+![시간(setTimeout, setInterval)은 지금 배우고, 약속하다(Promise)와 비동기/await는 다음 시간에 배웁니다](/images/content/javascript/5-1/javascript-5-1-key-principle.webp)
 
 *[그림] 더 불안해요!*
 

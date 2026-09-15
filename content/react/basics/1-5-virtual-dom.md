@@ -77,7 +77,7 @@ table.wda-mtable tr:nth-child(even) td{background:rgba(128,128,128,.025)}
 
 브라우저는 우리가 짠 코드를 화면에 보여주기 위해 총 5단계를 거칩니다.
 
-![렌더링 파이프라인: Parse(HTML/CSS 파싱) → Style(스타일 계산) → Layout(위치/크기 계산, Heavy) → Paint(픽셀 그리기, Heavy) → Composite(레이어 합성)](/images/content/react/1-5/react-1-5-rendering-pipeline.png)
+![렌더링 파이프라인: Parse(HTML/CSS 파싱) → Style(스타일 계산) → Layout(위치/크기 계산, Heavy) → Paint(픽셀 그리기, Heavy) → Composite(레이어 합성)](/images/content/react/1-5/react-1-5-rendering-pipeline.webp)
 
 *[그림] 렌더링 파이프라인*
 
@@ -215,7 +215,7 @@ function toggleComplete(courseId) {
   <div class="wda-fnode"><div class="wda-fnode-ttl">실제 DOM 반영</div><div class="wda-fnode-dsc">바뀐 부분만 갱신</div></div>
 </div>
 
-![가상 DOM 업데이트 흐름: Old VDOM(A, p) → State Change → New VDOM(B, p) → Diff & Patch → Real DOM(B, p)](/images/content/react/1-5/react-1-5-virtual-dom-update-flow.png)
+![가상 DOM 업데이트 흐름: Old VDOM(A, p) → State Change → New VDOM(B, p) → Diff & Patch → Real DOM(B, p)](/images/content/react/1-5/react-1-5-virtual-dom-update-flow.webp)
 
 *[그림] React 가상 DOM 업데이트 흐름*
 

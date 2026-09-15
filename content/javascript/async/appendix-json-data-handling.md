@@ -138,7 +138,7 @@ const lessonJson =
   JavaScript 객체는 코드에서 바로 다루는 값이고, JSON 문자열은 그 값을 텍스트로 표현한 것이다. JSON 문자열에서는 key와 문자열 값 모두 <strong>큰따옴표</strong>를 써야 한다.
 </div>
 
-![JS Object(메모리 상의 데이터)가 stringify를 거쳐 JSON String(전송/저장용 텍스트)으로, JSON String이 parse를 거쳐 다시 JS Object로 되돌아가는 양방향 변환 다이어그램](/images/content/javascript/appendix-json/javascript-appendix-json-object-string-conversion.png)
+![JS Object(메모리 상의 데이터)가 stringify를 거쳐 JSON String(전송/저장용 텍스트)으로, JSON String이 parse를 거쳐 다시 JS Object로 되돌아가는 양방향 변환 다이어그램](/images/content/javascript/appendix-json/javascript-appendix-json-object-string-conversion.webp)
 
 *[그림] JS 객체와 JSON 문자열 변환*
 
