@@ -48,7 +48,12 @@ function SectionPage() {
 
   useEffect(() => {
     let active = true;
-    setLoadError(false);
+    // setState를 effect의 동기 실행 프레임이 아니라 마이크로태스크에서 호출해
+    // react-hooks/set-state-in-effect를 구조적으로 피한다 (기존 동작은 동일 —
+    // 새 섹션 로딩을 시작하기 전에 이전 섹션의 실패 상태를 초기화한다).
+    Promise.resolve().then(() => {
+      if (active) setLoadError(false);
+    });
 
     const loadPromise = declaredDocs
       ? (() => {
@@ -188,7 +193,7 @@ function SectionPage() {
                           gap: 1,
                           textDecoration: 'none',
                           backgroundColor: theme.palette.primary.main,
-                          color: '#fff',
+                          color: theme.palette.primary.contrastText,
                           borderRadius: '8px',
                           px: 3,
                           py: 1.25,

@@ -69,14 +69,28 @@ function NavigationDrawer({ open, onClose, currentCategoryId, currentSectionSlug
     resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug)
   );
 
-  useEffect(() => {
+  // currentCategoryId prop이 바뀌면 렌더링 중에 즉시 openCategoryId를 동기화한다
+  // (effect 안에서 setState를 동기 호출하지 않기 위한 render-phase adjustment 패턴 —
+  // React 공식 문서의 "Adjusting state when a prop changes"와 동일, sidebar.jsx와 동일한 방식).
+  const [prevCategoryId, setPrevCategoryId] = useState(currentCategoryId);
+  if (currentCategoryId !== prevCategoryId) {
+    setPrevCategoryId(currentCategoryId);
     setOpenCategoryId(currentCategoryId);
-  }, [currentCategoryId]);
+  }
 
-  useEffect(() => {
-    if (!currentSectionSlug) return;
+  // currentSectionSlug/currentDocSlug 등 섹션 관련 prop이 바뀌면 렌더링 중에 즉시
+  // openSectionKey를 재계산한다 (위와 동일한 이유). currentSectionSlug가 없을 때는
+  // 기존 effect처럼 아무 것도 하지 않는다.
+  const [prevSectionParams, setPrevSectionParams] = useState([currentCategoryId, currentSectionSlug, currentDocSlug]);
+  const sectionParamsChanged =
+    currentSectionSlug &&
+    (currentCategoryId !== prevSectionParams[0]
+      || currentSectionSlug !== prevSectionParams[1]
+      || currentDocSlug !== prevSectionParams[2]);
+  if (sectionParamsChanged) {
+    setPrevSectionParams([currentCategoryId, currentSectionSlug, currentDocSlug]);
     setOpenSectionKey(resolveOpenSectionKey(currentCategoryId, currentSectionSlug, currentDocSlug));
-  }, [currentCategoryId, currentSectionSlug, currentDocSlug]);
+  }
 
   const toggle = (catId) => {
     setOpenCategoryId((prev) => (prev === catId ? null : catId));

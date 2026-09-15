@@ -9,10 +9,11 @@
  * ColorModeProvider 내부에서 ThemeProvider + CssBaseline을 함께 래핑해
  * mode 상태와 theme 객체를 한 곳에서 동기화한다.
  */
-import { createContext, useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { lightTheme, darkTheme } from '@/theme';
+import { ColorModeContext } from './color-mode-context';
 
 const STORAGE_KEY = 'winter-dev-archive-color-mode';
 
@@ -33,9 +34,6 @@ function getInitialMode() {
 
   return 'light';
 }
-
-// createContext(null) — Provider 누락 시 useColorMode에서 명확한 에러 발생
-export const ColorModeContext = createContext(null);
 
 /**
  * ColorModeProvider — 앱 루트에서 사용

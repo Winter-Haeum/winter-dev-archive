@@ -9,7 +9,7 @@
  * const { mode, toggleColorMode } = useColorMode();
  */
 import { useContext } from 'react';
-import { ColorModeContext } from '@/context/ColorModeContext';
+import { ColorModeContext } from '@/context/color-mode-context';
 
 export function useColorMode() {
   const ctx = useContext(ColorModeContext);

@@ -22,7 +22,6 @@ import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
 import Box from '@mui/material/Box';
 import GlobalStyles from '@mui/material/GlobalStyles';
-import Typography from '@mui/material/Typography';
 import MuiLink from '@mui/material/Link';
 import Divider from '@mui/material/Divider';
 import { Link as RouterLink } from 'react-router-dom';
@@ -54,7 +53,11 @@ function CheckboxItem({ storageKey, initialChecked }) {
   const toggle = () => {
     const next = !checked;
     setChecked(next);
-    try { localStorage.setItem(storageKey, String(next)); } catch {}
+    try {
+      localStorage.setItem(storageKey, String(next));
+    } catch {
+      // 시크릿 모드 등 저장 실패 시 무시 (화면상 체크 상태는 이미 갱신됨)
+    }
   };
 
   return (
@@ -386,6 +389,55 @@ const wdaBodyIndentStyles = {
   },
 };
 
+// react-markdown의 `p` 컴포넌트 본체 — 함수 이름이 대문자로 시작해야
+// react-hooks/rules-of-hooks가 이 안의 React.useContext 호출을 정상적인
+// 컴포넌트로 인식한다(이전에는 markdownComponents.p 자리에 소문자 이름의
+// 화살표 함수로 바로 정의되어 있어 규칙 위반이었다). markdownComponents 맵의
+// key는 react-markdown이 그대로 HTML 태그명으로 사용하므로 'p'를 유지하고,
+// 값만 이 컴포넌트를 참조한다.
+function ParagraphRenderer({ children }) {
+  // "이모지+볼드 단독 문단"(본문 중간 미니 소제목)인지 React children으로 직접 판별.
+  const kids = React.Children.toArray(children).filter(
+    (c) => typeof c !== 'string' || c.trim() !== ''
+  );
+  // callout/카드 등 박스류 내부(WdaBoxContext)에서는 강조 라벨 한 줄짜리 문단이
+  // 있어도 미니 소제목으로 처리하지 않는다 — 박스 안 라벨과 본문 레벨 미니
+  // 소제목을 구분하기 위함(위 WDA_BOX_CONTEXT_CLASSES 주석 참고).
+  const insideBox = React.useContext(WdaBoxContext);
+  const isLoneStrong =
+    !insideBox &&
+    kids.length === 1 && React.isValidElement(kids[0]) && kids[0].type === StrongText;
+  return (
+    <Box
+      component='p'
+      // margin은 인접 요소와 병합(collapse)되어 실제 화면 간격이 의도보다 줄어들 수
+      // 있으므로 padding으로 간격을 강제한다. 문서 내 <style> 블록에 남아있는 구버전
+      // `p:has(> strong:only-child){margin-top:2.2rem !important}` 규칙은 :has()
+      // 특이도가 단일 클래스보다 높아 sx의 !important만으로는 이기지 못했다 — 아래
+      // WDA_MINIHEAD_CLASS의 이중 클래스 셀렉터(GlobalStyles)로 특이도를 그 이상으로
+      // 올려 확실히 덮어쓴다 (2026-07 5차 개편).
+      className={isLoneStrong ? WDA_MINIHEAD_CLASS : undefined}
+      sx={{
+        pt: isLoneStrong ? '1.2rem' : undefined,
+        // 미니 소제목 아래 간격은 이 padding-bottom이 아니라 아래 콘텐츠 쪽의
+        // margin-top(0.5rem, wdaMinheadGlobalStyles)이 전담한다. 과거 pb:'0.2rem'이
+        // 남아있어 실제 간격이 0.2rem+0.5rem=0.7rem(11.2px)으로, 정책이 명시한
+        // 0.5rem(8px)보다 넓게 렌더링되고 있었다(2026-07 개편 — JavaScript 1-1/1-2/1-3
+        // 재검토로 발견). 아래 콘텐츠가 margin-top 규칙의 적용 대상이 아닌 경우(예: 표)는
+        // wdaMinheadGlobalStyles에 별도 보정 규칙을 둔다.
+        pb: isLoneStrong ? 0 : undefined,
+        mb: isLoneStrong ? undefined : '0.9rem',
+        color: 'text.primary',
+        fontSize: { xs: '0.93rem', md: '0.95rem' },
+        lineHeight: 1.75,
+        fontFamily: 'inherit',
+      }}
+    >
+      {children}
+    </Box>
+  );
+}
+
 // 컴포넌트 맵 — 모듈 로드 시 한 번만 생성
 const markdownComponents = {
   // ── 제목 (본문 영역에만 적용, 전역 레이아웃 영향 없음) ──────────────
@@ -466,48 +518,7 @@ const markdownComponents = {
   ),
 
   // ── 본문 ────────────────────────────────────────────────────────────
-  p: ({ children }) => {
-    // "이모지+볼드 단독 문단"(본문 중간 미니 소제목)인지 React children으로 직접 판별.
-    const kids = React.Children.toArray(children).filter(
-      (c) => typeof c !== 'string' || c.trim() !== ''
-    );
-    // callout/카드 등 박스류 내부(WdaBoxContext)에서는 강조 라벨 한 줄짜리 문단이
-    // 있어도 미니 소제목으로 처리하지 않는다 — 박스 안 라벨과 본문 레벨 미니
-    // 소제목을 구분하기 위함(위 WDA_BOX_CONTEXT_CLASSES 주석 참고).
-    const insideBox = React.useContext(WdaBoxContext);
-    const isLoneStrong =
-      !insideBox &&
-      kids.length === 1 && React.isValidElement(kids[0]) && kids[0].type === StrongText;
-    return (
-      <Box
-        component='p'
-        // margin은 인접 요소와 병합(collapse)되어 실제 화면 간격이 의도보다 줄어들 수
-        // 있으므로 padding으로 간격을 강제한다. 문서 내 <style> 블록에 남아있는 구버전
-        // `p:has(> strong:only-child){margin-top:2.2rem !important}` 규칙은 :has()
-        // 특이도가 단일 클래스보다 높아 sx의 !important만으로는 이기지 못했다 — 아래
-        // WDA_MINIHEAD_CLASS의 이중 클래스 셀렉터(GlobalStyles)로 특이도를 그 이상으로
-        // 올려 확실히 덮어쓴다 (2026-07 5차 개편).
-        className={isLoneStrong ? WDA_MINIHEAD_CLASS : undefined}
-        sx={{
-          pt: isLoneStrong ? '1.2rem' : undefined,
-          // 미니 소제목 아래 간격은 이 padding-bottom이 아니라 아래 콘텐츠 쪽의
-          // margin-top(0.5rem, wdaMinheadGlobalStyles)이 전담한다. 과거 pb:'0.2rem'이
-          // 남아있어 실제 간격이 0.2rem+0.5rem=0.7rem(11.2px)으로, 정책이 명시한
-          // 0.5rem(8px)보다 넓게 렌더링되고 있었다(2026-07 개편 — JavaScript 1-1/1-2/1-3
-          // 재검토로 발견). 아래 콘텐츠가 margin-top 규칙의 적용 대상이 아닌 경우(예: 표)는
-          // wdaMinheadGlobalStyles에 별도 보정 규칙을 둔다.
-          pb: isLoneStrong ? 0 : undefined,
-          mb: isLoneStrong ? undefined : '0.9rem',
-          color: 'text.primary',
-          fontSize: { xs: '0.93rem', md: '0.95rem' },
-          lineHeight: 1.75,
-          fontFamily: 'inherit',
-        }}
-      >
-        {children}
-      </Box>
-    );
-  },
+  p: ParagraphRenderer,
   strong: StrongText,
   em: ({ children }) => (
     <Box component='em' sx={{ fontStyle: 'italic' }}>
